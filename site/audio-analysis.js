@@ -43,19 +43,22 @@ export function analyzeOnsets(buffer,bpm){
 export function realignNotes(notes,onsets,bpm,{windowMs=140,maxShiftMs=110}={}){
   if(!onsets.length)return {notes,stats:{moved:0,meanShiftMs:0}};
   const window=windowMs/1000,maxShift=maxShiftMs/1000;let moved=0,total=0;
-  const aligned=notes.map((n,idx)=>{
+  const aligned=[];
+  for(let idx=0;idx<notes.length;idx++){
+    const n=notes[idx];
     let best=null,bestScore=-Infinity;
     for(const o of onsets){const dt=o.time-n.time;if(dt<-window)continue;if(dt>window)break;
       const proximity=1-Math.min(1,Math.abs(dt)/window);
-      const pattern=(idx>0&&notes[idx-1])?Math.max(0,1-Math.abs((o.time-(aligned?.[idx-1]?.time??notes[idx-1].time))-(n.time-notes[idx-1].time))/.12):.5;
+      const prevTime=idx>0?(aligned[idx-1]?.time??notes[idx-1].time):null;
+      const pattern=idx>0?Math.max(0,1-Math.abs((o.time-prevTime)-(n.time-notes[idx-1].time))/.12):.5;
       const score=proximity*.58+o.beatScore*.22+Math.min(1,o.strength*25)*.15+pattern*.05;
       if(score>bestScore){bestScore=score;best=o}
     }
-    if(!best||bestScore<.38)return {...n,alignConfidence:0};
+    if(!best||bestScore<.38){aligned.push({...n,alignConfidence:0});continue}
     const shift=clamp(best.time-n.time,-maxShift,maxShift),time=n.time+shift;
     if(Math.abs(shift)>.004){moved++;total+=Math.abs(shift)}
-    return {...n,time,alignConfidence:clamp(bestScore,0,1),originalTime:n.time};
-  });
+    aligned.push({...n,time,alignConfidence:clamp(bestScore,0,1),originalTime:n.time});
+  }
   aligned.sort((a,b)=>a.time-b.time);
   return {notes:aligned,stats:{moved,meanShiftMs:moved?total/moved*1000:0}};
 }
