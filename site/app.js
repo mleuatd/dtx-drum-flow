@@ -70,8 +70,12 @@ function draw(){
     const dt=n.time-time;
     if(dt<-lookBack||dt>lookAhead)continue;
     const x=(PARTS.indexOf(n.part)+.5)*lane,y=judgeY-(dt/lookAhead)*(judgeY-20);
-    ctx.beginPath();ctx.arc(x,y,Math.max(5,lane*.12),0,Math.PI*2);
-    ctx.fillStyle=n.alignConfidence?"#8ad8ff":"#f2f5ff";ctx.fill();
+    const conf=Number(n.alignConfidence||0);
+    const radius=Math.max(5,lane*.12)*(conf>0?(.78+.22*conf):1);
+    ctx.globalAlpha=conf>0?Math.max(.35,conf):1;
+    ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);
+    ctx.fillStyle=conf>0?(conf>=.65?"#8ad8ff":conf>=.35?"#f0d889":"#e59696"):"#f2f5ff";ctx.fill();
+    ctx.globalAlpha=1;
   }
 }
 function makeParts(){
