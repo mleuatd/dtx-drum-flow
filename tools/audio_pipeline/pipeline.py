@@ -141,6 +141,49 @@ def nearest_beat_score(t: float, beats: np.ndarray) -> float:
     return max(0.0, 1.0 - d / 0.08)
 
 
+def estimate_global_offset(reference: list[Candidate], target: list[Candidate], max_offset: float = 2.0) -> float:
+    """Estimate a constant timing offset by maximizing onset coincidences."""
+    if len(reference) < 3 or len(target) < 3:
+        return 0.0
+    ref = np.array([x.time for x in reference], dtype=float)
+    tar = np.array([x.time for x in target], dtype=float)
+    # Coarse 10ms search, then 1ms refinement around the winner.
+    def score(offset: float, tol: float) -> float:
+        shifted = tar + offset
+        hits = 0.0
+        for t in shifted:
+            i = int(np.searchsorted(ref, t))
+            ds = []
+            if i < len(ref): ds.append(abs(ref[i]-t))
+            if i > 0: ds.append(abs(ref[i-1]-t))
+            if ds and min(ds) <= tol:
+                hits += 1.0 - min(ds)/tol
+        return hits / max(1, len(tar))
+    coarse = np.arange(-max_offset, max_offset + 1e-9, 0.01)
+    vals = np.array([score(float(o), 0.04) for o in coarse])
+    best = float(coarse[int(np.argmax(vals))])
+    fine = np.arange(best-0.015, best+0.0151, 0.001)
+    vals2 = np.array([score(float(o), 0.025) for o in fine])
+    final = float(fine[int(np.argmax(vals2))])
+    return final if float(np.max(vals2)) >= 0.08 else 0.0
+
+
+def apply_source_offsets(cands: list[Candidate], reference: list[Candidate]) -> tuple[list[Candidate], dict[str,float]]:
+    grouped: dict[str,list[Candidate]] = {}
+    for c in cands:
+        grouped.setdefault(c.source, []).append(c)
+    offsets: dict[str,float] = {}
+    out: list[Candidate] = []
+    for source, group in grouped.items():
+        if source in {"original-mix","demucs-drums"}:
+            off = 0.0
+        else:
+            off = estimate_global_offset(reference, group)
+        offsets[source] = off
+        out.extend(Candidate(c.time + off, c.kind, c.strength, c.source) for c in group)
+    return sorted(out, key=lambda x:x.time), offsets
+
+
 def cluster(cands: list[Candidate], window: float = 0.045) -> list[list[Candidate]]:
     cands = sorted(cands, key=lambda c: c.time)
     groups: list[list[Candidate]] = []
@@ -225,7 +268,6 @@ def main() -> None:
 
     all_candidates: list[Candidate] = []
     mix_onsets = detect_onsets(args.audio, "unknown", "original-mix")
-    all_candidates.extend(mix_onsets)
 
     demucs = demucs_separate(args.audio, work)
     if "drums" in demucs:
@@ -241,6 +283,11 @@ def main() -> None:
     for i, p in enumerate(args.midi):
         all_candidates += midi_candidates(p, f"midi-{i+1}")
 
+    # Use original-mix onsets as the time reference, not as instrument notes.
+    # This avoids turning guitar/vocal transients into false drum notes.
+    if not all_candidates:
+        all_candidates = mix_onsets
+    all_candidates, source_offsets = apply_source_offsets(all_candidates, mix_onsets)
     finals = consolidate(all_candidates, beats, mix_onsets)
 
     with open(args.output/"notes.json","w",encoding="utf-8") as f:
@@ -253,6 +300,7 @@ def main() -> None:
             "demucs_used":bool(demucs),
             "adtof_used":bool(adtof_midi),
             "sources":sorted(set(c.source for c in all_candidates)),
+            "source_offsets_seconds":source_offsets,
         },f,ensure_ascii=False,indent=2)
     write_midi(finals,args.output/"drums.mid",bpm)
     print(f"done: {len(finals)} notes, bpm={bpm:.2f}")
