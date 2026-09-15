@@ -53,12 +53,23 @@ jobs:
             -o "_reference/direct.%(ext)s" '${{ steps.request.outputs.url }}'
 
       - name: Fall back to Piped public proxies
+        id: piped
         if: steps.direct.outcome == 'failure'
+        continue-on-error: true
         run: |
           python tools/audio_pipeline/fetch_youtube_via_piped.py \
             '${{ steps.request.outputs.url }}' \
             _reference/piped_video \
             --metadata _reference/piped_metadata.json
+
+      - name: Fall back to Invidious public proxies
+        id: invidious
+        if: steps.direct.outcome == 'failure' && steps.piped.outcome == 'failure'
+        run: |
+          python tools/audio_pipeline/fetch_youtube_via_invidious.py \
+            '${{ steps.request.outputs.url }}' \
+            _reference/invidious_video \
+            --metadata _reference/invidious_metadata.json
 
       - name: Normalize downloaded video
         shell: bash
@@ -84,6 +95,7 @@ jobs:
             ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 _reference/reference.mp4 | sed 's/^/video_duration_sec=/'
           } > validation/video_reference/output/source.txt
           if [ -f _reference/piped_metadata.json ]; then cp _reference/piped_metadata.json validation/video_reference/output/; fi
+          if [ -f _reference/invidious_metadata.json ]; then cp _reference/invidious_metadata.json validation/video_reference/output/; fi
 
       - name: Upload derived chart only
         uses: actions/upload-artifact@v4
@@ -95,5 +107,6 @@ jobs:
             validation/video_reference/output/video_chart.dtx
             validation/video_reference/output/source.txt
             validation/video_reference/output/piped_metadata.json
+            validation/video_reference/output/invidious_metadata.json
           if-no-files-found: error
           retention-days: 14
