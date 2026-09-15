@@ -387,3 +387,24 @@ document.getElementById('saveBtn').onclick=()=>{
  const a=document.createElement('a');a.href=result.toDataURL('image/png');a.download='oshi-sketch.png';a.click();
  setStatus('PNGを書き出しました。');
 };
+
+
+document.getElementById('downloadJsBtn').onclick=async()=>{
+ try{
+   const res=await fetch('./app.js?download='+Date.now(),{cache:'no-store'});
+   if(!res.ok) throw new Error('HTTP '+res.status);
+   const text=await res.text();
+   const blob=new Blob([text],{type:'application/javascript;charset=utf-8'});
+   const url=URL.createObjectURL(blob);
+   const a=document.createElement('a');
+   a.href=url;
+   a.download='oshi-sketch-app.js';
+   document.body.appendChild(a);
+   a.click();
+   a.remove();
+   setTimeout(()=>URL.revokeObjectURL(url),1000);
+   setStatus('JavaScriptファイルをダウンロードしました。');
+ }catch(err){
+   setStatus('JavaScriptのダウンロードに失敗しました。');
+ }
+};
