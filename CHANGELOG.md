@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-16
+- Reordered the 11-lane drum display so BD is centered between SN and HT, while retaining LP/LB and all existing chart part identifiers for JSON/MIDI/DTX compatibility.
+- Upgraded built-in browser drum synthesis with a compressor-backed layered kit: stronger kick attack/body, shell+snare-wire snare, clearly separated closed/open hi-hat, pitched toms, distinct ride, longer crash tails, and a dedicated wooden cross-stick sound for GM note 37 (including Luna say maybe 2nd A-melody).
+- Bumped the app cache key so GitHub Pages/mobile browsers receive the updated player immediately.
+
 ## 2026-09-15
 - Added 「一体いつから」 FINAL drum chart from Songsterr song 3705140 revision 4853202, drum track index 3: 1,828 notes across 181 measures at BPM 175.
 - Added reproducible Songsterr source/build metadata, FINAL-chart validation, and a third mobile song-selection button. Original-audio millisecond alignment remains pending until the source audio is supplied.
