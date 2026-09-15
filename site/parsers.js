@@ -55,15 +55,16 @@ function parseMidi(buf,name){
 }
 
 function parseTextChart(text,name){
-  let bpm=120;const measures=new Map();const lines=text.replace(/\r/g,"").split("\n");
+  let bpm=120,offset=0;const measures=new Map();const lines=text.replace(/\r/g,"").split("\n");
   for(const raw of lines){const line=raw.trim();let m;
     if((m=line.match(/^#BPM\s*[: ]\s*([0-9.]+)/i)))bpm=Number(m[1])||bpm;
+    if((m=line.match(/^#OFFSET\s*[: ]\s*(-?[0-9.]+)/i)))offset=Number(m[1])||0;
     if((m=line.match(/^#(\d{3})([0-9A-Z]{2})\s*:\s*([0-9A-Z]+)/i))){const measure=Number(m[1]),channel=m[2].toUpperCase(),data=m[3].toUpperCase();if(!measures.has(measure))measures.set(measure,[]);measures.get(measure).push({channel,data})}
   }
   const channelMap={"11":"HH","12":"SN","13":"BD","14":"HT","15":"LT","16":"RC","17":"FT","18":"LC","19":"RD","1A":"LP","1B":"LB","HH":"HH","SD":"SN","BD":"BD","HT":"HT","LT":"LT","FT":"FT","CY":"RC","RD":"RD"};
   const secPerMeasure=240/bpm,notes=[];
-  for(const [measure,rows] of measures)for(const r of rows){const part=channelMap[r.channel]||DTX_MAP[r.channel];if(!part)continue;const n=Math.floor(r.data.length/2);for(let i=0;i<n;i++){if(r.data.slice(i*2,i*2+2)!=="00")notes.push({time:measure*secPerMeasure+(i/n)*secPerMeasure,part,velocity:.8})}}
-  notes.sort((a,b)=>a.time-b.time);return {name,bpm,duration:(notes.at(-1)?.time||0)+secPerMeasure,notes};
+  for(const [measure,rows] of measures)for(const r of rows){const part=channelMap[r.channel]||DTX_MAP[r.channel];if(!part)continue;const n=Math.floor(r.data.length/2);for(let i=0;i<n;i++){if(r.data.slice(i*2,i*2+2)!=="00")notes.push({time:offset+measure*secPerMeasure+(i/n)*secPerMeasure,part,velocity:.8})}}
+  notes.sort((a,b)=>a.time-b.time);return {name,bpm,duration:(notes.at(-1)?.time||0)+secPerMeasure,notes,offset};
 }
 
 
