@@ -224,7 +224,7 @@ $("loadSample").onclick=()=>{setChart(makeSample());setStatus("サンプルを�
 $("loadLuna").onclick=async()=>{
   try{
     setStatus("Luna say maybe 完成譜面を読み込んでいます…");
-    const res=await fetch("../charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",{cache:"no-store"});
+    const res=await fetch("./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",{cache:"no-store"});
     if(!res.ok)throw new Error("完成譜面を取得できませんでした");
     const data=await res.json();
     const file=new File([JSON.stringify(data)],"Luna_say_maybe_FINAL_notes.json",{type:"application/json"});
