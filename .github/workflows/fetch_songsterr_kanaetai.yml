@@ -1,58 +1,39 @@
 name: fetch-songsterr-kanaetai
-
 on:
   push:
-    paths:
-      - ".github/workflows/fetch_songsterr_kanaetai.yml"
+    paths: [".github/workflows/fetch_songsterr_kanaetai.yml"]
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch public Songsterr metadata and drum revision JSON
+      - name: Fetch public Songsterr APIs
         shell: bash
         run: |
           set -euxo pipefail
           mkdir -p out
-          curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"             "https://www.songsterr.com/api/songs?pattern=%E5%8F%B6%E3%81%88%E3%81%9F%E3%81%84%E3%80%81%E3%81%93%E3%81%A8%E3%81%B0%E3%81%8B%E3%82%8A&size=20"             -o out/songs.json
-          for id in 2808958; do
-            curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id?allowOwnUnpublished=true"               -o "out/meta-$id.json"
-            curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id/revisions"               -o "out/revisions-$id.json" || true
-          done
+          UA="dtx-drum-flow-personal-practice/1.0"
+          curl -fL --retry 3 -A "$UA" "https://www.songsterr.com/api/meta/2808958?allowOwnUnpublished=true" -o out/meta.json
+          curl -fL --retry 3 -A "$UA" "https://www.songsterr.com/api/meta/2808958/revisions" -o out/revisions.json
+          curl -fL --retry 3 -A "$UA" "https://www.songsterr.com/api/revision/3694097" -o out/revision.json
+          python -m json.tool out/meta.json >/dev/null
+          python -m json.tool out/revisions.json >/dev/null
+          python -m json.tool out/revision.json >/dev/null
           python - <<'PY'
-          import json, pathlib, urllib.request
-          out=pathlib.Path("out")
-          for meta_path in out.glob("meta-*.json"):
-              meta=json.loads(meta_path.read_text())
-              song=meta["songId"]; rev=meta["revisionId"]; image=meta["image"]
-              drums=[(i,t) for i,t in enumerate(meta.get("tracks",[])) if t.get("instrumentId")==1024 or "drum" in t.get("instrument","").lower()]
-              for part_id,track in drums:
-                  urls=[
-                    f"https://dqsljvtekg760.cloudfront.net/{song}/{rev}/{image}/{part_id}.json",
-                    f"https://d3d3l6a6rcgkaf.cloudfront.net/{song}/{rev}/{image}/{part_id}.json",
-                  ]
-                  last=None
-                  for u in urls:
-                      try:
-                          req=urllib.request.Request(u,headers={"User-Agent":"dtx-drum-flow-personal-practice/1.0","Accept":"application/json"})
-                          with urllib.request.urlopen(req,timeout=30) as r: b=r.read()
-                          json.loads(b)
-                          (out/f"drums-{song}-part{part_id}.json").write_bytes(b)
-                          (out/f"drums-{song}-source.txt").write_text(u)
-                          break
-                      except Exception as e:
-                          last=e
-                  else:
-                      raise RuntimeError(f"failed {song} drum part {part_id}: {last!r}")
+          import json, pathlib
+          for name in ("meta.json","revisions.json","revision.json"):
+              p=pathlib.Path("out")/name
+              d=json.loads(p.read_text())
+              print(name, type(d).__name__, list(d)[:30] if isinstance(d,dict) else f"len={len(d)}")
+              if isinstance(d,dict):
+                  for k in ("songId","revisionId","source","image","title","artist"):
+                      if k in d: print(" ",k,repr(d[k]))
           PY
-          python -m json.tool out/drums-2808958-part3.json >/dev/null
-          ls -lh out
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: songsterr-kanaetai-public
           path: out
