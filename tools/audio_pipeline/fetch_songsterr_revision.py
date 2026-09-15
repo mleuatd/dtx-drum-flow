@@ -12,7 +12,7 @@ UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/130 Safari/537.3
 
 def get(url: str):
     cmd = [
-        "curl", "-fsSL", "--http1.1", "--retry", "2", "--retry-delay", "1",
+        "curl", "-fsSL", "--compressed", "--http1.1", "--retry", "2", "--retry-delay", "1",
         "-A", UA,
         "-H", "Accept: text/html,application/json;q=0.9,*/*;q=0.8",
         "-H", "Referer: https://www.songsterr.com/",
