@@ -221,6 +221,19 @@ $("alignAudio").onclick=()=>{
   setStatus(`音源同期補正: ${r.stats.moved}ノーツを補正、平均移動 ${r.stats.meanShiftMs.toFixed(1)}ms。`);
 };
 $("loadSample").onclick=()=>{setChart(makeSample());setStatus("サンプルを読み込みました。")};
+$("loadLuna").onclick=async()=>{
+  try{
+    setStatus("Luna say maybe 完成譜面を読み込んでいます…");
+    const res=await fetch("../charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",{cache:"no-store"});
+    if(!res.ok)throw new Error("完成譜面を取得できませんでした");
+    const data=await res.json();
+    const file=new File([JSON.stringify(data)],"Luna_say_maybe_FINAL_notes.json",{type:"application/json"});
+    setChart(await parseChart(file));
+    setStatus("Luna say maybe 完成譜面（Songsterr基準・元音源+1.693秒同期）を読み込みました。元音源を開くと同期再生できます。");
+  }catch(err){
+    setStatus("Luna say maybe 完成譜面の読み込みに失敗しました: "+err.message);
+  }
+};
 $("exportJson").onclick=()=>{
   const safe=(chart.name||"dtx-drum-flow").replace(/[\\/:*?"<>|]+/g,"_");
   downloadText(`${safe}.json`,JSON.stringify(chartToJson(),null,2));
