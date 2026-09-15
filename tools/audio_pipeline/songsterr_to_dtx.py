@@ -30,17 +30,27 @@ DTX_CHANNEL = {
 
 def extract_notes(songsterr_json: Path, offset: float):
     data = json.loads(songsterr_json.read_text(encoding="utf-8"))
-    meta = data["meta"]
-    tracks = meta.get("tracks", [])
-    drum_index = next(
-        (i for i,t in enumerate(tracks)
-         if t.get("instrumentId") == 1024 or "drum" in str(t.get("instrument","")).lower()),
-        None
-    )
-    if drum_index is None:
-        raise RuntimeError("No drum track found")
-
-    drum = data["parts"][drum_index]
+    if "revision" in data:
+        drum = data["revision"]
+        track_meta = data.get("trackMeta", {})
+        meta = {
+            "songId": drum.get("songId"),
+            "revisionId": drum.get("revisionId"),
+            "title": "Luna Say Maybe",
+            "artist": "初星学園",
+            "tracks": [track_meta],
+        }
+    else:
+        meta = data["meta"]
+        tracks = meta.get("tracks", [])
+        drum_index = next(
+            (i for i,t in enumerate(tracks)
+             if t.get("instrumentId") == 1024 or "drum" in str(t.get("instrument","")).lower()),
+            None
+        )
+        if drum_index is None:
+            raise RuntimeError("No drum track found")
+        drum = data["parts"][drum_index]
     tempos = drum.get("automations", {}).get("tempo", []) or []
     bpm = float(tempos[0].get("bpm", 139)) if tempos else 139.0
     if any(float(t.get("bpm", bpm)) != bpm for t in tempos):
@@ -96,13 +106,24 @@ def write_midi(notes, out: Path, bpm: float):
     mid.tracks.append(tr)
     tempo = mido.bpm2tempo(bpm)
     tr.append(mido.MetaMessage("set_tempo", tempo=tempo, time=0))
-    last_tick = 0
+
+    # Build absolute-tick events first so simultaneous drum hits remain truly
+    # simultaneous. Writing note_off immediately after each note_on would shift
+    # later notes in the same chord by the note-off duration.
+    events = []
     for n in notes:
         tick = round(mido.second2tick(n["time"], 480, tempo))
-        delta = max(0, tick - last_tick)
-        tr.append(mido.Message("note_on", channel=9, note=int(n["gmNote"]), velocity=100, time=delta))
-        tr.append(mido.Message("note_off", channel=9, note=int(n["gmNote"]), velocity=0, time=4))
-        last_tick = tick + 4
+        note = int(n["gmNote"])
+        velocity = int(n.get("velocity", 100))
+        events.append((tick, 0, mido.Message("note_on", channel=9, note=note, velocity=velocity, time=0)))
+        events.append((tick + 4, 1, mido.Message("note_off", channel=9, note=note, velocity=0, time=0)))
+
+    events.sort(key=lambda item: (item[0], item[1]))
+    last_tick = 0
+    for tick, _, msg in events:
+        msg.time = max(0, tick - last_tick)
+        tr.append(msg)
+        last_tick = tick
     mid.save(out)
 
 
