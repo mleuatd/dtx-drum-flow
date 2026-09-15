@@ -16,6 +16,14 @@ import soundfile as sf
 
 GM = {"kick":36, "snare":38, "hihat":42, "toms":45, "cymbals":49, "unknown":37}
 PART = {36:"BD",35:"BD",38:"SN",40:"SN",42:"HH",44:"HH",46:"HH",41:"FT",43:"FT",45:"LT",47:"LT",48:"HT",50:"HT",49:"RC",51:"RD",52:"RC",55:"RC",57:"RC",53:"RD",59:"RD"}
+BAND = {
+    "kick": (30, 180),
+    "toms": (100, 700),
+    "snare": (500, 6000),
+    "hihat": (5000, 11000),
+    "cymbals": (3500, 11000),
+}
+BAND_THRESHOLD = {"kick":1.4, "snare":2.3, "toms":2.1, "hihat":1.8, "cymbals":1.8}
 
 @dataclass
 class Candidate:
@@ -62,7 +70,10 @@ def demucs_separate(audio: Path, work: Path) -> dict[str, Path]:
         return {}
     out = work / "demucs"
     out.mkdir(parents=True, exist_ok=True)
-    run(["demucs", "-n", "htdemucs", "-o", str(out), str(audio)])
+    try:
+        run(["demucs", "-n", "htdemucs", "-o", str(out), str(audio)])
+    except subprocess.CalledProcessError:
+        return {}
     root = out / "htdemucs" / audio.stem
     result = {}
     for k in ("drums","bass","other","vocals"):
@@ -80,7 +91,10 @@ def drumsep_separate(drums: Path, bass: Path | None, work: Path) -> dict[str, Pa
     cmd = ["drumsep", str(drums), "-o", str(out)]
     if bass and bass.exists():
         cmd += ["--bass", str(bass)]
-    run(cmd)
+    try:
+        run(cmd)
+    except subprocess.CalledProcessError:
+        return {}
     aliases = {
         "kick":["kick.wav"], "snare":["snare.wav"], "hihat":["hihat.wav","hi-hat.wav"],
         "cymbals":["cymbals.wav","cymbal.wav"], "toms":["toms.wav","tom.wav"]
@@ -139,6 +153,49 @@ def nearest_beat_score(t: float, beats: np.ndarray) -> float:
         return 0.5
     d = float(np.min(np.abs(beats - t)))
     return max(0.0, 1.0 - d / 0.08)
+
+
+def build_band_evidence(audio: Path, sr: int = 22050, hop: int = 128):
+    """Build robust per-band positive spectral-flux evidence from the original mix."""
+    y, _ = librosa.load(audio, sr=sr, mono=True)
+    if len(y) == 0:
+        return None
+    y = y / (np.max(np.abs(y)) + 1e-9)
+    spec = np.abs(librosa.stft(y, n_fft=2048, hop_length=hop, win_length=2048)) ** 2
+    freq = librosa.fft_frequencies(sr=sr, n_fft=2048)
+    times = librosa.frames_to_time(np.arange(spec.shape[1]), sr=sr, hop_length=hop)
+    envs = {}
+    for kind, (lo, hi) in BAND.items():
+        idx = (freq >= lo) & (freq < hi)
+        x = np.log1p(10 * spec[idx])
+        diff = np.maximum(0, np.diff(x, axis=1, prepend=x[:, :1]))
+        flux = diff.mean(axis=0)
+        med = np.median(flux)
+        mad = np.median(np.abs(flux - med)) + 1e-9
+        envs[kind] = (flux - med) / (1.4826 * mad)
+    return times, envs
+
+
+def frequency_realign(t: float, kind: str, evidence, search: float = 0.06):
+    """Use the original mix's family-specific transient evidence for local timing refinement."""
+    if not evidence or kind not in BAND_THRESHOLD:
+        return t, 0.0, 0.0
+    times, envs = evidence
+    env = envs[kind]
+    idx = np.where((times >= t - search) & (times <= t + search))[0]
+    if not len(idx):
+        return t, 0.0, 0.0
+    j = idx[np.argmax(env[idx])]
+    peak_t = float(times[j])
+    z = float(env[j])
+    threshold = BAND_THRESHOLD[kind]
+    if z < threshold:
+        return t, 0.0, z
+    shift = peak_t - t
+    bonus = min(0.20, max(0.0, (z - threshold) / 5.0) * 0.20)
+    if abs(shift) <= 0.05:
+        return peak_t, bonus, z
+    return t, bonus * 0.5, z
 
 
 def estimate_global_offset(reference: list[Candidate], target: list[Candidate], max_offset: float = 2.0) -> float:
@@ -202,7 +259,7 @@ def choose_kind(group: list[Candidate]) -> str:
     return max(scores, key=scores.get)
 
 
-def consolidate(cands: list[Candidate], beats: np.ndarray, mix_onsets: list[Candidate]) -> list[FinalNote]:
+def consolidate(cands: list[Candidate], beats: np.ndarray, mix_onsets: list[Candidate], band_evidence=None) -> list[FinalNote]:
     mix_times = np.array([c.time for c in mix_onsets], dtype=float)
     finals = []
     for g in cluster(cands):
@@ -221,10 +278,12 @@ def consolidate(cands: list[Candidate], beats: np.ndarray, mix_onsets: list[Cand
                 t = float(mix_times[i])
                 snap_bonus = 0.15 * (1 - d / 0.035)
 
+        t, freq_bonus, _ = frequency_realign(t, kind, band_evidence)
+
         votes = len(sources)
         beat = nearest_beat_score(t, beats)
         strength = float(np.mean([c.strength for c in g]))
-        confidence = min(1.0, 0.18 + votes * 0.18 + strength * 0.22 + beat * 0.18 + snap_bonus)
+        confidence = min(1.0, 0.18 + votes * 0.18 + strength * 0.22 + beat * 0.18 + snap_bonus + freq_bonus)
 
         # very weak single-source hits are omitted
         if votes == 1 and confidence < 0.47:
@@ -288,7 +347,8 @@ def main() -> None:
     if not all_candidates:
         all_candidates = mix_onsets
     all_candidates, source_offsets = apply_source_offsets(all_candidates, mix_onsets)
-    finals = consolidate(all_candidates, beats, mix_onsets)
+    band_evidence = build_band_evidence(args.audio)
+    finals = consolidate(all_candidates, beats, mix_onsets, band_evidence)
 
     with open(args.output/"notes.json","w",encoding="utf-8") as f:
         json.dump({"bpm":bpm,"notes":[asdict(n) for n in finals]},f,ensure_ascii=False,indent=2)
@@ -301,6 +361,7 @@ def main() -> None:
             "adtof_used":bool(adtof_midi),
             "sources":sorted(set(c.source for c in all_candidates)),
             "source_offsets_seconds":source_offsets,
+            "frequency_evidence_used":bool(band_evidence),
         },f,ensure_ascii=False,indent=2)
     write_midi(finals,args.output/"drums.mid",bpm)
     print(f"done: {len(finals)} notes, bpm={bpm:.2f}")
