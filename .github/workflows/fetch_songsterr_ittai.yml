@@ -57,6 +57,52 @@ jobs:
           for i,t in enumerate(list(root.find("Tracks") or [])):
               tracks.append({"index":i,"name":t.findtext("Name") or ""})
           chart=json.load(open("site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json"))
+          # Audit every track so a blank GP track name cannot hide a wrong track selection.
+          bars={x.attrib["id"]:x for x in root.find("Bars")}
+          voices={x.attrib["id"]:x for x in root.find("Voices")}
+          beats={x.attrib["id"]:x for x in root.find("Beats")}
+          notes={x.attrib["id"]:x for x in root.find("Notes")}
+          master_bars=list(root.find("MasterBars"))
+          track_audit=[]
+          for ti,t in enumerate(list(root.find("Tracks") or [])):
+              frets=[]
+              note_count=0
+              for mb in master_bars:
+                  bar_ids=(mb.findtext("Bars") or "").split()
+                  if ti>=len(bar_ids): continue
+                  bar=bars.get(bar_ids[ti])
+                  if bar is None: continue
+                  for voice_id in (bar.findtext("Voices") or "").split():
+                      if voice_id=="-1" or voice_id not in voices: continue
+                      for beat_id in (voices[voice_id].findtext("Beats") or "").split():
+                          beat=beats.get(beat_id)
+                          if beat is None: continue
+                          for note_id in (beat.findtext("Notes") or "").split():
+                              n=notes.get(note_id)
+                              if n is None: continue
+                              f=n.findtext("./Properties/Property[@name='Fret']/Fret")
+                              m=n.findtext("./Properties/Property[@name='Midi']/Number")
+                              val=f if f is not None else m
+                              if val is not None:
+                                  try: frets.append(int(val))
+                                  except ValueError: pass
+                              note_count+=1
+              gm_like=sum(27<=x<=87 for x in frets)
+              drum_core=sum(35<=x<=59 for x in frets)
+              track_audit.append({
+                  "index":ti,
+                  "name":(t.findtext("Name") or "").strip(),
+                  "shortName":(t.findtext("ShortName") or "").strip(),
+                  "noteCount":note_count,
+                  "fretOrMidiUnique":sorted(set(frets)),
+                  "gmPercussionLikeCount":gm_like,
+                  "coreDrumCount35to59":drum_core,
+                  "coreDrumRatio":round(drum_core/max(1,len(frets)),4),
+              })
+          Path("site/charts/ittai_itsukara/track_audit.json").write_text(json.dumps(track_audit,ensure_ascii=False,indent=2)+"\n")
+          selected=track_audit[chart["songsterrTrackIndex"]]
+          if selected["coreDrumRatio"] < 0.9:
+              raise SystemExit(f"Selected track does not look like drums: {selected}")
           metadata={
               "songsterrSongId":3705140,
               "songsterrRevisionId":chart["songsterrRevisionId"],
@@ -75,7 +121,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json site/charts/ittai_itsukara/source_metadata.json
+          git add site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json site/charts/ittai_itsukara/source_metadata.json site/charts/ittai_itsukara/track_audit.json
           if git diff --cached --quiet; then
             echo "Ittai chart already up to date"
           else
