@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import argparse, html, json, re, urllib.request
+import argparse, html, json, re, subprocess
 from pathlib import Path
 
 CDNS = [
@@ -11,13 +11,17 @@ CDNS = [
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/130 Safari/537.36"
 
 def get(url: str):
-    req = urllib.request.Request(url, headers={
-        "User-Agent": UA,
-        "Accept": "text/html,application/json;q=0.9,*/*;q=0.8",
-        "Referer": "https://www.songsterr.com/",
-    })
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read(), r.headers.get_content_type()
+    cmd = [
+        "curl", "-fsSL", "--http1.1", "--retry", "2", "--retry-delay", "1",
+        "-A", UA,
+        "-H", "Accept: text/html,application/json;q=0.9,*/*;q=0.8",
+        "-H", "Referer: https://www.songsterr.com/",
+        url,
+    ]
+    p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
+    if p.returncode != 0:
+        raise RuntimeError(f"curl failed ({p.returncode}) for {url}: {p.stderr.decode('utf-8','replace')[-500:]}")
+    return p.stdout, ""
 
 def parse_state(page: bytes):
     text = page.decode("utf-8", "replace")
