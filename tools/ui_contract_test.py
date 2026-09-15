@@ -13,6 +13,8 @@ checks = {
     "song selection loader": '$("songSelect").addEventListener("change",loadSelectedSong)' in js and 'Luna_say_maybe_FINAL_notes.json' in js and 'Kanaetai_koto_bakari_FINAL_notes.json' in js and 'Ittai_itsukara_FINAL_notes.json' in js,
     "original sound toggle": 'id="originalSound"' in html and '$("originalSound").onchange' in js,
     "drum sound toggle": 'id="drumSound"' in html and '$("drumSound").onchange' in js,
+    "metronome toggle": 'id="metronomeSound"' in html and 'id="metronomeSoundState"' in html and '$("metronomeSound").onchange' in js,
+    "metronome scheduler": 'function scheduleMetronome(horizon)' in js and 'nextMetronomeBeat' in js and 'metronomeAt(nextMetronomeBeat,target)' in js,
     "sound toggles horizontal": '.sound-controls' in css and 'grid-template-columns:1fr 1fr' in css,
     "note speed range": re.search(r'id="noteSpeed"[^>]*min="0\.5"[^>]*max="8"[^>]*value="1"[^>]*step="0\.1"', html) is not None,
     "note speed separate variable": 'noteSpeed=1' in js and 'lookAhead=3.3/noteSpeed' in js,
