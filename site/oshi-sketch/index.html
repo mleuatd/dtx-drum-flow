@@ -17,13 +17,15 @@ button{appearance:none;border:1px solid #c7c7cc;background:#fff;color:#111827;bo
 button.primary{background:#111827;color:#fff;border-color:#111827}
 button:active{transform:translateY(1px)}
 .sketchRow{display:grid;grid-template-columns:minmax(0,1fr) 118px;gap:10px;align-items:start}
-.canvasWrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;touch-action:none}
+.canvasWrap{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;touch-action:none}
+.canvasWrap canvas{position:absolute;inset:0}
+.canvasWrap::before{content:"";display:block;padding-top:100%}
 .objectPane{border:1px solid var(--line);border-radius:12px;background:#fafafa;padding:8px}
 .objectTitle{font-size:12px;font-weight:700;margin:0 0 8px}
 .objectList{display:flex;flex-direction:column;gap:8px}
 .objectBtn{padding:8px 6px;min-height:auto;font-size:12px;line-height:1.2}
 .objectIcon{display:block;width:62px;height:70px;margin:0 auto 4px;background:#fff;border:1px solid #e4e4e7;border-radius:8px}
-canvas{display:block;width:100%;height:auto;background:#fff;touch-action:none}
+canvas{display:block;width:100%;height:100%;background:transparent;touch-action:none}
 textarea,input{width:100%;font:inherit;border:1px solid #c7c7cc;border-radius:10px;padding:12px;background:#fff;color:#111827}
 textarea{min-height:140px;resize:vertical;line-height:1.55}
 .hint{font-size:12px;color:var(--muted);margin:6px 0 0;line-height:1.5}
@@ -69,8 +71,9 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
       <button id="clearBtn">全消去</button>
     </div>
     <div class="sketchRow">
-      <div class="canvasWrap">
+      <div class="canvasWrap" id="canvasWrap">
         <canvas id="rough" width="800" height="800" aria-label="ラフ構図キャンバス"></canvas>
+        <canvas id="objects" width="800" height="800" aria-label="オブジェクトレイヤー"></canvas>
       </div>
       <aside class="objectPane" aria-label="よく使うオブジェクト">
         <p class="objectTitle">よく使う</p>
@@ -120,6 +123,8 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
 <script>
 const rough=document.getElementById('rough');
 const rctx=rough.getContext('2d');
+const objectCanvas=document.getElementById('objects');
+const objctx=objectCanvas.getContext('2d');
 const result=document.getElementById('result');
 const octx=result.getContext('2d');
 let drawing=false, erasing=false, last=null;
@@ -127,40 +132,89 @@ let undoStack=[], redoStack=[];
 let historyItems=[];
 let activeHistoryIndex=-1;
 let objectMode=null;
+let objects=[];
+let pressTimer=null;
+let pressedObjectIndex=-1;
+let draggingObjectIndex=-1;
+let pressStart=null;
+const LONG_PRESS_MS=420;
 
 function white(ctx,canvas){ctx.save();ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore()}
-white(rctx,rough); white(octx,result);
+white(rctx,rough); white(octx,result); renderObjects();
 
-function snapshot(){return rough.toDataURL()}
+function snapshot(){
+ return {rough:rough.toDataURL(),objects:JSON.parse(JSON.stringify(objects))}
+}
 function pushUndo(){undoStack.push(snapshot()); if(undoStack.length>30)undoStack.shift(); redoStack=[]}
-function restore(data){
- const img=new Image(); img.onload=()=>{rctx.clearRect(0,0,rough.width,rough.height);rctx.drawImage(img,0,0)}; img.src=data;
+function restore(state){
+ const img=new Image();
+ img.onload=()=>{rctx.clearRect(0,0,rough.width,rough.height);rctx.drawImage(img,0,0)};
+ img.src=state.rough;
+ objects=JSON.parse(JSON.stringify(state.objects||[]));
+ renderObjects();
 }
 function pos(e){
- const rect=rough.getBoundingClientRect();
+ const rect=objectCanvas.getBoundingClientRect();
  const p=e.touches?e.touches[0]:e;
- return {x:(p.clientX-rect.left)*rough.width/rect.width,y:(p.clientY-rect.top)*rough.height/rect.height};
+ return {x:(p.clientX-rect.left)*objectCanvas.width/rect.width,y:(p.clientY-rect.top)*objectCanvas.height/rect.height};
+}
+function hitObject(x,y){
+ for(let i=objects.length-1;i>=0;i--){
+   const o=objects[i],dx=x-o.x,dy=y-o.y;
+   if(Math.hypot(dx,dy)<90*(o.scale||1)) return i;
+ }
+ return -1;
 }
 function start(e){
  e.preventDefault();
  const p=pos(e);
  if(objectMode){
    pushUndo();
-   if(objectMode==='ojika') drawOjika(rctx,p.x,p.y,1);
-   if(objectMode==='person') drawPerson(rctx,p.x,p.y,1);
-   setStatus(objectMode==='ojika'?'小鹿さんマークを配置しました。':'人物マークを配置しました。');
+   objects.push({type:objectMode,x:p.x,y:p.y,scale:1});
+   renderObjects();
+   setStatus(objectMode==='ojika'?'小鹿さんマークを別レイヤーに配置しました。':'人物マークを別レイヤーに配置しました。');
    objectMode=null;
+   return;
+ }
+ const hit=hitObject(p.x,p.y);
+ if(hit>=0){
+   pressedObjectIndex=hit;
+   pressStart=p;
+   pressTimer=setTimeout(()=>{
+     pushUndo();
+     draggingObjectIndex=pressedObjectIndex;
+     renderObjects();
+     setStatus('長押しで選択しました。薄く表示しているオブジェクトを移動できます。');
+   },LONG_PRESS_MS);
    return;
  }
  pushUndo();drawing=true;last=p
 }
 function move(e){
+ const p=pos(e);
+ if(draggingObjectIndex>=0){
+   e.preventDefault();
+   objects[draggingObjectIndex].x=p.x;
+   objects[draggingObjectIndex].y=p.y;
+   renderObjects();
+   return;
+ }
+ if(pressTimer&&pressStart&&Math.hypot(p.x-pressStart.x,p.y-pressStart.y)>18){
+   clearTimeout(pressTimer);pressTimer=null;pressedObjectIndex=-1;
+ }
  if(!drawing)return;e.preventDefault();
- const p=pos(e);rctx.save();rctx.lineCap='round';rctx.lineJoin='round';
+ rctx.save();rctx.lineCap='round';rctx.lineJoin='round';
  rctx.lineWidth=erasing?28:5;rctx.strokeStyle=erasing?'#fff':'#111';
  rctx.beginPath();rctx.moveTo(last.x,last.y);rctx.lineTo(p.x,p.y);rctx.stroke();rctx.restore();last=p;
 }
-function end(){drawing=false;last=null}
+function end(){
+ if(pressTimer){clearTimeout(pressTimer);pressTimer=null}
+ if(draggingObjectIndex>=0){
+   setStatus('オブジェクトの移動を確定しました。');
+   draggingObjectIndex=-1;pressedObjectIndex=-1;pressStart=null;renderObjects();
+ }
+ drawing=false;last=null
+}
 function drawPerson(ctx,x,y,scale){
  ctx.save();ctx.strokeStyle='#111';ctx.fillStyle='#111';ctx.lineWidth=7*scale;ctx.lineCap='round';
  ctx.beginPath();ctx.arc(x,y-45*scale,24*scale,0,Math.PI*2);ctx.stroke();
@@ -168,6 +222,16 @@ function drawPerson(ctx,x,y,scale){
  ctx.moveTo(x,y);ctx.lineTo(x-32*scale,y+20*scale);ctx.moveTo(x,y);ctx.lineTo(x+32*scale,y+20*scale);
  ctx.moveTo(x,y+40*scale);ctx.lineTo(x-26*scale,y+82*scale);ctx.moveTo(x,y+40*scale);ctx.lineTo(x+26*scale,y+82*scale);ctx.stroke();
  ctx.restore();
+}
+function renderObjects(){
+ objctx.clearRect(0,0,objectCanvas.width,objectCanvas.height);
+ objects.forEach((o,i)=>{
+   objctx.save();
+   if(i===draggingObjectIndex) objctx.globalAlpha=.42;
+   if(o.type==='ojika') drawOjika(objctx,o.x,o.y,o.scale||1);
+   else drawPerson(objctx,o.x,o.y,o.scale||1);
+   objctx.restore();
+ });
 }
 function drawOjika(ctx,x,y,scale){
  ctx.save();ctx.strokeStyle='#111';ctx.fillStyle='#fff';ctx.lineWidth=5*scale;ctx.lineCap='round';
@@ -185,12 +249,16 @@ function renderObjectIcons(){
  const a=document.getElementById('ojikaIcon'),ac=a.getContext('2d');white(ac,a);drawOjika(ac,a.width/2,82,.55);
  const b=document.getElementById('personIcon'),bc=b.getContext('2d');white(bc,b);drawPerson(bc,b.width/2,82,.55);
 }
-rough.addEventListener('pointerdown',start);rough.addEventListener('pointermove',move);window.addEventListener('pointerup',end);
+objectCanvas.addEventListener('pointerdown',start);
+objectCanvas.addEventListener('pointermove',move);
+objectCanvas.addEventListener('pointerup',end);
+objectCanvas.addEventListener('pointercancel',end);
+window.addEventListener('pointerup',end);
 document.getElementById('penBtn').onclick=()=>{objectMode=null;erasing=false;setStatus('ペンモード')};
 document.getElementById('ojikaObjBtn').onclick=()=>{objectMode='ojika';erasing=false;setStatus('キャンバスをタップすると小鹿さんマークを配置します。')};
 document.getElementById('personObjBtn').onclick=()=>{objectMode='person';erasing=false;setStatus('キャンバスをタップすると人物マークを配置します。')};
 document.getElementById('eraserBtn').onclick=()=>{erasing=true;setStatus('消しゴムモード')};
-document.getElementById('clearBtn').onclick=()=>{pushUndo();white(rctx,rough);setStatus('ラフを全消去しました')};
+document.getElementById('clearBtn').onclick=()=>{pushUndo();white(rctx,rough);objects=[];renderObjects();setStatus('ラフとオブジェクトを全消去しました')};
 document.getElementById('undoBtn').onclick=()=>{
  if(!undoStack.length)return;redoStack.push(snapshot());restore(undoStack.pop());setStatus('1つ戻しました')
 };
@@ -242,6 +310,7 @@ function showHistory(index){
 function compose(extra=''){
  white(octx,result);
  octx.drawImage(rough,0,0,result.width,result.height);
+ octx.drawImage(objectCanvas,0,0,result.width,result.height);
  octx.save();
  octx.strokeStyle='#111';octx.lineWidth=3;octx.strokeRect(18,18,result.width-36,result.height-36);
  const desc=document.getElementById('description').value.trim();
