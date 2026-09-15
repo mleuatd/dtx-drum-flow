@@ -1,0 +1,34 @@
+name: Fetch Songsterr drum reference
+
+on:
+  push:
+    paths:
+      - "validation/songsterr_reference/REQUEST.txt"
+      - ".github/workflows/fetch-songsterr.yml"
+      - "tools/audio_pipeline/fetch_songsterr_revision.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch Songsterr revision JSON
+        run: |
+          mkdir -p validation/songsterr_reference/output
+          URL="$(sed -n '1p' validation/songsterr_reference/REQUEST.txt | tr -d '\r')"
+          python tools/audio_pipeline/fetch_songsterr_revision.py "$URL" -o validation/songsterr_reference/output
+      - name: Upload Songsterr revision data
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-say-maybe-songsterr-reference
+          path: validation/songsterr_reference/output/
+          if-no-files-found: error
+          retention-days: 14
