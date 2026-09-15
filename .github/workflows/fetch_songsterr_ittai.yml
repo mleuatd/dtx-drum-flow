@@ -117,9 +117,28 @@ jobs:
               if sig!=last:
                   time_sigs.append({"measure":i,"time":sig})
                   last=sig
+          drum_property_audit={}
+          mismatch=[]
+          for note_id,n in notes.items():
+              fret=n.findtext("./Properties/Property[@name='Fret']/Fret")
+              midi=n.findtext("./Properties/Property[@name='Midi']/Number")
+              elem=n.findtext("./Properties/Property[@name='Element']/Element")
+              variation=n.findtext("./Properties/Property[@name='Variation']/Variation")
+              if fret is None and midi is None: continue
+              key=str(fret if fret is not None else midi)
+              slot=drum_property_audit.setdefault(key,{"count":0,"midiValues":{},"elementValues":{},"variationValues":{}})
+              slot["count"]+=1
+              if midi is not None: slot["midiValues"][midi]=slot["midiValues"].get(midi,0)+1
+              if elem is not None: slot["elementValues"][elem]=slot["elementValues"].get(elem,0)+1
+              if variation is not None: slot["variationValues"][variation]=slot["variationValues"].get(variation,0)+1
+              if fret is not None and midi is not None and fret!=midi:
+                  mismatch.append({"id":note_id,"fret":fret,"midi":midi,"element":elem,"variation":variation})
+          print("DRUM_PROPERTY_AUDIT", json.dumps(drum_property_audit, ensure_ascii=False))
+          print("FRET_MIDI_MISMATCH_COUNT", len(mismatch))
+          Path("site/charts/ittai_itsukara/drum_property_audit.json").write_text(json.dumps({"byFret":drum_property_audit,"fretMidiMismatches":mismatch[:200]},ensure_ascii=False,indent=2)+"\n")
           print("TEMPO_AUDIT", json.dumps(tempos, ensure_ascii=False))
           print("TIME_SIGNATURE_AUDIT", json.dumps(time_sigs, ensure_ascii=False))
-          Path("site/charts/ittai_itsukara/tempo_audit.json").write_text(json.dumps({"tempos":tempos,"timeSignatures":time_sigs},ensure_ascii=False,indent=2)+"\n")
+          Path("site/charts/ittai_itsukara/tempo_audit.json site/charts/ittai_itsukara/drum_property_audit.json").write_text(json.dumps({"tempos":tempos,"timeSignatures":time_sigs},ensure_ascii=False,indent=2)+"\n")
           selected=track_audit[chart["songsterrTrackIndex"]]
           if selected["coreDrumRatio"] < 0.9:
               raise SystemExit(f"Selected track does not look like drums: {selected}")
