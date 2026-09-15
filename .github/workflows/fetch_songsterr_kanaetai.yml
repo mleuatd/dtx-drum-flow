@@ -14,46 +14,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch public Songsterr metadata/source
+      - name: Fetch public Songsterr metadata and drum revision JSON
         shell: bash
         run: |
           set -euxo pipefail
           mkdir -p out
           curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"             "https://www.songsterr.com/api/songs?pattern=%E5%8F%B6%E3%81%88%E3%81%9F%E3%81%84%E3%80%81%E3%81%93%E3%81%A8%E3%81%B0%E3%81%8B%E3%82%8A&size=20"             -o out/songs.json
           for id in 2808958 2756835; do
-            curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id?allowOwnUnpublished=true"               -o "out/meta-$id.json" || true
+            curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id?allowOwnUnpublished=true"               -o "out/meta-$id.json"
             curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id/revisions"               -o "out/revisions-$id.json" || true
           done
           python - <<'PY'
           import json, pathlib, urllib.request
           out=pathlib.Path("out")
-          urls=[]
-          for p in out.glob("*.json"):
-              try:
-                  data=json.loads(p.read_text())
-              except Exception:
-                  continue
-              def walk(x):
-                  if isinstance(x,dict):
-                      for k,v in x.items():
-                          if k.lower() in {"source","url","sourceurl","gp","gpurl"} and isinstance(v,str) and v.startswith("http"):
-                              urls.append(v)
-                          walk(v)
-                  elif isinstance(x,list):
-                      for v in x: walk(v)
-              walk(data)
-          (out/"source-urls.txt").write_text("\n".join(dict.fromkeys(urls)))
-          for i,u in enumerate(dict.fromkeys(urls)):
-              try:
-                  req=urllib.request.Request(u,headers={"User-Agent":"dtx-drum-flow-personal-practice/1.0"})
-                  with urllib.request.urlopen(req,timeout=30) as r:
-                      b=r.read()
-                  if len(b)>100:
-                      (out/f"source-{i}.bin").write_bytes(b)
-              except Exception as e:
-                  (out/f"source-{i}.error.txt").write_text(repr(e))
+          for meta_path in out.glob("meta-*.json"):
+              meta=json.loads(meta_path.read_text())
+              song=meta["songId"]; rev=meta["revisionId"]; image=meta["image"]
+              drums=[(i,t) for i,t in enumerate(meta.get("tracks",[])) if t.get("instrumentId")==1024 or "drum" in t.get("instrument","").lower()]
+              for part_id,track in drums:
+                  urls=[
+                    f"https://dqsljvtekg760.cloudfront.net/{song}/{rev}/{image}/{part_id}.json",
+                    f"https://d3d3l6a6rcgkaf.cloudfront.net/{song}/{rev}/{image}/{part_id}.json",
+                  ]
+                  last=None
+                  for u in urls:
+                      try:
+                          req=urllib.request.Request(u,headers={"User-Agent":"dtx-drum-flow-personal-practice/1.0","Accept":"application/json"})
+                          with urllib.request.urlopen(req,timeout=30) as r: b=r.read()
+                          json.loads(b)
+                          (out/f"drums-{song}-part{part_id}.json").write_bytes(b)
+                          (out/f"drums-{song}-source.txt").write_text(u)
+                          break
+                      except Exception as e:
+                          last=e
+                  else:
+                      raise RuntimeError(f"failed {song} drum part {part_id}: {last!r}")
           PY
-          ls -l out
+          python -m json.tool out/drums-2808958-part3.json >/dev/null
+          ls -lh out
       - uses: actions/upload-artifact@v4
         with:
           name: songsterr-kanaetai-public
