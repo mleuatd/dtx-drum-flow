@@ -48,15 +48,32 @@
       </div>
     </section>
 
-    <section class="mini-controls panel">
-      <button id="rewind5" class="button">−5秒</button>
-      <label>速度
-        <select id="speed">
-          <option>0.5</option><option>0.75</option><option selected>1</option>
-          <option>1.25</option><option>1.5</option><option>2</option>
-        </select>×
+    <section class="sound-controls panel" aria-label="音の切り替え">
+      <label class="sound-toggle">
+        <input id="drumSound" type="checkbox" checked>
+        <span>ドラム</span><strong id="drumSoundState">ON</strong>
       </label>
-      <button id="forward5" class="button">＋5秒</button>
+      <label class="sound-toggle">
+        <input id="originalSound" type="checkbox" checked>
+        <span>原曲</span><strong id="originalSoundState">ON</strong>
+      </label>
+    </section>
+
+    <section class="speed-controls panel">
+      <div class="speed-block">
+        <label for="noteSpeed">ノーツ速度 <strong id="noteSpeedValue">1.0×</strong></label>
+        <input id="noteSpeed" type="range" min="0.5" max="8" value="1" step="0.1">
+      </div>
+      <div class="playback-row">
+        <button id="rewind5" class="button">−5秒</button>
+        <label>音楽速度
+          <select id="speed">
+            <option>0.5</option><option>0.75</option><option selected>1</option>
+            <option>1.25</option><option>1.5</option><option>2</option>
+          </select>×
+        </label>
+        <button id="forward5" class="button">＋5秒</button>
+      </div>
     </section>
 
     <details class="panel advanced">
@@ -70,7 +87,6 @@
           <button id="loadSample" class="button">サンプル譜面</button>
           <button id="exportJson" class="button">譜面JSON保存</button>
         </div>
-        <label class="check"><input id="drumOnly" type="checkbox"> ドラム音のみ</label>
         <button id="alignAudio" class="button" disabled>元音源にタイミング補正</button>
         <div id="dropZone" class="drop-hint">
           譜面・音源をドラッグ＆ドロップ
