@@ -1,0 +1,53 @@
+name: Rebuild chart from YouTube reference macOS
+
+on:
+  push:
+    paths:
+      - "validation/video_reference/MACOS_TRIGGER.txt"
+      - ".github/workflows/rebuild-from-youtube-macos.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Python tools
+        run: |
+          python -m pip install --upgrade pip yt-dlp opencv-python-headless mido numpy
+      - name: Ensure ffmpeg
+        run: |
+          command -v ffmpeg || brew install ffmpeg
+      - name: Download reference video
+        run: |
+          mkdir -p _reference
+          python -m yt_dlp --no-playlist --merge-output-format mp4 \
+            --js-runtimes node \
+            -f "bv*[height<=1080]+ba/b[height<=1080]" \
+            -o "_reference/reference.%(ext)s" \
+            'https://youtu.be/RrBjACoZjD0?si=1hzur8YuqnGZer1d'
+      - name: Normalize
+        run: |
+          FILE="$(find _reference -maxdepth 1 -type f | head -n 1)"
+          ffmpeg -y -i "$FILE" -map 0:v:0 -an -c:v libx264 -preset fast -crf 18 _reference/reference.mp4
+      - name: Extract chart
+        run: |
+          mkdir -p validation/video_reference/output
+          python tools/audio_pipeline/video_chart_extractor.py _reference/reference.mp4 \
+            -o validation/video_reference/output --bpm 139.675
+      - name: Upload derived chart only
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-say-maybe-video-chart-macos
+          path: |
+            validation/video_reference/output/video_notes.json
+            validation/video_reference/output/video_chart.mid
+            validation/video_reference/output/video_chart.dtx
+          retention-days: 14
