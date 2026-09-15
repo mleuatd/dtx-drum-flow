@@ -31,3 +31,5 @@ jobs:
           node --check site/app.js
           node --check site/parsers.js
           node --check site/audio-analysis.js
+      - name: UI contract checks
+        run: python tools/ui_contract_test.py
