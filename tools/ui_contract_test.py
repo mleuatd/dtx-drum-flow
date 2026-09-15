@@ -11,6 +11,7 @@ checks = {
     "11 drum lanes": 'const PARTS=["LC","HH","SN","HT","LT","FT","RC","RD","LP","LB","BD"]' in js,
     "Luna final chart button": 'id="loadLuna"' in html and 'Luna say maybe' in html,
     "Kanaetai final chart button": 'id="loadKanaetai"' in html and '叶えたい、ことばかり' in html and 'Kanaetai_koto_bakari_FINAL_notes.json' in js,
+    "Ittai final chart button": 'id="loadIttai"' in html and '一体いつから' in html and 'Ittai_itsukara_FINAL_notes.json' in js,
     "original sound toggle": 'id="originalSound"' in html and '$("originalSound").onchange' in js,
     "drum sound toggle": 'id="drumSound"' in html and '$("drumSound").onchange' in js,
     "sound toggles horizontal": '.sound-controls' in css and 'grid-template-columns:1fr 1fr' in css,
