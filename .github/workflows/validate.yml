@@ -30,6 +30,9 @@ jobs:
         run: |
           node --check site/app.js
           node --check site/parsers.js
-          node --check site/audio-analysis.js\n          node --check site/original-audio.js
+          node --check site/audio-analysis.js
+          node --check site/original-audio.js
+      - name: FINAL chart validation and Luna regression
+        run: python tools/chart_validation.py
       - name: UI contract checks
         run: python tools/ui_contract_test.py
