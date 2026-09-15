@@ -16,7 +16,13 @@ h2{font-size:16px;margin:0 0 10px}.label{font-weight:700;font-size:13px;margin:1
 button{appearance:none;border:1px solid #c7c7cc;background:#fff;color:#111827;border-radius:10px;padding:10px 14px;font-size:15px;font-weight:700;min-height:44px}
 button.primary{background:#111827;color:#fff;border-color:#111827}
 button:active{transform:translateY(1px)}
+.sketchRow{display:grid;grid-template-columns:minmax(0,1fr) 118px;gap:10px;align-items:start}
 .canvasWrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;touch-action:none}
+.objectPane{border:1px solid var(--line);border-radius:12px;background:#fafafa;padding:8px}
+.objectTitle{font-size:12px;font-weight:700;margin:0 0 8px}
+.objectList{display:flex;flex-direction:column;gap:8px}
+.objectBtn{padding:8px 6px;min-height:auto;font-size:12px;line-height:1.2}
+.objectIcon{display:block;width:62px;height:70px;margin:0 auto 4px;background:#fff;border:1px solid #e4e4e7;border-radius:8px}
 canvas{display:block;width:100%;height:auto;background:#fff;touch-action:none}
 textarea,input{width:100%;font:inherit;border:1px solid #c7c7cc;border-radius:10px;padding:12px;background:#fff;color:#111827}
 textarea{min-height:140px;resize:vertical;line-height:1.55}
@@ -42,6 +48,8 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
  .previewLayout{grid-template-columns:1fr}
  .historyPane{order:2}
  .historyList{max-height:330px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow-y:auto}
+ .sketchRow{grid-template-columns:minmax(0,1fr) 96px}
+ .objectIcon{width:52px;height:60px}
 }
 </style>
 </head>
@@ -60,8 +68,23 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
       <button id="redoBtn">やり直す</button>
       <button id="clearBtn">全消去</button>
     </div>
-    <div class="canvasWrap">
-      <canvas id="rough" width="800" height="800" aria-label="ラフ構図キャンバス"></canvas>
+    <div class="sketchRow">
+      <div class="canvasWrap">
+        <canvas id="rough" width="800" height="800" aria-label="ラフ構図キャンバス"></canvas>
+      </div>
+      <aside class="objectPane" aria-label="よく使うオブジェクト">
+        <p class="objectTitle">よく使う</p>
+        <div class="objectList">
+          <button id="ojikaObjBtn" class="objectBtn" type="button">
+            <canvas id="ojikaIcon" class="objectIcon" width="124" height="140"></canvas>
+            小鹿さん
+          </button>
+          <button id="personObjBtn" class="objectBtn" type="button">
+            <canvas id="personIcon" class="objectIcon" width="124" height="140"></canvas>
+            人
+          </button>
+        </div>
+      </aside>
     </div>
     <p class="hint">上手に描く必要はありません。人物の位置、向き、小物などを丸や線で雑に置く想定です。</p>
 
@@ -103,6 +126,7 @@ let drawing=false, erasing=false, last=null;
 let undoStack=[], redoStack=[];
 let historyItems=[];
 let activeHistoryIndex=-1;
+let objectMode=null;
 
 function white(ctx,canvas){ctx.save();ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore()}
 white(rctx,rough); white(octx,result);
@@ -117,7 +141,19 @@ function pos(e){
  const p=e.touches?e.touches[0]:e;
  return {x:(p.clientX-rect.left)*rough.width/rect.width,y:(p.clientY-rect.top)*rough.height/rect.height};
 }
-function start(e){e.preventDefault();pushUndo();drawing=true;last=pos(e)}
+function start(e){
+ e.preventDefault();
+ const p=pos(e);
+ if(objectMode){
+   pushUndo();
+   if(objectMode==='ojika') drawOjika(rctx,p.x,p.y,1);
+   if(objectMode==='person') drawPerson(rctx,p.x,p.y,1);
+   setStatus(objectMode==='ojika'?'小鹿さんマークを配置しました。':'人物マークを配置しました。');
+   objectMode=null;
+   return;
+ }
+ pushUndo();drawing=true;last=p
+}
 function move(e){
  if(!drawing)return;e.preventDefault();
  const p=pos(e);rctx.save();rctx.lineCap='round';rctx.lineJoin='round';
@@ -125,8 +161,34 @@ function move(e){
  rctx.beginPath();rctx.moveTo(last.x,last.y);rctx.lineTo(p.x,p.y);rctx.stroke();rctx.restore();last=p;
 }
 function end(){drawing=false;last=null}
+function drawPerson(ctx,x,y,scale){
+ ctx.save();ctx.strokeStyle='#111';ctx.fillStyle='#111';ctx.lineWidth=7*scale;ctx.lineCap='round';
+ ctx.beginPath();ctx.arc(x,y-45*scale,24*scale,0,Math.PI*2);ctx.stroke();
+ ctx.beginPath();ctx.moveTo(x,y-20*scale);ctx.lineTo(x,y+40*scale);
+ ctx.moveTo(x,y);ctx.lineTo(x-32*scale,y+20*scale);ctx.moveTo(x,y);ctx.lineTo(x+32*scale,y+20*scale);
+ ctx.moveTo(x,y+40*scale);ctx.lineTo(x-26*scale,y+82*scale);ctx.moveTo(x,y+40*scale);ctx.lineTo(x+26*scale,y+82*scale);ctx.stroke();
+ ctx.restore();
+}
+function drawOjika(ctx,x,y,scale){
+ ctx.save();ctx.strokeStyle='#111';ctx.fillStyle='#fff';ctx.lineWidth=5*scale;ctx.lineCap='round';
+ const cy=y-45*scale,r=23*scale;
+ for(let i=0;i<12;i++){const a=i*Math.PI/6,px=x+Math.cos(a)*36*scale,py=cy+Math.sin(a)*36*scale;
+   ctx.beginPath();ctx.ellipse(px,py,10*scale,18*scale,a,0,Math.PI*2);ctx.stroke();}
+ ctx.beginPath();ctx.arc(x,cy,r,0,Math.PI*2);ctx.fill();ctx.stroke();
+ ctx.fillStyle='#111';ctx.font=(18*scale)+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('小鹿',x,cy);
+ ctx.beginPath();ctx.moveTo(x,y-20*scale);ctx.lineTo(x,y+40*scale);
+ ctx.moveTo(x,y);ctx.lineTo(x-32*scale,y+20*scale);ctx.moveTo(x,y);ctx.lineTo(x+32*scale,y+20*scale);
+ ctx.moveTo(x,y+40*scale);ctx.lineTo(x-26*scale,y+82*scale);ctx.moveTo(x,y+40*scale);ctx.lineTo(x+26*scale,y+82*scale);ctx.stroke();
+ ctx.restore();
+}
+function renderObjectIcons(){
+ const a=document.getElementById('ojikaIcon'),ac=a.getContext('2d');white(ac,a);drawOjika(ac,a.width/2,82,.55);
+ const b=document.getElementById('personIcon'),bc=b.getContext('2d');white(bc,b);drawPerson(bc,b.width/2,82,.55);
+}
 rough.addEventListener('pointerdown',start);rough.addEventListener('pointermove',move);window.addEventListener('pointerup',end);
-document.getElementById('penBtn').onclick=()=>{erasing=false;setStatus('ペンモード')};
+document.getElementById('penBtn').onclick=()=>{objectMode=null;erasing=false;setStatus('ペンモード')};
+document.getElementById('ojikaObjBtn').onclick=()=>{objectMode='ojika';erasing=false;setStatus('キャンバスをタップすると小鹿さんマークを配置します。')};
+document.getElementById('personObjBtn').onclick=()=>{objectMode='person';erasing=false;setStatus('キャンバスをタップすると人物マークを配置します。')};
 document.getElementById('eraserBtn').onclick=()=>{erasing=true;setStatus('消しゴムモード')};
 document.getElementById('clearBtn').onclick=()=>{pushUndo();white(rctx,rough);setStatus('ラフを全消去しました')};
 document.getElementById('undoBtn').onclick=()=>{
@@ -203,6 +265,7 @@ function wrapText(ctx,text,x,y,maxWidth,lineHeight,maxLines){
 }
 document.getElementById('generateBtn').onclick=()=>{compose();addHistory('初回');setStatus('UI試作としてプレビューを生成しました。AI描画部分は次段階で接続できます。')};
 document.getElementById('reviseBtn').onclick=()=>{compose();addHistory('修正');setStatus('修正指示をプレビューに反映し、差分履歴へ追加しました。')};
+renderObjectIcons();
 document.getElementById('saveBtn').onclick=()=>{
  compose();
  const a=document.createElement('a');a.href=result.toDataURL('image/png');a.download='oshi-sketch.png';a.click();
