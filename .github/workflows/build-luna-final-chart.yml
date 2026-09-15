@@ -37,13 +37,15 @@ jobs:
             -o charts/luna_say_maybe \
             --offset 1.693 \
             --audio-duration 266.945306
+          mkdir -p site/charts/luna_say_maybe
+          cp charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json site/charts/luna_say_maybe/
 
       - name: Commit generated chart
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add charts/luna_say_maybe
+          git add charts/luna_say_maybe site/charts/luna_say_maybe
           if git diff --cached --quiet; then
             echo "No chart changes to commit"
           else
