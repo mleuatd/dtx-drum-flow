@@ -152,8 +152,43 @@ document.getElementById('clearBtn').onclick=()=>{pushUndo();white(rctx,rough);ob
 document.getElementById('undoBtn').onclick=()=>{if(!undoStack.length)return;redoStack.push(snapshot());restore(undoStack.pop());setStatus('1つ戻しました。');};
 document.getElementById('redoBtn').onclick=()=>{if(!redoStack.length)return;undoStack.push(snapshot());restore(redoStack.pop());setStatus('やり直しました。');};
 
-document.getElementById('generateBtn').onclick=()=>{compose();addHistory('完成');setStatus('完成絵を生成しました。');};
-document.getElementById('reviseBtn').onclick=()=>{compose();addHistory('修正');setStatus('修正指示を反映しました。');};
+const progressWrap=document.getElementById('progressWrap');
+const progressBar=document.getElementById('progressBar');
+const progressText=document.getElementById('progressText');
+const progressTime=document.getElementById('progressTime');
+
+function setProgress(p,label='描画中'){
+ const v=Math.max(0,Math.min(100,Math.round(p)));
+ progressWrap.classList.add('show');
+ progressBar.style.width=v+'%';
+ progressText.textContent=label+' '+v+'%';
+}
+function hideProgressSoon(){
+ setTimeout(()=>{progressWrap.classList.remove('show');progressBar.style.width='0%';},380);
+}
+function fastRender(label,historyLabel){
+ const start=performance.now();
+ setProgress(4);
+ requestAnimationFrame(()=>{
+   setProgress(28);
+   requestAnimationFrame(()=>{
+     setProgress(62);
+     compose();
+     setProgress(92);
+     requestAnimationFrame(()=>{
+       addHistory(historyLabel);
+       setProgress(100,'完了');
+       const ms=Math.max(1,Math.round(performance.now()-start));
+       progressTime.textContent=ms<1000?ms+'ms':(ms/1000).toFixed(1)+'秒';
+       setStatus(label);
+       hideProgressSoon();
+     });
+   });
+ });
+}
+
+document.getElementById('generateBtn').onclick=()=>fastRender('完成絵を生成しました。','完成');
+document.getElementById('reviseBtn').onclick=()=>fastRender('修正指示を反映しました。','修正');
 document.getElementById('saveBtn').onclick=()=>{compose();const a=document.createElement('a');a.href=result.toDataURL('image/png');a.download='oshi-sketch.png';a.click();setStatus('PNGを書き出しました。');};
 
 const finishRange=document.getElementById('finishRange');
