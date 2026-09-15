@@ -5,7 +5,7 @@ const PARTS=["LC","HH","SN","HT","LT","FT","RC","RD","LP","LB","BD"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
 const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯",RD:"◌",LP:"⌁",LB:"●",BD:"⬤"};
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
-let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
+let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
 const partEls=new Map();
 const clampTime=v=>Math.max(0,Math.min(chart.duration,Number(v)||0));
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
@@ -52,7 +52,10 @@ function stopOriginal(){if(originalSource){try{originalSource.stop()}catch{}orig
 function startOriginal(){stopOriginal();if(!audioBuffer||!$("originalSound").checked||!audioCtx)return;const offset=Math.max(0,Math.min(playAnchorChart,audioBuffer.duration-.001));if(offset>=audioBuffer.duration)return;originalSource=audioCtx.createBufferSource();originalSource.buffer=audioBuffer;originalSource.playbackRate.value=playSpeed;originalSource.connect(audioCtx.destination);originalSource.start(playAnchorCtx,offset)}
 function chartTimeFromClock(){if(!playing)return clampTime(time);const elapsed=Math.max(0,(performance.now()-playAnchorPerf)/1000);return clampTime(playAnchorChart+elapsed*playSpeed)}
 function resetNextNote(at=time){const t=clampTime(at);nextNote=chart.notes.findIndex(n=>n.time>=t-.005);if(nextNote<0)nextNote=chart.notes.length}
-function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.12;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)drumAt(n.part,n.velocity,target,n);nextNote++}}
+function resetMetronome(at=time){const beatSec=60/(chart.bpm||120);nextMetronomeBeat=Math.max(0,Math.ceil((clampTime(at)-.005)/beatSec))}
+function metronomeAt(beatIndex,when){if(!$("metronomeSound")?.checked||!audioCtx)return;const accent=beatIndex%4===0;tone(accent?1760:1180,when,.045,accent?.11:.07,"square",accent?1500:1000)}
+function scheduleMetronome(horizon){if(!$("metronomeSound")?.checked||!audioCtx)return;const beatSec=60/(chart.bpm||120);while(true){const beatTime=nextMetronomeBeat*beatSec,target=playAnchorCtx+(beatTime-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)metronomeAt(nextMetronomeBeat,target);nextMetronomeBeat++}}
+function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.12;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)drumAt(n.part,n.velocity,target,n);nextNote++}scheduleMetronome(horizon)}
 async function startPlayback(){
   if(playing)return;
   if(time>=chart.duration)time=0;
@@ -62,6 +65,7 @@ async function startPlayback(){
   playAnchorPerf=performance.now();
   playing=true;
   resetNextNote(playAnchorChart);
+  resetMetronome(playAnchorChart);
   $("playPause").textContent="一時停止 ❚❚";
   setStatus("再生中");
   try{
@@ -72,6 +76,7 @@ async function startPlayback(){
     playAnchorChart=clampTime(playAnchorChart+elapsed*playSpeed);
     playAnchorPerf=performance.now()+50;
     resetNextNote(playAnchorChart);
+    resetMetronome(playAnchorChart);
     startOriginal();
     scheduleAhead();
     schedulerTimer=setInterval(scheduleAhead,20);
@@ -81,7 +86,7 @@ async function startPlayback(){
 }
 function pausePlayback(update=true){if(update&&playing)time=chartTimeFromClock();playing=false;if(schedulerTimer){clearInterval(schedulerTimer);schedulerTimer=null}stopOriginal();stopScheduled();$("playPause").textContent="再生 ▶";updateTime();draw()}
 function toggle(){playing?pausePlayback():startPlayback()}
-function seek(v){const was=playing;if(was)pausePlayback();time=clampTime(v);resetNextNote(time);updateTime();draw();if(was)startPlayback()}
+function seek(v){const was=playing;if(was)pausePlayback();time=clampTime(v);resetNextNote(time);resetMetronome(time);updateTime();draw();if(was)startPlayback()}
 function restartPlaybackAtClock(){if(!playing)return;const t=chartTimeFromClock();pausePlayback(false);time=clampTime(t);startPlayback()}
 function loop(){if(playing){time=chartTimeFromClock();if(time>=chart.duration){pausePlayback(false);time=chart.duration;updateTime();draw()}else{updateTime();draw()}}requestAnimationFrame(loop)}
 
@@ -99,8 +104,8 @@ function loadSelectedSong(){const cfg=SONGS[$("songSelect").value]||SONGS.luna;r
 $("songSelect").addEventListener("change",loadSelectedSong);
 $("exportJson").onclick=()=>{const safe=(chart.name||"dtx-drum-flow").replace(/[\\/:*?"<>|]+/g,"_");downloadText(`${safe}.json`,JSON.stringify(chartToJson(),null,2));setStatus("現在の譜面をJSONで保存しました。")};
 $("playPause").onclick=toggle;$("rewind5").onclick=()=>seek(chartTimeFromClock()-5);$("forward5").onclick=()=>seek(chartTimeFromClock()+5);$("rewindMeasure").onclick=()=>seek(chartTimeFromClock()-measureSeconds()*4);$("forwardMeasure").onclick=()=>seek(chartTimeFromClock()+measureSeconds()*4);$("timeline").oninput=e=>seek(Number(e.target.value));$("speed").onchange=restartPlaybackAtClock;
-function syncSoundToggleUi(){$("drumSoundState").textContent=$("drumSound").checked?"ON":"OFF";$("originalSoundState").textContent=$("originalSound").checked?"ON":"OFF"}
-$("drumSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};$("originalSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};
+function syncSoundToggleUi(){$("drumSoundState").textContent=$("drumSound").checked?"ON":"OFF";$("metronomeSoundState").textContent=$("metronomeSound").checked?"ON":"OFF";$("originalSoundState").textContent=$("originalSound").checked?"ON":"OFF"}
+$("drumSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};$("metronomeSound").onchange=()=>{syncSoundToggleUi();resetMetronome(chartTimeFromClock());if(playing&&audioCtx)scheduleAhead()};$("originalSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};
 $("noteSpeed").oninput=e=>{noteSpeed=Math.max(.5,Math.min(8,Number(e.target.value)||1));$("noteSpeedValue").textContent=noteSpeed.toFixed(1)+"×";draw()};
 for(const [sel,dir] of [[".seek-zone.left",-1],[".seek-zone.right",1]]){let last=0;document.querySelector(sel).addEventListener("pointerup",()=>{const now=performance.now();if(now-last<350)seek(chartTimeFromClock()+dir*measureSeconds()*4);last=now})}
 function measureSeconds(){return 240/(chart.bpm||120)}
