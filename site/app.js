@@ -11,7 +11,7 @@ const clampTime=v=>Math.max(0,Math.min(chart.duration,Number(v)||0));
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
 function setStatus(s){$("status").textContent=s}
 function downloadText(name,text,type="application/json"){const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500)}
-function chartToJson(){const partKind={BD:"kick",LB:"kick",SN:"snare",HH:"hihat",LP:"hihat",HT:"toms",LT:"toms",FT:"toms",LC:"cymbals",RC:"cymbals",RD:"cymbals"};return {bpm:chart.bpm,duration:chart.duration,name:chart.name,notes:chart.notes.map(n=>({time:Number(n.time.toFixed(6)),kind:partKind[n.part]||"unknown",part:n.part,velocity:Math.round(Math.max(0,Math.min(1,n.velocity??.8))*127),confidence:Number(n.alignConfidence||0)}))}}
+function chartToJson(){const partKind={BD:"kick",LB:"kick",SN:"snare",HH:"hihat",LP:"hihat",HT:"toms",LT:"toms",FT:"toms",LC:"cymbals",RC:"cymbals",RD:"cymbals"};return {...chart,notes:chart.notes.map(n=>({...n,time:Number(n.time.toFixed(6)),kind:n.kind||partKind[n.part]||"unknown",part:n.part,velocity:Math.round(Math.max(0,Math.min(1,n.velocity??.8))*127),confidence:Number(n.alignConfidence??n.confidence??0)}))}}
 function currentSpeed(){return Number($("speed").value)||1}
 function setChart(c){pausePlayback(false);chart=c;time=0;nextNote=0;$("timeline").max=c.duration;$("duration").textContent=fmt(c.duration);$("chartName").textContent=c.name;$("chartMeta").textContent=`${Math.round(c.bpm)} BPM · ${c.duration.toFixed(1)}秒 · ${c.notes.length}ノーツ`;draw();updateTime()}
 function updateTime(){$("currentTime").textContent=fmt(time);const mirror=$("currentTimeMirror");if(mirror)mirror.textContent=fmt(time);$("timeline").value=time}
@@ -22,12 +22,37 @@ function flash(part){const el=partEls.get(part);if(!el)return;el.classList.add("
 async function ensureAudio(){audioCtx??=new (window.AudioContext||window.webkitAudioContext)({latencyHint:"interactive"});if(audioCtx.state==="suspended")await audioCtx.resume();return audioCtx}
 function trackNode(node){scheduledNodes.push(node);node.addEventListener?.("ended",()=>{scheduledNodes=scheduledNodes.filter(x=>x!==node)},{once:true})}
 function stopScheduled(){for(const n of scheduledNodes){try{n.stop()}catch{}}scheduledNodes=[]}
-function drumAt(part,vel=.8,when=null){if(!$("drumSound").checked||!audioCtx)return;const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002),g=audioCtx.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.22*vel,t+.002);g.gain.exponentialRampToValueAtTime(.0001,t+.20);g.connect(audioCtx.destination);if(part==="BD"||part==="LB"){const o=audioCtx.createOscillator();o.frequency.setValueAtTime(125,t);o.frequency.exponentialRampToValueAtTime(48,t+.11);o.connect(g);o.start(t);o.stop(t+.22);trackNode(o)}else{const len=Math.round(audioCtx.sampleRate*.18),b=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*(1-i/len);const s=audioCtx.createBufferSource(),f=audioCtx.createBiquadFilter();s.buffer=b;f.type=part==="HH"||part==="LC"||part==="RC"||part==="RD"?"highpass":"bandpass";f.frequency.value=part==="SN"?1800:part==="HH"?6500:part==="FT"?450:part==="LT"?700:part==="HT"?1050:3600;s.connect(f);f.connect(g);s.start(t);trackNode(s)}setTimeout(()=>flash(part),Math.max(0,(t-audioCtx.currentTime)*1000))}
+function noiseBuffer(seconds=.25){const len=Math.max(1,Math.round(audioCtx.sampleRate*seconds)),b=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;return b}
+function gainEnv(t,peak,attack,decay){const g=audioCtx.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,peak),t+attack);g.gain.exponentialRampToValueAtTime(.0001,t+decay);g.connect(audioCtx.destination);return g}
+function tone(freq,t,dur,gain,type="sine",endFreq=null){const o=audioCtx.createOscillator(),g=gainEnv(t,gain,.002,dur);o.type=type;o.frequency.setValueAtTime(freq,t);if(endFreq)o.frequency.exponentialRampToValueAtTime(endFreq,t+dur*.7);o.connect(g);o.start(t);o.stop(t+dur+.02);trackNode(o)}
+function filteredNoise(t,dur,gain,type,freq,q=.7){const s=audioCtx.createBufferSource(),f=audioCtx.createBiquadFilter(),g=gainEnv(t,gain,.001,dur);s.buffer=noiseBuffer(dur+.03);f.type=type;f.frequency.value=freq;f.Q.value=q;s.connect(f);f.connect(g);s.start(t);s.stop(t+dur+.03);trackNode(s)}
+function drumAt(part,vel=.8,when=null,note=null){
+  if(!$("drumSound").checked||!audioCtx)return;
+  const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002),v=Math.max(.18,Math.min(1,vel||.8)),gm=Number(note?.gmNote);
+  if((part==="SN")&&gm===37){
+    /* Luna 2番Aメロのサイドスティック/クロススティック。短い木質の「カッ」。 */
+    tone(920,t,.045,.19*v,"triangle",760);tone(1680,t+.001,.025,.08*v,"sine",1450);filteredNoise(t,.035,.055*v,"bandpass",2300,3.5);
+  }else if(part==="BD"||part==="LB"){
+    tone(105,t,.19,.42*v,"sine",45);tone(170,t,.055,.10*v,"triangle",70);filteredNoise(t,.025,.045*v,"highpass",3200,.5);
+  }else if(part==="SN"){
+    tone(185,t,.13,.14*v,"triangle",125);filteredNoise(t,.16,.30*v,"bandpass",1900,.8);filteredNoise(t,.055,.09*v,"highpass",6200,.5);
+  }else if(part==="HH"||part==="LP"){
+    const open=gm===46,dur=open?.42:.075;filteredNoise(t,dur,.16*v,"highpass",6800,.45);tone(8600,t,open?.18:.045,.025*v,"square",open?6200:7200);
+  }else if(part==="HT"||part==="LT"||part==="FT"){
+    const f=part==="HT"?175:part==="LT"?135:95;tone(f,t,.27,.30*v,"sine",f*.72);filteredNoise(t,.07,.075*v,"bandpass",part==="HT"?1500:part==="LT"?1150:850,1.2);
+  }else if(part==="RD"){
+    tone(3100,t,.42,.055*v,"triangle",2600);filteredNoise(t,.34,.095*v,"highpass",5200,.5);
+  }else{
+    /* crash / left cymbal: bright attack + long metallic wash */
+    filteredNoise(t,.85,.17*v,"highpass",4200,.4);tone(4700,t,.52,.035*v,"square",3300);tone(7100,t,.36,.022*v,"square",5200);
+  }
+  setTimeout(()=>flash(part),Math.max(0,(t-audioCtx.currentTime)*1000));
+}
 function stopOriginal(){if(originalSource){try{originalSource.stop()}catch{}originalSource=null}}
 function startOriginal(){stopOriginal();if(!audioBuffer||!$("originalSound").checked||!audioCtx)return;const offset=Math.max(0,Math.min(playAnchorChart,audioBuffer.duration-.001));if(offset>=audioBuffer.duration)return;originalSource=audioCtx.createBufferSource();originalSource.buffer=audioBuffer;originalSource.playbackRate.value=playSpeed;originalSource.connect(audioCtx.destination);originalSource.start(playAnchorCtx,offset)}
 function chartTimeFromClock(){if(!playing||!audioCtx)return clampTime(time);const elapsed=Math.max(0,audioCtx.currentTime-playAnchorCtx);return clampTime(playAnchorChart+elapsed*playSpeed)}
 function resetNextNote(at=time){const t=clampTime(at);nextNote=chart.notes.findIndex(n=>n.time>=t-.005);if(nextNote<0)nextNote=chart.notes.length}
-function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.10;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.015)drumAt(n.part,n.velocity,target);nextNote++}}
+function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.12;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)drumAt(n.part,n.velocity,target,n);nextNote++}}
 async function startPlayback(){if(playing)return;await ensureAudio();if(time>=chart.duration)time=0;time=clampTime(time);playing=true;playSpeed=currentSpeed();playAnchorCtx=audioCtx.currentTime+.05;playAnchorChart=time;resetNextNote(playAnchorChart);startOriginal();scheduleAhead();schedulerTimer=setInterval(scheduleAhead,20);$("playPause").textContent="一時停止 ❚❚"}
 function pausePlayback(update=true){if(update&&playing)time=chartTimeFromClock();playing=false;if(schedulerTimer){clearInterval(schedulerTimer);schedulerTimer=null}stopOriginal();stopScheduled();$("playPause").textContent="再生 ▶";updateTime();draw()}
 function toggle(){playing?pausePlayback():startPlayback()}
@@ -39,12 +64,11 @@ $("chartFile").addEventListener("change",async e=>{const f=e.target.files?.[0];i
 $("audioFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{pausePlayback();setStatus("元音源を解析しています…");audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);$("alignAudio").disabled=false;setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。同じWeb Audio時計で同期再生します。`)}catch(err){setStatus("元音源の読み込みに失敗しました: "+err.message)}});
 $("alignAudio").onclick=()=>{const was=playing,t=was?chartTimeFromClock():time;if(was)pausePlayback(false);const r=realignNotes(chart.notes,onsets,chart.bpm);chart={...chart,notes:r.notes};time=clampTime(t);resetNextNote(time);draw();if(was)startPlayback();setStatus(`音源同期補正: ${r.stats.moved}ノーツを補正、平均移動 ${r.stats.meanShiftMs.toFixed(1)}ms。`)};
 $("loadSample").onclick=()=>{setChart(makeSample());setStatus("サンプルを読み込みました。")};
-$("loadLuna").onclick=async()=>{try{setStatus("Luna say maybe 完成譜面を読み込んでいます…");const res=await fetch("./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",{cache:"no-store"});if(!res.ok)throw new Error("完成譜面を取得できませんでした");const data=await res.json(),file=new File([JSON.stringify(data)],"Luna_say_maybe_FINAL_notes.json",{type:"application/json"});setChart(await parseChart(file));setStatus("Luna say maybe 完成譜面（Songsterr基準・元音源+1.693秒同期）を読み込みました。元音源を開くと同期再生できます。")}catch(err){setStatus("Luna say maybe 完成譜面の読み込みに失敗しました: "+err.message)}};
+$("loadLuna").onclick=async()=>{try{setStatus("Luna say maybe 完成譜面を読み込んでいます…");const res=await fetch("./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",{cache:"no-store"});if(!res.ok)throw new Error("完成譜面を取得できませんでした");const data=await res.json(),file=new File([JSON.stringify(data)],"Luna_say_maybe_FINAL_notes.json",{type:"application/json"});setChart(await parseChart(file));setStatus("Luna say maybe 完成譜面（Songsterr基準・元音源+1.693秒同期）を読み込みました。リアルドラム音色（2番Aメロのサイドスティック含む）で再生できます。")}catch(err){setStatus("Luna say maybe 完成譜面の読み込みに失敗しました: "+err.message)}};
 $("exportJson").onclick=()=>{const safe=(chart.name||"dtx-drum-flow").replace(/[\\/:*?"<>|]+/g,"_");downloadText(`${safe}.json`,JSON.stringify(chartToJson(),null,2));setStatus("現在の譜面をJSONで保存しました。")};
 $("playPause").onclick=toggle;$("rewind5").onclick=()=>seek(chartTimeFromClock()-5);$("forward5").onclick=()=>seek(chartTimeFromClock()+5);$("rewindMeasure").onclick=()=>seek(chartTimeFromClock()-measureSeconds()*4);$("forwardMeasure").onclick=()=>seek(chartTimeFromClock()+measureSeconds()*4);$("timeline").oninput=e=>seek(Number(e.target.value));$("speed").onchange=restartPlaybackAtClock;
 function syncSoundToggleUi(){$("drumSoundState").textContent=$("drumSound").checked?"ON":"OFF";$("originalSoundState").textContent=$("originalSound").checked?"ON":"OFF"}
-$("drumSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};
-$("originalSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};
+$("drumSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};$("originalSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};
 $("noteSpeed").oninput=e=>{noteSpeed=Math.max(.5,Math.min(8,Number(e.target.value)||1));$("noteSpeedValue").textContent=noteSpeed.toFixed(1)+"×";draw()};
 for(const [sel,dir] of [[".seek-zone.left",-1],[".seek-zone.right",1]]){let last=0;document.querySelector(sel).addEventListener("pointerup",()=>{const now=performance.now();if(now-last<350)seek(chartTimeFromClock()+dir*measureSeconds()*4);last=now})}
 function measureSeconds(){return 240/(chart.bpm||120)}
