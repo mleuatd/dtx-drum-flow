@@ -54,7 +54,11 @@ function setChart(c){
   $("chartMeta").textContent=`${Math.round(c.bpm)} BPM · ${c.duration.toFixed(1)}秒 · ${c.notes.length}ノーツ`;
   draw();updateTime();
 }
-function updateTime(){$("currentTime").textContent=fmt(time);$("timeline").value=time}
+function updateTime(){
+  $("currentTime").textContent=fmt(time);
+  const mirror=$("currentTimeMirror");if(mirror)mirror.textContent=fmt(time);
+  $("timeline").value=time
+}
 function resize(){const r=canvas.getBoundingClientRect(),dpr=devicePixelRatio||1;canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
 function draw(){
   const w=canvas.clientWidth,h=canvas.clientHeight;
