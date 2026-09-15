@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2026-09-15
+- Added 「一体いつから」 FINAL drum chart from Songsterr song 3705140 revision 4853202, drum track index 3: 1,828 notes across 181 measures at BPM 175.
+- Added reproducible Songsterr source/build metadata, FINAL-chart validation, and a third mobile song-selection button. Original-audio millisecond alignment remains pending until the source audio is supplied.
+
 - Completed a UI requirements sweep against prior user instructions.
 - Added separate visible ON/OFF controls for generated drum audio and original-song audio.
 - Split note-scroll speed from music playback speed; note speed now supports 0.5x to 8.0x in 0.1x steps.
