@@ -50,14 +50,14 @@ def ranked_streams(data: dict) -> list[dict]:
 
 def copy_url(url: str, out: Path) -> None:
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=60) as src, out.open("wb") as dst:
+    with urllib.request.urlopen(req, timeout=15) as src, out.open("wb") as dst:
         shutil.copyfileobj(src, dst, length=1024 * 1024)
 
 
 def fetch(url: str, out: Path) -> dict:
     vid = video_id_from_url(url)
     errors = []
-    for base in INSTANCES:
+    for base in INSTANCES[:5]:
         try:
             req = urllib.request.Request(
                 f"{base}/streams/{vid}",
