@@ -186,7 +186,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json site/charts/ittai_itsukara/source_metadata.json site/charts/ittai_itsukara/track_audit.json site/charts/ittai_itsukara/tempo_audit.json
+          git add site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json site/charts/ittai_itsukara/source_metadata.json site/charts/ittai_itsukara/track_audit.json site/charts/ittai_itsukara/tempo_audit.json site/charts/ittai_itsukara/drum_property_audit.json
           if git diff --cached --quiet; then
             echo "Ittai chart already up to date"
           else
