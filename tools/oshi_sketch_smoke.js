@@ -15,7 +15,7 @@ function makeCtx(){
   return fn;
 }
 class El{
-  constructor(id='',tag='div'){this.id=id;this.tagName=tag.toUpperCase();this.value='';this.textContent='';this.innerHTML='';this.children=[];this.listeners={};this.style={};this.className='';this.width=800;this.height=800;}
+  constructor(id='',tag='div'){this.id=id;this.tagName=tag.toUpperCase();this.value='';this.textContent='';this.innerHTML='';this.children=[];this.listeners={};this.style={};this.className='';this.width=800;this.height=800;this.classList={add:(x)=>{if(!this.className.includes(x))this.className+=(this.className?' ':'')+x;},remove:(x)=>{this.className=this.className.split(/\\s+/).filter(v=>v&&v!==x).join(' ');}};}
   addEventListener(n,fn){(this.listeners[n]??=[]).push(fn);}
   appendChild(x){this.children.push(x);return x;}
   append(...xs){this.children.push(...xs);}
@@ -25,7 +25,7 @@ class El{
   toDataURL(){return 'data:image/png;base64,AAAA';}
   getBoundingClientRect(){return {left:0,top:0,width:800,height:800};}
 }
-const ids=['rough','objects','result','status','historyList','penBtn','eraserBtn','ojikaObjBtn','personObjBtn','clearBtn','undoBtn','redoBtn','generateBtn','reviseBtn','saveBtn','downloadJsBtn','finishRange','finishValue','expressionPreset','hairPreset','cleanInstruction','revision','description','ojikaIcon','personIcon'];
+const ids=['rough','objects','result','status','historyList','penBtn','eraserBtn','ojikaObjBtn','personObjBtn','clearBtn','undoBtn','redoBtn','generateBtn','reviseBtn','saveBtn','downloadJsBtn','finishRange','finishValue','expressionPreset','hairPreset','cleanInstruction','revision','description','ojikaIcon','personIcon','progressWrap','progressBar','progressText','progressTime'];
 const els=Object.fromEntries(ids.map(id=>[id,new El(id,id.includes('Icon')||['rough','objects','result'].includes(id)?'canvas':'div')]));
 els.finishRange.value='50';
 els.expressionPreset.value='default';
@@ -46,8 +46,10 @@ global.Image=Img;
 global.URL={createObjectURL(){return 'blob:x';},revokeObjectURL(){}};
 global.Blob=class{};
 global.fetch=async()=>({text:async()=>''});
-global.setTimeout=setTimeout;
-global.clearTimeout=clearTimeout;
+global.setTimeout=(fn)=>{fn();return 1;};
+global.clearTimeout=()=>{};
+global.requestAnimationFrame=(fn)=>fn();
+global.performance={now:(()=>{let n=0;return()=>n+=5;})()};
 
 const src=fs.readFileSync('site/oshi-sketch/app.js','utf8');
 vm.runInThisContext(src,{filename:'site/oshi-sketch/app.js'});
