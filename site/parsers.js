@@ -73,7 +73,7 @@ function parseAnalysisJson(text,name){
   const kindMap={kick:"BD",snare:"SN",hihat:"HH",toms:"LT",cymbals:"RC",unknown:"SN"};
   const notes=data.notes.map(n=>({
     time:Number(n.time)||0,
-    part:kindMap[n.kind]||"SN",
+    part:(typeof n.part==="string"&&n.part)?n.part:(kindMap[n.kind]||"SN"),
     velocity:Math.max(0.05,Math.min(1,(Number(n.velocity)||90)/127)),
     alignConfidence:Number(n.confidence)||0
   })).sort((a,b)=>a.time-b.time);
