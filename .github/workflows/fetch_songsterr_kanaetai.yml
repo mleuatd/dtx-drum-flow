@@ -4,7 +4,7 @@ on:
     paths: [".github/workflows/fetch_songsterr_kanaetai.yml"]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -26,6 +26,7 @@ jobs:
           echo "$SOURCE" > out/source-url.txt
           curl -fL --retry 3 -A "$UA" "$SOURCE" -o out/Kanaetai_songsterr_source.gp
           test -s out/Kanaetai_songsterr_source.gp
+          python tools/songsterr_gp_to_chart.py out/Kanaetai_songsterr_source.gp site/charts/kanaetai_koto_bakari/Kanaetai_koto_bakari_FINAL_notes.json --track-index 3 --bpm 143 --duration 246
           python - <<'PY'
           import json, pathlib
           for name in ("meta.json","revisions.json","revision.json"):
@@ -36,6 +37,18 @@ jobs:
                   for k in ("songId","revisionId","source","image","title","artist"):
                       if k in d: print(" ",k,repr(d[k]))
           PY
+      - name: Commit generated FINAL chart
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/charts/kanaetai_koto_bakari/Kanaetai_koto_bakari_FINAL_notes.json
+          if git diff --cached --quiet; then
+            echo "FINAL chart already up to date"
+          else
+            git commit -m "feat: add Kanaetai Koto Bakari FINAL drum chart"
+            git push origin HEAD:main
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
