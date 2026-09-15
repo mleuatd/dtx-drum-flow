@@ -5,7 +5,7 @@ const PARTS=["LC","HH","SN","HT","LT","FT","RC","RD","LP","LB","BD"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
 const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯",RD:"◌",LP:"⌁",LB:"●",BD:"⬤"};
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
-let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,playAnchorCtx=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
+let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
 const partEls=new Map();
 const clampTime=v=>Math.max(0,Math.min(chart.duration,Number(v)||0));
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
@@ -50,10 +50,35 @@ function drumAt(part,vel=.8,when=null,note=null){
 }
 function stopOriginal(){if(originalSource){try{originalSource.stop()}catch{}originalSource=null}}
 function startOriginal(){stopOriginal();if(!audioBuffer||!$("originalSound").checked||!audioCtx)return;const offset=Math.max(0,Math.min(playAnchorChart,audioBuffer.duration-.001));if(offset>=audioBuffer.duration)return;originalSource=audioCtx.createBufferSource();originalSource.buffer=audioBuffer;originalSource.playbackRate.value=playSpeed;originalSource.connect(audioCtx.destination);originalSource.start(playAnchorCtx,offset)}
-function chartTimeFromClock(){if(!playing||!audioCtx)return clampTime(time);const elapsed=Math.max(0,audioCtx.currentTime-playAnchorCtx);return clampTime(playAnchorChart+elapsed*playSpeed)}
+function chartTimeFromClock(){if(!playing)return clampTime(time);const elapsed=Math.max(0,(performance.now()-playAnchorPerf)/1000);return clampTime(playAnchorChart+elapsed*playSpeed)}
 function resetNextNote(at=time){const t=clampTime(at);nextNote=chart.notes.findIndex(n=>n.time>=t-.005);if(nextNote<0)nextNote=chart.notes.length}
 function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.12;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)drumAt(n.part,n.velocity,target,n);nextNote++}}
-async function startPlayback(){if(playing)return;await ensureAudio();if(time>=chart.duration)time=0;time=clampTime(time);playing=true;playSpeed=currentSpeed();playAnchorCtx=audioCtx.currentTime+.05;playAnchorChart=time;resetNextNote(playAnchorChart);startOriginal();scheduleAhead();schedulerTimer=setInterval(scheduleAhead,20);$("playPause").textContent="一時停止 ❚❚"}
+async function startPlayback(){
+  if(playing)return;
+  if(time>=chart.duration)time=0;
+  time=clampTime(time);
+  playSpeed=currentSpeed();
+  playAnchorChart=time;
+  playAnchorPerf=performance.now();
+  playing=true;
+  resetNextNote(playAnchorChart);
+  $("playPause").textContent="一時停止 ❚❚";
+  setStatus("再生中");
+  try{
+    await ensureAudio();
+    if(!playing)return;
+    const elapsed=Math.max(0,(performance.now()-playAnchorPerf)/1000);
+    playAnchorCtx=audioCtx.currentTime+.05;
+    playAnchorChart=clampTime(playAnchorChart+elapsed*playSpeed);
+    playAnchorPerf=performance.now()+50;
+    resetNextNote(playAnchorChart);
+    startOriginal();
+    scheduleAhead();
+    schedulerTimer=setInterval(scheduleAhead,20);
+  }catch(err){
+    setStatus("譜面は再生中です。端末の音声初期化に失敗したためドラム音のみ鳴らせません: "+err.message);
+  }
+}
 function pausePlayback(update=true){if(update&&playing)time=chartTimeFromClock();playing=false;if(schedulerTimer){clearInterval(schedulerTimer);schedulerTimer=null}stopOriginal();stopScheduled();$("playPause").textContent="再生 ▶";updateTime();draw()}
 function toggle(){playing?pausePlayback():startPlayback()}
 function seek(v){const was=playing;if(was)pausePlayback();time=clampTime(v);resetNextNote(time);updateTime();draw();if(was)startPlayback()}
