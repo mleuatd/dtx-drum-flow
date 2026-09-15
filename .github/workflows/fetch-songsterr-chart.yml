@@ -1,0 +1,47 @@
+name: Fetch Luna Say Maybe Songsterr chart
+
+on:
+  push:
+    paths:
+      - "validation/songsterr_reference/REQUEST.txt"
+      - ".github/workflows/fetch-songsterr-chart.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Songsterr converter
+        run: |
+          git clone --depth 1 https://github.com/djrobson5/SongsterrToGuitarPro.git _songsterr
+          python -m pip install -r _songsterr/requirements.txt
+
+      - name: Download Songsterr chart and raw JSON
+        run: |
+          mkdir -p validation/songsterr_reference/output
+          python _songsterr/songsterr_dl.py 1089457 \
+            -o validation/songsterr_reference/output/Luna_say_maybe_songsterr.gp5 \
+            --json
+
+      - name: Inspect tracks
+        shell: bash
+        run: |
+          python _songsterr/songsterr.py 1089457 | tee validation/songsterr_reference/output/tracks.txt
+
+      - name: Upload Songsterr source artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-say-maybe-songsterr-source
+          path: validation/songsterr_reference/output/
+          retention-days: 14
+          if-no-files-found: error
