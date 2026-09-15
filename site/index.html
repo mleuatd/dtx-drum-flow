@@ -22,8 +22,11 @@
   <main class="app">
     <header class="topbar"><div><p class="eyebrow">DRUM PRACTICE / FINAL CHART</p><h1>DTX Drum Flow</h1></div><span id="chartBadge" class="badge">LUNA FINAL</span></header>
     <section class="quick panel">
-      <button id="loadLuna" class="button primary huge">Luna say maybe 完成譜面を再読み込み</button>
-      <label class="button huge secondary">元音源を選ぶ<input id="audioFile" type="file" accept="audio/*" hidden></label>
+      <div class="song-picker" aria-label="曲選択">
+        <button id="loadLuna" class="button primary huge">Luna say maybe</button>
+        <button id="loadKanaetai" class="button secondary huge">叶えたい、ことばかり</button>
+      </div>
+      <label class="button huge secondary audio-picker">元音源を選ぶ<input id="audioFile" type="file" accept="audio/*" hidden></label>
       <div class="summary"><strong id="chartName">Luna say maybe FINAL 読み込み中…</strong><span id="chartMeta">BPM 139 · 2,158ノーツ</span></div>
     </section>
     <section class="stage panel"><div class="stage-head"><span id="stageTitle">LUNA / DRUM CHART</span><span id="currentTime">0:00.0</span></div><canvas id="laneCanvas" aria-label="縦に流れるドラム譜面"></canvas><div class="seek-zone left" aria-label="4小節戻る"></div><div class="seek-zone right" aria-label="4小節進む"></div><div id="parts" class="parts" aria-label="ドラムパート"></div></section>
