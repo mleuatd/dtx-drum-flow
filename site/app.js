@@ -1,11 +1,11 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
 
-const PARTS=["LC","HH","SN","HT","LT","FT","RC","RD","LP","LB","BD"];
+const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
 const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯",RD:"◌",LP:"⌁",LB:"●",BD:"⬤"};
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
-let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
+let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,drumBus=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
 const partEls=new Map();
 const clampTime=v=>Math.max(0,Math.min(chart.duration,Number(v)||0));
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
@@ -19,32 +19,57 @@ function resize(){const r=canvas.getBoundingClientRect(),dpr=devicePixelRatio||1
 function draw(){const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);const lane=w/PARTS.length;ctx.fillStyle="#0e172a";ctx.fillRect(0,0,w,h);ctx.strokeStyle="#223656";ctx.lineWidth=1;for(let i=1;i<PARTS.length;i++){ctx.beginPath();ctx.moveTo(i*lane,0);ctx.lineTo(i*lane,h);ctx.stroke()}const judgeY=h-36,lookAhead=3.3/noteSpeed;const hitNow=chart.notes.some(n=>Math.abs(n.time-time)<=Math.max(.025,.04/currentSpeed()));ctx.save();ctx.strokeStyle=hitNow?"#ffffff":"#86a7ff";ctx.shadowColor=hitNow?"#9fc5ff":"transparent";ctx.shadowBlur=hitNow?22:0;ctx.lineWidth=hitNow?5:3;ctx.beginPath();ctx.moveTo(0,judgeY);ctx.lineTo(w,judgeY);ctx.stroke();ctx.restore();for(const n of chart.notes){const dt=n.time-time;if(dt<0||dt>lookAhead)continue;const x=(PARTS.indexOf(n.part)+.5)*lane,y=judgeY-(dt/lookAhead)*(judgeY-20),conf=Number(n.alignConfidence||0),radius=Math.max(5,lane*.12)*(conf>0?(.78+.22*conf):1);ctx.globalAlpha=conf>0?Math.max(.35,conf):1;ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);ctx.fillStyle=conf>0?(conf>=.65?"#8ad8ff":conf>=.35?"#f0d889":"#e59696"):"#f2f5ff";ctx.fill();ctx.globalAlpha=1}}
 function makeParts(){const root=$("parts");root.innerHTML="";for(const p of PARTS){const el=document.createElement("div");el.className="part";el.innerHTML=`<span class="icon" aria-hidden="true">${PART_ICON[p]}</span><strong>${p}</strong><span class="label">${PART_LABEL[p]}</span>`;root.append(el);partEls.set(p,el)}}
 function flash(part){const el=partEls.get(part);if(!el)return;el.classList.add("hit");setTimeout(()=>el.classList.remove("hit"),90)}
-async function ensureAudio(){audioCtx??=new (window.AudioContext||window.webkitAudioContext)({latencyHint:"interactive"});if(audioCtx.state==="suspended")await audioCtx.resume();return audioCtx}
+async function ensureAudio(){
+  audioCtx??=new (window.AudioContext||window.webkitAudioContext)({latencyHint:"interactive"});
+  if(!drumBus){
+    const input=audioCtx.createGain(),comp=audioCtx.createDynamicsCompressor(),out=audioCtx.createGain();
+    input.gain.value=.92;
+    comp.threshold.value=-18;comp.knee.value=18;comp.ratio.value=4;comp.attack.value=.002;comp.release.value=.12;
+    out.gain.value=.9;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
+  }
+  if(audioCtx.state==="suspended")await audioCtx.resume();
+  return audioCtx
+}
 function trackNode(node){scheduledNodes.push(node);node.addEventListener?.("ended",()=>{scheduledNodes=scheduledNodes.filter(x=>x!==node)},{once:true})}
 function stopScheduled(){for(const n of scheduledNodes){try{n.stop()}catch{}}scheduledNodes=[]}
 function noiseBuffer(seconds=.25){const len=Math.max(1,Math.round(audioCtx.sampleRate*seconds)),b=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;return b}
-function gainEnv(t,peak,attack,decay){const g=audioCtx.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,peak),t+attack);g.gain.exponentialRampToValueAtTime(.0001,t+decay);g.connect(audioCtx.destination);return g}
-function tone(freq,t,dur,gain,type="sine",endFreq=null){const o=audioCtx.createOscillator(),g=gainEnv(t,gain,.002,dur);o.type=type;o.frequency.setValueAtTime(freq,t);if(endFreq)o.frequency.exponentialRampToValueAtTime(endFreq,t+dur*.7);o.connect(g);o.start(t);o.stop(t+dur+.02);trackNode(o)}
-function filteredNoise(t,dur,gain,type,freq,q=.7){const s=audioCtx.createBufferSource(),f=audioCtx.createBiquadFilter(),g=gainEnv(t,gain,.001,dur);s.buffer=noiseBuffer(dur+.03);f.type=type;f.frequency.value=freq;f.Q.value=q;s.connect(f);f.connect(g);s.start(t);s.stop(t+dur+.03);trackNode(s)}
+function gainEnv(t,peak,attack,decay,target=null){const g=audioCtx.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,peak),t+attack);g.gain.exponentialRampToValueAtTime(.0001,t+decay);g.connect(target||drumBus||audioCtx.destination);return g}
+function tone(freq,t,dur,gain,type="sine",endFreq=null,attack=.002){const o=audioCtx.createOscillator(),g=gainEnv(t,gain,attack,dur);o.type=type;o.frequency.setValueAtTime(freq,t);if(endFreq)o.frequency.exponentialRampToValueAtTime(Math.max(20,endFreq),t+dur*.72);o.connect(g);o.start(t);o.stop(t+dur+.025);trackNode(o)}
+function filteredNoise(t,dur,gain,type,freq,q=.7,attack=.001){const s=audioCtx.createBufferSource(),f=audioCtx.createBiquadFilter(),g=gainEnv(t,gain,attack,dur);s.buffer=noiseBuffer(dur+.04);f.type=type;f.frequency.value=freq;f.Q.value=q;s.connect(f);f.connect(g);s.start(t);s.stop(t+dur+.04);trackNode(s)}
+function metalPartials(t,dur,gain,freqs){for(const [i,f] of freqs.entries())tone(f,t+i*.0007,dur*(1-i*.06),gain/(1+i*.42),"triangle",f*.86,.001)}
 function drumAt(part,vel=.8,when=null,note=null){
   if(!$("drumSound").checked||!audioCtx)return;
   const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002),v=Math.max(.18,Math.min(1,vel||.8)),gm=Number(note?.gmNote);
-  if((part==="SN")&&gm===37){
-    /* Luna 2番Aメロのサイドスティック/クロススティック。短い木質の「カッ」。 */
-    tone(920,t,.045,.19*v,"triangle",760);tone(1680,t+.001,.025,.08*v,"sine",1450);filteredNoise(t,.035,.055*v,"bandpass",2300,3.5);
+  if(part==="SN"&&gm===37){
+    /* Luna 2番Aメロ等のサイドスティック/クロススティック。通常SNへ戻さず、木質の「カッ」を独立音色で鳴らす。 */
+    tone(1180,t,.052,.20*v,"triangle",860);tone(2140,t+.001,.031,.09*v,"sine",1750);filteredNoise(t,.038,.07*v,"bandpass",2850,4.2);
   }else if(part==="BD"||part==="LB"){
-    tone(105,t,.19,.42*v,"sine",45);tone(170,t,.055,.10*v,"triangle",70);filteredNoise(t,.025,.045*v,"highpass",3200,.5);
+    /* 低域の胴鳴り + 急なピッチ落下 + ビーターのクリック。筐体で輪郭が見える強いキック。 */
+    tone(145,t,.18,.46*v,"sine",48,.001);tone(72,t+.004,.24,.24*v,"sine",43,.004);filteredNoise(t,.032,.095*v,"bandpass",3600,1.6);filteredNoise(t,.018,.035*v,"highpass",7200,.6);
   }else if(part==="SN"){
-    tone(185,t,.13,.14*v,"triangle",125);filteredNoise(t,.16,.30*v,"bandpass",1900,.8);filteredNoise(t,.055,.09*v,"highpass",6200,.5);
+    /* シェルの胴鳴りとスナッピーを別レイヤー化。 */
+    tone(205,t,.16,.18*v,"triangle",128);tone(330,t,.09,.055*v,"sine",245);filteredNoise(t,.19,.34*v,"bandpass",2100,.75);filteredNoise(t,.085,.13*v,"highpass",6100,.45);
   }else if(part==="HH"||part==="LP"){
-    const open=gm===46,dur=open?.42:.075;filteredNoise(t,dur,.16*v,"highpass",6800,.45);tone(8600,t,open?.18:.045,.025*v,"square",open?6200:7200);
+    const open=gm===46;
+    if(open){
+      filteredNoise(t,.62,.19*v,"highpass",6900,.38);filteredNoise(t+.006,.44,.095*v,"bandpass",9800,1.1);
+      metalPartials(t,.32,.026*v,[5600,7350,9100]);
+    }else{
+      filteredNoise(t,.082,.18*v,"highpass",7600,.42);filteredNoise(t,.052,.08*v,"bandpass",10400,1.35);
+      metalPartials(t,.055,.018*v,[6200,8100]);
+    }
   }else if(part==="HT"||part==="LT"||part==="FT"){
-    const f=part==="HT"?175:part==="LT"?135:95;tone(f,t,.27,.30*v,"sine",f*.72);filteredNoise(t,.07,.075*v,"bandpass",part==="HT"?1500:part==="LT"?1150:850,1.2);
+    const f=part==="HT"?188:part==="LT"?142:part==="FT"?102:88;
+    const dur=part==="HT"?.27:part==="LT"?.32:.39;
+    tone(f*1.22,t,dur*.74,.22*v,"sine",f*.82);tone(f,t+.002,dur,.27*v,"sine",f*.68,.003);
+    filteredNoise(t,.065,.07*v,"bandpass",part==="HT"?1900:part==="LT"?1450:980,1.25);
   }else if(part==="RD"){
-    tone(3100,t,.42,.055*v,"triangle",2600);filteredNoise(t,.34,.095*v,"highpass",5200,.5);
+    /* ライドはベル/ピングの芯を残しつつ、クラッシュより短く制御された余韻。 */
+    tone(2450,t,.5,.07*v,"triangle",2210);tone(4250,t,.38,.038*v,"sine",3900);filteredNoise(t,.48,.105*v,"highpass",5600,.55);
   }else{
-    /* crash / left cymbal: bright attack + long metallic wash */
-    filteredNoise(t,.85,.17*v,"highpass",4200,.4);tone(4700,t,.52,.035*v,"square",3300);tone(7100,t,.36,.022*v,"square",5200);
+    /* LC/RC: 強いクラッシュアタック + 広帯域の金属的な余韻。 */
+    filteredNoise(t,.95,.20*v,"highpass",3900,.35);filteredNoise(t+.004,.58,.085*v,"bandpass",7200,.8);
+    metalPartials(t,.62,.032*v,part==="LC"?[3650,4970,6820]:[3920,5340,7480]);
   }
   setTimeout(()=>flash(part),Math.max(0,(t-audioCtx.currentTime)*1000));
 }
