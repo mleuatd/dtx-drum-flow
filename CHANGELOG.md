@@ -1,6 +1,12 @@
 # Changelog
 
 ## 2026-09-15
+- Completed a UI requirements sweep against prior user instructions.
+- Added separate visible ON/OFF controls for generated drum audio and original-song audio.
+- Split note-scroll speed from music playback speed; note speed now supports 0.5x to 8.0x in 0.1x steps.
+- Notes now disappear at the judgment line instead of flowing past it, and the judgment line flashes on hit timing.
+- Added automated UI contract checks covering the known mobile/Xperia controls and legacy interaction requirements.
+
 - Established GitHub repository as the shared version-control location between ChatGPT Work and normal ChatGPT chats.
 - Added shared project manifest and operating rules.
 - Preserved the existing live site URL as the canonical deployment target.
