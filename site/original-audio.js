@@ -30,7 +30,7 @@ fileInput?.addEventListener("change",e=>{
 });
 playButton?.addEventListener("click",()=>setTimeout(syncPlayback,0));
 timeline?.addEventListener("input",()=>{syncPosition(true);setTimeout(syncPlayback,0)});
-speed?.addEventListener("change",()=>{audio.playbackRate=Math.max(.25,Math.min(4,Number(speed.value)||1));syncPosition(true);setTimeout(syncPlayback,0)});
+speed?.addEventListener("change",()=>{audio.playbackRate=Math.max(.25,Math.min(4,Number(speed.value)||1));syncPosition(true);setTimeout(syncPlayback,0)});\naddEventListener("dtx-chart-change",()=>{audio.pause();loaded=false;if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=""}audio.removeAttribute("src");audio.load();if(fullMixState)fullMixState.textContent=fullMixToggle?.checked?"ON":"OFF"});
 for(const id of ["rewind5","forward5","rewindMeasure","forwardMeasure"]){$(id)?.addEventListener("click",()=>setTimeout(()=>{syncPosition(true);syncPlayback()},0))}
 audio.addEventListener("error",()=>{$("status").textContent="原曲（全楽器）の再生に失敗しました。端末で再生できる MP3 / M4A / WAV を選んでください。"});
 addEventListener("beforeunload",()=>{if(objectUrl)URL.revokeObjectURL(objectUrl)});
