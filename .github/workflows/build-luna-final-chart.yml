@@ -1,0 +1,59 @@
+name: Build Luna Say Maybe final chart
+
+on:
+  push:
+    paths:
+      - "validation/songsterr_reference/BUILD.txt"
+      - "tools/audio_pipeline/songsterr_to_dtx.py"
+      - ".github/workflows/build-luna-final-chart.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch Songsterr source
+        run: |
+          git clone --depth 1 https://github.com/djrobson5/SongsterrToGuitarPro.git _songsterr
+          python -m pip install -r _songsterr/requirements.txt
+          python -m pip install mido
+          mkdir -p _source charts/luna_say_maybe
+          python _songsterr/songsterr_dl.py 1089457 -o _source/Luna.gp5 --json
+
+      - name: Build aligned DTX MIDI JSON
+        run: |
+          python tools/audio_pipeline/songsterr_to_dtx.py \
+            _source/Luna.songsterr.json \
+            -o charts/luna_say_maybe \
+            --offset 1.693 \
+            --audio-duration 266.945306
+
+      - name: Commit generated chart
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add charts/luna_say_maybe
+          if git diff --cached --quiet; then
+            echo "No chart changes to commit"
+          else
+            git commit -m "feat: add rebuilt Luna Say Maybe drum chart"
+            git push
+          fi
+
+      - name: Upload final chart artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-say-maybe-final-chart
+          path: charts/luna_say_maybe/
+          retention-days: 14
