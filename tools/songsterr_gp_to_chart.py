@@ -64,13 +64,27 @@ def _source_bpm(root):
     return 120.0
 
 
-def convert(gp_path: Path, output_path: Path, *, track_index: int, bpm: float, duration: float) -> dict:
+def convert(gp_path: Path, output_path: Path, *, track_index: int | None, bpm: float, duration: float, name: str = "叶えたい、ことばかり - Drums", artist: str = "月村手毬", song_id: int = 2808958, revision_id: int = 3694097) -> dict:
     with zipfile.ZipFile(gp_path) as zf:
         root = ET.fromstring(zf.read("Content/score.gpif"))
 
     master_bars = list(root.find("MasterBars"))
     bars, voices, beats, notes, rhythms = (_index(root.find(x)) for x in ("Bars", "Voices", "Beats", "Notes", "Rhythms"))
     source_bpm = _source_bpm(root)
+
+    tracks = list(root.find("Tracks") or [])
+    if track_index is None:
+        named = []
+        for i, track in enumerate(tracks):
+            track_name = (track.findtext("Name") or "").strip().lower()
+            if any(key in track_name for key in ("drum", "percussion", "battery", "batterie")):
+                named.append(i)
+        if len(named) == 1:
+            track_index = named[0]
+        elif named:
+            track_index = named[0]
+        else:
+            raise ValueError("Could not auto-detect percussion track; pass --track-index")
 
     measure_starts = []
     clock = 0.0
@@ -117,7 +131,7 @@ def convert(gp_path: Path, output_path: Path, *, track_index: int, bpm: float, d
                         "articulation": articulation,
                         "velocity": velocity,
                         "confidence": 0.98,
-                        "source": "Songsterr s2808958 rev 3694097 GP source",
+                        "source": f"Songsterr s{song_id} rev {revision_id} GP source",
                         "measure": measure_index + 1,
                         "voice": voice_slot,
                         "beatIndex": beat_index,
@@ -136,15 +150,15 @@ def convert(gp_path: Path, output_path: Path, *, track_index: int, bpm: float, d
 
     result_notes.sort(key=lambda n: (n["time"], n["part"], n["gmNote"]))
     chart = {
-        "name": "叶えたい、ことばかり - Drums",
-        "artist": "月村手毬",
-        "source": "Songsterr s2808958 rev 3694097 GP source (AI transcription; Songsterr review: excellent) + public BPM/duration cross-check",
-        "songsterrSongId": 2808958,
-        "songsterrRevisionId": 3694097,
+        "name": name,
+        "artist": artist,
+        "source": f"Songsterr s{song_id} rev {revision_id} GP source + public BPM/duration cross-check",
+        "songsterrSongId": song_id,
+        "songsterrRevisionId": revision_id,
         "songsterrTrackIndex": track_index,
         "sourceScoreBpm": source_bpm,
         "bpm": bpm,
-        "tempoDecision": "The GP source encodes 144 BPM. Public instrumental analysis reports 143 BPM; 143 is used pending original-audio millisecond alignment because it better matches the released 4:06 duration over the 144-measure score.",
+        "tempoDecision": f"Source score BPM {source_bpm:g}; chart BPM {bpm:g}. Original-audio millisecond alignment remains pending unless separately documented.",
         "measureCount": len(master_bars),
         "duration": duration,
         "chartOffsetSec": 0.0,
@@ -168,11 +182,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("gp_source", type=Path)
     ap.add_argument("output_json", type=Path)
-    ap.add_argument("--track-index", type=int, default=3)
+    ap.add_argument("--track-index", type=int, default=None)
     ap.add_argument("--bpm", type=float, default=143.0)
     ap.add_argument("--duration", type=float, default=246.0)
+    ap.add_argument("--name", default="叶えたい、ことばかり - Drums")
+    ap.add_argument("--artist", default="月村手毬")
+    ap.add_argument("--song-id", type=int, default=2808958)
+    ap.add_argument("--revision-id", type=int, default=3694097)
     args = ap.parse_args()
-    convert(args.gp_source, args.output_json, track_index=args.track_index, bpm=args.bpm, duration=args.duration)
+    convert(args.gp_source, args.output_json, track_index=args.track_index, bpm=args.bpm, duration=args.duration,
+            name=args.name, artist=args.artist, song_id=args.song_id, revision_id=args.revision_id)
 
 
 if __name__ == "__main__":
