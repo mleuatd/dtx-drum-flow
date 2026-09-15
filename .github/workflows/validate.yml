@@ -1,0 +1,30 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax-and-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install basic audio dependencies
+        run: pip install -r tools/audio_pipeline/requirements.txt
+      - name: Python syntax
+        run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py
+      - name: Pipeline CLI smoke test
+        run: |
+          python tools/audio_pipeline/pipeline.py --help
+          python tools/audio_pipeline/evaluate.py --help
+      - name: Browser JavaScript syntax
+        run: |
+          node --check site/app.js
+          node --check site/parsers.js
+          node --check site/audio-analysis.js

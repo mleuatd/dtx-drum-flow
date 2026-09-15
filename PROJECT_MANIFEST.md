@@ -45,3 +45,11 @@ Use multiple signals rather than trusting a single Audio-to-MIDI path:
 
 ## CHANGELOG pointer
 See CHANGELOG.md.
+
+
+## Precision audio pipeline
+- Location: `tools/audio_pipeline/`
+- Preferred high-accuracy route: full mix -> Demucs drums stem -> drumsep per-kit stems -> per-stem onset detection -> optional ADTOF Plus MIDI -> global source-offset estimation -> multi-source consensus -> original-mix transient snap -> final JSON/MIDI.
+- Browser integration: `site/parsers.js` accepts the generated `notes.json`.
+- Heavy analysis is intentionally kept outside the browser.
+- Third-party code and model weights are not vendored; upstream licenses apply.

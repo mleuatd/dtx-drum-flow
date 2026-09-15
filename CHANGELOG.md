@@ -8,3 +8,7 @@
 - Reconstructed executable site source under `site/` from the current site's known behavior and requirements because the original ChatGPT Site projection source is not exportable from normal chat.
 - Added browser-side MIDI / DTX / GDA parsing, internal drum playback, measure seeking, original-audio onset detection, and per-note timing realignment.
 - Fixed initial JavaScript issues in DTX channel mapping and the note realignment loop.
+
+- Added a precision audio-analysis pipeline under `tools/audio_pipeline/`.
+- Added optional Demucs -> drumsep separation, optional ADTOF Plus transcription, original-mix transient reference, cross-source voting, confidence scoring, global timing-offset correction, local transient snapping, JSON/MIDI diagnostics, Windows helper scripts, and CI validation.
+- Added browser import support for precision-pipeline `notes.json`.
