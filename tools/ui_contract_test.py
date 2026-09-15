@@ -8,7 +8,7 @@ parsers=(root/"site/parsers.js").read_text(encoding="utf-8")
 css=(root/"site/styles.css").read_text(encoding="utf-8")
 
 checks = {
-    "11 drum lanes": 'const PARTS=["LC","HH","SN","HT","LT","FT","RC","RD","LP","LB","BD"]' in js,
+    "11 drum lanes": 'const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"]' in js and 'SN","BD","HT' in js,
     "song selection combobox": 'id="songSelect"' in html and '<option value="luna">Luna say maybe</option>' in html and '<option value="kanaetai">叶えたい、ことばかり</option>' in html and '<option value="ittai">一体いつから</option>' in html,
     "song selection loader": '$("songSelect").addEventListener("change",loadSelectedSong)' in js and 'Luna_say_maybe_FINAL_notes.json' in js and 'Kanaetai_koto_bakari_FINAL_notes.json' in js and 'Ittai_itsukara_FINAL_notes.json' in js,
     "original sound toggle": 'id="originalSound"' in html and '$("originalSound").onchange' in js,
