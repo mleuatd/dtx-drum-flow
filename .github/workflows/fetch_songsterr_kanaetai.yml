@@ -22,6 +22,10 @@ jobs:
           python -m json.tool out/meta.json >/dev/null
           python -m json.tool out/revisions.json >/dev/null
           python -m json.tool out/revision.json >/dev/null
+          SOURCE=$(python -c 'import json; print(json.load(open("out/revision.json"))["source"])')
+          echo "$SOURCE" > out/source-url.txt
+          curl -fL --retry 3 -A "$UA" "$SOURCE" -o out/Kanaetai_songsterr_source.gp
+          test -s out/Kanaetai_songsterr_source.gp
           python - <<'PY'
           import json, pathlib
           for name in ("meta.json","revisions.json","revision.json"):
