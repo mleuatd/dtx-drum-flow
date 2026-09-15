@@ -32,6 +32,9 @@ jobs:
           node --check site/parsers.js
           node --check site/audio-analysis.js
           node --check site/original-audio.js
+          node --check site/oshi-sketch/app.js
+      - name: Oshi sketch smoke test
+        run: node tools/oshi_sketch_smoke.js
       - name: FINAL chart validation and Luna regression
         run: python tools/chart_validation.py
       - name: UI contract checks
