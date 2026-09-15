@@ -32,6 +32,8 @@ checks = {
     "DTX OFFSET": '#OFFSET' in parsers,
     "Xperia viewport": 'viewport-fit=cover' in html and 'user-scalable=no' in html,
     "fixed mobile transport": '.mobile-transport' in css and 'position:fixed' in css,
+    "playback independent from audio clock": 'playAnchorPerf=performance.now()' in js and '(performance.now()-playAnchorPerf)/1000' in js,
+    "play button immediate state": '$("playPause").textContent="一時停止 ❚❚"' in js and 'setStatus("再生中")' in js,
 }
 
 failed=[name for name,ok in checks.items() if not ok]
