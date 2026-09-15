@@ -45,7 +45,7 @@ jobs:
           curl -fL --retry 3 -A "$UA" "$SOURCE" -o out/Ittai_itsukara_songsterr_source.gp
           test -s out/Ittai_itsukara_songsterr_source.gp
           python tools/songsterr_gp_to_chart.py out/Ittai_itsukara_songsterr_source.gp site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json \
-            --bpm 175 --duration 254 --name "一体いつから - Drums" --artist "月村手毬" \
+            --track-index 3 --bpm 175 --duration 254 --name "一体いつから - Drums" --artist "月村手毬" \
             --song-id "$SONG_ID" --revision-id "$REVISION_ID"
           python - <<'PY'
           import json, zipfile, xml.etree.ElementTree as ET
