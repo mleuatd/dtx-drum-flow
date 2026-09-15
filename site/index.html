@@ -3,109 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-  <meta name="theme-color" content="#0b1020">
-  <title>DTX Drum Flow</title>
+  <meta name="theme-color" content="#2516ff">
+  <title>DTX Drum Flow — Luna FINAL</title>
   <link rel="stylesheet" href="./styles.css">
+  <style>
+    :root{--luna-blue:#2516ff;--luna-ink:#070716;--luna-ivory:#f7f3ea;--luna-lime:#baff00}
+    html,body{background:var(--luna-ink)}
+    body{background:radial-gradient(circle at 18% 8%,#3027ff66 0 2px,transparent 3px),radial-gradient(circle at 84% 16%,#baff0066 0 2px,transparent 3px),linear-gradient(180deg,#080817,#10102a 48%,#070712);background-size:53px 61px,79px 73px,auto}
+    .app{max-width:820px}.topbar{background:var(--luna-ivory);color:var(--luna-ink);margin:0 -10px 10px;padding:13px 15px;border-bottom:7px solid var(--luna-blue);position:relative;overflow:hidden}.topbar:after{content:"LUNA  SAY  MAYBE";position:absolute;right:-14px;bottom:-8px;font-size:34px;font-weight:1000;letter-spacing:-.08em;color:#0a0920;opacity:.08;white-space:nowrap}.eyebrow{color:var(--luna-blue);font-weight:900}.topbar h1{color:var(--luna-ink);font-weight:1000;letter-spacing:-.045em}.badge{background:var(--luna-blue);border:0;color:#fff;font-weight:900}
+    .panel{background:#0c0c20;border:2px solid #3328ff;border-radius:7px;box-shadow:7px 7px 0 #2516ff33}.quick{background:linear-gradient(135deg,#2516ff 0 38%,#0a0a18 38% 100%);position:relative;overflow:hidden}.quick:after{content:"MAYBE";position:absolute;right:-7px;bottom:-18px;font-size:70px;font-weight:1000;color:#fff;opacity:.055;pointer-events:none}.button{border:2px solid var(--luna-ivory);background:#0a0a18;color:var(--luna-ivory);border-radius:4px;box-shadow:4px 4px 0 #000;font-weight:950}.button.primary{background:var(--luna-ivory);border-color:var(--luna-ivory);color:var(--luna-blue)}.button.secondary{background:var(--luna-blue);color:#fff}.summary strong{color:var(--luna-lime)}
+    .stage{border-color:var(--luna-blue);background:#090919}.stage-head{background:var(--luna-ivory);color:var(--luna-ink);border-bottom:5px solid var(--luna-blue);font-weight:1000}.parts{background:#0b0b1c;border-top:4px solid var(--luna-lime)}.part{border-right:1px solid #352cff;color:#d8d6ff}.part strong{color:var(--luna-ivory)}.part.hit{background:var(--luna-blue);box-shadow:0 0 26px var(--luna-lime) inset}.part.hit strong{color:var(--luna-lime)}
+    .timeline-card{border-left:9px solid var(--luna-lime)}input[type=range]{accent-color:var(--luna-lime)}.sound-toggle{background:#15152b;border:2px solid #3027ff;border-radius:4px}.sound-toggle input{accent-color:var(--luna-lime)}.sound-toggle strong{color:var(--luna-lime)}.speed-controls{background:linear-gradient(90deg,#0b0b1c 0 78%,#2516ff 78%)}.speed-block strong{color:var(--luna-lime)}.advanced summary{color:var(--luna-lime)}.status-panel{border-right:9px solid var(--luna-lime)}.status-panel h2{color:var(--luna-lime)}
+    .mobile-transport{background:#070716f2;border-top:4px solid var(--luna-lime)}.mobile-transport button{border:2px solid var(--luna-ivory);border-radius:3px}.transport-side{background:#101025}.transport-play{background:var(--luna-blue);border-color:var(--luna-lime)!important;color:#fff}
+    @media(max-width:699px){.app{padding:8px}.topbar{margin:-8px -8px 8px}.stage{height:60vh;min-height:460px}.quick{grid-template-columns:1fr 1fr}.quick .summary{grid-column:1/-1}.button.huge{font-size:13px;padding:9px 7px}.topbar h1{font-size:23px}}
+  </style>
 </head>
 <body>
   <main class="app">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">DRUM PRACTICE</p>
-        <h1>DTX Drum Flow</h1>
-      </div>
-      <span class="badge">Xperia向け</span>
-    </header>
-
+    <header class="topbar"><div><p class="eyebrow">DRUM PRACTICE / FINAL CHART</p><h1>DTX Drum Flow</h1></div><span class="badge">LUNA FINAL</span></header>
     <section class="quick panel">
-      <button id="loadLuna" class="button primary huge">Luna say maybe 完成譜面を開く</button>
-      <label class="button huge secondary">
-        元音源を選ぶ
-        <input id="audioFile" type="file" accept="audio/*" hidden>
-      </label>
-      <div class="summary">
-        <strong id="chartName">8ビート練習サンプル</strong>
-        <span id="chartMeta">120 BPM · 13.0秒 · 87ノーツ</span>
-      </div>
+      <button id="loadLuna" class="button primary huge">FINAL譜面を再読み込み</button>
+      <label class="button huge secondary">元音源を選ぶ<input id="audioFile" type="file" accept="audio/*" hidden></label>
+      <div class="summary"><strong id="chartName">Luna say maybe FINAL 読み込み中…</strong><span id="chartMeta">BPM 139 · 2,158ノーツ</span></div>
     </section>
-
-    <section class="stage panel">
-      <div class="stage-head">
-        <span>譜面</span>
-        <span id="currentTime">0:00.0</span>
-      </div>
-      <canvas id="laneCanvas" aria-label="縦に流れるドラム譜面"></canvas>
-      <div class="seek-zone left" aria-label="4小節戻る"></div>
-      <div class="seek-zone right" aria-label="4小節進む"></div>
-      <div id="parts" class="parts" aria-label="ドラムパート"></div>
-    </section>
-
-    <section class="timeline-card panel">
-      <input id="timeline" type="range" min="0" max="13" value="0" step="0.001" aria-label="再生位置">
-      <div class="time-row">
-        <span>現在 <strong id="currentTimeMirror">0:00.0</strong></span>
-        <span>終了 <strong id="duration">0:13.0</strong></span>
-      </div>
-    </section>
-
-    <section class="sound-controls panel" aria-label="音の切り替え">
-      <label class="sound-toggle">
-        <input id="drumSound" type="checkbox" checked>
-        <span>ドラム</span><strong id="drumSoundState">ON</strong>
-      </label>
-      <label class="sound-toggle">
-        <input id="originalSound" type="checkbox" checked>
-        <span>原曲</span><strong id="originalSoundState">ON</strong>
-      </label>
-    </section>
-
-    <section class="speed-controls panel">
-      <div class="speed-block">
-        <label for="noteSpeed">ノーツ速度 <strong id="noteSpeedValue">1.0×</strong></label>
-        <input id="noteSpeed" type="range" min="0.5" max="8" value="1" step="0.1">
-      </div>
-      <div class="playback-row">
-        <button id="rewind5" class="button">−5秒</button>
-        <label>音楽速度
-          <select id="speed">
-            <option>0.5</option><option>0.75</option><option selected>1</option>
-            <option>1.25</option><option>1.5</option><option>2</option>
-          </select>×
-        </label>
-        <button id="forward5" class="button">＋5秒</button>
-      </div>
-    </section>
-
-    <details class="panel advanced">
-      <summary>詳細設定・ファイル操作</summary>
-      <div class="advanced-body">
-        <div class="file-grid">
-          <label class="button">
-            譜面ファイルを開く
-            <input id="chartFile" type="file" accept=".mid,.midi,.dtx,.gda,.json" hidden>
-          </label>
-          <button id="loadSample" class="button">サンプル譜面</button>
-          <button id="exportJson" class="button">譜面JSON保存</button>
-        </div>
-        <button id="alignAudio" class="button" disabled>元音源にタイミング補正</button>
-        <div id="dropZone" class="drop-hint">
-          譜面・音源をドラッグ＆ドロップ
-        </div>
-      </div>
-    </details>
-
-    <section class="panel status-panel">
-      <h2>状態</h2>
-      <p id="status">「Luna say maybe 完成譜面を開く」を押してください。</p>
-    </section>
+    <section class="stage panel"><div class="stage-head"><span>LUNA / DRUM CHART</span><span id="currentTime">0:00.0</span></div><canvas id="laneCanvas" aria-label="縦に流れるドラム譜面"></canvas><div class="seek-zone left" aria-label="4小節戻る"></div><div class="seek-zone right" aria-label="4小節進む"></div><div id="parts" class="parts" aria-label="ドラムパート"></div></section>
+    <section class="timeline-card panel"><input id="timeline" type="range" min="0" max="266.945306" value="0" step="0.001" aria-label="再生位置"><div class="time-row"><span>現在 <strong id="currentTimeMirror">0:00.0</strong></span><span>終了 <strong id="duration">4:26.9</strong></span></div></section>
+    <section class="sound-controls panel" aria-label="音の切り替え"><label class="sound-toggle"><input id="drumSound" type="checkbox" checked><span>ドラム</span><strong id="drumSoundState">ON</strong></label><label class="sound-toggle"><input id="originalSound" type="checkbox" checked><span>原曲</span><strong id="originalSoundState">ON</strong></label></section>
+    <section class="speed-controls panel"><div class="speed-block"><label for="noteSpeed">ノーツ速度 <strong id="noteSpeedValue">1.0×</strong></label><input id="noteSpeed" type="range" min="0.5" max="8" value="1" step="0.1"></div><div class="playback-row"><button id="rewind5" class="button">−5秒</button><label>音楽速度 <select id="speed"><option>0.5</option><option>0.75</option><option selected>1</option><option>1.25</option><option>1.5</option><option>2</option></select>×</label><button id="forward5" class="button">＋5秒</button></div></section>
+    <details class="panel advanced"><summary>詳細設定・ファイル操作</summary><div class="advanced-body"><div class="file-grid"><label class="button">譜面ファイルを開く<input id="chartFile" type="file" accept=".mid,.midi,.dtx,.gda,.json" hidden></label><button id="loadSample" class="button">サンプル譜面</button><button id="exportJson" class="button">譜面JSON保存</button></div><button id="alignAudio" class="button" disabled>元音源にタイミング補正</button><div id="dropZone" class="drop-hint">譜面・音源をドラッグ＆ドロップ</div></div></details>
+    <section class="panel status-panel"><h2>STATUS</h2><p id="status">FINAL譜面を自動読み込みしています…</p></section>
   </main>
-
-  <nav class="mobile-transport" aria-label="再生操作">
-    <button id="rewindMeasure" class="transport-side">−4小節</button>
-    <button id="playPause" class="transport-play">再生 ▶</button>
-    <button id="forwardMeasure" class="transport-side">＋4小節</button>
-  </nav>
-
+  <nav class="mobile-transport" aria-label="再生操作"><button id="rewindMeasure" class="transport-side">−4小節</button><button id="playPause" class="transport-play">再生 ▶</button><button id="forwardMeasure" class="transport-side">＋4小節</button></nav>
   <script type="module" src="./app.js"></script>
+  <script>addEventListener("load",()=>setTimeout(()=>document.getElementById("loadLuna")?.click(),250));</script>
 </body>
 </html>
