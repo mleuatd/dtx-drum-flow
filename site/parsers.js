@@ -67,7 +67,6 @@ function parseTextChart(text,name){
   notes.sort((a,b)=>a.time-b.time);return {name,bpm,duration:(notes.at(-1)?.time||0)+secPerMeasure,notes,offset};
 }
 
-
 function parseAnalysisJson(text,name){
   const data=JSON.parse(text);
   if(!Array.isArray(data.notes)) throw new Error("notes.json の形式が不正です");
@@ -76,9 +75,12 @@ function parseAnalysisJson(text,name){
     time:Number(n.time)||0,
     part:(typeof n.part==="string"&&n.part)?n.part:(kindMap[n.kind]||"SN"),
     velocity:Math.max(0.05,Math.min(1,(Number(n.velocity)||90)/127)),
-    alignConfidence:Number(n.confidence)||0
+    alignConfidence:Number(n.confidence)||0,
+    measure:Number(n.measure)||0,
+    beatIndex:Number(n.beatIndex)||0,
+    source:n.source||data.source||""
   })).sort((a,b)=>a.time-b.time);
   const bpm=Number(data.bpm)||120;
-  const duration=(notes.at(-1)?.time||0)+2;
-  return {name,bpm,duration,notes};
+  const duration=Number(data.duration)||((notes.at(-1)?.time||0)+2);
+  return {name:data.name||name,bpm,duration,notes,chartOffsetSec:Number(data.chartOffsetSec)||0,source:data.source||"",alignment:data.alignment||null};
 }
