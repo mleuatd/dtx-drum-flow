@@ -15,3 +15,10 @@
 
 - Completed the browser trainer baseline with drag-and-drop import, four-measure seek buttons, double-tap/double-click measure seeking, lane part icons, chart JSON export, original-audio playback, Web Audio scheduled drum hits, timing realignment, and precision-pipeline JSON import.
 - Added GitHub Pages deployment workflow and deployment handoff documentation for eventual republishing to the existing ChatGPT Site URL.
+
+- Recovered the actual Luna say maybe source MP3 and the previously generated drums-only MP3/MIDI from Library and performed real-audio validation.
+- Measured per-family timing against original-mix frequency-band transient evidence. Kick aligned strongly; snare/toms/hihat/cymbals showed substantial low-confidence/likely misclassification regions.
+- Added `validation/luna_say_maybe/REPORT.md` and diagnostics.
+- Added `realign_existing_midi.py` for per-family global offset correction and local source-audio transient snapping.
+- Updated the main pipeline to use frequency-band evidence and to degrade gracefully when Demucs/drumsep executables exist but required model weights are unavailable.
+- Browser JSON import now preserves detailed drum-part labels and visualizes per-note confidence.
