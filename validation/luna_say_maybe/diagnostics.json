@@ -1,0 +1,13 @@
+{
+  "audioDurationSec": 266.945,
+  "estimatedBpm": 139.675,
+  "originalMidiNotes": 2236,
+  "familySummary": {
+    "kick": {"count": 533, "globalOffsetMs": -8.0, "snappedPct": 95.5, "meanAbsTotalShiftMs": 12.59, "p90AbsTotalShiftMs": 24.05, "meanConfidence": 0.798, "lowConfidencePct": 5.3},
+    "toms": {"count": 137, "globalOffsetMs": -14.0, "snappedPct": 49.6, "meanAbsTotalShiftMs": 17.35, "p90AbsTotalShiftMs": 29.5, "meanConfidence": 0.373, "lowConfidencePct": 53.3},
+    "snare": {"count": 856, "globalOffsetMs": -14.0, "snappedPct": 43.0, "meanAbsTotalShiftMs": 15.79, "p90AbsTotalShiftMs": 21.63, "meanConfidence": 0.34, "lowConfidencePct": 59.8},
+    "hihat": {"count": 413, "globalOffsetMs": -8.0, "snappedPct": 56.7, "meanAbsTotalShiftMs": 8.86, "p90AbsTotalShiftMs": 14.31, "meanConfidence": 0.451, "lowConfidencePct": 45.5},
+    "cymbals": {"count": 297, "globalOffsetMs": -10.0, "snappedPct": 53.9, "meanAbsTotalShiftMs": 12.92, "p90AbsTotalShiftMs": 20.06, "meanConfidence": 0.405, "lowConfidencePct": 53.2}
+  },
+  "method": "frequency-band spectral-flux evidence + per-family global offset + local transient snap"
+}
