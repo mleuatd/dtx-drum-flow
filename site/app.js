@@ -19,6 +19,7 @@ let nextNote=0;
 let playAnchorCtx=0;
 let playAnchorChart=0;
 let playSpeed=1;
+let noteSpeed=1;
 const partEls=new Map();
 
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
@@ -68,11 +69,18 @@ function draw(){
   ctx.strokeStyle="#223656";ctx.lineWidth=1;
   for(let i=1;i<PARTS.length;i++){ctx.beginPath();ctx.moveTo(i*lane,0);ctx.lineTo(i*lane,h);ctx.stroke()}
   const judgeY=h-36;
-  ctx.strokeStyle="#86a7ff";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(0,judgeY);ctx.lineTo(w,judgeY);ctx.stroke();
-  const lookAhead=3.3,lookBack=.35;
+  const lookAhead=3.3/noteSpeed;
+  const hitNow=chart.notes.some(n=>Math.abs(n.time-time)<=Math.max(.025,.04/currentSpeed()));
+  ctx.save();
+  ctx.strokeStyle=hitNow?"#ffffff":"#86a7ff";
+  ctx.shadowColor=hitNow?"#9fc5ff":"transparent";
+  ctx.shadowBlur=hitNow?22:0;
+  ctx.lineWidth=hitNow?5:3;
+  ctx.beginPath();ctx.moveTo(0,judgeY);ctx.lineTo(w,judgeY);ctx.stroke();
+  ctx.restore();
   for(const n of chart.notes){
     const dt=n.time-time;
-    if(dt<-lookBack||dt>lookAhead)continue;
+    if(dt<0||dt>lookAhead)continue;
     const x=(PARTS.indexOf(n.part)+.5)*lane,y=judgeY-(dt/lookAhead)*(judgeY-20);
     const conf=Number(n.alignConfidence||0);
     const radius=Math.max(5,lane*.12)*(conf>0?(.78+.22*conf):1);
@@ -104,6 +112,7 @@ function stopScheduled(){
   scheduledNodes=[];
 }
 function drumAt(part,vel=.8,when=null){
+  if(!$("drumSound").checked)return;
   ensureAudio();
   const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002);
   const g=audioCtx.createGain();
@@ -131,7 +140,7 @@ function drumAt(part,vel=.8,when=null){
 function stopOriginal(){if(originalSource){try{originalSource.stop()}catch{} originalSource=null}}
 function startOriginal(){
   stopOriginal();
-  if(!audioBuffer||$("drumOnly").checked)return;
+  if(!audioBuffer||!$("originalSound").checked)return;
   const offset=Math.max(0,Math.min(time,audioBuffer.duration-.001));
   if(offset>=audioBuffer.duration)return;
   originalSource=audioCtx.createBufferSource();
@@ -250,7 +259,27 @@ $("rewindMeasure").onclick=()=>seek(time-measureSeconds()*4);
 $("forwardMeasure").onclick=()=>seek(time+measureSeconds()*4);
 $("timeline").oninput=e=>seek(Number(e.target.value));
 $("speed").onchange=restartAtCurrentForSpeedChange;
-$("drumOnly").onchange=()=>{if(playing){const t=chartTimeFromClock();pausePlayback(false);time=t;startPlayback()}};
+
+function syncSoundToggleUi(){
+  $("drumSoundState").textContent=$("drumSound").checked?"ON":"OFF";
+  $("originalSoundState").textContent=$("originalSound").checked?"ON":"OFF";
+}
+$("drumSound").onchange=()=>{
+  syncSoundToggleUi();
+  if(playing){resetNextNote();scheduleAhead()}
+};
+$("originalSound").onchange=()=>{
+  syncSoundToggleUi();
+  if(playing){
+    const t=chartTimeFromClock();
+    pausePlayback(false);time=t;startPlayback();
+  }
+};
+$("noteSpeed").oninput=e=>{
+  noteSpeed=Math.max(.5,Math.min(8,Number(e.target.value)||1));
+  $("noteSpeedValue").textContent=noteSpeed.toFixed(1)+"×";
+  draw();
+};
 
 for(const [sel,dir] of [[".seek-zone.left",-1],[".seek-zone.right",1]]){
   let last=0;
@@ -291,4 +320,4 @@ dropZone.addEventListener("drop",async e=>{
   }
 });
 addEventListener("resize",resize);
-makeParts();setChart(chart);resize();requestAnimationFrame(loop);
+makeParts();syncSoundToggleUi();setChart(chart);resize();requestAnimationFrame(loop);
