@@ -15,7 +15,7 @@ checks = {
     "drum sound toggle": 'id="drumSound"' in html and '$("drumSound").onchange' in js,
     "sound toggles horizontal": '.sound-controls' in css and 'grid-template-columns:1fr 1fr' in css,
     "note speed range": re.search(r'id="noteSpeed"[^>]*min="0\.5"[^>]*max="8"[^>]*value="1"[^>]*step="0\.1"', html) is not None,
-    "note speed separate variable": 'let noteSpeed=1' in js and 'const lookAhead=3.3/noteSpeed' in js,
+    "note speed separate variable": re.search(r'\bnoteSpeed\s*=\s*1\b', js) is not None and 'const lookAhead=3.3/noteSpeed' in js,
     "music speed control remains": 'id="speed"' in html and '音楽速度' in html,
     "notes never pass judgment line": 'if(dt<0||dt>lookAhead)continue' in js,
     "judgment line flashes": 'const hitNow=' in js and 'ctx.shadowBlur=hitNow?22:0' in js,
