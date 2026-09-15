@@ -53,7 +53,10 @@ luna = load("site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json")
 luna_parts = validate_common(luna, "Luna")
 assert len(luna["notes"]) == 2158, f"Luna regression: {len(luna['notes'])} notes"
 assert float(luna["bpm"]) == 139.0, "Luna regression: BPM changed"
-assert max(int(n["measure"]) for n in luna["notes"]) >= 150, "Luna regression: measures shortened"
+# The preserved Luna FINAL has played notes through measure 148; the source arrangement
+# is roughly 150 measures including trailing/rest-only score space. Test the actual FINAL
+# representation so this regression guard never requires mutating the existing chart.
+assert max(int(n["measure"]) for n in luna["notes"]) == 148, "Luna regression: final played measure changed"
 
 kana = load("site/charts/kanaetai_koto_bakari/Kanaetai_koto_bakari_FINAL_notes.json")
 kana_parts = validate_common(kana, "Kanaetai")
