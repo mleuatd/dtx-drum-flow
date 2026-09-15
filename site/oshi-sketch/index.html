@@ -366,8 +366,84 @@ function getCleanSettings(){
 }
 function mergedSourceCanvas(){
  const t=document.createElement('canvas');t.width=800;t.height=800;
- const x=t.getContext('2d');white(x,t);x.drawImage(rough,0,0);x.drawImage(objectCanvas,0,0);
+ const x=t.getContext('2d');white(x,t);x.drawImage(rough,0,0);
  return t;
+}
+function cleanLine(ctx,finish){
+ ctx.strokeStyle='#111';ctx.fillStyle='#111';ctx.lineCap='round';ctx.lineJoin='round';
+ ctx.lineWidth=finish<35?3:finish>70?2:2.5;
+}
+function drawCleanPerson(ctx,o,finish){
+ const s=o.scale||1,x=o.x,y=o.y;
+ ctx.save();cleanLine(ctx,finish);
+ ctx.beginPath();ctx.arc(x,y-46*s,24*s,0,Math.PI*2);ctx.stroke();
+ ctx.beginPath();ctx.moveTo(x,y-20*s);ctx.lineTo(x,y+40*s);
+ ctx.moveTo(x,y);ctx.lineTo(x-30*s,y+18*s);ctx.moveTo(x,y);ctx.lineTo(x+30*s,y+18*s);
+ ctx.moveTo(x,y+40*s);ctx.lineTo(x-24*s,y+80*s);ctx.moveTo(x,y+40*s);ctx.lineTo(x+24*s,y+80*s);ctx.stroke();
+ ctx.restore();
+}
+function drawCleanOjika(ctx,o,settings){
+ const s=o.scale||1,x=o.x,y=o.y,finish=settings.finish;
+ ctx.save();cleanLine(ctx,finish);
+ const headY=y-48*s,headR=28*s;
+ ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,headY,headR,0,Math.PI*2);ctx.fill();ctx.stroke();
+
+ // hair silhouette
+ ctx.beginPath();
+ if(settings.hair==='twin'){
+   ctx.arc(x,headY-2*s,30*s,Math.PI*.95,Math.PI*2.05);
+   ctx.moveTo(x-24*s,headY-10*s);ctx.quadraticCurveTo(x-48*s,headY,x-38*s,headY+26*s);
+   ctx.moveTo(x+24*s,headY-10*s);ctx.quadraticCurveTo(x+48*s,headY,x+38*s,headY+26*s);
+ }else if(settings.hair==='pony'){
+   ctx.arc(x,headY-2*s,30*s,Math.PI*.95,Math.PI*2.05);
+   ctx.moveTo(x+24*s,headY-6*s);ctx.quadraticCurveTo(x+55*s,headY+12*s,x+34*s,headY+42*s);
+ }else if(settings.hair==='half'){
+   ctx.arc(x,headY-2*s,30*s,Math.PI*.95,Math.PI*2.05);
+   ctx.moveTo(x-22*s,headY+2*s);ctx.lineTo(x-26*s,headY+38*s);
+   ctx.moveTo(x+22*s,headY+2*s);ctx.lineTo(x+26*s,headY+38*s);
+ }else{
+   ctx.arc(x,headY-2*s,30*s,Math.PI*.95,Math.PI*2.05);
+   ctx.moveTo(x-24*s,headY);ctx.lineTo(x-28*s,headY+42*s);
+   ctx.moveTo(x+24*s,headY);ctx.lineTo(x+28*s,headY+42*s);
+ }
+ ctx.stroke();
+
+ // bangs
+ ctx.beginPath();
+ ctx.moveTo(x-20*s,headY-18*s);ctx.quadraticCurveTo(x-8*s,headY-8*s,x-4*s,headY-20*s);
+ ctx.moveTo(x-2*s,headY-20*s);ctx.quadraticCurveTo(x+8*s,headY-8*s,x+18*s,headY-17*s);ctx.stroke();
+
+ // expression
+ ctx.beginPath();
+ if(settings.expression==='void-max'){
+   ctx.moveTo(x-14*s,headY);ctx.lineTo(x-5*s,headY);
+   ctx.moveTo(x+5*s,headY);ctx.lineTo(x+14*s,headY);
+   ctx.moveTo(x-2*s,headY+13*s);ctx.lineTo(x+2*s,headY+13*s);
+ }else if(settings.expression==='void'){
+   ctx.moveTo(x-13*s,headY);ctx.lineTo(x-6*s,headY+1*s);
+   ctx.moveTo(x+6*s,headY+1*s);ctx.lineTo(x+13*s,headY);
+   ctx.moveTo(x-2*s,headY+12*s);ctx.lineTo(x+2*s,headY+12*s);
+ }else if(settings.expression==='smile'){
+   ctx.arc(x-9*s,headY,5*s,0,Math.PI);
+   ctx.arc(x+9*s,headY,5*s,0,Math.PI);
+   ctx.arc(x,headY+8*s,7*s,0,Math.PI);
+ }else if(settings.expression==='surprised'){
+   ctx.arc(x-9*s,headY,3*s,0,Math.PI*2);
+   ctx.arc(x+9*s,headY,3*s,0,Math.PI*2);
+   ctx.arc(x,headY+12*s,3*s,0,Math.PI*2);
+ }else{
+   ctx.arc(x-9*s,headY,2.5*s,0,Math.PI*2);
+   ctx.arc(x+9*s,headY,2.5*s,0,Math.PI*2);
+   ctx.moveTo(x-3*s,headY+12*s);ctx.lineTo(x+3*s,headY+12*s);
+ }
+ ctx.stroke();
+
+ // simplified human body
+ ctx.beginPath();
+ ctx.moveTo(x,headY+headR);ctx.lineTo(x,y+38*s);
+ ctx.moveTo(x,y-2*s);ctx.lineTo(x-28*s,y+22*s);ctx.moveTo(x,y-2*s);ctx.lineTo(x+28*s,y+22*s);
+ ctx.moveTo(x,y+38*s);ctx.lineTo(x-22*s,y+80*s);ctx.moveTo(x,y+38*s);ctx.lineTo(x+22*s,y+80*s);ctx.stroke();
+ ctx.restore();
 }
 function renderMonochromeCleanup(){
  const s=getCleanSettings();
