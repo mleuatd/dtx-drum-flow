@@ -100,6 +100,26 @@ jobs:
                   "coreDrumRatio":round(drum_core/max(1,len(frets)),4),
               })
           Path("site/charts/ittai_itsukara/track_audit.json").write_text(json.dumps(track_audit,ensure_ascii=False,indent=2)+"\n")
+          # Print tempo and time-signature audit from the original GP score.
+          tempos=[]
+          for a in root.findall("./MasterTrack/Automations/Automation"):
+              if a.findtext("Type")=="Tempo":
+                  tempos.append({
+                      "bar":a.findtext("Bar"),
+                      "position":a.findtext("Position"),
+                      "value":a.findtext("Value"),
+                      "linear":a.findtext("Linear"),
+                  })
+          time_sigs=[]
+          last=None
+          for i,mb in enumerate(master_bars, start=1):
+              sig=mb.findtext("Time")
+              if sig!=last:
+                  time_sigs.append({"measure":i,"time":sig})
+                  last=sig
+          print("TEMPO_AUDIT", json.dumps(tempos, ensure_ascii=False))
+          print("TIME_SIGNATURE_AUDIT", json.dumps(time_sigs, ensure_ascii=False))
+          Path("site/charts/ittai_itsukara/tempo_audit.json").write_text(json.dumps({"tempos":tempos,"timeSignatures":time_sigs},ensure_ascii=False,indent=2)+"\n")
           selected=track_audit[chart["songsterrTrackIndex"]]
           if selected["coreDrumRatio"] < 0.9:
               raise SystemExit(f"Selected track does not look like drums: {selected}")
@@ -121,7 +141,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json site/charts/ittai_itsukara/source_metadata.json site/charts/ittai_itsukara/track_audit.json
+          git add site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json site/charts/ittai_itsukara/source_metadata.json site/charts/ittai_itsukara/track_audit.json site/charts/ittai_itsukara/tempo_audit.json
           if git diff --cached --quiet; then
             echo "Ittai chart already up to date"
           else
