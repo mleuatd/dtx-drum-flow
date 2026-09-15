@@ -27,6 +27,7 @@
           <input id="audioFile" type="file" accept="audio/*" hidden>
         </label>
         <button id="loadSample" class="button">サンプル</button>
+        <button id="exportJson" class="button">譜面JSON保存</button>
       </div>
 
       <div class="summary">
@@ -41,9 +42,11 @@
       </div>
 
       <div class="transport">
+        <button id="rewindMeasure" class="button">−4小節</button>
         <button id="rewind5" class="button">−5秒</button>
         <button id="playPause" class="button primary">再生 ▶</button>
         <button id="forward5" class="button">＋5秒</button>
+        <button id="forwardMeasure" class="button">＋4小節</button>
       </div>
 
       <div class="settings-row">
@@ -56,6 +59,10 @@
         <label class="check"><input id="drumOnly" type="checkbox"> ドラム音のみ</label>
         <button id="alignAudio" class="button" disabled>音源同期補正</button>
       </div>
+    </section>
+
+    <section id="dropZone" class="drop-hint panel">
+      譜面ファイルまたは元音源をここへドラッグ＆ドロップ
     </section>
 
     <section class="stage panel">
@@ -74,6 +81,8 @@
       <h2>QUICK START</h2>
       <p>「譜面を開く」から MIDI・DTX・GDA・解析JSON を選択。元音源がある場合は「元音源を開く」→「音源同期補正」で各ノーツの打点を元音源のアタックへ再アラインできます。</p>
       <p><strong>KEYBOARD</strong> Space: 再生/一時停止　← →: 5秒移動</p>
+      <p><strong>GESTURE</strong> 譜面左側をダブルタップ/ダブルクリック: 4小節戻る　右側: 4小節進む</p>
+      <p><strong>COLOR</strong> 水色ノーツ: 音源同期補正または高精度解析の信頼度情報あり</p>
     </section>
   </main>
 
