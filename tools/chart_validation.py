@@ -81,3 +81,22 @@ assert kana.get("alignment", {}).get("pendingOriginalAudioSync") is True, "Kanae
 
 print("PASS Luna regression:", len(luna["notes"]), "notes", dict(sorted(luna_parts.items())))
 print("PASS Kanaetai:", len(kana["notes"]), "notes", dict(sorted(kana_parts.items())), "max_gap", round(max_gap,3))
+
+
+ittai = load("site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json")
+ittai_parts = validate_common(ittai, "Ittai")
+assert len(ittai["notes"]) == 1828, f"Ittai: expected 1828 notes, got {len(ittai['notes'])}"
+assert float(ittai["bpm"]) == 175.0, "Ittai: BPM must be 175"
+assert float(ittai["sourceScoreBpm"]) == 175.0, "Ittai: source score BPM must be 175"
+assert int(ittai["measureCount"]) == 181, "Ittai: measure count mismatch"
+assert max(int(n["measure"]) for n in ittai["notes"]) == 181, "Ittai: final played measure missing"
+assert 253.0 <= float(ittai["duration"]) <= 255.0, "Ittai: duration inconsistent with released ~4:13-4:14 track"
+assert {"BD","SN","HH","FT","LT","RC"} <= set(ittai_parts), "Ittai: expected drum families missing"
+
+ittai_event_times = sorted(set(float(n["time"]) for n in ittai["notes"]))
+ittai_max_gap = max(b-a for a,b in zip(ittai_event_times,ittai_event_times[1:]))
+assert ittai_max_gap < 4.0, f"Ittai: suspicious internal gap {ittai_max_gap:.3f}s"
+assert all(float(n.get("alignmentOffsetSec", 0)) == 0 for n in ittai["notes"]), "Ittai: pre-audio alignment must be zero"
+assert ittai.get("alignment", {}).get("pendingOriginalAudioSync") is True, "Ittai: sync-pending flag missing"
+
+print("PASS Ittai:", len(ittai["notes"]), "notes", dict(sorted(ittai_parts.items())), "max_gap", round(ittai_max_gap,3))
