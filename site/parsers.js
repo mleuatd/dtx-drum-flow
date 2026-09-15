@@ -36,14 +36,10 @@ function parseMidi(buf,name){
     while(p<end){
       tick+=varlen(); let st=dv.getUint8(p++);
       if(st<0x80){p--;st=running}else running=st;
-      if(st===0xff){
-        const type=dv.getUint8(p++),l=varlen();
-        if(type===0x51&&l===3){const us=(dv.getUint8(p)<<16)|(dv.getUint8(p+1)<<8)|dv.getUint8(p+2);tempos.push({tick,usPerQ:us})}
-        p+=l;continue;
-      }
+      if(st===0xff){const type=dv.getUint8(p++),l=varlen();if(type===0x51&&l===3){const us=(dv.getUint8(p)<<16)|(dv.getUint8(p+1)<<8)|dv.getUint8(p+2);tempos.push({tick,usPerQ:us})}p+=l;continue}
       if(st===0xf0||st===0xf7){p+=varlen();continue}
       const cmd=st&0xf0,ch=st&15;
-      if(cmd===0x80||cmd===0x90){const note=dv.getUint8(p++),vel=dv.getUint8(p++);if(cmd===0x90&&vel&&ch===9&&GM_DRUM_MAP[note])events.push({tick,part:GM_DRUM_MAP[note],velocity:vel/127})}
+      if(cmd===0x80||cmd===0x90){const note=dv.getUint8(p++),vel=dv.getUint8(p++);if(cmd===0x90&&vel&&ch===9&&GM_DRUM_MAP[note])events.push({tick,part:GM_DRUM_MAP[note],gmNote:note,velocity:vel/127})}
       else if(cmd===0xa0||cmd===0xb0||cmd===0xe0)p+=2; else if(cmd===0xc0||cmd===0xd0)p+=1; else break;
     }p=end;
   }
@@ -56,11 +52,7 @@ function parseMidi(buf,name){
 
 function parseTextChart(text,name){
   let bpm=120,offset=0;const measures=new Map();const lines=text.replace(/\r/g,"").split("\n");
-  for(const raw of lines){const line=raw.trim();let m;
-    if((m=line.match(/^#BPM\s*[: ]\s*([0-9.]+)/i)))bpm=Number(m[1])||bpm;
-    if((m=line.match(/^#OFFSET\s*[: ]\s*(-?[0-9.]+)/i)))offset=Number(m[1])||0;
-    if((m=line.match(/^#(\d{3})([0-9A-Z]{2})\s*:\s*([0-9A-Z]+)/i))){const measure=Number(m[1]),channel=m[2].toUpperCase(),data=m[3].toUpperCase();if(!measures.has(measure))measures.set(measure,[]);measures.get(measure).push({channel,data})}
-  }
+  for(const raw of lines){const line=raw.trim();let m;if((m=line.match(/^#BPM\s*[: ]\s*([0-9.]+)/i)))bpm=Number(m[1])||bpm;if((m=line.match(/^#OFFSET\s*[: ]\s*(-?[0-9.]+)/i)))offset=Number(m[1])||0;if((m=line.match(/^#(\d{3})([0-9A-Z]{2})\s*:\s*([0-9A-Z]+)/i))){const measure=Number(m[1]),channel=m[2].toUpperCase(),data=m[3].toUpperCase();if(!measures.has(measure))measures.set(measure,[]);measures.get(measure).push({channel,data})}}
   const channelMap={"11":"HH","12":"SN","13":"BD","14":"HT","15":"LT","16":"RC","17":"FT","18":"LC","19":"RD","1A":"LP","1B":"LB","HH":"HH","SD":"SN","BD":"BD","HT":"HT","LT":"LT","FT":"FT","CY":"RC","RD":"RD"};
   const secPerMeasure=240/bpm,notes=[];
   for(const [measure,rows] of measures)for(const r of rows){const part=channelMap[r.channel]||DTX_MAP[r.channel];if(!part)continue;const n=Math.floor(r.data.length/2);for(let i=0;i<n;i++){if(r.data.slice(i*2,i*2+2)!=="00")notes.push({time:offset+measure*secPerMeasure+(i/n)*secPerMeasure,part,velocity:.8})}}
@@ -72,8 +64,10 @@ function parseAnalysisJson(text,name){
   if(!Array.isArray(data.notes)) throw new Error("notes.json の形式が不正です");
   const kindMap={kick:"BD",snare:"SN",hihat:"HH",toms:"LT",cymbals:"RC",unknown:"SN"};
   const notes=data.notes.map(n=>({
+    ...n,
     time:Number(n.time)||0,
     part:(typeof n.part==="string"&&n.part)?n.part:(kindMap[n.kind]||"SN"),
+    gmNote:Number.isFinite(Number(n.gmNote))?Number(n.gmNote):null,
     velocity:Math.max(0.05,Math.min(1,(Number(n.velocity)||90)/127)),
     alignConfidence:Number(n.confidence)||0,
     measure:Number(n.measure)||0,
@@ -82,5 +76,5 @@ function parseAnalysisJson(text,name){
   })).sort((a,b)=>a.time-b.time);
   const bpm=Number(data.bpm)||120;
   const duration=Number(data.duration)||((notes.at(-1)?.time||0)+2);
-  return {name:data.name||name,bpm,duration,notes,chartOffsetSec:Number(data.chartOffsetSec)||0,source:data.source||"",alignment:data.alignment||null};
+  return {...data,name:data.name||name,bpm,duration,notes,chartOffsetSec:Number(data.chartOffsetSec)||0,source:data.source||"",alignment:data.alignment||null};
 }
