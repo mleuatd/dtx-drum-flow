@@ -20,7 +20,7 @@ jobs:
           set -euxo pipefail
           mkdir -p out
           curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"             "https://www.songsterr.com/api/songs?pattern=%E5%8F%B6%E3%81%88%E3%81%9F%E3%81%84%E3%80%81%E3%81%93%E3%81%A8%E3%81%B0%E3%81%8B%E3%82%8A&size=20"             -o out/songs.json
-          for id in 2808958 2756835; do
+          for id in 2808958; do
             curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id?allowOwnUnpublished=true"               -o "out/meta-$id.json"
             curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id/revisions"               -o "out/revisions-$id.json" || true
           done
