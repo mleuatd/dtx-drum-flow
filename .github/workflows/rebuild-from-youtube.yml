@@ -45,25 +45,69 @@ jobs:
         run: |
           mkdir -p _reference
           URL='${{ steps.request.outputs.url }}'
+          VIDEO_ID="$(python - <<'PY'
+import re
+u = """${{ steps.request.outputs.url }}"""
+m = re.search(r'(?:youtu\.be/|[?&]v=)([A-Za-z0-9_-]{11})', u)
+if not m:
+    raise SystemExit("Could not parse YouTube video id")
+print(m.group(1))
+PY
+)"
           set +e
           yt-dlp --no-playlist --merge-output-format mp4 \
             -f "bv*[height<=1080]+ba/b[height<=1080]" \
             -o "_reference/reference.%(ext)s" "$URL"
           RC=$?
+
           if [ $RC -ne 0 ]; then
-            yt-dlp --no-playlist --extractor-args "youtube:player_client=android_vr,web_safari" \
-              --merge-output-format mp4 \
-              -f "bv*[height<=1080]+ba/b[height<=1080]" \
-              -o "_reference/reference.%(ext)s" "$URL"
-            RC=$?
+            echo "Direct YouTube access failed; trying Piped public API proxies."
+            export VIDEO_ID
+            STREAM_URL="$(python - <<'PY'
+import json, os, urllib.request
+video_id=os.environ["VIDEO_ID"]
+instances=[
+ "https://pipedapi.kavin.rocks",
+ "https://pipedapi.leptons.xyz",
+ "https://pipedapi.nosebs.ru",
+ "https://pipedapi-libre.kavin.rocks",
+ "https://pipedapi.adminforge.de",
+ "https://api.piped.yt",
+ "https://api.piped.private.coffee",
+ "https://pipedapi.darkness.services",
+]
+for base in instances:
+    try:
+        req=urllib.request.Request(
+            f"{base}/streams/{video_id}",
+            headers={"User-Agent":"Mozilla/5.0"}
+        )
+        with urllib.request.urlopen(req, timeout=20) as r:
+            data=json.load(r)
+        streams=[s for s in data.get("videoStreams",[]) if s.get("url")]
+        if not streams:
+            continue
+        def score(s):
+            h=int(s.get("height") or 0)
+            mp4=1 if "mp4" in str(s.get("mimeType","")).lower() else 0
+            return (1 if h<=1080 else 0, min(h,1080), mp4, int(s.get("bitrate") or 0))
+        streams.sort(key=score, reverse=True)
+        print(streams[0]["url"])
+        raise SystemExit(0)
+    except SystemExit:
+        raise
+    except Exception as e:
+        print(f"{base}: {e}", file=os.sys.stderr)
+raise SystemExit(1)
+PY
+)"
+            if [ -n "$STREAM_URL" ]; then
+              curl -fL --retry 3 --retry-delay 2 -A "Mozilla/5.0" \
+                "$STREAM_URL" -o _reference/reference.mp4
+              RC=$?
+            fi
           fi
-          if [ $RC -ne 0 ]; then
-            yt-dlp --no-playlist --extractor-args "youtube:player_client=tv_embedded" \
-              --merge-output-format mp4 \
-              -f "b[height<=720]/best[height<=720]" \
-              -o "_reference/reference.%(ext)s" "$URL"
-            RC=$?
-          fi
+
           exit $RC
 
       - name: Normalize downloaded video filename
