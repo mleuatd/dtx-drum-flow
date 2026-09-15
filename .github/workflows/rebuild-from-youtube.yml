@@ -5,6 +5,8 @@ on:
     paths:
       - "validation/video_reference/REQUEST.txt"
       - ".github/workflows/rebuild-from-youtube.yml"
+      - "tools/audio_pipeline/fetch_youtube_via_piped.py"
+      - "tools/audio_pipeline/video_chart_extractor.py"
   workflow_dispatch:
 
 permissions:
@@ -40,82 +42,30 @@ jobs:
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "bpm=$BPM" >> "$GITHUB_OUTPUT"
 
-      - name: Download reference video transiently
+      - name: Try direct YouTube download
+        id: direct
+        continue-on-error: true
         shell: bash
         run: |
           mkdir -p _reference
-          URL='${{ steps.request.outputs.url }}'
-          VIDEO_ID="$(python - <<'PY'
-import re
-u = """${{ steps.request.outputs.url }}"""
-m = re.search(r'(?:youtu\.be/|[?&]v=)([A-Za-z0-9_-]{11})', u)
-if not m:
-    raise SystemExit("Could not parse YouTube video id")
-print(m.group(1))
-PY
-)"
-          set +e
           yt-dlp --no-playlist --merge-output-format mp4 \
             -f "bv*[height<=1080]+ba/b[height<=1080]" \
-            -o "_reference/reference.%(ext)s" "$URL"
-          RC=$?
+            -o "_reference/direct.%(ext)s" '${{ steps.request.outputs.url }}'
 
-          if [ $RC -ne 0 ]; then
-            echo "Direct YouTube access failed; trying Piped public API proxies."
-            export VIDEO_ID
-            STREAM_URL="$(python - <<'PY'
-import json, os, urllib.request
-video_id=os.environ["VIDEO_ID"]
-instances=[
- "https://pipedapi.kavin.rocks",
- "https://pipedapi.leptons.xyz",
- "https://pipedapi.nosebs.ru",
- "https://pipedapi-libre.kavin.rocks",
- "https://pipedapi.adminforge.de",
- "https://api.piped.yt",
- "https://api.piped.private.coffee",
- "https://pipedapi.darkness.services",
-]
-for base in instances:
-    try:
-        req=urllib.request.Request(
-            f"{base}/streams/{video_id}",
-            headers={"User-Agent":"Mozilla/5.0"}
-        )
-        with urllib.request.urlopen(req, timeout=20) as r:
-            data=json.load(r)
-        streams=[s for s in data.get("videoStreams",[]) if s.get("url")]
-        if not streams:
-            continue
-        def score(s):
-            h=int(s.get("height") or 0)
-            mp4=1 if "mp4" in str(s.get("mimeType","")).lower() else 0
-            return (1 if h<=1080 else 0, min(h,1080), mp4, int(s.get("bitrate") or 0))
-        streams.sort(key=score, reverse=True)
-        print(streams[0]["url"])
-        raise SystemExit(0)
-    except SystemExit:
-        raise
-    except Exception as e:
-        print(f"{base}: {e}", file=os.sys.stderr)
-raise SystemExit(1)
-PY
-)"
-            if [ -n "$STREAM_URL" ]; then
-              curl -fL --retry 3 --retry-delay 2 -A "Mozilla/5.0" \
-                "$STREAM_URL" -o _reference/reference.mp4
-              RC=$?
-            fi
-          fi
+      - name: Fall back to Piped public proxies
+        if: steps.direct.outcome == 'failure'
+        run: |
+          python tools/audio_pipeline/fetch_youtube_via_piped.py \
+            '${{ steps.request.outputs.url }}' \
+            _reference/piped_video \
+            --metadata _reference/piped_metadata.json
 
-          exit $RC
-
-      - name: Normalize downloaded video filename
+      - name: Normalize downloaded video
         shell: bash
         run: |
-          FILE="$(find _reference -maxdepth 1 -type f | head -n 1)"
+          FILE="$(find _reference -maxdepth 1 -type f ! -name '*.json' | head -n 1)"
           test -n "$FILE"
-          ffmpeg -y -i "$FILE" -map 0:v:0 -map 0:a? -c:v copy -c:a aac _reference/reference.mp4
+          ffmpeg -y -i "$FILE" -map 0:v:0 -an -c:v libx264 -preset veryfast -crf 18 _reference/reference.mp4
 
       - name: Extract DTX chart from video
         run: |
@@ -133,6 +83,7 @@ PY
             echo "bpm=${{ steps.request.outputs.bpm }}"
             ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 _reference/reference.mp4 | sed 's/^/video_duration_sec=/'
           } > validation/video_reference/output/source.txt
+          if [ -f _reference/piped_metadata.json ]; then cp _reference/piped_metadata.json validation/video_reference/output/; fi
 
       - name: Upload derived chart only
         uses: actions/upload-artifact@v4
@@ -143,5 +94,6 @@ PY
             validation/video_reference/output/video_chart.mid
             validation/video_reference/output/video_chart.dtx
             validation/video_reference/output/source.txt
+            validation/video_reference/output/piped_metadata.json
           if-no-files-found: error
           retention-days: 14
