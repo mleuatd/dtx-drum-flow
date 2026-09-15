@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>推しエピソード絵メーカー UI試作</title>
+<style>
+:root{--bg:#f4f4f5;--panel:#fff;--line:#d4d4d8;--text:#18181b;--muted:#71717a;--accent:#111827;}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+header{padding:14px 16px;background:#111827;color:#fff;position:sticky;top:0;z-index:10}
+header h1{font-size:18px;margin:0} header p{font-size:12px;margin:4px 0 0;color:#d1d5db}
+main{max-width:1400px;margin:0 auto;padding:12px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+h2{font-size:16px;margin:0 0 10px}.label{font-weight:700;font-size:13px;margin:12px 0 6px;display:block}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+button{appearance:none;border:1px solid #c7c7cc;background:#fff;color:#111827;border-radius:10px;padding:10px 14px;font-size:15px;font-weight:700;min-height:44px}
+button.primary{background:#111827;color:#fff;border-color:#111827}
+button:active{transform:translateY(1px)}
+.canvasWrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;touch-action:none}
+canvas{display:block;width:100%;height:auto;background:#fff;touch-action:none}
+textarea,input{width:100%;font:inherit;border:1px solid #c7c7cc;border-radius:10px;padding:12px;background:#fff;color:#111827}
+textarea{min-height:140px;resize:vertical;line-height:1.55}
+.hint{font-size:12px;color:var(--muted);margin:6px 0 0;line-height:1.5}
+.outputBox{min-height:300px;border:1px dashed #a1a1aa;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#fafafa;overflow:hidden}
+.outputBox canvas{width:100%;height:auto}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.status{font-size:12px;color:var(--muted);margin-top:8px}
+@media(max-width:800px){
+ main{grid-template-columns:1fr;padding:8px}
+ header{position:static}
+ .panel{border-radius:12px}
+ button{flex:1 1 auto}
+ textarea{min-height:120px}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>推しエピソード絵メーカー</h1>
+  <p>UI試作版：ラフ構図＋文章 → 右側に完成イメージを出すための土台</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>1. ラフ構図を描く</h2>
+    <div class="toolbar">
+      <button id="penBtn">ペン</button>
+      <button id="eraserBtn">消しゴム</button>
+      <button id="undoBtn">戻す</button>
+      <button id="redoBtn">やり直す</button>
+      <button id="clearBtn">全消去</button>
+    </div>
+    <div class="canvasWrap">
+      <canvas id="rough" width="800" height="800" aria-label="ラフ構図キャンバス"></canvas>
+    </div>
+    <p class="hint">上手に描く必要はありません。人物の位置、向き、小物などを丸や線で雑に置く想定です。</p>
+
+    <label class="label" for="description">2. 内容・状況を書く</label>
+    <textarea id="description" placeholder="例：中央が小鹿なおさん。左にもう一人。小鹿さんは相手を見て驚いている。机の上にケーキ。ラジオで○○という話をしていた場面。"></textarea>
+
+    <div class="actions">
+      <button id="generateBtn" class="primary">描画する</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>3. 完成プレビュー</h2>
+    <div class="outputBox" id="outputBox">
+      <canvas id="result" width="800" height="800"></canvas>
+    </div>
+
+    <label class="label" for="revision">4. 修正指示</label>
+    <textarea id="revision" placeholder="例：小鹿さんをもう少し中央へ。左の人物を小さく。吹き出しはいらない。"></textarea>
+    <div class="actions">
+      <button id="reviseBtn">修正を反映</button>
+      <button id="saveBtn">PNG保存</button>
+    </div>
+    <p class="status" id="status">※ 現在はUI試作なので、AI描画の代わりにラフを整形プレビューへ転写します。</p>
+  </section>
+</main>
+<script>
+const rough=document.getElementById('rough');
+const rctx=rough.getContext('2d');
+const result=document.getElementById('result');
+const octx=result.getContext('2d');
+let drawing=false, erasing=false, last=null;
+let undoStack=[], redoStack=[];
+
+function white(ctx,canvas){ctx.save();ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore()}
+white(rctx,rough); white(octx,result);
+
+function snapshot(){return rough.toDataURL()}
+function pushUndo(){undoStack.push(snapshot()); if(undoStack.length>30)undoStack.shift(); redoStack=[]}
+function restore(data){
+ const img=new Image(); img.onload=()=>{rctx.clearRect(0,0,rough.width,rough.height);rctx.drawImage(img,0,0)}; img.src=data;
+}
+function pos(e){
+ const rect=rough.getBoundingClientRect();
+ const p=e.touches?e.touches[0]:e;
+ return {x:(p.clientX-rect.left)*rough.width/rect.width,y:(p.clientY-rect.top)*rough.height/rect.height};
+}
+function start(e){e.preventDefault();pushUndo();drawing=true;last=pos(e)}
+function move(e){
+ if(!drawing)return;e.preventDefault();
+ const p=pos(e);rctx.save();rctx.lineCap='round';rctx.lineJoin='round';
+ rctx.lineWidth=erasing?28:5;rctx.strokeStyle=erasing?'#fff':'#111';
+ rctx.beginPath();rctx.moveTo(last.x,last.y);rctx.lineTo(p.x,p.y);rctx.stroke();rctx.restore();last=p;
+}
+function end(){drawing=false;last=null}
+rough.addEventListener('pointerdown',start);rough.addEventListener('pointermove',move);window.addEventListener('pointerup',end);
+document.getElementById('penBtn').onclick=()=>{erasing=false;setStatus('ペンモード')};
+document.getElementById('eraserBtn').onclick=()=>{erasing=true;setStatus('消しゴムモード')};
+document.getElementById('clearBtn').onclick=()=>{pushUndo();white(rctx,rough);setStatus('ラフを全消去しました')};
+document.getElementById('undoBtn').onclick=()=>{
+ if(!undoStack.length)return;redoStack.push(snapshot());restore(undoStack.pop());setStatus('1つ戻しました')
+};
+document.getElementById('redoBtn').onclick=()=>{
+ if(!redoStack.length)return;undoStack.push(snapshot());restore(redoStack.pop());setStatus('やり直しました')
+};
+
+function setStatus(s){document.getElementById('status').textContent=s}
+
+function compose(extra=''){
+ white(octx,result);
+ octx.drawImage(rough,0,0,result.width,result.height);
+ octx.save();
+ octx.strokeStyle='#111';octx.lineWidth=3;octx.strokeRect(18,18,result.width-36,result.height-36);
+ const desc=document.getElementById('description').value.trim();
+ const rev=document.getElementById('revision').value.trim();
+ if(desc||rev||extra){
+   const text=[desc,rev?('修正: '+rev):'',extra].filter(Boolean).join(' / ');
+   octx.fillStyle='rgba(255,255,255,.92)';octx.fillRect(30,result.height-150,result.width-60,110);
+   octx.fillStyle='#111';octx.font='24px sans-serif';
+   wrapText(octx,text,48,result.height-110,result.width-96,32,3);
+ }
+ octx.restore();
+}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight,maxLines){
+ const chars=[...text];let line='',lines=[];
+ for(const ch of chars){
+   const test=line+ch;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=ch}else line=test;
+   if(lines.length>=maxLines-1)break;
+ }
+ if(lines.length<maxLines&&line)lines.push(line);
+ lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));
+}
+document.getElementById('generateBtn').onclick=()=>{compose();setStatus('UI試作としてプレビューを生成しました。AI描画部分は次段階で接続できます。')};
+document.getElementById('reviseBtn').onclick=()=>{compose();setStatus('修正指示をプレビューに反映しました。')};
+document.getElementById('saveBtn').onclick=()=>{
+ compose();
+ const a=document.createElement('a');a.href=result.toDataURL('image/png');a.download='oshi-sketch.png';a.click();
+ setStatus('PNGを書き出しました。');
+};
+</script>
+</body>
+</html>
