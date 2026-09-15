@@ -3,6 +3,7 @@ import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
 
 const PARTS=["LC","HH","SN","HT","LT","FT","RC","RD","LP","LB","BD"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
+const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯",RD:"◌",LP:"⌁",LB:"●",BD:"⬤"};
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
 
 let chart=makeSample();
@@ -22,6 +23,27 @@ const partEls=new Map();
 
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
 function setStatus(s){$("status").textContent=s}
+function downloadText(name,text,type="application/json"){
+  const blob=new Blob([text],{type});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),500);
+}
+function chartToJson(){
+  const partKind={BD:"kick",LB:"kick",SN:"snare",HH:"hihat",LP:"hihat",HT:"toms",LT:"toms",FT:"toms",LC:"cymbals",RC:"cymbals",RD:"cymbals"};
+  return {
+    bpm:chart.bpm,
+    duration:chart.duration,
+    name:chart.name,
+    notes:chart.notes.map(n=>({
+      time:Number(n.time.toFixed(6)),
+      kind:partKind[n.part]||"unknown",
+      part:n.part,
+      velocity:Math.round(Math.max(0,Math.min(1,n.velocity??.8))*127),
+      confidence:Number(n.alignConfidence||0)
+    }))
+  };
+}
 function currentSpeed(){return Number($("speed").value)||1}
 function setChart(c){
   pausePlayback(false);
@@ -56,7 +78,7 @@ function makeParts(){
   const root=$("parts");root.innerHTML="";
   for(const p of PARTS){
     const el=document.createElement("div");el.className="part";
-    el.innerHTML=`<strong>${p}</strong><span>${PART_LABEL[p]}</span>`;
+    el.innerHTML=`<span class="icon" aria-hidden="true">${PART_ICON[p]}</span><strong>${p}</strong><span class="label">${PART_LABEL[p]}</span>`;
     root.append(el);partEls.set(p,el);
   }
 }
@@ -195,9 +217,16 @@ $("alignAudio").onclick=()=>{
   setStatus(`音源同期補正: ${r.stats.moved}ノーツを補正、平均移動 ${r.stats.meanShiftMs.toFixed(1)}ms。`);
 };
 $("loadSample").onclick=()=>{setChart(makeSample());setStatus("サンプルを読み込みました。")};
+$("exportJson").onclick=()=>{
+  const safe=(chart.name||"dtx-drum-flow").replace(/[\\/:*?"<>|]+/g,"_");
+  downloadText(`${safe}.json`,JSON.stringify(chartToJson(),null,2));
+  setStatus("現在の譜面をJSONで保存しました。");
+};
 $("playPause").onclick=toggle;
 $("rewind5").onclick=()=>seek(time-5);
 $("forward5").onclick=()=>seek(time+5);
+$("rewindMeasure").onclick=()=>seek(time-measureSeconds()*4);
+$("forwardMeasure").onclick=()=>seek(time+measureSeconds()*4);
 $("timeline").oninput=e=>seek(Number(e.target.value));
 $("speed").onchange=restartAtCurrentForSpeedChange;
 $("drumOnly").onchange=()=>{if(playing){const t=chartTimeFromClock();pausePlayback(false);time=t;startPlayback()}};
@@ -216,6 +245,29 @@ addEventListener("keydown",e=>{
   if(e.code==="Space"){e.preventDefault();toggle()}
   if(e.code==="ArrowLeft")seek(time-5);
   if(e.code==="ArrowRight")seek(time+5);
+});
+const dropZone=$("dropZone");
+for(const ev of ["dragenter","dragover"]){
+  dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.add("dragover")});
+}
+for(const ev of ["dragleave","drop"]){
+  dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.remove("dragover")});
+}
+dropZone.addEventListener("drop",async e=>{
+  const files=[...(e.dataTransfer?.files||[])];
+  for(const f of files){
+    const ext=f.name.split(".").pop().toLowerCase();
+    try{
+      if(["mid","midi","dtx","gda","json"].includes(ext)){
+        setStatus("譜面を解析しています…");setChart(await parseChart(f));setStatus(`${f.name} を読み込みました。`);
+      }else if(f.type.startsWith("audio/")){
+        pausePlayback();setStatus("元音源を解析しています…");
+        audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);
+        $("alignAudio").disabled=false;
+        setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。`);
+      }
+    }catch(err){setStatus(`${f.name}: ${err.message}`)}
+  }
 });
 addEventListener("resize",resize);
 makeParts();setChart(chart);resize();requestAnimationFrame(loop);
