@@ -18,7 +18,7 @@ jobs:
       - name: Install basic audio dependencies
         run: pip install -r tools/audio_pipeline/requirements.txt
       - name: Python syntax
-        run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py tools/audio_pipeline/realign_existing_midi.py
+        run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py tools/audio_pipeline/realign_existing_midi.py tools/audio_pipeline/video_chart_extractor.py
       - name: Pipeline CLI smoke test
         run: |
           python tools/audio_pipeline/pipeline.py --help
