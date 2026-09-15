@@ -23,6 +23,14 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
 .hint{font-size:12px;color:var(--muted);margin:6px 0 0;line-height:1.5}
 .outputBox{min-height:300px;border:1px dashed #a1a1aa;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#fafafa;overflow:hidden}
 .outputBox canvas{width:100%;height:auto}
+.previewLayout{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:10px;align-items:start}
+.historyPane{border:1px solid var(--line);border-radius:12px;background:#fafafa;padding:8px}
+.historyTitle{font-size:12px;font-weight:700;margin:0 0 8px;color:#3f3f46}
+.historyList{display:flex;flex-direction:column;gap:8px;max-height:480px;overflow-y:auto;padding-right:2px}
+.historyItem{border:1px solid #d4d4d8;border-radius:10px;background:#fff;padding:6px;cursor:pointer}
+.historyItem.active{outline:2px solid #111827}
+.historyItem img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;border:1px solid #e4e4e7;background:#fff}
+.historyMeta{font-size:11px;color:#71717a;margin-top:5px;text-align:center}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .status{font-size:12px;color:var(--muted);margin-top:8px}
 @media(max-width:800px){
@@ -31,6 +39,9 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
  .panel{border-radius:12px}
  button{flex:1 1 auto}
  textarea{min-height:120px}
+ .previewLayout{grid-template-columns:1fr}
+ .historyPane{order:2}
+ .historyList{max-height:330px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow-y:auto}
 }
 </style>
 </head>
@@ -64,8 +75,14 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
 
   <section class="panel">
     <h2>3. 完成プレビュー</h2>
-    <div class="outputBox" id="outputBox">
-      <canvas id="result" width="800" height="800"></canvas>
+    <div class="previewLayout">
+      <div class="outputBox" id="outputBox">
+        <canvas id="result" width="800" height="800"></canvas>
+      </div>
+      <aside class="historyPane" aria-label="差分履歴">
+        <p class="historyTitle">差分履歴</p>
+        <div id="historyList" class="historyList"></div>
+      </aside>
     </div>
 
     <label class="label" for="revision">4. 修正指示</label>
@@ -84,6 +101,8 @@ const result=document.getElementById('result');
 const octx=result.getContext('2d');
 let drawing=false, erasing=false, last=null;
 let undoStack=[], redoStack=[];
+let historyItems=[];
+let activeHistoryIndex=-1;
 
 function white(ctx,canvas){ctx.save();ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore()}
 white(rctx,rough); white(octx,result);
@@ -119,6 +138,45 @@ document.getElementById('redoBtn').onclick=()=>{
 
 function setStatus(s){document.getElementById('status').textContent=s}
 
+function addHistory(label){
+ const data=result.toDataURL('image/png');
+ historyItems.push({data,label,time:new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'})});
+ activeHistoryIndex=historyItems.length-1;
+ renderHistory();
+}
+function renderHistory(){
+ const list=document.getElementById('historyList');
+ list.innerHTML='';
+ historyItems.forEach((item,index)=>{
+   const div=document.createElement('div');
+   div.className='historyItem'+(index===activeHistoryIndex?' active':'');
+   div.title='クリックするとこの差分を再表示';
+   const img=document.createElement('img');
+   img.src=item.data;
+   img.alt='差分 '+(index+1);
+   const meta=document.createElement('div');
+   meta.className='historyMeta';
+   meta.textContent=(index+1)+'. '+item.label+' '+item.time;
+   div.append(img,meta);
+   div.onclick=()=>showHistory(index);
+   list.appendChild(div);
+ });
+ list.scrollTop=list.scrollHeight;
+}
+function showHistory(index){
+ const item=historyItems[index];
+ if(!item)return;
+ const img=new Image();
+ img.onload=()=>{
+   white(octx,result);
+   octx.drawImage(img,0,0,result.width,result.height);
+   activeHistoryIndex=index;
+   renderHistory();
+   setStatus('差分 '+(index+1)+' を再表示しています。');
+ };
+ img.src=item.data;
+}
+
 function compose(extra=''){
  white(octx,result);
  octx.drawImage(rough,0,0,result.width,result.height);
@@ -143,8 +201,8 @@ function wrapText(ctx,text,x,y,maxWidth,lineHeight,maxLines){
  if(lines.length<maxLines&&line)lines.push(line);
  lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));
 }
-document.getElementById('generateBtn').onclick=()=>{compose();setStatus('UI試作としてプレビューを生成しました。AI描画部分は次段階で接続できます。')};
-document.getElementById('reviseBtn').onclick=()=>{compose();setStatus('修正指示をプレビューに反映しました。')};
+document.getElementById('generateBtn').onclick=()=>{compose();addHistory('初回');setStatus('UI試作としてプレビューを生成しました。AI描画部分は次段階で接続できます。')};
+document.getElementById('reviseBtn').onclick=()=>{compose();addHistory('修正');setStatus('修正指示をプレビューに反映し、差分履歴へ追加しました。')};
 document.getElementById('saveBtn').onclick=()=>{
  compose();
  const a=document.createElement('a');a.href=result.toDataURL('image/png');a.download='oshi-sketch.png';a.click();
