@@ -1,0 +1,61 @@
+name: fetch-songsterr-kanaetai
+
+on:
+  push:
+    paths:
+      - ".github/workflows/fetch_songsterr_kanaetai.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch public Songsterr metadata/source
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p out
+          curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"             "https://www.songsterr.com/api/songs?pattern=%E5%8F%B6%E3%81%88%E3%81%9F%E3%81%84%E3%80%81%E3%81%93%E3%81%A8%E3%81%B0%E3%81%8B%E3%82%8A&size=20"             -o out/songs.json
+          for id in 2808958 2756835; do
+            curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id?allowOwnUnpublished=true"               -o "out/meta-$id.json" || true
+            curl -fL --retry 3 --user-agent "dtx-drum-flow-personal-practice/1.0"               "https://www.songsterr.com/api/meta/$id/revisions"               -o "out/revisions-$id.json" || true
+          done
+          python - <<'PY'
+          import json, pathlib, urllib.request
+          out=pathlib.Path("out")
+          urls=[]
+          for p in out.glob("*.json"):
+              try:
+                  data=json.loads(p.read_text())
+              except Exception:
+                  continue
+              def walk(x):
+                  if isinstance(x,dict):
+                      for k,v in x.items():
+                          if k.lower() in {"source","url","sourceurl","gp","gpurl"} and isinstance(v,str) and v.startswith("http"):
+                              urls.append(v)
+                          walk(v)
+                  elif isinstance(x,list):
+                      for v in x: walk(v)
+              walk(data)
+          (out/"source-urls.txt").write_text("\n".join(dict.fromkeys(urls)))
+          for i,u in enumerate(dict.fromkeys(urls)):
+              try:
+                  req=urllib.request.Request(u,headers={"User-Agent":"dtx-drum-flow-personal-practice/1.0"})
+                  with urllib.request.urlopen(req,timeout=30) as r:
+                      b=r.read()
+                  if len(b)>100:
+                      (out/f"source-{i}.bin").write_bytes(b)
+              except Exception as e:
+                  (out/f"source-{i}.error.txt").write_text(repr(e))
+          PY
+          ls -l out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: songsterr-kanaetai-public
+          path: out
+          if-no-files-found: error
