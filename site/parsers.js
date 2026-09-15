@@ -17,6 +17,7 @@ export async function parseChart(file){
   const ext=file.name.split(".").pop().toLowerCase();
   if(ext==="mid"||ext==="midi") return parseMidi(await file.arrayBuffer(),file.name);
   if(ext==="dtx"||ext==="gda") return parseTextChart(await file.text(),file.name);
+  if(ext==="json") return parseAnalysisJson(await file.text(),file.name);
   throw new Error("対応していない譜面形式です");
 }
 
@@ -63,4 +64,20 @@ function parseTextChart(text,name){
   const secPerMeasure=240/bpm,notes=[];
   for(const [measure,rows] of measures)for(const r of rows){const part=channelMap[r.channel]||DTX_MAP[r.channel];if(!part)continue;const n=Math.floor(r.data.length/2);for(let i=0;i<n;i++){if(r.data.slice(i*2,i*2+2)!=="00")notes.push({time:measure*secPerMeasure+(i/n)*secPerMeasure,part,velocity:.8})}}
   notes.sort((a,b)=>a.time-b.time);return {name,bpm,duration:(notes.at(-1)?.time||0)+secPerMeasure,notes};
+}
+
+
+function parseAnalysisJson(text,name){
+  const data=JSON.parse(text);
+  if(!Array.isArray(data.notes)) throw new Error("notes.json の形式が不正です");
+  const kindMap={kick:"BD",snare:"SN",hihat:"HH",toms:"LT",cymbals:"RC",unknown:"SN"};
+  const notes=data.notes.map(n=>({
+    time:Number(n.time)||0,
+    part:kindMap[n.kind]||"SN",
+    velocity:Math.max(0.05,Math.min(1,(Number(n.velocity)||90)/127)),
+    alignConfidence:Number(n.confidence)||0
+  })).sort((a,b)=>a.time-b.time);
+  const bpm=Number(data.bpm)||120;
+  const duration=(notes.at(-1)?.time||0)+2;
+  return {name,bpm,duration,notes};
 }
