@@ -1,0 +1,30 @@
+name: Build standalone trainer
+
+on:
+  push:
+    paths:
+      - "tools/build_standalone.py"
+      - "site/**"
+      - ".github/workflows/build-standalone.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build standalone HTML
+        run: python tools/build_standalone.py
+      - name: Upload standalone HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: dtx-drum-flow-latest-standalone
+          path: dist/DTX_Drum_Flow_Latest.html
+          if-no-files-found: error
+          retention-days: 14
