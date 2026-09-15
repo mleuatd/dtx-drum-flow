@@ -95,6 +95,18 @@ def drumsep_separate(drums: Path, bass: Path | None, work: Path) -> dict[str, Pa
     return found
 
 
+def run_adtof(audio: Path, work: Path) -> Path | None:
+    """Run ADTOF Plus when its CLI is available. No model/code is vendored here."""
+    if not cmd_exists("adtof-transcribe"):
+        return None
+    out = work / "adtof.mid"
+    try:
+        run(["adtof-transcribe", "--audio_path", str(audio), "--output_path", str(out)])
+    except subprocess.CalledProcessError:
+        return None
+    return out if out.exists() else None
+
+
 def midi_candidates(path: Path, source: str) -> list[Candidate]:
     mid = mido.MidiFile(path)
     tempo = 500000
@@ -222,6 +234,10 @@ def main() -> None:
         for kind, p in sub.items():
             all_candidates += detect_onsets(p, kind, f"drumsep-{kind}")
 
+    adtof_midi = run_adtof(args.audio, work)
+    if adtof_midi:
+        all_candidates += midi_candidates(adtof_midi, "adtof-plus")
+
     for i, p in enumerate(args.midi):
         all_candidates += midi_candidates(p, f"midi-{i+1}")
 
@@ -235,6 +251,7 @@ def main() -> None:
             "candidate_count":len(all_candidates),
             "final_count":len(finals),
             "demucs_used":bool(demucs),
+            "adtof_used":bool(adtof_midi),
             "sources":sorted(set(c.source for c in all_candidates)),
         },f,ensure_ascii=False,indent=2)
     write_midi(finals,args.output/"drums.mid",bpm)
