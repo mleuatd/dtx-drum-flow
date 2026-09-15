@@ -1,0 +1,90 @@
+name: fetch-songsterr-ittai
+on:
+  push:
+    paths: [".github/workflows/fetch_songsterr_ittai.yml", "tools/songsterr_gp_to_chart.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch public Songsterr source and build FINAL chart
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p out site/charts/ittai_itsukara
+          UA="dtx-drum-flow-personal-practice/1.0"
+          SONG_ID=3705140
+          curl -fL --retry 3 -A "$UA" "https://www.songsterr.com/api/meta/$SONG_ID?allowOwnUnpublished=true" -o out/meta.json
+          curl -fL --retry 3 -A "$UA" "https://www.songsterr.com/api/meta/$SONG_ID/revisions" -o out/revisions.json
+          python -m json.tool out/meta.json >/dev/null
+          python -m json.tool out/revisions.json >/dev/null
+          REVISION_ID=$(python - <<'PY'
+          import json
+          meta=json.load(open("out/meta.json"))
+          revs=json.load(open("out/revisions.json"))
+          for key in ("revisionId","currentRevisionId","latestRevisionId"):
+              if isinstance(meta,dict) and isinstance(meta.get(key),(int,str)):
+                  print(meta[key]); raise SystemExit
+          seq=revs if isinstance(revs,list) else revs.get("revisions",[]) if isinstance(revs,dict) else []
+          for item in seq:
+              if isinstance(item,dict):
+                  for key in ("revisionId","id"):
+                      if isinstance(item.get(key),(int,str)):
+                          print(item[key]); raise SystemExit
+          raise SystemExit("revision id not found")
+          PY
+          )
+          echo "$REVISION_ID" > out/revision-id.txt
+          curl -fL --retry 3 -A "$UA" "https://www.songsterr.com/api/revision/$REVISION_ID" -o out/revision.json
+          python -m json.tool out/revision.json >/dev/null
+          SOURCE=$(python -c 'import json; print(json.load(open("out/revision.json"))["source"])')
+          echo "$SOURCE" > out/source-url.txt
+          curl -fL --retry 3 -A "$UA" "$SOURCE" -o out/Ittai_itsukara_songsterr_source.gp
+          test -s out/Ittai_itsukara_songsterr_source.gp
+          python tools/songsterr_gp_to_chart.py out/Ittai_itsukara_songsterr_source.gp site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json \
+            --bpm 175 --duration 254 --name "一体いつから - Drums" --artist "月村手毬" \
+            --song-id "$SONG_ID" --revision-id "$REVISION_ID"
+          python - <<'PY'
+          import json, zipfile, xml.etree.ElementTree as ET
+          from pathlib import Path
+          gp=Path("out/Ittai_itsukara_songsterr_source.gp")
+          with zipfile.ZipFile(gp) as zf:
+              root=ET.fromstring(zf.read("Content/score.gpif"))
+          tracks=[]
+          for i,t in enumerate(list(root.find("Tracks") or [])):
+              tracks.append({"index":i,"name":t.findtext("Name") or ""})
+          chart=json.load(open("site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json"))
+          metadata={
+              "songsterrSongId":3705140,
+              "songsterrRevisionId":chart["songsterrRevisionId"],
+              "songsterrTrackIndex":chart["songsterrTrackIndex"],
+              "sourceScoreBpm":chart["sourceScoreBpm"],
+              "normalizedBpm":chart["bpm"],
+              "measureCount":chart["measureCount"],
+              "duration":chart["duration"],
+              "tracks":tracks,
+          }
+          Path("site/charts/ittai_itsukara/source_metadata.json").write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps(metadata,ensure_ascii=False))
+          PY
+      - name: Commit generated source metadata and FINAL chart
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json site/charts/ittai_itsukara/source_metadata.json
+          if git diff --cached --quiet; then
+            echo "Ittai chart already up to date"
+          else
+            git commit -m "feat: add Ittai Itsukara FINAL drum chart source"
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: songsterr-ittai-public
+          path: out
+          if-no-files-found: error
