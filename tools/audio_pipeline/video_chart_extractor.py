@@ -60,7 +60,26 @@ def detect_notes(video: Path, parts: list[str], left=None, right=None, judge_y=N
         raise RuntimeError("Empty video")
     h,w=first.shape[:2]
     if left is None or right is None or judge_y is None:
-        il,ir,iy,centers=infer_geometry(first,len(parts))
+        # The first frame can be an intro/title. Search early frames until
+        # a stable DTX-style grid is visible.
+        probe_frames=[first]
+        max_probe=int(min(cap.get(cv2.CAP_PROP_FRAME_COUNT) or fps*45, fps*45))
+        step=max(1,int(fps*0.5))
+        for pos in range(step,max_probe,step):
+            cap.set(cv2.CAP_PROP_POS_FRAMES,pos)
+            ok_probe,fr=cap.read()
+            if ok_probe:
+                probe_frames.append(fr)
+        inferred=None
+        for fr in probe_frames:
+            try:
+                inferred=infer_geometry(fr,len(parts))
+                break
+            except RuntimeError:
+                continue
+        if inferred is None:
+            raise RuntimeError("Could not infer chart geometry from the first 45 seconds; pass --left/--right/--judge-y")
+        il,ir,iy,centers=inferred
         left=il if left is None else left
         right=ir if right is None else right
         judge_y=iy if judge_y is None else judge_y
