@@ -22,3 +22,9 @@
 - Added `realign_existing_midi.py` for per-family global offset correction and local source-audio transient snapping.
 - Updated the main pipeline to use frequency-band evidence and to degrade gracefully when Demucs/drumsep executables exist but required model weights are unavailable.
 - Browser JSON import now preserves detailed drum-part labels and visualizes per-note confidence.
+
+- Rebuilt Luna Say Maybe from the Songsterr reference drum chart (song 1089457, revision 3745733) instead of relying on audio-to-MIDI inference.
+- Reconstructed 2,158 drum notes across 150 measures at BPM 139, including tuplets, and aligned the complete chart to the original instrumental audio with a +1.693 s global offset.
+- Segment alignment checks ranged from +1.687 s to +1.699 s (12 ms total range), supporting a stable whole-song offset rather than per-note warping.
+- Added Songsterr fetch and conversion tooling; final DTX/MIDI/notes JSON are stored in the shared Library, not the public repository.
+- Fixed Songsterr MIDI export so simultaneous drum hits remain simultaneous.
