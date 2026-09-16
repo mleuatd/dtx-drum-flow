@@ -197,3 +197,13 @@ Mechanical full-song verification: 1,527 / 1,527 groups resolved, 0 unresolved. 
 - `SN:R` remains the only exact-pose shortage in measures 1-16; neutral fallback is intentional and `SN:L` is not reused.
 - No character PNG bytes were modified in this pass.
 - No LT/FT or other measure 17+ variants were generated.
+
+## 2026-09-17 approved-pose runtime correction
+
+- [x] Restored user-approved `approved/pose_01.png` as runtime `SN:R` at `layers/character/sn/hit_r.png`.
+- [x] Restored user-approved `approved/pose_03.png` as runtime `BD+RC:*` at `layers/character/combo/bd_rc_hit.png`.
+- [x] Both are 1448x1086 transparent PNGs on the locked x=0,y=0 registration.
+- [x] `SN:R` no longer uses neutral fallback; measures 1-16 now have exact runtime keys for all eight occurring action keys.
+- [x] Luna note Canvas no longer paints any dark full-frame fill; notes/lanes render over the fixed drum + character layers with a fully transparent Canvas background.
+- [x] Runtime image URLs are cache-busted so mobile browsers reload the corrected PNGs.
+- [ ] The prototype `approved/` archive still contains only pose_01 and pose_03; older documentation saying six more approved images were recovered but not archived remains a historical recovery gap, separate from the semantic runtime PNG set.
