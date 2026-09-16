@@ -4,7 +4,7 @@ const PROTOTYPE_MEASURE_END=8;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20260917-m1-8-final";
+const ASSET_VERSION="20260917-m1-8-runtime-r2";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
