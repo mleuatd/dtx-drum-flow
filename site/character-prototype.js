@@ -1,10 +1,10 @@
 const PROTOTYPE_URL="./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json";
 const PROTOTYPE_MEASURE_START=1;
-const PROTOTYPE_MEASURE_END=16;
+const PROTOTYPE_MEASURE_END=8;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20260917-approved-runtime";
+const ASSET_VERSION="20260917-m1-8-final";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
