@@ -1,22 +1,38 @@
 {
-  "version": 5,
-  "scope": "Luna Say Maybe measures 1-16",
-  "chartNoteCount": 144,
+  "version": 6,
+  "scope": "Luna Say Maybe full-song character runtime (prototype assets retained from measures 1-16)",
+  "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 16,
-    "noteCount": 144,
-    "groupCount": 124,
+    "measureEnd": 148,
+    "noteCount": 2158,
+    "groupCount": 1527,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 30.829691,
+    "lastNoteTime": 258.851273,
     "expectedKeys": [
       "SN:L",
-      "BD+RC:*",
-      "HH:R",
       "BD:RF",
+      "HH:R",
+      "RC:R",
       "RD:R",
+      "HT:R",
+      "LT:R",
+      "FT:R",
       "BD+SN:*",
-      "RC+SN:*"
+      "BD+RC:*",
+      "RC+SN:*",
+      "BD+LT:*",
+      "RD+SN:*",
+      "BD+RD:*",
+      "BD+HH:*",
+      "HH+SN:*",
+      "FT+SN:*",
+      "BD+HT:*",
+      "LT+SN:*",
+      "BD+HH+SN:*",
+      "BD+RC+SN:*",
+      "BD+FT+SN:*",
+      "BD+FT:*"
     ]
   },
   "occurringParts": {
@@ -95,7 +111,22 @@
     "RD:R": "rd_hit_r",
     "BD+SN:*": "combo_bd_sn",
     "BD+RC:*": "combo_bd_rc",
-    "RC+SN:*": "combo_rc_sn"
+    "RC+SN:*": "combo_rc_sn",
+    "HT:R": "neutral",
+    "LT:R": "neutral",
+    "FT:R": "neutral",
+    "BD+LT:*": "bd_foot_down",
+    "RD+SN:*": "sn_hit_l",
+    "BD+RD:*": "rd_hit_r",
+    "BD+HH:*": "hh_hit_r",
+    "HH+SN:*": "sn_hit_l",
+    "FT+SN:*": "sn_hit_l",
+    "BD+HT:*": "bd_foot_down",
+    "LT+SN:*": "sn_hit_l",
+    "BD+HH+SN:*": "combo_bd_sn",
+    "BD+RC+SN:*": "combo_bd_sn",
+    "BD+FT+SN:*": "combo_bd_sn",
+    "BD+FT:*": "bd_foot_down"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -132,6 +163,86 @@
       "prep": "neutral",
       "hit": "combo_rc_sn",
       "rebound": "neutral"
+    },
+    "RC:R": {
+      "prep": "neutral",
+      "hit": "rc_hit_r",
+      "rebound": "neutral"
+    },
+    "HT:R": {
+      "prep": "neutral",
+      "hit": "neutral",
+      "rebound": "neutral"
+    },
+    "LT:R": {
+      "prep": "neutral",
+      "hit": "neutral",
+      "rebound": "neutral"
+    },
+    "FT:R": {
+      "prep": "neutral",
+      "hit": "neutral",
+      "rebound": "neutral"
+    },
+    "BD+LT:*": {
+      "prep": "neutral",
+      "hit": "bd_foot_down",
+      "rebound": "neutral"
+    },
+    "RD+SN:*": {
+      "prep": "neutral",
+      "hit": "sn_hit_l",
+      "rebound": "neutral"
+    },
+    "BD+RD:*": {
+      "prep": "neutral",
+      "hit": "rd_hit_r",
+      "rebound": "neutral"
+    },
+    "BD+HH:*": {
+      "prep": "neutral",
+      "hit": "hh_hit_r",
+      "rebound": "neutral"
+    },
+    "HH+SN:*": {
+      "prep": "neutral",
+      "hit": "sn_hit_l",
+      "rebound": "neutral"
+    },
+    "FT+SN:*": {
+      "prep": "neutral",
+      "hit": "sn_hit_l",
+      "rebound": "neutral"
+    },
+    "BD+HT:*": {
+      "prep": "neutral",
+      "hit": "bd_foot_down",
+      "rebound": "neutral"
+    },
+    "LT+SN:*": {
+      "prep": "neutral",
+      "hit": "sn_hit_l",
+      "rebound": "neutral"
+    },
+    "BD+HH+SN:*": {
+      "prep": "neutral",
+      "hit": "combo_bd_sn",
+      "rebound": "neutral"
+    },
+    "BD+RC+SN:*": {
+      "prep": "neutral",
+      "hit": "combo_bd_sn",
+      "rebound": "neutral"
+    },
+    "BD+FT+SN:*": {
+      "prep": "neutral",
+      "hit": "combo_bd_sn",
+      "rebound": "neutral"
+    },
+    "BD+FT:*": {
+      "prep": "neutral",
+      "hit": "bd_foot_down",
+      "rebound": "neutral"
     }
   },
   "motionTiming": {
@@ -145,10 +256,17 @@
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-16 enabled with prep/hit/rebound/neutral settling and separate hit-effect layer"
+    "prototypeWindow": "full song measures 1-148 enabled; dedicated 1-16 poses plus safe full-song fallbacks and instrument hit effects",
+    "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
   "measureEightCommit": "26adb1eabf70c14623a0a12ef4908f349af9eced",
-  "note": "Measures 1-16 are enabled. Measures 9-16 use the already committed BD+SN and RC+SN combined poses in addition to existing single-hit/BD+RC frames; no new PNG is required."
+  "note": "Full-song runtime enabled for all 148 measures / 2158 notes / 1527 time groups. Existing committed poses are reused where exact; tom-only hits use neutral plus position effects, and unsupported simultaneous combinations use the closest committed pose while retaining hit effects.",
+  "fullSongFallbackPolicy": {
+    "dedicatedPosePreferred": true,
+    "unresolvedTomPose": "neutral character with tom-position hit effect",
+    "unsupportedCombination": "closest committed pose plus all available instrument-position hit effects",
+    "note": "Fallbacks keep playback/animation continuous without inventing unregistered binary layers."
+  }
 }
