@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "approvedAt": "2026-09-16",
   "purpose": "Canonical left-facing baseline reference for Luna Say Maybe character-animation prototype",
   "orientation": {
@@ -25,5 +25,13 @@
     "drum": "character-assets/layers/drum/drum_base.png",
     "character": "character-assets/layers/character/base/neutral.png"
   },
-  "note": "The image content and hashes were approved in chat. These hashes identify the exact generated local files until the binary PNGs are transported into GitHub."
+  "note": "Approved left-facing baseline is now represented by committed fixed drum and neutral character binary PNG layers. Future variants must preserve the same canvas and registration.",
+  "committedBinary": {
+    "commit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
+    "drumLayerSha256": "eba6161535535d935e518cdcc9009ad75ee9a3f5e57cd66ba2128deaed044b30",
+    "neutralCharacterSha256": "74d9d23e5cbc1c519d4bdd5fb45420c9fcb97822d8b45dfa9443ad736f3a7ee6",
+    "encoding": "PNG indexed palette, 16 colors, transparency preserved",
+    "canvas": "1448x1086",
+    "registration": "x=0,y=0"
+  }
 }
