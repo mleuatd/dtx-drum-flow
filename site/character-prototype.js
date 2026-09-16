@@ -4,7 +4,9 @@ const PROTOTYPE_MEASURE_END=16;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
+const ASSET_VERSION="20260917-approved-runtime";
 const DRUM="./character-assets/layers/drum/drum_base.png";
+const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
 let data=null,lastKey="",lastEffectToken="",ready=false,activeSong=false;
 const els={root:null,drum:null,character:null,label:null,effect:null,bursts:[]};
@@ -15,7 +17,7 @@ function loadImage(src){
     const image=new Image();
     image.onload=()=>resolve(src);
     image.onerror=()=>reject(new Error("image HTTP/load failure: "+src));
-    image.src=src;
+    image.src=assetUrl(src);
   });
 }
 
@@ -88,7 +90,7 @@ function validatePrototypeCoverage(inventory,scopedNotes,groups){
 }
 function setFrame(path,label="",phase="neutral"){
   if(!els.character)return;
-  const src=ASSET_ROOT+"/"+path;
+  const src=assetUrl(ASSET_ROOT+"/"+path);
   if(lastKey!==src){lastKey=src;els.character.src=src}
   if(els.label)els.label.textContent=label;
   if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label;els.root.dataset.phase=phase}
@@ -158,8 +160,8 @@ export async function initCharacterPrototype(){
   els.effect=document.getElementById("effectLayer");
   els.bursts=[document.getElementById("effectPrimary"),document.getElementById("effectSecondary"),document.getElementById("effectTertiary")].filter(Boolean);
   if(!els.root||!els.drum||!els.character)return;
-  els.drum.src=DRUM;
-  els.character.src=ASSET_ROOT+"/layers/character/base/neutral.png";
+  els.drum.src=assetUrl(DRUM);
+  els.character.src=assetUrl(ASSET_ROOT+"/layers/character/base/neutral.png");
   const fail=()=>{els.root.classList.add("assets-missing");els.root.dataset.state="assets-missing"};
   els.drum.addEventListener("error",fail,{once:true});
   els.character.addEventListener("error",fail,{once:true});
