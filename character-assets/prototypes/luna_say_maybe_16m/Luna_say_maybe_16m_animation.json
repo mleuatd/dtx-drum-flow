@@ -1,0 +1,2463 @@
+{
+  "name": "Luna Say Maybe - Character Animation Prototype (Measures 1-16)",
+  "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+  "bpm": 139,
+  "prototype": {
+    "startMeasure": 1,
+    "endMeasure": 16,
+    "simultaneousWindowMs": 8,
+    "handedness": "right-handed",
+    "defaultTechnique": "cross-hand"
+  },
+  "noteCount": 144,
+  "notes": [
+    {
+      "time": 4.714583,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 1,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "sn.eighth",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 4.93041,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 1,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.eighth",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 5.038324,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 1,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "sn.sixteenth",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 5.146237,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 5.146237,
+      "part": "RC",
+      "gmNote": 49,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 5.362065,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.eighth",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 5.577892,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 5.793719,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 6.009547,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 6.225374,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 6.441201,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 6.657029,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 2,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 6.872856,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 7.088683,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 7.304511,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 7.520338,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 7.736165,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 7.951993,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 8.16782,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 8.383647,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 3,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 8.599475,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 8.815302,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 9.031129,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 9.246957,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 9.462784,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 9.678612,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 9.894439,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 10.110266,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 4,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 10.326094,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 10.541921,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "rd.eighth",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 10.757748,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 10.973576,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 11.189403,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 11.40523,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 11.621058,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 11.836885,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 5,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 12.052712,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 12.052712,
+      "part": "RC",
+      "gmNote": 49,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 12.26854,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 12.484367,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 12.700194,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 12.916022,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 13.131849,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 13.347676,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 13.563504,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 6,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 13.779331,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 13.995158,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 14.210986,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 14.426813,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 14.64264,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 14.858468,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 15.074295,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 15.290122,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 7,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 15.50595,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 15.721777,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 15.937604,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 16.153432,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 16.369259,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 16.585086,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 16.800914,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 17.016741,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 8,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 17.232568,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 17.448396,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 17.664223,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 17.88005,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 18.095878,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 18.311705,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 18.527532,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "sn.quarter",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 18.74336,
+      "part": "RD",
+      "gmNote": 51,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 9,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "rd.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 18.959187,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 18.959187,
+      "part": "RC",
+      "gmNote": 49,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 19.175014,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 19.390842,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 19.390842,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 19.606669,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 19.822496,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 20.038324,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 20.254151,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 20.254151,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 20.469978,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 10,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 20.685806,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 20.901633,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 21.11746,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 21.11746,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 21.333288,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 21.549115,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 21.764942,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 21.98077,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 21.98077,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 22.196597,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 22.304511,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 11,
+      "voice": 0,
+      "beatIndex": 8,
+      "animation": {
+        "rule": "sn.eighth",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 22.412424,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 22.412424,
+      "part": "RC",
+      "gmNote": 49,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 22.628252,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 22.844079,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 22.844079,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 23.059906,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 23.275734,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 23.491561,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 23.707388,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 23.707388,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 23.923216,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 12,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 24.139043,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 24.354871,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 24.570698,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 24.570698,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 24.786525,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 25.002353,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 25.21818,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 25.434007,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 25.434007,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 25.649835,
+      "part": "RC",
+      "gmNote": 49,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "combo.rc_sn",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 25.649835,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 13,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "combo.rc_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 25.865662,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 26.081489,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 26.297317,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 26.297317,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 26.513144,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 26.728971,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 26.944799,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 27.160626,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 27.160626,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 27.376453,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 14,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 27.592281,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 27.592281,
+      "part": "RC",
+      "gmNote": 49,
+      "kind": "cymbals",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "combo.bd_rc",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 27.808108,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 28.023935,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 28.023935,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 28.239763,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 28.45559,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 28.671417,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 28.887245,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 28.887245,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 29.103072,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 15,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 29.318899,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 0,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 29.534727,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 1,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 29.750554,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 29.750554,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 2,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 29.966381,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 3,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 30.182209,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 4,
+      "animation": {
+        "rule": "bd.quarter",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 30.398036,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 5,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 30.613863,
+      "part": "BD",
+      "gmNote": 36,
+      "kind": "kick",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "RF",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 30.613863,
+      "part": "SN",
+      "gmNote": 38,
+      "kind": "snare",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 6,
+      "animation": {
+        "rule": "combo.bd_sn",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 30.829691,
+      "part": "HH",
+      "gmNote": 46,
+      "kind": "hihat",
+      "velocity": 100,
+      "confidence": 1,
+      "source": "Songsterr",
+      "measure": 16,
+      "voice": 0,
+      "beatIndex": 7,
+      "animation": {
+        "rule": "hh.quarter",
+        "hand": "R",
+        "phase": "hit"
+      }
+    }
+  ]
+}
