@@ -80,9 +80,9 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "e0f80c29126a866fee2937ba633c9b26698bc40c4a02a3250f9b06dbcc83cb12",
+      "sha256": "637ee132b36293377826aa166af2ac4f3257162d18430e11c8b42ed3694d08c1",
       "status": "APPROVED",
-      "purpose": "right-hand snare hit restored from approved prototype pose_01",
+      "purpose": "right-hand snare hit regenerated after corrupted runtime PNG",
       "part": "SN",
       "phase": "hit",
       "hand": "R",
@@ -92,13 +92,13 @@
       "qa": {
         "scope": "luna-say-maybe-measures-1-16",
         "structural": "PASS",
-        "visual": "APPROVED_SOURCE_REUSED",
+        "visual": "USER_APPROVED_REGENERATED",
         "approved": true,
         "repaired": false,
         "canvasWidth": 1448,
         "canvasHeight": 1086,
         "hasAlpha": true,
-        "alphaEvidence": "PNG tRNS chunk verified from approved/pose_01.png"
+        "alphaEvidence": "fresh regenerated transparent PNG, user-approved"
       }
     },
     {
@@ -270,9 +270,9 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "1b3a36294341c06181c00a641c2435bdfc810bd8757f4cf058f3005eb6c69326",
+      "sha256": "7eafce8c59a370cfabbd188ecfe96afcb81924f205d00c26e20334af1249df54",
       "status": "APPROVED",
-      "purpose": "simultaneous bass-drum and crash-cymbal hit restored from approved prototype pose_03",
+      "purpose": "simultaneous bass-drum and crash-cymbal hit regenerated after corrupted runtime PNG",
       "part": "BD+RC",
       "phase": "hit",
       "hand": "RF+R",
@@ -283,13 +283,13 @@
       "qa": {
         "scope": "luna-say-maybe-measures-1-16",
         "structural": "PASS",
-        "visual": "APPROVED_SOURCE_REUSED",
+        "visual": "USER_APPROVED_REGENERATED",
         "approved": true,
         "repaired": false,
         "canvasWidth": 1448,
         "canvasHeight": 1086,
         "hasAlpha": true,
-        "alphaEvidence": "PNG tRNS chunk verified from approved/pose_03.png"
+        "alphaEvidence": "fresh regenerated transparent PNG, user-approved"
       }
     },
     {
@@ -338,13 +338,13 @@
       {
         "pattern": "SN:R",
         "path": "character-assets/layers/character/sn/hit_r.png",
-        "sha256": "e0f80c29126a866fee2937ba633c9b26698bc40c4a02a3250f9b06dbcc83cb12",
+        "sha256": "637ee132b36293377826aa166af2ac4f3257162d18430e11c8b42ed3694d08c1",
         "purpose": "right-hand snare hit"
       },
       {
         "pattern": "BD+RC",
         "path": "character-assets/layers/character/combo/bd_rc_hit.png",
-        "sha256": "1b3a36294341c06181c00a641c2435bdfc810bd8757f4cf058f3005eb6c69326",
+        "sha256": "7eafce8c59a370cfabbd188ecfe96afcb81924f205d00c26e20334af1249df54",
         "purpose": "simultaneous right-foot bass drum + right-hand crash"
       },
       {
