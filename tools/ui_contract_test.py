@@ -37,7 +37,7 @@ checks = {
     "fixed mobile transport": '.mobile-transport' in css and 'position:fixed' in css,
     "playback independent from audio clock": 'playAnchorPerf=performance.now()' in js and '(performance.now()-playAnchorPerf)/1000' in js,
     "play button immediate state": '$("playPause").textContent="一時停止 ❚❚"' in js and 'setStatus("再生中")' in js,
-    "character module cache bust": 'character-prototype.js?v=20260916-full-song-qa' in js and 'app.js?v=20260916-full-song-qa' in html and 'styles.css?v=20260916-full-song-qa' in html,
+    "character module cache bust": 'character-prototype.js?v=20260916-limb-review' in js and 'app.js?v=20260916-limb-review' in html and 'styles.css?v=20260916-limb-review' in html,
     "character canvas stays transparent": 'isLuna?"rgba(7,9,22,.20)":"#0e172a"' in js and '.stage canvas{' in css and 'background:transparent' in css,
     "character layer visible behind notes": '.character-backdrop.active{opacity:.9}' in css and '.stage canvas{' in css and 'z-index:1' in css,
     "full song runtime scope": 'inventory.runtimeScope?.measureEnd||148' in character_js and 'note.measure>=startMeasure&&note.measure<=endMeasure' in character_js,
@@ -46,7 +46,8 @@ checks = {
     "separate instrument effect layer": 'id="effectLayer"' in html and 'id="effectPrimary"' in html and 'id="effectTertiary"' in html and '.effect-layer{' in css and 'triggerEffect(g,phase)' in character_js,
     "non-rapid hit returns neutral": 'rapidRepeatMaxGapSeconds' in character_js and 'nextGap>rapidMaxGap' in character_js and 'phase==="neutral"' in character_js,
     "rapid repeated hit keeps follow-through": 'keyFor(previous)===keyFor(next)' in character_js and 'return previous' in character_js,
-    "fallback QA dataset": 'dataset.fallback' in character_js and 'dataset.animationKey' in character_js and 'runtimeFallbackKeys' in character_js,
+    "fallback QA dataset": 'dataset.fallback' in character_js and 'dataset.fallbackReason' in character_js and 'dataset.animationKey' in character_js and 'dataset.limbs' in character_js and 'runtimeFallbackKeys' in character_js,
+    "precomputed limb mapping": 'Luna_say_maybe_1_16_limbs.json' in character_js and 'if(note?.limb)return note.limb' in character_js,
 }
 
 failed=[name for name,ok in checks.items() if not ok]
