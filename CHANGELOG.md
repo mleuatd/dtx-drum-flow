@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2026-09-16
+- Implemented the Luna Say Maybe measures 1-16 character-animation prototype renderer. The site now has a fixed drum/person layer stack, switches character poses from chart time, and only enables the prototype for Luna Say Maybe.
+- Added a first-16-measure asset inventory: the prototype uses only SN, BD, RC, HH, RD plus BD+SN, BD+RC, and RC+SN simultaneous groups across 144 notes.
+- Updated Pages deployment to copy `character-assets/` into the deployed site artifact so committed animation layers are available at runtime.
 - Added a fixed-registration layered character-animation architecture for DTX Drum Flow. Drum kit, character motion, and optional hit effects are now managed as separate full-canvas layers so the drum hardware cannot jitter between frames.
 - Locked character asset canvas/registration to 1448x1086 at x=0,y=0; cropping, per-frame translation, scaling, and mirroring are forbidden by project rules.
 - Added JSON animation mappings for quarter/eighth/sixteenth patterns, including default R/L alternation for repeated sixteenth-note hi-hat hits and mappings for SN/toms, kick pedal motion, and common simultaneous-hit combinations.
