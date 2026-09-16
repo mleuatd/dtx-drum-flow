@@ -1,6 +1,10 @@
 # Changelog
 
 ## 2026-09-16
+- Re-reviewed Luna Say Maybe measures 1-16 with phrase-aware right-handed sticking and added a stable per-note limb sidecar consumed before legacy part defaults.
+- Corrected the measure-1 snare pickup to R-L at 4.930410s / 5.038324s so the following 5.146237s crash remains naturally available to the right hand.
+- Reset the unsupported SN:R visual to approved neutral instead of incorrectly reusing the left-hand snare pose, and exposed fallback reason plus resolved per-note limbs in DOM datasets.
+- Added first-16-measure limb validation and QA documentation: 144 notes / 124 groups, unresolved=0, rapid same-hand violations=0; HT/LT/FT do not occur in this scope.
 - Expanded Luna Say Maybe character-animation runtime from the 16-measure prototype to the full FINAL chart: 148 measures, 2,158 notes, and 1,527 simultaneous-time groups.
 - Switched the browser character renderer to consume the full FINAL notes chart directly and derive default hands/feet at runtime (SN=L, BD=RF, other supported hand parts=R).
 - Added safe full-song fallbacks for toms and previously unsupported simultaneous combinations so every chart group resolves without stopping playback.
