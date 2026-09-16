@@ -143,6 +143,7 @@ export async function initCharacterPrototype(){
       frameMap:inventory.runtimeFrameMap||{},
       phaseFrameMap:inventory.runtimePhaseFrameMap||{},
       motionTiming:inventory.motionTiming||{},
+      fallbackKeys:new Set(inventory.runtimeFallbackKeys||[]),
       startMeasure,
       endMeasure,
       prototypeEndTime:Math.max(...scopedNotes.map(note=>note.time),0)+.35
@@ -176,8 +177,11 @@ export function updateCharacterPrototype(time,chartName=""){
   els.root.dataset.active=String(activeSong&&inWindow);
   if(!activeSong||!inWindow){triggerEffect(null,"neutral");return}
   const g=findGroupAt(time);
-  if(!g){triggerEffect(null,"neutral");setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL","neutral");return}
+  if(!g){els.root.dataset.fallback="false";els.root.dataset.animationKey="neutral";triggerEffect(null,"neutral");setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL","neutral");return}
   const phase=phaseFor(g,time);
+  const resolvedKey=keyFor(g);
+  els.root.dataset.fallback=String(data?.fallbackKeys?.has(resolvedKey)||false);
+  els.root.dataset.animationKey=resolvedKey;
   const asset=assetFor(g,phase);
   if(phase==="neutral"){
     triggerEffect(null,"neutral");
