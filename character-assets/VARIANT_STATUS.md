@@ -110,7 +110,7 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] Verify all 144 notes / 124 simultaneous groups resolve to one of the nine required character frames
 - [x] Make `asset_inventory.json` the browser runtime frame-map source
 - [x] Align SN=left hand, BD=right foot, and combo names with the prototype files
-- [ ] Add HH left-hand prep/hit/rebound frames before a chart section containing sixteenth-note HH alternation is enabled
+- [ ] Add HH left-hand prep/hit/rebound frames for visually correct sixteenth-note HH alternation; the full-song runtime remains enabled using the safe right-hand/neutral fallback until those binaries are available
 
 ## Binary push transport
 
@@ -173,3 +173,18 @@ Public QA result for commit `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`:
 - 15.0 seconds: scope ended and the character backdrop became inactive
 - `assets-missing`: false
 - all four GitHub Actions: success
+## Full-song runtime milestone
+
+- [x] Luna Say Maybe measures 1-148 enabled from the FINAL chart
+- [x] 2,158 notes / 1,527 simultaneous-time groups verified
+- [x] All 23 occurring full-song group keys resolve to registered runtime frame/phase entries
+- [x] HT / LT / FT hit-effect coordinates added
+- [x] Three-position effect support added for triple simultaneous hits
+- [x] Full-song validation uses the FINAL notes chart as source of truth
+- [x] Unsupported combinations use documented closest-pose fallbacks instead of disabling animation
+- [ ] Dedicated HT / LT / FT character hit/rebound PNGs (currently neutral character + correct instrument effect)
+- [ ] Dedicated HH+BD / HH+SN / RD+SN / other later-song combo character PNGs
+- [ ] HH left-hand transparent frames for visually correct R/L sixteenth alternation
+
+Mechanical full-song verification: 1,527 / 1,527 groups resolved, 0 unresolved. 575 groups currently use fallback character poses; 100 tom-only groups use neutral character with instrument-positioned effects.
+
