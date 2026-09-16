@@ -4,12 +4,29 @@ const PROTOTYPE_MEASURE_END=8;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20260917-neutral-and-pose-r5";
+const ASSET_VERSION="20260917-devhud-r6";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
 let data=null,lastKey="",lastEffectToken="",ready=false,activeSong=false;
 const els={root:null,drum:null,character:null,label:null,effect:null,bursts:[]};
+function updateDevHud(extra=""){
+  const hud=document.getElementById("devBuildHud");
+  if(!hud)return;
+  const root=document.getElementById("characterBackdrop");
+  const lines=[
+    "BUILD 20260917-devhud-r6",
+    "JS:ok / CHAR:"+(ready?"ready":"loading"),
+    "active:"+(root?.dataset.active||"-")+" state:"+(root?.dataset.state||"-"),
+    "frame:"+(root?.dataset.frame||"-"),
+    "phase:"+(root?.dataset.phase||"-"),
+    "key:"+(root?.dataset.animationKey||"-"),
+    "err:"+(root?.dataset.initError||root?.dataset.assetIssue||"-")
+  ];
+  if(extra)lines.push(extra);
+  hud.textContent=lines.join("\n");
+}
+setInterval(()=>updateDevHud(),250);
 const EFFECT_POINTS={HH:[255,465],SN:[570,520],BD:[505,790],HT:[690,455],LT:[790,510],FT:[910,585],RC:[1090,195],RD:[1070,370]};
 
 function loadImage(src){
@@ -225,11 +242,11 @@ export async function initCharacterPrototype(){
     els.root.dataset.state=failedSources.length?"ready-with-asset-warning":"ready";
     els.root.dataset.scope=`${startMeasure}-${endMeasure}`;
     els.root.dataset.noteCount=String(scopedNotes.length);
-    els.root.dataset.groupCount=String(groups.length);
+    els.root.dataset.groupCount=String(groups.length);updateDevHud("preload:ok");
   }catch(err){
     console.warn("character prototype initialization warning",err);
     els.root.dataset.state="init-warning";
-    els.root.dataset.initError=String(err?.message||err);
+    els.root.dataset.initError=String(err?.message||err);updateDevHud("init:warning");
     ready=true;
     els.root.classList.add("character-ready","asset-warning");
   }
@@ -265,5 +282,5 @@ export function updateCharacterPrototype(time,chartName=""){
   const parts=[...new Set(g.map(n=>n.part))].sort().join("+");
   const hand=g.map(n=>handForNote(n)).filter(Boolean).join("/");
   triggerEffect(g,phase);
-  setFrame(asset,parts+(hand?" · "+hand:"")+" · "+phase.toUpperCase(),phase);
+  setFrame(asset,parts+(hand?" · "+hand:"")+" · "+phase.toUpperCase(),phase);updateDevHud();
 }
