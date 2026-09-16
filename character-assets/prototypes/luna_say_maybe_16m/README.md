@@ -69,9 +69,13 @@ The prototype must prove:
 
 ## Generated prototype data
 
-`Luna_say_maybe_16m_animation.json` contains the first 16 measures with per-note `animation` metadata.
+`site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json` contains the reviewed first-16-measure per-note limb assignments and is authoritative for runtime sticking in this scope. The renderer consumes these precomputed values before any legacy part-default fallback.
 
-This file is generated from the FINAL chart and is the authoritative prototype mapping until manual sticking review changes a note.
+The phrase-aware exception is the short SN pickup at 4.930410s -> 5.038324s. It is assigned R -> L so the immediately following 5.146237s crash can remain on the right hand. Measures 1-16 contain no HT/LT/FT notes.
+
+## Current missing exact pose
+
+- Measure 1, 4.930410s, SN, resolved limb R: exact right-hand snare hit pose is not registered. Runtime intentionally uses approved `neutral.png` and marks `dataset.fallback=true`, `dataset.fallbackReason=declared-fallback-key`, and `dataset.limbs=SN:R`. It does not reuse the left-hand SN image.
 
 ## Baseline orientation
 
