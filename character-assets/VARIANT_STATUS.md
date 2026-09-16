@@ -90,6 +90,16 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] First 16 measures extracted from FINAL notes chart
 - [x] Per-note hand/foot animation metadata generated
 - [x] Left-facing baseline orientation locked
-- [ ] Binary baseline layers transported into GitHub paths
-- [ ] Browser renderer wired to the prototype layer set
+- [ ] Binary baseline layers transported into GitHub paths (connector still needs binary-byte transport)
+- [x] Browser renderer wired to the prototype layer set
 - [ ] Visual QA of all first-16-measure note patterns
+
+## Luna 1-16 implementation
+
+- [x] Runtime layer switcher implemented in `site/character-prototype.js`
+- [x] Stage DOM/CSS layered backdrop implemented
+- [x] Deploy workflow updated to publish `character-assets/` with the site
+- [x] First-16 measure occurring pattern inventory committed
+- [x] Generated local draft layers: neutral, HH right prep/hit/rebound, HH left hit, SN left hit, BD foot-down
+- [ ] Generate RC hit, RD hit, BD+SN, BD+RC, RC+SN combined poses
+- [ ] Commit PNG binary bytes for all generated layers
