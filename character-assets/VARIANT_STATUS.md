@@ -194,7 +194,7 @@ Mechanical full-song verification: 1,527 / 1,527 groups resolved, 0 unresolved. 
 - Runtime scope restored and hard-limited to measures 1-16.
 - Registered first-16 runtime PNGs passed structural checks: 1448x1086 and transparent PNG metadata present.
 - COMMITTED_DRAFT hit variants remain visual-pending because this chat environment cannot expose GitHub PNG bytes to the visual/edit surface as an editable image target.
-- `SN:R` remains the only exact-pose shortage in measures 1-16; neutral fallback is intentional and `SN:L` is not reused.
+- `SN:R` shortage is resolved: approved `approved/pose_01.png` is restored byte-for-byte at `layers/character/sn/hit_r.png`; no neutral fallback is used for SN:R.
 - No character PNG bytes were modified in this pass.
 - No LT/FT or other measure 17+ variants were generated.
 
@@ -207,3 +207,18 @@ Mechanical full-song verification: 1,527 / 1,527 groups resolved, 0 unresolved. 
 - [x] Luna note Canvas no longer paints any dark full-frame fill; notes/lanes render over the fixed drum + character layers with a fully transparent Canvas background.
 - [x] Runtime image URLs are cache-busted so mobile browsers reload the corrected PNGs.
 - [ ] The prototype `approved/` archive still contains only pose_01 and pose_03; older documentation saying six more approved images were recovered but not archived remains a historical recovery gap, separate from the semantic runtime PNG set.
+
+
+## 2026-09-17 measures 1-8 finalization
+
+- [x] Runtime hard-limited to measures 1-8 for this pass.
+- [x] Recomputed from FINAL notes + limb JSON: 61 notes / 59 time groups.
+- [x] Exact action keys: `SN:L`, `SN:R`, `BD+RC:*`, `HH:R`, `BD:RF`, `RD:R`.
+- [x] Opening snare sticking confirmed L -> R -> L from limb JSON.
+- [x] All 59 groups resolve; unresolved = 0.
+- [x] Six runtime hit PNGs are 1448x1086 transparent full-canvas assets at x=0,y=0.
+- [x] `SN:R` is byte-identical to approved `pose_01.png`.
+- [x] `BD+RC` is byte-identical to approved `pose_03.png`.
+- [x] Fixed drum SHA-256 remains `eba6161535535d935e518cdcc9009ad75ee9a3f5e57cd66ba2128deaed044b30`.
+- [x] No character PNG or drum PNG bytes changed in this finalization.
+- [x] Runtime/PNG cache version advanced to `20260917-m1-8-final`.
