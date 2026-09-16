@@ -222,3 +222,24 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 - `fb64f49d7d993a70985fa67416e699aacdd7b787` fallback QA UI contract
 - `136514ee04c6750e8fa1ef954eec607a098a1739` fallback key validator
 
+
+
+## Luna 1〜16小節 手足再レビュー（2026-09-16）
+
+- 新しい正本データ: `site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json`
+- 1〜16小節の144ノーツすべてへ R / L / RF / LF を事前割当し、描画時の単純なパート固定推定より優先するよう変更。
+- 1小節目のSN pickupは 4.930410秒=R、5.038324秒=L。直後5.146237秒のRC=Rへ自然につなぐためのphrase-aware sticking。
+- 既存の左手SN画像を右手SNへ誤流用しない。SN:R は `neutral.png` へ明示fallback。
+- fallback QA: `dataset.fallback`, `dataset.fallbackReason`, `dataset.animationKey`, `dataset.limbs`。
+- 1〜16小節: 144ノーツ / 124グループ、未解決0、同一パッド高速同手連続0。
+- 1〜16小節には HT / LT / FT は出現しない。
+- 不足exact hit画像は現時点で1件のみ: measure 1 / 4.930410s / SN / R / right-hand snare hit。現在はapproved neutralへfallback。
+- 詳細: `character-assets/prototypes/luna_say_maybe_16m/LIMB_QA_2026-09-16.md`
+- 主なコミット:
+  - `be85fac4b41e30598c0a24e41d05b415ab777481` limb sidecar
+  - `637294288e5230b898329a4199da33aeed37d016` runtime limb priority / fallback datasets
+  - `67d8d54ca3f664b6729b8c60f1b6b3a691aedb10` inventory update
+  - `e24952070819c2ddcb004188361e0ba83d122559` validator update
+  - `ff3c75df50a80f15d1dd37b79c736cc5c0784333` UI contract update
+  - `a1f8b48342dc4bbdd8c87afe92dde148215777cd` QA / missing-pose report
+  - `c8f42c389a157986164907ea1e38e86e1c59c0e2` changelog
