@@ -4,36 +4,20 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 148,
-    "noteCount": 2158,
-    "groupCount": 1527,
+    "measureEnd": 16,
+    "noteCount": 144,
+    "groupCount": 124,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 258.851273,
+    "lastNoteTime": 30.829691,
     "expectedKeys": [
       "SN:L",
       "SN:R",
       "BD:RF",
       "HH:R",
-      "RC:R",
       "RD:R",
-      "HT:R",
-      "LT:R",
-      "FT:R",
       "BD+SN:*",
       "BD+RC:*",
-      "RC+SN:*",
-      "BD+LT:*",
-      "RD+SN:*",
-      "BD+RD:*",
-      "BD+HH:*",
-      "HH+SN:*",
-      "FT+SN:*",
-      "BD+HT:*",
-      "LT+SN:*",
-      "BD+HH+SN:*",
-      "BD+RC+SN:*",
-      "BD+FT+SN:*",
-      "BD+FT:*"
+      "RC+SN:*"
     ]
   },
   "occurringParts": {
@@ -78,11 +62,6 @@
       "state": "committed-draft",
       "sha256": "438c7f9954fbf313d2b942561898c4134d616bb98c88adeda77298ffa6db0b19"
     },
-    "rc_hit_r": {
-      "path": "layers/character/rc/hit_r.png",
-      "state": "committed-draft",
-      "sha256": "290a4fa66187b9c205d0cf95a3df1c5b4f5d48fc2422d1b70b2ad7b92db570ec"
-    },
     "rd_hit_r": {
       "path": "layers/character/rd/hit_r.png",
       "state": "committed-draft",
@@ -108,26 +87,10 @@
     "HH:R": "hh_hit_r",
     "SN:L": "sn_hit_l",
     "BD:RF": "bd_foot_down",
-    "RC:R": "rc_hit_r",
     "RD:R": "rd_hit_r",
     "BD+SN:*": "combo_bd_sn",
     "BD+RC:*": "combo_bd_rc",
     "RC+SN:*": "combo_rc_sn",
-    "HT:R": "neutral",
-    "LT:R": "neutral",
-    "FT:R": "neutral",
-    "BD+LT:*": "bd_foot_down",
-    "RD+SN:*": "sn_hit_l",
-    "BD+RD:*": "rd_hit_r",
-    "BD+HH:*": "hh_hit_r",
-    "HH+SN:*": "sn_hit_l",
-    "FT+SN:*": "sn_hit_l",
-    "BD+HT:*": "bd_foot_down",
-    "LT+SN:*": "sn_hit_l",
-    "BD+HH+SN:*": "combo_bd_sn",
-    "BD+RC+SN:*": "combo_bd_sn",
-    "BD+FT+SN:*": "combo_bd_sn",
-    "BD+FT:*": "bd_foot_down",
     "SN:R": "neutral"
   },
   "runtimePhaseFrameMap": {
@@ -166,86 +129,6 @@
       "hit": "combo_rc_sn",
       "rebound": "neutral"
     },
-    "RC:R": {
-      "prep": "neutral",
-      "hit": "rc_hit_r",
-      "rebound": "neutral"
-    },
-    "HT:R": {
-      "prep": "neutral",
-      "hit": "neutral",
-      "rebound": "neutral"
-    },
-    "LT:R": {
-      "prep": "neutral",
-      "hit": "neutral",
-      "rebound": "neutral"
-    },
-    "FT:R": {
-      "prep": "neutral",
-      "hit": "neutral",
-      "rebound": "neutral"
-    },
-    "BD+LT:*": {
-      "prep": "neutral",
-      "hit": "bd_foot_down",
-      "rebound": "neutral"
-    },
-    "RD+SN:*": {
-      "prep": "neutral",
-      "hit": "sn_hit_l",
-      "rebound": "neutral"
-    },
-    "BD+RD:*": {
-      "prep": "neutral",
-      "hit": "rd_hit_r",
-      "rebound": "neutral"
-    },
-    "BD+HH:*": {
-      "prep": "neutral",
-      "hit": "hh_hit_r",
-      "rebound": "neutral"
-    },
-    "HH+SN:*": {
-      "prep": "neutral",
-      "hit": "sn_hit_l",
-      "rebound": "neutral"
-    },
-    "FT+SN:*": {
-      "prep": "neutral",
-      "hit": "sn_hit_l",
-      "rebound": "neutral"
-    },
-    "BD+HT:*": {
-      "prep": "neutral",
-      "hit": "bd_foot_down",
-      "rebound": "neutral"
-    },
-    "LT+SN:*": {
-      "prep": "neutral",
-      "hit": "sn_hit_l",
-      "rebound": "neutral"
-    },
-    "BD+HH+SN:*": {
-      "prep": "neutral",
-      "hit": "combo_bd_sn",
-      "rebound": "neutral"
-    },
-    "BD+RC+SN:*": {
-      "prep": "neutral",
-      "hit": "combo_bd_sn",
-      "rebound": "neutral"
-    },
-    "BD+FT+SN:*": {
-      "prep": "neutral",
-      "hit": "combo_bd_sn",
-      "rebound": "neutral"
-    },
-    "BD+FT:*": {
-      "prep": "neutral",
-      "hit": "bd_foot_down",
-      "rebound": "neutral"
-    },
     "SN:R": {
       "prep": "neutral",
       "hit": "neutral",
@@ -279,22 +162,7 @@
     "runtimeDatasetFlag": "characterBackdrop.dataset.fallback / dataset.fallbackReason identify declared or missing exact frames; dataset.limbs exposes the resolved per-note limbs."
   },
   "runtimeFallbackKeys": [
-    "SN:R",
-    "HT:R",
-    "LT:R",
-    "FT:R",
-    "BD+LT:*",
-    "RD+SN:*",
-    "BD+RD:*",
-    "BD+HH:*",
-    "HH+SN:*",
-    "FT+SN:*",
-    "BD+HT:*",
-    "LT+SN:*",
-    "BD+HH+SN:*",
-    "BD+RC+SN:*",
-    "BD+FT+SN:*",
-    "BD+FT:*"
+    "SN:R"
   ],
   "limbAnalysis": {
     "scope": {
@@ -314,5 +182,26 @@
       }
     ],
     "note": "The right-hand snare exception starts the final 16th-note pair R-L so the following 5.146237 crash remains available to the right hand. No HT/LT/FT notes occur in measures 1-16."
+  },
+  "missingExactFrames": [
+    {
+      "key": "SN:R",
+      "measure": 1,
+      "time": 4.93041,
+      "part": "SN",
+      "limb": "R",
+      "required": "right-hand snare hit on locked 1448x1086 registration",
+      "currentFallback": "neutral",
+      "reason": "No dedicated SN:R runtime PNG is registered on GitHub main; SN:L must not be reused."
+    }
+  ],
+  "qa": {
+    "scope": "measures 1-16",
+    "structuralAssetQA": "PASS_FOR_REGISTERED_RUNTIME_PNGS",
+    "visualAssetQA": "PENDING_ENVIRONMENT_LIMITATION",
+    "binaryRepairsPerformed": 0,
+    "exactPoseShortages": [
+      "SN:R"
+    ]
   }
 }
