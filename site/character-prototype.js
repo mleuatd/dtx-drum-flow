@@ -63,6 +63,29 @@ function assetFor(group,phase="hit"){
   const frameId=phases?.[phase]||data?.frameMap?.[key]||"neutral";
   return data?.frames?.[frameId]?.path||"layers/character/base/neutral.png";
 }
+function validatePrototypeCoverage(inventory,scopedNotes,groups){
+  const scope=inventory.runtimeScope||{};
+  const expectedNotes=Number(scope.noteCount||0);
+  const expectedGroups=Number(scope.groupCount||0);
+  if(scopedNotes.length!==expectedNotes)throw new Error(`prototype note count ${scopedNotes.length} != ${expectedNotes}`);
+  if(groups.length!==expectedGroups)throw new Error(`prototype group count ${groups.length} != ${expectedGroups}`);
+  const unresolvedLimbs=scopedNotes.filter(note=>!note.limb);
+  if(unresolvedLimbs.length)throw new Error(`prototype limb assignments missing: ${unresolvedLimbs.length}`);
+  const expectedKeys=new Set(scope.expectedKeys||[]);
+  const actualKeys=new Set();
+  for(const group of groups){
+    const key=keyFor(group);
+    actualKeys.add(key);
+    if(!inventory.runtimeFrameMap?.[key])throw new Error(`prototype frame missing for ${key} at ${group[0].time}`);
+    for(const phase of ["prep","hit","rebound"]){
+      const frameId=inventory.runtimePhaseFrameMap?.[key]?.[phase];
+      if(!frameId||!inventory.requiredFrames?.[frameId])throw new Error(`prototype phase frame missing for ${key}.${phase}`);
+    }
+  }
+  const missing=[...expectedKeys].filter(key=>!actualKeys.has(key));
+  const unexpected=[...actualKeys].filter(key=>!expectedKeys.has(key));
+  if(missing.length||unexpected.length)throw new Error(`prototype key mismatch missing=${missing.join(",")} unexpected=${unexpected.join(",")}`);
+}
 function setFrame(path,label="",phase="neutral"){
   if(!els.character)return;
   const src=ASSET_ROOT+"/"+path;
@@ -162,6 +185,7 @@ export async function initCharacterPrototype(){
     const endMeasure=PROTOTYPE_MEASURE_END;
     const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure);
     const groups=groupNotes(scopedNotes);
+    validatePrototypeCoverage(inventory,scopedNotes,groups);
     data={
       ...json,
       groups,
@@ -186,6 +210,8 @@ export async function initCharacterPrototype(){
     els.root.classList.add("character-ready");
     els.root.dataset.state="ready";
     els.root.dataset.scope=`${startMeasure}-${endMeasure}`;
+    els.root.dataset.noteCount=String(scopedNotes.length);
+    els.root.dataset.groupCount=String(groups.length);
   }catch(err){
     console.warn("character prototype disabled",err);
     fail();
