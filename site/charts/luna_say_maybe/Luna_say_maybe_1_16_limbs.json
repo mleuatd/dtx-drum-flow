@@ -1,0 +1,1039 @@
+{
+  "version": 1,
+  "chart": "Luna_say_maybe_FINAL_notes.json",
+  "scope": {
+    "measureStart": 1,
+    "measureEnd": 16,
+    "noteCount": 144
+  },
+  "handedness": "right-handed",
+  "method": "Precomputed limb assignment for stable runtime use. Standard right-handed groove rules plus phrase-aware sticking; not inferred from part names at render time.",
+  "decisions": [
+    {
+      "range": "measures 2-16 regular groove",
+      "rule": "HH/RC/RD=R, backbeat SN=L, BD=RF; simultaneous notes retain independent limb assignments."
+    },
+    {
+      "time": 4.93041,
+      "part": "SN",
+      "limb": "R",
+      "reason": "Start the final 16th-note SN pair R-L so the following 5.146237 RC crash remains naturally available to the right hand."
+    },
+    {
+      "time": 5.038324,
+      "part": "SN",
+      "limb": "L",
+      "reason": "Ends the R-L pair on the left hand immediately before the right-hand crash."
+    }
+  ],
+  "assignments": [
+    {
+      "time": 4.714583,
+      "measure": 1,
+      "beatIndex": 1,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 4.93041,
+      "measure": 1,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "R"
+    },
+    {
+      "time": 5.038324,
+      "measure": 1,
+      "beatIndex": 3,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 5.146237,
+      "measure": 2,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 5.146237,
+      "measure": 2,
+      "beatIndex": 0,
+      "part": "RC",
+      "limb": "R"
+    },
+    {
+      "time": 5.362065,
+      "measure": 2,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 5.577892,
+      "measure": 2,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 5.793719,
+      "measure": 2,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 6.009547,
+      "measure": 2,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 6.225374,
+      "measure": 2,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 6.441201,
+      "measure": 2,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 6.657029,
+      "measure": 2,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 6.872856,
+      "measure": 3,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 7.088683,
+      "measure": 3,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 7.304511,
+      "measure": 3,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 7.520338,
+      "measure": 3,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 7.736165,
+      "measure": 3,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 7.951993,
+      "measure": 3,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 8.16782,
+      "measure": 3,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 8.383647,
+      "measure": 3,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 8.599475,
+      "measure": 4,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 8.815302,
+      "measure": 4,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 9.031129,
+      "measure": 4,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 9.246957,
+      "measure": 4,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 9.462784,
+      "measure": 4,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 9.678612,
+      "measure": 4,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 9.894439,
+      "measure": 4,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 10.110266,
+      "measure": 4,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 10.326094,
+      "measure": 5,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 10.541921,
+      "measure": 5,
+      "beatIndex": 1,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 10.757748,
+      "measure": 5,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 10.973576,
+      "measure": 5,
+      "beatIndex": 3,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 11.189403,
+      "measure": 5,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 11.40523,
+      "measure": 5,
+      "beatIndex": 5,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 11.621058,
+      "measure": 5,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 11.836885,
+      "measure": 5,
+      "beatIndex": 7,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 12.052712,
+      "measure": 6,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 12.052712,
+      "measure": 6,
+      "beatIndex": 0,
+      "part": "RC",
+      "limb": "R"
+    },
+    {
+      "time": 12.26854,
+      "measure": 6,
+      "beatIndex": 1,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 12.484367,
+      "measure": 6,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 12.700194,
+      "measure": 6,
+      "beatIndex": 3,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 12.916022,
+      "measure": 6,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 13.131849,
+      "measure": 6,
+      "beatIndex": 5,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 13.347676,
+      "measure": 6,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 13.563504,
+      "measure": 6,
+      "beatIndex": 7,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 13.779331,
+      "measure": 7,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 13.995158,
+      "measure": 7,
+      "beatIndex": 1,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 14.210986,
+      "measure": 7,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 14.426813,
+      "measure": 7,
+      "beatIndex": 3,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 14.64264,
+      "measure": 7,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 14.858468,
+      "measure": 7,
+      "beatIndex": 5,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 15.074295,
+      "measure": 7,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 15.290122,
+      "measure": 7,
+      "beatIndex": 7,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 15.50595,
+      "measure": 8,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 15.721777,
+      "measure": 8,
+      "beatIndex": 1,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 15.937604,
+      "measure": 8,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 16.153432,
+      "measure": 8,
+      "beatIndex": 3,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 16.369259,
+      "measure": 8,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 16.585086,
+      "measure": 8,
+      "beatIndex": 5,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 16.800914,
+      "measure": 8,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 17.016741,
+      "measure": 8,
+      "beatIndex": 7,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 17.232568,
+      "measure": 9,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 17.448396,
+      "measure": 9,
+      "beatIndex": 1,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 17.664223,
+      "measure": 9,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 17.88005,
+      "measure": 9,
+      "beatIndex": 3,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 18.095878,
+      "measure": 9,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 18.311705,
+      "measure": 9,
+      "beatIndex": 5,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 18.527532,
+      "measure": 9,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 18.74336,
+      "measure": 9,
+      "beatIndex": 7,
+      "part": "RD",
+      "limb": "R"
+    },
+    {
+      "time": 18.959187,
+      "measure": 10,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 18.959187,
+      "measure": 10,
+      "beatIndex": 0,
+      "part": "RC",
+      "limb": "R"
+    },
+    {
+      "time": 19.175014,
+      "measure": 10,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 19.390842,
+      "measure": 10,
+      "beatIndex": 2,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 19.390842,
+      "measure": 10,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 19.606669,
+      "measure": 10,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 19.822496,
+      "measure": 10,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 20.038324,
+      "measure": 10,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 20.254151,
+      "measure": 10,
+      "beatIndex": 6,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 20.254151,
+      "measure": 10,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 20.469978,
+      "measure": 10,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 20.685806,
+      "measure": 11,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 20.901633,
+      "measure": 11,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 21.11746,
+      "measure": 11,
+      "beatIndex": 2,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 21.11746,
+      "measure": 11,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 21.333288,
+      "measure": 11,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 21.549115,
+      "measure": 11,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 21.764942,
+      "measure": 11,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 21.98077,
+      "measure": 11,
+      "beatIndex": 6,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 21.98077,
+      "measure": 11,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 22.196597,
+      "measure": 11,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 22.304511,
+      "measure": 11,
+      "beatIndex": 8,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 22.412424,
+      "measure": 12,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 22.412424,
+      "measure": 12,
+      "beatIndex": 0,
+      "part": "RC",
+      "limb": "R"
+    },
+    {
+      "time": 22.628252,
+      "measure": 12,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 22.844079,
+      "measure": 12,
+      "beatIndex": 2,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 22.844079,
+      "measure": 12,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 23.059906,
+      "measure": 12,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 23.275734,
+      "measure": 12,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 23.491561,
+      "measure": 12,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 23.707388,
+      "measure": 12,
+      "beatIndex": 6,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 23.707388,
+      "measure": 12,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 23.923216,
+      "measure": 12,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 24.139043,
+      "measure": 13,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 24.354871,
+      "measure": 13,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 24.570698,
+      "measure": 13,
+      "beatIndex": 2,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 24.570698,
+      "measure": 13,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 24.786525,
+      "measure": 13,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 25.002353,
+      "measure": 13,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 25.21818,
+      "measure": 13,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 25.434007,
+      "measure": 13,
+      "beatIndex": 6,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 25.434007,
+      "measure": 13,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 25.649835,
+      "measure": 13,
+      "beatIndex": 7,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 25.649835,
+      "measure": 13,
+      "beatIndex": 7,
+      "part": "RC",
+      "limb": "R"
+    },
+    {
+      "time": 25.865662,
+      "measure": 14,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 26.081489,
+      "measure": 14,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 26.297317,
+      "measure": 14,
+      "beatIndex": 2,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 26.297317,
+      "measure": 14,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 26.513144,
+      "measure": 14,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 26.728971,
+      "measure": 14,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 26.944799,
+      "measure": 14,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 27.160626,
+      "measure": 14,
+      "beatIndex": 6,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 27.160626,
+      "measure": 14,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 27.376453,
+      "measure": 14,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 27.592281,
+      "measure": 15,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 27.592281,
+      "measure": 15,
+      "beatIndex": 0,
+      "part": "RC",
+      "limb": "R"
+    },
+    {
+      "time": 27.808108,
+      "measure": 15,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 28.023935,
+      "measure": 15,
+      "beatIndex": 2,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 28.023935,
+      "measure": 15,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 28.239763,
+      "measure": 15,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 28.45559,
+      "measure": 15,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 28.671417,
+      "measure": 15,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 28.887245,
+      "measure": 15,
+      "beatIndex": 6,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 28.887245,
+      "measure": 15,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 29.103072,
+      "measure": 15,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 29.318899,
+      "measure": 16,
+      "beatIndex": 0,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 29.534727,
+      "measure": 16,
+      "beatIndex": 1,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 29.750554,
+      "measure": 16,
+      "beatIndex": 2,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 29.750554,
+      "measure": 16,
+      "beatIndex": 2,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 29.966381,
+      "measure": 16,
+      "beatIndex": 3,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 30.182209,
+      "measure": 16,
+      "beatIndex": 4,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 30.398036,
+      "measure": 16,
+      "beatIndex": 5,
+      "part": "HH",
+      "limb": "R"
+    },
+    {
+      "time": 30.613863,
+      "measure": 16,
+      "beatIndex": 6,
+      "part": "BD",
+      "limb": "RF"
+    },
+    {
+      "time": 30.613863,
+      "measure": 16,
+      "beatIndex": 6,
+      "part": "SN",
+      "limb": "L"
+    },
+    {
+      "time": 30.829691,
+      "measure": 16,
+      "beatIndex": 7,
+      "part": "HH",
+      "limb": "R"
+    }
+  ]
+}
