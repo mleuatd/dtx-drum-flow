@@ -128,4 +128,15 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 - `assets_manifest.json` と `asset_inventory.json` を更新し、CIは最初の4小節の全キーに prep/hit/rebound が存在すること、SNのhit/reboundが別フレームであることを検査する。
 - 次の改善候補は、実alphaを安定して出せる手段でHH / BD / BD+RC専用reboundを追加すること。現在の4小節完成にはneutral戻りでフォールバック可能。
 
+実装・公開コミット: `b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa`
+
+公開ページ実ブラウザQA:
+- `character-ready active`、scope=`1-4`、固定ドラム/人物とも1448x1086
+- 4.716秒: `SN · L · HIT` / `sn/hit_l.png` / SNエフェクト発火
+- 4.770秒: `SN · L · REBOUND` / `sn/rebound_l.png` / エフェクト消去
+- 5.146秒: `BD+RC · RF/R · HIT` / `combo/bd_rc_hit.png` / BD座標とRC座標の2バースト発火
+- GitHub上のrebound PNGは実alphaあり、SHA-256がmanifestと一致
+- GitHub Actions 4件（validate / Character asset validation / Build standalone trainer / deploy-site）はすべてsuccess
+- 公開URL: https://mleuatd.github.io/dtx-drum-flow/
+
 バイナリ登録が権限・API制約で失敗した場合は、失敗内容と必要なユーザー操作を `WORK_SYNC.md` または `VARIANT_STATUS.md` に記録してから案内する。

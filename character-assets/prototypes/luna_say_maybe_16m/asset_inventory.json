@@ -117,5 +117,6 @@
     "prototypeWindow": "measures 1-4 enabled with prep/hit/rebound phases and separate hit-effect layer; measures 5-16 retained as prepared data"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
-  "note": "All image patterns required by measures 1-16 are now present in Git. Visual QA remains pending; committed images may be revised without changing drum_base registration."
+  "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
+  "note": "Measures 1-4 prep/hit/rebound runtime and hit effects passed public-browser QA. Measures 5-16 remain prepared but outside the enabled runtime milestone; committed draft images may be revised without changing drum_base registration."
 }

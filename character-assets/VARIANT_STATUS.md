@@ -149,6 +149,8 @@ Motion QA policy:
 - The runtime phase windows are prep before the note, hit at the note, and rebound after it. The nearest time group wins, which keeps the two closely spaced opening SN notes responsive without moving the drum layer.
 - The effect is a separate SVG layer at the locked 1448x1086 coordinate system. It never changes drum pixels or character registration.
 
+First-four-measure motion polish was deployed in commit `b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa` and verified on GitHub Pages. Public-browser checks passed for SN hit/rebound and the two-position BD+RC effect. All four GitHub Actions runs completed successfully.
+
 Public QA result for commit `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`:
 - initial state: `character-ready active`, scope `1-4`, opacity `0.9`
 - fixed drum and neutral character: loaded at 1448x1086
