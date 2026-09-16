@@ -22,6 +22,21 @@
 6. If Work and normal chat diverge, reconcile against this repository and document the decision here.
 7. Update CHANGELOG.md for user-visible or behavior-changing modifications.
 
+## Character animation / fixed registration
+
+Canonical character asset management:
+- `character-assets/`
+- fixed canvas: 1448x1086
+- registration: x=0,y=0
+- fixed drum layer + separate character pose layer + optional effect layer
+- never regenerate/move the drum kit per animation frame
+- quarter/eighth/sixteenth and simultaneous-hit mappings: `character-assets/config/animation_rules.json`
+- optional score metadata binding: `character-assets/SCORE_BINDING.md`
+- site-side resolver: `site/character-animation.js`
+- registration validation: `tools/character_layers/validate_assets.py`
+
+Approved raster baseline geometry is authoritative. Binary transparent drum/person layers must be visually reviewed before being marked authoritative.
+
 ## Current highest-priority engineering goal
 Improve drum-note timing extraction/synchronization against the original audio.
 
@@ -45,7 +60,6 @@ Use multiple signals rather than trusting a single Audio-to-MIDI path:
 
 ## CHANGELOG pointer
 See CHANGELOG.md.
-
 
 ## Precision audio pipeline
 - Location: `tools/audio_pipeline/`
