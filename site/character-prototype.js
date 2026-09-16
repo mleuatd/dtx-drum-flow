@@ -4,7 +4,7 @@ const PROTOTYPE_MEASURE_END=8;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20260917-m1-8-runtime-r2";
+const ASSET_VERSION="20260917-android-character-visible-r4";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
@@ -19,6 +19,11 @@ function loadImage(src){
     image.onerror=()=>reject(new Error("image HTTP/load failure: "+src));
     image.src=assetUrl(src);
   });
+}
+function markAssetIssue(src){
+  if(!els.root)return;
+  els.root.dataset.assetIssue=src||"unknown";
+  els.root.classList.add("asset-warning");
 }
 
 function groupNotes(notes){
@@ -162,9 +167,9 @@ export async function initCharacterPrototype(){
   if(!els.root||!els.drum||!els.character)return;
   els.drum.src=assetUrl(DRUM);
   els.character.src=assetUrl(ASSET_ROOT+"/layers/character/base/neutral.png");
-  const fail=()=>{els.root.classList.add("assets-missing");els.root.dataset.state="assets-missing"};
-  els.drum.addEventListener("error",fail,{once:true});
-  els.character.addEventListener("error",fail,{once:true});
+  const fail=e=>{markAssetIssue(e?.target?.src||"dom-image-load");els.root.dataset.state="asset-warning"};
+  els.drum.addEventListener("error",fail);
+  els.character.addEventListener("error",fail);
   try{
     const [notesResponse,inventoryResponse,limbResponse]=await Promise.all([
       fetch(PROTOTYPE_URL,{cache:"no-store"}),
@@ -207,16 +212,26 @@ export async function initCharacterPrototype(){
       Object.values(data.phaseFrameMap[key]||{}).forEach(id=>usedFrameIds.add(id));
     }
     const sources=[DRUM,...[...usedFrameIds].map(id=>ASSET_ROOT+"/"+data.frames[id].path)];
-    await Promise.all(sources.map(loadImage));
+    const preloadResults=await Promise.allSettled(sources.map(loadImage));
+    const failedSources=preloadResults
+      .map((result,index)=>result.status==="rejected"?sources[index]:null)
+      .filter(Boolean);
+    if(failedSources.length){
+      markAssetIssue(failedSources.join(","));
+      console.warn("character asset preload warning",failedSources);
+    }
     ready=true;
     els.root.classList.add("character-ready");
-    els.root.dataset.state="ready";
+    els.root.dataset.state=failedSources.length?"ready-with-asset-warning":"ready";
     els.root.dataset.scope=`${startMeasure}-${endMeasure}`;
     els.root.dataset.noteCount=String(scopedNotes.length);
     els.root.dataset.groupCount=String(groups.length);
   }catch(err){
-    console.warn("character prototype disabled",err);
-    fail();
+    console.warn("character prototype initialization warning",err);
+    els.root.dataset.state="init-warning";
+    els.root.dataset.initError=String(err?.message||err);
+    ready=true;
+    els.root.classList.add("character-ready","asset-warning");
   }
   addEventListener("dtx-chart-change",e=>{
     activeSong=String(e.detail?.name||"").toLowerCase().includes("luna");
@@ -224,11 +239,13 @@ export async function initCharacterPrototype(){
   });
 }
 export function updateCharacterPrototype(time,chartName=""){
-  if(!ready||!els.root)return;
+  if(!els.root)return;
   activeSong=String(chartName||"").toLowerCase().includes("luna");
-  const inWindow=Number(time)>=0&&Number(time)<=data.prototypeEndTime;
+  const provisionalEnd=Number(data?.prototypeEndTime??17.37);
+  const inWindow=Number(time)>=0&&Number(time)<=provisionalEnd;
   els.root.classList.toggle("active",activeSong&&inWindow);
   els.root.dataset.active=String(activeSong&&inWindow);
+  if(!ready||!data)return;
   if(!activeSong||!inWindow){triggerEffect(null,"neutral");return}
   const g=findGroupAt(time);
   if(!g){els.root.dataset.fallback="false";els.root.dataset.fallbackReason="";els.root.dataset.animationKey="neutral";els.root.dataset.limbs="";triggerEffect(null,"neutral");setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL","neutral");return}
