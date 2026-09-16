@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "approvedAt": "2026-09-16",
+  "purpose": "Canonical left-facing baseline reference for Luna Say Maybe character-animation prototype",
+  "orientation": {
+    "characterFaces": "left",
+    "camera": "fixed rear three-quarter elevated view",
+    "mirrorAllowed": false
+  },
+  "canvas": {
+    "width": 1448,
+    "height": 1086,
+    "origin": "top-left",
+    "registration": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "localGenerationIdentities": {
+    "approvedCompositeSha256": "2b72cd3308f1de956421dc8b8e63850f6d78bfb05987c140b7ede421b7bdbe91",
+    "drumLayerSha256": "ab0acb1286483f067727ff5ee46f66c454b63e2228763ded6d0acfba22922351",
+    "characterLayerSha256": "fef9c674d36f28148f3bac45ae7bfbbbd7421f7ea238394d2c428a53788a1364"
+  },
+  "targetPaths": {
+    "drum": "character-assets/layers/drum/drum_base.png",
+    "character": "character-assets/layers/character/base/neutral.png"
+  },
+  "note": "The image content and hashes were approved in chat. These hashes identify the exact generated local files until the binary PNGs are transported into GitHub."
+}
