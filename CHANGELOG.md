@@ -1,6 +1,11 @@
 # Changelog
 
 ## 2026-09-16
+- Expanded Luna Say Maybe character-animation runtime from the 16-measure prototype to the full FINAL chart: 148 measures, 2,158 notes, and 1,527 simultaneous-time groups.
+- Switched the browser character renderer to consume the full FINAL notes chart directly and derive default hands/feet at runtime (SN=L, BD=RF, other supported hand parts=R).
+- Added safe full-song fallbacks for toms and previously unsupported simultaneous combinations so every chart group resolves without stopping playback.
+- Added HT/LT/FT hit-effect coordinates and a third simultaneous-hit burst so three-part groups can display all available strike-position effects.
+- Updated full-chart validation and UI contract checks; all 1,527 groups resolve to registered frame/phase entries in mechanical verification.
 - Expanded the Luna character-animation runtime through measures 5-8: the enabled 1-8 range now covers 61 notes / 59 time groups and adds the existing RD right-hand pose and effect mapping.
 - Added explicit motion settling: after a non-rapid hit the character returns to the approved neutral stance after 0.075 seconds; repeated same-key sixteenth-speed hits (gap <= 0.13 seconds) retain their rebound follow-through until the next hit.
 - Extended automated runtime checks across every measure 5-8 hit and neutral-settle state, including RD and two-position BD+RC effects.
