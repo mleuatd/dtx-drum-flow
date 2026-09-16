@@ -94,13 +94,13 @@ def main() -> int:
         if entry and frame.get("sha256") != entry.get("sha256"):
             errors.append(f"asset_inventory {frame_id}: SHA-256 does not match assets_manifest")
 
-    animation = json.loads(
-        (PROTOTYPE / "Luna_say_maybe_16m_animation.json").read_text(encoding="utf-8")
-    )
+    source_chart = inventory.get("renderer", {}).get("sourceChart")
+    animation_path = ROOT / source_chart if source_chart else (PROTOTYPE / "Luna_say_maybe_16m_animation.json")
+    animation = json.loads(animation_path.read_text(encoding="utf-8"))
     notes = animation.get("notes", [])
     if len(notes) != inventory.get("chartNoteCount"):
         errors.append(
-            f"prototype note count {len(notes)} != inventory {inventory.get('chartNoteCount')}"
+            f"runtime source note count {len(notes)} != inventory {inventory.get('chartNoteCount')}"
         )
     groups = []
     for note in notes:
@@ -110,19 +110,31 @@ def main() -> int:
             groups.append([note])
     frame_map = inventory.get("runtimeFrameMap", {})
     phase_frame_map = inventory.get("runtimePhaseFrameMap", {})
+    def note_hand(note):
+        explicit = note.get("animation", {}).get("hand")
+        if explicit:
+            return explicit
+        part = note.get("part")
+        if part == "SN":
+            return "L"
+        if part in {"BD", "LB"}:
+            return "RF"
+        if part == "LP":
+            return "LF"
+        return "R"
+
     def animation_key(group):
         parts = sorted({note["part"] for note in group})
         if len(parts) > 1:
             return "+".join(parts) + ":*"
-        hand = group[0].get("animation", {}).get("hand", "R")
-        return f"{parts[0]}:{hand}"
+        return f"{parts[0]}:{note_hand(group[0])}"
 
     for group in groups:
         key = animation_key(group)
         frame_id = frame_map.get(key)
         if not frame_id or frame_id not in required:
             errors.append(
-                f"prototype time {group[0]['time']}: unresolved animation key {key}"
+                f"runtime source time {group[0]['time']}: unresolved animation key {key}"
             )
 
     scope = inventory.get("runtimeScope", {})
