@@ -106,4 +106,15 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 
 1〜4小節で必要なキーは `SN:L`、`BD:RF`、`HH:R`、`BD+RC:*` の4種類。5〜16小節のデータとPNGは削除せず、次段階用として保持する。
 
+公開検証完了コミット: `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`
+
+公開ページ `https://mleuatd.github.io/dtx-drum-flow/` で以下を実ブラウザ確認済み。
+- 初期状態で `character-ready active`、scope=`1-4`、opacity=`0.9`
+- 固定ドラムとneutral人物が1448x1086で読込完了
+- Canvas自体はtransparentで、Luna用描画塗りだけ半透明
+- 5.0秒へ移動すると `SN · L` / `layers/character/sn/hit_l.png` に切替
+- 15.0秒へ移動すると4小節範囲外として背景を非表示
+- `assets-missing=false`
+- Character asset validation / validate / standalone build / Pages deploy はすべてsuccess
+
 バイナリ登録が権限・API制約で失敗した場合は、失敗内容と必要なユーザー操作を `WORK_SYNC.md` または `VARIANT_STATUS.md` に記録してから案内する。

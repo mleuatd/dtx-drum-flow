@@ -137,4 +137,13 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] Runtime preloads every used PNG before setting the character layer ready
 - [x] Canvas lane background changed from opaque fill to translucent fill so the layers remain visible behind notes
 - [x] CSS, app module, and character module URLs cache-busted together
-- [ ] Final public-page visual QA after deployment
+- [x] Final public-page visual QA after deployment
+
+Public QA result for commit `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`:
+- initial state: `character-ready active`, scope `1-4`, opacity `0.9`
+- fixed drum and neutral character: loaded at 1448x1086
+- canvas CSS background: transparent; JavaScript lane fill: translucent for Luna
+- 5.0 seconds: switched to `layers/character/sn/hit_l.png`, pose `SN · L`
+- 15.0 seconds: scope ended and the character backdrop became inactive
+- `assets-missing`: false
+- all four GitHub Actions: success
