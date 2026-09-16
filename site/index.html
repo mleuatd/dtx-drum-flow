@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
   <meta name="theme-color" content="#2516ff">
   <title>DTX Drum Flow — FINAL Charts</title>
-  <link rel="stylesheet" href="./styles.css?v=20260916-16m-final">
+  <link rel="stylesheet" href="./styles.css?v=20260916-full-song">
   <style>
     :root{--luna-blue:#2516ff;--luna-ink:#070716;--luna-ivory:#f7f3ea;--luna-lime:#baff00}
     html,body{background:var(--luna-ink)}
@@ -33,7 +33,7 @@
       <label class="button huge secondary audio-picker">元音源を選ぶ<input id="audioFile" type="file" accept="audio/*" hidden></label>
       <div class="summary"><strong id="chartName">Luna say maybe FINAL 読み込み中…</strong><span id="chartMeta">BPM 139 · 2,158ノーツ</span></div>
     </section>
-    <section class="stage panel"><div class="stage-head"><span id="stageTitle">LUNA / DRUM CHART</span><span id="currentTime">0:00.0</span></div><div id="characterBackdrop" class="character-backdrop" aria-hidden="true"><img id="drumLayer" class="character-layer drum-layer" alt=""><img id="characterLayer" class="character-layer person-layer" alt=""><svg id="effectLayer" class="effect-layer" viewBox="0 0 1448 1086" preserveAspectRatio="xMidYMid meet"><g id="effectPrimary" class="effect-burst"><circle r="54"></circle><path d="M0-108V-72M76-76L51-51M108 0H72M76 76L51 51M0 108V72M-76 76L-51 51M-108 0H-72M-76-76L-51-51"></path></g><g id="effectSecondary" class="effect-burst"><circle r="54"></circle><path d="M0-108V-72M76-76L51-51M108 0H72M76 76L51 51M0 108V72M-76 76L-51 51M-108 0H-72M-76-76L-51-51"></path></g></svg><span id="characterPoseLabel" class="character-pose-label"></span></div><canvas id="laneCanvas" aria-label="縦に流れるドラム譜面"></canvas><div class="seek-zone left" aria-label="4小節戻る"></div><div class="seek-zone right" aria-label="4小節進む"></div><div id="parts" class="parts" aria-label="ドラムパート"></div></section>
+    <section class="stage panel"><div class="stage-head"><span id="stageTitle">LUNA / DRUM CHART</span><span id="currentTime">0:00.0</span></div><div id="characterBackdrop" class="character-backdrop" aria-hidden="true"><img id="drumLayer" class="character-layer drum-layer" alt=""><img id="characterLayer" class="character-layer person-layer" alt=""><svg id="effectLayer" class="effect-layer" viewBox="0 0 1448 1086" preserveAspectRatio="xMidYMid meet"><g id="effectPrimary" class="effect-burst"><circle r="54"></circle><path d="M0-108V-72M76-76L51-51M108 0H72M76 76L51 51M0 108V72M-76 76L-51 51M-108 0H-72M-76-76L-51-51"></path></g><g id="effectSecondary" class="effect-burst"><circle r="54"></circle><path d="M0-108V-72M76-76L51-51M108 0H72M76 76L51 51M0 108V72M-76 76L-51 51M-108 0H-72M-76-76L-51-51"></path></g><g id="effectTertiary" class="effect-burst"><circle r="54"></circle><path d="M0-108V-72M76-76L51-51M108 0H72M76 76L51 51M0 108V72M-76 76L-51 51M-108 0H-72M-76-76L-51-51"></path></g></svg><span id="characterPoseLabel" class="character-pose-label"></span></div><canvas id="laneCanvas" aria-label="縦に流れるドラム譜面"></canvas><div class="seek-zone left" aria-label="4小節戻る"></div><div class="seek-zone right" aria-label="4小節進む"></div><div id="parts" class="parts" aria-label="ドラムパート"></div></section>
     <section class="timeline-card panel"><input id="timeline" type="range" min="0" max="266.945306" value="0" step="0.001" aria-label="再生位置"><div class="time-row"><span>現在 <strong id="currentTimeMirror">0:00.0</strong></span><span>終了 <strong id="duration">4:26.9</strong></span></div></section>
     <section class="sound-controls panel" aria-label="音の切り替え"><label class="sound-toggle"><input id="drumSound" type="checkbox" checked><span>ドラム</span><strong id="drumSoundState">ON</strong></label><label class="sound-toggle"><input id="metronomeSound" type="checkbox"><span>メトロノーム</span><strong id="metronomeSoundState">OFF</strong></label><label class="sound-toggle"><input id="originalSound" type="checkbox" checked><span>原曲</span><strong id="originalSoundState">ON</strong></label></section>
     <section class="speed-controls panel"><div class="speed-block"><label for="noteSpeed">ノーツ速度 <strong id="noteSpeedValue">1.0×</strong></label><input id="noteSpeed" type="range" min="0.5" max="8" value="1" step="0.1"></div><div class="playback-row"><button id="rewind5" class="button">−5秒</button><label>音楽速度 <select id="speed"><option>0.5</option><option>0.75</option><option selected>1</option><option>1.25</option><option>1.5</option><option>2</option></select>×</label><button id="forward5" class="button">＋5秒</button></div></section>
@@ -41,7 +41,7 @@
     <section class="panel status-panel"><h2>STATUS</h2><p id="status">FINAL譜面を自動読み込みしています…</p></section>
   </main>
   <nav class="mobile-transport" aria-label="再生操作"><button id="rewindMeasure" class="transport-side">−4小節</button><button id="playPause" class="transport-play">再生 ▶</button><button id="forwardMeasure" class="transport-side">＋4小節</button></nav>
-  <script type="module" src="./app.js?v=20260916-16m-final"></script>
+  <script type="module" src="./app.js?v=20260916-full-song"></script>
   <script type="module" src="./original-audio.js?v=20260915-2016"></script>
   <script>setTimeout(()=>{if(!window.__DTX_APP_READY__){const s=document.getElementById("status");if(s)s.textContent="アプリ本体の読み込みに失敗しました。ページを再読み込みしてください。";}},1500);</script>
 </body>
