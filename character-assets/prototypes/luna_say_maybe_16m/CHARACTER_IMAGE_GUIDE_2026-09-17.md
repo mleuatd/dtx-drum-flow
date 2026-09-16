@@ -1,5 +1,8 @@
 # Character image guide - Luna 1-4 (2026-09-17)
 
+> Work handoff priority: read `WORK_HANDOFF_M1_4_2026-09-17.md` first. The newest user-approved neutral is the only visual origin. Deleted legacy pose PNGs must never be restored or reused.
+
+
 ## Visual reference
 Use the latest user-approved-direction reference from this chat for:
 - camera angle
