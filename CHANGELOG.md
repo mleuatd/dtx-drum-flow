@@ -1,6 +1,10 @@
 # Changelog
 
 ## 2026-09-16
+- Polished Luna measures 1-4 into a three-phase flipbook animation (prep / hit / rebound) instead of jumping directly between neutral and hit poses.
+- Added a transparent left-hand snare rebound frame and registered its fixed-canvas SHA-256 identity; rejected six generated HH/BD/BD+RC candidates because they contained baked checkerboard backgrounds instead of real alpha.
+- Added a separate SVG hit-effect layer with instrument-positioned comic bursts, including two-point BD+RC simultaneous-hit effects, while leaving the locked drum layer unchanged.
+- Extended validation and UI contracts to require complete first-four-measure phase mappings, a distinct SN rebound, the effect layer, coordinated cache busting, and all registered PNG invariants.
 - Fixed the invisible character/drum backdrop: the note canvas had been repainted with a fully opaque fill above the image layers. Luna lanes now use a translucent canvas fill so the fixed drum and character pose remain visible behind notes.
 - Added coordinated cache-busting for `styles.css`, `app.js`, and `character-prototype.js` so mobile browsers cannot combine new HTML with stale character-animation code.
 - Limited the reviewed runtime milestone to Luna Say Maybe measures 1-4 (28 notes, 27 time groups), while retaining measures 5-16 as prepared data.

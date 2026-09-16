@@ -3,8 +3,9 @@ const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inve
 const ASSET_ROOT="./character-assets";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 
-let data=null,lastKey="",ready=false,activeSong=false;
-const els={root:null,drum:null,character:null,label:null};
+let data=null,lastKey="",lastEffectToken="",ready=false,activeSong=false;
+const els={root:null,drum:null,character:null,label:null,effect:null,bursts:[]};
+const EFFECT_POINTS={HH:[255,465],SN:[570,520],BD:[505,790],RC:[1090,195],RD:[1070,370]};
 
 function loadImage(src){
   return new Promise((resolve,reject)=>{
@@ -32,17 +33,18 @@ function keyFor(group){
   const n=group[0],hand=n.animation?.hand||"R";
   return n.part+":"+hand;
 }
-function assetFor(group){
+function assetFor(group,phase="hit"){
   const key=keyFor(group);
-  const frameId=data?.frameMap?.[key]||"neutral";
+  const phases=data?.phaseFrameMap?.[key];
+  const frameId=phases?.[phase]||data?.frameMap?.[key]||"neutral";
   return data?.frames?.[frameId]?.path||"layers/character/base/neutral.png";
 }
-function setFrame(path,label=""){
+function setFrame(path,label="",phase="neutral"){
   if(!els.character)return;
   const src=ASSET_ROOT+"/"+path;
   if(lastKey!==src){lastKey=src;els.character.src=src}
   if(els.label)els.label.textContent=label;
-  if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label}
+  if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label;els.root.dataset.phase=phase}
 }
 function findGroupAt(time){
   if(!data?.groups?.length)return null;
@@ -54,11 +56,42 @@ function findGroupAt(time){
   }
   return bestDt<=.13?best:null;
 }
+function phaseFor(group,time){
+  const delta=Number(time)-group[0].time;
+  if(delta<-.028)return "prep";
+  if(delta<=.038)return "hit";
+  return "rebound";
+}
+function triggerEffect(group,phase){
+  if(!els.effect)return;
+  if(!group||phase!=="hit"){
+    lastEffectToken="";
+    els.effect.dataset.parts="";
+    els.bursts.forEach(burst=>burst.classList.remove("is-active"));
+    return;
+  }
+  const token=String(group[0].time);
+  if(token===lastEffectToken)return;
+  lastEffectToken=token;
+  const parts=[...new Set(group.map(note=>note.part))];
+  const points=parts.map(part=>EFFECT_POINTS[part]).filter(Boolean).slice(0,2);
+  els.effect.dataset.parts=parts.join("+");
+  els.bursts.forEach((burst,index)=>{
+    burst.classList.remove("is-active");
+    const point=points[index];
+    if(!point)return;
+    burst.setAttribute("transform",`translate(${point[0]} ${point[1]})`);
+    void burst.getBoundingClientRect();
+    burst.classList.add("is-active");
+  });
+}
 export async function initCharacterPrototype(){
   els.root=document.getElementById("characterBackdrop");
   els.drum=document.getElementById("drumLayer");
   els.character=document.getElementById("characterLayer");
   els.label=document.getElementById("characterPoseLabel");
+  els.effect=document.getElementById("effectLayer");
+  els.bursts=[document.getElementById("effectPrimary"),document.getElementById("effectSecondary")].filter(Boolean);
   if(!els.root||!els.drum||!els.character)return;
   els.drum.src=DRUM;
   els.character.src=ASSET_ROOT+"/layers/character/base/neutral.png";
@@ -82,6 +115,7 @@ export async function initCharacterPrototype(){
       groups,
       frames:inventory.requiredFrames||{},
       frameMap:inventory.runtimeFrameMap||{},
+      phaseFrameMap:inventory.runtimePhaseFrameMap||{},
       startMeasure,
       endMeasure,
       prototypeEndTime:Math.max(...scopedNotes.map(note=>note.time),0)+.35
@@ -91,6 +125,7 @@ export async function initCharacterPrototype(){
       const parts=[...new Set(group.map(note=>note.part))].sort();
       const key=parts.length>1?parts.join("+")+":*":parts[0]+":"+(group[0].animation?.hand||"R");
       usedFrameIds.add(data.frameMap[key]||"neutral");
+      Object.values(data.phaseFrameMap[key]||{}).forEach(id=>usedFrameIds.add(id));
     }
     const sources=[DRUM,...[...usedFrameIds].map(id=>ASSET_ROOT+"/"+data.frames[id].path)];
     await Promise.all(sources.map(loadImage));
@@ -113,11 +148,13 @@ export function updateCharacterPrototype(time,chartName=""){
   const inWindow=Number(time)>=0&&Number(time)<=data.prototypeEndTime;
   els.root.classList.toggle("active",activeSong&&inWindow);
   els.root.dataset.active=String(activeSong&&inWindow);
-  if(!activeSong||!inWindow)return;
+  if(!activeSong||!inWindow){triggerEffect(null,"neutral");return}
   const g=findGroupAt(time);
-  if(!g){setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL");return}
-  const asset=assetFor(g);
+  if(!g){triggerEffect(null,"neutral");setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL","neutral");return}
+  const phase=phaseFor(g,time);
+  const asset=assetFor(g,phase);
   const parts=[...new Set(g.map(n=>n.part))].sort().join("+");
   const hand=g.map(n=>n.animation?.hand).filter(Boolean).join("/");
-  setFrame(asset,parts+(hand?" · "+hand:""));
+  triggerEffect(g,phase);
+  setFrame(asset,parts+(hand?" · "+hand:"")+" · "+phase.toUpperCase(),phase);
 }

@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "scope": "Luna Say Maybe measures 1-16",
   "chartNoteCount": 144,
   "runtimeScope": {
@@ -42,6 +42,11 @@
       "state": "committed-draft",
       "sha256": "7e32735a941975669cc09edfb34beac207f3c8742db2fb17938bea6283db5c6f"
     },
+    "sn_rebound_l": {
+      "path": "layers/character/sn/rebound_l.png",
+      "state": "committed-draft",
+      "sha256": "18103689d4f466f082b98b2fa1595e00fd9a2a657e09e77e037e2d1a8a1071f5"
+    },
     "bd_foot_down": {
       "path": "layers/character/bd/foot_down.png",
       "state": "committed-draft",
@@ -83,11 +88,33 @@
     "BD+RC:*": "combo_bd_rc",
     "RC+SN:*": "combo_rc_sn"
   },
+  "runtimePhaseFrameMap": {
+    "SN:L": {
+      "prep": "neutral",
+      "hit": "sn_hit_l",
+      "rebound": "sn_rebound_l"
+    },
+    "BD+RC:*": {
+      "prep": "neutral",
+      "hit": "combo_bd_rc",
+      "rebound": "neutral"
+    },
+    "HH:R": {
+      "prep": "neutral",
+      "hit": "hh_hit_r",
+      "rebound": "neutral"
+    },
+    "BD:RF": {
+      "prep": "neutral",
+      "hit": "bd_foot_down",
+      "rebound": "neutral"
+    }
+  },
   "renderer": {
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-4 enabled; measures 5-16 retained as prepared data"
+    "prototypeWindow": "measures 1-4 enabled with prep/hit/rebound phases and separate hit-effect layer; measures 5-16 retained as prepared data"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "note": "All image patterns required by measures 1-16 are now present in Git. Visual QA remains pending; committed images may be revised without changing drum_base registration."

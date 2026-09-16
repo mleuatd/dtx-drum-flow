@@ -117,4 +117,15 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 - `assets-missing=false`
 - Character asset validation / validate / standalone build / Pages deploy はすべてsuccess
 
+## 最初の4小節・パラパラ漫画モーション改善（2026-09-16）
+
+- `site/character-prototype.js` は最寄りの発音時刻に対して `prep -> hit -> rebound` の3位相を選ぶ。
+- 最初の4小節で使用する `SN:L`、`BD:RF`、`HH:R`、`BD+RC:*` はすべて3位相へ解決する。
+- SN左手の専用戻り差分 `character-assets/layers/character/sn/rebound_l.png` を追加。1448x1086、実alphaあり、SHA-256は `18103689d4f466f082b98b2fa1595e00fd9a2a657e09e77e037e2d1a8a1071f5`。
+- HH / BD / BD+RC の戻り差分候補は合計6枚生成したが、市松模様が画像へ焼き込まれたRGBだったためGit登録せず不採用。現段階では安全なneutral戻りを使う。
+- 固定ドラム、人物とは別にSVGの発音エフェクトレイヤーを追加。HH / SN / BD / RC / RDの固定座標へ短いコミック風バーストを表示し、BD+RCは2点同時表示する。
+- `drum_base.png` のバイト列とSHAは変更していない。
+- `assets_manifest.json` と `asset_inventory.json` を更新し、CIは最初の4小節の全キーに prep/hit/rebound が存在すること、SNのhit/reboundが別フレームであることを検査する。
+- 次の改善候補は、実alphaを安定して出せる手段でHH / BD / BD+RC専用reboundを追加すること。現在の4小節完成にはneutral戻りでフォールバック可能。
+
 バイナリ登録が権限・API制約で失敗した場合は、失敗内容と必要なユーザー操作を `WORK_SYNC.md` または `VARIANT_STATUS.md` に記録してから案内する。

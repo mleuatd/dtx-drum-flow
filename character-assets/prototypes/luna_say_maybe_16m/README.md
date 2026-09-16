@@ -30,6 +30,12 @@ Measures 1-4 contain 28 notes in 27 time groups and use only:
 - HH right-hand hit
 - BD + RC simultaneous hit
 
+Each group is rendered as a short flipbook cycle: prep before the chart time, hit at
+the chart time, then rebound. SN has a dedicated left-hand rebound drawing. The
+other first-four-measure keys safely return to neutral until transparent dedicated
+rebound drawings pass validation. A separate SVG effect layer emits short comic
+bursts at the struck instrument coordinates; simultaneous BD + RC emits two bursts.
+
 ## Goal
 
 Use these 16 measures as the prototype before expanding to the whole song.

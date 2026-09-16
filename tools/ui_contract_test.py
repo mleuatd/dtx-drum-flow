@@ -37,11 +37,13 @@ checks = {
     "fixed mobile transport": '.mobile-transport' in css and 'position:fixed' in css,
     "playback independent from audio clock": 'playAnchorPerf=performance.now()' in js and '(performance.now()-playAnchorPerf)/1000' in js,
     "play button immediate state": '$("playPause").textContent="一時停止 ❚❚"' in js and 'setStatus("再生中")' in js,
-    "character module cache bust": 'character-prototype.js?v=20260916-1320' in js and 'app.js?v=20260916-1320' in html and 'styles.css?v=20260916-1320' in html,
+    "character module cache bust": 'character-prototype.js?v=20260916-1840' in js and 'app.js?v=20260916-1840' in html and 'styles.css?v=20260916-1840' in html,
     "character canvas stays transparent": 'isLuna?"rgba(7,9,22,.20)":"#0e172a"' in js and '.stage canvas{' in css and 'background:transparent' in css,
     "character layer visible behind notes": '.character-backdrop.active{opacity:.9}' in css and '.stage canvas{' in css and 'z-index:1' in css,
     "first four measure runtime scope": 'inventory.runtimeScope?.measureEnd||4' in character_js and 'note.measure>=startMeasure&&note.measure<=endMeasure' in character_js,
     "character assets preload": 'await Promise.all(sources.map(loadImage))' in character_js and 'character-ready' in character_js,
+    "three phase flipbook motion": 'runtimePhaseFrameMap' in character_js and 'phaseFor(g,time)' in character_js and '"prep"' in character_js and '"rebound"' in character_js,
+    "separate instrument effect layer": 'id="effectLayer"' in html and 'id="effectPrimary"' in html and '.effect-layer{' in css and 'triggerEffect(g,phase)' in character_js,
 }
 
 failed=[name for name,ok in checks.items() if not ok]

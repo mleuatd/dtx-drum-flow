@@ -63,8 +63,21 @@ button,label.button,summary{touch-action:manipulation}
   object-position:center center;user-select:none;
 }
 .drum-layer{z-index:0}.person-layer{z-index:1}
+.effect-layer{
+  position:absolute;inset:0;width:100%;height:100%;z-index:2;overflow:visible;
+  filter:drop-shadow(0 0 8px #baff00);mix-blend-mode:screen
+}
+.effect-burst{opacity:0;transform-box:fill-box;transform-origin:center}
+.effect-burst circle{fill:#2516ff88;stroke:#baff00;stroke-width:13}
+.effect-burst path{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round}
+.effect-burst.is-active{animation:comic-hit .18s cubic-bezier(.16,.8,.3,1)}
+@keyframes comic-hit{
+  0%{opacity:0;scale:.25;rotate:-14deg}
+  35%{opacity:1;scale:1.18;rotate:4deg}
+  100%{opacity:0;scale:1.55;rotate:10deg}
+}
 .character-pose-label{
-  position:absolute;right:6px;top:6px;z-index:2;padding:2px 5px;
+  position:absolute;right:6px;top:6px;z-index:3;padding:2px 5px;
   background:#0009;color:#fff;font-size:9px;border-radius:4px
 }
 .stage canvas{

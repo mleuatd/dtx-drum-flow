@@ -54,7 +54,7 @@ Current HH preview work exists, but it is not authoritative until character-only
 
 | Part | Hit | Rebound | 4th mapping | 8th mapping | 16th mapping |
 |---|---|---|---|---|---|
-| SN | COMMITTED | TODO | COMMITTED | COMMITTED | COMMITTED |
+| SN | COMMITTED | COMMITTED_DRAFT | COMMITTED | COMMITTED | COMMITTED |
 | BD | COMMITTED | TODO | COMMITTED | COMMITTED | COMMITTED |
 | HT | TODO | TODO | TODO | TODO | COMMITTED |
 | LT | TODO | TODO | TODO | TODO | COMMITTED |
@@ -138,6 +138,16 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] Canvas lane background changed from opaque fill to translucent fill so the layers remain visible behind notes
 - [x] CSS, app module, and character module URLs cache-busted together
 - [x] Final public-page visual QA after deployment
+- [x] Prep / hit / rebound phase switching implemented for all four occurring keys
+- [x] Transparent SN left-hand rebound frame added and SHA-registered
+- [x] Separate instrument-positioned comic hit-effect layer added
+- [x] BD+RC simultaneous hits emit two independent effect bursts
+
+Motion QA policy:
+- SN uses a dedicated rebound drawing; HH, BD, and BD+RC currently return to the approved neutral pose for rebound.
+- Six attempted HH/BD/BD+RC rebound generations were rejected before Git registration because the output was RGB with a baked checkerboard instead of real transparency.
+- The runtime phase windows are prep before the note, hit at the note, and rebound after it. The nearest time group wins, which keeps the two closely spaced opening SN notes responsive without moving the drum layer.
+- The effect is a separate SVG layer at the locked 1448x1086 coordinate system. It never changes drum pixels or character registration.
 
 Public QA result for commit `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`:
 - initial state: `character-ready active`, scope `1-4`, opacity `0.9`

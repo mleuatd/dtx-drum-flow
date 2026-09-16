@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "canvas": {
     "width": 1448,
     "height": 1086,
@@ -61,6 +61,20 @@
       "purpose": "left-hand snare hit",
       "part": "SN",
       "phase": "hit",
+      "hand": "L",
+      "notes": ["SN"]
+    },
+    {
+      "path": "character-assets/layers/character/sn/rebound_l.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "18103689d4f466f082b98b2fa1595e00fd9a2a657e09e77e037e2d1a8a1071f5",
+      "status": "COMMITTED_DRAFT",
+      "purpose": "left-hand snare rebound for first-four-measure flipbook motion",
+      "part": "SN",
+      "phase": "rebound",
       "hand": "L",
       "notes": ["SN"]
     },

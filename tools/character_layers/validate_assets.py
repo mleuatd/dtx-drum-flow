@@ -109,6 +109,7 @@ def main() -> int:
         else:
             groups.append([note])
     frame_map = inventory.get("runtimeFrameMap", {})
+    phase_frame_map = inventory.get("runtimePhaseFrameMap", {})
     def animation_key(group):
         parts = sorted({note["part"] for note in group})
         if len(parts) > 1:
@@ -153,6 +154,19 @@ def main() -> int:
             f"runtime scope animation keys {sorted(actual_first4_keys)} "
             f"!= {sorted(expected_first4_keys)}"
         )
+    expected_phases = {"prep", "hit", "rebound"}
+    for key in sorted(expected_first4_keys):
+        phases = phase_frame_map.get(key, {})
+        if set(phases) != expected_phases:
+            errors.append(
+                f"runtime phase map {key}: phases {sorted(phases)} "
+                f"!= {sorted(expected_phases)}"
+            )
+        for phase, frame_id in phases.items():
+            if frame_id not in required:
+                errors.append(f"runtime phase map {key}.{phase}: unknown frame {frame_id}")
+    if phase_frame_map.get("SN:L", {}).get("rebound") == phase_frame_map.get("SN:L", {}).get("hit"):
+        errors.append("SN:L rebound must use a distinct frame from hit")
 
     # Validate frame naming syntax even before all binary layers exist.
     for part, by_rate in rules.get("parts", {}).items():
