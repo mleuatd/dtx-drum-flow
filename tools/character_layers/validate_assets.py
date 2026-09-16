@@ -166,6 +166,13 @@ def main() -> int:
             f"runtime scope animation keys {sorted(actual_runtime_keys)} "
             f"!= {sorted(expected_runtime_keys)}"
         )
+    fallback_keys = set(inventory.get("runtimeFallbackKeys", []))
+    if not fallback_keys.issubset(expected_runtime_keys):
+        errors.append("runtime fallback keys must be a subset of runtime expectedKeys")
+    for key in sorted(fallback_keys):
+        if key not in frame_map:
+            errors.append(f"runtime fallback key {key}: missing frame map")
+
     expected_phases = {"prep", "hit", "rebound"}
     for key in sorted(expected_runtime_keys):
         phases = phase_frame_map.get(key, {})
