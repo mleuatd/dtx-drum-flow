@@ -90,3 +90,11 @@ Binary layer PNGs are only authoritative after they are committed under:
 - `character-assets/layers/character/base/neutral.png`
 
 Future pose PNGs inherit this registration.
+## Full-song continuation
+
+The reviewed 1-16 asset set is now used as the binary foundation for the complete Luna Say Maybe FINAL chart runtime.
+The browser reads the full FINAL chart directly and enables measures 1-148 (2,158 notes / 1,527 time groups).
+Exact committed poses are preferred. Later-song patterns without dedicated binaries use documented safe fallbacks so playback and animation never stop: tom-only hits keep the neutral character and fire the correct tom-position effect, while unsupported simultaneous groups use the closest committed pose plus available per-instrument effects.
+
+This does not mark fallback poses as visually approved replacements. Dedicated tom, combo, and HH-left-hand binaries remain tracked separately in character-assets/VARIANT_STATUS.md.
+
