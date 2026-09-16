@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "character-assets/**"
       - ".github/workflows/deploy-site.yml"
   workflow_dispatch:
 
@@ -26,6 +27,11 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
+      - name: Stage character assets for site
+        run: |
+          rm -rf site/character-assets
+          cp -R character-assets site/character-assets
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
