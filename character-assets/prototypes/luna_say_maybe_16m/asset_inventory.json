@@ -1,6 +1,6 @@
 {
   "version": 7,
-  "scope": "Luna Say Maybe full-song character runtime (prototype assets retained from measures 1-16)",
+  "scope": "Luna Say Maybe measures 1-16 character flipbook runtime",
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
@@ -146,21 +146,14 @@
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "full song measures 1-148 enabled; dedicated 1-16 poses plus safe full-song fallbacks and instrument hit effects",
+    "prototypeWindow": "measures 1-16 only",
     "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
     "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
   "measureEightCommit": "26adb1eabf70c14623a0a12ef4908f349af9eced",
-  "note": "Full-song runtime enabled for all 148 measures / 2158 notes / 1527 time groups. Existing committed poses are reused where exact; tom-only hits use neutral plus position effects, and unsupported simultaneous combinations use the closest committed pose while retaining hit effects.",
-  "fullSongFallbackPolicy": {
-    "dedicatedPosePreferred": true,
-    "unresolvedTomPose": "neutral character with tom-position hit effect",
-    "unsupportedCombination": "closest committed pose plus all available instrument-position hit effects",
-    "note": "Fallbacks keep playback/animation continuous without inventing unregistered binary layers.",
-    "runtimeDatasetFlag": "characterBackdrop.dataset.fallback / dataset.fallbackReason identify declared or missing exact frames; dataset.limbs exposes the resolved per-note limbs."
-  },
+  "note": "Runtime is intentionally limited to measures 1-16 (144 notes / 124 time groups). Existing committed pose layers are selected from the precomputed limb sidecar; measure 17+ is outside this prototype.",
   "runtimeFallbackKeys": [
     "SN:R"
   ],
