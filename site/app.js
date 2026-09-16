@@ -1,6 +1,6 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260916-full-song-qa";
+import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260916-limb-review";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
