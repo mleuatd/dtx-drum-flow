@@ -25,8 +25,8 @@ Legend: TODO / DRAFT / APPROVED / COMMITTED
 
 - [x] Baseline composition approved by user
 - [x] Fixed camera / composition / style rules defined
-- [ ] Extract and commit transparent fixed drum layer: `layers/drum/drum_base.png`
-- [ ] Extract and commit neutral transparent character layer: `layers/character/base/neutral.png`
+- [x] Drum layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [ ] Commit transparent fixed drum PNG bytes: `layers/drum/drum_base.png`
+- [x] Character layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [ ] Commit neutral transparent character PNG bytes: `layers/character/base/neutral.png`
 
 Important: a raster baseline cannot be safely auto-separated into drum/person without a reviewed mask because their linework overlaps. Do not invent or shift pixels just to mark this complete.
 
@@ -83,3 +83,13 @@ Before creating or editing a pose:
 9. commit binary layer and update this status
 
 Do not regenerate APPROVED layers unless the user explicitly requests revision.
+
+## Prototype scope
+
+- [x] Luna Say Maybe measures 1-16 selected as the first prototype scope
+- [x] First 16 measures extracted from FINAL notes chart
+- [x] Per-note hand/foot animation metadata generated
+- [x] Left-facing baseline orientation locked
+- [ ] Binary baseline layers transported into GitHub paths
+- [ ] Browser renderer wired to the prototype layer set
+- [ ] Visual QA of all first-16-measure note patterns
