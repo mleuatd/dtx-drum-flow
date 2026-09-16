@@ -73,9 +73,11 @@ The prototype must prove:
 
 The phrase-aware exception is the short SN pickup at 4.930410s -> 5.038324s. It is assigned R -> L so the immediately following 5.146237s crash can remain on the right hand. Measures 1-16 contain no HT/LT/FT notes.
 
-## Current missing exact pose
+## Approved exact poses restored
 
-- Measure 1, 4.930410s, SN, resolved limb R: exact right-hand snare hit pose is not registered. Runtime intentionally uses approved `neutral.png` and marks `dataset.fallback=true`, `dataset.fallbackReason=declared-fallback-key`, and `dataset.limbs=SN:R`. It does not reuse the left-hand SN image.
+- Measure 1, 4.930410s, SN:R now uses the user-approved `approved/pose_01.png`, registered at `layers/character/sn/hit_r.png`.
+- BD+RC uses the user-approved `approved/pose_03.png`, registered at `layers/character/combo/bd_rc_hit.png`.
+- Both remain on the locked 1448x1086 registration with real transparency.
 
 ## Baseline orientation
 
@@ -94,15 +96,10 @@ Binary layer PNGs are only authoritative after they are committed under:
 - `character-assets/layers/character/base/neutral.png`
 
 Future pose PNGs inherit this registration.
-## Full-song continuation
+## Prototype boundary
 
-The reviewed 1-16 asset set is now used as the binary foundation for the complete Luna Say Maybe FINAL chart runtime.
-The browser reads the full FINAL chart directly and enables measures 1-148 (2,158 notes / 1,527 time groups).
-Exact committed poses are preferred. Later-song patterns without dedicated binaries use documented safe fallbacks so playback and animation never stop: tom-only hits keep the neutral character and fire the correct tom-position effect, while unsupported simultaneous groups use the closest committed pose plus available per-instrument effects.
-
-This does not mark fallback poses as visually approved replacements. Dedicated tom, combo, and HH-left-hand binaries remain tracked separately in character-assets/VARIANT_STATUS.md.
-
+This prototype is intentionally limited to measures 1-16. Measure 17+ remains out of scope until the 1-16 result is visually accepted.
 
 ## 2026-09-17 final 1-16 pass
 
-Runtime scope is explicitly measures 1-16 (144 notes / 124 groups). The authoritative limb source remains `Luna_say_maybe_1_16_limbs.json`. The only exact-pose shortage in this scope is `SN:R` at 4.930410s; it remains an explicit neutral fallback and never reuses `SN:L`. Structural PNG QA is recorded in `FINAL_QA_2026-09-17.md`. No measure 17+ image generation is part of this prototype pass.
+Runtime scope is explicitly measures 1-16 (144 notes / 124 groups). The authoritative limb source remains `Luna_say_maybe_1_16_limbs.json`. The previously missing SN:R exact pose at 4.930410s has been restored from the user-approved pose_01; it no longer falls back to neutral. Structural PNG QA is recorded in `FINAL_QA_2026-09-17.md`. No measure 17+ image generation is part of this prototype pass.
