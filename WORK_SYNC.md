@@ -161,3 +161,24 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 - 公開サイト由来のJavaScriptエラーなし
 - GitHub Actions 4件（validate / Character asset validation / Build standalone trainer / deploy-site）はすべてsuccess
 - 公開URL: https://mleuatd.github.io/dtx-drum-flow/
+
+## 9〜16小節の人物アニメーション拡張（2026-09-16）
+
+- Work上限到達後、通常チャットへ引き継いで作業継続。
+- 有効範囲を1〜16小節へ拡張。合計144ノーツ / 124発音グループ。
+- 9〜16小節で追加使用する `BD+SN:*` と `RC+SN:*` は既存登録済みPNGを使用し、新規画像生成は不要。
+- `BD+SN:*` と `RC+SN:*` に prep / hit / rebound を追加し、hit後はneutralへ復帰。
+- 既存の0.075秒neutral復帰、および同一キー0.13秒以下の連打時rebound維持ロジックを継続適用。
+- 全124グループについて runtimeFrameMap / runtimePhaseFrameMap / requiredFrames の解決を機械検証し、未解決0件。
+- 固定ドラム画像および既存PNGのSHAは変更していない。
+
+実装コミット:
+- `bee716b24d78c75c79a3e36cb1b8a2787f7c79a8` 16小節runtime scope / combo phase map
+- `ddb2ac74b41c5d095cffcaf16044c838179b9fae` browser runtime 16小節化
+- `540f8b5de2f365ac324d10be0addf4e0114a0c22` character module cache refresh
+- `73ef11536aba28d65333fcf3ea65d24d2ee62a01` public HTML cache key更新
+- `4caf11deabd1e6d23f04af6e2bedec9549b54221` UI contractを16小節へ更新
+- `d18dc283643295744c06f3c8f96a4ccdf3844229` prototype README更新
+
+次回の通常チャット/Work開始時は、このファイルとGitHub `main` の最新コミットを必ず確認してから続行する。
+
