@@ -1,18 +1,7 @@
 const PROTOTYPE_URL="./character-assets/prototypes/luna_say_maybe_16m/Luna_say_maybe_16m_animation.json";
-const BASE="./character-assets/layers/character";
+const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
+const ASSET_ROOT="./character-assets";
 const DRUM="./character-assets/layers/drum/drum_base.png";
-
-const frameMap={
-  "HH:R":"hh/hit_r.png",
-  "HH:L":"hh/hit_l.png",
-  "SN:L":"sn/hit_l.png",
-  "BD:RF":"bd/foot_down.png",
-  "RC:R":"rc/hit_r.png",
-  "RD:R":"rd/hit_r.png",
-  "BD+SN:*":"combo/bd_sn_hit.png",
-  "BD+RC:*":"combo/bd_rc_hit.png",
-  "RC+SN:*":"combo/rc_sn_hit.png"
-};
 
 let data=null,lastKey="",ready=false,activeSong=false;
 const els={root:null,drum:null,character:null,label:null};
@@ -29,18 +18,19 @@ function keyFor(group){
   const parts=[...new Set(group.map(n=>n.part))].sort();
   if(parts.length>1){
     const combo=parts.join("+");
-    if(frameMap[combo+":*"])return combo+":*";
+    if(data?.frameMap?.[combo+":*"])return combo+":*";
   }
   const n=group[0],hand=n.animation?.hand||"R";
   return n.part+":"+hand;
 }
 function assetFor(group){
   const key=keyFor(group);
-  return frameMap[key]||"base/neutral.png";
+  const frameId=data?.frameMap?.[key]||"neutral";
+  return data?.frames?.[frameId]?.path||"layers/character/base/neutral.png";
 }
 function setFrame(path,label=""){
   if(!els.character)return;
-  const src=BASE+"/"+path;
+  const src=ASSET_ROOT+"/"+path;
   if(lastKey===src)return;
   lastKey=src;
   els.character.src=src;
@@ -63,15 +53,24 @@ export async function initCharacterPrototype(){
   els.label=document.getElementById("characterPoseLabel");
   if(!els.root||!els.drum||!els.character)return;
   els.drum.src=DRUM;
-  els.character.src=BASE+"/base/neutral.png";
+  els.character.src=ASSET_ROOT+"/layers/character/base/neutral.png";
   const fail=()=>els.root.classList.add("assets-missing");
   els.drum.addEventListener("error",fail,{once:true});
   els.character.addEventListener("error",fail,{once:true});
   try{
-    const r=await fetch(PROTOTYPE_URL,{cache:"no-store"});
-    if(!r.ok)throw new Error("prototype HTTP "+r.status);
-    const json=await r.json();
-    data={...json,groups:groupNotes(json.notes||[])};
+    const [notesResponse,inventoryResponse]=await Promise.all([
+      fetch(PROTOTYPE_URL,{cache:"no-store"}),
+      fetch(INVENTORY_URL,{cache:"no-store"})
+    ]);
+    if(!notesResponse.ok)throw new Error("prototype HTTP "+notesResponse.status);
+    if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);
+    const [json,inventory]=await Promise.all([notesResponse.json(),inventoryResponse.json()]);
+    data={
+      ...json,
+      groups:groupNotes(json.notes||[]),
+      frames:inventory.requiredFrames||{},
+      frameMap:inventory.runtimeFrameMap||{}
+    };
     ready=true;
   }catch(err){
     console.warn("character prototype disabled",err);
@@ -87,7 +86,7 @@ export function updateCharacterPrototype(time,chartName=""){
   els.root.classList.toggle("active",activeSong);
   if(!activeSong)return;
   const g=findGroupAt(time);
-  if(!g){setFrame("base/neutral.png","NEUTRAL");return}
+  if(!g){setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL");return}
   const asset=assetFor(g);
   const parts=[...new Set(g.map(n=>n.part))].sort().join("+");
   const hand=g.map(n=>n.animation?.hand).filter(Boolean).join("/");

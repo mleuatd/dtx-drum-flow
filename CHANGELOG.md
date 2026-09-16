@@ -1,6 +1,11 @@
 # Changelog
 
 ## 2026-09-16
+- Added `assets_manifest.json` with full-canvas registration, alpha, status, use, and SHA-256 records for all 10 committed character-animation PNGs.
+- Strengthened character asset validation to reject missing/unregistered PNGs, size or registration drift, missing transparency, empty layers, SHA changes, locked drum changes, inventory mismatches, note-count drift, and unresolved prototype animation groups.
+- Made the Luna 16-measure browser renderer load its frame map from `asset_inventory.json`, keeping runtime filenames and the shared inventory in sync.
+- Corrected animation configuration to use left-hand snare, right-foot bass drum, canonical BD+SN / BD+RC / RC+SN combo keys, and the committed combo filenames.
+- Confirmed every one of the 144 prototype notes (124 time groups) resolves to one of the nine required character frames.
 - Implemented the Luna Say Maybe measures 1-16 character-animation prototype renderer. The site now has a fixed drum/person layer stack, switches character poses from chart time, and only enables the prototype for Luna Say Maybe.
 - Added a first-16-measure asset inventory: the prototype uses only SN, BD, RC, HH, RD plus BD+SN, BD+RC, and RC+SN simultaneous groups across 144 notes.
 - Updated Pages deployment to copy `character-assets/` into the deployed site artifact so committed animation layers are available at runtime.

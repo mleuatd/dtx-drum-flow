@@ -79,23 +79,23 @@
       "quarter": {
         "rule": "sn.quarter.single",
         "frames": [
-          "sn/prep_r",
-          "sn/hit_r",
-          "sn/rebound_r"
+          "sn/prep_l",
+          "sn/hit_l",
+          "sn/rebound_l"
         ],
         "sticking": [
-          "R"
+          "L"
         ]
       },
       "eighth": {
         "rule": "sn.eighth.single",
         "frames": [
-          "sn/prep_r",
-          "sn/hit_r",
-          "sn/rebound_r"
+          "sn/prep_l",
+          "sn/hit_l",
+          "sn/rebound_l"
         ],
         "sticking": [
-          "R"
+          "L"
         ]
       },
       "sixteenth": {
@@ -123,7 +123,7 @@
           "bd/foot_down"
         ],
         "sticking": [
-          "F"
+          "RF"
         ]
       },
       "eighth": {
@@ -133,7 +133,7 @@
           "bd/foot_down"
         ],
         "sticking": [
-          "F"
+          "RF"
         ]
       },
       "sixteenth": {
@@ -143,7 +143,7 @@
           "bd/foot_down"
         ],
         "sticking": [
-          "F"
+          "RF"
         ]
       }
     },
@@ -236,12 +236,12 @@
     }
   },
   "simultaneous": {
-    "SN+BD": {
-      "rule": "combo.sn_bd",
-      "character": "combo/sn_bd_hit",
+    "BD+SN": {
+      "rule": "combo.bd_sn",
+      "character": "combo/bd_sn_hit",
       "fallback": [
-        "SN",
-        "BD"
+        "BD",
+        "SN"
       ]
     },
     "HH+BD": {
@@ -260,12 +260,20 @@
         "SN"
       ]
     },
-    "RC+BD": {
-      "rule": "combo.rc_bd",
-      "character": "combo/rc_bd_hit",
+    "BD+RC": {
+      "rule": "combo.bd_rc",
+      "character": "combo/bd_rc_hit",
+      "fallback": [
+        "BD",
+        "RC"
+      ]
+    },
+    "RC+SN": {
+      "rule": "combo.rc_sn",
+      "character": "combo/rc_sn_hit",
       "fallback": [
         "RC",
-        "BD"
+        "SN"
       ]
     },
     "TOM+CYMBAL": {

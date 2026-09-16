@@ -18,7 +18,8 @@
       "hand": [
         "R",
         "L",
-        "F"
+        "RF",
+        "LF"
       ],
       "phase": [
         "prep",
@@ -52,8 +53,8 @@
       "time": 2,
       "part": "SN",
       "animation": {
-        "rule": "combo.sn_bd",
-        "hand": "R",
+        "rule": "combo.bd_sn",
+        "hand": "L",
         "phase": "hit"
       }
     }

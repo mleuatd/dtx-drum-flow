@@ -62,4 +62,20 @@ GitHubへのバイナリ登録が必要な場合は、テキスト用 `create_fi
 `create_blob(base64) -> create_tree -> create_commit -> update_ref`
 のGit data API方式を試す。
 
+## GitHubバイナリ登録の確認済み手順（2026-09-16）
+
+GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操作は不要。
+
+1. ローカルPNGをbase64化する。
+2. `create_blob` を `encoding=base64` で呼び、各blob SHAを得る。
+3. `main` の最新commitとbase tree SHAを取得する。
+4. `create_tree` で `mode=100644`、`type=blob`、対象パスとblob SHAを追加する。
+5. `create_commit` で最新commitを親にする。
+6. `update_ref` を `branch_name=main`、`force=false` で呼ぶ。
+7. GitHubのtree/contents APIでファイルの存在、サイズ、blob SHAを再確認する。
+
+初回成功コミットは `db3fdcd0b2038b5bb78f59d805472102fc621881`。現在は固定ドラム、neutral、Luna 1〜16小節で必要な人物差分の合計10 PNGが `main` に存在する。
+
+画像のバイト同一性は `character-assets/config/assets_manifest.json` のSHA-256を正本とし、`tools/character_layers/validate_assets.py` とCIで検査する。`drum_base.png` は `lockedDrumSha256` と一致しない変更を失敗させる。
+
 バイナリ登録が権限・API制約で失敗した場合は、失敗内容と必要なユーザー操作を `WORK_SYNC.md` または `VARIANT_STATUS.md` に記録してから案内する。

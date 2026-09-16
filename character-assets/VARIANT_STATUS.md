@@ -25,8 +25,12 @@ Legend: TODO / DRAFT / APPROVED / COMMITTED
 
 - [x] Baseline composition approved by user
 - [x] Fixed camera / composition / style rules defined
-- [x] Drum layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [x] Commit transparent fixed drum PNG bytes: `layers/drum/drum_base.png`
-- [x] Character layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [x] Commit neutral transparent character PNG bytes: `layers/character/base/neutral.png`
+- [x] Drum layer generated and SHA-256 identity registered in `baseline_reference.json`
+- [x] Commit transparent fixed drum PNG bytes: `layers/drum/drum_base.png`
+- [x] Character layer generated and SHA-256 identity registered in `baseline_reference.json`
+- [x] Commit neutral transparent character PNG bytes: `layers/character/base/neutral.png`
+- [x] Register all committed PNG dimensions, alpha requirement, status, use, and SHA-256 in `config/assets_manifest.json`
+- [x] Lock `drum_base.png` SHA-256 in CI validation
 
 Important: a raster baseline cannot be safely auto-separated into drum/person without a reviewed mask because their linework overlaps. Do not invent or shift pixels just to mark this complete.
 
@@ -103,6 +107,10 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] Generated local draft layers: neutral, HH right prep/hit/rebound, HH left hit, SN left hit, BD foot-down
 - [x] Generate RC hit, RD hit, BD+SN, BD+RC, RC+SN combined poses
 - [x] Commit PNG binary bytes for Luna 1-16 required generated layers
+- [x] Verify all 144 notes / 124 simultaneous groups resolve to one of the nine required character frames
+- [x] Make `asset_inventory.json` the browser runtime frame-map source
+- [x] Align SN=left hand, BD=right foot, and combo names with the prototype files
+- [ ] Add HH left-hand prep/hit/rebound frames before a chart section containing sixteenth-note HH alternation is enabled
 
 ## Binary push transport
 
@@ -110,3 +118,12 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] PNG bytes are uploaded as base64 blobs
 - [x] Blobs are assembled into a tree, committed, and `main` is advanced with `update_ref`
 - [x] Luna 1-16 required binary layers committed in commit `db3fdcd0b2038b5bb78f59d805472102fc621881`
+
+## Current binary inventory
+
+- GitHub `main`: 10 registered PNG files
+- Fixed layer: 1 drum PNG (`APPROVED_LOCKED`)
+- Character layers: neutral plus 8 required hit variants
+- Visual state: neutral is approved; hit variants remain `COMMITTED_DRAFT` until individual visual review
+- Machine-readable identities: `config/assets_manifest.json`
+- Prototype mapping and per-frame identities: `prototypes/luna_say_maybe_16m/asset_inventory.json`
