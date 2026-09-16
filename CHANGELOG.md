@@ -79,6 +79,11 @@
 
 ## 2026-09-17
 
+- Revalidated and locked the Luna Say Maybe flipbook prototype to the full measures 1-16 range: 144 notes / 124 simultaneous-time groups.
+- Added runtime startup guards that require every scoped note to have a precomputed limb assignment and every occurring animation key to resolve prep / hit / rebound frames before the character layer becomes ready.
+- Exposed runtime note/group counts in the character backdrop dataset and refreshed module/app cache keys so the 1-16 implementation is delivered to mobile browsers.
+- Verified all 124 groups resolve against the current GitHub pose set; the only declared exact-pose fallback remains the measure-1 SN:R hit, which intentionally uses neutral rather than the wrong-hand SN:L pose.
+
 - Re-scoped Luna Say Maybe character prototype to measures 1-16 only (144 notes / 124 groups).
 - Hard-limited `site/character-prototype.js` to measures 1-16 while retaining the FINAL note file as the source filtered by measure.
 - Reduced prototype inventory to the eight occurring first-16 animation keys plus neutral; `SN:R` remains the sole exact-pose fallback.
