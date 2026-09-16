@@ -188,3 +188,12 @@ Public QA result for commit `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`:
 
 Mechanical full-song verification: 1,527 / 1,527 groups resolved, 0 unresolved. 575 groups currently use fallback character poses; 100 tom-only groups use neutral character with instrument-positioned effects.
 
+
+## 2026-09-17 measures 1-16 final QA pass
+
+- Runtime scope restored and hard-limited to measures 1-16.
+- Registered first-16 runtime PNGs passed structural checks: 1448x1086 and transparent PNG metadata present.
+- COMMITTED_DRAFT hit variants remain visual-pending because this chat environment cannot expose GitHub PNG bytes to the visual/edit surface as an editable image target.
+- `SN:R` remains the only exact-pose shortage in measures 1-16; neutral fallback is intentional and `SN:L` is not reused.
+- No character PNG bytes were modified in this pass.
+- No LT/FT or other measure 17+ variants were generated.
