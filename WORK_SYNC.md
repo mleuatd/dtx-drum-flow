@@ -1,5 +1,23 @@
 # Work / Normal Chat 同期ルール
 
+## 2026-09-17 CURRENT OVERRIDE — READ FIRST
+
+For the current Luna Say Maybe character task, the authoritative handoff is:
+`character-assets/prototypes/luna_say_maybe_16m/WORK_HANDOFF_M1_4_2026-09-17.md`
+
+Current prototype scope is **measures 1-4 only**.
+
+Current GitHub image-management baseline was reset to exactly two layer PNG paths:
+- fixed drum
+- neutral character/person+stool
+
+Old hit/rebound/combo/approved-pose PNGs were intentionally deleted and must not be restored as references.
+
+The newest user-approved neutral image exists in the originating chat but its newest binary was not yet uploaded to GitHub when this override was written. Work must commit the attached/provided newest neutral before generating variants.
+
+Any older sections below that mention 9 frames, 10/11 registered PNGs, measures 1-8/1-16/full-song character images, or retention of old variants are historical only and are overridden by this section and the current handoff.
+
+
 このリポジトリを DTX Drum Flow の共通ソース・履歴管理先として扱います。
 
 ## 基準
