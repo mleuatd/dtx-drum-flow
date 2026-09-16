@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "selection": {
+    "explicitAnimationFieldWins": true,
+    "simultaneousWindowMs": 8,
+    "subdivisionTolerance": 0.18,
+    "repeatedPartLookbackNotes": 4,
+    "defaultRuleBySubdivision": {
+      "quarter": "quarter",
+      "eighth": "eighth",
+      "sixteenth": "sixteenth"
+    }
+  },
+  "noteAnimationExtension": {
+    "field": "animation",
+    "supported": {
+      "rule": "string",
+      "hand": [
+        "R",
+        "L",
+        "F"
+      ],
+      "phase": [
+        "prep",
+        "hit",
+        "rebound"
+      ],
+      "frame": "string",
+      "lockFrame": "boolean"
+    }
+  },
+  "examples": [
+    {
+      "time": 1,
+      "part": "HH",
+      "animation": {
+        "rule": "hh.eighth.single",
+        "hand": "R",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 1.125,
+      "part": "HH",
+      "animation": {
+        "rule": "hh.sixteenth.alternate",
+        "hand": "L",
+        "phase": "hit"
+      }
+    },
+    {
+      "time": 2,
+      "part": "SN",
+      "animation": {
+        "rule": "combo.sn_bd",
+        "hand": "R",
+        "phase": "hit"
+      }
+    }
+  ]
+}
