@@ -1,4 +1,6 @@
 const PROTOTYPE_URL="./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json";
+const PROTOTYPE_MEASURE_START=1;
+const PROTOTYPE_MEASURE_END=16;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
@@ -156,8 +158,8 @@ export async function initCharacterPrototype(){
       const resolved=limbMap.get(noteIdentity(note));
       if(resolved)note.limb=resolved;
     }
-    const startMeasure=Number(inventory.runtimeScope?.measureStart||1);
-    const endMeasure=Number(inventory.runtimeScope?.measureEnd||148);
+    const startMeasure=PROTOTYPE_MEASURE_START;
+    const endMeasure=PROTOTYPE_MEASURE_END;
     const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure);
     const groups=groupNotes(scopedNotes);
     data={
