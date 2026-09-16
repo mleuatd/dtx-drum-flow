@@ -20,9 +20,9 @@ This is the first implementation target for DTX Drum Flow's drummer-character an
 
 ## Current runtime milestone
 
-The browser currently enables measures 1 through 8 as the reviewed runtime milestone.
-Measures 9 through 16 remain in the animation data but are not displayed until the
-first-eight-measure rendering and visual QA are complete.
+The browser now enables measures 1 through 16 as the reviewed prototype runtime milestone.
+Measures 9 through 16 reuse the already committed BD+SN and RC+SN simultaneous-hit
+character layers, so no additional PNG generation is required for this 16-measure prototype.
 
 Measures 1-4 contain 28 notes in 27 time groups and use only:
 - SN left-hand hit
@@ -41,6 +41,13 @@ Measures 5-8 add 33 notes in 32 time groups and use:
 - SN left-hand hit
 - BD right-foot hit
 - BD + RC simultaneous hit
+
+Measures 9-16 complete the prototype window and add:
+- BD + SN simultaneous hit
+- RC + SN simultaneous hit
+- existing HH / SN / BD / RD / BD+RC poses where applicable
+
+The full measures 1-16 runtime contains 144 notes in 124 time groups.
 
 For non-rapid notes, hit follow-through ends after 0.075 seconds and the character
 returns to the approved neutral stance. Repeated hits separated by 0.13 seconds or
