@@ -1,15 +1,19 @@
-# Neutral style lock - draft direction (2026-09-17)
+# Neutral style lock — Luna measures 1-4 (2026-09-17)
 
 ## Status
-**DRAFT / NOT YET APPROVED AS FINAL RUNTIME NEUTRAL**
+The newest neutral image approved by the user in the originating chat is the visual master.
 
-The latest chat image is accepted as the current direction for composition and body/camera orientation, but it is not final because the person and drum kit are merged.
+Important: at the time this document was updated, its newest binary had not yet been committed to GitHub. Work must receive/attach that image and commit it as:
+`character-assets/layers/character/base/neutral.png`
 
-## Locked direction
+Once committed, that GitHub file becomes the sole neutral source of truth.
+
+## Locked style
 - monochrome rough line art
 - many overlapping/scribbly strokes
-- visibly hand-drawn and slightly imperfect
-- not polished digital clean line art
+- deliberately hand-drawn and imperfect
+- visible rough/hesitation/construction feeling
+- do not clean into polished digital line art
 - no color fill
 - no gradients
 - 4-head-ish chibi proportion
@@ -19,19 +23,32 @@ The latest chat image is accepted as the current direction for composition and b
 - socks
 - chunky lace-up boots
 
-## Camera / body direction
-Match the latest reference:
-- rear three-quarter / side-back viewpoint
-- body seated facing into the kit
-- back and long hair prominent
-- face visible in profile/three-quarter
-- do not mirror
-- do not switch to front, exact side, or exact rear view
+## Pose
+Neutral is an ordinary drummer ready position:
+- both hands naturally hold sticks
+- neither hand is in a strike
+- no dramatic motion
+- person + stool only
 
-## Final neutral construction rule
-Before any hit/rebound variants are finalized, first create a **person+stool only** neutral on transparent 1448x1086 canvas. The fixed drum layer must be overlaid separately at runtime.
+## Fixed identity/geometry
+Do not change:
+- camera/body direction
+- head position/size
+- face placement
+- torso/waist
+- thighs
+- boots
+- stool
+- hair silhouette/volume
+- character scale
+- canvas position
 
-The combined person+drum reference must never be used directly as the final character layer.
+## Layer separation
+Character neutral contains person + stool only.
+The drum remains:
+`character-assets/layers/drum/drum_base.png`
 
-## Approval gate
-No generated neutral or derivative hit/rebound PNG from this new direction is considered final until the user explicitly approves it.
+Never bake the drum into the character PNG.
+
+## Variant rule
+All future hit/rebound frames must be direct minimal edits of this neutral, changing only necessary limbs/sticks/right-foot motion.
