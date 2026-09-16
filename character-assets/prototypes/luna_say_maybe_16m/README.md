@@ -18,6 +18,18 @@ This is the first implementation target for DTX Drum Flow's drummer-character an
 - Tom runs: alternate R/L, beginning with R unless a later reviewed sticking map overrides it
 - Simultaneous hits are grouped inside an 8 ms window
 
+## Current runtime milestone
+
+The browser currently enables measures 1 through 4 as the reviewed runtime milestone.
+Measures 5 through 16 remain in the animation data but are not displayed until the
+first-four-measure rendering and visual QA are complete.
+
+Measures 1-4 contain 28 notes in 27 time groups and use only:
+- SN left-hand hit
+- BD right-foot hit
+- HH right-hand hit
+- BD + RC simultaneous hit
+
 ## Goal
 
 Use these 16 measures as the prototype before expanding to the whole song.

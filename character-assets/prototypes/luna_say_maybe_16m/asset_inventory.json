@@ -2,6 +2,14 @@
   "version": 2,
   "scope": "Luna Say Maybe measures 1-16",
   "chartNoteCount": 144,
+  "runtimeScope": {
+    "measureStart": 1,
+    "measureEnd": 4,
+    "noteCount": 28,
+    "groupCount": 27,
+    "firstNoteTime": 4.714583,
+    "lastNoteTime": 10.110266
+  },
   "occurringParts": {
     "SN": 35,
     "BD": 44,
@@ -79,7 +87,7 @@
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-16 data source"
+    "prototypeWindow": "measures 1-4 enabled; measures 5-16 retained as prepared data"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "note": "All image patterns required by measures 1-16 are now present in Git. Visual QA remains pending; committed images may be revised without changing drum_base registration."

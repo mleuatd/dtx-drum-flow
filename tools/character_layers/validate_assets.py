@@ -109,18 +109,50 @@ def main() -> int:
         else:
             groups.append([note])
     frame_map = inventory.get("runtimeFrameMap", {})
-    for group in groups:
+    def animation_key(group):
         parts = sorted({note["part"] for note in group})
         if len(parts) > 1:
-            key = "+".join(parts) + ":*"
-        else:
-            hand = group[0].get("animation", {}).get("hand", "R")
-            key = f"{parts[0]}:{hand}"
+            return "+".join(parts) + ":*"
+        hand = group[0].get("animation", {}).get("hand", "R")
+        return f"{parts[0]}:{hand}"
+
+    for group in groups:
+        key = animation_key(group)
         frame_id = frame_map.get(key)
         if not frame_id or frame_id not in required:
             errors.append(
                 f"prototype time {group[0]['time']}: unresolved animation key {key}"
             )
+
+    scope = inventory.get("runtimeScope", {})
+    start_measure = scope.get("measureStart")
+    end_measure = scope.get("measureEnd")
+    scoped_notes = [
+        note for note in notes
+        if start_measure <= note.get("measure", 0) <= end_measure
+    ]
+    scoped_groups = []
+    for note in scoped_notes:
+        if scoped_groups and abs(note["time"] - scoped_groups[-1][0]["time"]) <= 0.008:
+            scoped_groups[-1].append(note)
+        else:
+            scoped_groups.append([note])
+    if len(scoped_notes) != scope.get("noteCount"):
+        errors.append(f"runtime scope note count {len(scoped_notes)} != {scope.get('noteCount')}")
+    if len(scoped_groups) != scope.get("groupCount"):
+        errors.append(f"runtime scope group count {len(scoped_groups)} != {scope.get('groupCount')}")
+    if scoped_notes:
+        if scoped_notes[0]["time"] != scope.get("firstNoteTime"):
+            errors.append("runtime scope firstNoteTime does not match animation data")
+        if scoped_notes[-1]["time"] != scope.get("lastNoteTime"):
+            errors.append("runtime scope lastNoteTime does not match animation data")
+    expected_first4_keys = {"SN:L", "BD+RC:*", "HH:R", "BD:RF"}
+    actual_first4_keys = {animation_key(group) for group in scoped_groups}
+    if actual_first4_keys != expected_first4_keys:
+        errors.append(
+            f"runtime scope animation keys {sorted(actual_first4_keys)} "
+            f"!= {sorted(expected_first4_keys)}"
+        )
 
     # Validate frame naming syntax even before all binary layers exist.
     for part, by_rate in rules.get("parts", {}).items():
@@ -138,6 +170,8 @@ def main() -> int:
     print(
         f"Character asset validation OK. Canvas={size[0]}x{size[1]}, "
         f"registered PNGs={len(listed_paths)}, prototype frames={len(required)}"
+        f", runtime measures={start_measure}-{end_measure}, notes={len(scoped_notes)}, "
+        f"groups={len(scoped_groups)}"
     )
     return 0
 

@@ -127,3 +127,14 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - Visual state: neutral is approved; hit variants remain `COMMITTED_DRAFT` until individual visual review
 - Machine-readable identities: `config/assets_manifest.json`
 - Prototype mapping and per-frame identities: `prototypes/luna_say_maybe_16m/asset_inventory.json`
+
+## First-four-measure runtime milestone
+
+- [x] Measures 1-4 explicitly selected as the currently enabled browser range
+- [x] 28 notes / 27 time groups verified
+- [x] Required keys verified: `SN:L`, `BD:RF`, `HH:R`, `BD+RC:*`
+- [x] All four required poses resolve to committed PNG files
+- [x] Runtime preloads every used PNG before setting the character layer ready
+- [x] Canvas lane background changed from opaque fill to translucent fill so the layers remain visible behind notes
+- [x] CSS, app module, and character module URLs cache-busted together
+- [ ] Final public-page visual QA after deployment

@@ -6,6 +6,15 @@ const DRUM="./character-assets/layers/drum/drum_base.png";
 let data=null,lastKey="",ready=false,activeSong=false;
 const els={root:null,drum:null,character:null,label:null};
 
+function loadImage(src){
+  return new Promise((resolve,reject)=>{
+    const image=new Image();
+    image.onload=()=>resolve(src);
+    image.onerror=()=>reject(new Error("image HTTP/load failure: "+src));
+    image.src=src;
+  });
+}
+
 function groupNotes(notes){
   const groups=[];
   for(const n of notes){
@@ -31,10 +40,9 @@ function assetFor(group){
 function setFrame(path,label=""){
   if(!els.character)return;
   const src=ASSET_ROOT+"/"+path;
-  if(lastKey===src)return;
-  lastKey=src;
-  els.character.src=src;
+  if(lastKey!==src){lastKey=src;els.character.src=src}
   if(els.label)els.label.textContent=label;
+  if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label}
 }
 function findGroupAt(time){
   if(!data?.groups?.length)return null;
@@ -54,7 +62,7 @@ export async function initCharacterPrototype(){
   if(!els.root||!els.drum||!els.character)return;
   els.drum.src=DRUM;
   els.character.src=ASSET_ROOT+"/layers/character/base/neutral.png";
-  const fail=()=>els.root.classList.add("assets-missing");
+  const fail=()=>{els.root.classList.add("assets-missing");els.root.dataset.state="assets-missing"};
   els.drum.addEventListener("error",fail,{once:true});
   els.character.addEventListener("error",fail,{once:true});
   try{
@@ -65,15 +73,34 @@ export async function initCharacterPrototype(){
     if(!notesResponse.ok)throw new Error("prototype HTTP "+notesResponse.status);
     if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);
     const [json,inventory]=await Promise.all([notesResponse.json(),inventoryResponse.json()]);
+    const startMeasure=Number(inventory.runtimeScope?.measureStart||1);
+    const endMeasure=Number(inventory.runtimeScope?.measureEnd||4);
+    const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure);
+    const groups=groupNotes(scopedNotes);
     data={
       ...json,
-      groups:groupNotes(json.notes||[]),
+      groups,
       frames:inventory.requiredFrames||{},
-      frameMap:inventory.runtimeFrameMap||{}
+      frameMap:inventory.runtimeFrameMap||{},
+      startMeasure,
+      endMeasure,
+      prototypeEndTime:Math.max(...scopedNotes.map(note=>note.time),0)+.35
     };
+    const usedFrameIds=new Set(["neutral"]);
+    for(const group of groups){
+      const parts=[...new Set(group.map(note=>note.part))].sort();
+      const key=parts.length>1?parts.join("+")+":*":parts[0]+":"+(group[0].animation?.hand||"R");
+      usedFrameIds.add(data.frameMap[key]||"neutral");
+    }
+    const sources=[DRUM,...[...usedFrameIds].map(id=>ASSET_ROOT+"/"+data.frames[id].path)];
+    await Promise.all(sources.map(loadImage));
     ready=true;
+    els.root.classList.add("character-ready");
+    els.root.dataset.state="ready";
+    els.root.dataset.scope=`${startMeasure}-${endMeasure}`;
   }catch(err){
     console.warn("character prototype disabled",err);
+    fail();
   }
   addEventListener("dtx-chart-change",e=>{
     activeSong=String(e.detail?.name||"").toLowerCase().includes("luna");
@@ -83,8 +110,10 @@ export async function initCharacterPrototype(){
 export function updateCharacterPrototype(time,chartName=""){
   if(!ready||!els.root)return;
   activeSong=String(chartName||"").toLowerCase().includes("luna");
-  els.root.classList.toggle("active",activeSong);
-  if(!activeSong)return;
+  const inWindow=Number(time)>=0&&Number(time)<=data.prototypeEndTime;
+  els.root.classList.toggle("active",activeSong&&inWindow);
+  els.root.dataset.active=String(activeSong&&inWindow);
+  if(!activeSong||!inWindow)return;
   const g=findGroupAt(time);
   if(!g){setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL");return}
   const asset=assetFor(g);

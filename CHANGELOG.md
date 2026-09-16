@@ -1,6 +1,10 @@
 # Changelog
 
 ## 2026-09-16
+- Fixed the invisible character/drum backdrop: the note canvas had been repainted with a fully opaque fill above the image layers. Luna lanes now use a translucent canvas fill so the fixed drum and character pose remain visible behind notes.
+- Added coordinated cache-busting for `styles.css`, `app.js`, and `character-prototype.js` so mobile browsers cannot combine new HTML with stale character-animation code.
+- Limited the reviewed runtime milestone to Luna Say Maybe measures 1-4 (28 notes, 27 time groups), while retaining measures 5-16 as prepared data.
+- Added runtime asset preloading, explicit ready/missing state markers, first-four-measure scope validation, and UI contract checks for layer visibility.
 - Added `assets_manifest.json` with full-canvas registration, alpha, status, use, and SHA-256 records for all 10 committed character-animation PNGs.
 - Strengthened character asset validation to reject missing/unregistered PNGs, size or registration drift, missing transparency, empty layers, SHA changes, locked drum changes, inventory mismatches, note-count drift, and unresolved prototype animation groups.
 - Made the Luna 16-measure browser renderer load its frame map from `asset_inventory.json`, keeping runtime filenames and the shared inventory in sync.

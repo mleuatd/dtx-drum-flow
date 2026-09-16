@@ -92,4 +92,18 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 
 人物の各ヒット差分はGitHub登録・実行可能な `COMMITTED_DRAFT`。個別の目視承認が済むまでは `APPROVED` に昇格しない。HHの `prep_r` / `rebound_r` / `prep_l` / `hit_l` / `rebound_l` は現在のGitHub `main` には未登録で、将来16分HHや三相アニメーションを実表示する前に必要。
 
+## 最初の4小節・背景レーン表示修正（2026-09-16）
+
+発見した直接原因は、`site/app.js` の `draw()` がCanvas全体を不透明な `#0e172a` で毎フレーム塗りつぶしていたこと。人物・ドラムDOMはCanvasより下の正しいレイヤーに存在していたが、この不透明塗りで完全に隠れていた。
+
+修正方針:
+- Luna表示中のCanvas背景を半透明にして、ノーツとレーン線を人物・固定ドラムの上へ重ねる
+- `styles.css`、`app.js`、`character-prototype.js` を同じ更新番号でcache bustする
+- `asset_inventory.json` の `runtimeScope` を1〜4小節に固定する
+- 1〜4小節の28ノーツ / 27グループだけを実行対象にする
+- 使用画像をすべてpreloadできた後だけ `character-ready` にする
+- DOM datasetへready/active/frame/pose/scopeを出し、公開ページ検証を可能にする
+
+1〜4小節で必要なキーは `SN:L`、`BD:RF`、`HH:R`、`BD+RC:*` の4種類。5〜16小節のデータとPNGは削除せず、次段階用として保持する。
+
 バイナリ登録が権限・API制約で失敗した場合は、失敗内容と必要なユーザー操作を `WORK_SYNC.md` または `VARIANT_STATUS.md` に記録してから案内する。
