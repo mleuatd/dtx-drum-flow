@@ -150,3 +150,14 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 - 同じキーの次発音まで0.13秒以下の場合だけ16分相当の連打として、neutralへ戻さずreboundを維持する。
 - 5〜8小節の全32グループについて、HIT画像32件、0.09秒後のneutral復帰32件、各パートのエフェクト、BD+RC二点エフェクトをJavaScript実行テスト済み。
 - 既存の固定ドラム画像およびSHAは変更していない。
+
+実装・公開コミット: `26adb1eabf70c14623a0a12ef4908f349af9eced`
+
+公開ページ実ブラウザQA:
+- scope=`1-8`、固定ドラム/人物とも1448x1086、`character-ready active`
+- 10.542秒: `RD · R · HIT` / `rd/hit_r.png` / RDエフェクト
+- 10.632秒: `NEUTRAL` / `base/neutral.png` / エフェクト消去
+- 12.052秒: `BD+RC · RF/R · HIT` / `combo/bd_rc_hit.png` / BD・RC二点エフェクト
+- 公開サイト由来のJavaScriptエラーなし
+- GitHub Actions 4件（validate / Character asset validation / Build standalone trainer / deploy-site）はすべてsuccess
+- 公開URL: https://mleuatd.github.io/dtx-drum-flow/

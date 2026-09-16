@@ -163,6 +163,8 @@ First-four-measure motion polish was deployed in commit `b96726f8cd4ab0b27b79b2e
 - [x] Same-key sixteenth-speed repeats retain rebound follow-through instead of resetting
 - [x] No new PNG required; all necessary images were already registered
 
+Measures 5-8 were deployed in commit `26adb1eabf70c14623a0a12ef4908f349af9eced`. GitHub Pages browser QA passed for RD hit, neutral settling, and the two-position BD+RC effect. All four GitHub Actions runs completed successfully.
+
 Public QA result for commit `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`:
 - initial state: `character-ready active`, scope `1-4`, opacity `0.9`
 - fixed drum and neutral character: loaded at 1448x1086
