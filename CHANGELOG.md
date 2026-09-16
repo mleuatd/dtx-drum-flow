@@ -79,6 +79,10 @@
 
 ## 2026-09-17
 
+- Fixed the invisible Luna character backdrop by removing the remaining full-frame dark Canvas fill entirely for Luna; only lanes, notes, and the judgment line now draw above the image layers.
+- Restored user-approved pose_01 as the exact SN:R runtime image and user-approved pose_03 as the BD+RC runtime image, replacing the prior neutral fallback / older draft usage.
+- Added PNG cache busting for character layers and updated CI/UI-contract coverage for the measures 1-16 prototype.
+
 - Revalidated and locked the Luna Say Maybe flipbook prototype to the full measures 1-16 range: 144 notes / 124 simultaneous-time groups.
 - Added runtime startup guards that require every scoped note to have a precomputed limb assignment and every occurring animation key to resolve prep / hit / rebound frames before the character layer becomes ready.
 - Exposed runtime note/group counts in the character backdrop dataset and refreshed module/app cache keys so the 1-16 implementation is delivered to mobile browsers.
