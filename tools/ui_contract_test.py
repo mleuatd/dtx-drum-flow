@@ -37,7 +37,7 @@ checks = {
     "fixed mobile transport": '.mobile-transport' in css and 'position:fixed' in css,
     "playback independent from audio clock": 'playAnchorPerf=performance.now()' in js and '(performance.now()-playAnchorPerf)/1000' in js,
     "play button immediate state": '$("playPause").textContent="一時停止 ❚❚"' in js and 'setStatus("再生中")' in js,
-    "character module cache bust": 'character-prototype.js?v=20260917-devhud-r6' in js and 'app.js?v=20260917-devhud-r6' in html,
+    "character module cache bust": 'character-prototype.js?v=20260917-keyfix-r7' in js and 'app.js?v=20260917-keyfix-r7' in html,
     "character canvas stays transparent": 'if(!isLuna){ctx.fillStyle="#0e172a";ctx.fillRect(0,0,w,h)}' in js and '.stage canvas{' in css and 'background:transparent' in css,
     "character layer visible behind notes": '.character-backdrop.active{opacity:.9}' in css and '.character-backdrop{' in css and 'z-index:1' in css and '.stage canvas{' in css and 'z-index:2' in css,
     "prototype runtime scope 1-8": 'const PROTOTYPE_MEASURE_START=1' in character_js and 'const PROTOTYPE_MEASURE_END=8' in character_js and 'note.measure>=startMeasure&&note.measure<=endMeasure' in character_js,
@@ -50,6 +50,7 @@ checks = {
     "fallback QA dataset": 'dataset.fallback' in character_js and 'dataset.fallbackReason' in character_js and 'dataset.animationKey' in character_js and 'dataset.limbs' in character_js and 'runtimeFallbackKeys' in character_js,
     "precomputed limb mapping": 'Luna_say_maybe_1_16_limbs.json' in character_js and 'if(note?.limb)return note.limb' in character_js,
     "prototype coverage guard": 'validatePrototypeCoverage(inventory,scopedNotes,groups)' in character_js and 'dataset.noteCount' in character_js and 'dataset.groupCount' in character_js,
+    "combo validation uses inventory frame map": 'keyFor(group,inventory.runtimeFrameMap)' in character_js,
 }
 
 failed=[name for name,ok in checks.items() if not ok]
