@@ -27,3 +27,5 @@ for key,path in OUT.items():
     rgba=rgba.resize((1448,1088),Image.Resampling.NEAREST).crop((0,0,1448,1086))
     p=R/path;p.parent.mkdir(parents=True,exist_ok=True);rgba.save(p,optimize=True)
 print("generated",len(OUT))
+
+# trigger generation workflow
