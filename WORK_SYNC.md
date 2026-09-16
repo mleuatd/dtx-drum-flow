@@ -181,4 +181,30 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 - `d18dc283643295744c06f3c8f96a4ccdf3844229` prototype README更新
 
 次回の通常チャット/Work開始時は、このファイルとGitHub `main` の最新コミットを必ず確認してから続行する。
+## 17〜148小節・全曲人物アニメーション拡張（2026-09-16）
+
+- ユーザー指示により16小節以降を中断せず継続し、Luna Say Maybe FINAL譜面の全148小節をruntime対象へ拡張。
+- 全曲規模: 2,158ノーツ / 1,527発音グループ / 最終ノーツ258.851273秒。
+- browser character runtimeは16小節専用animation JSONではなく `site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json` を直接読む。
+- SN=L、BD=RF、その他の既存手パート=Rをruntime既定として解決。
+- 全23種類の出現グループキーをframe/phaseへ解決し、機械検証で1,527/1,527グループ未解決0件。
+- 既存PNGで専用表現できない後半パターンは、安全な既存ポーズへフォールバックしつつ、発音位置エフェクトは実パート位置へ出す。
+- HT/LT/FTのエフェクト座標を追加。3パート同時打ち用にeffectTertiaryを追加。
+- 現時点で575グループが人物ポーズfallback。うち100グループのタム単独はneutral人物 + 正しいタム位置エフェクト。
+- 固定ドラムPNGと既存人物PNGのバイナリ/SHAは変更していない。
+- 専用タム画像・後半combo画像・HH左手画像は `character-assets/VARIANT_STATUS.md` に未完了として残し、runtime自体は止めない。
+
+主な実装コミット:
+- `4b5876175827e7657810c16db40a9656a9d4870a` full-song frame fallback定義
+- `cf44d7fbfd5765766da46d608e6a3032a3fd31e8` FINAL譜面直結runtime
+- `c66af0b4b322f1fc45b704ae2c384b047230af10` 3点同時hit effect
+- `067b09f579f08003529248766cb442ccca3794df` full-song cache refresh
+- `955608a888c1e82e34626d1da359eca1d6611059` full-chart asset validation
+- `95b845643f063739e7d43fbc32b2c153fede847c` full-song UI contract
+- `ea71e8872b61043e9e9fc8bc304d226236d44425` changelog更新
+- `4b2b93d04dafbc5208dbf26792a5afffa4124107` project milestone更新
+- `dacbc9aa0a52c21c04088c881e77bf10b67bccef` fallback/TODO状態更新
+- `4fbadc7ae9db8fe3c9477f0fcdbabae73e60cd43` prototypeから全曲への継続方針記録
+
+次回はGitHub mainの最新状態から、fallbackになっている後半専用人物PNGを優先度順に置換していく。
 
