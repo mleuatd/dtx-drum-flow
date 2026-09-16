@@ -126,7 +126,7 @@ export async function initCharacterPrototype(){
     if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);
     const [json,inventory]=await Promise.all([notesResponse.json(),inventoryResponse.json()]);
     const startMeasure=Number(inventory.runtimeScope?.measureStart||1);
-    const endMeasure=Number(inventory.runtimeScope?.measureEnd||8);
+    const endMeasure=Number(inventory.runtimeScope?.measureEnd||16);
     const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure);
     const groups=groupNotes(scopedNotes);
     data={
