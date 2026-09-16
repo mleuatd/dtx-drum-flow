@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "canvas": {
+    "width": 1448,
+    "height": 1086,
+    "origin": "top-left"
+  },
+  "compositeOrder": [
+    "drum",
+    "character",
+    "effect"
+  ],
+  "registration": {
+    "x": 0,
+    "y": 0,
+    "allowTranslation": false,
+    "allowScale": false,
+    "allowMirror": false,
+    "allowCrop": false
+  },
+  "layers": {
+    "drum": {
+      "base": "../layers/drum/drum_base.png",
+      "locked": true
+    },
+    "character": {
+      "neutral": "../layers/character/base/neutral.png",
+      "patterns": {
+        "hh": "../layers/character/hh/{pose}.png",
+        "sn": "../layers/character/sn/{pose}.png",
+        "bd": "../layers/character/bd/{pose}.png",
+        "ht": "../layers/character/ht/{pose}.png",
+        "lt": "../layers/character/lt/{pose}.png",
+        "ft": "../layers/character/ft/{pose}.png",
+        "lc": "../layers/character/lc/{pose}.png",
+        "rc": "../layers/character/rc/{pose}.png",
+        "rd": "../layers/character/rd/{pose}.png",
+        "combo": "../layers/character/combo/{pose}.png"
+      }
+    },
+    "effect": {
+      "pattern": "../layers/effect/{effect}.png",
+      "optional": true
+    }
+  }
+}
