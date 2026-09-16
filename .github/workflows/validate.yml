@@ -29,6 +29,7 @@ jobs:
       - name: Browser JavaScript syntax
         run: |
           node --check site/app.js
+          node --check site/character-prototype.js
           node --check site/parsers.js
           node --check site/audio-analysis.js
           node --check site/original-audio.js
