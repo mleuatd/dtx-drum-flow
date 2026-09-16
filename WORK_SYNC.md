@@ -207,4 +207,18 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 - `4fbadc7ae9db8fe3c9477f0fcdbabae73e60cd43` prototypeから全曲への継続方針記録
 
 次回はGitHub mainの最新状態から、fallbackになっている後半専用人物PNGを優先度順に置換していく。
+### 全曲runtime QA追記
+
+- `runtimeFallbackKeys` を明示し、現在の発音グループが専用ポーズかfallbackかを `characterBackdrop.dataset.fallback` / `dataset.animationKey` で判別可能にした。
+- fallback宣言キーは15種類、実際のfallbackグループは575件。
+- 最新機械検証でも全1,527グループ unresolved=0。
+- 3点同時打ちeffect、全曲cache bust、fallback key validator、UI contractもmainへ反映済み。
+
+追加コミット:
+- `8e9b8f37e59d6fb4d793ec8b50047ae88294243f` fallback key metadata
+- `3b2694ac28cee1655022533796ca014f7f9b9361` runtime fallback QA dataset
+- `fa6105286158a0e0c6c0bc0be83d6de5dd952f0b` app cache refresh
+- `1757caa2f5ff7ffb7938e93653817ffe6212ac6b` HTML cache refresh
+- `fb64f49d7d993a70985fa67416e699aacdd7b787` fallback QA UI contract
+- `136514ee04c6750e8fa1ef954eec607a098a1739` fallback key validator
 
