@@ -45,13 +45,14 @@ button,label.button,summary{touch-action:manipulation}
   position:relative;height:58vh;min-height:430px;max-height:760px;
   padding:0;overflow:hidden;border-radius:16px
 }
+.stage.luna-stage{background:#f7f3ea}
 .stage-head{
   height:34px;display:flex;align-items:center;justify-content:space-between;
   padding:0 10px;background:#0e1628;border-bottom:1px solid #233553;
   color:#b8c7e6;font-size:12px;font-weight:700
 }
 .character-backdrop{
-  position:absolute;left:0;right:0;top:34px;bottom:56px;z-index:0;
+  position:absolute;left:0;right:0;top:34px;bottom:56px;z-index:1;
   pointer-events:none;overflow:hidden;opacity:0;transition:opacity .15s;
   background:#f7f3ea;
 }
@@ -81,11 +82,11 @@ button,label.button,summary{touch-action:manipulation}
   background:#0009;color:#fff;font-size:9px;border-radius:4px
 }
 .stage canvas{
-  position:relative;z-index:1;display:block;width:100%;height:calc(100% - 90px);
+  position:relative;z-index:2;display:block;width:100%;height:calc(100% - 90px);
   background:transparent;
 }
 .parts{
-  position:absolute;left:0;right:0;bottom:0;height:56px;
+  position:absolute;left:0;right:0;bottom:0;height:56px;z-index:3;
   display:grid;grid-template-columns:repeat(11,1fr);
   background:#0d1525;border-top:2px solid #86a7ff
 }
@@ -99,7 +100,7 @@ button,label.button,summary{touch-action:manipulation}
 .part .label{display:none}
 .part.hit{background:#527fff;color:#fff;box-shadow:0 0 18px #6f91ff inset}
 .seek-zone{
-  position:absolute;top:34px;bottom:56px;width:50%;z-index:3;touch-action:manipulation
+  position:absolute;top:34px;bottom:56px;width:50%;z-index:4;touch-action:manipulation
 }
 .seek-zone.left{left:0}.seek-zone.right{right:0}
 
