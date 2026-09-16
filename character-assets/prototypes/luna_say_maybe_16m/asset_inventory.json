@@ -74,8 +74,8 @@
     },
     "combo_bd_rc": {
       "path": "layers/character/combo/bd_rc_hit.png",
-      "state": "committed-draft",
-      "sha256": "080a7ca25c6bfe6d558625953eab0fa2707eeae966fe2fd9997be9b3166a607d"
+      "state": "approved",
+      "sha256": "1b3a36294341c06181c00a641c2435bdfc810bd8757f4cf058f3005eb6c69326"
     },
     "combo_rc_sn": {
       "path": "layers/character/combo/rc_sn_hit.png",
@@ -158,7 +158,7 @@
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
   "measureEightCommit": "26adb1eabf70c14623a0a12ef4908f349af9eced",
-  "note": "Runtime is intentionally limited to measures 1-16 (144 notes / 124 time groups). Existing committed pose layers are selected from the precomputed limb sidecar; measure 17+ is outside this prototype.",
+  "note": "Runtime is intentionally limited to measures 1-16 (144 notes / 124 time groups). Approved SN:R (pose_01) and BD+RC (pose_03) are restored into semantic runtime paths; remaining committed semantic frames continue to resolve the prototype.",
   "runtimeFallbackKeys": [],
   "limbAnalysis": {
     "scope": {
