@@ -143,17 +143,20 @@ def main() -> int:
             return "+".join(parts) + ":*"
         return f"{parts[0]}:{note_hand(group[0])}"
 
-    for group in groups:
+    scope = inventory.get("runtimeScope", {})
+    start_measure = scope.get("measureStart")
+    end_measure = scope.get("measureEnd")
+    runtime_groups = [
+        group for group in groups
+        if start_measure <= group[0].get("measure", 0) <= end_measure
+    ]
+    for group in runtime_groups:
         key = animation_key(group)
         frame_id = frame_map.get(key)
         if not frame_id or frame_id not in required:
             errors.append(
                 f"runtime source time {group[0]['time']}: unresolved animation key {key}"
             )
-
-    scope = inventory.get("runtimeScope", {})
-    start_measure = scope.get("measureStart")
-    end_measure = scope.get("measureEnd")
     scoped_notes = [
         note for note in notes
         if start_measure <= note.get("measure", 0) <= end_measure
