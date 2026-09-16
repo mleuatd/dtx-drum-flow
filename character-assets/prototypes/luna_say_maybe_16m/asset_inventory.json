@@ -81,6 +81,11 @@
       "path": "layers/character/combo/rc_sn_hit.png",
       "state": "committed-draft",
       "sha256": "b36a30ae8a2c9ec2c7512d66524b9366843da88a9bff5c069f700fc8d92b709f"
+    },
+    "sn_hit_r": {
+      "path": "layers/character/sn/hit_r.png",
+      "state": "approved",
+      "sha256": "e0f80c29126a866fee2937ba633c9b26698bc40c4a02a3250f9b06dbcc83cb12"
     }
   },
   "runtimeFrameMap": {
@@ -91,7 +96,7 @@
     "BD+SN:*": "combo_bd_sn",
     "BD+RC:*": "combo_bd_rc",
     "RC+SN:*": "combo_rc_sn",
-    "SN:R": "neutral"
+    "SN:R": "sn_hit_r"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -131,7 +136,7 @@
     },
     "SN:R": {
       "prep": "neutral",
-      "hit": "neutral",
+      "hit": "sn_hit_r",
       "rebound": "neutral"
     }
   },
@@ -154,9 +159,7 @@
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
   "measureEightCommit": "26adb1eabf70c14623a0a12ef4908f349af9eced",
   "note": "Runtime is intentionally limited to measures 1-16 (144 notes / 124 time groups). Existing committed pose layers are selected from the precomputed limb sidecar; measure 17+ is outside this prototype.",
-  "runtimeFallbackKeys": [
-    "SN:R"
-  ],
+  "runtimeFallbackKeys": [],
   "limbAnalysis": {
     "scope": {
       "measureStart": 1,
@@ -171,30 +174,17 @@
         "measure": 1,
         "part": "SN",
         "limb": "R",
-        "fallback": "neutral"
+        "fallback": null
       }
     ],
-    "note": "The right-hand snare exception starts the final 16th-note pair R-L so the following 5.146237 crash remains available to the right hand. No HT/LT/FT notes occur in measures 1-16."
+    "note": "The right-hand snare exception at 4.930410s now uses the approved SN:R pose restored from approved/pose_01.png; the following 5.038324s SN remains L and 5.146237s crash remains R."
   },
-  "missingExactFrames": [
-    {
-      "key": "SN:R",
-      "measure": 1,
-      "time": 4.93041,
-      "part": "SN",
-      "limb": "R",
-      "required": "right-hand snare hit on locked 1448x1086 registration",
-      "currentFallback": "neutral",
-      "reason": "No dedicated SN:R runtime PNG is registered on GitHub main; SN:L must not be reused."
-    }
-  ],
+  "missingExactFrames": [],
   "qa": {
     "scope": "measures 1-16",
-    "structuralAssetQA": "PASS_FOR_REGISTERED_RUNTIME_PNGS",
+    "structuralAssetQA": "PASS_ALL_1_16_RUNTIME_FRAMES",
     "visualAssetQA": "PENDING_ENVIRONMENT_LIMITATION",
     "binaryRepairsPerformed": 0,
-    "exactPoseShortages": [
-      "SN:R"
-    ]
+    "exactPoseShortages": []
   }
 }
