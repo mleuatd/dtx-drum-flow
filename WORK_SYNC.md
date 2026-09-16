@@ -24,3 +24,42 @@
 ## 復元について
 ChatGPT Site projection の元ソースを通常チャットから直接エクスポートできなかったため、`site/` は現行UI・既知仕様を基に再構築した同期用ソースです。
 現行サイトとの差異を発見した場合は、差分をGitHub側に反映して徐々に一致させます。
+
+
+## 必須の作業開始ルール（2026-09-16追加）
+
+このプロジェクトは通常チャット・Work・別チャットをまたいで継続するため、作業開始時に会話履歴だけを信用しない。
+
+毎回、実装・画像生成・差分追加・Git操作の前に、最低限以下を確認すること。
+
+1. `WORK_SYNC.md`
+2. `PROJECT_MANIFEST.md`
+3. `CHANGELOG.md`
+4. `character-assets/VARIANT_STATUS.md`
+5. `character-assets/LAYER_RULES.md`
+6. Luna Say Maybe 16小節プロトタイプ作業なら
+   `character-assets/prototypes/luna_say_maybe_16m/README.md`
+   と
+   `character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json`
+
+GitHub の `main` を共有情報の正本（source of truth）とする。
+
+チャット内の説明とGitHub上の情報が食い違う場合は、GitHubの最新mainを確認してから判断する。ただし、ユーザーが現在の会話で明示した最新指示は最優先で、その変更内容をGitHub側の管理ファイルへ反映する。
+
+重要な決定・進捗・未完了事項・画像パス・バイナリ登録状況・詰まっている理由は、会話だけに残さずGitHubへ記録する。
+
+特に画像差分作業では、
+- どの画像が基準か
+- どの画像が承認済みか
+- どのPNGがGitHubへバイナリ登録済みか
+- どの差分が生成済み / 未生成か
+- どの譜面ノーツに対応するか
+を `VARIANT_STATUS.md` と prototype 配下の inventory / manifest に記録する。
+
+新しいチャットへ移った場合でも、まずこれらのファイルを読むことで作業状態を復元し、ユーザーに同じ説明や再確認を繰り返さないこと。
+
+GitHubへのバイナリ登録が必要な場合は、テキスト用 `create_file/update_file` ではなく、原則として
+`create_blob(base64) -> create_tree -> create_commit -> update_ref`
+のGit data API方式を試す。
+
+バイナリ登録が権限・API制約で失敗した場合は、失敗内容と必要なユーザー操作を `WORK_SYNC.md` または `VARIANT_STATUS.md` に記録してから案内する。
