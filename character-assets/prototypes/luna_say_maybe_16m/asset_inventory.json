@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "scope": "Luna Say Maybe measures 1-16",
+  "chartNoteCount": 144,
+  "occurringParts": {
+    "SN": 35,
+    "BD": 44,
+    "RC": 6,
+    "HH": 39,
+    "RD": 20
+  },
+  "occurringGroups": {
+    "SN": 20,
+    "BD+RC": 5,
+    "HH": 39,
+    "BD": 25,
+    "RD": 20,
+    "BD+SN": 14,
+    "RC+SN": 1
+  },
+  "requiredFrames": {
+    "neutral": {
+      "path": "layers/character/base/neutral.png",
+      "state": "generated-locally-pending-binary-push"
+    },
+    "hh_hit_r": {
+      "path": "layers/character/hh/hit_r.png",
+      "state": "generated-locally-pending-binary-push"
+    },
+    "sn_hit_l": {
+      "path": "layers/character/sn/hit_l.png",
+      "state": "generated-locally-pending-binary-push"
+    },
+    "bd_foot_down": {
+      "path": "layers/character/bd/foot_down.png",
+      "state": "generated-locally-pending-binary-push"
+    },
+    "rc_hit_r": {
+      "path": "layers/character/rc/hit_r.png",
+      "state": "needed"
+    },
+    "rd_hit_r": {
+      "path": "layers/character/rd/hit_r.png",
+      "state": "needed"
+    },
+    "combo_bd_sn": {
+      "path": "layers/character/combo/bd_sn_hit.png",
+      "state": "needed"
+    },
+    "combo_bd_rc": {
+      "path": "layers/character/combo/bd_rc_hit.png",
+      "state": "needed"
+    },
+    "combo_rc_sn": {
+      "path": "layers/character/combo/rc_sn_hit.png",
+      "state": "needed"
+    }
+  },
+  "renderer": {
+    "module": "site/character-prototype.js",
+    "fallback": "base/neutral.png",
+    "activeOnlyFor": "Luna Say Maybe",
+    "prototypeWindow": "measures 1-16 data source"
+  }
+}
