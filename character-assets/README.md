@@ -1,17 +1,18 @@
 # DTX Drum Flow — Background Character Assets
 
-This directory is the canonical management location for the drummer background-character image variants used by DTX Drum Flow.
+This directory is the canonical management location for drummer background-character layers and animation variants used by DTX Drum Flow.
 
 ## Fixed baseline rules
 
-The current attached rough black-and-white drummer image is the **baseline/origin image** for all future variants.
+The approved rough black-and-white drummer composition is the baseline/origin for all future variants.
 
 Keep fixed across every variant:
 - camera angle
 - rear-side elevated three-quarter view
 - composition and distance
 - character facing direction
-- overall drum-kit layout
+- drum-kit layout
+- drum/stool registration
 - visibility of the whole kit
 - about 4-head chibi proportion
 - monochrome rough line-art style
@@ -22,33 +23,89 @@ Keep fixed across every variant:
 Only performance motion may change:
 - stick position
 - arm position
-- foot position
-- subtle body motion
+- foot/leg when a pedal is played
+- subtle upper-body motion
+- slight hair follow-through
 - struck instrument
 - hit / rebound phase
 
+## Layer architecture
+
+The authoritative image is no longer a monolithic frame.
+
+A visible frame is composed from independent full-canvas layers:
+
+1. `layers/drum/drum_base.png` — immutable drum kit.
+2. `layers/character/<part>/<pose>.png` — character motion only.
+3. `layers/effect/<effect>.png` — optional impact/motion marks.
+
+Every layer is 1448x1086 and registered at x=0,y=0.
+
+Do not:
+- crop
+- translate
+- scale
+- mirror
+- re-render the drum kit inside every pose
+
+See `LAYER_RULES.md`.
+
+## Animation / score mapping
+
+Authoritative mappings live in:
+
+- `config/layer_manifest.json`
+- `config/animation_rules.json`
+- `config/chart_bindings.json`
+- `config/lane_map.json`
+
+Charts may optionally embed an `animation` object per note. If omitted, animation is selected automatically from part + note spacing + simultaneous-hit grouping.
+
+See `SCORE_BINDING.md`.
+
+## Hand rules
+
+Default behavior:
+- quarter-note repeated HH: one hand
+- eighth-note repeated HH: one hand
+- sixteenth-note repeated HH: alternating hands
+- default HH sixteenth sticking: R L R L
+
+The same alternating strategy is available for fast SN/tom repeats.
+
+## Tooling
+
+Validate registration:
+
+```bash
+pip install -r tools/character_layers/requirements.txt
+python tools/character_layers/validate_assets.py
+```
+
+Composite one frame:
+
+```bash
+python tools/character_layers/compose_layers.py hh/hit_r output.png
+```
+
+GitHub Actions runs the registration validator automatically when character assets change.
+
 ## Naming
 
-Use lowercase ASCII filenames so the site can reference assets safely.
-
-`baseline/default.png`
-
-Single-part variants:
-`variants/<part>/<phase>-<rate>.png`
+Use lowercase ASCII filenames.
 
 Examples:
-- `variants/sn/hit-quarter.png`
-- `variants/sn/rebound-quarter.png`
-- `variants/hh/hit-eighth.png`
-- `variants/bd/hit-sixteenth.png`
 
-Simultaneous-hit variants:
-`variants/combo/<parts>-<phase>-<rate>.png`
-
-Examples:
-- `variants/combo/sn-bd-hit-quarter.png`
-- `variants/combo/hh-bd-hit-eighth.png`
+- `layers/character/hh/prep_r.png`
+- `layers/character/hh/hit_r.png`
+- `layers/character/hh/rebound_r.png`
+- `layers/character/hh/hit_l.png`
+- `layers/character/sn/hit_r.png`
+- `layers/character/bd/foot_down.png`
+- `layers/character/combo/sn_bd_hit.png`
 
 ## Progress source of truth
 
 See `VARIANT_STATUS.md`.
+
+Generated GIFs/previews are review artifacts only. The source of truth is always the fixed drum layer + character layer(s) + JSON rules.
