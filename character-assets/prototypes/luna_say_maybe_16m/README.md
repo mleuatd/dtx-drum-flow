@@ -102,3 +102,7 @@ Exact committed poses are preferred. Later-song patterns without dedicated binar
 
 This does not mark fallback poses as visually approved replacements. Dedicated tom, combo, and HH-left-hand binaries remain tracked separately in character-assets/VARIANT_STATUS.md.
 
+
+## 2026-09-17 final 1-16 pass
+
+Runtime scope is explicitly measures 1-16 (144 notes / 124 groups). The authoritative limb source remains `Luna_say_maybe_1_16_limbs.json`. The only exact-pose shortage in this scope is `SN:R` at 4.930410s; it remains an explicit neutral fallback and never reuses `SN:L`. Structural PNG QA is recorded in `FINAL_QA_2026-09-17.md`. No measure 17+ image generation is part of this prototype pass.
