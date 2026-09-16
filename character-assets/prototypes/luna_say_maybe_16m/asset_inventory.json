@@ -267,6 +267,24 @@
     "dedicatedPosePreferred": true,
     "unresolvedTomPose": "neutral character with tom-position hit effect",
     "unsupportedCombination": "closest committed pose plus all available instrument-position hit effects",
-    "note": "Fallbacks keep playback/animation continuous without inventing unregistered binary layers."
-  }
+    "note": "Fallbacks keep playback/animation continuous without inventing unregistered binary layers.",
+    "runtimeDatasetFlag": "characterBackdrop.dataset.fallback is true when the current group uses a fallback pose"
+  },
+  "runtimeFallbackKeys": [
+    "HT:R",
+    "LT:R",
+    "FT:R",
+    "BD+LT:*",
+    "RD+SN:*",
+    "BD+RD:*",
+    "BD+HH:*",
+    "HH+SN:*",
+    "FT+SN:*",
+    "BD+HT:*",
+    "LT+SN:*",
+    "BD+HH+SN:*",
+    "BD+RC+SN:*",
+    "BD+FT+SN:*",
+    "BD+FT:*"
+  ]
 }
