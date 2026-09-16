@@ -1,147 +1,68 @@
 {
-  "version": 7,
-  "scope": "Luna Say Maybe measures 1-16 character flipbook runtime",
+  "version": 8,
+  "scope": "Luna Say Maybe measures 1-4 neutral-baseline rebuild",
+  "imageSetState": "baseline-only",
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 8,
-    "noteCount": 61,
-    "groupCount": 59,
+    "measureEnd": 4,
+    "noteCount": 28,
+    "groupCount": 27,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 17.016741,
+    "lastNoteTime": 10.110266,
     "expectedKeys": [
       "SN:L",
       "SN:R",
       "BD:RF",
       "HH:R",
-      "RD:R",
       "BD+RC:*"
     ]
-  },
-  "occurringParts": {
-    "SN": 35,
-    "BD": 44,
-    "RC": 6,
-    "HH": 39,
-    "RD": 20
-  },
-  "occurringGroups": {
-    "SN": 20,
-    "BD+RC": 5,
-    "HH": 39,
-    "BD": 25,
-    "RD": 20,
-    "BD+SN": 14,
-    "RC+SN": 1
   },
   "requiredFrames": {
     "neutral": {
       "path": "layers/character/base/neutral.png",
-      "state": "approved",
+      "state": "baseline-only",
       "sha256": "fdd607415dd576fc18e1600a52fd079617bcefcc3485e70e7c7caf5aa24f9921"
-    },
-    "hh_hit_r": {
-      "path": "layers/character/hh/hit_r.png",
-      "state": "committed-draft",
-      "sha256": "b86bc93deb59ec3b3b5107db9f74b5f678f19f94ef9ab710695b5210422b785e"
-    },
-    "sn_hit_l": {
-      "path": "layers/character/sn/hit_l.png",
-      "state": "committed-draft",
-      "sha256": "7e32735a941975669cc09edfb34beac207f3c8742db2fb17938bea6283db5c6f"
-    },
-    "sn_rebound_l": {
-      "path": "layers/character/sn/rebound_l.png",
-      "state": "committed-draft",
-      "sha256": "18103689d4f466f082b98b2fa1595e00fd9a2a657e09e77e037e2d1a8a1071f5"
-    },
-    "bd_foot_down": {
-      "path": "layers/character/bd/foot_down.png",
-      "state": "committed-draft",
-      "sha256": "438c7f9954fbf313d2b942561898c4134d616bb98c88adeda77298ffa6db0b19"
-    },
-    "rd_hit_r": {
-      "path": "layers/character/rd/hit_r.png",
-      "state": "committed-draft",
-      "sha256": "ea3feecb3dc083e11d8eb6d349a55610e3084d761ec373e5626e168d0e91cab1"
-    },
-    "combo_bd_sn": {
-      "path": "layers/character/combo/bd_sn_hit.png",
-      "state": "committed-draft",
-      "sha256": "9ed84321bc09fd4bae06e0ca38c58da8d88d05a18f461b42c6ecaf05526634d6"
-    },
-    "combo_bd_rc": {
-      "path": "layers/character/combo/bd_rc_hit.png",
-      "state": "approved",
-      "sha256": "7eafce8c59a370cfabbd188ecfe96afcb81924f205d00c26e20334af1249df54"
-    },
-    "combo_rc_sn": {
-      "path": "layers/character/combo/rc_sn_hit.png",
-      "state": "committed-draft",
-      "sha256": "b36a30ae8a2c9ec2c7512d66524b9366843da88a9bff5c069f700fc8d92b709f"
-    },
-    "sn_hit_r": {
-      "path": "layers/character/sn/hit_r.png",
-      "state": "approved",
-      "sha256": "637ee132b36293377826aa166af2ac4f3257162d18430e11c8b42ed3694d08c1"
     }
   },
   "runtimeFrameMap": {
-    "HH:R": "hh_hit_r",
-    "SN:L": "sn_hit_l",
-    "BD:RF": "bd_foot_down",
-    "RD:R": "rd_hit_r",
-    "BD+SN:*": "combo_bd_sn",
-    "BD+RC:*": "combo_bd_rc",
-    "RC+SN:*": "combo_rc_sn",
-    "SN:R": "sn_hit_r"
+    "SN:L": "neutral",
+    "SN:R": "neutral",
+    "BD:RF": "neutral",
+    "HH:R": "neutral",
+    "BD+RC:*": "neutral"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
       "prep": "neutral",
-      "hit": "sn_hit_l",
-      "rebound": "sn_rebound_l"
-    },
-    "BD+RC:*": {
-      "prep": "neutral",
-      "hit": "combo_bd_rc",
-      "rebound": "neutral"
-    },
-    "HH:R": {
-      "prep": "neutral",
-      "hit": "hh_hit_r",
-      "rebound": "neutral"
-    },
-    "BD:RF": {
-      "prep": "neutral",
-      "hit": "bd_foot_down",
-      "rebound": "neutral"
-    },
-    "RD:R": {
-      "prep": "neutral",
-      "hit": "rd_hit_r",
-      "rebound": "neutral"
-    },
-    "BD+SN:*": {
-      "prep": "neutral",
-      "hit": "combo_bd_sn",
-      "rebound": "neutral"
-    },
-    "RC+SN:*": {
-      "prep": "neutral",
-      "hit": "combo_rc_sn",
+      "hit": "neutral",
       "rebound": "neutral"
     },
     "SN:R": {
       "prep": "neutral",
-      "hit": "sn_hit_r",
+      "hit": "neutral",
+      "rebound": "neutral"
+    },
+    "BD:RF": {
+      "prep": "neutral",
+      "hit": "neutral",
+      "rebound": "neutral"
+    },
+    "HH:R": {
+      "prep": "neutral",
+      "hit": "neutral",
+      "rebound": "neutral"
+    },
+    "BD+RC:*": {
+      "prep": "neutral",
+      "hit": "neutral",
       "rebound": "neutral"
     }
   },
   "motionTiming": {
     "prepBoundarySeconds": -0.028,
     "hitEndSeconds": 0.09,
-    "reboundEndSeconds": 0.16,
+    "reboundEndSeconds": 0.17,
     "rapidRepeatMaxGapSeconds": 0.13,
     "returnToNeutralAfterNonRapidHit": true
   },
@@ -149,73 +70,36 @@
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-8 only",
+    "prototypeWindow": "measures 1-4 only",
     "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
     "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json"
   },
-  "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
-  "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
-  "measureEightCommit": "26adb1eabf70c14623a0a12ef4908f349af9eced",
-  "note": "Runtime is hard-limited to measures 1-8. Exact occurring action keys: SN:L, SN:R, BD:RF, HH:R, RD:R, BD+RC:*; no runtime fallback key is required.",
-  "runtimeFallbackKeys": [],
-  "limbAnalysis": {
-    "scope": {
-      "measureStart": 1,
-      "measureEnd": 16,
-      "noteCount": 144
-    },
-    "source": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json",
-    "policy": "precomputed phrase-aware sticking overrides runtime part defaults",
-    "rightHandSnareExceptions": [
-      {
-        "time": 4.93041,
-        "measure": 1,
-        "part": "SN",
-        "limb": "R",
-        "fallback": null
-      }
-    ],
-    "note": "The right-hand snare exception at 4.930410s uses the freshly regenerated SN:R runtime sprite; the following 5.038324s SN remains L and 5.146237s crash remains R."
-  },
-  "missingExactFrames": [],
+  "runtimeFallbackKeys": [
+    "SN:L",
+    "SN:R",
+    "BD:RF",
+    "HH:R",
+    "BD+RC:*"
+  ],
+  "missingExactFrames": [
+    "SN:L_hit",
+    "SN:L_rebound",
+    "SN:R_hit",
+    "SN:R_rebound",
+    "HH:R_hit",
+    "HH:R_rebound",
+    "BD:RF_hit",
+    "BD:RF_rebound",
+    "BD+RC_hit",
+    "BD+RC_rebound"
+  ],
   "qa": {
-    "scope": "measures 1-8",
-    "structuralAssetQA": "PASS_ALL_1_8_RUNTIME_FRAMES",
-    "visualAssetQA": "CURRENT_BASELINE_NEUTRAL_PLUS_REGISTERED_VARIANTS",
-    "binaryRepairsPerformed": 0,
-    "regeneratedCorruptAssets": ["layers/character/sn/hit_r.png", "layers/character/combo/bd_rc_hit.png"],
-    "neutralBaselineUpdatedAt": "2026-09-17",
-    "exactPoseShortages": [],
-    "notesResolved": 61,
-    "groupsResolved": 59,
+    "scope": "measures 1-4",
+    "notesResolved": 28,
+    "groupsResolved": 27,
     "unresolved": 0,
-    "fixedDrumSha256": "eba6161535535d935e518cdcc9009ad75ee9a3f5e57cd66ba2128deaed044b30"
-  },
-  "lunaMeasures1to8Final": {
-    "finalizedAt": "2026-09-17",
-    "patterns": {
-      "SN:L": "layers/character/sn/hit_l.png",
-      "SN:R": "layers/character/sn/hit_r.png",
-      "BD+RC": "layers/character/combo/bd_rc_hit.png",
-      "HH:R": "layers/character/hh/hit_r.png",
-      "BD:RF": "layers/character/bd/foot_down.png",
-      "RD:R": "layers/character/rd/hit_r.png"
-    },
-    "sha256": {
-      "SN:L": "7e32735a941975669cc09edfb34beac207f3c8742db2fb17938bea6283db5c6f",
-      "SN:R": "637ee132b36293377826aa166af2ac4f3257162d18430e11c8b42ed3694d08c1",
-      "BD+RC": "7eafce8c59a370cfabbd188ecfe96afcb81924f205d00c26e20334af1249df54",
-      "HH:R": "b86bc93deb59ec3b3b5107db9f74b5f678f19f94ef9ab710695b5210422b785e",
-      "BD:RF": "438c7f9954fbf313d2b942561898c4134d616bb98c88adeda77298ffa6db0b19",
-      "RD:R": "ea3feecb3dc083e11d8eb6d349a55610e3084d761ec373e5626e168d0e91cab1"
-    },
-    "fixedRegistration": {
-      "width": 1448,
-      "height": 1086,
-      "x": 0,
-      "y": 0
-    },
-    "fixedDrum": "layers/drum/drum_base.png",
+    "imageAssetCount": 2,
+    "characterVariantState": "INTENTIONALLY_REMOVED_FOR_CLEAN_REBUILD",
     "fixedDrumSha256": "eba6161535535d935e518cdcc9009ad75ee9a3f5e57cd66ba2128deaed044b30"
   }
 }
