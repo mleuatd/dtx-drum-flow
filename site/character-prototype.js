@@ -4,7 +4,7 @@ const PROTOTYPE_MEASURE_END=8;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20260917-devhud-r6";
+const ASSET_VERSION="20260917-keyfix-r7";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
@@ -71,11 +71,11 @@ function fallbackInfo(group){
   if(data?.fallbackKeys?.has(key))return {fallback:true,reason:"declared-fallback-key"};
   return {fallback:false,reason:""};
 }
-function keyFor(group){
+function keyFor(group,frameMap=data?.frameMap){
   const parts=[...new Set(group.map(n=>n.part))].sort();
   if(parts.length>1){
     const combo=parts.join("+")+":*";
-    if(data?.frameMap?.[combo])return combo;
+    if(frameMap?.[combo])return combo;
   }
   const n=group[0];
   return n.part+":"+handForNote(n);
@@ -98,7 +98,7 @@ function validatePrototypeCoverage(inventory,scopedNotes,groups){
   const expectedKeys=new Set(scope.expectedKeys||[]);
   const actualKeys=new Set();
   for(const group of groups){
-    const key=keyFor(group);
+    const key=keyFor(group,inventory.runtimeFrameMap);
     actualKeys.add(key);
     if(!inventory.runtimeFrameMap?.[key])throw new Error(`prototype frame missing for ${key} at ${group[0].time}`);
     for(const phase of ["prep","hit","rebound"]){
