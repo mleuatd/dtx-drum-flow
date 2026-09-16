@@ -38,15 +38,16 @@ Canonical character asset management:
 Approved raster baseline geometry is authoritative. Binary transparent drum/person layers must be visually reviewed before being marked authoritative.
 
 ## Current highest-priority engineering goal
-Complete and visually review the Luna Say Maybe measures 1-16 layered character-animation prototype without changing the fixed drum geometry.
+Continue improving and visually reviewing the Luna Say Maybe full-song layered character animation without changing the fixed drum geometry.
 
 Current binary state:
 - 11 PNG layers are committed to `main`.
 - `character-assets/config/assets_manifest.json` stores dimensions, registration, use, status, and SHA-256.
 - `drum_base.png` is SHA-locked by validation.
-- all 144 notes in the prototype resolve to the nine required character frames.
+- the full FINAL chart runtime now covers 148 measures / 2,158 notes / 1,527 time groups.
+- all full-song groups resolve to a registered exact pose or a documented safe fallback; no runtime group is unresolved.
 - generated hit variants remain committed drafts until visual approval.
-- Luna measures 1-8 are the enabled runtime milestone; measures 9-16 remain prepared data.
+- measures 1-148 are enabled for Luna Say Maybe; tom-only hits currently use neutral character plus instrument-positioned hit effects where dedicated tom poses are still TODO.
 
 The longer-term audio goal remains to improve drum-note timing extraction/synchronization against the original audio.
 
