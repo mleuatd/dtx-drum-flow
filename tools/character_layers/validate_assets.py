@@ -98,6 +98,17 @@ def main() -> int:
     animation_path = ROOT / source_chart if source_chart else (PROTOTYPE / "Luna_say_maybe_16m_animation.json")
     animation = json.loads(animation_path.read_text(encoding="utf-8"))
     notes = animation.get("notes", [])
+    limb_source = inventory.get("renderer", {}).get("limbSource")
+    if limb_source:
+        limb_data = json.loads((ROOT / limb_source).read_text(encoding="utf-8"))
+        limb_map = {
+            (f"{float(item['time']):.6f}", item["part"]): item["limb"]
+            for item in limb_data.get("assignments", [])
+        }
+        for note in notes:
+            resolved = limb_map.get((f"{float(note['time']):.6f}", note.get("part")))
+            if resolved:
+                note["_resolvedLimb"] = resolved
     if len(notes) != inventory.get("chartNoteCount"):
         errors.append(
             f"runtime source note count {len(notes)} != inventory {inventory.get('chartNoteCount')}"
@@ -111,7 +122,10 @@ def main() -> int:
     frame_map = inventory.get("runtimeFrameMap", {})
     phase_frame_map = inventory.get("runtimePhaseFrameMap", {})
     def note_hand(note):
-        explicit = note.get("animation", {}).get("hand")
+        resolved = note.get("_resolvedLimb")
+        if resolved:
+            return resolved
+        explicit = note.get("animation", {}).get("limb") or note.get("animation", {}).get("hand") or note.get("animation", {}).get("foot")
         if explicit:
             return explicit
         part = note.get("part")
