@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "prototype": "luna-say-maybe-measures-1-16",
+  "handedness": "right-handed",
+  "technique": "cross-hand",
+  "rules": {
+    "HH": {
+      "quarter": ["R"],
+      "eighth": ["R"],
+      "sixteenth": ["R", "L"],
+      "sixteenthAlternates": true
+    },
+    "SN": {
+      "default": ["L"]
+    },
+    "BD": {
+      "default": ["RF"]
+    },
+    "LP": {
+      "default": ["LF"]
+    },
+    "LC": {
+      "default": ["R"]
+    },
+    "RC": {
+      "default": ["R"]
+    },
+    "RD": {
+      "default": ["R"]
+    },
+    "TOMS": {
+      "sequence": ["R", "L"],
+      "restartAfterMs": 360
+    }
+  },
+  "orientation": {
+    "characterFaces": "left",
+    "cameraMirrorAllowed": false,
+    "globalTranslationAllowed": false
+  }
+}
