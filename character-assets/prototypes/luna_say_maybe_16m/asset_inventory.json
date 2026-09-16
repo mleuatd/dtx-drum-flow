@@ -73,7 +73,7 @@
     "combo_bd_rc": {
       "path": "layers/character/combo/bd_rc_hit.png",
       "state": "approved",
-      "sha256": "1b3a36294341c06181c00a641c2435bdfc810bd8757f4cf058f3005eb6c69326"
+      "sha256": "7eafce8c59a370cfabbd188ecfe96afcb81924f205d00c26e20334af1249df54"
     },
     "combo_rc_sn": {
       "path": "layers/character/combo/rc_sn_hit.png",
@@ -83,7 +83,7 @@
     "sn_hit_r": {
       "path": "layers/character/sn/hit_r.png",
       "state": "approved",
-      "sha256": "e0f80c29126a866fee2937ba633c9b26698bc40c4a02a3250f9b06dbcc83cb12"
+      "sha256": "637ee132b36293377826aa166af2ac4f3257162d18430e11c8b42ed3694d08c1"
     }
   },
   "runtimeFrameMap": {
@@ -175,7 +175,7 @@
         "fallback": null
       }
     ],
-    "note": "The right-hand snare exception at 4.930410s now uses the approved SN:R pose restored from approved/pose_01.png; the following 5.038324s SN remains L and 5.146237s crash remains R."
+    "note": "The right-hand snare exception at 4.930410s uses the freshly regenerated SN:R runtime sprite; the following 5.038324s SN remains L and 5.146237s crash remains R."
   },
   "missingExactFrames": [],
   "qa": {
@@ -183,6 +183,7 @@
     "structuralAssetQA": "PASS_ALL_1_8_RUNTIME_FRAMES",
     "visualAssetQA": "APPROVED_SOURCE_WHERE_AVAILABLE_PLUS_EXISTING_REGISTERED_VARIANTS",
     "binaryRepairsPerformed": 0,
+    "regeneratedCorruptAssets": ["layers/character/sn/hit_r.png", "layers/character/combo/bd_rc_hit.png"],
     "exactPoseShortages": [],
     "notesResolved": 61,
     "groupsResolved": 59,
@@ -201,8 +202,8 @@
     },
     "sha256": {
       "SN:L": "7e32735a941975669cc09edfb34beac207f3c8742db2fb17938bea6283db5c6f",
-      "SN:R": "e0f80c29126a866fee2937ba633c9b26698bc40c4a02a3250f9b06dbcc83cb12",
-      "BD+RC": "1b3a36294341c06181c00a641c2435bdfc810bd8757f4cf058f3005eb6c69326",
+      "SN:R": "637ee132b36293377826aa166af2ac4f3257162d18430e11c8b42ed3694d08c1",
+      "BD+RC": "7eafce8c59a370cfabbd188ecfe96afcb81924f205d00c26e20334af1249df54",
       "HH:R": "b86bc93deb59ec3b3b5107db9f74b5f678f19f94ef9ab710695b5210422b785e",
       "BD:RF": "438c7f9954fbf313d2b942561898c4134d616bb98c88adeda77298ffa6db0b19",
       "RD:R": "ea3feecb3dc083e11d8eb6d349a55610e3084d761ec373e5626e168d0e91cab1"
