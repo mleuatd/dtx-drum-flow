@@ -1,20 +1,22 @@
 {
-  "version": 4,
+  "version": 5,
   "scope": "Luna Say Maybe measures 1-16",
   "chartNoteCount": 144,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 8,
-    "noteCount": 61,
-    "groupCount": 59,
+    "measureEnd": 16,
+    "noteCount": 144,
+    "groupCount": 124,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 17.016741,
+    "lastNoteTime": 30.829691,
     "expectedKeys": [
       "SN:L",
       "BD+RC:*",
       "HH:R",
       "BD:RF",
-      "RD:R"
+      "RD:R",
+      "BD+SN:*",
+      "RC+SN:*"
     ]
   },
   "occurringParts": {
@@ -120,6 +122,16 @@
       "prep": "neutral",
       "hit": "rd_hit_r",
       "rebound": "neutral"
+    },
+    "BD+SN:*": {
+      "prep": "neutral",
+      "hit": "combo_bd_sn",
+      "rebound": "neutral"
+    },
+    "RC+SN:*": {
+      "prep": "neutral",
+      "hit": "combo_rc_sn",
+      "rebound": "neutral"
     }
   },
   "motionTiming": {
@@ -133,10 +145,10 @@
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-8 enabled with prep/hit/rebound/neutral settling and separate hit-effect layer; measures 9-16 retained as prepared data"
+    "prototypeWindow": "measures 1-16 enabled with prep/hit/rebound/neutral settling and separate hit-effect layer"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
   "measureEightCommit": "26adb1eabf70c14623a0a12ef4908f349af9eced",
-  "note": "Measures 1-8 are enabled. Measures 5-8 passed local all-group tests and public-browser QA for RD hit, neutral settling, and BD+RC effects. Measures 9-16 remain prepared data outside the enabled runtime milestone."
+  "note": "Measures 1-16 are enabled. Measures 9-16 use the already committed BD+SN and RC+SN combined poses in addition to existing single-hit/BD+RC frames; no new PNG is required."
 }
