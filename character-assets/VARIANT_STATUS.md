@@ -25,8 +25,8 @@ Legend: TODO / DRAFT / APPROVED / COMMITTED
 
 - [x] Baseline composition approved by user
 - [x] Fixed camera / composition / style rules defined
-- [x] Drum layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [ ] Commit transparent fixed drum PNG bytes: `layers/drum/drum_base.png`
-- [x] Character layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [ ] Commit neutral transparent character PNG bytes: `layers/character/base/neutral.png`
+- [x] Drum layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [x] Commit transparent fixed drum PNG bytes: `layers/drum/drum_base.png`
+- [x] Character layer generated and SHA-256 identity registered in `baseline_reference.json`\n- [x] Commit neutral transparent character PNG bytes: `layers/character/base/neutral.png`
 
 Important: a raster baseline cannot be safely auto-separated into drum/person without a reviewed mask because their linework overlaps. Do not invent or shift pixels just to mark this complete.
 
@@ -35,7 +35,7 @@ Important: a raster baseline cannot be safely auto-separated into drum/person wi
 | Asset | Status |
 |---|---|
 | prep_r | DRAFT |
-| hit_r | DRAFT |
+| hit_r | COMMITTED |
 | rebound_r | DRAFT |
 | prep_l | TODO |
 | hit_l | TODO |
@@ -50,23 +50,23 @@ Current HH preview work exists, but it is not authoritative until character-only
 
 | Part | Hit | Rebound | 4th mapping | 8th mapping | 16th mapping |
 |---|---|---|---|---|---|
-| SN | TODO | TODO | COMMITTED | COMMITTED | COMMITTED |
-| BD | TODO | TODO | COMMITTED | COMMITTED | COMMITTED |
+| SN | COMMITTED | TODO | COMMITTED | COMMITTED | COMMITTED |
+| BD | COMMITTED | TODO | COMMITTED | COMMITTED | COMMITTED |
 | HT | TODO | TODO | TODO | TODO | COMMITTED |
 | LT | TODO | TODO | TODO | TODO | COMMITTED |
 | FT | TODO | TODO | TODO | TODO | COMMITTED |
 | LC | TODO | TODO | COMMITTED | TODO | TODO |
-| RC | TODO | TODO | COMMITTED | TODO | TODO |
-| RD | TODO | TODO | TODO | COMMITTED | TODO |
+| RC | COMMITTED | TODO | COMMITTED | TODO | TODO |
+| RD | COMMITTED | TODO | TODO | COMMITTED | TODO |
 
 ## Simultaneous-hit variants
 
 | Combination | Rule | Image layer |
 |---|---|---|
-| SN + BD | COMMITTED | TODO |
+| SN + BD | COMMITTED | COMMITTED |
 | HH + BD | COMMITTED | TODO |
 | LC + SN | COMMITTED | TODO |
-| RC + BD | COMMITTED | TODO |
+| RC + BD | COMMITTED | COMMITTED |
 | Tom + Cymbal | COMMITTED | TODO |
 
 ## Working rule
@@ -90,7 +90,7 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] First 16 measures extracted from FINAL notes chart
 - [x] Per-note hand/foot animation metadata generated
 - [x] Left-facing baseline orientation locked
-- [ ] Binary baseline layers transported into GitHub paths (connector still needs binary-byte transport)
+- [x] Binary baseline layers transported into GitHub paths
 - [x] Browser renderer wired to the prototype layer set
 - [ ] Visual QA of all first-16-measure note patterns
 
@@ -101,5 +101,12 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 - [x] Deploy workflow updated to publish `character-assets/` with the site
 - [x] First-16 measure occurring pattern inventory committed
 - [x] Generated local draft layers: neutral, HH right prep/hit/rebound, HH left hit, SN left hit, BD foot-down
-- [ ] Generate RC hit, RD hit, BD+SN, BD+RC, RC+SN combined poses
-- [ ] Commit PNG binary bytes for all generated layers
+- [x] Generate RC hit, RD hit, BD+SN, BD+RC, RC+SN combined poses
+- [x] Commit PNG binary bytes for Luna 1-16 required generated layers
+
+## Binary push transport
+
+- [x] GitHub binary upload path validated with Git Data API
+- [x] PNG bytes are uploaded as base64 blobs
+- [x] Blobs are assembled into a tree, committed, and `main` is advanced with `update_ref`
+- [x] Luna 1-16 required binary layers committed in commit `db3fdcd0b2038b5bb78f59d805472102fc621881`
