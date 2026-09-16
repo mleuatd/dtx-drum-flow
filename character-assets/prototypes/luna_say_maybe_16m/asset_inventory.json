@@ -4,20 +4,18 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 16,
-    "noteCount": 144,
-    "groupCount": 124,
+    "measureEnd": 8,
+    "noteCount": 61,
+    "groupCount": 59,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 30.829691,
+    "lastNoteTime": 17.016741,
     "expectedKeys": [
       "SN:L",
       "SN:R",
       "BD:RF",
       "HH:R",
       "RD:R",
-      "BD+SN:*",
-      "BD+RC:*",
-      "RC+SN:*"
+      "BD+RC:*"
     ]
   },
   "occurringParts": {
@@ -151,14 +149,14 @@
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-16 only",
+    "prototypeWindow": "measures 1-8 only",
     "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
     "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
   "measureEightCommit": "26adb1eabf70c14623a0a12ef4908f349af9eced",
-  "note": "Runtime is intentionally limited to measures 1-16 (144 notes / 124 time groups). Approved SN:R (pose_01) and BD+RC (pose_03) are restored into semantic runtime paths; remaining committed semantic frames continue to resolve the prototype.",
+  "note": "Runtime is hard-limited to measures 1-8. Exact occurring action keys: SN:L, SN:R, BD:RF, HH:R, RD:R, BD+RC:*; no runtime fallback key is required.",
   "runtimeFallbackKeys": [],
   "limbAnalysis": {
     "scope": {
@@ -181,10 +179,41 @@
   },
   "missingExactFrames": [],
   "qa": {
-    "scope": "measures 1-16",
-    "structuralAssetQA": "PASS_ALL_1_16_RUNTIME_FRAMES",
-    "visualAssetQA": "PENDING_ENVIRONMENT_LIMITATION",
+    "scope": "measures 1-8",
+    "structuralAssetQA": "PASS_ALL_1_8_RUNTIME_FRAMES",
+    "visualAssetQA": "APPROVED_SOURCE_WHERE_AVAILABLE_PLUS_EXISTING_REGISTERED_VARIANTS",
     "binaryRepairsPerformed": 0,
-    "exactPoseShortages": []
+    "exactPoseShortages": [],
+    "notesResolved": 61,
+    "groupsResolved": 59,
+    "unresolved": 0,
+    "fixedDrumSha256": "eba6161535535d935e518cdcc9009ad75ee9a3f5e57cd66ba2128deaed044b30"
+  },
+  "lunaMeasures1to8Final": {
+    "finalizedAt": "2026-09-17",
+    "patterns": {
+      "SN:L": "layers/character/sn/hit_l.png",
+      "SN:R": "layers/character/sn/hit_r.png",
+      "BD+RC": "layers/character/combo/bd_rc_hit.png",
+      "HH:R": "layers/character/hh/hit_r.png",
+      "BD:RF": "layers/character/bd/foot_down.png",
+      "RD:R": "layers/character/rd/hit_r.png"
+    },
+    "sha256": {
+      "SN:L": "7e32735a941975669cc09edfb34beac207f3c8742db2fb17938bea6283db5c6f",
+      "SN:R": "e0f80c29126a866fee2937ba633c9b26698bc40c4a02a3250f9b06dbcc83cb12",
+      "BD+RC": "1b3a36294341c06181c00a641c2435bdfc810bd8757f4cf058f3005eb6c69326",
+      "HH:R": "b86bc93deb59ec3b3b5107db9f74b5f678f19f94ef9ab710695b5210422b785e",
+      "BD:RF": "438c7f9954fbf313d2b942561898c4134d616bb98c88adeda77298ffa6db0b19",
+      "RD:R": "ea3feecb3dc083e11d8eb6d349a55610e3084d761ec373e5626e168d0e91cab1"
+    },
+    "fixedRegistration": {
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0
+    },
+    "fixedDrum": "layers/drum/drum_base.png",
+    "fixedDrumSha256": "eba6161535535d935e518cdcc9009ad75ee9a3f5e57cd66ba2128deaed044b30"
   }
 }
