@@ -1,4 +1,5 @@
 const PROTOTYPE_URL="./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json";
+const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
 const DRUM="./character-assets/layers/drum/drum_base.png";
@@ -24,12 +25,25 @@ function groupNotes(notes){
   }
   return groups;
 }
+function noteIdentity(note){
+  return [Number(note?.time).toFixed(6),note?.part||""].join("|");
+}
 function handForNote(note){
+  if(note?.limb)return note.limb;
+  if(note?.animation?.limb)return note.animation.limb;
   if(note?.animation?.hand)return note.animation.hand;
+  if(note?.animation?.foot)return note.animation.foot;
   if(note?.part==="SN")return "L";
   if(note?.part==="BD"||note?.part==="LB")return "RF";
   if(note?.part==="LP")return "LF";
   return "R";
+}
+function fallbackInfo(group){
+  if(!group?.length)return {fallback:false,reason:""};
+  const key=keyFor(group);
+  if(!data?.frameMap?.[key])return {fallback:true,reason:"missing-exact-frame"};
+  if(data?.fallbackKeys?.has(key))return {fallback:true,reason:"declared-fallback-key"};
+  return {fallback:false,reason:""};
 }
 function keyFor(group){
   const parts=[...new Set(group.map(n=>n.part))].sort();
@@ -125,13 +139,23 @@ export async function initCharacterPrototype(){
   els.drum.addEventListener("error",fail,{once:true});
   els.character.addEventListener("error",fail,{once:true});
   try{
-    const [notesResponse,inventoryResponse]=await Promise.all([
+    const [notesResponse,inventoryResponse,limbResponse]=await Promise.all([
       fetch(PROTOTYPE_URL,{cache:"no-store"}),
-      fetch(INVENTORY_URL,{cache:"no-store"})
+      fetch(INVENTORY_URL,{cache:"no-store"}),
+      fetch(LIMB_URL,{cache:"no-store"})
     ]);
     if(!notesResponse.ok)throw new Error("prototype HTTP "+notesResponse.status);
     if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);
-    const [json,inventory]=await Promise.all([notesResponse.json(),inventoryResponse.json()]);
+    if(!limbResponse.ok)throw new Error("limb HTTP "+limbResponse.status);
+    const [json,inventory,limbData]=await Promise.all([notesResponse.json(),inventoryResponse.json(),limbResponse.json()]);
+    const limbMap=new Map((limbData.assignments||[]).map(item=>[
+      [Number(item.time).toFixed(6),item.part||""].join("|"),
+      item.limb
+    ]));
+    for(const note of json.notes||[]){
+      const resolved=limbMap.get(noteIdentity(note));
+      if(resolved)note.limb=resolved;
+    }
     const startMeasure=Number(inventory.runtimeScope?.measureStart||1);
     const endMeasure=Number(inventory.runtimeScope?.measureEnd||148);
     const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure);
@@ -177,11 +201,14 @@ export function updateCharacterPrototype(time,chartName=""){
   els.root.dataset.active=String(activeSong&&inWindow);
   if(!activeSong||!inWindow){triggerEffect(null,"neutral");return}
   const g=findGroupAt(time);
-  if(!g){els.root.dataset.fallback="false";els.root.dataset.animationKey="neutral";triggerEffect(null,"neutral");setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL","neutral");return}
+  if(!g){els.root.dataset.fallback="false";els.root.dataset.fallbackReason="";els.root.dataset.animationKey="neutral";els.root.dataset.limbs="";triggerEffect(null,"neutral");setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL","neutral");return}
   const phase=phaseFor(g,time);
   const resolvedKey=keyFor(g);
-  els.root.dataset.fallback=String(data?.fallbackKeys?.has(resolvedKey)||false);
+  const fallback=fallbackInfo(g);
+  els.root.dataset.fallback=String(fallback.fallback);
+  els.root.dataset.fallbackReason=fallback.reason;
   els.root.dataset.animationKey=resolvedKey;
+  els.root.dataset.limbs=g.map(n=>n.part+":"+handForNote(n)).join(",");
   const asset=assetFor(g,phase);
   if(phase==="neutral"){
     triggerEffect(null,"neutral");
