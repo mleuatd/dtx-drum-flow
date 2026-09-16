@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "defaults": {
+    "quarter": {
+      "sticking": [
+        "R"
+      ],
+      "phases": [
+        "prep",
+        "hit",
+        "rebound"
+      ]
+    },
+    "eighth": {
+      "sticking": [
+        "R"
+      ],
+      "phases": [
+        "prep",
+        "hit",
+        "rebound"
+      ]
+    },
+    "sixteenth": {
+      "sticking": [
+        "R",
+        "L"
+      ],
+      "phases": [
+        "prep",
+        "hit",
+        "rebound"
+      ],
+      "alternateHands": true
+    }
+  },
+  "parts": {
+    "HH": {
+      "quarter": {
+        "rule": "hh.quarter.single",
+        "frames": [
+          "hh/prep_r",
+          "hh/hit_r",
+          "hh/rebound_r"
+        ],
+        "sticking": [
+          "R"
+        ]
+      },
+      "eighth": {
+        "rule": "hh.eighth.single",
+        "frames": [
+          "hh/prep_r",
+          "hh/hit_r",
+          "hh/rebound_r"
+        ],
+        "sticking": [
+          "R"
+        ]
+      },
+      "sixteenth": {
+        "rule": "hh.sixteenth.alternate",
+        "frames": [
+          "hh/prep_r",
+          "hh/hit_r",
+          "hh/rebound_r",
+          "hh/prep_l",
+          "hh/hit_l",
+          "hh/rebound_l"
+        ],
+        "sticking": [
+          "R",
+          "L"
+        ],
+        "alternateHands": true
+      }
+    },
+    "SN": {
+      "quarter": {
+        "rule": "sn.quarter.single",
+        "frames": [
+          "sn/prep_r",
+          "sn/hit_r",
+          "sn/rebound_r"
+        ],
+        "sticking": [
+          "R"
+        ]
+      },
+      "eighth": {
+        "rule": "sn.eighth.single",
+        "frames": [
+          "sn/prep_r",
+          "sn/hit_r",
+          "sn/rebound_r"
+        ],
+        "sticking": [
+          "R"
+        ]
+      },
+      "sixteenth": {
+        "rule": "sn.sixteenth.alternate",
+        "frames": [
+          "sn/prep_r",
+          "sn/hit_r",
+          "sn/rebound_r",
+          "sn/prep_l",
+          "sn/hit_l",
+          "sn/rebound_l"
+        ],
+        "sticking": [
+          "R",
+          "L"
+        ],
+        "alternateHands": true
+      }
+    },
+    "BD": {
+      "quarter": {
+        "rule": "bd.basic",
+        "frames": [
+          "bd/foot_up",
+          "bd/foot_down"
+        ],
+        "sticking": [
+          "F"
+        ]
+      },
+      "eighth": {
+        "rule": "bd.basic",
+        "frames": [
+          "bd/foot_up",
+          "bd/foot_down"
+        ],
+        "sticking": [
+          "F"
+        ]
+      },
+      "sixteenth": {
+        "rule": "bd.basic",
+        "frames": [
+          "bd/foot_up",
+          "bd/foot_down"
+        ],
+        "sticking": [
+          "F"
+        ]
+      }
+    },
+    "HT": {
+      "sixteenth": {
+        "rule": "ht.sixteenth.alternate",
+        "frames": [
+          "ht/hit_r",
+          "ht/rebound_r",
+          "ht/hit_l",
+          "ht/rebound_l"
+        ],
+        "sticking": [
+          "R",
+          "L"
+        ],
+        "alternateHands": true
+      }
+    },
+    "LT": {
+      "sixteenth": {
+        "rule": "lt.sixteenth.alternate",
+        "frames": [
+          "lt/hit_r",
+          "lt/rebound_r",
+          "lt/hit_l",
+          "lt/rebound_l"
+        ],
+        "sticking": [
+          "R",
+          "L"
+        ],
+        "alternateHands": true
+      }
+    },
+    "FT": {
+      "sixteenth": {
+        "rule": "ft.sixteenth.alternate",
+        "frames": [
+          "ft/hit_r",
+          "ft/rebound_r",
+          "ft/hit_l",
+          "ft/rebound_l"
+        ],
+        "sticking": [
+          "R",
+          "L"
+        ],
+        "alternateHands": true
+      }
+    },
+    "LC": {
+      "quarter": {
+        "rule": "lc.basic",
+        "frames": [
+          "lc/prep_r",
+          "lc/hit_r",
+          "lc/rebound_r"
+        ],
+        "sticking": [
+          "R"
+        ]
+      }
+    },
+    "RC": {
+      "quarter": {
+        "rule": "rc.basic",
+        "frames": [
+          "rc/prep_r",
+          "rc/hit_r",
+          "rc/rebound_r"
+        ],
+        "sticking": [
+          "R"
+        ]
+      }
+    },
+    "RD": {
+      "eighth": {
+        "rule": "rd.eighth.single",
+        "frames": [
+          "rd/prep_r",
+          "rd/hit_r",
+          "rd/rebound_r"
+        ],
+        "sticking": [
+          "R"
+        ]
+      }
+    }
+  },
+  "simultaneous": {
+    "SN+BD": {
+      "rule": "combo.sn_bd",
+      "character": "combo/sn_bd_hit",
+      "fallback": [
+        "SN",
+        "BD"
+      ]
+    },
+    "HH+BD": {
+      "rule": "combo.hh_bd",
+      "character": "combo/hh_bd_hit",
+      "fallback": [
+        "HH",
+        "BD"
+      ]
+    },
+    "LC+SN": {
+      "rule": "combo.lc_sn",
+      "character": "combo/lc_sn_hit",
+      "fallback": [
+        "LC",
+        "SN"
+      ]
+    },
+    "RC+BD": {
+      "rule": "combo.rc_bd",
+      "character": "combo/rc_bd_hit",
+      "fallback": [
+        "RC",
+        "BD"
+      ]
+    },
+    "TOM+CYMBAL": {
+      "rule": "combo.tom_cymbal",
+      "character": "combo/tom_cymbal_hit",
+      "fallback": [
+        "HT",
+        "RC"
+      ]
+    }
+  }
+}
