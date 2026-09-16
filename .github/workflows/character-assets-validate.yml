@@ -1,0 +1,24 @@
+name: Character asset validation
+
+on:
+  push:
+    paths:
+      - "character-assets/**"
+      - "tools/character_layers/**"
+      - ".github/workflows/character-assets-validate.yml"
+  pull_request:
+    paths:
+      - "character-assets/**"
+      - "tools/character_layers/**"
+      - ".github/workflows/character-assets-validate.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r tools/character_layers/requirements.txt
+      - run: python tools/character_layers/validate_assets.py
