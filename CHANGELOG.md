@@ -1,6 +1,12 @@
 # Changelog
 
 ## 2026-09-16
+- Added a fixed-registration layered character-animation architecture for DTX Drum Flow. Drum kit, character motion, and optional hit effects are now managed as separate full-canvas layers so the drum hardware cannot jitter between frames.
+- Locked character asset canvas/registration to 1448x1086 at x=0,y=0; cropping, per-frame translation, scaling, and mirroring are forbidden by project rules.
+- Added JSON animation mappings for quarter/eighth/sixteenth patterns, including default R/L alternation for repeated sixteenth-note hi-hat hits and mappings for SN/toms, kick pedal motion, and common simultaneous-hit combinations.
+- Added optional per-note JSON score binding via an `animation` object, while retaining automatic mapping from part, timing/subdivision, and simultaneous-note grouping.
+- Added `site/character-animation.js` runtime rule resolver, a Python layer compositor, an asset-registration validator, binary asset conventions, and GitHub Actions validation.
+- Added explicit status tracking for layer extraction. The approved raster baseline still needs reviewed transparent drum/person separation before binary layers can be marked authoritative; this is intentionally not auto-faked because overlapping linework makes blind segmentation unsafe.
 - Reordered the 11-lane drum display so BD is centered between SN and HT, while retaining LP/LB and all existing chart part identifiers for JSON/MIDI/DTX compatibility.
 - Upgraded built-in browser drum synthesis with a compressor-backed layered kit: stronger kick attack/body, shell+snare-wire snare, clearly separated closed/open hi-hat, pitched toms, distinct ride, longer crash tails, and a dedicated wooden cross-stick sound for GM note 37 (including Luna say maybe 2nd A-melody).
 - Bumped the app cache key so GitHub Pages/mobile browsers receive the updated player immediately.
