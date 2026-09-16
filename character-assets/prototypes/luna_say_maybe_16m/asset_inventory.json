@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "scope": "Luna Say Maybe full-song character runtime (prototype assets retained from measures 1-16)",
   "chartNoteCount": 2158,
   "runtimeScope": {
@@ -11,6 +11,7 @@
     "lastNoteTime": 258.851273,
     "expectedKeys": [
       "SN:L",
+      "SN:R",
       "BD:RF",
       "HH:R",
       "RC:R",
@@ -126,7 +127,8 @@
     "BD+HH+SN:*": "combo_bd_sn",
     "BD+RC+SN:*": "combo_bd_sn",
     "BD+FT+SN:*": "combo_bd_sn",
-    "BD+FT:*": "bd_foot_down"
+    "BD+FT:*": "bd_foot_down",
+    "SN:R": "neutral"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -243,6 +245,11 @@
       "prep": "neutral",
       "hit": "bd_foot_down",
       "rebound": "neutral"
+    },
+    "SN:R": {
+      "prep": "neutral",
+      "hit": "neutral",
+      "rebound": "neutral"
     }
   },
   "motionTiming": {
@@ -257,7 +264,8 @@
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
     "prototypeWindow": "full song measures 1-148 enabled; dedicated 1-16 poses plus safe full-song fallbacks and instrument hit effects",
-    "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json"
+    "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+    "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
@@ -268,9 +276,10 @@
     "unresolvedTomPose": "neutral character with tom-position hit effect",
     "unsupportedCombination": "closest committed pose plus all available instrument-position hit effects",
     "note": "Fallbacks keep playback/animation continuous without inventing unregistered binary layers.",
-    "runtimeDatasetFlag": "characterBackdrop.dataset.fallback is true when the current group uses a fallback pose"
+    "runtimeDatasetFlag": "characterBackdrop.dataset.fallback / dataset.fallbackReason identify declared or missing exact frames; dataset.limbs exposes the resolved per-note limbs."
   },
   "runtimeFallbackKeys": [
+    "SN:R",
     "HT:R",
     "LT:R",
     "FT:R",
@@ -286,5 +295,24 @@
     "BD+RC+SN:*",
     "BD+FT+SN:*",
     "BD+FT:*"
-  ]
+  ],
+  "limbAnalysis": {
+    "scope": {
+      "measureStart": 1,
+      "measureEnd": 16,
+      "noteCount": 144
+    },
+    "source": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json",
+    "policy": "precomputed phrase-aware sticking overrides runtime part defaults",
+    "rightHandSnareExceptions": [
+      {
+        "time": 4.93041,
+        "measure": 1,
+        "part": "SN",
+        "limb": "R",
+        "fallback": "neutral"
+      }
+    ],
+    "note": "The right-hand snare exception starts the final 16th-note pair R-L so the following 5.146237 crash remains available to the right hand. No HT/LT/FT notes occur in measures 1-16."
+  }
 }
