@@ -1,11 +1,11 @@
-const PROTOTYPE_URL="./character-assets/prototypes/luna_say_maybe_16m/Luna_say_maybe_16m_animation.json";
+const PROTOTYPE_URL="./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 
 let data=null,lastKey="",lastEffectToken="",ready=false,activeSong=false;
 const els={root:null,drum:null,character:null,label:null,effect:null,bursts:[]};
-const EFFECT_POINTS={HH:[255,465],SN:[570,520],BD:[505,790],RC:[1090,195],RD:[1070,370]};
+const EFFECT_POINTS={HH:[255,465],SN:[570,520],BD:[505,790],HT:[690,455],LT:[790,510],FT:[910,585],RC:[1090,195],RD:[1070,370]};
 
 function loadImage(src){
   return new Promise((resolve,reject)=>{
@@ -24,14 +24,21 @@ function groupNotes(notes){
   }
   return groups;
 }
+function handForNote(note){
+  if(note?.animation?.hand)return note.animation.hand;
+  if(note?.part==="SN")return "L";
+  if(note?.part==="BD"||note?.part==="LB")return "RF";
+  if(note?.part==="LP")return "LF";
+  return "R";
+}
 function keyFor(group){
   const parts=[...new Set(group.map(n=>n.part))].sort();
   if(parts.length>1){
-    const combo=parts.join("+");
-    if(data?.frameMap?.[combo+":*"])return combo+":*";
+    const combo=parts.join("+")+":*";
+    if(data?.frameMap?.[combo])return combo;
   }
-  const n=group[0],hand=n.animation?.hand||"R";
-  return n.part+":"+hand;
+  const n=group[0];
+  return n.part+":"+handForNote(n);
 }
 function assetFor(group,phase="hit"){
   if(phase==="neutral")return data?.frames?.neutral?.path||"layers/character/base/neutral.png";
@@ -93,7 +100,7 @@ function triggerEffect(group,phase){
   if(token===lastEffectToken)return;
   lastEffectToken=token;
   const parts=[...new Set(group.map(note=>note.part))];
-  const points=parts.map(part=>EFFECT_POINTS[part]).filter(Boolean).slice(0,2);
+  const points=parts.map(part=>EFFECT_POINTS[part]).filter(Boolean).slice(0,3);
   els.effect.dataset.parts=parts.join("+");
   els.bursts.forEach((burst,index)=>{
     burst.classList.remove("is-active");
@@ -110,7 +117,7 @@ export async function initCharacterPrototype(){
   els.character=document.getElementById("characterLayer");
   els.label=document.getElementById("characterPoseLabel");
   els.effect=document.getElementById("effectLayer");
-  els.bursts=[document.getElementById("effectPrimary"),document.getElementById("effectSecondary")].filter(Boolean);
+  els.bursts=[document.getElementById("effectPrimary"),document.getElementById("effectSecondary"),document.getElementById("effectTertiary")].filter(Boolean);
   if(!els.root||!els.drum||!els.character)return;
   els.drum.src=DRUM;
   els.character.src=ASSET_ROOT+"/layers/character/base/neutral.png";
@@ -126,7 +133,7 @@ export async function initCharacterPrototype(){
     if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);
     const [json,inventory]=await Promise.all([notesResponse.json(),inventoryResponse.json()]);
     const startMeasure=Number(inventory.runtimeScope?.measureStart||1);
-    const endMeasure=Number(inventory.runtimeScope?.measureEnd||16);
+    const endMeasure=Number(inventory.runtimeScope?.measureEnd||148);
     const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure);
     const groups=groupNotes(scopedNotes);
     data={
@@ -142,8 +149,7 @@ export async function initCharacterPrototype(){
     };
     const usedFrameIds=new Set(["neutral"]);
     for(const group of groups){
-      const parts=[...new Set(group.map(note=>note.part))].sort();
-      const key=parts.length>1?parts.join("+")+":*":parts[0]+":"+(group[0].animation?.hand||"R");
+      const key=keyFor(group);
       usedFrameIds.add(data.frameMap[key]||"neutral");
       Object.values(data.phaseFrameMap[key]||{}).forEach(id=>usedFrameIds.add(id));
     }
@@ -179,7 +185,7 @@ export function updateCharacterPrototype(time,chartName=""){
     return;
   }
   const parts=[...new Set(g.map(n=>n.part))].sort().join("+");
-  const hand=g.map(n=>n.animation?.hand).filter(Boolean).join("/");
+  const hand=g.map(n=>handForNote(n)).filter(Boolean).join("/");
   triggerEffect(g,phase);
   setFrame(asset,parts+(hand?" · "+hand:"")+" · "+phase.toUpperCase(),phase);
 }
