@@ -20,9 +20,9 @@ This is the first implementation target for DTX Drum Flow's drummer-character an
 
 ## Current runtime milestone
 
-The browser currently enables measures 1 through 4 as the reviewed runtime milestone.
-Measures 5 through 16 remain in the animation data but are not displayed until the
-first-four-measure rendering and visual QA are complete.
+The browser currently enables measures 1 through 8 as the reviewed runtime milestone.
+Measures 9 through 16 remain in the animation data but are not displayed until the
+first-eight-measure rendering and visual QA are complete.
 
 Measures 1-4 contain 28 notes in 27 time groups and use only:
 - SN left-hand hit
@@ -35,6 +35,17 @@ the chart time, then rebound. SN has a dedicated left-hand rebound drawing. The
 other first-four-measure keys safely return to neutral until transparent dedicated
 rebound drawings pass validation. A separate SVG effect layer emits short comic
 bursts at the struck instrument coordinates; simultaneous BD + RC emits two bursts.
+
+Measures 5-8 add 33 notes in 32 time groups and use:
+- RD right-hand hit
+- SN left-hand hit
+- BD right-foot hit
+- BD + RC simultaneous hit
+
+For non-rapid notes, hit follow-through ends after 0.075 seconds and the character
+returns to the approved neutral stance. Repeated hits separated by 0.13 seconds or
+less are treated as sixteenth-speed continuity and keep the rebound pose instead of
+resetting between hits.
 
 ## Goal
 

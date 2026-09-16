@@ -147,15 +147,15 @@ def main() -> int:
             errors.append("runtime scope firstNoteTime does not match animation data")
         if scoped_notes[-1]["time"] != scope.get("lastNoteTime"):
             errors.append("runtime scope lastNoteTime does not match animation data")
-    expected_first4_keys = {"SN:L", "BD+RC:*", "HH:R", "BD:RF"}
-    actual_first4_keys = {animation_key(group) for group in scoped_groups}
-    if actual_first4_keys != expected_first4_keys:
+    expected_runtime_keys = set(scope.get("expectedKeys", []))
+    actual_runtime_keys = {animation_key(group) for group in scoped_groups}
+    if actual_runtime_keys != expected_runtime_keys:
         errors.append(
-            f"runtime scope animation keys {sorted(actual_first4_keys)} "
-            f"!= {sorted(expected_first4_keys)}"
+            f"runtime scope animation keys {sorted(actual_runtime_keys)} "
+            f"!= {sorted(expected_runtime_keys)}"
         )
     expected_phases = {"prep", "hit", "rebound"}
-    for key in sorted(expected_first4_keys):
+    for key in sorted(expected_runtime_keys):
         phases = phase_frame_map.get(key, {})
         if set(phases) != expected_phases:
             errors.append(
@@ -167,6 +167,13 @@ def main() -> int:
                 errors.append(f"runtime phase map {key}.{phase}: unknown frame {frame_id}")
     if phase_frame_map.get("SN:L", {}).get("rebound") == phase_frame_map.get("SN:L", {}).get("hit"):
         errors.append("SN:L rebound must use a distinct frame from hit")
+    timing = inventory.get("motionTiming", {})
+    if timing.get("returnToNeutralAfterNonRapidHit") is not True:
+        errors.append("runtime motion must return to neutral after non-rapid hits")
+    if not (timing.get("hitEndSeconds", 1) < timing.get("reboundEndSeconds", 0)):
+        errors.append("motion timing must end hit before rebound")
+    if timing.get("rapidRepeatMaxGapSeconds") != 0.13:
+        errors.append("rapidRepeatMaxGapSeconds must remain 0.13 for sixteenth-note continuity")
 
     # Validate frame naming syntax even before all binary layers exist.
     for part, by_rate in rules.get("parts", {}).items():

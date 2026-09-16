@@ -41,11 +41,12 @@ Approved raster baseline geometry is authoritative. Binary transparent drum/pers
 Complete and visually review the Luna Say Maybe measures 1-16 layered character-animation prototype without changing the fixed drum geometry.
 
 Current binary state:
-- 10 PNG layers are committed to `main`.
+- 11 PNG layers are committed to `main`.
 - `character-assets/config/assets_manifest.json` stores dimensions, registration, use, status, and SHA-256.
 - `drum_base.png` is SHA-locked by validation.
 - all 144 notes in the prototype resolve to the nine required character frames.
 - generated hit variants remain committed drafts until visual approval.
+- Luna measures 1-8 are the enabled runtime milestone; measures 9-16 remain prepared data.
 
 The longer-term audio goal remains to improve drum-note timing extraction/synchronization against the original audio.
 

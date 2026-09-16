@@ -34,6 +34,7 @@ function keyFor(group){
   return n.part+":"+hand;
 }
 function assetFor(group,phase="hit"){
+  if(phase==="neutral")return data?.frames?.neutral?.path||"layers/character/base/neutral.png";
   const key=keyFor(group);
   const phases=data?.phaseFrameMap?.[key];
   const frameId=phases?.[phase]||data?.frameMap?.[key]||"neutral";
@@ -48,6 +49,15 @@ function setFrame(path,label="",phase="neutral"){
 }
 function findGroupAt(time){
   if(!data?.groups?.length)return null;
+  let previous=null,next=null;
+  for(const group of data.groups){
+    if(group[0].time<=time)previous=group;
+    else{next=group;break}
+  }
+  const rapidMaxGap=Number(data?.motionTiming?.rapidRepeatMaxGapSeconds??.13);
+  if(previous&&next&&next[0].time-previous[0].time<=rapidMaxGap&&keyFor(previous)===keyFor(next)){
+    return previous;
+  }
   let best=null,bestDt=Infinity;
   for(const g of data.groups){
     const dt=Math.abs(g[0].time-time);
@@ -58,8 +68,17 @@ function findGroupAt(time){
 }
 function phaseFor(group,time){
   const delta=Number(time)-group[0].time;
-  if(delta<-.028)return "prep";
-  if(delta<=.038)return "hit";
+  const timing=data?.motionTiming||{};
+  const prepBoundary=Number(timing.prepBoundarySeconds??-.028);
+  const hitEnd=Number(timing.hitEndSeconds??.038);
+  const reboundEnd=Number(timing.reboundEndSeconds??.075);
+  const rapidMaxGap=Number(timing.rapidRepeatMaxGapSeconds??.13);
+  if(delta<prepBoundary)return "prep";
+  if(delta<=hitEnd)return "hit";
+  const index=data.groups.indexOf(group);
+  const next=data.groups[index+1];
+  const nextGap=next?next[0].time-group[0].time:Infinity;
+  if(delta>reboundEnd&&nextGap>rapidMaxGap)return "neutral";
   return "rebound";
 }
 function triggerEffect(group,phase){
@@ -107,7 +126,7 @@ export async function initCharacterPrototype(){
     if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);
     const [json,inventory]=await Promise.all([notesResponse.json(),inventoryResponse.json()]);
     const startMeasure=Number(inventory.runtimeScope?.measureStart||1);
-    const endMeasure=Number(inventory.runtimeScope?.measureEnd||4);
+    const endMeasure=Number(inventory.runtimeScope?.measureEnd||8);
     const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure);
     const groups=groupNotes(scopedNotes);
     data={
@@ -116,6 +135,7 @@ export async function initCharacterPrototype(){
       frames:inventory.requiredFrames||{},
       frameMap:inventory.runtimeFrameMap||{},
       phaseFrameMap:inventory.runtimePhaseFrameMap||{},
+      motionTiming:inventory.motionTiming||{},
       startMeasure,
       endMeasure,
       prototypeEndTime:Math.max(...scopedNotes.map(note=>note.time),0)+.35
@@ -153,6 +173,11 @@ export function updateCharacterPrototype(time,chartName=""){
   if(!g){triggerEffect(null,"neutral");setFrame(data?.frames?.neutral?.path||"layers/character/base/neutral.png","NEUTRAL","neutral");return}
   const phase=phaseFor(g,time);
   const asset=assetFor(g,phase);
+  if(phase==="neutral"){
+    triggerEffect(null,"neutral");
+    setFrame(asset,"NEUTRAL","neutral");
+    return;
+  }
   const parts=[...new Set(g.map(n=>n.part))].sort().join("+");
   const hand=g.map(n=>n.animation?.hand).filter(Boolean).join("/");
   triggerEffect(g,phase);

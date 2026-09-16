@@ -121,7 +121,7 @@ Do not regenerate APPROVED layers unless the user explicitly requests revision.
 
 ## Current binary inventory
 
-- GitHub `main`: 10 registered PNG files
+- GitHub `main`: 11 registered PNG files
 - Fixed layer: 1 drum PNG (`APPROVED_LOCKED`)
 - Character layers: neutral plus 8 required hit variants
 - Visual state: neutral is approved; hit variants remain `COMMITTED_DRAFT` until individual visual review
@@ -150,6 +150,18 @@ Motion QA policy:
 - The effect is a separate SVG layer at the locked 1448x1086 coordinate system. It never changes drum pixels or character registration.
 
 First-four-measure motion polish was deployed in commit `b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa` and verified on GitHub Pages. Public-browser checks passed for SN hit/rebound and the two-position BD+RC effect. All four GitHub Actions runs completed successfully.
+
+## Measures 5-8 runtime milestone
+
+- [x] Measures 1-8 selected as the enabled browser range
+- [x] Enabled range verified as 61 notes / 59 time groups
+- [x] Measures 5-8 verified as 33 notes / 32 time groups
+- [x] Measures 5-8 keys verified: `RD:R`, `SN:L`, `BD:RF`, `BD+RC:*`
+- [x] Existing transparent RD right-hand image and RD effect coordinate wired into runtime phases
+- [x] Every measures 5-8 hit resolves to the expected committed image
+- [x] Every measures 5-8 non-rapid hit returns to neutral after 0.075 seconds
+- [x] Same-key sixteenth-speed repeats retain rebound follow-through instead of resetting
+- [x] No new PNG required; all necessary images were already registered
 
 Public QA result for commit `3d36aa5d148eebdbdb5fe4afc719c3c52115f543`:
 - initial state: `character-ready active`, scope `1-4`, opacity `0.9`

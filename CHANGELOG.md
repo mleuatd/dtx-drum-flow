@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2026-09-16
+- Expanded the Luna character-animation runtime through measures 5-8: the enabled 1-8 range now covers 61 notes / 59 time groups and adds the existing RD right-hand pose and effect mapping.
+- Added explicit motion settling: after a non-rapid hit the character returns to the approved neutral stance after 0.075 seconds; repeated same-key sixteenth-speed hits (gap <= 0.13 seconds) retain their rebound follow-through until the next hit.
+- Extended automated runtime checks across every measure 5-8 hit and neutral-settle state, including RD and two-position BD+RC effects.
 - Polished Luna measures 1-4 into a three-phase flipbook animation (prep / hit / rebound) instead of jumping directly between neutral and hit poses.
 - Added a transparent left-hand snare rebound frame and registered its fixed-canvas SHA-256 identity; rejected six generated HH/BD/BD+RC candidates because they contained baked checkerboard backgrounds instead of real alpha.
 - Added a separate SVG hit-effect layer with instrument-positioned comic bursts, including two-point BD+RC simultaneous-hit effects, while leaving the locked drum layer unchanged.

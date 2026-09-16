@@ -1,14 +1,21 @@
 {
-  "version": 3,
+  "version": 4,
   "scope": "Luna Say Maybe measures 1-16",
   "chartNoteCount": 144,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 4,
-    "noteCount": 28,
-    "groupCount": 27,
+    "measureEnd": 8,
+    "noteCount": 61,
+    "groupCount": 59,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 10.110266
+    "lastNoteTime": 17.016741,
+    "expectedKeys": [
+      "SN:L",
+      "BD+RC:*",
+      "HH:R",
+      "BD:RF",
+      "RD:R"
+    ]
   },
   "occurringParts": {
     "SN": 35,
@@ -108,15 +115,27 @@
       "prep": "neutral",
       "hit": "bd_foot_down",
       "rebound": "neutral"
+    },
+    "RD:R": {
+      "prep": "neutral",
+      "hit": "rd_hit_r",
+      "rebound": "neutral"
     }
+  },
+  "motionTiming": {
+    "prepBoundarySeconds": -0.028,
+    "hitEndSeconds": 0.038,
+    "reboundEndSeconds": 0.075,
+    "rapidRepeatMaxGapSeconds": 0.13,
+    "returnToNeutralAfterNonRapidHit": true
   },
   "renderer": {
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-4 enabled with prep/hit/rebound phases and separate hit-effect layer; measures 5-16 retained as prepared data"
+    "prototypeWindow": "measures 1-8 enabled with prep/hit/rebound/neutral settling and separate hit-effect layer; measures 9-16 retained as prepared data"
   },
   "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
   "motionPolishCommit": "b96726f8cd4ab0b27b79b2ed06f8f4a330c6b0aa",
-  "note": "Measures 1-4 prep/hit/rebound runtime and hit effects passed public-browser QA. Measures 5-16 remain prepared but outside the enabled runtime milestone; committed draft images may be revised without changing drum_base registration."
+  "note": "Measures 1-8 are enabled. Measures 5-8 passed local all-group hit/effect/neutral-settle tests; public-browser QA is recorded after deployment. Measures 9-16 remain prepared data outside the enabled runtime milestone."
 }
