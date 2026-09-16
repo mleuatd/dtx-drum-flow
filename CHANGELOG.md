@@ -76,3 +76,10 @@
 - Segment alignment checks ranged from +1.687 s to +1.699 s (12 ms total range), supporting a stable whole-song offset rather than per-note warping.
 - Added Songsterr fetch and conversion tooling; final DTX/MIDI/notes JSON are stored in the shared Library, not the public repository.
 - Fixed Songsterr MIDI export so simultaneous drum hits remain simultaneous.
+
+## 2026-09-17
+
+- Re-scoped Luna Say Maybe character prototype to measures 1-16 only (144 notes / 124 groups).
+- Hard-limited `site/character-prototype.js` to measures 1-16 while retaining the FINAL note file as the source filtered by measure.
+- Reduced prototype inventory to the eight occurring first-16 animation keys plus neutral; `SN:R` remains the sole exact-pose fallback.
+- Recorded structural PNG QA and environment-limited visual QA status; no image bytes or fixed drum bytes changed.
