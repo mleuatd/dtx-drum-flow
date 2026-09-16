@@ -37,10 +37,10 @@ checks = {
     "fixed mobile transport": '.mobile-transport' in css and 'position:fixed' in css,
     "playback independent from audio clock": 'playAnchorPerf=performance.now()' in js and '(performance.now()-playAnchorPerf)/1000' in js,
     "play button immediate state": '$("playPause").textContent="一時停止 ❚❚"' in js and 'setStatus("再生中")' in js,
-    "character module cache bust": 'character-prototype.js?v=20260916-limb-review' in js and 'app.js?v=20260916-limb-review' in html and 'styles.css?v=20260916-limb-review' in html,
-    "character canvas stays transparent": 'isLuna?"rgba(7,9,22,.20)":"#0e172a"' in js and '.stage canvas{' in css and 'background:transparent' in css,
+    "character module cache bust": 'character-prototype.js?v=20260917-1-16-runtime' in js and 'app.js?v=20260917-1-16-visible' in html,
+    "character canvas stays transparent": 'if(!isLuna){ctx.fillStyle="#0e172a";ctx.fillRect(0,0,w,h)}' in js and '.stage canvas{' in css and 'background:transparent' in css,
     "character layer visible behind notes": '.character-backdrop.active{opacity:.9}' in css and '.stage canvas{' in css and 'z-index:1' in css,
-    "full song runtime scope": 'inventory.runtimeScope?.measureEnd||148' in character_js and 'note.measure>=startMeasure&&note.measure<=endMeasure' in character_js,
+    "prototype runtime scope 1-16": 'const PROTOTYPE_MEASURE_START=1' in character_js and 'const PROTOTYPE_MEASURE_END=16' in character_js and 'note.measure>=startMeasure&&note.measure<=endMeasure' in character_js,
     "character assets preload": 'await Promise.all(sources.map(loadImage))' in character_js and 'character-ready' in character_js,
     "three phase flipbook motion": 'runtimePhaseFrameMap' in character_js and 'phaseFor(g,time)' in character_js and '"prep"' in character_js and '"rebound"' in character_js,
     "separate instrument effect layer": 'id="effectLayer"' in html and 'id="effectPrimary"' in html and 'id="effectTertiary"' in html and '.effect-layer{' in css and 'triggerEffect(g,phase)' in character_js,
@@ -48,6 +48,7 @@ checks = {
     "rapid repeated hit keeps follow-through": 'keyFor(previous)===keyFor(next)' in character_js and 'return previous' in character_js,
     "fallback QA dataset": 'dataset.fallback' in character_js and 'dataset.fallbackReason' in character_js and 'dataset.animationKey' in character_js and 'dataset.limbs' in character_js and 'runtimeFallbackKeys' in character_js,
     "precomputed limb mapping": 'Luna_say_maybe_1_16_limbs.json' in character_js and 'if(note?.limb)return note.limb' in character_js,
+    "prototype coverage guard": 'validatePrototypeCoverage(inventory,scopedNotes,groups)' in character_js and 'dataset.noteCount' in character_js and 'dataset.groupCount' in character_js,
 }
 
 failed=[name for name,ok in checks.items() if not ok]
