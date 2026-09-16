@@ -78,4 +78,18 @@ GitHub connector で次の手順が成功済み。LISSAによるGitHub画面操�
 
 画像のバイト同一性は `character-assets/config/assets_manifest.json` のSHA-256を正本とし、`tools/character_layers/validate_assets.py` とCIで検査する。`drum_base.png` は `lockedDrumSha256` と一致しない変更を失敗させる。
 
+## 最新の画像レイヤー検証・公開状態（2026-09-16）
+
+- 実装コミット: `fcec5fb12d4ae53c191dd0ee55e88a5e26577887`
+- GitHub上の登録PNG: 10枚
+- Luna 1〜16小節: 144ノーツ / 124同時刻グループの全件が9人物フレームへ解決済み
+- Character asset validation: success
+- Repository validate: success
+- Standalone build: success
+- GitHub Pages deploy: success
+- GitHub Pages URL: https://mleuatd.github.io/dtx-drum-flow/
+- 公開ページ実ブラウザ確認: `drum_base.png` と `neutral.png` はともに1448x1086で読込完了、`assets-missing` なし
+
+人物の各ヒット差分はGitHub登録・実行可能な `COMMITTED_DRAFT`。個別の目視承認が済むまでは `APPROVED` に昇格しない。HHの `prep_r` / `rebound_r` / `prep_l` / `hit_l` / `rebound_l` は現在のGitHub `main` には未登録で、将来16分HHや三相アニメーションを実表示する前に必要。
+
 バイナリ登録が権限・API制約で失敗した場合は、失敗内容と必要なユーザー操作を `WORK_SYNC.md` または `VARIANT_STATUS.md` に記録してから案内する。
