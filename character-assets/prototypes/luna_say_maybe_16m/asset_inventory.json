@@ -21,39 +21,39 @@
   "requiredFrames": {
     "neutral": {
       "path": "layers/character/base/neutral.png",
-      "state": "generated-locally-pending-binary-push"
+      "state": "committed-draft"
     },
     "hh_hit_r": {
       "path": "layers/character/hh/hit_r.png",
-      "state": "generated-locally-pending-binary-push"
+      "state": "committed-draft"
     },
     "sn_hit_l": {
       "path": "layers/character/sn/hit_l.png",
-      "state": "generated-locally-pending-binary-push"
+      "state": "committed-draft"
     },
     "bd_foot_down": {
       "path": "layers/character/bd/foot_down.png",
-      "state": "generated-locally-pending-binary-push"
+      "state": "committed-draft"
     },
     "rc_hit_r": {
       "path": "layers/character/rc/hit_r.png",
-      "state": "needed"
+      "state": "committed-draft"
     },
     "rd_hit_r": {
       "path": "layers/character/rd/hit_r.png",
-      "state": "needed"
+      "state": "committed-draft"
     },
     "combo_bd_sn": {
       "path": "layers/character/combo/bd_sn_hit.png",
-      "state": "needed"
+      "state": "committed-draft"
     },
     "combo_bd_rc": {
       "path": "layers/character/combo/bd_rc_hit.png",
-      "state": "needed"
+      "state": "committed-draft"
     },
     "combo_rc_sn": {
       "path": "layers/character/combo/rc_sn_hit.png",
-      "state": "needed"
+      "state": "committed-draft"
     }
   },
   "renderer": {
@@ -61,5 +61,7 @@
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
     "prototypeWindow": "measures 1-16 data source"
-  }
+  },
+  "binaryCommit": "db3fdcd0b2038b5bb78f59d805472102fc621881",
+  "note": "All image patterns required by measures 1-16 are now present in Git. Visual QA remains pending; committed images may be revised without changing drum_base registration."
 }
