@@ -16,6 +16,12 @@
     "height": 1087,
     "mode": "RGBA"
   },
+  "normalizedOutput": {
+    "width": 1448,
+    "height": 1086,
+    "sha256": "ff3939d38775f1004c0f8ead3b9f4727db1029ba487e259081c67c12f6913e8e",
+    "method": "remove one fully transparent bottom row; append one transparent right column; no scaling or redraw"
+  },
   "occurrencesMeasures1To4": [
     {"measure": 1, "beatIndex": 1, "time": 4.714583},
     {"measure": 1, "beatIndex": 3, "time": 5.038324},
@@ -26,6 +32,7 @@
     {"measure": 4, "beatIndex": 2, "time": 9.031129},
     {"measure": 4, "beatIndex": 6, "time": 9.894439}
   ],
-  "status": "STAGED_IN_DROPBOX_PENDING_BINARY_IMPORT",
-  "note": "This generated image is the candidate frame for the SN:L hit phase. Keep the trigger mapping and source identity together with the binary import."
+  "status": "IMPORTED_SUPERSEDED_BY_STANDARD_STAGING",
+  "standardStagingPath": "character-assets/staging/sn_l_hit.json",
+  "importCommit": "4cff9765978488849c1ecc15bc2d516b6c1586af"
 }
