@@ -27,7 +27,10 @@ Always read this file before resuming the finalized drum upload.
 
 ## Current progress
 
-- Verified safe chunks: **000**
+- Verified safe chunks: **000-003**
 - Chunk 000 local/GitHub Git blob SHA: `209839a3be2854e9d3439077d4dfff2401f98d40`
-- Next chunk: **safe_webp_part_001.json**
+- Chunk 001 local/GitHub Git blob SHA: `8c6bb790102e292c2dd1824ee00526a420828165`
+- Chunk 002 local/GitHub Git blob SHA: `7b95aa40d9164ef2f89b2319f456c5c34918602a`
+- Chunk 003 local/GitHub Git blob SHA: `d80ae62f2a5960e8e9627e3e2ccd9228eafb08a7`
+- Next chunk: **safe_webp_part_004.json**
 - Status: **READY TO RESUME**
