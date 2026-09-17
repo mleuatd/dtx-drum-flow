@@ -32,7 +32,7 @@
     "sn_l_rebound": {
       "path": "layers/character/sn/rebound_l.png",
       "state": "ready",
-      "sha256": "cade0a7accc285dafc96d5bd27a07dc7e1f071eabbfcc40e23f7358ecd48ebd7"
+      "sha256": "f97128758cf1a329eec1f1a0855971d8ba9e6a722f76a50972bb7506a7640062"
     },
     "sn_r_hit": {
       "path": "layers/character/sn/hit_r.png",
@@ -76,7 +76,7 @@
     }
   },
   "runtimeFrameMap": {
-    "SN:L": "sn_l_hit",
+    "SN:L": "sn_l_rebound",
     "SN:R": "sn_r_hit",
     "HH:R": "hh_r_hit",
     "BD:RF": "bd_rf_hit",
