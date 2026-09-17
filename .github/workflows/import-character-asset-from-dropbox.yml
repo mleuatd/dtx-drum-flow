@@ -56,7 +56,7 @@ jobs:
               raise SystemExit(0)
 
           dropbox_path = stage['dropboxPath']
-          target_path = pathlib.Path(stage['githubPath'])
+          target_path = pathlib.Path(stage.get('githubPath') or stage.get('githubTarget'))
           expected_source_sha = stage.get('sourceSha256')
           expected_sha = stage['sha256']
           target_w = int(stage['width'])
@@ -134,7 +134,9 @@ jobs:
           stage = json.loads(stage_path.read_text(encoding='utf-8'))
           key = stage['assetKey']
           sha = stage['sha256']
-          github_path = stage['githubPath']
+          github_path = stage.get('githubPath') or stage.get('githubTarget')
+          fixed = key in {'neutral', 'drum_base'}
+          fixed_status = 'APPROVED_FIXED' if fixed else 'M1_4_READY'
 
           manifest_path = pathlib.Path('character-assets/config/assets_manifest.json')
           manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
@@ -148,7 +150,7 @@ jobs:
                       'part': stage['part'],
                       'phase': stage['phase'],
                       'hand': stage.get('limb'),
-                      'status': 'M1_4_READY',
+                      'status': fixed_status,
                   })
                   found = True
                   break
@@ -156,21 +158,28 @@ jobs:
               manifest.setdefault('assets', []).append({
                   'path': github_path,
                   'width': stage['width'], 'height': stage['height'], 'x': 0, 'y': 0,
-                  'sha256': sha, 'status': 'M1_4_READY',
+                  'sha256': sha, 'status': fixed_status,
                   'purpose': 'Luna measures 1-4 parapara variant',
                   'part': stage['part'], 'phase': stage['phase'], 'hand': stage.get('limb'), 'notes': []
               })
+          if key == 'neutral':
+              manifest['lockedNeutralSha256'] = sha
+          if key == 'drum_base':
+              manifest['lockedDrumSha256'] = sha
           manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 
           inv_path = pathlib.Path('character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json')
           inv = json.loads(inv_path.read_text(encoding='utf-8'))
           rel = github_path.removeprefix('character-assets/')
-          inv.setdefault('requiredFrames', {}).setdefault(key, {}).update({'path': rel, 'state': 'ready', 'sha256': sha})
-          runtime_key = stage.get('runtimeKey')
-          if runtime_key:
-              inv.setdefault('runtimePhaseFrameMap', {}).setdefault(runtime_key, {})[stage['phase']] = key
-              if stage['phase'] == 'hit':
-                  inv.setdefault('runtimeFrameMap', {})[runtime_key] = key
+          if key != 'drum_base':
+              inv.setdefault('requiredFrames', {}).setdefault(key, {}).update({'path': rel, 'state': 'ready', 'sha256': sha})
+              runtime_key = stage.get('runtimeKey')
+              if runtime_key:
+                  inv.setdefault('runtimePhaseFrameMap', {}).setdefault(runtime_key, {})[stage['phase']] = key
+                  if stage['phase'] == 'hit':
+                      inv.setdefault('runtimeFrameMap', {})[runtime_key] = key
+          else:
+              inv.setdefault('qa', {})['fixedDrumSha256'] = sha
           inv_path.write_text(json.dumps(inv, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 
           req_path = pathlib.Path('character-assets/prototypes/luna_say_maybe_16m/M1_4_REQUIRED_CHARACTER_ASSETS.json')
@@ -190,11 +199,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/layers/character character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/prototypes/luna_say_maybe_16m/M1_4_REQUIRED_CHARACTER_ASSETS.json character-assets/staging
+          git add character-assets/layers character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/prototypes/luna_say_maybe_16m/M1_4_REQUIRED_CHARACTER_ASSETS.json character-assets/staging
           if git diff --cached --quiet; then
             echo "No changes"
             exit 0
           fi
-          git commit -m "assets: import staged character frame from Dropbox"
+          git commit -m "assets: import staged asset from Dropbox"
           git pull --rebase origin main
           git push origin HEAD:main
