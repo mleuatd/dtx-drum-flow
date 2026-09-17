@@ -12,21 +12,22 @@ Always read this file before resuming the finalized drum upload.
 - Transfer source bytes: `1281652`
 - Transfer source SHA-256: `df2e3350fed53e66b6b804ab65c7b4393bf901af68fa55a35b8b53fb6141a36a`
 - Pixel SHA-256 (raw RGBA): `e536b66a5a4afda4778b0801362526db30903f159057091106316c28abf8e0df`
-- Stable chunk prefix: `tools/drum_asset/stable_webp_part_`
-- Stable chunk count: `245` (`000` through `244`)
-- Each full chunk file is about `7023` bytes, chosen because previous larger writes were truncated by the chat/tool path.
+- Safe chunk prefix: `tools/drum_asset/safe_webp_part_`
+- Safe chunk count: `570` (`000` through `569`)
+- Each full chunk file is about `3023` bytes. This size has been verified to survive the chat -> GitHub write path without truncation.
 
 ## Resume rule
 
 1. Read this file first.
-2. Ignore `final_part_*.json`, `part_*.json`, and `q_*.json`; they are abandoned probe/partial files and are NOT part of the final transfer.
-3. Upload only `stable_webp_part_###.json` in small batches.
-4. After each batch, verify GitHub blob SHA/size against the locally prepared chunk, then update this file.
-5. Do NOT create/update `tools/drum_asset/drum_base_manifest.json` until every stable chunk is present and verified; that manifest triggers the rebuild workflow.
-6. After all 245 chunks are present, install/update the rebuild script if needed, then write the manifest last, let GitHub Actions reconstruct the image, convert it back to PNG, verify raw RGBA pixel SHA-256, update metadata, and commit/push the final drum asset.
+2. Ignore `final_part_*.json`, `stable_webp_part_*.json`, `part_*.json`, and `q_*.json`; they are abandoned probe/partial files and are NOT part of the final transfer.
+3. Upload only `safe_webp_part_###.json` in small batches.
+4. After each batch, verify each GitHub blob SHA against the locally prepared chunk, then update this file.
+5. Do NOT create/update `tools/drum_asset/drum_base_manifest.json` until every safe chunk is present and verified; that manifest triggers the rebuild workflow.
+6. After all 570 chunks are present, install/update the rebuild script if needed, then write the manifest last, let GitHub Actions reconstruct the WebP source, convert it back to PNG, verify raw RGBA pixel SHA-256, update metadata, and commit/push the final drum asset.
 
 ## Current progress
 
-- Verified stable chunks: **none yet**
-- Next chunk: **stable_webp_part_000.json**
+- Verified safe chunks: **000**
+- Chunk 000 local/GitHub Git blob SHA: `209839a3be2854e9d3439077d4dfff2401f98d40`
+- Next chunk: **safe_webp_part_001.json**
 - Status: **READY TO RESUME**
