@@ -3,8 +3,10 @@ Date: 2026-09-18
 GitHub asset: character-assets/layers/drum/drum_base.png
 Canonical source: /mnt/data/5215.png
 Original SHA256: 6d23c74667f453162bcb508cec56bfe82a5a9804eba210a3c0e6a4670dd03c30
-Runtime transparent SHA256: ad09946851e4184e466fb065c7491926a8bd8043bfd48f100b188af1c646f8a6
-Asset version: 20260918-drum-compact-r1
-Normalization: approved drawing unchanged; white background converted to transparency while preserving anti-aliased and faint sketch strokes
+Runtime transparent SHA256: 9e112bb3de49e46b2078789b3e5f247f8e57b4ada67ba1245e1063a000793a03
+Runtime pixel SHA256: 6fdf83c57f3bcea9eb44c528b196c61bafe7fdab363a944e880591103cbf9512
+Asset version: 20260918-drum-compact-v2-r1
+Normalization: approved drawing unchanged; only near-white background pixels are converted to transparency while gray/black sketch strokes remain opaque to preserve line strength
 Pedals: left = hi-hat pedal; center = bass drum pedal; twin pedal = false
-Status: APPROVED_FIXED / IMPORTED_FROM_DROPBOX
+Status: APPROVED_FIXED / IMPORTED_FROM_DROPBOX / PIXEL_VERIFIED
+Import commit: f5526f0484781a937830387a18257fa6a6823685
