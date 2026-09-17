@@ -26,7 +26,7 @@ jobs:
           DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
         run: |
           python - <<'PY'
-          import json, hashlib, os, subprocess, urllib.request
+          import json, hashlib, os, urllib.request
           from pathlib import Path
           from PIL import Image
 
@@ -36,16 +36,19 @@ jobs:
           target.parent.mkdir(parents=True, exist_ok=True)
           data=None
           token=os.environ.get('DROPBOX_ACCESS_TOKEN','').strip()
-          if token:
+
+          # Prefer the short-lived Dropbox download URL when staging provides one.
+          # This keeps the importer working even if the repository secret token is stale.
+          if st.get('downloadUrl'):
+              with urllib.request.urlopen(st['downloadUrl']) as r: data=r.read()
+          elif token:
               req=urllib.request.Request('https://content.dropboxapi.com/2/files/download',headers={
                   'Authorization':f'Bearer {token}',
                   'Dropbox-API-Arg':json.dumps({'path':st['dropboxPath']})
               })
               with urllib.request.urlopen(req) as r: data=r.read()
-          elif st.get('downloadUrl'):
-              with urllib.request.urlopen(st['downloadUrl']) as r: data=r.read()
           else:
-              raise SystemExit('Need DROPBOX_ACCESS_TOKEN or downloadUrl in staging JSON')
+              raise SystemExit('Need downloadUrl in staging JSON or DROPBOX_ACCESS_TOKEN')
 
           sha=hashlib.sha256(data).hexdigest()
           assert sha == st['sha256'], (sha, st['sha256'])
@@ -72,8 +75,8 @@ jobs:
           js=Path('site/character-prototype.js')
           s=js.read_text(encoding='utf-8')
           import re
-          s=re.sub(r'const ASSET_VERSION="[^"]+";', 'const ASSET_VERSION="20260918-drum-compact-r1";', s)
-          s=re.sub(r'BUILD [^"\\n]+', 'BUILD 20260918-drum-compact-r1', s)
+          s=re.sub(r'const ASSET_VERSION="[^"]+";', 'const ASSET_VERSION="20260918-drum-compact-v2-r1";', s)
+          s=re.sub(r'BUILD [^"\\n]+', 'BUILD 20260918-drum-compact-v2-r1', s)
           js.write_text(s,encoding='utf-8')
 
           st['status']='IMPORTED'
@@ -88,5 +91,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add character-assets/layers/drum/drum_base.png character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/staging/drum_base.json site/character-prototype.js
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "assets: import compact finalized drum from Dropbox"
+          git commit -m "assets: import corrected finalized drum v2 from Dropbox"
           git push
