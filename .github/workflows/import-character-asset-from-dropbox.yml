@@ -96,11 +96,8 @@ jobs:
           target_path.parent.mkdir(parents=True, exist_ok=True)
 
           if im.size == (target_w, target_h):
-              # Preserve the exact PNG bytes from Dropbox. Do not re-encode a file
-              # that already meets the required canvas and transparency checks.
               target_path.write_bytes(raw)
           else:
-              # Canvas-only normalization. Never scale, stretch, rotate or redraw pixels.
               w, h = im.size
               alpha = im.getchannel('A')
               while h > target_h:
@@ -171,8 +168,9 @@ jobs:
           inv.setdefault('requiredFrames', {}).setdefault(key, {}).update({'path': rel, 'state': 'ready', 'sha256': sha})
           runtime_key = stage.get('runtimeKey')
           if runtime_key:
-              inv.setdefault('runtimeFrameMap', {})[runtime_key] = key
               inv.setdefault('runtimePhaseFrameMap', {}).setdefault(runtime_key, {})[stage['phase']] = key
+              if stage['phase'] == 'hit':
+                  inv.setdefault('runtimeFrameMap', {})[runtime_key] = key
           inv_path.write_text(json.dumps(inv, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 
           req_path = pathlib.Path('character-assets/prototypes/luna_say_maybe_16m/M1_4_REQUIRED_CHARACTER_ASSETS.json')
