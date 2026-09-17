@@ -2,20 +2,20 @@
   "assetKey": "drum_base",
   "part": "DRUM",
   "phase": "base",
-  "dropboxPath": "/ChatGPT/dtx-drum-flow/drum_base_compact_final_transparent_20260918.png",
+  "dropboxPath": "/ChatGPT/dtx-drum-flow/drum_base_compact_final_transparent_20260918_v2.png",
   "dropboxOriginalPath": "/ChatGPT/dtx-drum-flow/drum_base_compact_final_20260918.png",
   "githubTarget": "character-assets/layers/drum/drum_base.png",
   "width": 1448,
   "height": 1086,
-  "sha256": "ad09946851e4184e466fb065c7491926a8bd8043bfd48f100b188af1c646f8a6",
+  "sha256": "9e112bb3de49e46b2078789b3e5f247f8e57b4ada67ba1245e1063a000793a03",
   "originalGeneratedSha256": "6d23c74667f453162bcb508cec56bfe82a5a9804eba210a3c0e6a4670dd03c30",
-  "normalization": "approved source unchanged; white background converted to alpha using exact white-to-alpha reconstruction while preserving anti-aliased and faint sketch strokes",
+  "normalization": "approved source unchanged; only near-white background pixels are converted to alpha while gray/black sketch strokes remain opaque to preserve line strength on the web background",
   "pedalLayout": {
     "left": "hi-hat pedal",
     "center": "bass drum pedal",
     "twinPedal": false
   },
-  "status": "IMPORTED",
+  "status": "STAGED_CORRECTION",
   "createdAt": "2026-09-18",
-  "importedSha256": "ad09946851e4184e466fb065c7491926a8bd8043bfd48f100b188af1c646f8a6"
+  "replacesSha256": "ad09946851e4184e466fb065c7491926a8bd8043bfd48f100b188af1c646f8a6"
 }
