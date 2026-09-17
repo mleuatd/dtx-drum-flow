@@ -4,13 +4,15 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/import-final-drum-from-dropbox.yml"
+      - "character-assets/staging/drum_base.json"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   import-drum:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,61 +21,72 @@ jobs:
           python-version: "3.12"
       - name: Install Pillow
         run: python -m pip install --disable-pip-version-check pillow
-      - name: Download exact finalized PNG from Dropbox
+      - name: Import staged drum
         env:
-          DRUM_URL: "https://uc75ff9770f5e9b7ce0002eb7fad.dl.dropboxusercontent.com/cd/0/get/DIRtJmTnkubS2eWHZsojV55OwnC2Hu6e2JdpXhpE4VAti3UzFtNDNtBhSS3iFZw-DUPVMlGRG58JSN5wn2i_RCza1oCAE5voAFlnlvqiNqrt0zhEl6s-vTZNwZ_o6-5_VVd9JCIeZP1E6V24mC2aX4tgniC9UxzoZ6iJWm_O5SOajw/file?c_luid=e8a8ea13"
-        run: |
-          mkdir -p character-assets/layers/drum
-          curl --fail --location --silent --show-error "$DRUM_URL" -o character-assets/layers/drum/drum_base.png
-      - name: Verify PNG bytes and pixels
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
         run: |
           python - <<'PY'
+          import json, hashlib, os, subprocess, urllib.request
           from pathlib import Path
           from PIL import Image
-          import hashlib
-          p=Path('character-assets/layers/drum/drum_base.png')
-          b=p.read_bytes()
-          sha=hashlib.sha256(b).hexdigest()
-          assert sha == '554c9817ddff8f296f3d278f999d359201c8d53980535021408cedf82cf2d8be', sha
-          assert len(b) == 2038286, len(b)
-          im=Image.open(p).convert('RGBA')
-          assert im.size == (1448,1086), im.size
-          pixel_sha=hashlib.sha256(im.tobytes()).hexdigest()
-          assert pixel_sha == 'e536b66a5a4afda4778b0801362526db30903f159057091106316c28abf8e0df', pixel_sha
-          assert im.getchannel('A').getextrema()[0] < 255
-          print('verified', sha, pixel_sha, im.size)
-          PY
-      - name: Update locked metadata
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          sha='554c9817ddff8f296f3d278f999d359201c8d53980535021408cedf82cf2d8be'
+
+          stage_path=Path('character-assets/staging/drum_base.json')
+          st=json.loads(stage_path.read_text(encoding='utf-8'))
+          target=Path(st['githubTarget'])
+          target.parent.mkdir(parents=True, exist_ok=True)
+          data=None
+          token=os.environ.get('DROPBOX_ACCESS_TOKEN','').strip()
+          if token:
+              req=urllib.request.Request('https://content.dropboxapi.com/2/files/download',headers={
+                  'Authorization':f'Bearer {token}',
+                  'Dropbox-API-Arg':json.dumps({'path':st['dropboxPath']})
+              })
+              with urllib.request.urlopen(req) as r: data=r.read()
+          elif st.get('downloadUrl'):
+              with urllib.request.urlopen(st['downloadUrl']) as r: data=r.read()
+          else:
+              raise SystemExit('Need DROPBOX_ACCESS_TOKEN or downloadUrl in staging JSON')
+
+          sha=hashlib.sha256(data).hexdigest()
+          assert sha == st['sha256'], (sha, st['sha256'])
+          target.write_bytes(data)
+          im=Image.open(target).convert('RGBA')
+          assert im.size == (st['width'],st['height']) == (1448,1086), im.size
+          assert im.getchannel('A').getextrema()[0] < 255, 'drum layer must have transparent background'
+
           manifest=Path('character-assets/config/assets_manifest.json')
-          data=json.loads(manifest.read_text(encoding='utf-8'))
-          data['lockedDrumSha256']=sha
-          assets=data.get('assets',[])
+          m=json.loads(manifest.read_text(encoding='utf-8'))
+          m['lockedDrumSha256']=sha
+          assets=m.get('assets',[])
           vals=assets.values() if isinstance(assets,dict) else assets
           for v in vals:
               if isinstance(v,dict) and v.get('path')=='character-assets/layers/drum/drum_base.png':
-                  v['sha256']=sha
-                  v['width']=1448
-                  v['height']=1086
-          manifest.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+                  v['sha256']=sha; v['width']=1448; v['height']=1086; v['status']='APPROVED_FIXED'
+          manifest.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
           inv=Path('character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json')
-          data=json.loads(inv.read_text(encoding='utf-8'))
-          data.setdefault('qa',{})['fixedDrumSha256']=sha
-          inv.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          i=json.loads(inv.read_text(encoding='utf-8'))
+          i.setdefault('qa',{})['fixedDrumSha256']=sha
+          inv.write_text(json.dumps(i,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          js=Path('site/character-prototype.js')
+          s=js.read_text(encoding='utf-8')
+          import re
+          s=re.sub(r'const ASSET_VERSION="[^"]+";', 'const ASSET_VERSION="20260918-drum-compact-r1";', s)
+          s=re.sub(r'BUILD [^"\\n]+', 'BUILD 20260918-drum-compact-r1', s)
+          js.write_text(s,encoding='utf-8')
+
+          st['status']='IMPORTED'
+          st['importedSha256']=sha
+          st.pop('downloadUrl',None)
+          stage_path.write_text(json.dumps(st,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('verified/imported', sha, im.size)
           PY
-      - name: Commit and push finalized drum metadata
+      - name: Commit and push finalized drum
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/layers/drum/drum_base.png character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
-          if git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
-          fi
-          git commit -m "chore: lock finalized 11-lane drum asset"
+          git add character-assets/layers/drum/drum_base.png character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/staging/drum_base.json site/character-prototype.js
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "assets: import compact finalized drum from Dropbox"
           git push
