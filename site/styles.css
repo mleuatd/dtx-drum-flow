@@ -56,7 +56,7 @@ button,label.button,summary{touch-action:manipulation}
   pointer-events:none;overflow:hidden;opacity:0;transition:opacity .15s;
   background:#f7f3ea;
 }
-.character-backdrop.active{opacity:.9}
+.character-backdrop.active{opacity:1}
 .character-backdrop.character-ready.active{visibility:visible}
 .character-backdrop.assets-missing{display:none}
 .character-layer{
