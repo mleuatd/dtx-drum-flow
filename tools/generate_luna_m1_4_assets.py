@@ -1,10 +1,11 @@
 from pathlib import Path
-import base64,json,zlib
+import base64,json,zlib,io
 from PIL import Image
 R=Path(__file__).resolve().parents[1]
 D={}
 for n in range(1,4):
-    D.update(json.loads((R/f"tools/luna_m1_4_assets_part{n}.json").read_text()))
+    part=R/f"tools/luna_m1_4_assets_part{n}.json"
+    D.update(json.loads(part.read_text()))
 OUT={
 "drum":"character-assets/layers/drum/drum_base.png",
 "neutral":"character-assets/layers/character/base/neutral.png",
@@ -20,12 +21,20 @@ OUT={
 "bd_rc_rebound":"character-assets/layers/character/combo/bd_rc_rebound.png"}
 palette=[(0,0,0,0),(0,0,0,255),(255,255,255,255)]
 for key,path in OUT.items():
-    raw=zlib.decompress(base64.b64decode(D[key]))
-    src=Image.frombytes("L",(181,136),raw)
-    rgba=Image.new("RGBA",src.size)
-    rgba.putdata([palette[v] for v in src.getdata()])
+    packed=base64.b64decode(D[key])
+    raw=zlib.decompress(packed)
+    if raw.startswith(b"\x89PNG\r\n\x1a\n"):
+        rgba=Image.open(io.BytesIO(raw)).convert("RGBA")
+    else:
+        expected=181*136
+        if len(raw)!=expected:
+            raise ValueError(f"{key}: decoded length {len(raw)} != {expected}")
+        src=Image.frombytes("L",(181,136),raw)
+        rgba=Image.new("RGBA",src.size)
+        rgba.putdata([palette[v] if v < len(palette) else palette[1] for v in src.getdata()])
     rgba=rgba.resize((1448,1088),Image.Resampling.NEAREST).crop((0,0,1448,1086))
     p=R/path;p.parent.mkdir(parents=True,exist_ok=True);rgba.save(p,optimize=True)
+    print(key, p, p.stat().st_size)
 print("generated",len(OUT))
 
-# trigger generation workflow: 2026-09-17 final m1-4 asset materialization
+# resilient materializer for Luna m1-4 binary assets
