@@ -29,11 +29,19 @@
       "x": 0,
       "y": 0,
       "sha256": "644ccf0a112b26087f401fb060f8855035b53a18a37f6a0a4500542b22bb8e81",
-      "status": "M1_4_READY",
-      "purpose": "latest user-approved person+stool neutral",
+      "status": "APPROVED_FIXED",
+      "purpose": "approved initial neutral/home ready pose; person + drum throne only",
       "part": "NEUTRAL",
       "phase": "neutral",
       "hand": null,
+      "semanticRole": "initial-neutral-home-ready-pose",
+      "tags": [
+        "neutral",
+        "home-position",
+        "ready",
+        "initial-pose",
+        "approved-user-baseline"
+      ],
       "notes": []
     },
     {
@@ -177,9 +185,9 @@
       "notes": []
     }
   ],
-  "qaUpdatedAt": "2026-09-17",
+  "qaUpdatedAt": "2026-09-18",
   "qaScope": "Luna Say Maybe measures 1-4 complete",
   "authoritativeImageCount": 12,
-  "note": "Latest neutral, rebuilt 11-lane fixed drum, and 10 measures 1-4 action variants.",
-  "lockedNeutralSha256": "fdd607415dd576fc18e1600a52fd079617bcefcc3485e70e7c7caf5aa24f9921"
+  "note": "Approved fixed neutral/home pose from 2026-09-18 current-chat source, fixed 11-lane drum, and 10 measures 1-4 action variants.",
+  "lockedNeutralSha256": "644ccf0a112b26087f401fb060f8855035b53a18a37f6a0a4500542b22bb8e81"
 }
