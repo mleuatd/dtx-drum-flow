@@ -1,0 +1,78 @@
+name: Import finalized drum from Dropbox
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/import-final-drum-from-dropbox.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import-drum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+      - name: Download exact finalized PNG from Dropbox
+        env:
+          DRUM_URL: "https://uce1e7d395d748d494f0937673cf.dl.dropboxusercontent.com/cd/0/get/DIREmClTAeG2FN-WqPUnkNib1NcXqr0AMMdvLPkYLY846cXt5L1L_SDsjuV8udIzD3ieNLx6CI8HbsfYTOAp0mNWRiV4j1qnPvidxrLxW2a3srUopQ7KAj_cO9Fok4aizf3qEb8kRzeJfKsCDFikmfuZxJr0Uxr8C_N0u7q06XarWA/file?c_luid=e8a8ea13"
+        run: |
+          mkdir -p character-assets/layers/drum
+          curl --fail --location --silent --show-error "$DRUM_URL" -o character-assets/layers/drum/drum_base.png
+      - name: Verify PNG bytes and pixels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import hashlib
+          p=Path('character-assets/layers/drum/drum_base.png')
+          b=p.read_bytes()
+          sha=hashlib.sha256(b).hexdigest()
+          assert sha == '554c9817ddff8f296f3d278f999d359201c8d53980535021408cedf82cf2d8be', sha
+          assert len(b) == 2038286, len(b)
+          im=Image.open(p).convert('RGBA')
+          assert im.size == (1448,1086), im.size
+          pixel_sha=hashlib.sha256(im.tobytes()).hexdigest()
+          assert pixel_sha == 'e536b66a5a4afda4778b0801362526db30903f159057091106316c28abf8e0df', pixel_sha
+          assert im.getchannel('A').getextrema()[0] < 255
+          print('verified', sha, pixel_sha, im.size)
+          PY
+      - name: Update locked metadata
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          sha='554c9817ddff8f296f3d278f999d359201c8d53980535021408cedf82cf2d8be'
+          size=2038286
+          paths=[Path('character-assets/config/assets_manifest.json'),Path('character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json')]
+          for p in paths:
+              if not p.exists():
+                  continue
+              data=json.loads(p.read_text(encoding='utf-8'))
+              if p.name=='assets_manifest.json':
+                  data['lockedDrumSha256']=sha
+                  assets=data.get('assets',{})
+                  for k,v in assets.items():
+                      if isinstance(v,dict) and ('drum' in k.lower() or v.get('path')=='character-assets/layers/drum/drum_base.png'):
+                          v['sha256']=sha; v['size']=size; v['width']=1448; v['height']=1086; v['ready']=True
+              else:
+                  data.setdefault('qa',{})['fixedDrumSha256']=sha
+              p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Commit and push finalized drum
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/drum/drum_base.png character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "assets: finalize corrected 11-lane drum layer"
+          git push
