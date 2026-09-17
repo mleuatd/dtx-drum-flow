@@ -28,4 +28,4 @@ for key,path in OUT.items():
     p=R/path;p.parent.mkdir(parents=True,exist_ok=True);rgba.save(p,optimize=True)
 print("generated",len(OUT))
 
-# trigger generation workflow
+# trigger generation workflow: 2026-09-17 final m1-4 asset materialization
