@@ -21,7 +21,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check pillow
       - name: Download exact finalized PNG from Dropbox
         env:
-          DRUM_URL: "https://uc1a83262215ff78ec9571335fda.dl.dropboxusercontent.com/cd/0/get/DIQ2lBRwVoD8LX0Xy9u35-3v6l4CJEGybNehA2WYQSxqqsQ5EGW7TksjpgAVE8RsEWXqibnbI6FHaHiHM253rP86kT4fUfyy4l2l9m2hFTi0AQvxfhAiiBUndRlbxpzu1bTXP7OMgeFKPufmCBrJaC0f7W37TcdJMdcvuhGKky8ePw/file?c_luid=e8a8ea13"
+          DRUM_URL: "https://uc75ff9770f5e9b7ce0002eb7fad.dl.dropboxusercontent.com/cd/0/get/DIRtJmTnkubS2eWHZsojV55OwnC2Hu6e2JdpXhpE4VAti3UzFtNDNtBhSS3iFZw-DUPVMlGRG58JSN5wn2i_RCza1oCAE5voAFlnlvqiNqrt0zhEl6s-vTZNwZ_o6-5_VVd9JCIeZP1E6V24mC2aX4tgniC9UxzoZ6iJWm_O5SOajw/file?c_luid=e8a8ea13"
         run: |
           mkdir -p character-assets/layers/drum
           curl --fail --location --silent --show-error "$DRUM_URL" -o character-assets/layers/drum/drum_base.png
@@ -43,14 +43,37 @@ jobs:
           assert im.getchannel('A').getextrema()[0] < 255
           print('verified', sha, pixel_sha, im.size)
           PY
-      - name: Commit and push finalized drum
+      - name: Update locked metadata
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          sha='554c9817ddff8f296f3d278f999d359201c8d53980535021408cedf82cf2d8be'
+          manifest=Path('character-assets/config/assets_manifest.json')
+          data=json.loads(manifest.read_text(encoding='utf-8'))
+          data['lockedDrumSha256']=sha
+          assets=data.get('assets',[])
+          vals=assets.values() if isinstance(assets,dict) else assets
+          for v in vals:
+              if isinstance(v,dict) and v.get('path')=='character-assets/layers/drum/drum_base.png':
+                  v['sha256']=sha
+                  v['width']=1448
+                  v['height']=1086
+          manifest.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          inv=Path('character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json')
+          data=json.loads(inv.read_text(encoding='utf-8'))
+          data.setdefault('qa',{})['fixedDrumSha256']=sha
+          inv.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Commit and push finalized drum metadata
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/layers/drum/drum_base.png
+          git add character-assets/layers/drum/drum_base.png character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
           if git diff --cached --quiet; then
             echo "No changes"
             exit 0
           fi
-          git commit -m "assets: finalize corrected 11-lane drum layer"
+          git commit -m "chore: lock finalized 11-lane drum asset"
           git push
