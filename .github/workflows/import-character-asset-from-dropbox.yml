@@ -55,10 +55,6 @@ jobs:
               print('Already imported; nothing to do.')
               raise SystemExit(0)
 
-          token = os.environ.get('DROPBOX_ACCESS_TOKEN')
-          if not token:
-              raise SystemExit('DROPBOX_ACCESS_TOKEN repository secret is required')
-
           dropbox_path = stage['dropboxPath']
           target_path = pathlib.Path(stage['githubPath'])
           expected_source_sha = stage.get('sourceSha256')
@@ -66,14 +62,25 @@ jobs:
           target_w = int(stage['width'])
           target_h = int(stage['height'])
 
-          req = urllib.request.Request(
-              'https://content.dropboxapi.com/2/files/download',
-              method='POST',
-              headers={
-                  'Authorization': f'Bearer {token}',
-                  'Dropbox-API-Arg': json.dumps({'path': dropbox_path}),
-              },
-          )
+          # Preferred long-term path: download by Dropbox path using repository secret.
+          token = os.environ.get('DROPBOX_ACCESS_TOKEN')
+          if token:
+              req = urllib.request.Request(
+                  'https://content.dropboxapi.com/2/files/download',
+                  method='POST',
+                  headers={
+                      'Authorization': f'Bearer {token}',
+                      'Dropbox-API-Arg': json.dumps({'path': dropbox_path}),
+                  },
+              )
+          else:
+              # Bootstrap fallback: short-lived URL lives only in staging JSON, never in this workflow.
+              # It is removed from staging after a successful import.
+              url = stage.get('downloadUrl')
+              if not url:
+                  raise SystemExit('DROPBOX_ACCESS_TOKEN secret or staging downloadUrl is required')
+              req = urllib.request.Request(url, method='GET')
+
           with urllib.request.urlopen(req) as r:
               raw = r.read()
           source_sha = hashlib.sha256(raw).hexdigest()
@@ -177,6 +184,7 @@ jobs:
 
           stage['status'] = 'IMPORTED'
           stage['importedSha256'] = sha
+          stage.pop('downloadUrl', None)
           stage_path.write_text(json.dumps(stage, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
           PY
       - name: Commit and push imported asset
