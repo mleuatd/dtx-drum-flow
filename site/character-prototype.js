@@ -4,7 +4,7 @@ const PROTOTYPE_MEASURE_END=4;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20260917-m14-r10";
+const ASSET_VERSION="20260917-m14-contactfix-r1";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
@@ -15,7 +15,7 @@ function updateDevHud(extra=""){
   if(!hud)return;
   const root=document.getElementById("characterBackdrop");
   const lines=[
-    "BUILD 20260917-m14-r10",
+    "BUILD 20260917-m14-contactfix-r1",
     "JS:ok / CHAR:"+(ready?"ready":"loading"),
     "active:"+(root?.dataset.active||"-")+" state:"+(root?.dataset.state||"-"),
     "frame:"+(root?.dataset.frame||"-"),
