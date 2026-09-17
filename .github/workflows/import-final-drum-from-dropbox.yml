@@ -37,8 +37,6 @@ jobs:
           data=None
           token=os.environ.get('DROPBOX_ACCESS_TOKEN','').strip()
 
-          # Prefer the short-lived Dropbox download URL when staging provides one.
-          # This keeps the importer working even if the repository secret token is stale.
           if st.get('downloadUrl'):
               with urllib.request.urlopen(st['downloadUrl']) as r: data=r.read()
           elif token:
@@ -50,26 +48,32 @@ jobs:
           else:
               raise SystemExit('Need downloadUrl in staging JSON or DROPBOX_ACCESS_TOKEN')
 
-          sha=hashlib.sha256(data).hexdigest()
-          assert sha == st['sha256'], (sha, st['sha256'])
+          binary_sha=hashlib.sha256(data).hexdigest()
           target.write_bytes(data)
           im=Image.open(target).convert('RGBA')
           assert im.size == (st['width'],st['height']) == (1448,1086), im.size
           assert im.getchannel('A').getextrema()[0] < 255, 'drum layer must have transparent background'
+          pixel_sha=hashlib.sha256(im.tobytes()).hexdigest()
+          expected_pixel=st.get('expectedPixelSha256')
+          if expected_pixel:
+              assert pixel_sha == expected_pixel, (pixel_sha, expected_pixel)
+          elif st.get('sha256'):
+              assert binary_sha == st['sha256'], (binary_sha, st['sha256'])
 
           manifest=Path('character-assets/config/assets_manifest.json')
           m=json.loads(manifest.read_text(encoding='utf-8'))
-          m['lockedDrumSha256']=sha
+          m['lockedDrumSha256']=binary_sha
           assets=m.get('assets',[])
           vals=assets.values() if isinstance(assets,dict) else assets
           for v in vals:
               if isinstance(v,dict) and v.get('path')=='character-assets/layers/drum/drum_base.png':
-                  v['sha256']=sha; v['width']=1448; v['height']=1086; v['status']='APPROVED_FIXED'
+                  v['sha256']=binary_sha; v['width']=1448; v['height']=1086; v['status']='APPROVED_FIXED'
           manifest.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
           inv=Path('character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json')
           i=json.loads(inv.read_text(encoding='utf-8'))
-          i.setdefault('qa',{})['fixedDrumSha256']=sha
+          i.setdefault('qa',{})['fixedDrumSha256']=binary_sha
+          i['qa']['fixedDrumPixelSha256']=pixel_sha
           inv.write_text(json.dumps(i,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
           js=Path('site/character-prototype.js')
@@ -80,10 +84,11 @@ jobs:
           js.write_text(s,encoding='utf-8')
 
           st['status']='IMPORTED'
-          st['importedSha256']=sha
+          st['importedSha256']=binary_sha
+          st['importedPixelSha256']=pixel_sha
           st.pop('downloadUrl',None)
           stage_path.write_text(json.dumps(st,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          print('verified/imported', sha, im.size)
+          print('verified/imported', binary_sha, pixel_sha, im.size)
           PY
       - name: Commit and push finalized drum
         run: |
