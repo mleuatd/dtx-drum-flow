@@ -14,27 +14,26 @@ jobs:
         shell: bash
         run: |
           set +e
-          ids=(
-            file_00000000e96c82119eef99a7540c470d
-            file_000000009f548206a9cd8e4c6bfbea65
-          )
+          id=file_00000000e96c82119eef99a7540c470d
+          ts_now=$(date +%s)
           n=0
-          for id in "${ids[@]}"; do
-            for url in \
-              "https://files.openai.com/content?id=${id}" \
-              "https://files.openai.com/file/${id}" \
-              "https://files.oaiusercontent.com/${id}"; do
-              n=$((n+1))
-              out="candidate_${n}.bin"
-              code=$(curl -L -sS -o "$out" -w '%{http_code}' "$url")
-              size=$(wc -c < "$out" 2>/dev/null || echo 0)
-              echo "candidate=$n code=$code size=$size url=$url"
-              echo "body-start"
-              head -c 500 "$out" || true
-              echo
-              echo "body-end"
-              if [ "$size" = "2309301" ]; then
-                sha256sum "$out"
-              fi
-            done
+          urls=(
+            "https://files.openai.com/content?id=${id}&ts=0&p=pi&cdn=1"
+            "https://files.openai.com/content?id=${id}&ts=${ts_now}&p=pi&cdn=1"
+            "https://files.openai.com/content?id=${id}&ts=0&p=pi&cdn=1&cp=pi&ma=31363200&cid=8&v=0"
+            "https://files.openai.com/content?id=${id}&ts=${ts_now}&p=pi&cdn=1&cp=pi&ma=31363200&cid=8&v=0"
+          )
+          for url in "${urls[@]}"; do
+            n=$((n+1))
+            out="candidate_${n}.bin"
+            code=$(curl -L -sS -o "$out" -w '%{http_code}' "$url")
+            size=$(wc -c < "$out" 2>/dev/null || echo 0)
+            echo "candidate=$n code=$code size=$size"
+            echo "body-start"
+            head -c 500 "$out" || true
+            echo
+            echo "body-end"
+            if [ "$size" = "2309301" ]; then
+              sha256sum "$out"
+            fi
           done
