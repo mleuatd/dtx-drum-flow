@@ -27,15 +27,19 @@ def main():
         if sha256(p)!=asset["sha256"]: errors.append(f"{rel}: SHA mismatch")
     actual={str(p.relative_to(ROOT)).replace("\\","/") for p in (ASSETS/"layers").rglob("*.png")}
     if actual!=listed: errors.append(f"layer PNG set mismatch actual={sorted(actual)} listed={sorted(listed)}")
-    if len(listed)!=2: errors.append("baseline reset requires exactly 2 layer PNGs")
-    drum="character-assets/layers/drum/drum_base.png"
+    if len(listed)!=12: errors.append(f"m1-4 complete set requires 12 layer PNGs, got {len(listed)}")
+    drum="character-assets/layers/drum/drum_base.png"; neutral="character-assets/layers/character/base/neutral.png"
     de=next((a for a in assets_manifest["assets"] if a["path"]==drum),None)
+    ne=next((a for a in assets_manifest["assets"] if a["path"]==neutral),None)
     if not de or de["sha256"]!=assets_manifest.get("lockedDrumSha256"): errors.append("locked drum SHA mismatch")
+    if not ne or ne["sha256"]!=assets_manifest.get("lockedNeutralSha256"): errors.append("locked neutral SHA mismatch")
     required=inventory.get("requiredFrames",{})
-    if inventory.get("imageSetState")=="baseline-only" and set(required)!={"neutral"}: errors.append("baseline-only must expose only neutral frame")
+    if inventory.get("imageSetState")!="m1-4-complete": errors.append("imageSetState must be m1-4-complete")
+    if len(required)!=11: errors.append(f"requiredFrames must contain 11 character frames, got {len(required)}")
     for fid,frame in required.items():
         rel="character-assets/"+frame["path"]
         if rel not in listed: errors.append(f"{fid}: missing registered frame")
+        elif frame.get("sha256")!=sha256(ROOT/rel): errors.append(f"{fid}: inventory SHA mismatch")
     source=ROOT/inventory["renderer"]["sourceChart"]; data=json.loads(source.read_text(encoding="utf-8")); notes=data["notes"]
     limb=json.loads((ROOT/inventory["renderer"]["limbSource"]).read_text(encoding="utf-8"))
     lm={(f"{float(x['time']):.6f}",x["part"]):x["limb"] for x in limb.get("assignments",[])}
@@ -57,17 +61,22 @@ def main():
         parts=sorted({n["part"] for n in g})
         if len(parts)>1:return "+".join(parts)+":*"
         return parts[0]+":"+hand(g[0])
+    keys={key(g) for g in groups}
     if len(scoped)!=scope["noteCount"] or len(groups)!=scope["groupCount"]: errors.append("runtime scope count mismatch")
-    if {key(g) for g in groups}!=set(scope["expectedKeys"]): errors.append("runtime key set mismatch")
-    for g in groups:
-        k=key(g)
-        if inventory["runtimeFrameMap"].get(k)!="neutral": errors.append(f"{k}: baseline frame must be neutral")
+    if keys!=set(scope["expectedKeys"]): errors.append(f"runtime key set mismatch {sorted(keys)}")
+    for k in keys:
+        frame=inventory["runtimeFrameMap"].get(k)
         phases=inventory["runtimePhaseFrameMap"].get(k,{})
-        if phases!={"prep":"neutral","hit":"neutral","rebound":"neutral"}: errors.append(f"{k}: baseline phases must be neutral")
+        if not frame or frame not in required: errors.append(f"{k}: missing runtime frame")
+        if phases.get("prep")!="neutral": errors.append(f"{k}: prep must be neutral")
+        if phases.get("hit")!=frame: errors.append(f"{k}: hit phase mismatch")
+        rb=phases.get("rebound")
+        if not rb or rb not in required: errors.append(f"{k}: missing rebound frame")
+    if inventory.get("qa",{}).get("unresolved")!=0: errors.append("inventory unresolved must be 0")
     if errors:
         print("Character asset validation failed:")
         for e in errors: print("- "+e)
         return 1
-    print(f"Character asset validation OK. Canvas={size[0]}x{size[1]}, registered PNGs=2, runtime measures=1-4, notes={len(scoped)}, groups={len(groups)}")
+    print(f"Character asset validation OK. Canvas={size[0]}x{size[1]}, registered PNGs={len(listed)}, runtime measures=1-4, notes={len(scoped)}, groups={len(groups)}, unresolved=0")
     return 0
 if __name__=="__main__": sys.exit(main())
