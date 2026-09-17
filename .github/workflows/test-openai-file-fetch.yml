@@ -29,6 +29,10 @@ jobs:
               code=$(curl -L -sS -o "$out" -w '%{http_code}' "$url")
               size=$(wc -c < "$out" 2>/dev/null || echo 0)
               echo "candidate=$n code=$code size=$size url=$url"
+              echo "body-start"
+              head -c 500 "$out" || true
+              echo
+              echo "body-end"
               if [ "$size" = "2309301" ]; then
                 sha256sum "$out"
               fi
