@@ -1,0 +1,69 @@
+name: Visual QA contact sheet
+
+on:
+  push:
+    paths:
+      - ".github/workflows/visual-qa.yml"
+      - "character-assets/layers/**"
+  workflow_dispatch:
+
+jobs:
+  build-contact-sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pillow
+      - name: Build visual QA sheet
+        run: |
+          python - <<'PY'
+          from PIL import Image,ImageDraw,ImageFont,ImageChops
+          from pathlib import Path
+          root=Path(".")
+          drum=Image.open(root/"character-assets/layers/drum/drum_base.png").convert("RGBA")
+          frames=[
+            ("neutral","character-assets/layers/character/base/neutral.png"),
+            ("SN:L hit","character-assets/layers/character/sn/hit_l.png"),
+            ("SN:L rebound","character-assets/layers/character/sn/rebound_l.png"),
+            ("SN:R hit","character-assets/layers/character/sn/hit_r.png"),
+            ("SN:R rebound","character-assets/layers/character/sn/rebound_r.png"),
+            ("HH:R hit","character-assets/layers/character/hh/hit_r.png"),
+            ("HH:R rebound","character-assets/layers/character/hh/rebound_r.png"),
+            ("BD:RF hit","character-assets/layers/character/bd/hit_rf.png"),
+            ("BD:RF rebound","character-assets/layers/character/bd/rebound_rf.png"),
+            ("BD+RC hit","character-assets/layers/character/combo/bd_rc_hit.png"),
+            ("BD+RC rebound","character-assets/layers/character/combo/bd_rc_rebound.png"),
+          ]
+          thumb=(724,543)
+          margin=28; label_h=42
+          cols=2; rows=(len(frames)+1)//2
+          sheet=Image.new("RGB",(cols*(thumb[0]+margin)+margin,rows*(thumb[1]+label_h+margin)+margin),(235,235,235))
+          draw=ImageDraw.Draw(sheet)
+          report=[]
+          neutral=Image.open(root/frames[0][1]).convert("RGBA")
+          for i,(label,p) in enumerate(frames):
+            ch=Image.open(root/p).convert("RGBA")
+            comp=Image.alpha_composite(drum,ch)
+            bg=Image.new("RGBA",comp.size,(250,250,250,255))
+            comp=Image.alpha_composite(bg,comp).convert("RGB").resize(thumb,Image.Resampling.LANCZOS)
+            x=margin+(i%cols)*(thumb[0]+margin)
+            y=margin+(i//cols)*(thumb[1]+label_h+margin)
+            sheet.paste(comp,(x,y+label_h))
+            draw.text((x,y+8),label,fill=(0,0,0))
+            a=ch.getchannel("A")
+            bbox=a.getbbox()
+            diff=ImageChops.difference(ch,neutral)
+            db=diff.getbbox()
+            report.append(f"{label}\talpha_bbox={bbox}\tdiff_bbox={db}")
+          out=Path("visual-qa")
+          out.mkdir(exist_ok=True)
+          sheet.save(out/"luna_m1_4_contact_sheet.jpg",quality=92)
+          (out/"metrics.txt").write_text("\n".join(report),encoding="utf-8")
+          print("\n".join(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: luna-m1-4-visual-qa
+          path: visual-qa/
