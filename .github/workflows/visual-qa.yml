@@ -60,6 +60,8 @@ jobs:
           out=Path("visual-qa")
           out.mkdir(exist_ok=True)
           sheet.save(out/"luna_m1_4_contact_sheet.jpg",quality=92)
+          drum.save(out/"drum_base.png")
+          neutral.save(out/"neutral.png")
           (out/"metrics.txt").write_text("\n".join(report),encoding="utf-8")
           print("\n".join(report))
           PY
