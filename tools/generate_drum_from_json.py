@@ -13,14 +13,24 @@ EXPECTED_SHA256 = 'afb3eb8ac19039ffbe756691a54e4403b99dfd4d6c42a1a47e234b1eb9a09
 EXPECTED_BYTES = 2309301
 EXPECTED_SIZE = (1448, 1086)
 
-parts = []
-for path in sorted(SOURCE_DIR.glob('part_*.json')):
-    obj = json.loads(path.read_text(encoding='utf-8'))
-    parts.append(obj['data'])
-if not parts:
-    raise SystemExit('no drum JSON parts found')
+# Preferred transport: plain Base64 text chunks. This keeps the ChatGPT->GitHub
+# handoff entirely text-based while restoring the exact original PNG bytes.
+b64_paths = sorted(SOURCE_DIR.glob('part_*.b64'))
+if b64_paths:
+    encoded = ''.join(p.read_text(encoding='utf-8').strip() for p in b64_paths)
+else:
+    # Backward-compatible JSON transport.
+    parts = []
+    for path in sorted(SOURCE_DIR.glob('part_*.json')):
+        if path.name == 'READY.json':
+            continue
+        obj = json.loads(path.read_text(encoding='utf-8'))
+        parts.append(obj['data'])
+    if not parts:
+        raise SystemExit('no drum source parts found')
+    encoded = ''.join(parts)
 
-raw = base64.b64decode(''.join(parts), validate=True)
+raw = base64.b64decode(encoded, validate=True)
 sha = hashlib.sha256(raw).hexdigest()
 if len(raw) != EXPECTED_BYTES:
     raise SystemExit(f'byte-size mismatch: {len(raw)} != {EXPECTED_BYTES}')
@@ -55,6 +65,6 @@ inventory = json.loads(INVENTORY.read_text(encoding='utf-8'))
 inventory.setdefault('qa', {})['fixedDrumSha256'] = sha
 INVENTORY.write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
-print('drum restored byte-for-byte from JSON')
+print('drum restored byte-for-byte from text chunks')
 print('bytes', len(raw))
 print('sha256', sha)
