@@ -30,19 +30,19 @@ Limb data remains authoritative:
 - `site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json`
 - `site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json`
 
-## Fixed drum
-The fixed drum was replaced on 2026-09-18 from the user-approved canonical source `/mnt/data/5215.png` after exact SHA-256 verification.
+## Fixed neutral and drum — 2026-09-18
+The current-chat attached PNGs are the authoritative fixed layers and were imported byte-for-byte after PNG, canvas, alpha, and SHA verification.
 
-Canonical source SHA-256:
-`6d23c74667f453162bcb508cec56bfe82a5a9804eba210a3c0e6a4670dd03c30`
+Neutral runtime path: `layers/character/base/neutral.png`  
+Neutral SHA-256: `886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9`  
+Semantic role: `initial-neutral-home-ready-pose`  
+Status: `APPROVED_FIXED`
 
-Runtime transparent drum SHA-256:
-`ad09946851e4184e466fb065c7491926a8bd8043bfd48f100b188af1c646f8a6`
+Drum runtime path: `layers/drum/drum_base.png`  
+Drum SHA-256: `dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85`  
+Status: `APPROVED_FIXED`
 
-Runtime path:
-`layers/drum/drum_base.png`
-
-The approved drawing was not regenerated or reinterpreted; the white background was converted to alpha for runtime use. Pedal interpretation is fixed as: left = hi-hat pedal, center = bass drum pedal, and this is not a twin-pedal setup.
+Both canvases are 1448x1086. The runtime stack is drum behind character, with matching canvas registration and no per-layer translation or independent scale.
 
 ## Later-measure assets
 Additional historical 1-16 character PNGs may still exist in the repository tree, but they are outside the active refreshed 1-4 visual scope and must not be treated as newly approved for expansion without explicit review.
