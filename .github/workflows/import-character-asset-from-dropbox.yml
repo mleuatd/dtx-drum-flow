@@ -1,0 +1,193 @@
+name: Import staged character asset from Dropbox
+
+on:
+  workflow_dispatch:
+    inputs:
+      staging_path:
+        description: "Repository path to one staging JSON"
+        required: true
+        default: "character-assets/staging/sn_l_hit.json"
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/staging/**/*.json"
+      - ".github/workflows/import-character-asset-from-dropbox.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import-character-asset:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+      - name: Resolve staging JSON
+        id: stage
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            STAGING_PATH="${{ inputs.staging_path }}"
+          else
+            STAGING_PATH="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^character-assets/staging/.*\.json$' | head -n 1)"
+          fi
+          test -n "$STAGING_PATH"
+          test -f "$STAGING_PATH"
+          echo "path=$STAGING_PATH" >> "$GITHUB_OUTPUT"
+      - name: Download, normalize, verify and place PNG
+        env:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+          STAGING_PATH: ${{ steps.stage.outputs.path }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, urllib.request
+          from PIL import Image
+
+          stage_path = pathlib.Path(os.environ['STAGING_PATH'])
+          stage = json.loads(stage_path.read_text(encoding='utf-8'))
+          if stage.get('status') == 'IMPORTED':
+              print('Already imported; nothing to do.')
+              raise SystemExit(0)
+
+          token = os.environ.get('DROPBOX_ACCESS_TOKEN')
+          if not token:
+              raise SystemExit('DROPBOX_ACCESS_TOKEN repository secret is required')
+
+          dropbox_path = stage['dropboxPath']
+          target_path = pathlib.Path(stage['githubPath'])
+          expected_source_sha = stage.get('sourceSha256')
+          expected_sha = stage['sha256']
+          target_w = int(stage['width'])
+          target_h = int(stage['height'])
+
+          req = urllib.request.Request(
+              'https://content.dropboxapi.com/2/files/download',
+              method='POST',
+              headers={
+                  'Authorization': f'Bearer {token}',
+                  'Dropbox-API-Arg': json.dumps({'path': dropbox_path}),
+              },
+          )
+          with urllib.request.urlopen(req) as r:
+              raw = r.read()
+          source_sha = hashlib.sha256(raw).hexdigest()
+          if expected_source_sha and source_sha != expected_source_sha:
+              raise SystemExit(f'source sha mismatch: {source_sha}')
+
+          tmp = pathlib.Path('/tmp/dropbox_source.png')
+          tmp.write_bytes(raw)
+          im = Image.open(tmp).convert('RGBA')
+          if im.format not in (None, 'PNG'):
+              raise SystemExit('source is not PNG')
+
+          # Canvas-only normalization. Never scale, stretch, rotate or redraw pixels.
+          if im.size != (target_w, target_h):
+              w, h = im.size
+              alpha = im.getchannel('A')
+              while h > target_h:
+                  row = alpha.crop((0, h-1, w, h))
+                  if row.getbbox() is not None:
+                      raise SystemExit('cannot crop non-transparent bottom row')
+                  im = im.crop((0, 0, w, h-1))
+                  h -= 1
+                  alpha = im.getchannel('A')
+              if h != target_h or w > target_w:
+                  raise SystemExit(f'unsupported canvas normalization from {(w,h)} to {(target_w,target_h)}')
+              if w < target_w:
+                  canvas = Image.new('RGBA', (target_w, target_h), (0,0,0,0))
+                  canvas.paste(im, (0,0))
+                  im = canvas
+
+          if im.size != (target_w, target_h):
+              raise SystemExit(f'final size mismatch: {im.size}')
+          if im.getchannel('A').getextrema()[0] >= 255:
+              raise SystemExit('image has no transparency')
+
+          target_path.parent.mkdir(parents=True, exist_ok=True)
+          im.save(target_path, format='PNG', optimize=False)
+          final_bytes = target_path.read_bytes()
+          final_sha = hashlib.sha256(final_bytes).hexdigest()
+          if final_sha != expected_sha:
+              raise SystemExit(f'normalized sha mismatch: {final_sha}')
+          print('verified', target_path, final_sha, im.size)
+          PY
+      - name: Update manifest, inventory, M1-4 management and staging status
+        env:
+          STAGING_PATH: ${{ steps.stage.outputs.path }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+
+          stage_path = pathlib.Path(os.environ['STAGING_PATH'])
+          stage = json.loads(stage_path.read_text(encoding='utf-8'))
+          key = stage['assetKey']
+          sha = stage['sha256']
+          github_path = stage['githubPath']
+
+          manifest_path = pathlib.Path('character-assets/config/assets_manifest.json')
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          found = False
+          for a in manifest.get('assets', []):
+              if a.get('path') == github_path:
+                  a.update({
+                      'sha256': sha,
+                      'width': stage['width'],
+                      'height': stage['height'],
+                      'part': stage['part'],
+                      'phase': stage['phase'],
+                      'hand': stage.get('limb'),
+                      'status': 'M1_4_READY',
+                  })
+                  found = True
+                  break
+          if not found:
+              manifest.setdefault('assets', []).append({
+                  'path': github_path,
+                  'width': stage['width'], 'height': stage['height'], 'x': 0, 'y': 0,
+                  'sha256': sha, 'status': 'M1_4_READY',
+                  'purpose': 'Luna measures 1-4 parapara variant',
+                  'part': stage['part'], 'phase': stage['phase'], 'hand': stage.get('limb'), 'notes': []
+              })
+          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+
+          inv_path = pathlib.Path('character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json')
+          inv = json.loads(inv_path.read_text(encoding='utf-8'))
+          rel = github_path.removeprefix('character-assets/')
+          inv.setdefault('requiredFrames', {}).setdefault(key, {}).update({'path': rel, 'state': 'ready', 'sha256': sha})
+          runtime_key = stage.get('runtimeKey')
+          if runtime_key:
+              inv.setdefault('runtimeFrameMap', {})[runtime_key] = key
+              inv.setdefault('runtimePhaseFrameMap', {}).setdefault(runtime_key, {})[stage['phase']] = key
+          inv_path.write_text(json.dumps(inv, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+
+          req_path = pathlib.Path('character-assets/prototypes/luna_say_maybe_16m/M1_4_REQUIRED_CHARACTER_ASSETS.json')
+          req = json.loads(req_path.read_text(encoding='utf-8'))
+          for item in req['assets']:
+              if item['requiredAssetKey'] == key:
+                  item.update({'status': 'READY_GITHUB', 'sha256': sha, 'width': stage['width'], 'height': stage['height'], 'dropboxPath': stage['dropboxPath']})
+                  break
+          req_path.write_text(json.dumps(req, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+
+          stage['status'] = 'IMPORTED'
+          stage['importedSha256'] = sha
+          stage_path.write_text(json.dumps(stage, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+          PY
+      - name: Commit and push imported asset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/character character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/prototypes/luna_say_maybe_16m/M1_4_REQUIRED_CHARACTER_ASSETS.json character-assets/staging
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "assets: import staged character frame from Dropbox"
+          git pull --rebase origin main
+          git push origin HEAD:main
