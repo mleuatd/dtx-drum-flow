@@ -14,7 +14,7 @@ checks={
 "character canvas stays transparent":'if(!isLuna){ctx.fillStyle="#0e172a";ctx.fillRect(0,0,w,h)}' in js and 'background:transparent' in css,
 "prototype runtime scope 1-4":'const PROTOTYPE_MEASURE_START=1' in character_js and 'const PROTOTYPE_MEASURE_END=4' in character_js,
 "precomputed limb mapping":'Luna_say_maybe_1_16_limbs.json' in character_js and 'if(note?.limb)return note.limb' in character_js,
-"baseline-only character runtime":'ASSET_ROOT+"/layers/character/base/neutral.png"' in character_js and 'const sources=[DRUM,ASSET_ROOT+"/"+data.frames.neutral.path]' in character_js,
+"m1-4 parapara character runtime":'runtimeFrameMap' in character_js and 'runtimePhaseFrameMap' in character_js and 'const sources=[DRUM,...Object.values(data.frames).map(f=>ASSET_ROOT+"/"+f.path)]' in character_js,
 "effect layer retained":'id="effectLayer"' in html and 'triggerEffect(g,phase)' in character_js,
 }
 failed=[n for n,ok in checks.items() if not ok]
