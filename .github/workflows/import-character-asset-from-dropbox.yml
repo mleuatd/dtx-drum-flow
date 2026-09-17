@@ -62,7 +62,6 @@ jobs:
           target_w = int(stage['width'])
           target_h = int(stage['height'])
 
-          # Preferred long-term path: download by Dropbox path using repository secret.
           token = os.environ.get('DROPBOX_ACCESS_TOKEN')
           if token:
               req = urllib.request.Request(
@@ -74,8 +73,6 @@ jobs:
                   },
               )
           else:
-              # Bootstrap fallback: short-lived URL lives only in staging JSON, never in this workflow.
-              # It is removed from staging after a successful import.
               url = stage.get('downloadUrl')
               if not url:
                   raise SystemExit('DROPBOX_ACCESS_TOKEN secret or staging downloadUrl is required')
@@ -93,9 +90,17 @@ jobs:
           if im0.format != 'PNG':
               raise SystemExit('source is not PNG')
           im = im0.convert('RGBA')
+          if im.getchannel('A').getextrema()[0] >= 255:
+              raise SystemExit('image has no transparency')
 
-          # Canvas-only normalization. Never scale, stretch, rotate or redraw pixels.
-          if im.size != (target_w, target_h):
+          target_path.parent.mkdir(parents=True, exist_ok=True)
+
+          if im.size == (target_w, target_h):
+              # Preserve the exact PNG bytes from Dropbox. Do not re-encode a file
+              # that already meets the required canvas and transparency checks.
+              target_path.write_bytes(raw)
+          else:
+              # Canvas-only normalization. Never scale, stretch, rotate or redraw pixels.
               w, h = im.size
               alpha = im.getchannel('A')
               while h > target_h:
@@ -111,19 +116,15 @@ jobs:
                   canvas = Image.new('RGBA', (target_w, target_h), (0,0,0,0))
                   canvas.paste(im, (0,0))
                   im = canvas
+              if im.size != (target_w, target_h):
+                  raise SystemExit(f'final size mismatch: {im.size}')
+              im.save(target_path, format='PNG', optimize=False)
 
-          if im.size != (target_w, target_h):
-              raise SystemExit(f'final size mismatch: {im.size}')
-          if im.getchannel('A').getextrema()[0] >= 255:
-              raise SystemExit('image has no transparency')
-
-          target_path.parent.mkdir(parents=True, exist_ok=True)
-          im.save(target_path, format='PNG', optimize=False)
           final_bytes = target_path.read_bytes()
           final_sha = hashlib.sha256(final_bytes).hexdigest()
           if final_sha != expected_sha:
-              raise SystemExit(f'normalized sha mismatch: {final_sha}')
-          print('verified', target_path, final_sha, im.size)
+              raise SystemExit(f'final sha mismatch: {final_sha}')
+          print('verified', target_path, final_sha, (target_w, target_h))
           PY
       - name: Update manifest, inventory, M1-4 management and staging status
         env:
