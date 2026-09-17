@@ -1,0 +1,37 @@
+name: Rebuild drum asset
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tools/drum_asset/drum_base_manifest.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: "!startsWith(github.event.head_commit.message, 'assets: finalize corrected 11-lane drum layer')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Rebuild and verify exact PNG
+        run: python tools/drum_asset/rebuild_drum_asset.py
+      - name: Commit rebuilt drum asset and locked metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/drum/drum_base.png \
+                  character-assets/config/assets_manifest.json \
+                  character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "assets: finalize corrected 11-lane drum layer"
+          git push
