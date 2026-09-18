@@ -76,3 +76,5 @@ for a in actions:
  elif a=="FT+SN:R/L": results.append(save_ft_sn())
  else: raise SystemExit("unsupported action "+a)
 print(json.dumps(results,indent=2))
+
+# retrigger-ft-sn-2026-09-19-0848-jst
