@@ -1,0 +1,77 @@
+name: M17 Runtime Visual QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/prototypes/luna_say_maybe_16m/M17_RUNTIME_QA_TRIGGER.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: m17-runtime-visual-qa
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
+      MEASURE_START: "17"
+      MEASURE_END: "17"
+      QA_ACTIONS: "LT:R,LT:L,BD+SN:RF/R,FT:R,FT:L,BD+LT:RF/R"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Wait for matching Pages deployment and capture M17 runtime screenshots
+        run: node tools/runtime-character-qa.mjs
+      - name: Upload M17 runtime QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m17-runtime-visual-qa-${{ github.run_id }}
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 30
+
+  mirror-final-pair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirror exact BD+LT RF/R bytes to Dropbox
+        env:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,urllib.request
+          token=os.environ.get("DROPBOX_ACCESS_TOKEN")
+          if not token:
+              raise SystemExit("DROPBOX_ACCESS_TOKEN required")
+          assets=[
+            ("character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png","/ChatGPT/dtx-drum-flow/bd_lt_rf_r_hit_refresh_20260919.png","ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50"),
+            ("character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png","/ChatGPT/dtx-drum-flow/bd_lt_rf_r_rebound_refresh_20260919.png","4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11")
+          ]
+          for src,dst,expected in assets:
+              raw=pathlib.Path(src).read_bytes()
+              sha=hashlib.sha256(raw).hexdigest()
+              if sha!=expected: raise SystemExit(f"SHA mismatch {src}: {sha}")
+              req=urllib.request.Request(
+                  "https://content.dropboxapi.com/2/files/upload",
+                  data=raw,method="POST",
+                  headers={
+                    "Authorization":f"Bearer {token}",
+                    "Content-Type":"application/octet-stream",
+                    "Dropbox-API-Arg":json.dumps({"path":dst,"mode":"overwrite","autorename":False,"mute":True})
+                  })
+              with urllib.request.urlopen(req) as r:
+                  print(dst, r.read().decode())
+          PY
