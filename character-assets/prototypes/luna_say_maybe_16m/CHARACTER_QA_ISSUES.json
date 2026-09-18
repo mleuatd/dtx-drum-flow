@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 4
   },
-  "updatedAt": "2026-09-18T12:12:00+09:00",
+  "updatedAt": "2026-09-18T12:17:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -28,61 +28,61 @@
     {
       "assetKey": "sn_l_hit",
       "path": "character-assets/layers/character/sn/hit_l.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "sn_l_rebound",
       "path": "character-assets/layers/character/sn/rebound_l.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "sn_r_hit",
       "path": "character-assets/layers/character/sn/hit_r.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "sn_r_rebound",
       "path": "character-assets/layers/character/sn/rebound_r.png",
-      "status": "PENDING_REVIEW"
+      "status": "OPEN"
     },
     {
       "assetKey": "hh_r_hit",
       "path": "character-assets/layers/character/hh/hit_r.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "hh_r_rebound",
       "path": "character-assets/layers/character/hh/rebound_r.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "bd_rf_hit",
       "path": "character-assets/layers/character/bd/hit_rf.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "bd_rf_rebound",
       "path": "character-assets/layers/character/bd/rebound_rf.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "bd_rc_hit",
       "path": "character-assets/layers/character/combo/bd_rc_hit.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     },
     {
       "assetKey": "bd_rc_rebound",
       "path": "character-assets/layers/character/combo/bd_rc_rebound.png",
-      "status": "PENDING_REVIEW"
+      "status": "DONE"
     }
   ],
   "issues": [
     {
       "id": "CHAR-QA-0001",
       "createdAt": "2026-09-18T11:21:00+09:00",
-      "updatedAt": "2026-09-18T12:12:00+09:00",
-      "completedAt": null,
-      "status": "BLOCKED",
+      "updatedAt": "2026-09-18T12:17:00+09:00",
+      "completedAt": "2026-09-18T12:17:00+09:00",
+      "status": "DONE",
       "severity": "medium",
       "assetKey": "*",
       "category": "visual-review",
@@ -93,7 +93,11 @@
         "PC and Xperia-class portrait runtime screenshots were captured with DOM frame/phase/animationKey/limbs evidence.",
         "All requested frames except sn_r_rebound appeared in the captured live runtime."
       ],
-      "verification": []
+      "verification": [
+        "All 10 requested runtime frames were observed on the public GitHub Pages site after the rapid-hit timing fix.",
+        "PC 1280x900 and Xperia-class portrait 384x864 were both captured by live Chromium.",
+        "Concrete remaining visual defect for sn_r_rebound was split into CHAR-QA-0004."
+      ]
     },
     {
       "id": "CHAR-QA-0002",
@@ -128,9 +132,9 @@
     {
       "id": "CHAR-QA-0003",
       "createdAt": "2026-09-18T12:12:00+09:00",
-      "updatedAt": "2026-09-18T12:12:00+09:00",
-      "completedAt": null,
-      "status": "OPEN",
+      "updatedAt": "2026-09-18T12:17:00+09:00",
+      "completedAt": "2026-09-18T12:17:00+09:00",
+      "status": "DONE",
       "severity": "high",
       "assetKey": "sn_r_rebound",
       "phase": "rebound",
@@ -145,6 +149,35 @@
         "runtime-qa.json contains zero occurrences of layers/character/sn/rebound_r.png in both PC and Xperia-class portrait captures.",
         "site/character-prototype.js phaseFor(): hitEndSeconds=0.18 and reboundEndSeconds=0.28.",
         "SN:R time 4.930410s; following SN:L time 5.038324s; gap 0.107914s."
+      ],
+      "verification": [
+        "Fix commit 89f26574d7e3f68898dc3ca20c5332ac01a0e4ea makes phase timing aware of the next note gap.",
+        "GitHub Pages deploy run 35302366128 completed successfully.",
+        "Runtime Character QA run 35302038227 attempt 2 completed successfully after deployment.",
+        "Latest artifact 10529434566 shows layers/character/sn/rebound_r.png active on both PC and Xperia-class portrait.",
+        "PC evidence includes SN:R rebound at 5.014583s and 5.023324s around the 4.930410s SN:R event."
+      ]
+    },
+    {
+      "id": "CHAR-QA-0004",
+      "createdAt": "2026-09-18T12:17:00+09:00",
+      "updatedAt": "2026-09-18T12:17:00+09:00",
+      "completedAt": null,
+      "status": "OPEN",
+      "severity": "high",
+      "assetKey": "sn_r_rebound",
+      "phase": "rebound",
+      "measure": 1,
+      "timestamp": "~5.014583-5.023324",
+      "viewport": "PC 1280x900 and Xperia-class portrait 384x864",
+      "category": "transition-jump",
+      "observation": "On the live GitHub Pages 11-lane screen, SN:R hit -> sn_r_rebound produces a large discontinuity: the character changes from a left-facing/forward-leaning snare-hit pose to a substantially more rear/right-facing pose, with a major head/torso/hair silhouette change and noticeable seat/body registration shift. The change reads as a different drawing/camera orientation rather than a rebound from the preceding hit.",
+      "requiredFix": "Redraw or replace sn_r_rebound so it is derived closely from sn_r_hit: preserve the same camera orientation, head/body scale, stool registration and seated base; only move the right arm/stick and the minimum necessary shoulder/torso motion for rebound. Then redeploy and verify hit -> rebound -> next SN:L hit in the live 11-lane screen on PC and Xperia portrait.",
+      "evidence": [
+        "Runtime Character QA run 35302038227 attempt 2, artifact 10529434566.",
+        "PC live screenshot at 4.960410s: SN:R hit / layers/character/sn/hit_r.png.",
+        "PC live screenshot at 5.014583s: SN:R rebound / layers/character/sn/rebound_r.png.",
+        "Same phase/frame sequence is present in Xperia-class portrait evidence with no browser console/page errors."
       ],
       "verification": []
     }
