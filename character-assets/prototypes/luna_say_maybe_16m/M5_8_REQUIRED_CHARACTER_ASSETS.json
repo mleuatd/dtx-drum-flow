@@ -33,7 +33,7 @@
       "rebound": "bd_rc_rebound"
     },
     "RD:R": {
-      "status": "READY_GITHUB_RUNTIME_QA_PENDING",
+      "status": "DONE",
       "hit": "rd_r_hit",
       "rebound": "rd_r_rebound",
       "historicalCandidate": "character-assets/layers/character/rd/hit_r.png",
@@ -43,24 +43,31 @@
   "requiredNewFrames": {
     "rd_r_hit": {
       "path": "layers/character/rd/hit_r_refresh.png",
-      "state": "READY_GITHUB",
+      "state": "DONE_LIVE_QA",
       "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/rd_r_hit_refresh_20260918.png"
     },
     "rd_r_rebound": {
       "path": "layers/character/rd/rebound_r_refresh.png",
-      "state": "READY_GITHUB",
+      "state": "DONE_LIVE_QA",
       "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/rd_r_rebound_refresh_20260918.png"
     }
   },
-  "implementationState": "MAPPED_1_8_RUNTIME_QA_PENDING",
+  "implementationState": "DONE",
   "qaEvidence": {
     "visualQaRun": 35315598184,
     "artifactId": 10535695236,
     "qaIssue": "CHAR-QA-0005",
     "fixedDrumComposite": "PASSED_IN_CHAT_2026-09-18",
     "hitSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
-    "reboundSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4"
+    "reboundSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+    "runtimeQaRun": 35327283366,
+    "runtimeQaArtifact": 10539831628,
+    "pcViewport": "1280x900",
+    "xperiaViewport": "384x864",
+    "browserErrors": 0,
+    "assetWarnings": 0,
+    "initWarnings": 0
   }
 }
