@@ -193,14 +193,16 @@
       "x": 0,
       "y": 0,
       "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
-      "status": "RUNTIME_READY",
-      "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; ready for M9-16 runtime QA",
+      "status": "LIVE_QA_PASSED",
+      "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; approved for M1-16 live runtime",
       "part": "BD+SN",
       "phase": "hit",
       "hand": "RF/L",
       "notes": [
         "Visual QA run 35321151121 artifact 10537157014",
-        "Do not use until runtime transition QA passes."
+        "Do not use until runtime transition QA passes.",
+        "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
+        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
     },
     {
@@ -210,14 +212,16 @@
       "x": 0,
       "y": 0,
       "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
-      "status": "RUNTIME_READY",
-      "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; ready for M9-16 runtime QA",
+      "status": "LIVE_QA_PASSED",
+      "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; approved for M1-16 live runtime",
       "part": "BD+SN",
       "phase": "rebound",
       "hand": "RF/L",
       "notes": [
         "Visual QA run 35321151121 artifact 10537157014",
-        "Do not use until runtime transition QA passes."
+        "Do not use until runtime transition QA passes.",
+        "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
+        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
     },
     {
@@ -263,8 +267,8 @@
       "x": 0,
       "y": 0,
       "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
-      "status": "RUNTIME_READY",
-      "purpose": "Luna Say Maybe M9-16 RC+SN:R/L hit; static QA passed, runtime QA pending",
+      "status": "LIVE_QA_PASSED",
+      "purpose": "Luna Say Maybe M9-16 RC+SN:R/L hit; approved for M1-16 live runtime",
       "part": "RC+SN",
       "phase": "hit",
       "hand": "R/L",
@@ -272,7 +276,9 @@
         "Canonical candidate QA PASS",
         "Fixed-drum visual review PASS",
         "Formal Dropbox/GitHub save complete",
-        "Live runtime QA pending"
+        "Live runtime QA pending",
+        "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
+        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
     },
     {
@@ -282,8 +288,8 @@
       "x": 0,
       "y": 0,
       "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
-      "status": "RUNTIME_READY",
-      "purpose": "Luna Say Maybe M9-16 RC+SN:R/L rebound; static QA passed, runtime QA pending",
+      "status": "LIVE_QA_PASSED",
+      "purpose": "Luna Say Maybe M9-16 RC+SN:R/L rebound; approved for M1-16 live runtime",
       "part": "RC+SN",
       "phase": "rebound",
       "hand": "R/L",
@@ -291,7 +297,9 @@
         "Canonical candidate QA PASS",
         "Fixed-drum visual review PASS",
         "Formal Dropbox/GitHub save complete",
-        "Live runtime QA pending"
+        "Live runtime QA pending",
+        "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
+        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
     }
   ],
