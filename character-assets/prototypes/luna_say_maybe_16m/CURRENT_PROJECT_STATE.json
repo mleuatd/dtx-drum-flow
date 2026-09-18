@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:25:00+09:00",
+  "updatedAt": "2026-09-18T21:51:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -23,7 +23,7 @@
     {
       "measures": "9-16",
       "status": "BLOCKED_IMAGE_REQUIRED",
-      "blocker": "Corrected RC+SN:R/L hit/rebound pair"
+      "blocker": "Corrected RC+SN:R/L hit/rebound pair. Current chat lacks a usable approved-neutral image target for image edit."
     }
   ],
   "limbAuthority": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
@@ -45,7 +45,9 @@
     "NEW_IMAGE_REQUIRED": 22,
     "BLOCKED": 1,
     "newImageFilesNeeded": 44,
-    "blockedImageFiles": 2
+    "blockedImageFiles": 2,
+    "BD_SN_RUNTIME_PRELOADED": true,
+    "liveRuntimeScopeUnchanged": true
   },
   "approvedAssets": [
     "SN:L",
@@ -56,7 +58,7 @@
     "RD:R"
   ],
   "runtimePendingAssets": [
-    "BD+SN:RF/L"
+    "BD+SN:RF/L preloaded exact mapping; live transition QA pending"
   ],
   "missingAssets": [
     "RC+SN:R/L corrected hit",
@@ -76,7 +78,8 @@
     "validateAfterLbFix": "SUCCESS run 35335334582",
     "implementationInfrastructureValidate": "SUCCESS run 35337828588",
     "lunaBlockQaSmoke": "SUCCESS run 35337759100",
-    "lunaBlockQaSmokeArtifact": 10543239081
+    "lunaBlockQaSmokeArtifact": 10543239081,
+    "openWorkSweep": "PENDING_LATEST_MAIN_VALIDATION"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -117,7 +120,7 @@
     "measures": "9-16",
     "reason": "Immediate contiguous public-runtime blocker; only one corrected image pair is missing."
   },
-  "nextRecommendedWork": "Use NEXT_ASSET_QUEUE ASSETQ-001. Create corrected RC+SN:R/L hit from approved neutral using generated prompt; then ASSETQ-002 rebound. After approval continue NIMG-013..023.",
+  "nextRecommendedWork": "Attach the approved neutral/home pose PNG in the current chat, then create ASSETQ-001 corrected RC+SN:R/L hit using GENERATED_PROMPT_rc_sn_r_l_hit.md; after acceptance create ASSETQ-002 rebound. All currently possible non-image ledger work has been exhausted.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
@@ -150,7 +153,13 @@
     "character-assets/prototypes/luna_say_maybe_16m/NEXT_CHAT_COMMAND.md",
     "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json",
     "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md",
-    "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json"
+    "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json",
+    "character-assets/prototypes/luna_say_maybe_16m/OPEN_WORK_QUEUE.json",
+    "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
+    "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
+    "character-assets/prototypes/luna_say_maybe_16m/ACTIVE_PIPELINE_SESSION.json",
+    "character-assets/prototypes/luna_say_maybe_16m/GENERATED_PROMPT_rc_sn_r_l_hit.md",
+    "character-assets/prototypes/luna_say_maybe_16m/REBOUND_INSTRUCTION_rc_sn_r_l.md"
   ],
   "historicalFiles": [
     "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -257,5 +266,12 @@
     "sessionBootstrap": "tools/start-pipeline-task.mjs",
     "behavior": "At each session start, rebuild context cache, run efficiency audit, and autonomously implement safe HIGH-priority optimization suggestions.",
     "safety": "Do not weaken visual QA/rejected checks/limb authority/block completion/runtimeScope gates."
+  },
+  "openWorkQueue": {
+    "path": "character-assets/prototypes/luna_say_maybe_16m/OPEN_WORK_QUEUE.json",
+    "total": 19,
+    "done": 1,
+    "blocked": 18,
+    "canRunNow": 0
   }
 }
