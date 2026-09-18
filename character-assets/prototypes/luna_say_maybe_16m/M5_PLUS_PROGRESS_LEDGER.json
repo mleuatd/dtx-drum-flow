@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T18:55:00+09:00",
+  "updatedAt": "2026-09-18T19:00:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -288,7 +288,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Image-independent M9-16 preparation is complete through NIMG-012. Wait for corrected RC+SN hit/rebound, then resume at NIMG-013; do not change live runtimeScope from 1-8 before static QA passes.",
+  "nextAction": "Reusable M9-16 asset behavior is QA-complete except the two transitions touching missing RC+SN. Wait for corrected RC+SN hit/rebound, resume at NIMG-013, then re-run the two blocked transitions plus full M9-16 live QA before marking the block DONE.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -304,7 +304,11 @@
     "m9_16AssetReadiness": "e4e9840b0103c0b28bb76dcd2d2808f6cf2b14e8",
     "temporaryExportRemoval": "e2cfb8d9afd0fc2f2f7f542cfeade3921691b3ac",
     "rcSnBlockedQa": "6949226263e1310e52f99389e79391b103e9bcae",
-    "m9_16NonImageDocs": "1b3ae783681dfb03f4cab0e7c3146be60da41ceb"
+    "m9_16NonImageDocs": "1b3ae783681dfb03f4cab0e7c3146be60da41ceb",
+    "existingAssetQaChecklist": "305f2be794e00ef40e07ed1592a409e76fdd39d5",
+    "existingAssetQaHarness": "7910bdefd6f408f9f130ab1af40696cd6c6f074f",
+    "existingAssetQaHarnessRaceFix": "17f858b67ed9d67b6a9a5cdcf744dacbf611b148",
+    "existingAssetQaResults": "d1b80ed6e8079160fe10561598c1207449f1222d"
   },
   "nonImageGenerationWorkQueue": {
     "purpose": "All work that can be prepared or completed without invoking image generation. Execute in order; do not mark M9_16 DONE until RC+SN image-dependent gates also pass.",
@@ -611,40 +615,56 @@
     "title": "M9-16 EXISTING ASSET RUNTIME QA",
     "scope": "measures 9-16",
     "liveRuntimeScopeUnchanged": "1-8",
-    "status": "IN_PROGRESS",
+    "status": "BLOCKED",
     "rule": "Existing approved/reusable images must be exercised in the actual M9-16 note contexts; prior M1-8 approval is not sufficient.",
     "qaMode": "GitHub Actions Playwright against public Pages with QA-only intercepted inventory expanded to M1-16. RC+SN is a neutral stub only to allow initialization and is excluded from approval.",
     "assets": [
       {
         "actionKey": "BD:RF",
-        "status": "TODO"
+        "status": "BLOCKED",
+        "coreBehavior": "PASS",
+        "reason": "Only transition from missing RC+SN 25.649835 into BD:RF 25.865662 remains untestable."
       },
       {
         "actionKey": "RD:R",
-        "status": "TODO"
+        "status": "DONE",
+        "coreBehavior": "PASS"
       },
       {
         "actionKey": "SN:L",
-        "status": "TODO"
+        "status": "DONE",
+        "coreBehavior": "PASS"
       },
       {
         "actionKey": "HH:R",
-        "status": "TODO"
+        "status": "DONE",
+        "coreBehavior": "PASS"
       },
       {
         "actionKey": "BD+RC:*",
-        "status": "TODO"
+        "status": "DONE",
+        "coreBehavior": "PASS"
       },
       {
         "actionKey": "BD+SN:*",
-        "status": "TODO"
+        "status": "BLOCKED",
+        "coreBehavior": "PASS",
+        "reason": "Only transition from BD+SN 25.434007 into missing RC+SN 25.649835 remains untestable."
       }
     ],
     "blocked": [
       {
         "actionKey": "RC+SN:*",
         "status": "BLOCKED",
-        "reason": "Corrected hit/rebound images do not exist yet; never approve using QA stub."
+        "reason": "Corrected hit/rebound images do not exist yet; QA used neutral stub only for initialization and never approved it."
+      },
+      {
+        "transition": "BD+SN:*@25.434007 -> RC+SN:*@25.649835",
+        "status": "BLOCKED"
+      },
+      {
+        "transition": "RC+SN:*@25.649835 -> BD:RF@25.865662",
+        "status": "BLOCKED"
       }
     ],
     "requiredPerAssetEvidence": [
@@ -674,6 +694,31 @@
     "notes": [
       "QA-only inventory interception must not modify public/live asset_inventory.json.",
       "Any transition crossing the missing RC+SN event must remain BLOCKED until corrected RC+SN exists."
+    ],
+    "coreQaStatus": "DONE",
+    "run": 35331851179,
+    "artifact": 10542000517,
+    "resultFile": "character-assets/prototypes/luna_say_maybe_16m/M9_16_EXISTING_ASSET_RUNTIME_QA.json",
+    "firstFailedHarnessRun": 35331421842,
+    "firstFailedHarnessArtifact": 10541059175,
+    "harnessFixCommit": "17f858b67ed9d67b6a9a5cdcf744dacbf611b148",
+    "automatedSummary": {
+      "frameMismatches": 0,
+      "loadFailures": 0,
+      "assetWarnings": 0,
+      "consolePageErrors": 0,
+      "pc": "PASS",
+      "xperia": "PASS"
+    },
+    "manualScreenshotQa": "PASS for all reusable assets; contact sheets reviewed on PC and Xperia. No visible disappearance, wrong-person jump, or drum-registration drift found.",
+    "completedChecks": [
+      "All M9-16 reusable-key occurrences captured at pre/hit/rebound/post on PC and Xperia.",
+      "Hit/rebound runtime frame matches: zero mismatches.",
+      "Character/drum 1448x1086 load checks: zero failures after harness race fix.",
+      "Asset/init warnings: zero.",
+      "Console/page errors: zero.",
+      "Manual contact-sheet review completed for BD:RF, RD:R, SN:L, HH:R, BD+RC:*, BD+SN:* on both viewports.",
+      "Final HH:R at 30.829691 confirmed rebound -> neutral return."
     ]
   }
 }
