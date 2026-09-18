@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - "character-assets/candidate-staging/**/*.json"
+  pull_request:
+    branches: [main]
+    paths:
+      - "character-assets/candidate-staging/**/*.json"
   workflow_dispatch:
     inputs:
       staging_path:
@@ -22,6 +26,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -33,6 +38,9 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             STAGING_PATH="${{ inputs.staging_path }}"
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            git fetch origin "${{ github.base_ref }}"
+            STAGING_PATH="$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep '^character-assets/candidate-staging/.*\.json$' | head -n 1)"
           else
             STAGING_PATH="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^character-assets/candidate-staging/.*\.json$' | head -n 1)"
           fi
@@ -97,6 +105,7 @@ jobs:
           stage_path.write_text(json.dumps(stage,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
           PY
       - name: Commit review-only candidates
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -106,5 +115,10 @@ jobs:
             exit 0
           fi
           git commit -m "assets: import character review candidates"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            TARGET_BRANCH="${{ github.head_ref }}"
+          else
+            TARGET_BRANCH="main"
+          fi
+          git pull --rebase origin "$TARGET_BRANCH"
+          git push origin HEAD:"$TARGET_BRANCH"
