@@ -408,6 +408,42 @@
         "Fixed-drum visual QA PASS; only BD kick cue differs from APPROVED SN:R.",
         "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
       ]
+    },
+    {
+      "path": "character-assets/layers/character/ft/hit_r_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 FT:R hit; deterministic approved-neutral-preserving local right-stick edit",
+      "part": "FT",
+      "phase": "hit",
+      "hand": "R",
+      "notes": [
+        "Formal import workflow 35398522113 SUCCESS.",
+        "Fixed-drum visual QA PASS.",
+        "Runtime scope remains 1-16 until M17 contiguous gate passes."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/ft/rebound_r_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 FT:R rebound; deterministic approved-neutral-preserving local right-stick edit",
+      "part": "FT",
+      "phase": "rebound",
+      "hand": "R",
+      "notes": [
+        "Formal import workflow 35398522113 SUCCESS.",
+        "Fixed-drum visual QA PASS.",
+        "Runtime scope remains 1-16 until M17 contiguous gate passes."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
