@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:48:00+09:00",
+  "updatedAt": "2026-09-18T21:40:00+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -55,7 +55,7 @@
       "requiresGitHubAction": false,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "No corrected image exists; current chat has no usable approved-neutral image attachment for image edit.",
+      "blocker": "Latest RC+SN hit retry produced edit_op=null fresh front-facing redraw SHA256 49a78e87...; approved neutral was not consumed as a true image edit.",
       "recommendedTool": "tools/build-character-generation-prompt.mjs / GENERATED_PROMPT_rc_sn_r_l_hit.md",
       "executionOrder": 2
     },
