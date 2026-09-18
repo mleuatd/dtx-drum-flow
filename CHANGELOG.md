@@ -1,3 +1,10 @@
+## 2026-09-19 — Character generation preflight memory
+- Added mandatory `CHARACTER_GENERATION_PLAYBOOK.json` as a compact pre-generation memory for character image work.
+- Playbook captures recurring failure modes, successful first-attempt heuristics, baseline-parent rules, and the QA retry loop.
+- Wired the playbook into `build-pipeline-context-cache.mjs` and `start-pipeline-task.mjs`, so session bootstrap automatically exposes it before character generation.
+- Updated pipeline policy, production guide, next-chat bootstrap, and current project state to require the playbook before the first image attempt.
+- Long historical ledgers are now secondary references; the compact playbook is read first for speed.
+
 ## 2026-09-18 — M9-16 final state reconciliation
 - Reconciled stale ledger/queue/handoff fields after successful M1-16 live deployment and QA.
 - Confirmed live runtimeScope is 1-16; NIMG-018 through NIMG-023 are complete.
