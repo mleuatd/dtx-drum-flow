@@ -54,8 +54,16 @@ function findGroupAt(time){
 function phaseFor(group,time){
   const delta=Number(time)-group[0].time;
   const timing=data?.motionTiming||{};
-  const hitEnd=Number(timing.hitEndSeconds??.09);
-  const reboundEnd=Number(timing.reboundEndSeconds??.17);
+  const baseHitEnd=Number(timing.hitEndSeconds??.09);
+  const baseReboundEnd=Number(timing.reboundEndSeconds??.17);
+  const index=data?.groups?.indexOf(group)??-1;
+  const nextTime=index>=0?Number(data?.groups?.[index+1]?.[0]?.time):NaN;
+  const gap=Number.isFinite(nextTime)?Math.max(0,nextTime-Number(group[0].time)):Infinity;
+  let hitEnd=baseHitEnd,reboundEnd=baseReboundEnd;
+  if(Number.isFinite(gap)&&gap<baseReboundEnd){
+    hitEnd=Math.min(baseHitEnd,Math.max(.055,gap*.65));
+    reboundEnd=Math.min(baseReboundEnd,Math.max(hitEnd+.02,gap-.004));
+  }
   if(delta<0)return "neutral";
   if(delta<hitEnd)return "hit";
   if(delta<reboundEnd)return "rebound";
