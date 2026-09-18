@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-09-18 — M5+ refreshed continuation / progress-ledger pass
+- Added `M5_PLUS_PROGRESS_LEDGER.json` to track completed, in-progress, skipped/rejected, runtime-pending and unresolved work by measure block.
+- Recorded every current-chat generation attempt with SHA/reason. Rejected: wrong-side RD pair, drum-leaking first BD+SN pair, wrong-side RC+SN pair, unrelated management-sheet misgeneration, and a later front-facing/different-character RD retry.
+- Corrected BD+SN hit/rebound were preserved in Dropbox, imported review-only to GitHub, visually QA'd over the fixed drum (run `35321151121`, artifact `10537157014`), then copied to formal layer paths:
+  - `character-assets/layers/character/combo/bd_sn_hit_refresh.png`
+  - `character-assets/layers/character/combo/bd_sn_rebound_refresh.png`
+  Both remain `VISUAL_QA_PASSED_RUNTIME_PENDING`; no runtime mapping yet.
+- Added review-only candidate import workflow. Fixed missing Pillow and missing Dropbox secret by supporting per-asset short-lived download URLs. Candidate import succeeded in commit `36a4c7706f2110aa9040f3dedcdf1fff968af8b0`.
+- Refactored `site/character-prototype.js` to read runtime measure scope from `asset_inventory.json` instead of hardcoding measure 4. Current inventory remains measures 1-4, so public behavior is unchanged.
+- Updated UI contract test for inventory-driven scope and adjusted character asset validation to allow registered later-measure runtime-pending layers while separately enforcing the active M1-4 runtime set.
+- Public GitHub Pages redeploy succeeded. Live Playwright runtime QA after the scope refactor succeeded: run `35321917979`, artifact `10536838661`.
+- Added full-song limb analysis draft: 1,819 mechanically resolved notes, 195 unresolved notes, 179 rapid-SN notes, 8 same-limb simultaneous conflict groups. Draft remains analysis-only.
+- Added later-measure part-combination inventory for measures 17-148: 2,014 notes / 1,403 groups, with no limb guessing.
+- Current hard blocker for live expansion remains refreshed RD:R hit/rebound. RC+SN also still needs regeneration. Historical/rejected images are explicitly forbidden from reuse.
+
 ## 2026-09-18 — Refreshed Luna M5+ expansion preparation
 - Started the requested refreshed expansion from measure 5 onward using completed M1-4 as the absolute visual baseline; the live runtime remains M1-4 until new frames pass QA.
 - Recomputed measures 5-8 from FINAL notes + authoritative limb sidecar: 33 notes / 32 groups; only new action key is RD:R.
