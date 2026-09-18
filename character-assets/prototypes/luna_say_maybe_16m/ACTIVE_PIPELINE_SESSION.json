@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 2,
+  "startedAt": "2026-09-18T21:45:00+09:00",
+  "taskCategory": "full-path",
+  "status": "PIPELINE_REQUIRED_WITH_MANUAL_OVERRIDE",
+  "requiredTools": [
+    ".github/workflows/luna-full-path.yml"
+  ],
+  "repository": "mleuatd/dtx-drum-flow",
+  "branch": "main",
+  "liveRuntimeScope": {
+    "measureStart": 1,
+    "measureEnd": 8,
+    "status": "COMPLETE_LIVE_QA"
+  },
+  "currentNextWork": "Exhaust all ledger work possible before corrected RC+SN image generation.",
+  "nextAsset": {
+    "id": "ASSETQ-001",
+    "actionKey": "RC+SN:R/L",
+    "phase": "hit",
+    "block": "B09_16",
+    "firstMeasure": 13,
+    "occurrenceCount": 34,
+    "priority": "P0",
+    "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
+    "currentAssetStatus": "BLOCKED",
+    "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
+    "nextAfterCompletion": "ASSETQ-002",
+    "status": "BLOCKED_IMAGE_GENERATION_REQUIRED"
+  },
+  "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
+  "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
+  "manualOverride": {
+    "id": "MANUAL_OVERRIDE-20260918-OPENWORK",
+    "reason": "No workflow_dispatch/direct repository Node execution entrypoint in current connector.",
+    "workaround": "Equivalent authoritative JSON logic executed through GitHub file reads/writes; validation remains mandatory."
+  },
+  "completionEvidence": [
+    {
+      "tool": "approved BD+SN preload equivalent",
+      "commit": "35e0cde374f715c03b937489b3153ad2405b8cf4"
+    },
+    {
+      "tool": "open-work queue synthesis",
+      "status": "IN_PROGRESS"
+    }
+  ]
+}
