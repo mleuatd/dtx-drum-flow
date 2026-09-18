@@ -129,3 +129,9 @@ Use:
 
 Risk-aware M1-8 regression after runner integration: run 35340512012 SUCCESS, artifact 10544374908.
 Production pipeline contract validation: run 35340578530 SUCCESS.
+
+## Mandatory pipeline-first execution
+Before repeatable work, run `node tools/production-pipeline-dispatcher.mjs <task-category>` or `node tools/start-pipeline-task.mjs <task-category>`.
+Use the returned existing tools/workflows instead of recreating equivalent logic manually.
+If a required existing tool cannot be used, record a `MANUAL_OVERRIDE` with skipped tool, reason, evidence and follow-up repair/extension task.
+A result can be technically correct but still non-compliant if a mandatory existing tool was skipped without override evidence.
