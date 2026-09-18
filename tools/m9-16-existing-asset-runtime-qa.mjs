@@ -19,7 +19,7 @@ qaInventory.runtimeFrameMap["RC+SN:*"]="neutral";
 qaInventory.runtimePhaseFrameMap["RC+SN:*"]={prep:"neutral",hit:"neutral",rebound:"neutral"};
 
 const allEvents=plan.m9_16QaEvents;
-const events=allEvents.filter(e=>e.key!=="RC+SN:*");
+const events=allEvents;
 const viewports=[
   {name:"pc",width:1280,height:900},
   {name:"xperia-portrait",width:384,height:864}
@@ -62,7 +62,7 @@ const summary={
   generatedAt:new Date().toISOString(),
   mode:"QA-only inventory interception; public runtime remains M1-8",
   targetScope:qaInventory.runtimeScope,
-  rcSnPolicy:"RC+SN is mapped to neutral only to satisfy prototype initialization and is excluded from approval.",
+  rcSnPolicy:"RC+SN formal hit/rebound pair is included in approval; verify BD+SN -> RC+SN -> BD transition.",
   records:[],
   perKey:{},
   viewports:{}
