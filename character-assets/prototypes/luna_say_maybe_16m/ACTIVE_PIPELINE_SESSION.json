@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "READY_ADAPTIVE_RETRY_ASSETQ_003",
+  "status": "IN_PROGRESS_M17_ASSETQ_005",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,14 +13,14 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "ASSETQ-003 LT:R hit only",
+  "currentNextWork": "ASSETQ-005 LT:L hit",
   "nextAsset": {
-    "id": "ASSETQ-003",
-    "actionKey": "LT:R",
+    "id": "ASSETQ-005",
+    "actionKey": "LT:L",
     "phase": "hit",
     "firstMeasure": 17,
-    "status": "BLOCKED",
-    "blocker": "Direct image edit unavailable (edit_op=null), and current local edit strategies fail visual naturalness/attachment QA."
+    "status": "READY",
+    "blocker": null
   },
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
@@ -115,12 +115,7 @@
     }
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
-  "blocker": {
-    "type": "PREVIOUS_RETRY_LOOP",
-    "status": "RESOLVED_BY_PIPELINE_CHANGE",
-    "resolvedAt": "2026-09-19T05:45:00+09:00",
-    "resolution": "Added adaptive retry controller; edit_op=null downgraded from automatic reject to risk signal; repeated same-failure strategy now prohibited; local repair preferred when core continuity passes."
-  },
-  "nextAction": "Resume ASSETQ-003 LT:R hit using character-retry-controller decision. Do not reuse any previously failed strategy.",
-  "updatedAt": "2026-09-19T05:45:00+09:00"
+  "blocker": null,
+  "nextAction": "Create LT:L hit using recalibrated LT contact point; use adaptive/local repair strategy and do not touch completed LT:R pair.",
+  "updatedAt": "2026-09-19T07:15:00+09:00"
 }
