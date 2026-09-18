@@ -89,3 +89,16 @@ It contains exact pre/hit/rebound/post sample times for 775 reusable-asset event
 
 ## Autonomy rule
 Do not ask the user about naming, file placement, block boundaries, QA timestamps, reuse classification, or validation fixes when current GitHub data already determines the answer.
+
+## Implementation infrastructure — REQUIRED BEFORE FUTURE ASSET WORK
+- Naming: `ASSET_NAMING_RULES.md/json`
+- Action mapping: `ACTION_KEY_ASSET_MAP.json`
+- Generation/edit spec: `CHARACTER_ASSET_GENERATION_SPEC.md`
+- Instrument targets: `INSTRUMENT_CONTACT_POINTS.json`
+- Motion rules: `POSE_TRANSITION_RULES.json`
+- QA checklist: `QA_CHECKLIST_MASTER.json`
+- Reject deny-list: `REJECTED_ASSET_REGISTRY.json`
+- DONE gates: `BLOCK_COMPLETION_DEFINITION.json`
+- One-command QA: `.github/workflows/luna-block-qa.yml` with `tools/luna-block-qa.mjs`
+
+Runtime combo resolution is now exact limb-aware key first, legacy wildcard second. Existing M1-8 behavior is preserved. Before any new image generation/edit, read the generation spec, contact master, naming rules and QA checklist. Before runtime mapping, consult ACTION_KEY_ASSET_MAP and the rejected registry.
