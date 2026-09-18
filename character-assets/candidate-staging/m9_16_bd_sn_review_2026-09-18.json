@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Review-only preservation of refreshed BD+SN candidates. Do not map to runtime until QA passes.",
+  "song": "Luna Say Maybe",
+  "scope": {
+    "measureStart": 9,
+    "measureEnd": 16
+  },
+  "status": "PENDING_IMPORT",
+  "runtimeMapped": false,
+  "manifestRegistered": false,
+  "assets": [
+    {
+      "assetKey": "bd_sn_hit_refresh",
+      "part": "BD+SN",
+      "phase": "hit",
+      "limbs": [
+        "RF",
+        "L"
+      ],
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_sn_hit_refresh_candidate_20260918_b222db6a_correct.png",
+      "githubCandidatePath": "character-assets/candidates/luna_say_maybe/m9_16/bd_sn_hit_refresh_b222db6a.png",
+      "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
+      "width": 1448,
+      "height": 1086,
+      "qaState": "READY_FOR_REVIEW"
+    },
+    {
+      "assetKey": "bd_sn_rebound_refresh",
+      "part": "BD+SN",
+      "phase": "rebound",
+      "limbs": [
+        "RF",
+        "L"
+      ],
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_sn_rebound_refresh_candidate_20260918_87296211_correct.png",
+      "githubCandidatePath": "character-assets/candidates/luna_say_maybe/m9_16/bd_sn_rebound_refresh_87296211.png",
+      "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
+      "width": 1448,
+      "height": 1086,
+      "qaState": "READY_FOR_REVIEW"
+    }
+  ],
+  "rejectedDropboxAliases": [
+    {
+      "path": "/ChatGPT/dtx-drum-flow/bd_sn_hit_refresh_candidate_20260918_b222db6a.png",
+      "actualSha256": "107ea57b0a5d72aaa299d72fb11df17df61e2f066b490925e56e1e940d19d42e",
+      "reason": "Mislabeled rejected first attempt; contains drum kit in character layer. NEVER USE."
+    },
+    {
+      "path": "/ChatGPT/dtx-drum-flow/bd_sn_rebound_refresh_candidate_20260918_87296211.png",
+      "actualSha256": "57d0c67f821ba53b4586ef81f240e59170c234828e624f3ae3036c8b8889dfd3",
+      "reason": "Mislabeled rejected first attempt; contains drum kit in character layer. NEVER USE."
+    }
+  ]
+}
