@@ -287,3 +287,25 @@ Manually inspected screenshots:
 Result: screen-right ride strike, rebound continuity and fixed-drum registration are acceptable. `CHAR-QA-0005` is DONE.
 
 Next work block: measures 9-16. RD can now be reused. BD+SN refreshed pair is already visual-QA-passed; RC+SN hit/rebound still need corrected screen-right crash motion before M9-16 runtime mapping/QA.
+
+
+## M9-16 non-image preparation update — 2026-09-18 18:45 JST
+
+Image generation is currently rate-limited. All safe non-image preparation has been advanced.
+
+Current authoritative state:
+- M5-8: DONE.
+- Live runtime scope: measures 1-8.
+- RD:R: approved refresh hit/rebound reused for M9-16.
+- BD+SN: formal refresh hit/rebound saved, static visual QA passed, runtime QA pending.
+- RC+SN: only missing image pair. Authoritative event is measure 13 at 25.649835, SN=L / RC=R, screen-right RC.
+- Latest RC+SN retry was rejected: image system produced an unrelated front-facing redraw instead of editing the approved neutral (`edit_op=null`). It was not registered anywhere. Subsequent image retry was blocked by image-generation rate limit. Tracked as `CHAR-QA-0007`.
+
+Prepared non-image implementation plan:
+- `M9_16_RUNTIME_EXPANSION_PLAN.json`
+- target scope after RC+SN approval: measures 1-16, 144 notes / 124 groups.
+- runtime combo keys use the existing wildcard convention: `BD+SN:*` and `RC+SN:*`.
+- do not change `asset_inventory.runtimeScope` from 1-8 until corrected RC+SN hit/rebound pass static fixed-drum QA.
+- after corrected RC+SN exists, resume at NIMG-013 in `M5_PLUS_PROGRESS_LEDGER.json`.
+
+Temporary `.github/workflows/export-luna-character-sources.yml` used only to recover source PNGs was removed after evidence/source recovery completed.
