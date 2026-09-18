@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "startedAt": "2026-09-18T21:45:00+09:00",
+  "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "DONE_M9_16",
+  "status": "BLOCKED_BASELINE_PARENT_NOT_AVAILABLE_TO_IMAGE_EDITOR",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,14 +13,14 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "ASSETQ-003 LT:R hit is READY for M17 preparation; do not generate M17 assets in this M9-16 closure task.",
+  "currentNextWork": "ASSETQ-003 LT:R hit for M17",
   "nextAsset": {
     "id": "ASSETQ-003",
     "actionKey": "LT:R",
     "phase": "hit",
     "firstMeasure": 17,
-    "status": "READY",
-    "blocker": null
+    "status": "READY_BUT_EXTERNAL_BLOCKED",
+    "blocker": "Approved neutral is identified in GitHub/Dropbox, but the current image editor cannot consume connector/tool preview bytes as the required direct-edit parent image."
   },
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
@@ -115,7 +115,17 @@
     }
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
-  "blocker": null,
-  "nextAction": "M9-16 is closed. Next READY task is ASSETQ-003 LT:R hit for M17, but image generation was intentionally not started.",
-  "updatedAt": "2026-09-18T22:54:00+09:00"
+  "blocker": {
+    "type": "EXTERNAL_IMAGE_PARENT_ACCESS",
+    "at": "2026-09-19T04:52:00+09:00",
+    "baselineGithubPath": "character-assets/layers/character/base/neutral.png",
+    "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "baselineDropboxPath": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+    "reason": "Project rules require direct edit of approved neutral. The current image generation tool cannot see GitHub/Dropbox connector previews as editable image inputs, so generating now would risk a prohibited fresh redraw.",
+    "completed": "Verified main state, M1-16 live QA, READY order, baseline identity/path/SHA, playbook/failure/contact rules, and Dropbox baseline existence.",
+    "resumeUnit": "ASSETQ-003 LT:R hit only; after PASS, ASSETQ-004 LT:R rebound.",
+    "nextReady": "ASSETQ-003 LT:R hit"
+  },
+  "nextAction": "Resume ASSETQ-003 only when the approved neutral PNG is available as a usable image input in the current conversation/image editor; do not substitute text-only generation.",
+  "updatedAt": "2026-09-19T04:52:00+09:00"
 }
