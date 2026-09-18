@@ -8,7 +8,8 @@
     "Do not manually reimplement an operation already covered by a repository tool/workflow.",
     "If an existing tool cannot be used, record a MANUAL_OVERRIDE with tool, reason, evidence, and follow-up fix in the ledger.",
     "New reusable logic discovered during manual work should be promoted into a tool/workflow before repeating the operation.",
-    "Image generation itself is not automated by this policy; generation still follows image/tool availability and visual QA gates."
+    "Image generation itself is not automated by this policy; generation still follows image/tool availability and visual QA gates.",
+    "At session start, run the efficiency audit; autonomously implement safe HIGH-priority optimization suggestions and record them in the ledger."
   ],
   "taskRouting": {
     "choose-next-asset": [
@@ -57,6 +58,15 @@
     ],
     "full-path": [
       ".github/workflows/luna-full-path.yml"
+    ],
+    "session-bootstrap": [
+      "tools/start-pipeline-task.mjs",
+      "tools/build-pipeline-context-cache.mjs",
+      "tools/audit-pipeline-efficiency.mjs"
+    ],
+    "optimize-pipeline": [
+      "tools/audit-pipeline-efficiency.mjs",
+      "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json"
     ]
   },
   "compliance": {
