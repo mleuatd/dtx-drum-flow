@@ -27,3 +27,7 @@ rebound指示:
 画像生成後は candidate QA → fixed-drum composite/contact QA → staging → formal save → NIMG-013..023 の順で、既存pipeline/toolを優先して自律的に進めてください。
 
 Rejected/Never Use資産の再利用、neutral代替PASS、runtimeScopeの先行拡張は禁止です。
+
+
+### Current blocker update
+Latest RC+SN hit retry SHA256 `49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c` is `NEVER_USE` because generation metadata reported `edit_op=null` and visual QA confirmed a fresh front-facing redraw. Retry only from the approved neutral as a true image edit; rebound remains blocked until hit passes.
