@@ -1,7 +1,7 @@
 const PROTOTYPE_URL="./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json";
 const DEFAULT_MEASURE_START=1;
 const DEFAULT_MEASURE_END=4;
-const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json";
+const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_full_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
 const ASSET_VERSION="20260918-inventory-scope-r1";
