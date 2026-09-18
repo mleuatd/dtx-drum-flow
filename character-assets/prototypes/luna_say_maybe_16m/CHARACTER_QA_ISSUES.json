@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 16
   },
-  "updatedAt": "2026-09-18T17:58:00+09:00",
+  "updatedAt": "2026-09-18T18:06:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -240,9 +240,9 @@
     {
       "id": "CHAR-QA-0005",
       "createdAt": "2026-09-18T15:40:00+09:00",
-      "updatedAt": "2026-09-18T17:58:00+09:00",
-      "completedAt": null,
-      "status": "READY_FOR_REVIEW",
+      "updatedAt": "2026-09-18T18:06:00+09:00",
+      "completedAt": "2026-09-18T18:06:00+09:00",
+      "status": "DONE",
       "severity": "high",
       "assetKey": "rd_r_hit,rd_r_rebound",
       "phase": "hit/rebound",
@@ -267,9 +267,14 @@
       ],
       "verification": [
         "Historical candidate rejected; it has not been added to the refreshed runtime inventory or mapping.",
-        "Fixed-drum composite visually checked in current chat: RD hit reaches screen-right ride; rebound remains a partial recovery."
+        "Fixed-drum composite visually checked in current chat: RD hit reaches screen-right ride; rebound remains a partial recovery.",
+        "Public Runtime Character QA run 35327283366 succeeded; artifact 10539831628.",
+        "472 live screenshots captured across PC 1280x900 and Xperia-class portrait 384x864; M5-8 subset 256 runtime records.",
+        "Browser errors 0, asset issues 0, init errors 0.",
+        "All RD:R hit samples used layers/character/rd/hit_r_refresh.png; all RD:R rebound samples used layers/character/rd/rebound_r_refresh.png with zero mismatches.",
+        "Manual screenshot inspection of PC and Xperia RD:R hit/rebound confirmed correct screen-right ride target, stable fixed-drum registration and natural hit-to-rebound continuity."
       ],
-      "blocker": "Public Pages live runtime QA is the only remaining gate."
+      "blocker": null
     },
     {
       "id": "CHAR-QA-0006",
