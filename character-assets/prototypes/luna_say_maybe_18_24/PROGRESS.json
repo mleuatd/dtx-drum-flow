@@ -29,8 +29,9 @@
       "limbs": "BD:RF + RD:R",
       "hit": {
         "status": "QA_FAILED",
-        "error": "Generation returned a multi-panel contact/reference sheet instead of one formal 1448x1086 character-only BD+RD hit frame. Rejected; never register as runtime asset.",
-        "retryState": "RETRY_REQUIRED_SINGLE_FRAME_BASELINE_DERIVED"
+        "error": "Retry #2 returned a two-panel dark reference sheet containing its own drum kit/text, not one transparent/formal character-only 1448x1086 hit frame; identity/camera also diverged from locked baseline.",
+        "retryState": "BLOCKED_NEEDS_TRUE_BASELINE_IMAGE_EDIT",
+        "attempts": 2
       },
       "rebound": {
         "status": "PENDING"
@@ -74,7 +75,7 @@
     }
   ],
   "currentTask": "BD+RD:RF/R hit",
-  "status": "IN_PROGRESS",
+  "status": "BLOCKED_IMAGE_GENERATION_INPUT",
   "resumeRule": "Read ledger and verify real files. Continue first non-DONE phase; never regenerate completed assets unless missing or SHA mismatch.",
   "notes": [
     "M18-24 scan completed against latest main.",
@@ -84,7 +85,8 @@
   "lastAttempt": {
     "phase": "BD+RD hit",
     "result": "REJECTED",
-    "reason": "multi-panel sheet / wrong artifact type",
-    "localFile": "/mnt/data/wide_clean_white_background_hand_drawn_black_and.png"
-  }
+    "reason": "two-panel dark sheet; embedded drums/text; fresh redraw",
+    "localFile": "/mnt/data/a_clean_white_background_black_and_white_rough_sk.png"
+  },
+  "blocker": "Current image generation attempts are fresh redraws/reference sheets rather than edits of the approved neutral baseline. Formal registration would violate baseline lock. Need the actual approved baseline supplied as image-edit target in the conversation/runtime before retrying."
 }
