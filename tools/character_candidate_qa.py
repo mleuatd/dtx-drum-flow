@@ -43,7 +43,7 @@ ap.add_argument("--expected-name")
 ap.add_argument("--out",default="candidate-qa.json")
 args=ap.parse_args()
 p=Path(args.candidate)
-res={"file":str(p),"status":"PASS","errors":[],"warnings":[],"sha256":sha256(p)}
+res={"file":str(p),"status":"PASS","gateClass":"PASS","errors":[],"warnings":[],"signals":[],"recommendedActions":[],"sha256":sha256(p)}
 try:
     im=Image.open(p)
 except Exception as e:
@@ -66,12 +66,12 @@ else:
         n=Image.open(args.neutral).convert("RGBA")
         res["neutralDiff"]=diff_metrics(n,rgba)
         ratio=res["neutralDiff"].get("changedPixelRatio",0)
-        if ratio>0.55:res["warnings"].append("large whole-frame diff vs neutral; possible redraw/camera/background change")
+        if ratio>0.55:\n            res["warnings"].append("large whole-frame diff vs neutral; possible redraw/camera/background change")\n            res["signals"].append("WHOLE_FRAME_DIFF_RISK")\n            res["recommendedActions"].append("Run visual identity/camera/stool continuity review before rejecting; do not reject from diff ratio alone.")
         ca=res["neutralDiff"].get("centroidA");cb=res["neutralDiff"].get("centroidB")
         if ca and cb:
             shift=((ca[0]-cb[0])**2+(ca[1]-cb[1])**2)**.5
             res["neutralDiff"]["centroidShiftPx"]=shift
-            if shift>45:res["warnings"].append("large alpha centroid shift; inspect body/stool/camera translation")
+            if shift>45:\n                res["warnings"].append("large alpha centroid shift; inspect body/stool/camera translation")\n                res["signals"].append("CENTROID_SHIFT_RISK")\n                res["recommendedActions"].append("Inspect core body/stool registration; if core is stable, repair only the moved limb/contact region.")
 if res["errors"]:res["status"]="FAIL"
 elif res["warnings"]:res["status"]="WARN"
 Path(args.out).write_text(json.dumps(res,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
