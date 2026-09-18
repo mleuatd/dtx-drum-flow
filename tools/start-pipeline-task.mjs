@@ -16,6 +16,7 @@ const out={schemaVersion:2,startedAt:new Date().toISOString(),taskCategory:task,
  currentNextWork:state.nextRecommendedWork,nextAsset:cache.nextAsset||null,contextCache:base+"/PIPELINE_CONTEXT_CACHE.json",
  autoOptimizationReport:base+"/AUTO_OPTIMIZATION_REPORT.json",autoOptimizationSuggestions:audit.suggestions||[],
  manualOverrideAllowed:!route,manualOverrideRequiredIfSkipped:!!route,completionEvidence:[],
- notes:route?["Use each required tool/workflow where applicable before manual equivalent.","Prefer PIPELINE_CONTEXT_CACHE.json for repeated read-heavy planning."]:["Search PRODUCTION_PIPELINE.md and repository tools before manual work."]};
+ characterGenerationPlaybook:base+"/CHARACTER_GENERATION_PLAYBOOK.json",
+ notes:route?["Use each required tool/workflow where applicable before manual equivalent.","Prefer PIPELINE_CONTEXT_CACHE.json for repeated read-heavy planning.","For any character image generation/edit task, read characterGenerationPlaybook from the context cache before the first image attempt."]:["Search PRODUCTION_PIPELINE.md and repository tools before manual work."]};
 const dest=process.argv[3]||base+"/ACTIVE_PIPELINE_SESSION.json";await fs.writeFile(dest,JSON.stringify(out,null,2)+"\n");
 console.log(JSON.stringify({dest,status:out.status,requiredTools:out.requiredTools,nextAsset:out.nextAsset?.id||null,autoOptimizationSuggestions:out.autoOptimizationSuggestions.length},null,2));
