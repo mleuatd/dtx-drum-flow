@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:20:00+09:00",
+  "updatedAt": "2026-09-19T05:45:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -138,7 +138,7 @@
     "measures": "17",
     "reason": "M9-16 is DONE; continue contiguously with the next required asset/action-key queue."
   },
-  "nextRecommendedWork": "M17 remains blocked at ASSETQ-003 LT:R hit because the current image editor repeatedly ignores direct-edit targets (edit_op=null); do not restart earlier work. Resume only this hit from the verified neutral baseline working copy.",
+  "nextRecommendedWork": "M17 ASSETQ-003 LT:R hit remains next. Before another attempt, use adaptive retry controller; do not repeat any prior failed strategy. edit_op=null alone is no longer an automatic reject.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
@@ -267,6 +267,13 @@
       "productionContractRun": 35340578530,
       "riskAwareM1_8Run": 35340512012,
       "riskAwareArtifact": 10544374908
+    },
+    "adaptiveCharacterRetry": {
+      "status": "ENABLED",
+      "controller": "tools/character-retry-controller.mjs",
+      "sameStrategyRepeatLimit": 1,
+      "editOpNullPolicy": "RISK_SIGNAL_NOT_AUTO_REJECT",
+      "repairPolicy": "LOCAL_REPAIR_BEFORE_FULL_REGEN"
     }
   },
   "pipelineUsagePolicy": {
