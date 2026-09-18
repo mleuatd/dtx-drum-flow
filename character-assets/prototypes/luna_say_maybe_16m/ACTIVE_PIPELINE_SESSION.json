@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-18T21:45:00+09:00",
   "taskCategory": "full-path",
-  "status": "PIPELINE_REQUIRED_WITH_MANUAL_OVERRIDE",
+  "status": "BLOCKED_IMAGE_TARGET_MISSING",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -43,6 +43,24 @@
     {
       "tool": "open-work queue synthesis",
       "status": "IN_PROGRESS"
+    },
+    {
+      "tool": "asset_inventory exact BD+SN preload",
+      "commit": "35e0cde374f715c03b937489b3153ad2405b8cf4",
+      "validationRun": 35343194244,
+      "characterAssetValidationRun": 35343194377
+    },
+    {
+      "tool": "OPEN_WORK_QUEUE normalization",
+      "commit": "7a857f5be4e4f85115513f65eab23fa741e915aa"
+    },
+    {
+      "tool": "final open-work validate",
+      "run": 35343438639,
+      "status": "SUCCESS"
     }
-  ]
+  ],
+  "completedAt": "2026-09-18T21:55:00+09:00",
+  "blocker": "The remaining critical path requires corrected RC+SN:R/L image generation. Current chat does not contain a usable approved-neutral image target for editing.",
+  "nextAction": "Attach approved neutral/home pose PNG in current chat, then execute ASSETQ-001 and ASSETQ-002."
 }
