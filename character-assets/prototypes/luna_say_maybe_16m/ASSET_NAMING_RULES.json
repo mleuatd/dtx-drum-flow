@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "formal": {
+    "singlePartRegex": "^character-assets/layers/character/(sn|hh|bd|ht|lt|ft|lc|rc|rd)/(hit|rebound)_(l|r|lf|rf)(?:_refresh)?\\.png$",
+    "comboRegex": "^character-assets/layers/character/combo/[a-z0-9]+(?:_[a-z0-9]+)+_(hit|rebound)(?:_refresh)?\\.png$"
+  },
+  "legacyApprovedPaths": [
+    "character-assets/layers/character/base/neutral.png",
+    "character-assets/layers/character/sn/hit_l.png",
+    "character-assets/layers/character/sn/rebound_l.png",
+    "character-assets/layers/character/sn/hit_r.png",
+    "character-assets/layers/character/sn/rebound_r.png",
+    "character-assets/layers/character/hh/hit_r.png",
+    "character-assets/layers/character/hh/rebound_r.png",
+    "character-assets/layers/character/bd/hit_rf.png",
+    "character-assets/layers/character/bd/rebound_rf.png",
+    "character-assets/layers/character/combo/bd_rc_hit.png",
+    "character-assets/layers/character/combo/bd_rc_rebound.png",
+    "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+    "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+    "character-assets/layers/character/rd/hit_r_refresh.png",
+    "character-assets/layers/character/rd/rebound_r_refresh.png"
+  ],
+  "assetKeyRegex": "^[a-z0-9]+(?:_[a-z0-9]+)*_(hit|rebound)(?:_refresh)?$",
+  "dropboxApprovedPattern": "/ChatGPT/dtx-drum-flow/<canonical-assetKey>_<YYYYMMDD>.png",
+  "candidateSuffix": "_candidate_<YYYYMMDD>_<shortsha>.png",
+  "policy": "Existing approved files are grandfathered; all new formal character files must match a formal regex."
+}
