@@ -1,0 +1,7 @@
+import fs from "node:fs/promises";
+const base="character-assets/prototypes/luna_say_maybe_16m";const read=async p=>JSON.parse(await fs.readFile(p,"utf8"));
+const state=await read(base+"/CURRENT_PROJECT_STATE.json"),ledger=await read(base+"/M5_PLUS_PROGRESS_LEDGER.json"),queue=await read(base+"/NEXT_ASSET_QUEUE.json"),reject=await read(base+"/REJECTED_ASSET_REGISTRY.json");
+const next=queue.items.find(x=>x.status!=="DONE")||null;const lines=["DTX Drum Flow の Luna Say Maybe 作業を最新GitHub mainから継続してください。","","対象GitHub: `"+state.repository+"`","対象ブランチ: `"+state.branch+"`","","最初に必ず読む:","- `"+base+"/CURRENT_PROJECT_STATE.json`","- `"+base+"/M5_PLUS_PROGRESS_LEDGER.json`","- `"+base+"/NEXT_IMPLEMENTATION_HANDOFF.md`","- `"+base+"/PRODUCTION_PIPELINE.md`","","現在のlive runtimeScope: "+state.liveRuntimeScope.measureStart+"〜"+state.liveRuntimeScope.measureEnd+"。"];
+if(next)lines.push("次のproduction queue: "+next.id+" / "+next.actionKey+" / "+next.phase+" / "+next.block+"。","現在status: "+next.status+"。","理由: "+next.reason);
+lines.push("","approved assetは再生成禁止。Rejected/Never Use資産は使用禁止。runtimeScopeは必要画像とQA完了まで拡張しない。","私への途中確認は原則求めず、台帳の最初の未完了項目から自律的に進め、完了ごとに小さくcommit/pushしてください。","","NEVER USE件数: "+reject.entries.length,"次の作業: "+state.nextRecommendedWork);
+const out=process.argv[2]||base+"/NEXT_CHAT_COMMAND.md";await fs.writeFile(out,lines.join("\n")+"\n");console.log(JSON.stringify({out,next},null,2));
