@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:02:00+09:00",
+  "updatedAt": "2026-09-19T07:10:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -148,7 +148,7 @@
     "measures": "17",
     "reason": "Continue M17 contiguous asset completion; BD+SN:RF/R pair is formal, FT:R is next."
   },
-  "nextRecommendedWork": "ASSETQ-013 BD+LT:RF/R hit is READY. All other M17 image pairs through FT:L are formal. Keep runtime scope 1-16 until final pair passes.",
+  "nextRecommendedWork": "Create final M17 BD+LT:RF/R hit/rebound with lightweight pre-runtime QA; formal-register both; then map M17 and perform consolidated PC/Xperia screenshot QA. Do not stop for contact micro-tuning before runtime.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
@@ -284,6 +284,13 @@
       "sameStrategyRepeatLimit": 1,
       "editOpNullPolicy": "RISK_SIGNAL_NOT_AUTO_REJECT",
       "repairPolicy": "LOCAL_REPAIR_BEFORE_FULL_REGEN"
+    },
+    "qaPhasePolicy": {
+      "status": "ENABLED",
+      "path": "character-assets/prototypes/luna_say_maybe_16m/M17_QA_PHASE_POLICY.json",
+      "preRuntime": "LIGHTWEIGHT_HARD_GATE_ONLY",
+      "postRuntime": "ACTUAL_PC_XPERIA_SCREENSHOT_QA",
+      "effectiveAt": "2026-09-19T07:10:00+09:00"
     }
   },
   "pipelineUsagePolicy": {
