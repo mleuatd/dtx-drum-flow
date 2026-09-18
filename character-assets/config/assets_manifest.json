@@ -185,11 +185,45 @@
       "phase": "rebound",
       "hand": "*",
       "notes": []
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
+      "status": "VISUAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; not runtime mapped yet",
+      "part": "BD+SN",
+      "phase": "hit",
+      "hand": "RF/L",
+      "notes": [
+        "Visual QA run 35321151121 artifact 10537157014",
+        "Do not use until runtime transition QA passes."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
+      "status": "VISUAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; not runtime mapped yet",
+      "part": "BD+SN",
+      "phase": "rebound",
+      "hand": "RF/L",
+      "notes": [
+        "Visual QA run 35321151121 artifact 10537157014",
+        "Do not use until runtime transition QA passes."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-18",
-  "qaScope": "Luna Say Maybe measures 1-4 complete",
-  "authoritativeImageCount": 12,
+  "qaScope": "M1-4 complete; refreshed BD+SN layers preserved visual-QA-passed/runtime-pending",
+  "authoritativeImageCount": 14,
   "note": "Approved fixed neutral/home pose from 2026-09-18 current-chat source, fixed 11-lane drum, and 10 measures 1-4 action variants.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
 }
