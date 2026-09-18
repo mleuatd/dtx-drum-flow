@@ -1,0 +1,674 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T19:34:00+09:00",
+  "song": "Luna Say Maybe",
+  "policy": {
+    "publicRuntimeMustRemainContiguous": true,
+    "currentLiveRuntimeScope": "1-8",
+    "formalPriority": "B09_16 first; later blocks cannot be publicly enabled out of order.",
+    "assetGenerationEfficiency": "After B09_16, prefer reusable/high-frequency pairs and low-novelty blocks, but do not skip B17 for formal live expansion."
+  },
+  "nextRecommendedBlock": "B09_16",
+  "nextRecommendedWork": "Create and approve corrected RC+SN:R/L hit/rebound only; then complete NIMG-013..023 and extend public runtime to 1-16.",
+  "blocks": [
+    {
+      "blockId": "B09_16",
+      "measureStart": 9,
+      "measureEnd": 16,
+      "noteCount": 83,
+      "groupCount": 65,
+      "actionKeys": [
+        "BD:RF",
+        "RD:R",
+        "SN:L",
+        "BD+RC:RF/R",
+        "HH:R",
+        "BD+SN:RF/L",
+        "RC+SN:R/L"
+      ],
+      "reusableAssets": [
+        "BD:RF",
+        "RD:R",
+        "SN:L",
+        "BD+RC:RF/R",
+        "HH:R"
+      ],
+      "reuseNeedsRuntimeQa": [
+        "BD+SN:RF/L"
+      ],
+      "requiredNewAssets": [],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 0,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "LOW",
+      "implementationPriority": "P0",
+      "rationale": "Immediate contiguous live-runtime blocker; only corrected RC+SN pair is missing.",
+      "contiguousDependency": null
+    },
+    {
+      "blockId": "B17",
+      "measureStart": 17,
+      "measureEnd": 17,
+      "noteCount": 16,
+      "groupCount": 13,
+      "actionKeys": [
+        "BD:RF",
+        "SN:L",
+        "BD+SN:RF/R",
+        "LT:R",
+        "LT:L",
+        "BD+LT:RF/R",
+        "FT:R",
+        "FT:L"
+      ],
+      "reusableAssets": [
+        "BD:RF",
+        "SN:L"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "BD+SN:RF/R",
+        "LT:R",
+        "LT:L",
+        "BD+LT:RF/R",
+        "FT:R",
+        "FT:L"
+      ],
+      "blockers": [],
+      "newImagePairs": 6,
+      "blockedImagePairs": 0,
+      "qaDifficulty": "MEDIUM",
+      "implementationPriority": "P1",
+      "rationale": "First post-16 measure; fill-heavy and unavoidable before later live expansion.",
+      "contiguousDependency": "All earlier measures through 16 must have complete mappings/assets before public runtimeScope can end at 17."
+    },
+    {
+      "blockId": "B18_19",
+      "measureStart": 18,
+      "measureEnd": 19,
+      "noteCount": 32,
+      "groupCount": 23,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "RD+SN:R/L",
+        "RD:R",
+        "SN:L",
+        "BD+RD:RF/R"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "RD:R",
+        "SN:L"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "RD+SN:R/L",
+        "BD+RD:RF/R"
+      ],
+      "blockers": [],
+      "newImagePairs": 2,
+      "blockedImagePairs": 0,
+      "qaDifficulty": "LOW",
+      "implementationPriority": "P2",
+      "rationale": "Only two new action pairs; strong reuse after B17 dependency clears.",
+      "contiguousDependency": "All earlier measures through 17 must have complete mappings/assets before public runtimeScope can end at 19."
+    },
+    {
+      "blockId": "B20_24",
+      "measureStart": 20,
+      "measureEnd": 24,
+      "noteCount": 80,
+      "groupCount": 55,
+      "actionKeys": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "HH:R",
+        "SN:L"
+      ],
+      "reusableAssets": [
+        "HH:R",
+        "SN:L"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L"
+      ],
+      "blockers": [],
+      "newImagePairs": 2,
+      "blockedImagePairs": 0,
+      "qaDifficulty": "LOW",
+      "implementationPriority": "P2",
+      "rationale": "Only two high-frequency new action pairs (BD+HH and HH+SN).",
+      "contiguousDependency": "All earlier measures through 19 must have complete mappings/assets before public runtimeScope can end at 24."
+    },
+    {
+      "blockId": "B25_30",
+      "measureStart": 25,
+      "measureEnd": 30,
+      "noteCount": 78,
+      "groupCount": 59,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "RC+SN:R/L",
+        "SN:R",
+        "SN:L",
+        "BD+SN:RF/L",
+        "HT:R",
+        "FT:L",
+        "FT:R",
+        "RC:R",
+        "FT+SN:R/L",
+        "HH+SN:R/L",
+        "BD+HT:RF/R",
+        "HH:R",
+        "HT:L"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "SN:R",
+        "SN:L",
+        "HH:R"
+      ],
+      "reuseNeedsRuntimeQa": [
+        "BD+SN:RF/L"
+      ],
+      "requiredNewAssets": [
+        "HT:R",
+        "FT:L",
+        "FT:R",
+        "RC:R",
+        "FT+SN:R/L",
+        "HH+SN:R/L",
+        "BD+HT:RF/R",
+        "HT:L"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 8,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "HIGH",
+      "implementationPriority": "P3",
+      "rationale": "Mixed tom/cymbal fill block and RC+SN dependency.",
+      "contiguousDependency": "All earlier measures through 24 must have complete mappings/assets before public runtimeScope can end at 30."
+    },
+    {
+      "blockId": "B31_44",
+      "measureStart": 31,
+      "measureEnd": 44,
+      "noteCount": 216,
+      "groupCount": 148,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "HH+SN:R/L",
+        "HH:R",
+        "SN:L",
+        "BD+HH:RF/R",
+        "SN:R",
+        "BD+SN:RF/R",
+        "LT:R"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "HH:R",
+        "SN:L",
+        "SN:R"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "HH+SN:R/L",
+        "BD+HH:RF/R",
+        "BD+SN:RF/R",
+        "LT:R"
+      ],
+      "blockers": [],
+      "newImagePairs": 4,
+      "blockedImagePairs": 0,
+      "qaDifficulty": "MEDIUM",
+      "implementationPriority": "P3",
+      "rationale": "Mostly two common HH combo pairs plus limited fill keys.",
+      "contiguousDependency": "All earlier measures through 30 must have complete mappings/assets before public runtimeScope can end at 44."
+    },
+    {
+      "blockId": "B45_54",
+      "measureStart": 45,
+      "measureEnd": 54,
+      "noteCount": 160,
+      "groupCount": 111,
+      "actionKeys": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD+HT:RF/R",
+        "SN:L",
+        "BD:RF",
+        "HT:R",
+        "HT:L",
+        "LT+SN:R/L",
+        "BD+RC:RF/R",
+        "HH:R",
+        "BD+HH+SN:RF/R/L",
+        "RC+SN:R/L",
+        "SN:R",
+        "BD+SN:RF/L",
+        "FT:R",
+        "FT:L",
+        "BD+SN:RF/R",
+        "BD+HT:RF/L"
+      ],
+      "reusableAssets": [
+        "SN:L",
+        "BD:RF",
+        "BD+RC:RF/R",
+        "HH:R",
+        "SN:R"
+      ],
+      "reuseNeedsRuntimeQa": [
+        "BD+SN:RF/L"
+      ],
+      "requiredNewAssets": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD+HT:RF/R",
+        "HT:R",
+        "HT:L",
+        "LT+SN:R/L",
+        "BD+HH+SN:RF/R/L",
+        "FT:R",
+        "FT:L",
+        "BD+SN:RF/R",
+        "BD+HT:RF/L"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 11,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "HIGH",
+      "implementationPriority": "P4",
+      "rationale": "Higher novelty including toms and triple combo.",
+      "contiguousDependency": "All earlier measures through 44 must have complete mappings/assets before public runtimeScope can end at 54."
+    },
+    {
+      "blockId": "B55_69",
+      "measureStart": 55,
+      "measureEnd": 69,
+      "noteCount": 221,
+      "groupCount": 148,
+      "actionKeys": [
+        "BD+HH:RF/R",
+        "HH:R",
+        "HH+SN:R/L",
+        "SN:L",
+        "RC+SN:R/L",
+        "BD+RC:RF/R",
+        "FT+SN:R/L",
+        "HT:R",
+        "BD:RF",
+        "HT:L",
+        "RD:R",
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "SN:R",
+        "LT:R",
+        "LT:L",
+        "BD+HH+SN:RF/R/L",
+        "BD+RC+SN:RF/R/L",
+        "LT+SN:R/L"
+      ],
+      "reusableAssets": [
+        "HH:R",
+        "SN:L",
+        "BD+RC:RF/R",
+        "BD:RF",
+        "RD:R",
+        "SN:R"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "FT+SN:R/L",
+        "HT:R",
+        "HT:L",
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "LT:R",
+        "LT:L",
+        "BD+HH+SN:RF/R/L",
+        "BD+RC+SN:RF/R/L",
+        "LT+SN:R/L"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 12,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "HIGH",
+      "implementationPriority": "P4",
+      "rationale": "Many distinct fill/combo keys.",
+      "contiguousDependency": "All earlier measures through 54 must have complete mappings/assets before public runtimeScope can end at 69."
+    },
+    {
+      "blockId": "B70_86",
+      "measureStart": 70,
+      "measureEnd": 86,
+      "noteCount": 286,
+      "groupCount": 202,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "SN:R",
+        "SN:L",
+        "BD:RF",
+        "BD+RC+SN:RF/R/L",
+        "HT:R",
+        "HT:L",
+        "BD+HT:RF/R",
+        "BD+LT:RF/R",
+        "LT:L",
+        "HH+SN:R/L",
+        "HH:R",
+        "BD+HH:RF/R",
+        "BD+SN:RF/L",
+        "RC+SN:R/L",
+        "LT:R",
+        "LT+SN:R/L",
+        "FT+SN:R/L"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "SN:R",
+        "SN:L",
+        "BD:RF",
+        "HH:R"
+      ],
+      "reuseNeedsRuntimeQa": [
+        "BD+SN:RF/L"
+      ],
+      "requiredNewAssets": [
+        "BD+RC+SN:RF/R/L",
+        "HT:R",
+        "HT:L",
+        "BD+HT:RF/R",
+        "BD+LT:RF/R",
+        "LT:L",
+        "HH+SN:R/L",
+        "BD+HH:RF/R",
+        "LT:R",
+        "LT+SN:R/L",
+        "FT+SN:R/L"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 11,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "HIGH",
+      "implementationPriority": "P4",
+      "rationale": "Many distinct fill/combo keys; includes RC+SN.",
+      "contiguousDependency": "All earlier measures through 69 must have complete mappings/assets before public runtimeScope can end at 86."
+    },
+    {
+      "blockId": "B87_104",
+      "measureStart": 87,
+      "measureEnd": 104,
+      "noteCount": 250,
+      "groupCount": 175,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "HH:R",
+        "SN:L",
+        "BD:RF",
+        "RC+SN:R/L",
+        "BD+SN:RF/R",
+        "SN:R",
+        "BD+SN:RF/L",
+        "LT:R",
+        "LT:L",
+        "FT:L"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "HH:R",
+        "SN:L",
+        "BD:RF",
+        "SN:R"
+      ],
+      "reuseNeedsRuntimeQa": [
+        "BD+SN:RF/L"
+      ],
+      "requiredNewAssets": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD+SN:RF/R",
+        "LT:R",
+        "LT:L",
+        "FT:L"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 6,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "MEDIUM",
+      "implementationPriority": "P3",
+      "rationale": "Moderate novelty; common HH combos dominate.",
+      "contiguousDependency": "All earlier measures through 86 must have complete mappings/assets before public runtimeScope can end at 104."
+    },
+    {
+      "blockId": "B105_108",
+      "measureStart": 105,
+      "measureEnd": 108,
+      "noteCount": 48,
+      "groupCount": 40,
+      "actionKeys": [
+        "BD+FT+SN:RF/R/L",
+        "BD+FT:RF/L",
+        "SN:L",
+        "BD:RF",
+        "SN:R"
+      ],
+      "reusableAssets": [
+        "SN:L",
+        "BD:RF",
+        "SN:R"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "BD+FT+SN:RF/R/L",
+        "BD+FT:RF/L"
+      ],
+      "blockers": [],
+      "newImagePairs": 2,
+      "blockedImagePairs": 0,
+      "qaDifficulty": "LOW",
+      "implementationPriority": "P2",
+      "rationale": "Only two new floor-tom combo pairs, followed by two reuse-only measures.",
+      "contiguousDependency": "All earlier measures through 104 must have complete mappings/assets before public runtimeScope can end at 108."
+    },
+    {
+      "blockId": "B109_129",
+      "measureStart": 109,
+      "measureEnd": 129,
+      "noteCount": 320,
+      "groupCount": 212,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "HH+SN:R/L",
+        "HH:R",
+        "SN:L",
+        "BD+HH:RF/R",
+        "SN:R",
+        "RC+SN:R/L",
+        "BD+SN:RF/R"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "BD:RF",
+        "HH:R",
+        "SN:L",
+        "SN:R"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "HH+SN:R/L",
+        "BD+HH:RF/R",
+        "BD+SN:RF/R"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 3,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "LOW",
+      "implementationPriority": "P3",
+      "rationale": "Three recurring new combo keys dominate long section.",
+      "contiguousDependency": "All earlier measures through 108 must have complete mappings/assets before public runtimeScope can end at 129."
+    },
+    {
+      "blockId": "B130_135",
+      "measureStart": 130,
+      "measureEnd": 135,
+      "noteCount": 95,
+      "groupCount": 65,
+      "actionKeys": [
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "RD:R",
+        "SN:L",
+        "BD+RC:RF/R",
+        "HH:R",
+        "HH+SN:R/L",
+        "BD+HH:RF/R",
+        "RC+SN:R/L"
+      ],
+      "reusableAssets": [
+        "RD:R",
+        "SN:L",
+        "BD+RC:RF/R",
+        "HH:R"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "HH+SN:R/L",
+        "BD+HH:RF/R"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 4,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "MEDIUM",
+      "implementationPriority": "P3",
+      "rationale": "Ride-based section; four new recurring keys.",
+      "contiguousDependency": "All earlier measures through 129 must have complete mappings/assets before public runtimeScope can end at 135."
+    },
+    {
+      "blockId": "B136_144",
+      "measureStart": 136,
+      "measureEnd": 144,
+      "noteCount": 148,
+      "groupCount": 102,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "BD+FT:RF/R",
+        "BD+FT:RF/L",
+        "SN:R",
+        "SN:L",
+        "HH:R",
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD:RF",
+        "BD+SN:RF/R",
+        "LT:R",
+        "LT:L",
+        "BD+LT:RF/R",
+        "FT:R",
+        "FT:L",
+        "RC+SN:R/L",
+        "BD+SN:RF/L"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "SN:R",
+        "SN:L",
+        "HH:R",
+        "BD:RF"
+      ],
+      "reuseNeedsRuntimeQa": [
+        "BD+SN:RF/L"
+      ],
+      "requiredNewAssets": [
+        "BD+FT:RF/R",
+        "BD+FT:RF/L",
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD+SN:RF/R",
+        "LT:R",
+        "LT:L",
+        "BD+LT:RF/R",
+        "FT:R",
+        "FT:L"
+      ],
+      "blockers": [
+        "RC+SN:R/L"
+      ],
+      "newImagePairs": 10,
+      "blockedImagePairs": 1,
+      "qaDifficulty": "HIGH",
+      "implementationPriority": "P4",
+      "rationale": "Mixed floor-tom/HH/tom novelty.",
+      "contiguousDependency": "All earlier measures through 135 must have complete mappings/assets before public runtimeScope can end at 144."
+    },
+    {
+      "blockId": "B145_148",
+      "measureStart": 145,
+      "measureEnd": 148,
+      "noteCount": 64,
+      "groupCount": 50,
+      "actionKeys": [
+        "BD+RC:RF/R",
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "RD:R",
+        "SN:L",
+        "LT:R",
+        "LT:L",
+        "SN:R"
+      ],
+      "reusableAssets": [
+        "BD+RC:RF/R",
+        "RD:R",
+        "SN:L",
+        "SN:R"
+      ],
+      "reuseNeedsRuntimeQa": [],
+      "requiredNewAssets": [
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "LT:R",
+        "LT:L"
+      ],
+      "blockers": [],
+      "newImagePairs": 4,
+      "blockedImagePairs": 0,
+      "qaDifficulty": "MEDIUM",
+      "implementationPriority": "P3",
+      "rationale": "Ride/tom ending; four new keys.",
+      "contiguousDependency": "All earlier measures through 144 must have complete mappings/assets before public runtimeScope can end at 148."
+    }
+  ]
+}
