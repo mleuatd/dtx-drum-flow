@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "REQUESTED_AFTER_WORKFLOW_FIX",
+  "status": "REQUESTED_PR_BUILD_NO_SECRET",
   "actionKey": "LT:R",
   "block": "B17",
   "measure": 17,
@@ -15,5 +15,6 @@
     "Do not use previous rejected generated candidates.",
     "Workflow output must pass graded candidate QA before mapping."
   ],
-  "retryTrigger": "2026-09-19T06:32:00+09:00"
+  "retryTrigger": "2026-09-19T06:32:00+09:00",
+  "prTrigger": "2026-09-19T06:58:00+09:00"
 }
