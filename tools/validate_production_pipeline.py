@@ -47,10 +47,10 @@ required=[
 "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md","character-assets/prototypes/luna_say_maybe_16m/COMMIT_BOUNDARY_RULES.md","character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md"
 ]
 for p in required: assert (ROOT/p).is_file(),p
-# Fast/full path static criteria: current M1-8 all approved+mapped; M9-16 contains blocked/pending assets.
+# Fast/full path static criteria: current M1-8 all approved+mapped; M9-16 may contain blocked or formal-pair runtime-QA-pending assets.
 by={x["actionKey"]:x for x in mapping["entries"]}
 assert all(by[k]["classification"]=="REUSE_APPROVED" and by[k]["runtimeMapped"] for k in ["SN:L","SN:R","BD:RF","HH:R","BD+RC:RF/R","RD:R"])
-assert by["RC+SN:R/L"]["classification"]=="BLOCKED"
+assert by["RC+SN:R/L"]["classification"] in {"BLOCKED","REUSE_NEEDS_RUNTIME_QA"}
 assert by["BD+SN:RF/L"]["classification"]=="REUSE_NEEDS_RUNTIME_QA"
 print("PASS production pipeline validation: queue schema, 30-key map, staging/lifecycle, rejected safety, tools/workflows, fast/full criteria, live scope 1-8")
 
