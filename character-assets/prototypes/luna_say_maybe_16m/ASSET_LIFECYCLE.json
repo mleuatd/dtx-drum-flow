@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "states": [
+    {
+      "id": "GENERATED_CANDIDATE",
+      "next": [
+        "BINARY_QA_PASSED",
+        "REJECTED"
+      ]
+    },
+    {
+      "id": "BINARY_QA_PASSED",
+      "next": [
+        "STATIC_VISUAL_QA_PASSED",
+        "REJECTED"
+      ]
+    },
+    {
+      "id": "STATIC_VISUAL_QA_PASSED",
+      "next": [
+        "FORMAL_SAVED",
+        "REJECTED"
+      ]
+    },
+    {
+      "id": "FORMAL_SAVED",
+      "next": [
+        "RUNTIME_PENDING"
+      ]
+    },
+    {
+      "id": "RUNTIME_PENDING",
+      "next": [
+        "RUNTIME_READY",
+        "REJECTED"
+      ]
+    },
+    {
+      "id": "RUNTIME_READY",
+      "next": [
+        "LIVE_QA_PASSED",
+        "REJECTED"
+      ]
+    },
+    {
+      "id": "LIVE_QA_PASSED",
+      "next": [
+        "DONE"
+      ]
+    },
+    {
+      "id": "DONE",
+      "next": []
+    },
+    {
+      "id": "REJECTED",
+      "next": [
+        "NEVER_USE"
+      ]
+    },
+    {
+      "id": "NEVER_USE",
+      "next": []
+    }
+  ],
+  "compatibility": {
+    "VISUAL_QA_PASSED_RUNTIME_PENDING": "RUNTIME_PENDING",
+    "APPROVED_LIVE": "DONE",
+    "READY_FOR_REVIEW": "GENERATED_CANDIDATE",
+    "BLOCKED_IMAGE_REQUIRED": "GENERATED_CANDIDATE"
+  },
+  "rules": [
+    "No state may skip a required QA gate.",
+    "REJECTED/NEVER_USE can never transition back to formal/runtime states.",
+    "FORMAL_SAVED does not imply runtime readiness."
+  ]
+}
