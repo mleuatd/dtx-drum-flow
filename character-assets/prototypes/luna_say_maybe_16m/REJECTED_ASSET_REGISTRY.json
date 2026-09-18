@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:10:00+09:00",
+  "updatedAt": "2026-09-19T05:20:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -223,6 +223,46 @@
         1325,
         1063
       ],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-ATTEMPT-3",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "6fcd0e1c3e12492c9d53c9b6db41250b7d82ada8caee6bd5a2c1af8ba21481b8",
+      "path": "/mnt/data/a_clean_high_contrast_monochrome_black_and_white.png",
+      "reason": "Explicit baseline-reference attempt still returned edit_op=null and full-character redraw; direct-edit requirement failed.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-LOCAL-1",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "5bbd18c5b4a498c7541d11df096d584a71c3b0bd3cbc332dcb80024c0a62f482",
+      "path": "/mnt/data/lt_r_hit_localedit_try1.png",
+      "reason": "Local raster edit preserved baseline globally but introduced visible black blob/invalid right-hand region; visual QA failed.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-LOCAL-2",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "dd20a5599314a30f3119cbb0e2413f2d664886528276d219137560a9e371b822",
+      "path": "/mnt/data/lt_r_hit_localedit_try2.png",
+      "reason": "Second local raster edit preserved baseline globally but produced malformed forearm/hand/stick patch and residual black artifact; visual QA failed.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-CROP-ATTEMPT",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "f9efcaa8933c5b297bf18e2a3ffcd57815b5ae1fcc2a395372abf6be3f395a60",
+      "path": "/mnt/data/a_clean_line_art_ink_sketch_illustration_on_a_tran.png",
+      "reason": "Attempted local-crop image edit was ignored by image generator; returned unrelated full-character redraw with edit_op=null. Direct-edit/crop constraint failed.",
       "date": "2026-09-19"
     }
   ]
