@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:33:00+09:00",
+  "updatedAt": "2026-09-18T21:51:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
-    "liveRuntimeScope": "1-8"
+    "liveRuntimeScope": "1-8",
+    "currentBlocker": "ASSETQ-001 requires a usable approved-neutral image target in the current chat."
   },
   "nextItem": {
     "id": "ASSETQ-001",
@@ -18,7 +19,9 @@
     "currentAssetStatus": "BLOCKED",
     "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
     "nextAfterCompletion": "ASSETQ-002",
-    "status": "BLOCKED_IMAGE_GENERATION_REQUIRED"
+    "status": "BLOCKED_IMAGE_TARGET_MISSING",
+    "blocker": "Corrected RC+SN:R/L image generation is required, but this chat does not contain a usable approved-neutral image target for image editing.",
+    "nextAction": "Attach the approved neutral/home pose PNG in the current chat, then execute GENERATED_PROMPT_rc_sn_r_l_hit.md."
   },
   "items": [
     {
@@ -33,7 +36,9 @@
       "currentAssetStatus": "BLOCKED",
       "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
       "nextAfterCompletion": "ASSETQ-002",
-      "status": "BLOCKED_IMAGE_GENERATION_REQUIRED"
+      "status": "BLOCKED_IMAGE_TARGET_MISSING",
+      "blocker": "Corrected RC+SN:R/L image generation is required, but this chat does not contain a usable approved-neutral image target for image editing.",
+      "nextAction": "Attach the approved neutral/home pose PNG in the current chat, then execute GENERATED_PROMPT_rc_sn_r_l_hit.md."
     },
     {
       "id": "ASSETQ-002",
@@ -47,7 +52,9 @@
       "currentAssetStatus": "BLOCKED",
       "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
       "nextAfterCompletion": "ASSETQ-003",
-      "status": "BLOCKED_IMAGE_GENERATION_REQUIRED"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Accepted corrected RC+SN:R/L hit does not exist.",
+      "nextAction": "After ASSETQ-001 is accepted, derive rebound using REBOUND_INSTRUCTION_rc_sn_r_l.md."
     },
     {
       "id": "ASSETQ-003",
@@ -61,7 +68,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 31.",
       "nextAfterCompletion": "ASSETQ-004",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through ASSETQ-002.",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-004",
@@ -75,7 +84,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M17, occurrences 31.",
       "nextAfterCompletion": "ASSETQ-005",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-005",
@@ -89,7 +100,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 22.",
       "nextAfterCompletion": "ASSETQ-006",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-006",
@@ -103,7 +116,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M17, occurrences 22.",
       "nextAfterCompletion": "ASSETQ-007",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-007",
@@ -117,7 +132,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 17.",
       "nextAfterCompletion": "ASSETQ-008",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-008",
@@ -131,7 +148,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M17, occurrences 17.",
       "nextAfterCompletion": "ASSETQ-009",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-009",
@@ -145,7 +164,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 9.",
       "nextAfterCompletion": "ASSETQ-010",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-010",
@@ -159,7 +180,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M17, occurrences 9.",
       "nextAfterCompletion": "ASSETQ-011",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-011",
@@ -173,7 +196,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 8.",
       "nextAfterCompletion": "ASSETQ-012",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-012",
@@ -187,7 +212,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M17, occurrences 8.",
       "nextAfterCompletion": "ASSETQ-013",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-013",
@@ -201,7 +228,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-014",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-014",
@@ -215,7 +244,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M17, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-015",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-015",
@@ -229,7 +260,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M18, occurrences 29.",
       "nextAfterCompletion": "ASSETQ-016",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 17 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-016",
@@ -243,7 +276,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M18, occurrences 29.",
       "nextAfterCompletion": "ASSETQ-017",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 17 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-017",
@@ -257,7 +292,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M18, occurrences 23.",
       "nextAfterCompletion": "ASSETQ-018",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 17 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-018",
@@ -271,7 +308,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M18, occurrences 23.",
       "nextAfterCompletion": "ASSETQ-019",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 17 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-019",
@@ -285,7 +324,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M20, occurrences 224.",
       "nextAfterCompletion": "ASSETQ-020",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 19 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-020",
@@ -299,7 +340,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M20, occurrences 224.",
       "nextAfterCompletion": "ASSETQ-021",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 19 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-021",
@@ -313,7 +356,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M20, occurrences 143.",
       "nextAfterCompletion": "ASSETQ-022",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 19 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-022",
@@ -327,7 +372,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M20, occurrences 143.",
       "nextAfterCompletion": "ASSETQ-023",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 19 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-023",
@@ -341,7 +388,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M25, occurrences 16.",
       "nextAfterCompletion": "ASSETQ-024",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 24 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-024",
@@ -355,7 +404,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M25, occurrences 16.",
       "nextAfterCompletion": "ASSETQ-025",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 24 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-025",
@@ -369,7 +420,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M26, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-026",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 25 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-026",
@@ -383,7 +436,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M26, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-027",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 25 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-027",
@@ -397,7 +452,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M28, occurrences 13.",
       "nextAfterCompletion": "ASSETQ-028",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 27 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-028",
@@ -411,7 +468,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M28, occurrences 13.",
       "nextAfterCompletion": "ASSETQ-029",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 27 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-029",
@@ -425,7 +484,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M29, occurrences 14.",
       "nextAfterCompletion": "ASSETQ-030",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 28 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-030",
@@ -439,7 +500,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M29, occurrences 14.",
       "nextAfterCompletion": "ASSETQ-031",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 28 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-031",
@@ -453,7 +516,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M29, occurrences 6.",
       "nextAfterCompletion": "ASSETQ-032",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 28 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-032",
@@ -467,7 +532,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M29, occurrences 6.",
       "nextAfterCompletion": "ASSETQ-033",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 28 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-033",
@@ -481,7 +548,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M46, occurrences 4.",
       "nextAfterCompletion": "ASSETQ-034",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 45 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-034",
@@ -495,7 +564,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M46, occurrences 4.",
       "nextAfterCompletion": "ASSETQ-035",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 45 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-035",
@@ -509,7 +580,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M47, occurrences 14.",
       "nextAfterCompletion": "ASSETQ-036",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 46 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-036",
@@ -523,7 +596,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M47, occurrences 14.",
       "nextAfterCompletion": "ASSETQ-037",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 46 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-037",
@@ -537,7 +612,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M54, occurrences 1.",
       "nextAfterCompletion": "ASSETQ-038",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 53 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-038",
@@ -551,7 +628,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M54, occurrences 1.",
       "nextAfterCompletion": "ASSETQ-039",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 53 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-039",
@@ -565,7 +644,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M68, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-040",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 67 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-040",
@@ -579,7 +660,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M68, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-041",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 67 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-041",
@@ -593,7 +676,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M105, occurrences 5.",
       "nextAfterCompletion": "ASSETQ-042",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 104 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-042",
@@ -607,7 +692,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M105, occurrences 5.",
       "nextAfterCompletion": "ASSETQ-043",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 104 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-043",
@@ -621,7 +708,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M105, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-044",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 104 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-044",
@@ -635,7 +724,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M105, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-045",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 104 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-045",
@@ -649,7 +740,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M136, occurrences 4.",
       "nextAfterCompletion": "ASSETQ-046",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 135 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     },
     {
       "id": "ASSETQ-046",
@@ -663,7 +756,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal rebound; first appears M136, occurrences 4.",
       "nextAfterCompletion": "QUEUE_COMPLETE",
-      "status": "TODO"
+      "status": "BLOCKED_DEPENDENCY",
+      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 135 must be complete before public runtime reaches this action..",
+      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     }
   ]
 }
