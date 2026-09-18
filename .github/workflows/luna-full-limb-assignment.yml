@@ -1,0 +1,31 @@
+name: Luna Full Limb Assignment
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/luna-full-limb-assignment.yml"
+      - "tools/generate-luna-full-limbs.mjs"
+      - "character-assets/prototypes/luna_say_maybe_16m/hand_rules.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Generate and validate full-song limbs
+        run: node tools/generate-luna-full-limbs.mjs
+      - name: Upload limb evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-full-limb-assignment
+          path: limb-artifacts
+          if-no-files-found: error
