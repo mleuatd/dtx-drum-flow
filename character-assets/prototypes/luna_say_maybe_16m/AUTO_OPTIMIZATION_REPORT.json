@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-18T21:45:00+09:00",
+  "source": "MANUAL_OVERRIDE-20260918-OPENWORK",
+  "manualOverrideCount": 1,
+  "suggestions": [
+    {
+      "id": "AUTO-OPT-DISPATCH-ACCESS",
+      "priority": "MEDIUM",
+      "reason": "Current connector has no workflow_dispatch/direct repo Node execution entrypoint.",
+      "action": "Keep MANUAL_OVERRIDE only for this environment; use repo tools directly when dispatch/execution becomes available.",
+      "autoImplemented": false
+    },
+    {
+      "id": "AUTO-OPT-BDSN-PRELOAD",
+      "priority": "HIGH",
+      "reason": "Approved BD+SN pair could be safely preloaded outside live scope.",
+      "action": "Completed: exact BD+SN:RF/L frames/mapping preloaded while runtimeScope stays 1-8.",
+      "autoImplemented": true,
+      "commit": "35e0cde374f715c03b937489b3153ad2405b8cf4"
+    }
+  ],
+  "remainingHighPriority": []
+}
