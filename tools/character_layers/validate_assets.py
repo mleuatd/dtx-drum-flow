@@ -60,8 +60,8 @@ def main():
     def hand(n):
         if n.get("_resolvedLimb"): return n["_resolvedLimb"]
         if n["part"]=="SN": return "L"
-        if n["part"] in {"BD","LB"}: return "RF"
-        if n["part"]=="LP": return "LF"
+        if n["part"]=="BD": return "RF"
+        if n["part"] in {"LP","LB"}: return "LF"
         return "R"
     def key(g):
         parts=sorted({n["part"] for n in g})
