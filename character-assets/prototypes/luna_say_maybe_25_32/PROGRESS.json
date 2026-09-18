@@ -155,7 +155,7 @@
     "done": false
   },
   "requiredNext": "Resume at HT:R hit when the formal neutral can be surfaced as a native conversation image target without re-encoding. Keep sourceNeutralVerification PASS and do not repeat M25-40 analysis.",
-  "updatedAt": "2026-09-19T07:55:00+09:00",
+  "updatedAt": "2026-09-19T08:12:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -186,6 +186,13 @@
     ],
     "exactError": "No supported connector/files handoff can expose the cryptographically verified Dropbox/GitHub PNG as the image editor's usable source image in this chat. image editing can only target a usable image present in conversation; connector URLs/base64/file IDs are not accepted image targets.",
     "toolLimitation": "Dropbox/GitHub connectors and ChatGPT Files are separate surfaces; the current toolset has no Dropbox->ChatGPT conversation-file import or connector-file->image-editor reference bridge.",
-    "investigatedAt": "2026-09-19T07:55:00+09:00"
+    "investigatedAt": "2026-09-19T07:55:00+09:00",
+    "lastRetry": {
+      "checkedAt": "2026-09-19T08:12:00+09:00",
+      "observedMain": "bc50ba07018cdf8d1ae2f06f0af2b3a0f3114c94",
+      "result": "BLOCKED",
+      "newFinding": "Current tool inventory still has no connector/Library/container -> native conversation image target bridge for image editing. All 10 planned M25-32 formal PNG paths remain absent on current main, so there is no completed asset to resume from.",
+      "action": "Preserved verified Neutral and prior analysis; did not regenerate, substitute, re-encode, or alter unrelated M17/M18-24 work."
+    }
   }
 }
