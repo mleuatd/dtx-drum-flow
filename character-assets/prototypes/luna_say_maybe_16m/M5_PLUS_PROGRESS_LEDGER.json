@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:43:00+09:00",
+  "updatedAt": "2026-09-18T19:50:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -996,5 +996,76 @@
       "currentState": "5a41a3f16f91fc099b7e09dc1f2d6013b556d437",
       "nextHandoff": "03820d6762f8488de21f801641b931fc5fa218e9"
     }
+  },
+  "preparationImplementationInfrastructure": {
+    "id": "PREPARATION_IMPLEMENTATION_INFRASTRUCTURE",
+    "status": "IN_PROGRESS",
+    "createdAt": "2026-09-18T19:50:00+09:00",
+    "purpose": "Create reusable infrastructure for naming, mapping, generation, contact, transitions, QA, rejection safety, block completion, automation and validation.",
+    "queue": [
+      {
+        "id": "PREP-001",
+        "status": "IN_PROGRESS",
+        "task": "Asset Naming Rule"
+      },
+      {
+        "id": "PREP-002",
+        "status": "TODO",
+        "task": "Action Key -> Asset Mapping Master"
+      },
+      {
+        "id": "PREP-003",
+        "status": "TODO",
+        "task": "Character Asset Template / Generation Spec"
+      },
+      {
+        "id": "PREP-004",
+        "status": "TODO",
+        "task": "Instrument Contact Point Master"
+      },
+      {
+        "id": "PREP-005",
+        "status": "TODO",
+        "task": "Pose Transition Rule"
+      },
+      {
+        "id": "PREP-006",
+        "status": "TODO",
+        "task": "QA Checklist Master"
+      },
+      {
+        "id": "PREP-007",
+        "status": "TODO",
+        "task": "Rejected Asset Registry"
+      },
+      {
+        "id": "PREP-008",
+        "status": "TODO",
+        "task": "Block Completion Definition"
+      },
+      {
+        "id": "PREP-009",
+        "status": "TODO",
+        "task": "Automation / One-command QA"
+      },
+      {
+        "id": "PREP-010",
+        "status": "TODO",
+        "task": "Documentation / Handoff integration"
+      },
+      {
+        "id": "PREP-011",
+        "status": "TODO",
+        "task": "Validation / consistency checks"
+      }
+    ],
+    "guardrails": [
+      "NO_IMAGE_GENERATION",
+      "NO_RUNTIME_SCOPE_EXPANSION",
+      "NO_APPROVED_ASSET_OVERWRITE",
+      "NO_REJECTED_ASSET_REUSE",
+      "NO_LIMB_REGUESSING"
+    ],
+    "nextAction": "Complete PREP-001..011 autonomously; add PREP-012+ for discovered infrastructure gaps."
   }
 }
