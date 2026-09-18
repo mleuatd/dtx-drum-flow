@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "IN_PROGRESS_M17_ASSETQ_009",
+  "status": "IN_PROGRESS_M17_ASSETQ_011",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,10 +13,10 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "ASSETQ-009 FT:R hit",
+  "currentNextWork": "ASSETQ-011 FT:L hit",
   "nextAsset": {
-    "id": "ASSETQ-009",
-    "actionKey": "FT:R",
+    "id": "ASSETQ-011",
+    "actionKey": "FT:L",
     "phase": "hit",
     "firstMeasure": 17,
     "status": "READY",
@@ -116,6 +116,6 @@
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
   "blocker": null,
-  "nextAction": "Create FT:R hit using deterministic baseline-preserving local stick edit; after PASS create rebound.",
-  "updatedAt": "2026-09-19T06:50:00+09:00"
+  "nextAction": "Create FT:L hit using deterministic approved-neutral-preserving local left-stick edit; after PASS create rebound.",
+  "updatedAt": "2026-09-19T06:56:00+09:00"
 }
