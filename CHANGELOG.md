@@ -1,3 +1,5 @@
+> Current-state note (2026-09-18 19:41 JST): this file is historical chronology, not the current-state authority. For current status use `character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json`. Older entries describing runtime 1-4, M5-8 blockers, unfinished RD, or unresolved full-song limbs are superseded by later entries.
+
 ## 2026-09-18 — Luna full-song limb assignment authority
 - Researched standard right-handed drum-set coordination before extending limb assignments: bass drum under right foot, hi-hat pedal under left foot, right-hand cymbal timekeeping, left-hand snare backbeat, alternating R/L single strokes for rapid/fill passages.
 - Upgraded `hand_rules.json` to v2, explicitly adding `LB=LF` and phrase-aware rapid-SN/simultaneous-hit policies.
