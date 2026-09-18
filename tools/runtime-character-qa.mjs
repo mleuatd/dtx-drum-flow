@@ -1,3 +1,4 @@
+// QA trigger: post SN:R rebound continuity fix 2026-09-18T12:41+09:00
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import path from "node:path";
