@@ -127,3 +127,5 @@ for (const vp of viewports) {
 }
 await fs.writeFile(path.join(root,"runtime-qa.json"),JSON.stringify(summary,null,2));
 await browser.close();
+
+// inventory-scope-refactor recheck 2026-09-18
