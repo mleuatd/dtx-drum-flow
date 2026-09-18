@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 4
   },
-  "updatedAt": "2026-09-18T11:59:00+09:00",
+  "updatedAt": "2026-09-18T12:12:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -80,26 +80,27 @@
     {
       "id": "CHAR-QA-0001",
       "createdAt": "2026-09-18T11:21:00+09:00",
-      "updatedAt": "2026-09-18T11:21:00+09:00",
+      "updatedAt": "2026-09-18T12:12:00+09:00",
       "completedAt": null,
       "status": "BLOCKED",
       "severity": "medium",
       "assetKey": "*",
       "category": "visual-review",
-      "observation": "Independent full-resolution visual QA of all 10 final M1-4 frames could not be completed in the current connector session because the PNG binaries were not mountable/renderable in the working container. GitHub/Dropbox metadata and runtime mappings were verified, but body-pose naturalness must not be marked approved from metadata alone.",
-      "requiredFix": "On the next environment that can render the current GitHub PNGs, inspect all 10 frames at full resolution and over the fixed drum layer. Create one issue per concrete visual defect, then set this umbrella item to DONE.",
+      "observation": "Live GitHub Pages runtime QA is now available through the GitHub Actions Playwright harness. Nine of the ten requested hit/rebound frames were observed in the live 11-lane runtime. sn_r_rebound remains impossible to visually verify in measures 1-4 because the next SN:L event occurs before the SN:R rebound phase begins.",
+      "requiredFix": "Resolve CHAR-QA-0003 so sn_r_rebound can actually become visible in the live measures 1-4 runtime, then visually inspect that final missing runtime frame and close this umbrella item.",
       "evidence": [
-        "Current 10 runtime paths and hashes are recorded in assets_manifest.json and asset_inventory.json.",
-        "Runtime mappings resolve SN:L, SN:R, HH:R, BD:RF, BD+RC:* for hit/rebound."
+        "Runtime Character QA run 35302038227 succeeded against the public GitHub Pages URL.",
+        "PC and Xperia-class portrait runtime screenshots were captured with DOM frame/phase/animationKey/limbs evidence.",
+        "All requested frames except sn_r_rebound appeared in the captured live runtime."
       ],
       "verification": []
     },
     {
       "id": "CHAR-QA-0002",
       "createdAt": "2026-09-18T11:59:00+09:00",
-      "updatedAt": "2026-09-18T11:59:00+09:00",
-      "completedAt": null,
-      "status": "BLOCKED",
+      "updatedAt": "2026-09-18T12:12:00+09:00",
+      "completedAt": "2026-09-18T12:12:00+09:00",
+      "status": "DONE",
       "severity": "high",
       "assetKey": "*",
       "phase": "runtime-visual-qa",
@@ -115,6 +116,35 @@
         "Web fetch attempt returned DisabledError rather than an executable page; no JavaScript runtime or interactive DOM was available.",
         "asset_inventory runtime scope: measures 1-4, firstNoteTime 4.714583, lastNoteTime 10.110266.",
         "Required runtime mappings: SN:L, SN:R, HH:R, BD:RF, BD+RC:* with hit/rebound frames."
+      ],
+      "verification": [
+        "Resolved by adding .github/workflows/runtime-character-qa.yml and tools/runtime-character-qa.mjs.",
+        "GitHub Actions Runtime Character QA run 35302038227 completed successfully against https://mleuatd.github.io/dtx-drum-flow/.",
+        "Headless Chromium captured 216 stage screenshots and runtime DOM evidence across PC 1280x900 and Xperia-class portrait 384x864.",
+        "No browser console/page errors were recorded in either viewport.",
+        "Artifact id 10530277851 (runtime-character-qa) contains screenshots and runtime-qa.json."
+      ]
+    },
+    {
+      "id": "CHAR-QA-0003",
+      "createdAt": "2026-09-18T12:12:00+09:00",
+      "updatedAt": "2026-09-18T12:12:00+09:00",
+      "completedAt": null,
+      "status": "OPEN",
+      "severity": "high",
+      "assetKey": "sn_r_rebound",
+      "phase": "rebound",
+      "measure": 1,
+      "timestamp": "4.930410",
+      "viewport": "PC 1280x900 and Xperia-class portrait 384x864",
+      "category": "runtime-transition",
+      "observation": "sn_r_rebound never becomes the active live runtime frame in measures 1-4. SN:R hits at 4.930410s, but the next SN:L event starts at 5.038324s, only 0.107914s later. The current motion timing keeps hit active until +0.18s, so the next event replaces SN:R before its rebound phase can begin.",
+      "requiredFix": "Make phase timing event-gap-aware so short inter-note gaps still allocate a visible rebound interval without inserting neutral between rapid notes. For example, compress hit/rebound timing to fit before the next onset while preserving the no-neutral rapid-repeat rule. Re-run GitHub Pages QA and confirm sn_r_hit -> sn_r_rebound -> next SN:L hit on both PC and Xperia viewports.",
+      "evidence": [
+        "Runtime Character QA run 35302038227, artifact 10530277851.",
+        "runtime-qa.json contains zero occurrences of layers/character/sn/rebound_r.png in both PC and Xperia-class portrait captures.",
+        "site/character-prototype.js phaseFor(): hitEndSeconds=0.18 and reboundEndSeconds=0.28.",
+        "SN:R time 4.930410s; following SN:L time 5.038324s; gap 0.107914s."
       ],
       "verification": []
     }
