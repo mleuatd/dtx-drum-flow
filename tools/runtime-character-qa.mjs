@@ -19,12 +19,26 @@ const groups=[]; for(const n of notes){const g=groups.at(-1);if(g&&Math.abs(n.ti
 const exactKey=g=>{const a=[...g].sort((x,y)=>x.part.localeCompare(y.part));return a.length>1?a.map(n=>n.part).join("+")+":"+a.map(n=>n.limb).join("/"):a[0].part+":"+a[0].limb};
 const keyFor=g=>{const exact=exactKey(g);if(inv.runtimeFrameMap?.[exact])return exact;const parts=[...new Set(g.map(n=>n.part))].sort();const wildcard=parts.join("+")+":*";return inv.runtimeFrameMap?.[wildcard]?wildcard:exact};
 const candidates=groups.map((g,i)=>({g,i,key:keyFor(g),time:Number(g[0].time),measure:g[0].measure,next:groups[i+1]?.[0]?.time??Infinity}));
-const wanted=[...new Set([...TARGETS,...candidates.map(x=>x.key)])];
+const wanted=[...new Set(TARGETS)];
 const selected=[];
-for(const key of wanted){const list=candidates.filter(x=>x.key===key);if(!list.length)continue;selected.push(list.find(x=>x.next-x.time>.20)||list[0]);}
+for(const key of wanted){const list=candidates.filter(x=>x.key===key);if(!list.length)continue;selected.push([...list].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0]);}
 for(const t of TARGETS)if(!selected.some(x=>x.key===t))throw new Error(`required action missing in measure range ${M0}-${M1}: ${t}`);
 const timing=inv.motionTiming||{}, baseHit=Number(timing.hitEndSeconds??.09), baseRebound=Number(timing.reboundEndSeconds??.17);
-function phaseTimes(ev){const gap=Math.max(0,ev.next-ev.time);let hit=baseHit,rebound=baseRebound;if(Number.isFinite(gap)&&gap<baseRebound){hit=Math.min(baseHit,Math.max(.055,gap*.65));rebound=Math.min(baseRebound,Math.max(hit+.02,gap-.004));}return {hit:ev.time+Math.max(.012,hit*.45),rebound:ev.time+hit+(rebound-hit)*.5,neutral:ev.time+rebound+.012};}
+function phaseTimes(ev){
+  const gap=Math.max(0,ev.next-ev.time);
+  let hit=baseHit,rebound=baseRebound;
+  if(Number.isFinite(gap)&&gap<baseRebound){
+    hit=Math.min(baseHit,Math.max(.045,gap*.52));
+    rebound=Math.min(baseRebound,Math.max(hit+.016,gap-.006));
+  }
+  const out={hit:ev.time+Math.max(.010,hit*.42)};
+  const reboundAt=ev.time+hit+(rebound-hit)*.48;
+  const neutralAt=ev.time+rebound+.012;
+  const margin=.006;
+  if(!Number.isFinite(ev.next)||reboundAt<ev.next-margin) out.rebound=reboundAt;
+  if(!Number.isFinite(ev.next)||neutralAt<ev.next-margin) out.neutral=neutralAt;
+  return out;
+}
 function expectedFrame(key,phase){if(phase==="neutral")return inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";const id=inv.runtimePhaseFrameMap?.[key]?.[phase]||inv.runtimeFrameMap?.[key];return inv.requiredFrames?.[id]?.path||"";}
 async function waitForDeployment(){const deadline=Date.now()+12*60*1000;let last="";while(Date.now()<deadline){try{const r=await fetch(new URL("build.json?ts="+Date.now(),PUBLIC_URL),{cache:"no-store"});if(r.ok){const j=await r.json();last=j.commitSha||"";if(!EXPECTED_SHA||last===EXPECTED_SHA)return j;}}catch{}await new Promise(r=>setTimeout(r,10000));}throw new Error(`Pages deployment timeout: expected=${EXPECTED_SHA} observed=${last}`);}
 await fs.mkdir(ROOT,{recursive:true}); const deployment=await waitForDeployment();
