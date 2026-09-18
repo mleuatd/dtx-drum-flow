@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:40:00+09:00",
+  "updatedAt": "2026-09-18T22:05:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -130,8 +130,15 @@
           "preloadCommit": "35e0cde374f715c03b937489b3153ad2405b8cf4"
         },
         "rcSn": {
-          "status": "BLOCKED_IMAGE_REQUIRED",
-          "reason": "Corrected RC+SN:R/L hit/rebound do not exist. Historical/wrong-side/front-facing attempts are REJECTED_NEVER_USE. Current chat has no usable approved-neutral image attachment for an edit operation."
+          "status": "HIT_FORMAL_REGISTERED_REBOUND_PENDING",
+          "hit": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+          "rebound": null,
+          "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+          "hitDropbox": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png",
+          "runtimeKey": "RC+SN:R/L",
+          "hitImportCommit": "127f430df5dbc118f42b8b09128b7cd2ff387074",
+          "liveRuntimeScopeUnchanged": true,
+          "note": "User approved current hit for implementation. Rebound is still required before M9-16 runtime activation."
         },
         "rd": {
           "status": "DONE_REUSE_APPROVED_M5_8",
@@ -144,7 +151,7 @@
         }
       },
       "remaining": [
-        "Create corrected RC+SN L/R hit/rebound pair from approved baseline; IMAGE_GENERATION_REQUIRED",
+        "Create RC+SN:R/L rebound derived from the accepted hit; IMAGE_GENERATION_REQUIRED",
         "Run static fixed-drum QA for corrected RC+SN pair",
         "Register approved RC+SN pair to Dropbox and formal GitHub layer paths",
         "Add RC+SN pair to manifest and asset_inventory",
@@ -154,8 +161,8 @@
         "Deploy GitHub Pages",
         "Run live PC/Xperia runtime QA and screenshot QA for measures 9-16"
       ],
-      "blocker": "Corrected RC+SN:R/L hit/rebound still unavailable. Latest retry SHA256 49a78e87... failed formal baseline-edit QA (edit_op=null / front-facing redraw).",
-      "nextAction": "Retry ASSETQ-001 only with the approved neutral bound as a true image-edit source; do not create rebound until hit passes."
+      "blocker": "RC+SN:R/L hit is now formal and preloaded, but rebound is still missing. Live runtimeScope remains 1-8.",
+      "nextAction": "Create ASSETQ-002 RC+SN:R/L rebound from the accepted formal hit, then continue NIMG-013..023."
     },
     {
       "id": "M17_148",
@@ -301,7 +308,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Attach approved neutral/home pose PNG in the current chat; create corrected RC+SN:R/L hit then rebound; continue NIMG-013..023.",
+  "nextAction": "Create RC+SN:R/L rebound from formal hit SHA256 f85cb442...; keep runtimeScope 1-8 until pair/QA/deploy gates pass.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
