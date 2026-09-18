@@ -22,7 +22,7 @@ const candidates=groups.map((g,i)=>({g,i,key:keyFor(g),time:Number(g[0].time),me
 const wanted=[...new Set([...TARGETS,...candidates.map(x=>x.key)])];
 const selected=[];
 for(const key of wanted){const list=candidates.filter(x=>x.key===key);if(!list.length)continue;selected.push(list.find(x=>x.next-x.time>.20)||list[0]);}
-for(const t of TARGETS)if(!selected.some(x=>x.key===t))throw new Error("required M18-24 action missing: "+t);
+for(const t of TARGETS)if(!selected.some(x=>x.key===t))throw new Error(`required action missing in measure range ${M0}-${M1}: ${t}`);
 const timing=inv.motionTiming||{}, baseHit=Number(timing.hitEndSeconds??.09), baseRebound=Number(timing.reboundEndSeconds??.17);
 function phaseTimes(ev){const gap=Math.max(0,ev.next-ev.time);let hit=baseHit,rebound=baseRebound;if(Number.isFinite(gap)&&gap<baseRebound){hit=Math.min(baseHit,Math.max(.055,gap*.65));rebound=Math.min(baseRebound,Math.max(hit+.02,gap-.004));}return {hit:ev.time+Math.max(.012,hit*.45),rebound:ev.time+hit+(rebound-hit)*.5,neutral:ev.time+rebound+.012};}
 function expectedFrame(key,phase){if(phase==="neutral")return inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";const id=inv.runtimePhaseFrameMap?.[key]?.[phase]||inv.runtimeFrameMap?.[key];return inv.requiredFrames?.[id]?.path||"";}
