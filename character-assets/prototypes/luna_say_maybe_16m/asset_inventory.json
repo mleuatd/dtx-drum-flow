@@ -123,70 +123,70 @@
     },
     "lt_r_hit": {
       "path": "layers/character/lt/hit_r_refresh.png",
-      "state": "ready-runtime-pending",
+      "state": "live-qa-passed",
       "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
       "actionKey": "LT:R",
       "phase": "hit"
     },
     "lt_r_rebound": {
       "path": "layers/character/lt/rebound_r_refresh.png",
-      "state": "ready-runtime-pending",
+      "state": "live-qa-passed",
       "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
       "actionKey": "LT:R",
       "phase": "rebound"
     },
     "lt_l_hit": {
       "path": "layers/character/lt/hit_l_refresh.png",
-      "state": "ready-runtime-review",
+      "state": "live-qa-passed",
       "sha256": "d6d44e858728afbf9a66e6c766786232d7a2d4c09e8621ed9d1b475547f485bb",
       "actionKey": "LT:L",
       "phase": "hit"
     },
     "lt_l_rebound": {
       "path": "layers/character/lt/rebound_l_refresh.png",
-      "state": "ready-runtime-review",
+      "state": "live-qa-passed",
       "sha256": "a9281447b12f10d738a79ea72d7d314395a6cd3c6eec50ea8b667039e0ba6376",
       "actionKey": "LT:L",
       "phase": "rebound"
     },
     "bd_sn_rf_r_hit": {
       "path": "layers/character/combo/bd_sn_rf_r_hit_refresh.png",
-      "state": "ready-runtime-review",
+      "state": "live-qa-passed",
       "sha256": "01719a7fa5cc23ac2ae3c1ffe24c5443fd1e4c8f659466475f4b1aff862802d4",
       "actionKey": "BD+SN:RF/R",
       "phase": "hit"
     },
     "bd_sn_rf_r_rebound": {
       "path": "layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
-      "state": "ready-runtime-review",
+      "state": "live-qa-passed",
       "sha256": "b4d8efb059c16e3aa1411abb08c499a426806b0b8ecd1f291305703447044843",
       "actionKey": "BD+SN:RF/R",
       "phase": "rebound"
     },
     "ft_r_hit": {
       "path": "layers/character/ft/hit_r_refresh.png",
-      "state": "ready-runtime-pending",
+      "state": "live-qa-passed",
       "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
       "actionKey": "FT:R",
       "phase": "hit"
     },
     "ft_r_rebound": {
       "path": "layers/character/ft/rebound_r_refresh.png",
-      "state": "ready-runtime-pending",
+      "state": "live-qa-passed",
       "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
       "actionKey": "FT:R",
       "phase": "rebound"
     },
     "ft_l_hit": {
       "path": "layers/character/ft/hit_l_refresh.png",
-      "state": "ready-runtime-review",
+      "state": "live-qa-passed",
       "sha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
       "actionKey": "FT:L",
       "phase": "hit"
     },
     "ft_l_rebound": {
       "path": "layers/character/ft/rebound_l_refresh.png",
-      "state": "ready-runtime-review",
+      "state": "live-qa-passed",
       "sha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
       "actionKey": "FT:L",
       "phase": "rebound"
@@ -233,12 +233,12 @@
     },
     "bd_lt_rf_r_hit": {
       "path": "layers/character/combo/bd_lt_rf_r_hit_refresh.png",
-      "state": "ready",
+      "state": "live-qa-passed",
       "sha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50"
     },
     "bd_lt_rf_r_rebound": {
       "path": "layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
-      "state": "ready",
+      "state": "live-qa-passed",
       "sha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11"
     }
   },
@@ -513,6 +513,27 @@
           "reboundSha256": "b4d8efb059c16e3aa1411abb08c499a426806b0b8ecd1f291305703447044843"
         }
       }
+    },
+    "m17Final": {
+      "status": "COMPLETE_LIVE_QA",
+      "run": 35404442282,
+      "artifact": 10571731825,
+      "testedCommitSha": "8ebea91559444b6c5601da464b2f4468dbf5bcad",
+      "records": 26,
+      "pass": 22,
+      "skipOverlapped": 4,
+      "fail": 0,
+      "pc": "PASS",
+      "xperia": "PASS",
+      "screenshotVisualReview": "PASS",
+      "actions": [
+        "LT:R",
+        "LT:L",
+        "BD+SN:RF/R",
+        "FT:R",
+        "FT:L",
+        "BD+LT:RF/R"
+      ]
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
