@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "CURRENT_MANDATORY",
+  "objective": "Continuously reduce repeated manual work, repeated repository reads, redundant validation, and duplicated QA without weakening correctness gates.",
+  "startup": [
+    "Run tools/start-pipeline-task.mjs for the task category.",
+    "This rebuilds PIPELINE_CONTEXT_CACHE.json and AUTO_OPTIMIZATION_REPORT.json.",
+    "Review HIGH auto-optimization suggestions before beginning repetitive manual work."
+  ],
+  "autonomousRules": [
+    "HIGH optimization suggestions that do not require image generation, user preference, or risky product behavior changes may be added to the ledger and implemented without asking the user.",
+    "If the same MANUAL_OVERRIDE reason appears twice, create a reusable tool/workflow extension before a third repetition.",
+    "Prefer cached/precomputed project context over repeatedly re-reading the same source files when freshness/digest is valid.",
+    "Prefer incremental validation for normal pushes; use full validation for PRs or product/audio/chart/runtime changes.",
+    "Never trade away required visual QA, rejected-asset safety, limb correctness, or contiguous runtime completion gates for speed.",
+    "Record each autonomous optimization with rationale, output, validation evidence, and whether it changes correctness coverage."
+  ],
+  "protectedGates": [
+    "visual acceptance",
+    "rejected/never-use checks",
+    "limb authority",
+    "block completion definition",
+    "runtimeScope contiguous expansion",
+    "full validation when classifier requires it"
+  ],
+  "thresholds": {
+    "manualOverrideRepeat": 2,
+    "highPriorityAutoImplement": true,
+    "docsOrPipelineOnlyPreferFastValidation": true
+  }
+}
