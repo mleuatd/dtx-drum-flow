@@ -117,9 +117,52 @@
     "independentWorkCompleted": [
       "Persistent anti-loop runbook created",
       "Dropbox working copy existence/size/content hash verified",
-      "Repeated unchanged acquisition attempts prohibited by runbook"
+      "Repeated unchanged acquisition attempts prohibited by runbook",
+      "M18-24 authoritative limb scope enumerated: 112 notes / 78 groups",
+      "Representative public-runtime QA timestamps prepared for all four new action keys",
+      "Runtime integration gate documented; no premature scope expansion"
     ]
   },
   "runbook": "character-assets/prototypes/luna_say_maybe_18_24/AUTONOMOUS_RUNBOOK.md",
-  "resumeProtocolVersion": 2
+  "resumeProtocolVersion": 2,
+  "preImplementation": {
+    "status": "READY_BLOCKED_ON_NEW_IMAGE_BINARIES",
+    "scope": {
+      "measureStart": 18,
+      "measureEnd": 24,
+      "noteCount": 112,
+      "groupCount": 78
+    },
+    "representativeRuntimeQaTimes": [
+      {
+        "time": 33.851273,
+        "measure": 18,
+        "key": "BD+RD:RF/R"
+      },
+      {
+        "time": 34.067101,
+        "measure": 18,
+        "key": "RD+SN:R/L"
+      },
+      {
+        "time": 36.225374,
+        "measure": 20,
+        "key": "BD+HH:RF/R"
+      },
+      {
+        "time": 36.657029,
+        "measure": 20,
+        "key": "HH+SN:R/L"
+      }
+    ],
+    "requiredExistingReuse": [
+      "BD+RC:RF/R",
+      "BD:RF",
+      "RD:R",
+      "SN:L",
+      "HH:R"
+    ],
+    "runtimeGate": "Do not expand runtime scope until all four new hit/rebound pairs are persisted and mapped.",
+    "preparedAt": "2026-09-19"
+  }
 }
