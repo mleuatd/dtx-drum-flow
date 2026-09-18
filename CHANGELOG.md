@@ -1,3 +1,12 @@
+## 2026-09-18 — M9-16 reusable existing-asset runtime QA
+- Added dedicated QA-only Playwright harness/workflow that intercepts inventory inside the test browser only; public/live runtime remains measures 1-8.
+- Exercised every M9-16 occurrence of reusable `BD:RF`, `RD:R`, `SN:L`, `HH:R`, `BD+RC:*`, and formal refreshed `BD+SN:*` at pre/hit/rebound/post on PC 1280x900 and Xperia 384x864.
+- Successful run `35331851179`, artifact `10542000517`: frame mismatches 0, load failures 0, asset/init warnings 0, console/page errors 0.
+- Manual PC/Xperia contact-sheet review found no visible disappearance, wrong-person pose jump, or fixed-drum registration drift. Final HH:R at 30.829691 returns to neutral after rebound.
+- BD+SN core runtime behavior passed at all 14 M9-16 occurrences; do not regenerate it.
+- Two transitions remain BLOCKED solely because corrected RC+SN does not exist: `BD+SN@25.434007 -> RC+SN@25.649835` and `RC+SN@25.649835 -> BD:RF@25.865662`.
+- First QA run `35331421842` failed only because the harness sampled `naturalWidth=0` during image-src swaps; screenshots still showed the character. Harness commit `17f858b67ed9d67b6a9a5cdcf744dacbf611b148` waits for frame load and the rerun passed.
+
 ## 2026-09-18 — M9-16 non-image preparation
 - Kept live runtime safely at measures 1-8 while image generation is unavailable.
 - Reconciled M9-16 state: approved RD:R refresh pair is reused; corrected BD+SN refresh pair remains formal-layer-saved and visual-QA-passed; corrected RC+SN is the sole missing image pair.
