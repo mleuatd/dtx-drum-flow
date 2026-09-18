@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "IN_PROGRESS_M17_ASSETQ_013",
+  "status": "M17_IMAGES_COMPLETE_RUNTIME_QA_READY",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,11 +13,11 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "ASSETQ-013 BD+LT:RF/R hit",
+  "currentNextWork": "M17 consolidated actual-app screenshot QA",
   "nextAsset": {
-    "id": "ASSETQ-013",
-    "actionKey": "BD+LT:RF/R",
-    "phase": "hit",
+    "id": "M17-POST-RUNTIME-QA",
+    "actionKey": "M17_ALL",
+    "phase": "runtime",
     "firstMeasure": 17,
     "status": "READY",
     "blocker": null
@@ -116,6 +116,6 @@
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
   "blocker": null,
-  "nextAction": "Create BD+LT:RF/R hit using deterministic baseline-preserving local edit; after PASS create rebound.",
-  "updatedAt": "2026-09-19T07:02:00+09:00"
+  "nextAction": "Run measure 17 PC/Xperia actual-app QA. Only repair assets that visibly fail.",
+  "updatedAt": "2026-09-19T07:18:00+09:00"
 }
