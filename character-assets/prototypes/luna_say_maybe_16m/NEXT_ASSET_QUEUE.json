@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:51:00+09:00",
+  "updatedAt": "2026-09-18T21:40:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
     "liveRuntimeScope": "1-8",
-    "currentBlocker": "ASSETQ-001 requires a usable approved-neutral image target in the current chat."
+    "currentBlocker": "ASSETQ-001 still blocked: latest image-generation retry returned edit_op=null fresh redraw SHA256 49a78e87...; approved neutral was not bound as a true edit target."
   },
   "nextItem": {
     "id": "ASSETQ-001",
@@ -19,9 +19,9 @@
     "currentAssetStatus": "BLOCKED",
     "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
     "nextAfterCompletion": "ASSETQ-002",
-    "status": "BLOCKED_IMAGE_TARGET_MISSING",
-    "blocker": "Corrected RC+SN:R/L image generation is required, but this chat does not contain a usable approved-neutral image target for image editing.",
-    "nextAction": "Attach the approved neutral/home pose PNG in the current chat, then execute GENERATED_PROMPT_rc_sn_r_l_hit.md."
+    "status": "BLOCKED_IMAGE_EDIT_BINDING",
+    "blocker": "Latest retry failed formal baseline-edit QA: edit_op=null / front-facing different-character redraw; candidate SHA256 49a78e87... is NEVER_USE.",
+    "nextAction": "Retry only with approved neutral bound as an actual image-edit source; require baseline-preserving hit PASS before rebound."
   },
   "items": [
     {
@@ -36,9 +36,9 @@
       "currentAssetStatus": "BLOCKED",
       "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
       "nextAfterCompletion": "ASSETQ-002",
-      "status": "BLOCKED_IMAGE_TARGET_MISSING",
-      "blocker": "Corrected RC+SN:R/L image generation is required, but this chat does not contain a usable approved-neutral image target for image editing.",
-      "nextAction": "Attach the approved neutral/home pose PNG in the current chat, then execute GENERATED_PROMPT_rc_sn_r_l_hit.md."
+      "status": "BLOCKED_IMAGE_EDIT_BINDING",
+      "blocker": "Latest retry failed formal baseline-edit QA: edit_op=null / front-facing different-character redraw; candidate SHA256 49a78e87... is NEVER_USE.",
+      "nextAction": "Retry only with approved neutral bound as an actual image-edit source; require baseline-preserving hit PASS before rebound."
     },
     {
       "id": "ASSETQ-002",
