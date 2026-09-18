@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:35:00+09:00",
+  "updatedAt": "2026-09-19T05:50:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -19,9 +19,9 @@
     "currentAssetStatus": "NEW_IMAGE_REQUIRED",
     "reason": "Missing formal hit; first appears M17, occurrences 31.",
     "nextAfterCompletion": "ASSETQ-004",
-    "status": "BLOCKED_LOCAL_EDIT_QUALITY",
-    "blocker": "Direct edit unavailable; tested local stick-only and APPROVED-RD-arm transforms both failed visual QA.",
-    "nextAction": "Resume ASSETQ-003 with a different natural local arm/wrist/stick edit. Do not proceed to ASSETQ-004.",
+    "status": "READY_ADAPTIVE_RETRY",
+    "blocker": null,
+    "nextAction": "Run character-retry-controller for the latest confirmed failure, then attempt LT:R hit with the returned strategy. Do not repeat any previously failed method.",
     "dependencyStatus": "CLEARED_M9_16_DONE"
   },
   "items": [
@@ -75,9 +75,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 31.",
       "nextAfterCompletion": "ASSETQ-004",
-      "status": "BLOCKED_LOCAL_EDIT_QUALITY",
-      "blocker": "Direct edit unavailable; tested local stick-only and APPROVED-RD-arm transforms both failed visual QA.",
-      "nextAction": "Resume ASSETQ-003 with a different natural local arm/wrist/stick edit. Do not proceed to ASSETQ-004.",
+      "status": "READY_ADAPTIVE_RETRY",
+      "blocker": null,
+      "nextAction": "Run character-retry-controller for the latest confirmed failure, then attempt LT:R hit with the returned strategy. Do not repeat any previously failed method.",
       "dependencyStatus": "CLEARED_M9_16_DONE"
     },
     {
