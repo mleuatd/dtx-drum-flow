@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T06:25:00+09:00",
+  "updatedAt": "2026-09-19T06:50:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -124,7 +124,8 @@
     "openWorkQueue": "7a857f5be4e4f85115513f65eab23fa741e915aa",
     "openWorkLedgerNormalize": "49f0a98f515a7b687f9c1e33a28a1b7eb476ad51",
     "openWorkFinalDocs": "d3d1cde4985a555926cd7ae451c5f23a8c1225b6",
-    "rcSnHitImport": "127f430df5dbc118f42b8b09128b7cd2ff387074"
+    "rcSnHitImport": "127f430df5dbc118f42b8b09128b7cd2ff387074",
+    "m17BdSnRfRFormal": "b3208b4869e9af496770ac967c06975ef175176f"
   },
   "latestQaRuns": {
     "m5_8": 35327283366,
@@ -143,9 +144,9 @@
   "nextRecommendedBlock": {
     "blockId": "B17",
     "measures": "17",
-    "reason": "M9-16 is DONE; continue contiguously with the next required asset/action-key queue."
+    "reason": "Continue M17 contiguous asset completion; BD+SN:RF/R pair is formal, FT:R is next."
   },
-  "nextRecommendedWork": "M17 in progress. LT:R and LT:L pairs are formal QA-passed; next READY is ASSETQ-007 BD+SN:RF/R hit. runtimeScope remains 1-16 until the full M17 asset gate passes.",
+  "nextRecommendedWork": "ASSETQ-009 FT:R hit is READY. Do not touch completed LT:R/L or BD+SN:RF/R pairs. Keep runtime scope 1-16.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
