@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:49:00+09:00",
+  "updatedAt": "2026-09-18T22:53:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -19,9 +19,10 @@
     "currentAssetStatus": "NEW_IMAGE_REQUIRED",
     "reason": "Missing formal hit; first appears M17, occurrences 31.",
     "nextAfterCompletion": "ASSETQ-004",
-    "status": "BLOCKED_DEPENDENCY",
-    "blocker": "Depends on completion of earlier contiguous asset queue items through ASSETQ-002.",
-    "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+    "status": "READY",
+    "blocker": null,
+    "nextAction": "Create LT:R hit for B17 using the pipeline-first generation/edit workflow.",
+    "dependencyStatus": "CLEARED_M9_16_DONE"
   },
   "items": [
     {
