@@ -247,3 +247,43 @@ Correct Dropbox candidates have filenames ending in `_correct.png`.
 - full-song limb analysis draft: `2c885eba3c49598791ec7d5232ced63fd655d659`
 - later-measure part-combination inventory: `ffd976ecc2cb7fca3fc025dc5217ee302ef0417e`
 - progress-ledger refresh after QA/analysis: `71ec5e0d358a3b9473b87d8b33a7e5f34510199d`
+
+
+## M5-8 completion update — 2026-09-18 18:06 JST
+
+Measures 5-8 are now COMPLETE.
+
+Approved refreshed RD:R assets:
+- `character-assets/layers/character/rd/hit_r_refresh.png`
+  - SHA-256 `a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415`
+- `character-assets/layers/character/rd/rebound_r_refresh.png`
+  - SHA-256 `c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4`
+
+Dropbox:
+- `/ChatGPT/dtx-drum-flow/rd_r_hit_refresh_20260918.png`
+- `/ChatGPT/dtx-drum-flow/rd_r_rebound_refresh_20260918.png`
+
+Runtime:
+- `asset_inventory.runtimeScope` = measures 1-8
+- RD:R hit/rebound are mapped in runtime maps
+- M5-8 chart coverage: 33 notes / 32 groups / limb missing 0
+
+Public live QA:
+- Runtime Character QA run `35327283366`
+- artifact `10539831628`
+- 472 total screenshots/records across PC 1280x900 + Xperia portrait 384x864
+- M5-8 subset: 256 records
+- browser errors: 0
+- asset warnings: 0
+- init warnings: 0
+- RD frame mismatches: 0
+
+Manually inspected screenshots:
+- `pc/29_m5_10.541921_RD_R_hit.png`
+- `pc/29_m5_10.541921_RD_R_rebound.png`
+- `xperia-portrait/29_m5_10.541921_RD_R_hit.png`
+- `xperia-portrait/29_m5_10.541921_RD_R_rebound.png`
+
+Result: screen-right ride strike, rebound continuity and fixed-drum registration are acceptable. `CHAR-QA-0005` is DONE.
+
+Next work block: measures 9-16. RD can now be reused. BD+SN refreshed pair is already visual-QA-passed; RC+SN hit/rebound still need corrected screen-right crash motion before M9-16 runtime mapping/QA.
