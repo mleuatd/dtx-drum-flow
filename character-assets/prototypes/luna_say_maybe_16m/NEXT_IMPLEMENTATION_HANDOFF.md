@@ -154,3 +154,10 @@ Immediate blocker:
 4. then continue NIMG-013 through NIMG-023.
 
 Existing approved BD+SN:RF/L frames are now preloaded under exact runtime key `BD+SN:RF/L` while public/live runtimeScope remains 1-8. They are NOT yet live-transition-approved.
+
+## RC+SN retry update — 2026-09-18 21:40 JST
+- Approved neutral was located and previewed from Dropbox/GitHub, but the image generator did not bind it as a true edit source.
+- Retry candidate SHA256 `49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c` returned `edit_op=null` and a fresh front-facing redraw.
+- Candidate is `NEVER_USE`; it was not registered, mapped, saved as formal, or deployed.
+- `runtimeScope` remains 1-8.
+- Next action: retry `ASSETQ-001` only with the approved neutral supplied as an actual image-edit target; do not create rebound until hit passes formal baseline-preservation QA.
