@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:39:00+09:00",
+  "updatedAt": "2026-09-18T19:44:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -71,8 +71,9 @@
   ],
   "validationStatus": {
     "fullSongLimb": "SUCCESS",
-    "planningValidation": "PENDING_LATEST_RUN",
-    "characterAssetValidation": "PENDING_LATEST_RUN"
+    "planningValidation": "SUCCESS run 35335328767",
+    "characterAssetValidation": "SUCCESS run 35335334538",
+    "validateAfterLbFix": "SUCCESS run 35335334582"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -82,12 +83,16 @@
     "planningValidator": "578eb3aead04a7acbb5cd94e2c460cf6acfefdfc",
     "validateWorkflow": "ea797203afa30a0406ef7947eb378bba799f1a50",
     "lbValidatorFix": "3c475a6fb9d8993b4a964d013103f963a8cca385",
-    "headBeforeStateFile": "3c475a6fb9d8993b4a964d013103f963a8cca385"
+    "headBeforeStateFile": "3c475a6fb9d8993b4a964d013103f963a8cca385",
+    "staleStatusOverride": "7b77b04a387ea3bde056dcdfe91a926901ab85e7",
+    "planningLedgerComplete": "28466422e88210ff6ed9844f3ff4497a50d752f6"
   },
   "latestQaRuns": {
     "m5_8": 35327283366,
     "m9_16Reusable": 35331851179,
-    "fullSongLimbPromotion": 35333901757
+    "fullSongLimbPromotion": 35333901757,
+    "planningValidation": 35335328767,
+    "characterAssetValidation": 35335334538
   },
   "nextRecommendedBlock": {
     "blockId": "B09_16",
@@ -118,5 +123,17 @@
     "Do not regenerate approved assets.",
     "Do not expand runtimeScope until required images and QA gates pass.",
     "Do not use historical/rejected assets."
-  ]
+  ],
+  "planningStatus": {
+    "status": "DONE",
+    "actionKeyCount": 30,
+    "reuseApproved": 6,
+    "reuseNeedsRuntimeQa": 1,
+    "newImageRequired": 22,
+    "blocked": 1,
+    "newImageFiles": 44,
+    "blockedImageFiles": 2,
+    "reusableQaEvents": 775,
+    "blocksPlanned": 15
+  }
 }
