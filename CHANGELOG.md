@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-18 — M1-4 live runtime character QA closure
+- Added/used Playwright GitHub Actions live-browser QA against the public GitHub Pages build at PC 1280x900 and Xperia-class portrait 384x864.
+- Fixed rapid-hit phase timing so rebound can exist between closely spaced notes without inserting a neutral frame.
+- Live QA found a large SN:R hit -> rebound pose/camera jump in `sn_r_rebound.png`.
+- Runtime fix: SN:R keeps `sn_r_hit` during its very short rebound phase while DOM `phase=rebound` remains correct; the discontinuous rebound PNG is retained for history but marked not used at runtime.
+- Final QA run 35304314820: 216 live screenshots + DOM evidence, 0 browser errors, 0 asset/init warnings, stable character/drum registration on both viewports.
+- `CHARACTER_QA_ISSUES.json`: all current measures 1-4 issues DONE; all 10 reviewQueue entries DONE.
+
 ## 2026-09-18
 - Added a persistent character visual-QA/correction ledger and workflow for Luna Say Maybe M1-4, including status/timestamp/history rules and mandatory handoff links from WORK_SYNC and VARIANT_STATUS. Current full-resolution independent visual review is tracked explicitly rather than inferred from runtime validation.
 - Revalidated the complete Luna Say Maybe measures 1-4 10-frame character set already imported through Dropbox staging; runtime key/phase mappings match SN:L, SN:R, HH:R, BD:RF, and BD+RC:* hit/rebound pairs. No neutral or drum_base changes were made in this verification pass.
