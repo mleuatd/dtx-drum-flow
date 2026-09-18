@@ -194,12 +194,12 @@
   "runtimeFallbackKeys": [],
   "missingExactFrames": [],
   "qa": {
-    "scope": "measures 1-8",
-    "notesResolved": 61,
-    "groupsResolved": 59,
+    "scope": "measures 1-16",
+    "notesResolved": 144,
+    "groupsResolved": 124,
     "unresolved": 0,
     "imageAssetCount": 14,
-    "characterVariantState": "COMPLETE_LIVE_QA",
+    "characterVariantState": "COMPLETE_LIVE_QA_M1_16",
     "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
     "fixedDrumPixelSha256": "7fe4c002958a63c32379d11bede1f0ca0282ea21401fe2d0d0d4f13428403de9",
     "snRReboundRuntimePolicy": "hold sn_r_hit during the short SN:R rebound phase to avoid the discontinuous sn_r_rebound drawing; phase remains rebound",
@@ -207,20 +207,22 @@
     "rdRPolicy": "refreshed baseline-derived hit/rebound mapped for measures 5-8",
     "runtimeQaRun": 35327283366,
     "runtimeQaArtifact": 10539831628,
-    "bdSnPreloadPolicy": "BD+SN:RF/L exact-limb frames are preloaded in runtime maps while live runtimeScope remains 1-8; they are not considered live-approved until M9-16 transitions and PC/Xperia QA pass.",
+    "bdSnPreloadPolicy": "BD+SN:RF/L exact mapping is live-approved through M16 after public PC/Xperia QA.",
     "rcSnHitRuntimePolicy": {
-      "status": "PRELOADED_OUTSIDE_LIVE_SCOPE",
+      "status": "LIVE_QA_PASSED",
       "runtimeKey": "RC+SN:R/L",
       "hitFrame": "rc_sn_r_l_hit_refresh",
-      "reboundFrame": null,
-      "liveRuntimeScope": "1-8",
-      "rule": "Do not extend runtimeScope until rebound and M9-16 completion gates pass."
+      "reboundFrame": "rc_sn_r_l_rebound_refresh",
+      "liveRuntimeScope": "1-16",
+      "rule": "Exact limb-aware key is primary; wildcard is compatibility fallback only."
     },
     "rcSnPair": {
-      "status": "STATIC_PASS_RUNTIME_QA_PENDING",
+      "status": "LIVE_QA_PASSED",
       "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
       "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
-      "liveRuntimeScope": "1-8"
+      "liveRuntimeScope": "1-16",
+      "liveQaRun": 35351134562,
+      "liveQaArtifact": 10549284671
     },
     "preLiveCompatibility": "Exact limb-aware BD+SN:RF/L and RC+SN:R/L preloaded; legacy wildcard mappings intentionally withheld until live runtimeScope expansion to satisfy planning gate.",
     "m9_16PreLive": {
@@ -232,6 +234,19 @@
       "warnings": 0,
       "consolePageErrors": 0,
       "expectedKeyPolicy": "Exact limb-aware keys are primary for BD+SN:RF/L and RC+SN:R/L; wildcard aliases remain compatibility fallbacks only."
+    },
+    "liveM9_16": {
+      "status": "PASS",
+      "run": 35351134562,
+      "artifact": 10549284671,
+      "records": 520,
+      "frameMismatch": 0,
+      "loadFailure": 0,
+      "warnings": 0,
+      "consolePageErrors": 0,
+      "pc": "PASS",
+      "xperia": "PASS",
+      "screenshotVisualReview": "PASS"
     }
   }
 }
