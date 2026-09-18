@@ -1,0 +1,40 @@
+name: Build M17 visual fixes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/prototypes/luna_say_maybe_16m/M17_VISUAL_FIX_TRIGGER.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: m17-visual-fix-builder
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow==11.3.0
+      - name: Build targeted M17 visual fixes
+        run: python tools/build-m17-visual-fixes.py
+      - name: Commit only M17 corrected assets and build result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             character-assets/layers/character/lt/hit_l_refresh.png             character-assets/layers/character/lt/rebound_l_refresh.png             character-assets/layers/character/ft/hit_l_refresh.png             character-assets/layers/character/ft/rebound_l_refresh.png             character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png             character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png             character-assets/generated-qa/m17-visual-fix/build-result.json
+          if git diff --cached --quiet; then
+            echo "No M17 visual changes to commit"
+            exit 0
+          fi
+          git commit -m "assets: fix M17 runtime visual defects"
+          git pull --rebase origin main
+          git push origin HEAD:main
