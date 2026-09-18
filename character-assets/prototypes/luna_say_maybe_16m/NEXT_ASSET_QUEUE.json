@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:02:00+09:00",
+  "updatedAt": "2026-09-19T07:18:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -8,21 +8,14 @@
     "currentBlocker": "M9-16 pre-live runtime QA is running; RC+SN pair is formal. Later M17 asset queue remains dependency-blocked until M9-16 closes."
   },
   "nextItem": {
-    "id": "ASSETQ-013",
-    "actionKey": "BD+LT:RF/R",
-    "phase": "hit",
+    "id": "M17-POST-RUNTIME-QA",
+    "actionKey": "M17_ALL",
+    "phase": "runtime",
     "block": "B17",
     "firstMeasure": 17,
-    "occurrenceCount": 3,
-    "priority": "P1",
-    "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
-    "currentAssetStatus": "NEW_IMAGE_REQUIRED",
-    "reason": "Missing formal hit; first appears M17, occurrences 3.",
-    "nextAfterCompletion": "ASSETQ-014",
     "status": "READY",
     "blocker": null,
-    "nextAction": "Create BD+LT:RF/R hit for B17 using approved BD:RF and LT:R as secondary references while preserving neutral registration.",
-    "dependencyStatus": "FT_L_PAIR_DONE"
+    "nextAction": "Run consolidated M17 actual-app PC/Xperia screenshot QA. Repair only visibly failing assets."
   },
   "items": [
     {
@@ -291,13 +284,20 @@
       "occurrenceCount": 3,
       "priority": "P1",
       "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
-      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
+      "currentAssetStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "reason": "Missing formal hit; first appears M17, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-014",
-      "status": "READY",
+      "status": "DONE",
       "blocker": null,
-      "nextAction": "Create BD+LT:RF/R hit for B17 using approved BD:RF and LT:R as secondary references while preserving neutral registration.",
-      "dependencyStatus": "FT_L_PAIR_DONE"
+      "nextAction": "Completed; do not regenerate. Final visual approval moves to M17 runtime screenshot QA.",
+      "dependencyStatus": "FT_L_PAIR_DONE",
+      "completedAt": "2026-09-19T07:18:00+09:00",
+      "evidence": {
+        "formalPath": "character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+        "sha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
+        "buildCommit": "55993556eba1db34f203428cd1f851fb99016db6",
+        "qaMode": "PRE_RUNTIME_LIGHTWEIGHT"
+      }
     },
     {
       "id": "ASSETQ-014",
@@ -308,12 +308,19 @@
       "occurrenceCount": 3,
       "priority": "P1",
       "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
-      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
+      "currentAssetStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "reason": "Missing formal rebound; first appears M17, occurrences 3.",
       "nextAfterCompletion": "ASSETQ-015",
-      "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
-      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+      "status": "DONE",
+      "blocker": null,
+      "nextAction": "Completed; do not regenerate. Final visual approval moves to M17 runtime screenshot QA.",
+      "completedAt": "2026-09-19T07:18:00+09:00",
+      "evidence": {
+        "formalPath": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
+        "sha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11",
+        "buildCommit": "55993556eba1db34f203428cd1f851fb99016db6",
+        "qaMode": "PRE_RUNTIME_LIGHTWEIGHT"
+      }
     },
     {
       "id": "ASSETQ-015",
