@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:52:00+09:00",
+  "updatedAt": "2026-09-19T04:52:00+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -10,10 +10,10 @@
   "summary": {
     "total": 19,
     "done": 16,
-    "blocked": 2,
-    "canRunNow": 1
+    "blocked": 3,
+    "canRunNow": 0
   },
-  "firstBlockedAsset": null,
+  "firstBlockedAsset": "ASSETQ-003 LT:R hit — external image-parent access blocker",
   "rule": "Process executionOrder. Do not mark dependency-blocked tasks IN_PROGRESS. No neutral substitution or rejected asset reuse.",
   "items": [
     {
@@ -325,17 +325,22 @@
     {
       "taskId": "OWQ-018",
       "sourceQueue": "M17_148",
-      "status": "READY",
+      "status": "BLOCKED",
       "task": "Create later missing character pairs for 22 NEW_IMAGE_REQUIRED action keys.",
       "dependency": "M9_16 DONE and NEXT_ASSET_QUEUE order",
       "requiresImageGeneration": true,
       "requiresRuntimeQA": false,
       "requiresGitHubAction": true,
       "requiresDropbox": true,
-      "canRunNow": true,
-      "blocker": null,
+      "canRunNow": false,
+      "blocker": "Approved neutral baseline is verified in GitHub/Dropbox, but the current image editor cannot consume connector preview bytes as the mandatory direct-edit parent. Text-only generation is prohibited.",
       "recommendedTool": "NEXT_ASSET_QUEUE + generation prompt builder",
-      "executionOrder": 18
+      "executionOrder": 18,
+      "evidence": [
+        "GitHub neutral path character-assets/layers/character/base/neutral.png; expected SHA256 886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9.",
+        "Dropbox formal baseline /ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png exists.",
+        "Next queue item remains ASSETQ-003 LT:R hit."
+      ]
     },
     {
       "taskId": "OWQ-019",
