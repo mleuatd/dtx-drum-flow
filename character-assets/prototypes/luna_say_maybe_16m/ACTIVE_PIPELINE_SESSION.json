@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "BLOCKED_ASSETQ_003_AFTER_DIRECT_EDIT_AND_LOCAL_QA",
+  "status": "READY_ADAPTIVE_RETRY_ASSETQ_003",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -116,54 +116,11 @@
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
   "blocker": {
-    "type": "EXTERNAL_DIRECT_EDIT_FAILURE",
-    "status": "OPEN",
-    "at": "2026-09-19T05:20:00+09:00",
-    "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-    "workingCopyPath": "/mnt/data/neutral_m17_parent_for_edit.png",
-    "workingCopySha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-    "attempts": [
-      {
-        "kind": "image_gen",
-        "result": "FAIL",
-        "sha256": "8533bd408a8a026890754374e4b230c208ab35710a74d90a7ba9f909eaccd2f0",
-        "reason": "fresh redraw edit_op=null"
-      },
-      {
-        "kind": "image_gen",
-        "result": "FAIL",
-        "sha256": "7be15ee7e39c25575ac8e563d0102038efc9edc576c994a02c996fab50ab7d49",
-        "reason": "fresh redraw edit_op=null"
-      },
-      {
-        "kind": "image_gen_explicit_baseline",
-        "result": "FAIL",
-        "sha256": "6fcd0e1c3e12492c9d53c9b6db41250b7d82ada8caee6bd5a2c1af8ba21481b8",
-        "reason": "fresh redraw edit_op=null"
-      },
-      {
-        "kind": "local_raster_edit",
-        "result": "FAIL",
-        "sha256": "5bbd18c5b4a498c7541d11df096d584a71c3b0bd3cbc332dcb80024c0a62f482",
-        "reason": "black artifact/malformed hand"
-      },
-      {
-        "kind": "local_raster_edit",
-        "result": "FAIL",
-        "sha256": "dd20a5599314a30f3119cbb0e2413f2d664886528276d219137560a9e371b822",
-        "reason": "malformed forearm/hand/stick artifact"
-      },
-      {
-        "kind": "image_gen_crop_target",
-        "result": "FAIL",
-        "sha256": "f9efcaa8933c5b297bf18e2a3ffcd57815b5ae1fcc2a395372abf6be3f395a60",
-        "reason": "crop ignored, full redraw edit_op=null"
-      }
-    ],
-    "completed": "Latest main verified; M1-16 preserved; approved neutral materialized and SHA verified; LT:R contact point resolved; all generated/local candidates QA-rejected; reject registry and ledger updated.",
-    "resumeUnit": "ASSETQ-003 LT:R hit only",
-    "nextReady": "ASSETQ-003 LT:R hit remains the first unfinished asset."
+    "type": "PREVIOUS_RETRY_LOOP",
+    "status": "RESOLVED_BY_PIPELINE_CHANGE",
+    "resolvedAt": "2026-09-19T05:45:00+09:00",
+    "resolution": "Added adaptive retry controller; edit_op=null downgraded from automatic reject to risk signal; repeated same-failure strategy now prohibited; local repair preferred when core continuity passes."
   },
-  "nextAction": "Do not redo rejected attempts. Resume ASSETQ-003 LT:R hit with a new local edit method that preserves neutral identity and natural wrist/arm path.",
-  "updatedAt": "2026-09-19T05:35:00+09:00"
+  "nextAction": "Resume ASSETQ-003 LT:R hit using character-retry-controller decision. Do not reuse any previously failed strategy.",
+  "updatedAt": "2026-09-19T05:45:00+09:00"
 }
