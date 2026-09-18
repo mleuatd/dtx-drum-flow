@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T19:52:00+09:00",
+  "canvas": {
+    "width": 1448,
+    "height": 1086
+  },
+  "source": "site/character-prototype.js EFFECT_POINTS plus project drum semantics; unmeasured points remain relative only.",
+  "parts": {
+    "LC": {
+      "screenSide": "screen-left",
+      "relativePosition": "left crash/cymbal outside or above HH region",
+      "expectedLimbDefault": "R",
+      "target": "stick tip to LC playing surface",
+      "approximate": null,
+      "tolerance": null,
+      "commonWrongTarget": "HH or screen-right RC",
+      "qa": "No authoritative runtime effect coordinate yet; verify against fixed drum visually."
+    },
+    "HH": {
+      "screenSide": "screen-left",
+      "relativePosition": "left-side hi-hat",
+      "expectedLimbDefault": "R",
+      "target": "stick tip to upper hi-hat surface",
+      "approximate": {
+        "x": 255,
+        "y": 465
+      },
+      "tolerance": "visual contact around effect point; no invented pixel radius",
+      "commonWrongTarget": "LC or SN",
+      "qa": "Effect coordinate is authoritative runtime reference."
+    },
+    "SN": {
+      "screenSide": "center-left",
+      "relativePosition": "in front/left of seated character",
+      "expectedLimbDefault": "L",
+      "target": "stick tip to snare head",
+      "approximate": {
+        "x": 570,
+        "y": 520
+      },
+      "tolerance": "visual contact around effect point",
+      "commonWrongTarget": "HT",
+      "qa": "Check left/right hand from full-song limb sidecar."
+    },
+    "HT": {
+      "screenSide": "center",
+      "relativePosition": "upper center tom",
+      "expectedLimbDefault": "phrase-aware R/L",
+      "target": "stick tip to high-tom head",
+      "approximate": {
+        "x": 690,
+        "y": 455
+      },
+      "tolerance": "visual contact around effect point",
+      "commonWrongTarget": "SN or LT",
+      "qa": "Do not infer hand; use sidecar."
+    },
+    "LT": {
+      "screenSide": "center-right",
+      "relativePosition": "mid-right tom",
+      "expectedLimbDefault": "phrase-aware R/L",
+      "target": "stick tip to low-tom head",
+      "approximate": {
+        "x": 790,
+        "y": 510
+      },
+      "tolerance": "visual contact around effect point",
+      "commonWrongTarget": "HT or FT",
+      "qa": "Do not infer hand; use sidecar."
+    },
+    "FT": {
+      "screenSide": "screen-right",
+      "relativePosition": "lower/right floor tom",
+      "expectedLimbDefault": "phrase-aware R/L",
+      "target": "stick tip to floor-tom head",
+      "approximate": {
+        "x": 910,
+        "y": 585
+      },
+      "tolerance": "visual contact around effect point",
+      "commonWrongTarget": "LT",
+      "qa": "Foot must not be mistaken for FT; FT is hand-played."
+    },
+    "RC": {
+      "screenSide": "screen-right",
+      "relativePosition": "high/right crash",
+      "expectedLimbDefault": "R",
+      "target": "stick tip to right crash playing area",
+      "approximate": {
+        "x": 1090,
+        "y": 195
+      },
+      "tolerance": "visual contact around effect point",
+      "commonWrongTarget": "screen-left cymbal/LC or RD",
+      "qa": "Critical known failure mode: RC generation previously went screen-left."
+    },
+    "RD": {
+      "screenSide": "screen-right",
+      "relativePosition": "right-side ride below RC",
+      "expectedLimbDefault": "R",
+      "target": "stick tip to ride playing area",
+      "approximate": {
+        "x": 1070,
+        "y": 370
+      },
+      "tolerance": "visual contact around effect point",
+      "commonWrongTarget": "RC or screen-left cymbal",
+      "qa": "Approved RD:R refresh pair is visual reference."
+    },
+    "LP": {
+      "screenSide": "screen-left-foot",
+      "relativePosition": "left hi-hat pedal",
+      "expectedLimbDefault": "LF",
+      "target": "left foot to hi-hat pedal",
+      "approximate": null,
+      "tolerance": null,
+      "commonWrongTarget": "BD pedal",
+      "qa": "No exact runtime effect coordinate; use fixed drum pedal geometry."
+    },
+    "LB": {
+      "screenSide": "left/center-foot",
+      "relativePosition": "left-foot bass pedal where present",
+      "expectedLimbDefault": "LF",
+      "target": "left foot to LB pedal",
+      "approximate": null,
+      "tolerance": null,
+      "commonWrongTarget": "main BD pedal",
+      "qa": "Project semantics define LB as left-foot bass. Current Luna chart has no LB events."
+    },
+    "BD": {
+      "screenSide": "center-foot",
+      "relativePosition": "main bass-drum pedal",
+      "expectedLimbDefault": "RF",
+      "target": "right foot to main bass pedal",
+      "approximate": {
+        "x": 505,
+        "y": 790
+      },
+      "tolerance": "visual pedal-contact region around effect point",
+      "commonWrongTarget": "left hi-hat pedal",
+      "qa": "Right-foot mechanics should change without moving stool/body registration."
+    }
+  }
+}
