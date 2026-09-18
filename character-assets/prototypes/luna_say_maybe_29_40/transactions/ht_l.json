@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe HT:L transaction for Luna M29-40",
+  "status": "VISUAL_QA",
+  "actionKey": "HT:L",
+  "scope": {
+    "measureStart": 29,
+    "measureEnd": 40
+  },
+  "parent": {
+    "githubPath": "character-assets/layers/character/base/neutral.png",
+    "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "width": 1448,
+    "height": 1086
+  },
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration"
+  ],
+  "allowedMotion": [
+    "leftArm",
+    "leftHand",
+    "leftStick"
+  ],
+  "phases": {
+    "hit": {
+      "stage": "VISUAL_QA",
+      "attempt": 1,
+      "dropboxPath": null,
+      "sha256": "1e02c423368becbb0b5510b9b3bec627a076948f402695c148576174bd3d2469",
+      "qaStatus": "PENDING",
+      "formalPath": "character-assets/layers/character/ht/hit_l_refresh.png",
+      "formalCommit": null
+    },
+    "rebound": {
+      "stage": "VISUAL_QA",
+      "attempt": 1,
+      "dropboxPath": null,
+      "sha256": "3e984e3332b63682e629d45e28422cf48518ddc4418deff3335c84424f06c062",
+      "qaStatus": "PENDING",
+      "formalPath": "character-assets/layers/character/ht/rebound_l_refresh.png",
+      "formalCommit": null
+    }
+  },
+  "qa": {
+    "static": "PENDING",
+    "compositeVisual": "PENDING",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "updatedAt": "2026-09-19T08:42:00+09:00"
+}
