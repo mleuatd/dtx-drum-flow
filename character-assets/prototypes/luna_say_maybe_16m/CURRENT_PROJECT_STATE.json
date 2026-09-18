@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:34:00+09:00",
+  "updatedAt": "2026-09-18T22:47:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
     "measureEnd": 16,
-    "status": "DEPLOY_AND_LIVE_QA_PENDING"
+    "status": "COMPLETE_LIVE_QA"
   },
   "completedMeasureBlocks": [
     {
@@ -17,15 +17,15 @@
     {
       "measures": "5-8",
       "status": "DONE"
-    }
-  ],
-  "blockedMeasureBlocks": [
+    },
     {
       "measures": "9-16",
-      "status": "IN_PROGRESS_LIVE_QA",
-      "blocker": "Static and pre-live runtime QA passed. Waiting for post-deploy public live QA and screenshot inspection before DONE."
+      "status": "DONE",
+      "qaRun": 35351134562,
+      "qaArtifact": 10549284671
     }
   ],
+  "blockedMeasureBlocks": [],
   "limbAuthority": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
   "fullSongLimbStatus": {
     "status": "DONE",
@@ -40,8 +40,8 @@
   "fullSongGroupCount": 1527,
   "currentAssetStatus": {
     "actionKeyCount": 30,
-    "REUSE_APPROVED": 6,
-    "REUSE_NEEDS_RUNTIME_QA": 2,
+    "REUSE_APPROVED": 8,
+    "REUSE_NEEDS_RUNTIME_QA": 0,
     "NEW_IMAGE_REQUIRED": 22,
     "BLOCKED": 0,
     "newImageFilesNeeded": 44,
@@ -80,7 +80,12 @@
     "openWorkSweep": "SUCCESS run 35343438639",
     "bdSnRuntimePreloadValidate": "SUCCESS run 35343194244",
     "bdSnRuntimePreloadCharacterAssetValidation": "SUCCESS run 35343194377",
-    "bdSnRuntimePreloadDeploy": "SUCCESS run 35343194336"
+    "bdSnRuntimePreloadDeploy": "SUCCESS run 35343194336",
+    "m9_16PreLive": "SUCCESS run 35350383202 artifact 10549653076",
+    "m9_16LiveRuntimeQa": "SUCCESS run 35351134562 artifact 10549284671",
+    "m1_16Validate": "SUCCESS run 35351278979",
+    "m1_16CharacterAssetValidation": "SUCCESS run 35351227038",
+    "m1_16PagesDeploy": "SUCCESS run 35351010527"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -128,11 +133,11 @@
     }
   },
   "nextRecommendedBlock": {
-    "blockId": "B09_16",
-    "measures": "9-16",
-    "reason": "Immediate contiguous public-runtime blocker; only one corrected image pair is missing."
+    "blockId": "B17",
+    "measures": "17",
+    "reason": "M9-16 is DONE; continue contiguously with the next required asset/action-key queue."
   },
-  "nextRecommendedWork": "Wait for validation and Pages deploy of runtimeScope 1-16, then run public PC/Xperia live runtime QA and screenshot inspection. Do not mark M9-16 DONE until those pass.",
+  "nextRecommendedWork": "Begin M17 preparation from NEXT_ASSET_QUEUE / OPEN_WORK_QUEUE. M9-16 is DONE and must not be reopened unless a regression is found.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
