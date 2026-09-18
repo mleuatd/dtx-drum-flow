@@ -161,3 +161,13 @@ Existing approved BD+SN:RF/L frames are now preloaded under exact runtime key `B
 - Candidate is `NEVER_USE`; it was not registered, mapped, saved as formal, or deployed.
 - `runtimeScope` remains 1-8.
 - Next action: retry `ASSETQ-001` only with the approved neutral supplied as an actual image-edit target; do not create rebound until hit passes formal baseline-preservation QA.
+
+## RC+SN hit implementation update — 2026-09-18 22:05 JST
+- User approved the current RC+SN:R/L hit for implementation.
+- Formal GitHub path: `character-assets/layers/character/combo/rc_sn_hit_refresh.png`
+- Dropbox: `/ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png`
+- SHA256: `f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82`
+- Binary import workflow run: `35347550282` SUCCESS; import commit: `127f430df5dbc118f42b8b09128b7cd2ff387074`.
+- Exact runtime key hit preload: `RC+SN:R/L` -> `rc_sn_r_l_hit_refresh`.
+- Live `runtimeScope` intentionally remains 1-8.
+- Next image is only `ASSETQ-002`: create rebound from this accepted hit. Do not regenerate neutral or hit.
