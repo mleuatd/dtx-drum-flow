@@ -33,7 +33,7 @@
       "rebound": "bd_rc_rebound"
     },
     "RD:R": {
-      "status": "BLOCKED_NEW_VARIANTS_REQUIRED",
+      "status": "READY_GITHUB_RUNTIME_QA_PENDING",
       "hit": "rd_r_hit",
       "rebound": "rd_r_rebound",
       "historicalCandidate": "character-assets/layers/character/rd/hit_r.png",
@@ -43,19 +43,24 @@
   "requiredNewFrames": {
     "rd_r_hit": {
       "path": "layers/character/rd/hit_r_refresh.png",
-      "state": "BLOCKED",
-      "reason": "Must be derived from current approved baseline; historical candidate rejected."
+      "state": "READY_GITHUB",
+      "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/rd_r_hit_refresh_20260918.png"
     },
     "rd_r_rebound": {
       "path": "layers/character/rd/rebound_r_refresh.png",
-      "state": "BLOCKED",
-      "reason": "No refreshed rebound exists; must be derived from current approved baseline."
+      "state": "READY_GITHUB",
+      "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/rd_r_rebound_refresh_20260918.png"
     }
   },
-  "implementationState": "NOT_WIRED_UNTIL_RD_VARIANTS_PASS_QA",
+  "implementationState": "MAPPED_1_8_RUNTIME_QA_PENDING",
   "qaEvidence": {
     "visualQaRun": 35315598184,
     "artifactId": 10535695236,
-    "qaIssue": "CHAR-QA-0005"
+    "qaIssue": "CHAR-QA-0005",
+    "fixedDrumComposite": "PASSED_IN_CHAT_2026-09-18",
+    "hitSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+    "reboundSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4"
   }
 }
