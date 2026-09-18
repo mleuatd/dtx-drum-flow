@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:42:00+09:00",
+  "updatedAt": "2026-09-18T21:48:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -92,7 +92,7 @@
     {
       "id": "M9_16",
       "measures": "9-16",
-      "status": "IN_PROGRESS_PARTIAL_ASSETS",
+      "status": "BLOCKED_IMAGE_REQUIRED",
       "chart": {
         "notes": 83,
         "groups": 65,
@@ -153,12 +153,14 @@
         "Run all validation and regression checks",
         "Deploy GitHub Pages",
         "Run live PC/Xperia runtime QA and screenshot QA for measures 9-16"
-      ]
+      ],
+      "blocker": "Corrected RC+SN:R/L hit/rebound do not exist; all downstream M9-16 registration/runtime/deploy/live-QA tasks depend on this pair.",
+      "nextAction": "Provide/use approved neutral image in a usable current-chat image target, then create ASSETQ-001 corrected RC+SN:R/L hit followed by ASSETQ-002 rebound."
     },
     {
       "id": "M17_148",
       "measures": "17-148",
-      "status": "PLANNED_LIMB_AUTHORITY_DONE_ASSETS_PENDING",
+      "status": "BLOCKED_UPSTREAM_AND_IMAGE_REQUIRED",
       "chart": {
         "notes": 2014,
         "lastMeasure": 148,
@@ -202,7 +204,9 @@
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
         "status": "SUPERSEDED_HISTORICAL",
         "oldUnresolved": 195
-      }
+      },
+      "blocker": "M9-16 contiguous block is not complete; later block also requires 22 new action-key image pairs.",
+      "nextAction": "Finish M9-16 first, then follow NEXT_ASSET_QUEUE order for later missing pairs."
     }
   ],
   "skippedOrRejected": [
@@ -290,7 +294,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Production pipeline is ready. Actual product work resumes at NEXT_ASSET_QUEUE ASSETQ-001: corrected RC+SN:R/L hit, then rebound; image generation required.",
+  "nextAction": "Provide/use approved neutral image in a usable current-chat image target, then create ASSETQ-001 corrected RC+SN:R/L hit followed by ASSETQ-002 rebound.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -624,7 +628,7 @@
     "title": "M9-16 EXISTING ASSET RUNTIME QA",
     "scope": "measures 9-16",
     "liveRuntimeScopeUnchanged": "1-8",
-    "status": "BLOCKED",
+    "status": "BLOCKED_ONLY_RC_SN_TRANSITIONS",
     "rule": "Existing approved/reusable images must be exercised in the actual M9-16 note contexts; prior M1-8 approval is not sufficient.",
     "qaMode": "GitHub Actions Playwright against public Pages with QA-only intercepted inventory expanded to M1-16. RC+SN is a neutral stub only to allow initialization and is excluded from approval.",
     "assets": [
@@ -728,7 +732,9 @@
       "Console/page errors: zero.",
       "Manual contact-sheet review completed for BD:RF, RD:R, SN:L, HH:R, BD+RC:*, BD+SN:* on both viewports.",
       "Final HH:R at 30.829691 confirmed rebound -> neutral return."
-    ]
+    ],
+    "blocker": "Reusable-asset core QA is complete; only transitions touching missing corrected RC+SN at 25.649835 remain blocked.",
+    "nextAction": "Re-run risk-aware M9-16 QA after corrected RC+SN pair is formally mapped."
   },
   "fullSongLimbAssignment": {
     "id": "FULL_SONG_LIMB_ASSIGNMENT",
@@ -1779,5 +1785,15 @@
       "workaround": "Create OPEN_WORK_QUEUE.json and required prep outputs directly from latest-main authoritative files; keep runtimeScope 1-8.",
       "followUpFix": "If GitHub workflow dispatch becomes available, use start-pipeline-task/full-path workflows directly for future sessions."
     }
-  ]
+  ],
+  "openWorkQueue": {
+    "path": "character-assets/prototypes/luna_say_maybe_16m/OPEN_WORK_QUEUE.json",
+    "updatedAt": "2026-09-18T21:48:00+09:00",
+    "summary": {
+      "total": 19,
+      "done": 1,
+      "blocked": 18,
+      "canRunNow": 0
+    }
+  }
 }
