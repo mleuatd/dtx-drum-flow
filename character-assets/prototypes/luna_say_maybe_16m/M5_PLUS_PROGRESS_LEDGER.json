@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:05:00+09:00",
+  "updatedAt": "2026-09-18T20:10:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -1081,7 +1081,8 @@
         "task": "Automation / One-command QA",
         "completedAt": "2026-09-18T20:05:00+09:00",
         "evidence": [
-          ".github/workflows/luna-block-qa.yml + tools/luna-block-qa.mjs implement range/action-key QA, static blockers, PC/Xperia screenshots and machine-readable summary; infrastructure changes smoke-test M1-8 automatically."
+          ".github/workflows/luna-block-qa.yml + tools/luna-block-qa.mjs implement range/action-key QA, static blockers, PC/Xperia screenshots and machine-readable summary; infrastructure changes smoke-test M1-8 automatically.",
+          "Luna Block QA smoke run 35337759100 SUCCESS for M1-8; artifact 10543239081; automated problems 0."
         ]
       },
       {
@@ -1099,7 +1100,8 @@
         "task": "Validation / consistency checks",
         "completedAt": "2026-09-18T20:05:00+09:00",
         "evidence": [
-          "validate_luna_full_song_planning.py now validates mapping coverage, naming, contact coverage, rejected-runtime safety, exact-key support and scope invariants; validate.yml syntax-checks block QA runner."
+          "validate_luna_full_song_planning.py now validates mapping coverage, naming, contact coverage, rejected-runtime safety, exact-key support and scope invariants; validate.yml syntax-checks block QA runner.",
+          "General validate run 35337828588 SUCCESS with infrastructure master validation and block-QA runner syntax check."
         ]
       },
       {
@@ -1137,6 +1139,23 @@
       "completionDefinition": "character-assets/prototypes/luna_say_maybe_16m/BLOCK_COMPLETION_DEFINITION.json",
       "blockQaWorkflow": ".github/workflows/luna-block-qa.yml",
       "blockQaRunner": "tools/luna-block-qa.mjs"
+    },
+    "validationEvidence": {
+      "generalValidate": {
+        "run": 35337828588,
+        "status": "SUCCESS"
+      },
+      "blockQaSmoke": {
+        "run": 35337759100,
+        "artifact": 10543239081,
+        "status": "PASS_AUTOMATED_REQUIRES_VISUAL_SCREENSHOT_REVIEW",
+        "range": "1-8",
+        "problems": 0
+      },
+      "priorCharacterAssetValidation": {
+        "run": 35337814824,
+        "status": "SUCCESS"
+      }
     }
   }
 }
