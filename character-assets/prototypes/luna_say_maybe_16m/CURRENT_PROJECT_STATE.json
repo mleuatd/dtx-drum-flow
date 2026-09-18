@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T06:56:00+09:00",
+  "updatedAt": "2026-09-19T07:02:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -126,7 +126,8 @@
     "openWorkFinalDocs": "d3d1cde4985a555926cd7ae451c5f23a8c1225b6",
     "rcSnHitImport": "127f430df5dbc118f42b8b09128b7cd2ff387074",
     "m17BdSnRfRFormal": "b3208b4869e9af496770ac967c06975ef175176f",
-    "m17FtRFormal": "81271660096b004025dfa0738d37d4116f08c0f9"
+    "m17FtRFormal": "81271660096b004025dfa0738d37d4116f08c0f9",
+    "m17FtLFormal": "cc04d5d9d9ffcf8789bea04d8538339738dec66f"
   },
   "latestQaRuns": {
     "m5_8": 35327283366,
@@ -147,7 +148,7 @@
     "measures": "17",
     "reason": "Continue M17 contiguous asset completion; BD+SN:RF/R pair is formal, FT:R is next."
   },
-  "nextRecommendedWork": "ASSETQ-011 FT:L hit is READY. Do not touch completed LT:R/L, BD+SN:RF/R, or FT:R pairs. Keep runtime scope 1-16.",
+  "nextRecommendedWork": "ASSETQ-013 BD+LT:RF/R hit is READY. All other M17 image pairs through FT:L are formal. Keep runtime scope 1-16 until final pair passes.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
