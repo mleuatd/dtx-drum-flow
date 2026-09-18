@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:40:00+09:00",
+  "updatedAt": "2026-09-18T22:05:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -23,7 +23,7 @@
     {
       "measures": "9-16",
       "status": "BLOCKED_IMAGE_REQUIRED",
-      "blocker": "Corrected RC+SN:R/L hit/rebound still missing. Latest retry SHA256 49a78e87... was rejected: edit_op=null fresh front-facing redraw, not approved-neutral-derived."
+      "blocker": "RC+SN:R/L hit is formal/preloaded; rebound is still missing. runtimeScope stays 1-8."
     }
   ],
   "limbAuthority": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
@@ -45,7 +45,7 @@
     "NEW_IMAGE_REQUIRED": 22,
     "BLOCKED": 1,
     "newImageFilesNeeded": 44,
-    "blockedImageFiles": 2,
+    "blockedImageFiles": 1,
     "BD_SN_RUNTIME_PRELOADED": true,
     "liveRuntimeScopeUnchanged": true
   },
@@ -61,7 +61,7 @@
     "BD+SN:RF/L preloaded exact mapping; live transition QA pending"
   ],
   "missingAssets": [
-    "RC+SN:R/L corrected hit",
+    "RC+SN:R/L rebound",
     "RC+SN:R/L corrected rebound",
     "22 later action-key hit/rebound pairs listed in FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json"
   ],
@@ -112,7 +112,8 @@
     "bdSnRuntimePreload": "35e0cde374f715c03b937489b3153ad2405b8cf4",
     "openWorkQueue": "7a857f5be4e4f85115513f65eab23fa741e915aa",
     "openWorkLedgerNormalize": "49f0a98f515a7b687f9c1e33a28a1b7eb476ad51",
-    "openWorkFinalDocs": "d3d1cde4985a555926cd7ae451c5f23a8c1225b6"
+    "openWorkFinalDocs": "d3d1cde4985a555926cd7ae451c5f23a8c1225b6",
+    "rcSnHitImport": "127f430df5dbc118f42b8b09128b7cd2ff387074"
   },
   "latestQaRuns": {
     "m5_8": 35327283366,
@@ -128,7 +129,7 @@
     "measures": "9-16",
     "reason": "Immediate contiguous public-runtime blocker; only one corrected image pair is missing."
   },
-  "nextRecommendedWork": "Retry ASSETQ-001 only when approved neutral is bound as a true image-edit source; reject edit_op=null/fresh redraw results. Do not create rebound until hit passes.",
+  "nextRecommendedWork": "Create ASSETQ-002 RC+SN:R/L rebound from the accepted hit at character-assets/layers/character/combo/rc_sn_hit_refresh.png; then resume M9-16 static/runtime QA.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
