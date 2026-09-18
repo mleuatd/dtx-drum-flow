@@ -1,23 +1,19 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T17:14:00+09:00",
+  "updatedAt": "2026-09-18T17:58:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 4,
-    "status": "COMPLETE_LIVE_QA_AFTER_INVENTORY_SCOPE_REFACTOR",
-    "runtimeQaRun": 35321917979,
-    "runtimeQaArtifact": 10536838661,
-    "validateStatus": "SUCCESS",
-    "characterAssetValidationStatus": "SUCCESS"
+    "measureEnd": 8,
+    "status": "DEPLOY_AND_LIVE_QA_PENDING"
   },
   "blocks": [
     {
       "id": "M5_8",
       "measures": "5-8",
-      "status": "IN_PROGRESS_BLOCKED_BY_RD_IMAGES",
+      "status": "IMPLEMENTED_RUNTIME_QA_PENDING",
       "chart": {
         "notes": 33,
         "groups": 32,
@@ -43,15 +39,32 @@
         "Chart/limb coverage recomputed",
         "Historical RD candidate visually rejected",
         "Current-chat first RD hit/rebound generated and rejected for wrong screen side",
-        "Second explicit-reference RD generation rejected because image system produced a different front-facing character"
+        "Second explicit-reference RD generation rejected because image system produced a different front-facing character",
+        "Approved neutral attached again as direct source in current chat",
+        "New RD:R hit/rebound generated from attached baseline",
+        "Fixed-drum composite QA passed for right-side ride target and rebound continuity",
+        "RD:R hit/rebound saved to Dropbox",
+        "RD:R hit/rebound imported to formal GitHub layer paths",
+        "asset_inventory runtimeScope extended to measures 1-8",
+        "RD:R hit/rebound mapped in runtimeFrameMap/runtimePhaseFrameMap"
       ],
       "remaining": [
-        "Create correct RD:R hit/rebound derived from exact refreshed baseline",
-        "Composite QA over fixed drum",
-        "Register approved RD layers",
-        "Extend runtime scope to measures 1-8",
-        "GitHub Pages PC/Xperia runtime QA"
-      ]
+        "GitHub Pages deploy completion",
+        "PC/Xperia live runtime screenshot QA",
+        "Close CHAR-QA-0005 and mark M5-8 DONE if no defects"
+      ],
+      "assets": {
+        "rdHit": {
+          "path": "character-assets/layers/character/rd/hit_r_refresh.png",
+          "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+          "dropbox": "/ChatGPT/dtx-drum-flow/rd_r_hit_refresh_20260918.png"
+        },
+        "rdRebound": {
+          "path": "character-assets/layers/character/rd/rebound_r_refresh.png",
+          "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+          "dropbox": "/ChatGPT/dtx-drum-flow/rd_r_rebound_refresh_20260918.png"
+        }
+      }
     },
     {
       "id": "M9_16",
@@ -243,7 +256,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Image blocker remains: produce a true baseline-derived RD:R hit/rebound pair. Until then do not expand live runtime beyond M1-4. BD+SN is safely preserved and visual-QA-passed but not runtime-mapped.",
+  "nextAction": "Wait for latest deploy, run public GitHub Pages runtime QA for measures 1-8 on PC/Xperia, inspect screenshots, then close M5-8 or log defects.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
