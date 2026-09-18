@@ -7,6 +7,14 @@ Status: CURRENT — Luna Say Maybe character production acceleration layer.
 2. M5_PLUS_PROGRESS_LEDGER.json
 3. NEXT_IMPLEMENTATION_HANDOFF.md
 4. this file
+5. PIPELINE_USAGE_POLICY.json
+
+## Mandatory execution entry
+Before manually performing a repeatable operation, run:
+
+`node tools/production-pipeline-dispatcher.mjs <task-category>`
+
+Use the returned repository tool/workflow. If the tool cannot be used, record a `MANUAL_OVERRIDE` in the ledger with the skipped tool and reason. Manual duplication without that record is non-compliant.
 
 ## Main flow
 1. `tools/build-next-asset-queue.mjs` selects production order.
