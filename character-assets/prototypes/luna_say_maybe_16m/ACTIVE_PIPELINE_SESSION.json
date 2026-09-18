@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-18T21:45:00+09:00",
   "taskCategory": "full-path",
-  "status": "BLOCKED_IMAGE_TARGET_MISSING",
+  "status": "BLOCKED_IMAGE_EDIT_BINDING",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -58,9 +58,15 @@
       "tool": "final open-work validate",
       "run": 35343438639,
       "status": "SUCCESS"
+    },
+    {
+      "tool": "image generation retry",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c",
+      "reason": "edit_op=null / fresh front-facing redraw"
     }
   ],
   "completedAt": "2026-09-18T21:55:00+09:00",
-  "blocker": "The remaining critical path requires corrected RC+SN:R/L image generation. Current chat does not contain a usable approved-neutral image target for editing.",
-  "nextAction": "Attach approved neutral/home pose PNG in current chat, then execute ASSETQ-001 and ASSETQ-002."
+  "blocker": "Approved neutral was located and previewed from Dropbox/GitHub, but the image generator did not bind it as an edit source; retry returned edit_op=null fresh front-facing redraw SHA256 49a78e87... and was rejected.",
+  "nextAction": "Obtain a true current-chat image-edit target for approved neutral, rerun ASSETQ-001, require baseline-preserving edit PASS, then derive ASSETQ-002."
 }
