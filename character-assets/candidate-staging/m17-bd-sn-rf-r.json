@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "IMPORTED_REVIEW_ONLY",
+  "status": "FORMAL_PROMOTED_RUNTIME_PENDING",
   "actionKey": "BD+SN:RF/R",
   "block": "B17",
   "measure": 17,
@@ -28,10 +28,16 @@
     "binary": "PASS_LOCAL",
     "visual": "PASS_FIXED_DRUM_COMPOSITE",
     "hitChangedPixelRatioVsApprovedSnR": 0.0003790075598017969,
-    "reboundChangedPixelRatioVsApprovedSnR": 8.012575928695705e-05
+    "reboundChangedPixelRatioVsApprovedSnR": 0.00008012575928695705
   },
   "runtimeMapped": false,
-  "manifestRegistered": false,
+  "manifestRegistered": true,
   "retryReason": "No DROPBOX_ACCESS_TOKEN in push workflow; use single-use temporary download URLs.",
-  "retryTrigger": "2026-09-19T06:46:00+09:00"
+  "retryTrigger": "2026-09-19T06:46:00+09:00",
+  "formalPaths": {
+    "hit": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+    "rebound": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png"
+  },
+  "formalPromotionCommit": "b3208b4869e9af496770ac967c06975ef175176f",
+  "updatedAt": "2026-09-19T06:50:00+09:00"
 }
