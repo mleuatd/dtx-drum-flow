@@ -28,13 +28,17 @@ def main():
     actual={str(p.relative_to(ROOT)).replace("\\","/") for p in (ASSETS/"layers").rglob("*.png")}
     missing=listed-actual
     if missing: errors.append(f"registered layer PNGs missing from disk: {sorted(missing)}")
-    if len(listed)!=12: errors.append(f"m1-4 complete set requires 12 registered layer PNGs, got {len(listed)}")
+    # Extra later-measure review/runtime-pending layers are allowed. The active runtime set is validated from inventory below.
     drum="character-assets/layers/drum/drum_base.png"; neutral="character-assets/layers/character/base/neutral.png"
     de=next((a for a in assets_manifest["assets"] if a["path"]==drum),None)
     ne=next((a for a in assets_manifest["assets"] if a["path"]==neutral),None)
     if not de or de["sha256"]!=assets_manifest.get("lockedDrumSha256"): errors.append("locked drum SHA mismatch")
     if not ne or ne["sha256"]!=assets_manifest.get("lockedNeutralSha256"): errors.append("locked neutral SHA mismatch")
     required=inventory.get("requiredFrames",{})
+    expected_runtime_paths={"character-assets/layers/drum/drum_base.png"}|{"character-assets/"+frame["path"] for frame in required.values()}
+    if len(expected_runtime_paths)!=12: errors.append(f"active M1-4 runtime set must resolve to 12 layer PNGs, got {len(expected_runtime_paths)}")
+    missing_runtime=expected_runtime_paths-listed
+    if missing_runtime: errors.append(f"active runtime assets missing from manifest: {sorted(missing_runtime)}")
     if inventory.get("imageSetState")!="m1-4-complete": errors.append("imageSetState must be m1-4-complete")
     if len(required)!=11: errors.append(f"requiredFrames must contain 11 character frames, got {len(required)}")
     for fid,frame in required.items():
@@ -78,6 +82,6 @@ def main():
         print("Character asset validation failed:")
         for e in errors: print("- "+e)
         return 1
-    print(f"Character asset validation OK. Canvas={size[0]}x{size[1]}, registered PNGs={len(listed)}, runtime measures=1-4, notes={len(scoped)}, groups={len(groups)}, unresolved=0")
+    print(f"Character asset validation OK. Canvas={size[0]}x{size[1]}, registered PNGs={len(listed)}, active runtime PNGs={len(expected_runtime_paths)}, runtime measures={scope['measureStart']}-{scope['measureEnd']}, notes={len(scoped)}, groups={len(groups)}, unresolved=0")
     return 0
 if __name__=="__main__": sys.exit(main())
