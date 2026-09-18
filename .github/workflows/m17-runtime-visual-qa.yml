@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Mirror exact BD+LT RF/R bytes to Dropbox
+      - name: Mirror exact BD+LT RF/R bytes to Dropbox when secret is available
         env:
           DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
         run: |
@@ -55,7 +55,8 @@ jobs:
           import hashlib,json,os,pathlib,urllib.request
           token=os.environ.get("DROPBOX_ACCESS_TOKEN")
           if not token:
-              raise SystemExit("DROPBOX_ACCESS_TOKEN required")
+              print("DROPBOX_ACCESS_TOKEN unavailable; skip mirror without failing QA. Exact bytes will be preserved as workflow artifact for connector-side upload.")
+              raise SystemExit(0)
           assets=[
             ("character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png","/ChatGPT/dtx-drum-flow/bd_lt_rf_r_hit_refresh_20260919.png","ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50"),
             ("character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png","/ChatGPT/dtx-drum-flow/bd_lt_rf_r_rebound_refresh_20260919.png","4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11")
@@ -75,3 +76,14 @@ jobs:
               with urllib.request.urlopen(req) as r:
                   print(dst, r.read().decode())
           PY
+
+      - name: Preserve final M17 pair for connector-side Dropbox upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m17-final-pair-${{ github.run_id }}
+          path: |
+            character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png
+            character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png
+          if-no-files-found: error
+          retention-days: 30
