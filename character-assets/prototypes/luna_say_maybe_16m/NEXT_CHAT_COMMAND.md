@@ -1,37 +1,19 @@
-DTX Drum Flow の Luna Say Maybe 作業を最新GitHub mainから継続してください。
+# NEXT_CHAT_COMMAND
 
-最初に以下を読んでください。
-1. `character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json`
-2. `character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json`
-3. `character-assets/prototypes/luna_say_maybe_16m/OPEN_WORK_QUEUE.json`
-4. `character-assets/prototypes/luna_say_maybe_16m/NEXT_IMPLEMENTATION_HANDOFF.md`
-5. `character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md`
-6. `character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json`
+DTX Drum Flow の Luna Say Maybe は、GitHub main 上で M1〜16 まで DONE です。
 
-現在、画像生成なしで実行可能だった台帳残作業はすべて消化済みです。
-live runtimeScopeは1〜8のままです。
-既存BD+SN:RF/Lは exact runtime mapping まで先行登録済みで、live transition QAだけ未完了です。
+最初に最新 main の以下を正本として読んでください。
 
-次の唯一の実行可能化条件は、approved neutral/home pose PNGをこのチャットに画像として添付することです。
-添付後は、
-- ASSETQ-001 RC+SN:R/L hit
-- ASSETQ-002 rebound
-の順に進めてください。
+- character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json
+- character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json
+- character-assets/prototypes/luna_say_maybe_16m/NEXT_ASSET_QUEUE.json
+- character-assets/prototypes/luna_say_maybe_16m/OPEN_WORK_QUEUE.json
+- character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md
 
-hit指示:
-`character-assets/prototypes/luna_say_maybe_16m/GENERATED_PROMPT_rc_sn_r_l_hit.md`
+現在の live runtimeScope は 1〜16。
+M9〜16 の公開 PC/Xperia runtime QA は SUCCESS run 35351134562 / artifact 10549284671。
+RC+SN:R/L hit/rebound は正式登録・mapping・live QA 済みなので再生成しないでください。
 
-rebound指示:
-`character-assets/prototypes/luna_say_maybe_16m/REBOUND_INSTRUCTION_rc_sn_r_l.md`
-
-画像生成後は candidate QA → fixed-drum composite/contact QA → staging → formal save → NIMG-013..023 の順で、既存pipeline/toolを優先して自律的に進めてください。
-
-Rejected/Never Use資産の再利用、neutral代替PASS、runtimeScopeの先行拡張は禁止です。
-
-
-### Current blocker update
-Latest RC+SN hit retry SHA256 `49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c` is `NEVER_USE` because generation metadata reported `edit_op=null` and visual QA confirmed a fresh front-facing redraw. Retry only from the approved neutral as a true image edit; rebound remains blocked until hit passes.
-
-
-### Current RC+SN state
-`ASSETQ-001 RC+SN:R/L hit` is complete and formally imported. Use `character-assets/layers/character/combo/rc_sn_hit_refresh.png` (SHA256 `f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82`) as the sole source for `ASSETQ-002 rebound`. Do not regenerate the hit. Runtime scope remains 1-8 until the pair and M9-16 gates pass.
+次の READY は ASSETQ-003 LT:R hit（M17）です。
+M17以降を開始する指示がある場合のみ、pipeline-first で ASSETQ-003 から順に進めてください。
+Rejected/Never Use資産の再利用、neutral代替PASS、contiguous gateを飛ばしたruntimeScope拡張は禁止です。
