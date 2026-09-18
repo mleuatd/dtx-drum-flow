@@ -1,0 +1,50 @@
+name: Mirror M17 LT R pair to Dropbox
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/layers/character/lt/hit_r_refresh.png"
+      - "character-assets/layers/character/lt/rebound_r_refresh.png"
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Mirror exact PNG bytes to Dropbox
+        env:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,urllib.request
+          token=os.environ.get("DROPBOX_ACCESS_TOKEN")
+          if not token: raise SystemExit("DROPBOX_ACCESS_TOKEN required on main push")
+          assets=[
+            ("character-assets/layers/character/lt/hit_r_refresh.png","/ChatGPT/dtx-drum-flow/lt_r_hit_refresh_20260919.png"),
+            ("character-assets/layers/character/lt/rebound_r_refresh.png","/ChatGPT/dtx-drum-flow/lt_r_rebound_refresh_20260919.png")
+          ]
+          result=[]
+          for src,dbx in assets:
+              raw=pathlib.Path(src).read_bytes(); sha=hashlib.sha256(raw).hexdigest()
+              req=urllib.request.Request("https://content.dropboxapi.com/2/files/upload",data=raw,method="POST",headers={"Authorization":f"Bearer {token}","Content-Type":"application/octet-stream","Dropbox-API-Arg":json.dumps({"path":dbx,"mode":"overwrite","autorename":False,"mute":True})})
+              with urllib.request.urlopen(req) as r: meta=json.loads(r.read().decode())
+              result.append({"repoPath":src,"dropboxPath":dbx,"sha256":sha,"dropboxFileId":meta.get("id"),"dropboxRev":meta.get("rev")})
+          out=pathlib.Path("character-assets/generated-qa/m17-lt-r/dropbox-mirror.json")
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_text(json.dumps({"status":"MIRRORED","assets":result},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          PY
+      - name: Commit mirror evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/generated-qa/m17-lt-r/dropbox-mirror.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "assets: record M17 LT R Dropbox mirror"
+          git pull --rebase origin main
+          git push origin HEAD:main
