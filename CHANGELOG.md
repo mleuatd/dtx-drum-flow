@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-18 — Refreshed Luna M5+ expansion preparation
+- Started the requested refreshed expansion from measure 5 onward using completed M1-4 as the absolute visual baseline; the live runtime remains M1-4 until new frames pass QA.
+- Recomputed measures 5-8 from FINAL notes + authoritative limb sidecar: 33 notes / 32 groups; only new action key is RD:R.
+- GitHub Actions visual QA run 35315598184 / artifact 10535695236 compared the historical RD hit against the refreshed baseline. The historical frame was rejected for different line treatment, proportions, camera/body presentation and registration.
+- Recomputed measures 9-16: 83 notes / 65 groups / missing limb assignments 0. New keys beyond approved M1-4 are RD:R, BD+SN:RF/L and RC+SN:L/R.
+- GitHub Actions visual QA run 35315877548 / artifact 10535690785 rejected the historical BD+SN and RC+SN hit frames as incompatible with the refreshed baseline.
+- Added M5-8 and M9-16 required-asset manifests. Refreshed measures 5-16 require six new direct-edit frames: RD hit/rebound, BD+SN hit/rebound, RC+SN hit/rebound.
+- Verified the FINAL chart contains 2,014 notes after measure 16 through measure 148, with no embedded limb/hand/foot metadata. The only precomputed authoritative limb sidecar currently covers measures 1-16; measure 17+ mapping must not guess limbs.
+- Added QA issues CHAR-QA-0005 and CHAR-QA-0006. Historical later-measure PNGs remain unapproved and are not wired into refreshed runtime.
+
 ## 2026-09-18 — M1-4 live runtime character QA closure
 - Added/used Playwright GitHub Actions live-browser QA against the public GitHub Pages build at PC 1280x900 and Xperia-class portrait 384x864.
 - Fixed rapid-hit phase timing so rebound can exist between closely spaced notes without inserting a neutral frame.
