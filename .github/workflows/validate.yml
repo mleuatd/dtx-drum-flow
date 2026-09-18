@@ -34,6 +34,7 @@ jobs:
           node --check site/audio-analysis.js
           node --check site/original-audio.js
           node --check site/oshi-sketch/app.js
+          node --check tools/luna-block-qa.mjs
       - name: Oshi sketch smoke test
         run: node tools/oshi_sketch_smoke.js
       - name: FINAL chart validation and Luna regression
