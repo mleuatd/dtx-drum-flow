@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2026-09-18
+- Added a persistent character visual-QA/correction ledger and workflow for Luna Say Maybe M1-4, including status/timestamp/history rules and mandatory handoff links from WORK_SYNC and VARIANT_STATUS. Current full-resolution independent visual review is tracked explicitly rather than inferred from runtime validation.
 - Revalidated the complete Luna Say Maybe measures 1-4 10-frame character set already imported through Dropbox staging; runtime key/phase mappings match SN:L, SN:R, HH:R, BD:RF, and BD+RC:* hit/rebound pairs. No neutral or drum_base changes were made in this verification pass.
 - Replaced the final approved M1-4 character pose variants from Dropbox (hh_r_hit, hh_r_rebound, bd_rf_rebound, sn_r_rebound, bd_rc_rebound), preserving the approved upper-body direction while using the final natural lower-body mechanics; updated manifests/inventory/staging and bumped the character asset cache version.
 - Replaced both fixed runtime layers from the two current-chat PNGs without regeneration: neutral SHA-256 `886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9`, drum SHA-256 `dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85` (both 1448x1086 RGBA).
