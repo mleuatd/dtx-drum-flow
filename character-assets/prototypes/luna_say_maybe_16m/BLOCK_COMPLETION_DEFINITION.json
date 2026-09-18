@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "blockStatus": [
+    "TODO",
+    "IN_PROGRESS",
+    "BLOCKED",
+    "DONE"
+  ],
+  "mandatory": [
+    "chart coverage exact",
+    "limb missing = 0",
+    "all required assets exist",
+    "rejected asset use = 0",
+    "manifest registration complete",
+    "runtime mapping complete",
+    "runtimeScope updated to contiguous approved block",
+    "validate workflow SUCCESS",
+    "Character Asset Validation SUCCESS",
+    "GitHub Pages deployment SUCCESS",
+    "PC runtime QA PASS",
+    "Xperia runtime QA PASS",
+    "screenshot visual inspection PASS",
+    "asset warnings = 0",
+    "init errors = 0",
+    "console/page errors = 0",
+    "previous completed-block regression PASS",
+    "progress ledger updated",
+    "CURRENT_PROJECT_STATE updated",
+    "handoff updated"
+  ],
+  "rule": "If any mandatory gate is FAIL or BLOCKED, the block MUST NOT be marked DONE.",
+  "evidenceRequired": [
+    "commit SHA",
+    "workflow run IDs",
+    "artifact IDs",
+    "QA screenshots/result JSON",
+    "final runtimeScope",
+    "remaining defects"
+  ]
+}
