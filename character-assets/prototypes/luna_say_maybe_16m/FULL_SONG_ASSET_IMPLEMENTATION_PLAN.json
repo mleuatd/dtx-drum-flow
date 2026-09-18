@@ -17,7 +17,7 @@
     "newImagePairs": 22,
     "blockedImagePairs": 1,
     "newImageFiles": 44,
-    "blockedImageFiles": 2
+    "blockedImageFiles": 0
   },
   "actions": [
     {
@@ -200,15 +200,16 @@
           "limb": "L"
         }
       ],
-      "classification": "BLOCKED",
-      "existingHit": null,
-      "existingRebound": null,
+      "classification": "REUSE_NEEDS_RUNTIME_QA",
+      "existingHit": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "existingRebound": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
       "manifestStatus": "ABSENT",
       "runtimeMapped": false,
       "qaStatus": "BLOCKED_MISSING_CORRECTED_PAIR",
       "sharedAssetCandidate": null,
       "exactReuseSafe": false,
-      "note": "Corrected pair required; rejected historical/wrong-side generations are forbidden."
+      "note": "Corrected pair required; rejected historical/wrong-side generations are forbidden.",
+      "reason": "Formal refreshed RC+SN:R/L hit/rebound pair created for M9-16; static QA passed, live runtime transition QA pending."
     },
     {
       "actionKey": "BD+LT:RF/R",
@@ -790,64 +791,6 @@
     }
   ],
   "missingAssets": [
-    {
-      "assetKey": "rc_sn_r_l_hit",
-      "actionKey": "RC+SN:R/L",
-      "phase": "hit",
-      "parts": [
-        {
-          "part": "RC",
-          "limb": "R"
-        },
-        {
-          "part": "SN",
-          "limb": "L"
-        }
-      ],
-      "firstMeasure": 13,
-      "lastMeasure": 141,
-      "occurrences": 34,
-      "priority": "P0",
-      "baseline": "character-assets/layers/character/base/neutral.png",
-      "target": "fixed drum position for RC+SN",
-      "qa": [
-        "same character/camera/stool registration",
-        "correct limb reaches target instrument",
-        "person+stool only",
-        "transparent 1448x1086",
-        "natural hit->rebound continuity"
-      ],
-      "status": "BLOCKED_IMAGE_REQUIRED"
-    },
-    {
-      "assetKey": "rc_sn_r_l_rebound",
-      "actionKey": "RC+SN:R/L",
-      "phase": "rebound",
-      "parts": [
-        {
-          "part": "RC",
-          "limb": "R"
-        },
-        {
-          "part": "SN",
-          "limb": "L"
-        }
-      ],
-      "firstMeasure": 13,
-      "lastMeasure": 141,
-      "occurrences": 34,
-      "priority": "P0",
-      "baseline": "character-assets/layers/character/base/neutral.png",
-      "target": "fixed drum position for RC+SN",
-      "qa": [
-        "same character/camera/stool registration",
-        "correct limb reaches target instrument",
-        "person+stool only",
-        "transparent 1448x1086",
-        "natural hit->rebound continuity"
-      ],
-      "status": "BLOCKED_IMAGE_REQUIRED"
-    },
     {
       "assetKey": "bd_lt_rf_r_hit",
       "actionKey": "BD+LT:RF/R",
