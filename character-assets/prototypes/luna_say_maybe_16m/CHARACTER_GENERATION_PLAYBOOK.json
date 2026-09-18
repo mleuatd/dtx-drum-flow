@@ -111,34 +111,28 @@
     "Generate/edit only after the above are satisfied."
   ],
   "qaLoop": [
-    "Run candidate binary/layer QA.",
-    "Compare baseline vs candidate for identity/camera/body/stool continuity.",
-    "Treat generation metadata such as edit_op=null as a risk signal, not a standalone automatic rejection; visual continuity and changed-region locality are decisive.",
-    "Build fixed-drum composite/contact preview.",
-    "Check correct actionKey, limb and contact side.",
-    "Run diff metrics for suspicious whole-frame changes.",
-    "If FAIL: classify the failure ID and invoke tools/character-retry-controller.mjs.",
-    "Never repeat the same failed strategy more than once. The second occurrence of the same failure must switch strategy automatically.",
-    "If the pose is valid except for a local artifact/contact issue, repair only that region; do not regenerate the full character.",
-    "Do not formal-save until all mandatory checks pass."
+    "Run PRE_RUNTIME lightweight binary/layer/safety QA.",
+    "Reject immediately only for unreadable/wrong-size/empty/no-alpha/rejected bytes, obvious wrong limb/action, obvious identity/camera corruption, or obvious hardware/background contamination.",
+    "Record diff/contact/edit-metadata/centroid concerns as non-blocking signals.",
+    "If lightweight gate passes, formal-save/register the pair and continue to the next READY asset.",
+    "Do not micro-tune contact or transition before the contiguous block is assembled.",
+    "After all assets for the block are formal, map the block into runtime and capture actual PC/Xperia screenshots.",
+    "Use runtime screenshots to judge contact, hit/rebound naturalness, neutral recovery, and registration.",
+    "Repair only the specific assets that visibly fail runtime QA; keep all others fixed.",
+    "For a true hard failure, classify the failure and invoke tools/character-retry-controller.mjs."
   ],
   "speedRules": [
-    "Do not reread every historical ledger on every attempt.",
-    "Use this compact playbook + current actionKey context first.",
-    "Open long registries only when the playbook or QA indicates a relevant risk.",
-    "Carry the same pre-generation brief across a batch of up to four images.",
-    "For rebound, reuse the accepted hit context instead of rebuilding the entire context from scratch.",
-    "A failed strategy may be attempted once. Repeating the same failure must trigger the retry controller and a different edit method.",
-    "Prefer repair-over-regenerate: if identity/camera/stool pass, fix only the failed limb/contact/artifact region.",
-    "Do not treat metadata-only evidence as stronger than visual continuity evidence."
+    "Finish the current contiguous block before fine visual tuning.",
+    "PRE_RUNTIME visual warnings do not block formal registration unless they reveal a hard failure.",
+    "Prefer deterministic local edits and approved-asset reuse over full-frame image generation.",
+    "Runtime screenshot evidence is the primary authority for contact/naturalness.",
+    "Do not repeat an already-passed image merely to improve synthetic overlay metrics.",
+    "Batch up to the whole current measure block when only lightweight gates remain."
   ],
   "successHeuristics": [
-    "Prefer local pose edits over whole-character redraws.",
-    "Keep core torso/pelvis/stool nearly fixed whenever physically possible.",
-    "Use fixed-drum composite before formal save, not after.",
-    "Treat visual continuity as a hard gate, not a cosmetic preference.",
-    "When unsure about side/contact, derive it from repository contact/limb data rather than guessing.",
-    "Use graded QA: binary/layer corruption is hard FAIL; metadata-only redraw risk is WARN until visual continuity confirms it.",
-    "Each FAIL must reduce uncertainty by changing one strategy variable; identical retries are prohibited."
+    "A usable candidate that preserves identity/camera/layer purity should reach runtime quickly.",
+    "Fine contact alignment is cheaper and more reliable to judge in the actual app than in isolated synthetic overlays.",
+    "Formal registration is not final visual approval; final approval happens after runtime screenshots.",
+    "Only visible runtime defects should trigger targeted redraw/edit."
   ]
 }
