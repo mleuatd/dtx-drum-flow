@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:05:00+09:00",
+  "updatedAt": "2026-09-18T22:24:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -535,49 +535,80 @@
       },
       {
         "id": "NIMG-013",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Verify corrected RC+SN PNG dimensions, alpha/transparency, SHA256 and person+stool-only layer purity.",
         "dependsOn": [
           "RC+SN corrected hit/rebound images available"
-        ]
+        ],
+        "completedAt": "2026-09-18T22:24:00+09:00",
+        "evidence": [
+          "Rebound PNG 1448x1086 RGBA transparency PASS; SHA256 1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da.",
+          "Canonical character_candidate_qa logic PASS for hit and rebound."
+        ],
+        "blocker": null
       },
       {
         "id": "NIMG-014",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Composite corrected RC+SN hit/rebound over fixed drum and perform visual QA for screen-right RC contact, SN:L contact, registration and hit→rebound continuity.",
         "dependsOn": [
           "NIMG-013"
-        ]
+        ],
+        "completedAt": "2026-09-18T22:24:00+09:00",
+        "evidence": [
+          "Fixed-drum composite visually reviewed: RC hit reaches screen-right RC, SN left-hand target; rebound is a partial return with stable camera/stool/body family.",
+          "Hit/rebound/neutral diff metrics reviewed; no automatic QA errors."
+        ],
+        "blocker": null
       },
       {
         "id": "NIMG-015",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Save approved RC+SN PNGs to Dropbox; record final paths, file IDs, sizes and SHA256.",
         "dependsOn": [
           "NIMG-014"
-        ]
+        ],
+        "completedAt": "2026-09-18T22:24:00+09:00",
+        "evidence": [
+          "Dropbox formal rebound: /ChatGPT/dtx-drum-flow/rc_sn_r_l_rebound_refresh_20260918.png, id id:Ec2HdgD6JJYAAAAAAAAAQw, size 991954.",
+          "Hit formal Dropbox remains /ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png."
+        ],
+        "blocker": null
       },
       {
         "id": "NIMG-016",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Register approved RC+SN PNGs to formal GitHub refresh paths; do not overwrite historical rejected files.",
         "dependsOn": [
           "NIMG-014"
-        ]
+        ],
+        "completedAt": "2026-09-18T22:24:00+09:00",
+        "evidence": [
+          "Formal rebound imported to character-assets/layers/character/combo/rc_sn_rebound_refresh.png.",
+          "Import workflow run 35349223044 SUCCESS; import commit 4f28e3fd0ffdbf92eebbf376a7843072475e3ebf."
+        ],
+        "blocker": null
       },
       {
         "id": "NIMG-017",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Update manifest/inventory with RC+SN plus existing BD+SN and RD reuse; add exact hit/rebound runtime phase mappings.",
         "dependsOn": [
           "NIMG-015",
           "NIMG-016"
-        ]
+        ],
+        "completedAt": "2026-09-18T22:24:00+09:00",
+        "evidence": [
+          "Manifest contains RC+SN hit/rebound formal assets.",
+          "ACTION_KEY_ASSET_MAP exact RC+SN:R/L pair registered.",
+          "asset_inventory exact-key hit/rebound mappings preloaded outside live scope; legacy wildcard remains gated until runtimeScope expansion."
+        ],
+        "blocker": null
       },
       {
         "id": "NIMG-018",
@@ -585,8 +616,10 @@
         "phase": "AFTER_IMAGE",
         "task": "Extend asset_inventory.runtimeScope to measures 1-16 with recomputed noteCount/groupCount/expectedKeys; do not hardcode site/character-prototype.js.",
         "dependsOn": [
-          "NIMG-017"
-        ]
+          "NIMG-017",
+          "pre-live M9-16 QA PASS"
+        ],
+        "blocker": "Waiting for pre-live M9-16 PC/Xperia runtime QA run 35349674000 to pass before expanding live runtimeScope."
       },
       {
         "id": "NIMG-019",
@@ -635,7 +668,7 @@
       }
     ],
     "nextRunnable": [],
-    "nextBlocked": "NIMG-013"
+    "nextBlocked": "NIMG-018"
   },
   "existingAssetRuntimeQa": {
     "id": "M9_16_EXISTING_ASSET_RUNTIME_QA",
