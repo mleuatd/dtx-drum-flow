@@ -158,7 +158,7 @@
       "prepAsset": "character-assets/layers/character/base/neutral.png",
       "hitAsset": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
       "reboundAsset": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
-      "classification": "RUNTIME_QA_PENDING",
+      "classification": "REUSE_NEEDS_RUNTIME_QA",
       "manifestStatus": "RUNTIME_READY",
       "runtimeMapped": true,
       "qaStatus": "STATIC_PASS_RUNTIME_QA_PENDING",
@@ -172,7 +172,7 @@
       "legacyRuntimeKey": "RC+SN:*",
       "limbAwareRuntimeKey": "RC+SN:R/L",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "runtimeState": "PRELOADED_OUTSIDE_LIVE_SCOPE",
+      "runtimeState": "EXACT_PRELOADED_WILDCARD_GATED_OUTSIDE_LIVE_SCOPE",
       "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
       "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da"
     },
