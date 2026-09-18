@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:05:00+09:00",
+  "updatedAt": "2026-09-18T22:27:00+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -9,24 +9,11 @@
   },
   "summary": {
     "total": 19,
-    "done": 2,
-    "blocked": 17,
+    "done": 8,
+    "blocked": 10,
     "canRunNow": 1
   },
-  "firstBlockedAsset": {
-    "id": "ASSETQ-001",
-    "actionKey": "RC+SN:R/L",
-    "phase": "hit",
-    "block": "B09_16",
-    "firstMeasure": 13,
-    "occurrenceCount": 34,
-    "priority": "P0",
-    "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
-    "currentAssetStatus": "BLOCKED",
-    "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
-    "nextAfterCompletion": "ASSETQ-002",
-    "status": "BLOCKED_IMAGE_GENERATION_REQUIRED"
-  },
+  "firstBlockedAsset": null,
   "rule": "Process executionOrder. Do not mark dependency-blocked tasks IN_PROGRESS. No neutral substitution or rejected asset reuse.",
   "items": [
     {
@@ -68,22 +55,28 @@
     {
       "taskId": "OWQ-003",
       "sourceQueue": "M9_16/assets/rcSn",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "task": "Create RC+SN:R/L rebound derived from accepted formal hit.",
       "dependency": "OWQ-002 / ASSETQ-002",
       "requiresImageGeneration": true,
       "requiresRuntimeQA": false,
       "requiresGitHubAction": false,
       "requiresDropbox": false,
-      "canRunNow": true,
+      "canRunNow": false,
       "blocker": null,
       "recommendedTool": "REBOUND_INSTRUCTION_rc_sn_r_l.md + image edit from accepted hit",
-      "executionOrder": 3
+      "executionOrder": 3,
+      "evidence": [
+        "Formal rebound imported to character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+        "SHA256 1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+        "Dropbox /ChatGPT/dtx-drum-flow/rc_sn_r_l_rebound_refresh_20260918.png",
+        "Import workflow 35349223044 SUCCESS; commit 4f28e3fd0ffdbf92eebbf376a7843072475e3ebf"
+      ]
     },
     {
       "taskId": "NIMG-013",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Verify corrected RC+SN PNG dimensions, alpha/transparency, SHA256 and person+stool-only layer purity.",
       "dependency": "OWQ-002 + OWQ-003",
       "requiresImageGeneration": true,
@@ -91,14 +84,17 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Corrected RC+SN hit/rebound PNGs do not exist.",
+      "blocker": null,
       "recommendedTool": ".github/workflows/luna-candidate-qa.yml / candidate QA tools",
-      "executionOrder": 4
+      "executionOrder": 4,
+      "evidence": [
+        "Canonical binary/candidate QA PASS for formal hit/rebound; 1448x1086 RGBA transparent; SHA fixed."
+      ]
     },
     {
       "taskId": "NIMG-014",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Composite corrected RC+SN hit/rebound over fixed drum and perform visual QA for screen-right RC contact, SN:L contact, registration and hit→rebound continuity.",
       "dependency": "NIMG-013",
       "requiresImageGeneration": true,
@@ -106,14 +102,17 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-013.",
+      "blocker": null,
       "recommendedTool": "tools/build-character-qa-preview.py + diff/contact QA",
-      "executionOrder": 5
+      "executionOrder": 5,
+      "evidence": [
+        "Fixed-drum visual composite reviewed; correct screen-right RC / SN:L semantics and stable rebound family."
+      ]
     },
     {
       "taskId": "NIMG-015",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Save approved RC+SN PNGs to Dropbox; record final paths, file IDs, sizes and SHA256.",
       "dependency": "NIMG-014",
       "requiresImageGeneration": false,
@@ -121,14 +120,17 @@
       "requiresGitHubAction": true,
       "requiresDropbox": true,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-014.",
+      "blocker": null,
       "recommendedTool": "Dropbox plugin + staging JSON",
-      "executionOrder": 6
+      "executionOrder": 6,
+      "evidence": [
+        "Formal pair saved in Dropbox."
+      ]
     },
     {
       "taskId": "NIMG-016",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Register approved RC+SN PNGs to formal GitHub refresh paths; do not overwrite historical rejected files.",
       "dependency": "NIMG-015",
       "requiresImageGeneration": false,
@@ -136,14 +138,17 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-015.",
+      "blocker": null,
       "recommendedTool": "tools/build-staging-json.mjs + prepare-registration-plan.mjs",
-      "executionOrder": 7
+      "executionOrder": 7,
+      "evidence": [
+        "Formal pair imported to GitHub layer paths."
+      ]
     },
     {
       "taskId": "NIMG-017",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Update manifest/inventory with RC+SN plus existing BD+SN and RD reuse; add exact hit/rebound runtime phase mappings.",
       "dependency": "NIMG-016",
       "requiresImageGeneration": false,
@@ -151,9 +156,12 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-016.",
+      "blocker": null,
       "recommendedTool": "ACTION_KEY_ASSET_MAP + assets_manifest + asset_inventory",
-      "executionOrder": 8
+      "executionOrder": 8,
+      "evidence": [
+        "Manifest, exact ACTION_KEY mapping and inventory pair registration complete."
+      ]
     },
     {
       "taskId": "NIMG-018",
@@ -166,7 +174,7 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-017.",
+      "blocker": "Waiting for corrected pre-live M9-16 runtime QA run 35349932176 before live scope expansion.",
       "recommendedTool": "tools/build-block-start-checklist.mjs + BLOCK_COMPLETION_DEFINITION",
       "executionOrder": 9
     },
@@ -263,17 +271,20 @@
     {
       "taskId": "OWQ-016",
       "sourceQueue": "M9_16_EXISTING_ASSET_RUNTIME_QA",
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "task": "Verify BD+SN -> RC+SN -> BD transition around 25.434007 / 25.649835 / 25.865662.",
       "dependency": "Corrected RC+SN pair + runtime mapping",
       "requiresImageGeneration": true,
       "requiresRuntimeQA": true,
       "requiresGitHubAction": true,
       "requiresDropbox": false,
-      "canRunNow": false,
-      "blocker": "RC+SN corrected pair missing; transition cannot be visually/runtime approved.",
+      "canRunNow": true,
+      "blocker": null,
       "recommendedTool": "luna-block-qa + risk-aware sampling",
-      "executionOrder": 16
+      "executionOrder": 16,
+      "evidence": [
+        "Corrected RC+SN pair is formal; pre-live transition QA rerun 35349932176 in progress."
+      ]
     },
     {
       "taskId": "OWQ-017",
