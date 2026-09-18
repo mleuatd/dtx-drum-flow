@@ -124,3 +124,4 @@
 
 ## Historical entries
 See Git history for earlier character-pose experiments and full-song / 1-16 / 1-8 milestones.
+- 2026-09-18: M9-16 RC+SN:R/L hit retry rejected and deny-listed (`49a78e87...`): image generation returned `edit_op=null` and a fresh front-facing redraw instead of an approved-neutral-derived edit. Runtime scope remains 1-8; rebound/formal mapping/deploy remain blocked.
