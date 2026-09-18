@@ -33,6 +33,10 @@ jobs:
           rm -rf site/character-assets
           cp -R character-assets site/character-assets
 
+      - name: Write deployment build identifier
+        run: |
+          printf '{"commitSha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > site/build.json
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
