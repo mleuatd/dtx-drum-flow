@@ -1,0 +1,648 @@
+{
+  "schemaVersion": 1,
+  "song": "Luna Say Maybe",
+  "sourceOfTruth": "FINAL notes + Luna_say_maybe_1_16_limbs.json",
+  "liveRuntimeUnchangedUntilReady": true,
+  "currentRuntimeScope": {
+    "measureStart": 1,
+    "measureEnd": 8
+  },
+  "targetRuntimeScope": {
+    "measureStart": 1,
+    "measureEnd": 16,
+    "noteCount": 144,
+    "groupCount": 124,
+    "firstNoteTime": 4.714583,
+    "lastNoteTime": 30.829691,
+    "expectedKeys": [
+      "SN:L",
+      "SN:R",
+      "BD+RC:*",
+      "HH:R",
+      "BD:RF",
+      "RD:R",
+      "BD+SN:*",
+      "RC+SN:*"
+    ]
+  },
+  "requiredFramesToAdd": {
+    "bd_sn_hit_refresh": {
+      "path": "layers/character/combo/bd_sn_hit_refresh.png",
+      "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
+      "state": "visual_qa_passed_runtime_pending"
+    },
+    "bd_sn_rebound_refresh": {
+      "path": "layers/character/combo/bd_sn_rebound_refresh.png",
+      "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
+      "state": "visual_qa_passed_runtime_pending"
+    },
+    "rc_sn_hit_refresh": {
+      "path": "layers/character/combo/rc_sn_hit_refresh.png",
+      "state": "BLOCKED_IMAGE_REQUIRED"
+    },
+    "rc_sn_rebound_refresh": {
+      "path": "layers/character/combo/rc_sn_rebound_refresh.png",
+      "state": "BLOCKED_IMAGE_REQUIRED"
+    }
+  },
+  "runtimeFrameMapChanges": {
+    "BD+SN:*": "bd_sn_hit_refresh",
+    "RC+SN:*": "rc_sn_hit_refresh"
+  },
+  "runtimePhaseFrameMapChanges": {
+    "BD+SN:*": {
+      "prep": "neutral",
+      "hit": "bd_sn_hit_refresh",
+      "rebound": "bd_sn_rebound_refresh"
+    },
+    "RC+SN:*": {
+      "prep": "neutral",
+      "hit": "rc_sn_hit_refresh",
+      "rebound": "rc_sn_rebound_refresh"
+    }
+  },
+  "reuseExisting": {
+    "RD:R": {
+      "hit": "rd_r_hit",
+      "rebound": "rd_r_rebound",
+      "status": "APPROVED_REUSE"
+    },
+    "BD:RF": "existing",
+    "SN:L": "existing",
+    "HH:R": "existing",
+    "BD+RC:*": "existing",
+    "SN:R": "existing M1-4 key still present in target scope"
+  },
+  "m9_16QaEvents": [
+    {
+      "time": 17.232568,
+      "measure": 9,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 17.448396,
+      "measure": 9,
+      "key": "RD:R",
+      "limbs": [
+        "RD:R"
+      ]
+    },
+    {
+      "time": 17.664223,
+      "measure": 9,
+      "key": "SN:L",
+      "limbs": [
+        "SN:L"
+      ]
+    },
+    {
+      "time": 17.88005,
+      "measure": 9,
+      "key": "RD:R",
+      "limbs": [
+        "RD:R"
+      ]
+    },
+    {
+      "time": 18.095878,
+      "measure": 9,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 18.311705,
+      "measure": 9,
+      "key": "RD:R",
+      "limbs": [
+        "RD:R"
+      ]
+    },
+    {
+      "time": 18.527532,
+      "measure": 9,
+      "key": "SN:L",
+      "limbs": [
+        "SN:L"
+      ]
+    },
+    {
+      "time": 18.74336,
+      "measure": 9,
+      "key": "RD:R",
+      "limbs": [
+        "RD:R"
+      ]
+    },
+    {
+      "time": 18.959187,
+      "measure": 10,
+      "key": "BD+RC:*",
+      "limbs": [
+        "BD:RF",
+        "RC:R"
+      ]
+    },
+    {
+      "time": 19.175014,
+      "measure": 10,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 19.390842,
+      "measure": 10,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 19.606669,
+      "measure": 10,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 19.822496,
+      "measure": 10,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 20.038324,
+      "measure": 10,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 20.254151,
+      "measure": 10,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 20.469978,
+      "measure": 10,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 20.685806,
+      "measure": 11,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 20.901633,
+      "measure": 11,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 21.11746,
+      "measure": 11,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 21.333288,
+      "measure": 11,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 21.549115,
+      "measure": 11,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 21.764942,
+      "measure": 11,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 21.98077,
+      "measure": 11,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 22.196597,
+      "measure": 11,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 22.304511,
+      "measure": 11,
+      "key": "SN:L",
+      "limbs": [
+        "SN:L"
+      ]
+    },
+    {
+      "time": 22.412424,
+      "measure": 12,
+      "key": "BD+RC:*",
+      "limbs": [
+        "BD:RF",
+        "RC:R"
+      ]
+    },
+    {
+      "time": 22.628252,
+      "measure": 12,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 22.844079,
+      "measure": 12,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 23.059906,
+      "measure": 12,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 23.275734,
+      "measure": 12,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 23.491561,
+      "measure": 12,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 23.707388,
+      "measure": 12,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 23.923216,
+      "measure": 12,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 24.139043,
+      "measure": 13,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 24.354871,
+      "measure": 13,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 24.570698,
+      "measure": 13,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 24.786525,
+      "measure": 13,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 25.002353,
+      "measure": 13,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 25.21818,
+      "measure": 13,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 25.434007,
+      "measure": 13,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 25.649835,
+      "measure": 13,
+      "key": "RC+SN:*",
+      "limbs": [
+        "SN:L",
+        "RC:R"
+      ]
+    },
+    {
+      "time": 25.865662,
+      "measure": 14,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 26.081489,
+      "measure": 14,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 26.297317,
+      "measure": 14,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 26.513144,
+      "measure": 14,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 26.728971,
+      "measure": 14,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 26.944799,
+      "measure": 14,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 27.160626,
+      "measure": 14,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 27.376453,
+      "measure": 14,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 27.592281,
+      "measure": 15,
+      "key": "BD+RC:*",
+      "limbs": [
+        "BD:RF",
+        "RC:R"
+      ]
+    },
+    {
+      "time": 27.808108,
+      "measure": 15,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 28.023935,
+      "measure": 15,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 28.239763,
+      "measure": 15,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 28.45559,
+      "measure": 15,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 28.671417,
+      "measure": 15,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 28.887245,
+      "measure": 15,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 29.103072,
+      "measure": 15,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 29.318899,
+      "measure": 16,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 29.534727,
+      "measure": 16,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 29.750554,
+      "measure": 16,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 29.966381,
+      "measure": 16,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 30.182209,
+      "measure": 16,
+      "key": "BD:RF",
+      "limbs": [
+        "BD:RF"
+      ]
+    },
+    {
+      "time": 30.398036,
+      "measure": 16,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    },
+    {
+      "time": 30.613863,
+      "measure": 16,
+      "key": "BD+SN:*",
+      "limbs": [
+        "BD:RF",
+        "SN:L"
+      ]
+    },
+    {
+      "time": 30.829691,
+      "measure": 16,
+      "key": "HH:R",
+      "limbs": [
+        "HH:R"
+      ]
+    }
+  ],
+  "qaViewports": [
+    {
+      "name": "pc",
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "name": "xperia-portrait",
+      "width": 384,
+      "height": 864
+    }
+  ],
+  "requiredDomEvidence": [
+    "frame",
+    "phase",
+    "animationKey",
+    "limbs",
+    "state",
+    "assetIssue",
+    "initError"
+  ],
+  "requiredChecks": [
+    "correct hit/rebound frame",
+    "correct combo key",
+    "authoritative limbs",
+    "neutral recovery",
+    "no unwanted neutral between rapid notes",
+    "no image disappearance",
+    "no asset/init warnings",
+    "no console/page errors",
+    "M1-8 regression"
+  ]
+}
