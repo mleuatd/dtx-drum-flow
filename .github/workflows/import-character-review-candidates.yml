@@ -54,19 +54,23 @@ jobs:
               print("Already imported")
               raise SystemExit(0)
           token=os.environ.get("DROPBOX_ACCESS_TOKEN")
-          if not token:
-              raise SystemExit("DROPBOX_ACCESS_TOKEN is required")
           for item in stage.get("assets",[]):
               dropbox_path=item["dropboxPath"]
               target=pathlib.Path(item["githubCandidatePath"])
-              req=urllib.request.Request(
-                  "https://content.dropboxapi.com/2/files/download",
-                  method="POST",
-                  headers={
-                      "Authorization":f"Bearer {token}",
-                      "Dropbox-API-Arg":json.dumps({"path":dropbox_path}),
-                  },
-              )
+              if token:
+                  req=urllib.request.Request(
+                      "https://content.dropboxapi.com/2/files/download",
+                      method="POST",
+                      headers={
+                          "Authorization":f"Bearer {token}",
+                          "Dropbox-API-Arg":json.dumps({"path":dropbox_path}),
+                      },
+                  )
+              else:
+                  url=item.get("downloadUrl")
+                  if not url:
+                      raise SystemExit("DROPBOX_ACCESS_TOKEN or per-asset downloadUrl is required")
+                  req=urllib.request.Request(url,method="GET")
               with urllib.request.urlopen(req) as r:
                   raw=r.read()
               sha=hashlib.sha256(raw).hexdigest()
@@ -86,6 +90,8 @@ jobs:
               target.write_bytes(raw)
               print("review candidate verified",target,sha)
           stage["status"]="IMPORTED_REVIEW_ONLY"
+          for item in stage.get("assets",[]):
+              item.pop("downloadUrl",None)
           stage["runtimeMapped"]=False
           stage["manifestRegistered"]=False
           stage_path.write_text(json.dumps(stage,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
