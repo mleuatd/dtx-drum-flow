@@ -480,6 +480,42 @@
         "Fixed-drum visual QA PASS.",
         "Runtime scope remains 1-16 until M17 contiguous gate passes."
       ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 BD+LT:RF/R hit; APPROVED LT:R pose preserved with deterministic local BD kick cue",
+      "part": "BD+LT",
+      "phase": "hit",
+      "hand": "RF/R",
+      "notes": [
+        "PRE_RUNTIME lightweight QA PASS.",
+        "Source LT:R formal pair preserved except local BD kick cue.",
+        "Final contact/naturalness approval deferred to actual M17 runtime screenshots."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 BD+LT:RF/R rebound; APPROVED LT:R rebound preserved with deterministic local BD kick cue",
+      "part": "BD+LT",
+      "phase": "rebound",
+      "hand": "RF/R",
+      "notes": [
+        "PRE_RUNTIME lightweight QA PASS.",
+        "Source LT:R rebound preserved except local BD kick cue.",
+        "Final contact/naturalness approval deferred to actual M17 runtime screenshots."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
