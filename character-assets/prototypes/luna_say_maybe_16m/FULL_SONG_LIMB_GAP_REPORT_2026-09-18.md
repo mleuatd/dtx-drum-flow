@@ -62,3 +62,31 @@ Before refreshed character mapping proceeds past measure 16:
 5. only then use it as the runtime source of truth.
 
 This report is analysis only; it does not change the live runtime.
+
+
+## Resolution update — 2026-09-18 19:20 JST
+
+The gap described above is now resolved.
+
+Completed:
+- `hand_rules.json` upgraded to version 2 with explicit BD=RF, LP=LF, LB=LF, right-handed cymbal defaults, alternating tom fills, rapid-SN alternation/start-hand policy, and simultaneous-hit conflict policies.
+- Full-song generator: `tools/generate-luna-full-limbs.mjs`.
+- Validated full-song sidecar: `site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json`.
+- Validation report: `FULL_SONG_LIMB_VALIDATION.json`.
+- Limb-aware action inventory: `FULL_SONG_ACTION_KEY_INVENTORY.json`.
+
+Validation result:
+- 2,158 / 2,158 notes assigned.
+- M1-16 authoritative-prefix mismatches: 0.
+- rapid-SN phrases resolved: 64.
+- known SN+tom simultaneous conflicts resolved: 8.
+- missing limbs: 0.
+- simultaneous same-limb conflicts: 0.
+- rapid-SN same-hand repeats <=130 ms: 0.
+- unresolved groups: 0.
+
+The eight prior SN+tom conflicts were resolved with SN=L and the simultaneous FT/LT=R.
+
+The FINAL chart contains no LP, LB or LC events, so LF is not used by this song's current note data. The formal rules nevertheless define LP/LB=LF for future/runtime correctness.
+
+The earlier DRAFT analysis remains historical evidence only and must not be used as the current authority.
