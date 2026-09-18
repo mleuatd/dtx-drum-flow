@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:05:00+09:00",
+  "updatedAt": "2026-09-19T05:10:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -204,6 +204,23 @@
         90,
         23,
         1329,
+        1063
+      ],
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-ATTEMPT-2",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "7be15ee7e39c25575ac8e563d0102038efc9edc576c994a02c996fab50ab7d49",
+      "path": "/mnt/data/a_clean_line_art_illustration_on_a_transparent_che.png",
+      "reason": "Second fresh redraw. Binary PNG QA passed, but whole character identity/camera/clothing/body/stool registration drifted from approved neutral. edit_op=null; diff spans nearly entire character. Retry must explicitly target current-conversation approved-neutral copy.",
+      "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+      "diffBBox": [
+        57,
+        23,
+        1325,
         1063
       ],
       "date": "2026-09-19"
