@@ -37,10 +37,10 @@ const viewports = [
   {name:"xperia-portrait", width:384, height:864}
 ];
 const phases = [
-  {name:"pre", offset:-0.040},
+  {name:"pre", offset:-0.015},
   {name:"hit", offset:0.030},
-  {name:"rebound", offset:0.220},
-  {name:"post", offset:0.310}
+  {name:"rebound", offset:0.190},
+  {name:"post", offset:0.300}
 ];
 const browser = await chromium.launch({headless:true});
 const root = "qa-artifacts";
