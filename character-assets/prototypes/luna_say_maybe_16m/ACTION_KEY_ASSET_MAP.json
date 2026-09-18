@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:45:00+09:00",
+  "updatedAt": "2026-09-19T07:15:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -289,14 +289,14 @@
       "actionKey": "LT:R",
       "runtimeKey": "LT:R",
       "prepAsset": "character-assets/layers/character/base/neutral.png",
-      "hitAsset": null,
-      "reboundAsset": null,
-      "classification": "NEW_IMAGE_REQUIRED",
-      "manifestStatus": "ABSENT",
+      "hitAsset": "character-assets/layers/character/lt/hit_r_refresh.png",
+      "reboundAsset": "character-assets/layers/character/lt/rebound_r_refresh.png",
+      "classification": "FORMAL_REGISTERED_RUNTIME_PENDING",
+      "manifestStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "runtimeMapped": false,
-      "qaStatus": "NOT_CREATED",
-      "sharedAsset": null,
-      "missing": true,
+      "qaStatus": "CANDIDATE_QA_PASS",
+      "sharedAsset": "character-assets/layers/character/lt/hit_r_refresh.png",
+      "missing": false,
       "blocked": false,
       "neverUse": false,
       "firstMeasure": 17,
@@ -304,7 +304,14 @@
       "occurrenceCount": 31,
       "legacyRuntimeKey": "LT:R",
       "limbAwareRuntimeKey": "LT:R",
-      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
+      "runtimeResolution": "exact limb-aware key reserved; activate only when M17 contiguous gate passes",
+      "hitSha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+      "reboundSha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+      "candidateQaRun": 35394228101,
+      "contactPoint": {
+        "x": 885,
+        "y": 455
+      }
     },
     {
       "actionKey": "BD+RD:RF/R",
