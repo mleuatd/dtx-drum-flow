@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-19T07:34:00+09:00",
+  "requestedAt": "2026-09-19T07:42:00+09:00",
   "block": "M17",
   "measureStart": 17,
   "measureEnd": 17,
@@ -20,6 +20,6 @@
     "rebound": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
     "reboundSha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11"
   },
-  "retryReason": "Final runtime QA trigger after pipeline-overhaul commits. Freeze main until this matching Pages deployment and M17 screenshot QA complete.",
+  "retryReason": "Final trigger after QA concurrency + validator overhaul. No further main commits until matching Pages deploy and screenshot QA complete.",
   "freezeMainUntilQaComplete": true
 }
