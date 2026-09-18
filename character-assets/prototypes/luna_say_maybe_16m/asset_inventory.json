@@ -166,6 +166,20 @@
       "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
       "actionKey": "FT:R",
       "phase": "rebound"
+    },
+    "ft_l_hit": {
+      "path": "layers/character/ft/hit_l_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "c11c71cec4dbee4cc6f7ec3ccbae1646e677887a6a6ff45fb188c97967d5b863",
+      "actionKey": "FT:L",
+      "phase": "hit"
+    },
+    "ft_l_rebound": {
+      "path": "layers/character/ft/rebound_l_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "3f22c7e2ec10e9d63fbbc200ddef2a8d8af31f8d342d0eb76f304d1a9a9a2b4c",
+      "actionKey": "FT:L",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -180,7 +194,8 @@
     "BD+SN:*": "bd_sn_rf_l_hit",
     "RC+SN:*": "rc_sn_r_l_hit_refresh",
     "BD+SN:RF/R": "bd_sn_rf_r_hit",
-    "FT:R": "ft_r_hit"
+    "FT:R": "ft_r_hit",
+    "FT:L": "ft_l_hit"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -242,6 +257,11 @@
       "prep": "neutral",
       "hit": "ft_r_hit",
       "rebound": "ft_r_rebound"
+    },
+    "FT:L": {
+      "prep": "neutral",
+      "hit": "ft_l_hit",
+      "rebound": "ft_l_rebound"
     }
   },
   "motionTiming": {
@@ -352,7 +372,13 @@
       "formalImportRun": 35398522113,
       "hitSha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
       "reboundSha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce"
+    },
+    "ftL": {
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "formalImportRun": 35398907345,
+      "hitSha256": "c11c71cec4dbee4cc6f7ec3ccbae1646e677887a6a6ff45fb188c97967d5b863",
+      "reboundSha256": "3f22c7e2ec10e9d63fbbc200ddef2a8d8af31f8d342d0eb76f304d1a9a9a2b4c"
     }
   },
-  "qaUpdatedAt": "2026-09-19T06:56:00+09:00"
+  "qaUpdatedAt": "2026-09-19T07:02:00+09:00"
 }
