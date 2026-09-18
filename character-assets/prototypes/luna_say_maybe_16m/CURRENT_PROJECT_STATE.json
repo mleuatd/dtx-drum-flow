@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:58:00+09:00",
+  "updatedAt": "2026-09-19T04:29:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -176,7 +176,8 @@
     "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
     "character-assets/prototypes/luna_say_maybe_16m/ACTIVE_PIPELINE_SESSION.json",
     "character-assets/prototypes/luna_say_maybe_16m/GENERATED_PROMPT_rc_sn_r_l_hit.md",
-    "character-assets/prototypes/luna_say_maybe_16m/REBOUND_INSTRUCTION_rc_sn_r_l.md"
+    "character-assets/prototypes/luna_say_maybe_16m/REBOUND_INSTRUCTION_rc_sn_r_l.md",
+    "character-assets/prototypes/luna_say_maybe_16m/CHARACTER_GENERATION_PLAYBOOK.json"
   ],
   "historicalFiles": [
     "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -186,6 +187,7 @@
     "Run tools/start-pipeline-task.mjs for the task category at session start; it rebuilds context cache and runs the efficiency audit.",
     "Autonomously implement safe HIGH-priority optimization suggestions from AUTO_OPTIMIZATION_REPORT.json without asking the user.",
     "Read CURRENT_PROJECT_STATE.json, M5_PLUS_PROGRESS_LEDGER.json, NEXT_IMPLEMENTATION_HANDOFF.md, PRODUCTION_PIPELINE.md, then PIPELINE_USAGE_POLICY.json.",
+    "Before any character image generation/edit/retry, read CHARACTER_GENERATION_PLAYBOOK.json from the rebuilt pipeline context cache and apply it before generating the first image.",
     "Before repeatable work, run tools/production-pipeline-dispatcher.mjs for the task category and use the returned existing tool/workflow.",
     "Do not manually duplicate an operation already covered by a repository tool/workflow.",
     "If an existing tool must be skipped, record MANUAL_OVERRIDE with tool/reason/evidence/follow-up in the ledger.",
@@ -336,5 +338,12 @@
     ],
     "nextReadyTask": "ASSETQ-003 LT:R hit for M17",
     "m17ImageGenerationStarted": false
+  },
+  "characterGenerationMemory": {
+    "status": "MANDATORY",
+    "playbook": "character-assets/prototypes/luna_say_maybe_16m/CHARACTER_GENERATION_PLAYBOOK.json",
+    "autoLoad": "tools/build-pipeline-context-cache.mjs includes the playbook; tools/start-pipeline-task.mjs exposes it for every session.",
+    "behavior": "Before first character image attempt: use compact playbook, approved neutral parent, authoritative limb/contact, then open longer registries only if needed.",
+    "goal": "Reduce first-attempt redraw failures and avoid repeated full-ledger reading."
   }
 }
