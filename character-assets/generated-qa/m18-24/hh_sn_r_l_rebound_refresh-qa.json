@@ -1,0 +1,58 @@
+{
+  "file": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
+  "status": "PASS",
+  "gateClass": "PASS",
+  "errors": [],
+  "warnings": [],
+  "signals": [],
+  "recommendedActions": [],
+  "sha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
+  "format": "PNG",
+  "mode": "RGBA",
+  "size": [
+    1448,
+    1086
+  ],
+  "alphaBBox": [
+    57,
+    17,
+    1414,
+    1066
+  ],
+  "neutralDiff": {
+    "comparable": true,
+    "changedPixelRatio": 0.25700718842526177,
+    "meanChannelDiff": [
+      20.608022877812033,
+      20.623166010398542,
+      20.59152269466744,
+      12.64588229907512
+    ],
+    "bboxA": [
+      57,
+      23,
+      1179,
+      1063
+    ],
+    "bboxB": [
+      57,
+      17,
+      1414,
+      1066
+    ],
+    "centroidA": [
+      732.7283251841401,
+      555.931413274881
+    ],
+    "centroidB": [
+      742.6982944283466,
+      543.108929882305
+    ],
+    "centroidShiftPx": 16.24242491388867
+  },
+  "retryPolicy": {
+    "sameFailureSameStrategyMaxAttempts": 1,
+    "onConfirmedVisualFailure": "classify failure ID, then run tools/character-retry-controller.mjs",
+    "metadataOnlyOrMetricOnlySignal": "do not auto-reject"
+  }
+}

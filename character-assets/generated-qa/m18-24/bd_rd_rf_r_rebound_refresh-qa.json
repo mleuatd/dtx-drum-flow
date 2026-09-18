@@ -1,0 +1,58 @@
+{
+  "file": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+  "status": "PASS",
+  "gateClass": "PASS",
+  "errors": [],
+  "warnings": [],
+  "signals": [],
+  "recommendedActions": [],
+  "sha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
+  "format": "PNG",
+  "mode": "RGBA",
+  "size": [
+    1448,
+    1086
+  ],
+  "alphaBBox": [
+    57,
+    19,
+    1329,
+    1086
+  ],
+  "neutralDiff": {
+    "comparable": true,
+    "changedPixelRatio": 0.24403762603909118,
+    "meanChannelDiff": [
+      17.654923791500057,
+      17.668421802346284,
+      17.646339524638034,
+      8.551363155377837
+    ],
+    "bboxA": [
+      57,
+      23,
+      1179,
+      1063
+    ],
+    "bboxB": [
+      57,
+      19,
+      1329,
+      1086
+    ],
+    "centroidA": [
+      732.7283251841401,
+      555.931413274881
+    ],
+    "centroidB": [
+      735.460421252239,
+      560.4223387888442
+    ],
+    "centroidShiftPx": 5.256687255038741
+  },
+  "retryPolicy": {
+    "sameFailureSameStrategyMaxAttempts": 1,
+    "onConfirmedVisualFailure": "classify failure ID, then run tools/character-retry-controller.mjs",
+    "metadataOnlyOrMetricOnlySignal": "do not auto-reject"
+  }
+}
