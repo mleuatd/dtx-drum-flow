@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T17:03:00+09:00",
+  "project": "DTX Drum Flow",
+  "song": "Luna Say Maybe",
+  "sourceOfTruth": "GitHub main",
+  "liveRuntimeScope": {
+    "measureStart": 1,
+    "measureEnd": 4,
+    "status": "COMPLETE_LIVE_QA"
+  },
+  "blocks": [
+    {
+      "id": "M5_8",
+      "measures": "5-8",
+      "status": "IN_PROGRESS_BLOCKED_BY_RD_IMAGES",
+      "chart": {
+        "notes": 33,
+        "groups": 32,
+        "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json",
+        "missingLimbs": 0
+      },
+      "keys": [
+        "BD:RF",
+        "RD:R",
+        "SN:L",
+        "BD+RC:*"
+      ],
+      "reuseApproved": [
+        "BD:RF",
+        "SN:L",
+        "BD+RC:*"
+      ],
+      "requiredNew": [
+        "RD:R hit",
+        "RD:R rebound"
+      ],
+      "completed": [
+        "Chart/limb coverage recomputed",
+        "Historical RD candidate visually rejected",
+        "Current-chat first RD hit/rebound generated and rejected for wrong screen side",
+        "Second explicit-reference RD generation rejected because image system produced a different front-facing character"
+      ],
+      "remaining": [
+        "Create correct RD:R hit/rebound derived from exact refreshed baseline",
+        "Composite QA over fixed drum",
+        "Register approved RD layers",
+        "Extend runtime scope to measures 1-8",
+        "GitHub Pages PC/Xperia runtime QA"
+      ]
+    },
+    {
+      "id": "M9_16",
+      "measures": "9-16",
+      "status": "IN_PROGRESS_PARTIAL_ASSETS",
+      "chart": {
+        "notes": 83,
+        "groups": 65,
+        "missingLimbs": 0
+      },
+      "keys": [
+        "BD:RF",
+        "RD:R",
+        "SN:L",
+        "BD+RC:*",
+        "HH:R",
+        "BD+SN:RF/L",
+        "RC+SN:L/R"
+      ],
+      "requiredNew": [
+        "RD:R hit/rebound",
+        "BD+SN hit/rebound",
+        "RC+SN hit/rebound"
+      ],
+      "assets": {
+        "bdSn": {
+          "status": "VISUAL_QA_PASSED_RUNTIME_PENDING",
+          "hit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+          "rebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+          "hitSha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
+          "reboundSha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
+          "visualQaRun": 35321151121,
+          "visualQaArtifact": 10537157014,
+          "runtimeMapped": false
+        },
+        "rcSn": {
+          "status": "IN_PROGRESS_REGEN_REQUIRED",
+          "reason": "Generated RC+SN pair targeted screen-left cymbal rather than authoritative screen-right RC; skipped."
+        },
+        "rd": {
+          "status": "IN_PROGRESS_REGEN_REQUIRED",
+          "reason": "Shared blocker with M5-8."
+        }
+      },
+      "remaining": [
+        "Correct RD:R pair",
+        "Correct RC+SN pair",
+        "Runtime-map BD+SN only after block prerequisites are satisfied",
+        "Extend runtime scope through measure 16",
+        "Live transition QA"
+      ]
+    },
+    {
+      "id": "M17_148",
+      "measures": "17-148",
+      "status": "ANALYSIS_IN_PROGRESS_LIMB_AUTHORITY_NOT_READY",
+      "chart": {
+        "notes": 2014,
+        "lastMeasure": 148,
+        "embeddedLimbFields": 0
+      },
+      "progress": [
+        "Full-song limb coverage gap report committed",
+        "Draft analysis separates mechanically resolvable notes from unresolved notes without promoting them to authority"
+      ],
+      "draft": {
+        "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
+        "resolvedByExistingRules": 1819,
+        "unresolved": 195,
+        "rapidSnareNotes": 179,
+        "simultaneousConflictGroups": 8,
+        "status": "ANALYSIS_ONLY_NOT_RUNTIME_AUTHORITY"
+      },
+      "remaining": [
+        "Formalize rapid-SN alternation/start-hand rules",
+        "Resolve 8 SN+tom same-limb collisions",
+        "Generate and validate authoritative full-song limb sidecar",
+        "Inventory later-measure action keys and create required images block-by-block"
+      ]
+    }
+  ],
+  "skippedOrRejected": [
+    {
+      "type": "IMAGE",
+      "asset": "historical RD:R hit",
+      "reason": "Different drawing family / registration; rejected by QA run 35315598184"
+    },
+    {
+      "type": "IMAGE",
+      "asset": "historical BD+SN hit / RC+SN hit",
+      "reason": "Different drawing family; rejected by QA run 35315877548"
+    },
+    {
+      "type": "IMAGE",
+      "asset": "current RD hit/rebound attempt #1",
+      "reason": "Wrong screen side; not registered"
+    },
+    {
+      "type": "IMAGE",
+      "asset": "current BD+SN attempt #1",
+      "reason": "Drum kit leaked into character layer; not registered to GitHub runtime"
+    },
+    {
+      "type": "IMAGE",
+      "asset": "current RC+SN attempt #1",
+      "reason": "Wrong screen side; not registered"
+    },
+    {
+      "type": "IMAGE",
+      "asset": "current RD attempt #2",
+      "reason": "Image generator ignored baseline and produced a different front-facing character; skipped"
+    },
+    {
+      "type": "IMAGE",
+      "asset": "management-sheet misgeneration",
+      "reason": "Image generator produced a project tracking sheet instead of character variant; skipped"
+    },
+    {
+      "type": "DROPBOX_ALIAS",
+      "asset": "/ChatGPT/dtx-drum-flow/bd_sn_hit_refresh_candidate_20260918_b222db6a.png",
+      "reason": "Filename misleading: actual bytes are rejected first attempt SHA 107ea57b...; NEVER USE"
+    },
+    {
+      "type": "DROPBOX_ALIAS",
+      "asset": "/ChatGPT/dtx-drum-flow/bd_sn_rebound_refresh_candidate_20260918_87296211.png",
+      "reason": "Filename misleading: actual bytes are rejected first attempt SHA 57d0c67f...; NEVER USE"
+    }
+  ],
+  "infrastructure": [
+    {
+      "status": "DONE",
+      "item": "Review-only candidate import workflow",
+      "path": ".github/workflows/import-character-review-candidates.yml"
+    },
+    {
+      "status": "DONE",
+      "item": "BD+SN correct candidates preserved in Dropbox and GitHub review candidate area"
+    },
+    {
+      "status": "DONE",
+      "item": "BD+SN correct candidates copied to formal layer paths with runtime-pending status"
+    },
+    {
+      "status": "DONE",
+      "item": "Visual QA contact sheet includes refreshed BD+SN candidates"
+    },
+    {
+      "status": "DONE",
+      "item": "Full-song draft limb analysis file created without altering runtime authority"
+    }
+  ],
+  "nextAction": "Regenerate RD:R hit/rebound correctly from exact baseline; do not expand live runtime until RD pair passes composite QA."
+}
