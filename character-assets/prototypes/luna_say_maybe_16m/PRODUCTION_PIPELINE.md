@@ -16,6 +16,11 @@ Before manually performing a repeatable operation, run:
 
 Use the returned repository tool/workflow. If the tool cannot be used, record a `MANUAL_OVERRIDE` in the ledger with the skipped tool and reason. Manual duplication without that record is non-compliant.
 
+## Character generation preflight
+Before the first character image generation/edit/retry in a session, read `CHARACTER_GENERATION_PLAYBOOK.json` from the rebuilt `PIPELINE_CONTEXT_CACHE.json`.
+This is the compact mandatory failure/success memory. Use it instead of rereading every historical ledger. Open the longer FAILURE/REJECTED/contact/transition files only when the current action needs more detail.
+No character generation should start until the approved neutral baseline, authoritative limb, target contact side, and relevant high-risk failure checks are resolved.
+
 ## Main flow
 1. `tools/build-next-asset-queue.mjs` selects production order.
 2. `tools/build-character-generation-prompt.mjs` creates the exact hit/rebound edit instruction.
