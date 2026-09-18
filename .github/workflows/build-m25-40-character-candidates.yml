@@ -1,0 +1,33 @@
+name: Build M25-40 Character Candidates
+on:
+  push:
+    paths:
+      - tools/build-m25-40-candidates.py
+      - .github/workflows/build-m25-40-character-candidates.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install Pillow==11.3.0
+      - run: python tools/build-m25-40-candidates.py
+      - name: Commit review candidates and QA evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/review-candidates/m25_40 character-assets/generated-qa/m25_40
+          git diff --cached --quiet && exit 0
+          git commit -m "assets: build M25-40 HT:R review pair"
+          git push
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m25-40-character-candidates
+          path: |
+            character-assets/review-candidates/m25_40
+            character-assets/generated-qa/m25_40
