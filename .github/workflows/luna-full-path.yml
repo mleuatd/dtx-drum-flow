@@ -1,0 +1,37 @@
+name: Luna Full Path
+
+on:
+  workflow_dispatch:
+    inputs:
+      measure_start: {description: "First measure", required: true, default: "9"}
+      measure_end: {description: "Last measure", required: true, default: "16"}
+
+permissions:
+  contents: read
+
+jobs:
+  full:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "20"}
+      - name: Select path and block plan
+        run: |
+          node tools/luna-production-path.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" path.json
+          node tools/build-block-start-checklist.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" block.json
+          node tools/build-next-asset-queue.mjs next-assets.json
+          node tools/build-qa-sampling-and-risk.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" sampling.json
+      - name: Full-path gate
+        run: |
+          grep -q '"path": "FULL_PATH"' path.json
+          echo "No image generation or formal save is performed by this planning workflow."
+      - name: Upload production plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-full-path-plan
+          path: |
+            path.json
+            block.json
+            next-assets.json
+            sampling.json
