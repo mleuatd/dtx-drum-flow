@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:15:00+09:00",
+  "updatedAt": "2026-09-19T06:25:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -8,21 +8,21 @@
     "currentBlocker": "M9-16 pre-live runtime QA is running; RC+SN pair is formal. Later M17 asset queue remains dependency-blocked until M9-16 closes."
   },
   "nextItem": {
-    "id": "ASSETQ-005",
-    "actionKey": "LT:L",
+    "id": "ASSETQ-007",
+    "actionKey": "BD+SN:RF/R",
     "phase": "hit",
     "block": "B17",
     "firstMeasure": 17,
-    "occurrenceCount": 22,
+    "occurrenceCount": 17,
     "priority": "P1",
     "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
     "currentAssetStatus": "NEW_IMAGE_REQUIRED",
-    "reason": "Missing formal hit; first appears M17, occurrences 22.",
-    "nextAfterCompletion": "ASSETQ-006",
+    "reason": "Missing formal hit; first appears M17, occurrences 17.",
+    "nextAfterCompletion": "ASSETQ-008",
     "status": "READY",
     "blocker": null,
-    "nextAction": "Create LT:L hit for B17 using the corrected current-drum contact point and adaptive/local-repair pipeline.",
-    "dependencyStatus": "LT_R_PAIR_DONE"
+    "nextAction": "Create BD+SN:RF/R hit for B17 using approved BD+SN:RF/L and SN:R as secondary references while preserving neutral registration.",
+    "dependencyStatus": "LT_L_PAIR_DONE"
   },
   "items": [
     {
@@ -113,13 +113,17 @@
       "occurrenceCount": 22,
       "priority": "P1",
       "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
-      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
+      "currentAssetStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "reason": "Missing formal hit; first appears M17, occurrences 22.",
       "nextAfterCompletion": "ASSETQ-006",
-      "status": "READY",
+      "status": "DONE",
       "blocker": null,
-      "nextAction": "Create LT:L hit for B17 using the corrected current-drum contact point and adaptive/local-repair pipeline.",
-      "dependencyStatus": "LT_R_PAIR_DONE"
+      "nextAction": "Completed: formal GitHub asset registered; runtime activation deferred until M17 block gate.",
+      "dependencyStatus": "LT_R_PAIR_DONE",
+      "qaRun": 35396068128,
+      "githubPath": "character-assets/layers/character/lt/hit_l_refresh.png",
+      "sha256": "774b0d5a6c1ced73f0034969601af87133dc9e4a1721a0a5489be673581dea0c",
+      "dropboxStatus": "SAVED_CONFIRMED"
     },
     {
       "id": "ASSETQ-006",
@@ -130,12 +134,16 @@
       "occurrenceCount": 22,
       "priority": "P1",
       "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
-      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
+      "currentAssetStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "reason": "Missing formal rebound; first appears M17, occurrences 22.",
       "nextAfterCompletion": "ASSETQ-007",
-      "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
-      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+      "status": "DONE",
+      "blocker": null,
+      "nextAction": "Completed: formal GitHub asset registered; runtime activation deferred until M17 block gate.",
+      "qaRun": 35396068128,
+      "githubPath": "character-assets/layers/character/lt/rebound_l_refresh.png",
+      "sha256": "6c87bc201404cbe91ca2cc3e8025e1ee88270de5318b81ff04eaf8f3ef451ee1",
+      "dropboxStatus": "SAVED_CONFIRMED"
     },
     {
       "id": "ASSETQ-007",
@@ -149,9 +157,10 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 17.",
       "nextAfterCompletion": "ASSETQ-008",
-      "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
-      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+      "status": "READY",
+      "blocker": null,
+      "nextAction": "Create BD+SN:RF/R hit for B17 using approved BD+SN:RF/L and SN:R as secondary references while preserving neutral registration.",
+      "dependencyStatus": "LT_L_PAIR_DONE"
     },
     {
       "id": "ASSETQ-008",
