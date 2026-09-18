@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 4
   },
-  "updatedAt": "2026-09-18T15:40:00+09:00",
+  "updatedAt": "2026-09-18T15:45:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -88,6 +88,30 @@
       "path": "character-assets/layers/character/rd/rebound_r.png",
       "status": "BLOCKED",
       "note": "Required for measures 5-8 refreshed expansion; no approved current-baseline frame exists."
+    },
+    {
+      "assetKey": "bd_sn_hit",
+      "path": "character-assets/layers/character/combo/bd_sn_hit.png",
+      "status": "BLOCKED",
+      "note": "Historical candidate rejected; replacement must be derived from refreshed M1-4 baseline."
+    },
+    {
+      "assetKey": "bd_sn_rebound",
+      "path": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+      "status": "BLOCKED",
+      "note": "Required refreshed frame does not exist."
+    },
+    {
+      "assetKey": "rc_sn_hit",
+      "path": "character-assets/layers/character/combo/rc_sn_hit.png",
+      "status": "BLOCKED",
+      "note": "Historical candidate rejected; replacement must be derived from refreshed M1-4 baseline."
+    },
+    {
+      "assetKey": "rc_sn_rebound",
+      "path": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "status": "BLOCKED",
+      "note": "Required refreshed frame does not exist."
     }
   ],
   "issues": [
@@ -230,6 +254,33 @@
         "Historical candidate rejected; it has not been added to the refreshed runtime inventory or mapping."
       ],
       "blocker": "This chat can inspect the exact approved neutral recovered from the GitHub QA artifact, but the available image-editing interface does not accept that repository/artifact binary as a direct edit target inside the same workflow. Per project rule, a fresh look-alike redraw is forbidden."
+    },
+    {
+      "id": "CHAR-QA-0006",
+      "createdAt": "2026-09-18T15:45:00+09:00",
+      "updatedAt": "2026-09-18T15:45:00+09:00",
+      "completedAt": null,
+      "status": "BLOCKED",
+      "severity": "high",
+      "assetKey": "bd_sn_hit,bd_sn_rebound,rc_sn_hit,rc_sn_rebound",
+      "phase": "hit/rebound",
+      "measure": "9-16",
+      "timestamp": "17.232568-30.829691",
+      "viewport": "GitHub Actions visual QA contact sheet",
+      "category": "visual-consistency",
+      "observation": "Historical BD+SN and RC+SN hit candidates are not compatible with the refreshed M1-4 baseline. Both use visibly different/lighter line treatment and materially different character scale, head/hair/body rendering and seated registration. Their alpha bounds are substantially narrower and shifted: BD+SN=(409,42)-(1094,1040), RC+SN=(414,68)-(1077,1038), versus approved neutral=(57,23)-(1179,1063). Refreshed rebound frames do not exist.",
+      "requiredFix": "Create refreshed BD+SN RF/L hit+rebound and RC+SN L/R hit+rebound by directly editing the approved current M1-4 character baseline. Preserve character identity, head/hair/clothes/body/stool/camera/registration. Move only the limbs and minimal torso motion required by the authoritative limb assignments. Run composite visual QA and live runtime QA before use.",
+      "evidence": [
+        "Measures 9-16 recomputed from FINAL notes + authoritative 1-16 limb JSON: 83 notes / 65 groups / missing limbs 0.",
+        "New keys beyond approved M1-4 set are RD:R, BD+SN:RF/L and RC+SN:L/R.",
+        "Visual QA workflow run 35315877548 succeeded for commit 99a6099125668e7e8abb5f40014e02e5e37fe258.",
+        "Artifact 10535690785 contains contact sheet and alpha metrics showing the historical candidates are shifted/narrower.",
+        "Direct visual inspection confirms the candidates read as a different drawing family rather than minimal-limb edits."
+      ],
+      "verification": [
+        "Historical BD+SN and RC+SN candidates rejected and not added to refreshed runtime mapping."
+      ],
+      "blocker": "Refreshed image creation requires direct editing of the exact approved baseline. The current repository artifact can be inspected here, but is not accepted as an editable source by the available image-editing interface in this same workflow; generating a new look-alike is prohibited."
     }
   ]
 }
