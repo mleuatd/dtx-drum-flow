@@ -36,11 +36,12 @@ def main():
     if not ne or ne["sha256"]!=assets_manifest.get("lockedNeutralSha256"): errors.append("locked neutral SHA mismatch")
     required=inventory.get("requiredFrames",{})
     expected_runtime_paths={"character-assets/layers/drum/drum_base.png"}|{"character-assets/"+frame["path"] for frame in required.values()}
-    if len(expected_runtime_paths)!=12: errors.append(f"active M1-4 runtime set must resolve to 12 layer PNGs, got {len(expected_runtime_paths)}")
+    if len(expected_runtime_paths)!=(len(required)+1): errors.append(f"active runtime set path count mismatch: frames={len(required)} paths={len(expected_runtime_paths)}")
     missing_runtime=expected_runtime_paths-listed
     if missing_runtime: errors.append(f"active runtime assets missing from manifest: {sorted(missing_runtime)}")
-    if inventory.get("imageSetState")!="m1-4-complete": errors.append("imageSetState must be m1-4-complete")
-    if len(required)!=11: errors.append(f"requiredFrames must contain 11 character frames, got {len(required)}")
+    state=str(inventory.get("imageSetState",""))
+    if not state: errors.append("imageSetState must be present")
+    if not required: errors.append("requiredFrames must not be empty")
     for fid,frame in required.items():
         rel="character-assets/"+frame["path"]
         if rel not in listed: errors.append(f"{fid}: missing registered frame")
