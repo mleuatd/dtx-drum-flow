@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe HT:R transaction for Luna M25-28",
+  "status": "VISUAL_QA",
+  "actionKey": "HT:R",
+  "scope": {
+    "measureStart": 25,
+    "measureEnd": 28
+  },
+  "parent": {
+    "githubPath": "character-assets/layers/character/base/neutral.png",
+    "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "width": 1448,
+    "height": 1086
+  },
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration"
+  ],
+  "allowedMotion": [
+    "rightArm",
+    "rightHand",
+    "rightStick"
+  ],
+  "phases": {
+    "hit": {
+      "stage": "VISUAL_QA",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_hit_attempt01.png",
+      "sha256": "999f9a69464260f062160c4af09cbcea6dff19b1f26482861a72f90e03b34473",
+      "qaStatus": "PENDING",
+      "formalPath": "character-assets/layers/character/ht/hit_r_refresh.png",
+      "formalCommit": null
+    },
+    "rebound": {
+      "stage": "VISUAL_QA",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_rebound_attempt01.png",
+      "sha256": "3eeea64ed5e2a08d63c6d7611df8db0151a22d6c05521f51b697b19852348bd2",
+      "qaStatus": "PENDING",
+      "formalPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
+      "formalCommit": null
+    }
+  },
+  "qa": {
+    "static": "PENDING",
+    "compositeVisual": "PENDING",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "notes": [
+    "Older HT:R candidate SHA pair 84c1.../2f4b... was superseded by generalized-builder commit ab52f5070a757e0dfa0773911e71bb887ddb36bb."
+  ],
+  "updatedAt": "2026-09-19T08:56:00+09:00"
+}
