@@ -1,0 +1,37 @@
+name: Luna Candidate QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      neutral_path: {description: "Neutral PNG repo path", required: true, default: "character-assets/layers/character/base/neutral.png"}
+      hit_path: {description: "Hit candidate repo path", required: true}
+      rebound_path: {description: "Rebound candidate repo path", required: true}
+      parts: {description: "Comma-separated parts, e.g. RC,SN", required: true}
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Install Pillow
+        run: python -m pip install Pillow==11.3.0
+      - name: Run hit/rebound binary QA
+        run: |
+          mkdir -p candidate-qa
+          python tools/character_candidate_qa.py "${{ inputs.hit_path }}" --neutral "${{ inputs.neutral_path }}" --out candidate-qa/hit-qa.json
+          python tools/character_candidate_qa.py "${{ inputs.rebound_path }}" --neutral "${{ inputs.neutral_path }}" --out candidate-qa/rebound-qa.json
+      - name: Build composites and contact overlay
+        run: |
+          python tools/build-character-qa-preview.py --neutral "${{ inputs.neutral_path }}" --hit "${{ inputs.hit_path }}" --rebound "${{ inputs.rebound_path }}" --drum character-assets/layers/drum/drum_base.png --contacts character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json --parts "${{ inputs.parts }}" --out-dir candidate-qa/preview
+          python tools/character_image_diff_metrics.py "${{ inputs.neutral_path }}" "${{ inputs.hit_path }}" "${{ inputs.rebound_path }}" --out candidate-qa/diff-metrics.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: luna-candidate-qa
+          path: candidate-qa
+          if-no-files-found: error
