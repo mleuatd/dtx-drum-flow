@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "IMPORTED_REVIEW_ONLY",
+  "status": "FORMAL_PROMOTED_RUNTIME_PENDING",
   "actionKey": "LT:L",
   "block": "B17",
   "measure": 17,
@@ -45,8 +45,14 @@
     "reboundCentroidShiftPx": 0.6427387307623466
   },
   "runtimeMapped": false,
-  "manifestRegistered": false,
+  "manifestRegistered": true,
   "prTrigger": "2026-09-19T06:20:00+09:00",
   "retryReason": "PR workflow has no DROPBOX_ACCESS_TOKEN; use single-use temporary download URLs for this run.",
-  "retryTrigger": "2026-09-19T06:22:00+09:00"
+  "retryTrigger": "2026-09-19T06:22:00+09:00",
+  "formalPaths": {
+    "hit": "character-assets/layers/character/lt/hit_l_refresh.png",
+    "rebound": "character-assets/layers/character/lt/rebound_l_refresh.png"
+  },
+  "formalPromotionCommit": "4a5653834e5544b2642cbfc1562f9f2eef6f0187",
+  "updatedAt": "2026-09-19T06:25:00+09:00"
 }
