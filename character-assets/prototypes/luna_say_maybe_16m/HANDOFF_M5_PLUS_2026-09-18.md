@@ -115,3 +115,36 @@ Therefore image generation was intentionally stopped rather than degrading the e
 - `9a7632f65d31edfcd56ff23edc91f473e16178a6` — changelog
 
 The commit creating this handoff becomes the final session commit unless further work follows.
+
+
+## Additional work after initial handoff commit
+
+### Exact neutral recovery / edit-interface verification
+The current approved neutral was recovered from the GitHub visual-QA artifact and exported into the current chat as an actual 1448x1086 RGBA image. Dropbox also contains `/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png`, matching the authoritative neutral identifier.
+
+A direct-edit attempt was then made specifically for RD:R hit while instructing the image system to preserve everything except the right arm/wrist/stick. The image system did not bind the exact baseline as an edit source (generation metadata: `edit_op=null`) and produced a fresh drawing with changed character/camera. It was rejected immediately.
+
+The rejected generated file was never added to Dropbox staging, GitHub assets, manifests, mappings, runtime code, or Pages. Do not recover or use it.
+
+This confirms the image blocker is not merely file discovery: the exact baseline is available, but the current image-generation path is not performing true source-image editing.
+
+### Full-song limb analysis
+Added:
+`FULL_SONG_LIMB_GAP_REPORT_2026-09-18.md`
+
+Key findings:
+- existing `hand_rules.json` replay matches the authoritative measures 1-16 limb sidecar on all but the known phrase-aware SN:R exception at 4.930410;
+- applying the current rules after measure 16 exposes 8 simultaneous SN+tom same-L conflicts requiring phrase-aware two-hand resolution;
+- measures 17-148 contain 116 rapid SN gaps <=130 ms, while the current rule file only defines SN default=L and does not codify rapid-snare alternation/start-hand selection;
+- therefore a naive full-song limb generator must not be promoted to runtime authority yet.
+
+Additional commits:
+- `01d9e18581f3253295660eb6762b3f16975b0c39` — document full-song limb coverage gap
+- `6d1901ff79bdfaf2e526dd5ecc3956556486d253` — record rejected RD direct-edit attempt
+
+## Safe restart point
+At restart, read this file, `CHARACTER_QA_ISSUES.json`, `M5_8_REQUIRED_CHARACTER_ASSETS.json`, `M9_16_REQUIRED_CHARACTER_ASSETS.json`, and `FULL_SONG_LIMB_GAP_REPORT_2026-09-18.md`.
+
+Do not wire historical later-measure PNGs and do not treat the rejected fresh RD generation as an asset.
+
+The next successful image step must demonstrate a true edit of the exact approved baseline before any generated later-measure frame is registered.
