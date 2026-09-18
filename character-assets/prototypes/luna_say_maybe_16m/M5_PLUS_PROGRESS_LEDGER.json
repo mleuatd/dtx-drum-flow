@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:10:00+09:00",
+  "updatedAt": "2026-09-18T19:20:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -308,7 +308,14 @@
     "existingAssetQaChecklist": "305f2be794e00ef40e07ed1592a409e76fdd39d5",
     "existingAssetQaHarness": "7910bdefd6f408f9f130ab1af40696cd6c6f074f",
     "existingAssetQaHarnessRaceFix": "17f858b67ed9d67b6a9a5cdcf744dacbf611b148",
-    "existingAssetQaResults": "d1b80ed6e8079160fe10561598c1207449f1222d"
+    "existingAssetQaResults": "d1b80ed6e8079160fe10561598c1207449f1222d",
+    "fullSongLimbRulesV2": "4fcc6349a8255fe692ffa1050dd65585ee9b15bb",
+    "fullSongLimbGenerator": "6e1c22e20cdec7628b19991375fa75f80bbf75eb",
+    "fullSongLimbPromotion": "7cb90cd2b810cb3a4d60a57a962658bf7c47f8ab",
+    "leftBassFallbackFix": "a17852317284cb3f094644890a472f2c638429a9",
+    "fullSongActionInventory": "8ab435e562188c7801e5204c543179fd9ec98dce",
+    "fullSongRuntimeLimbSource": "beec966d5187cb3ab1626190513ddade00933562",
+    "fullSongLimbRegressionTest": "409b7549d75201108ba34c9bd90b85ddf974d5f6"
   },
   "nonImageGenerationWorkQueue": {
     "purpose": "All work that can be prepared or completed without invoking image generation. Execute in order; do not mark M9_16 DONE until RC+SN image-dependent gates also pass.",
@@ -724,7 +731,7 @@
   "fullSongLimbAssignment": {
     "id": "FULL_SONG_LIMB_ASSIGNMENT",
     "scope": "measures 17-148",
-    "status": "IN_PROGRESS",
+    "status": "DONE",
     "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
     "authoritativePrefix": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json",
     "researchBasis": [
@@ -738,48 +745,109 @@
       {
         "id": "LIMB-001",
         "status": "DONE",
-        "task": "Research standard drum-set hand/foot coordination and sticking principles."
+        "task": "Research standard drum-set hand/foot coordination and sticking principles.",
+        "completedAt": "2026-09-18T19:20:00+09:00"
       },
       {
         "id": "LIMB-002",
-        "status": "IN_PROGRESS",
-        "task": "Formalize project limb rules from research plus authoritative M1-16 precedent."
+        "status": "DONE",
+        "task": "Formalize project limb rules from research plus authoritative M1-16 precedent.",
+        "completedAt": "2026-09-18T19:20:00+09:00",
+        "evidence": [
+          "hand_rules.json upgraded to version 2 with BD=RF, LP/LB=LF, cymbal defaults, alternating toms, rapid-SN phrase policy and simultaneous-hit policies."
+        ]
       },
       {
         "id": "LIMB-003",
-        "status": "TODO",
-        "task": "Resolve rapid-SN phrase detection and start-hand selection."
+        "status": "DONE",
+        "task": "Resolve rapid-SN phrase detection and start-hand selection.",
+        "completedAt": "2026-09-18T19:20:00+09:00",
+        "evidence": [
+          "64 rapid-SN phrases resolved with R/L single-stroke alternation and phrase-aware start-hand scoring; M1 authoritative R-L pair reproduced exactly."
+        ]
       },
       {
         "id": "LIMB-004",
-        "status": "TODO",
-        "task": "Resolve all simultaneous same-limb conflicts, including eight known SN+tom collisions."
+        "status": "DONE",
+        "task": "Resolve all simultaneous same-limb conflicts, including eight known SN+tom collisions.",
+        "completedAt": "2026-09-18T19:20:00+09:00",
+        "evidence": [
+          "Eight known SN+tom same-limb conflicts resolved as SN=L and FT/LT=R; no unresolved simultaneous hand groups remain."
+        ]
       },
       {
         "id": "LIMB-005",
-        "status": "TODO",
-        "task": "Generate full-song per-note limb candidate for measures 17-148."
+        "status": "DONE",
+        "task": "Generate full-song per-note limb candidate for measures 17-148.",
+        "completedAt": "2026-09-18T19:20:00+09:00",
+        "evidence": [
+          "Generated assignments for all 2,158 notes through measure 148."
+        ]
       },
       {
         "id": "LIMB-006",
-        "status": "TODO",
-        "task": "Validate candidate: no missing limbs, no simultaneous same-limb collisions, no impossible rapid same-hand repeats, and consistency with M1-16 precedent."
+        "status": "DONE",
+        "task": "Validate candidate: no missing limbs, no simultaneous same-limb collisions, no impossible rapid same-hand repeats, and consistency with M1-16 precedent.",
+        "completedAt": "2026-09-18T19:20:00+09:00",
+        "evidence": [
+          "Workflow 35333759857 and promotion workflow 35333901757 passed: prefix mismatch 0, missing 0, same-limb simultaneous 0, rapid-SN same-hand 0."
+        ]
       },
       {
         "id": "LIMB-007",
-        "status": "TODO",
-        "task": "Promote validated full-song limb sidecar to authoritative project source and update hand_rules/status/handoff."
+        "status": "DONE",
+        "task": "Promote validated full-song limb sidecar to authoritative project source and update hand_rules/status/handoff.",
+        "completedAt": "2026-09-18T19:20:00+09:00",
+        "evidence": [
+          "Promoted site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json in commit 7cb90cd2b810cb3a4d60a57a962658bf7c47f8ab; runtime limb URL later switched to full sidecar without expanding image runtimeScope."
+        ]
       },
       {
         "id": "LIMB-008",
-        "status": "TODO",
-        "task": "Recompute full-song action-key inventory using authoritative limbs for later character-image planning."
+        "status": "DONE",
+        "task": "Recompute full-song action-key inventory using authoritative limbs for later character-image planning.",
+        "completedAt": "2026-09-18T19:20:00+09:00",
+        "evidence": [
+          "Created FULL_SONG_ACTION_KEY_INVENTORY.json: 2,158 notes / 1,527 time groups with limb-aware action keys."
+        ]
       }
     ],
     "progress": [
       "Initial draft had 1,819 mechanically resolved notes and 195 unresolved.",
-      "Known unresolved categories: 179 rapid-SN notes and 8 simultaneous SN+tom groups (16 notes)."
+      "Known unresolved categories: 179 rapid-SN notes and 8 simultaneous SN+tom groups (16 notes).",
+      "Full-song sidecar promoted and validated.",
+      "Runtime limb lookup now uses the full-song sidecar; active character runtimeScope remains measures 1-8.",
+      "Runtime fallback corrected: LB is left-foot bass and now resolves LF, matching site/app.js semantics."
     ],
-    "nextAction": "Formalize v2 limb rules and generate a validation report before promotion."
+    "nextAction": "No unresolved limb assignment work remains. Use FULL_SONG_ACTION_KEY_INVENTORY.json to plan later character variants; M9-16 image work remains separately blocked by corrected RC+SN.",
+    "authoritativeSidecar": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
+    "validationReport": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_LIMB_VALIDATION.json",
+    "actionInventory": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY.json",
+    "rulesVersion": 2,
+    "generator": "tools/generate-luna-full-limbs.mjs",
+    "workflowRun": 35333901757,
+    "workflowArtifact": 10541538868,
+    "promotionCommit": "7cb90cd2b810cb3a4d60a57a962658bf7c47f8ab",
+    "validationSummary": {
+      "notes": 2158,
+      "prefixMismatches": 0,
+      "rapidSnPhrases": 64,
+      "simultaneousFixes": 8,
+      "unresolvedGroups": 0,
+      "missingLimbs": 0,
+      "simultaneousSameLimbConflicts": 0,
+      "rapidSnSameHandRepeats": 0,
+      "limbCounts": {
+        "L": 623,
+        "R": 1012,
+        "RF": 523,
+        "LF": 0
+      },
+      "noChartEventsFor": [
+        "LP",
+        "LB",
+        "LC"
+      ]
+    }
   }
 }
