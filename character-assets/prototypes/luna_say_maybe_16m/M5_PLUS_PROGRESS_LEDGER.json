@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:55:00+09:00",
+  "updatedAt": "2026-09-18T21:40:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -154,8 +154,8 @@
         "Deploy GitHub Pages",
         "Run live PC/Xperia runtime QA and screenshot QA for measures 9-16"
       ],
-      "blocker": "Corrected RC+SN:R/L hit/rebound do not exist; all downstream M9-16 registration/runtime/deploy/live-QA tasks depend on this pair.",
-      "nextAction": "Provide/use approved neutral image in a usable current-chat image target, then create ASSETQ-001 corrected RC+SN:R/L hit followed by ASSETQ-002 rebound."
+      "blocker": "Corrected RC+SN:R/L hit/rebound still unavailable. Latest retry SHA256 49a78e87... failed formal baseline-edit QA (edit_op=null / front-facing redraw).",
+      "nextAction": "Retry ASSETQ-001 only with the approved neutral bound as a true image-edit source; do not create rebound until hit passes."
     },
     {
       "id": "M17_148",
@@ -254,6 +254,13 @@
       "type": "DROPBOX_ALIAS",
       "asset": "/ChatGPT/dtx-drum-flow/bd_sn_rebound_refresh_candidate_20260918_87296211.png",
       "reason": "Filename misleading: actual bytes are rejected first attempt SHA 57d0c67f...; NEVER USE"
+    },
+    {
+      "asset": "RC+SN:R/L hit retry",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c",
+      "reason": "edit_op=null fresh redraw; front-facing different character/camera/body/stool, not an approved-neutral-derived edit.",
+      "date": "2026-09-18"
     }
   ],
   "infrastructure": [
