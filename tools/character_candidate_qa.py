@@ -52,6 +52,7 @@ ap.add_argument("candidate")
 ap.add_argument("--neutral")
 ap.add_argument("--expected-name")
 ap.add_argument("--out",default="candidate-qa.json")
+ap.add_argument("--mode",choices=["lightweight","full"],default="lightweight")
 args=ap.parse_args()
 
 p=Path(args.candidate)
@@ -110,7 +111,11 @@ else:
         res["neutralDiff"]=diff_metrics(n,rgba)
         ratio=res["neutralDiff"].get("changedPixelRatio",0)
         if ratio>0.55:
-            res["warnings"].append("large whole-frame diff vs neutral; possible redraw/camera/background change")
+            msg="large whole-frame diff vs neutral; possible redraw/camera/background change"
+            if args.mode=="full":
+                res["warnings"].append(msg)
+            else:
+                res["signals"].append("NONBLOCKING_"+msg.replace(" ","_").upper())
             res["signals"].append("WHOLE_FRAME_DIFF_RISK")
             res["recommendedActions"].append(
                 "Run visual identity/camera/stool continuity review before rejecting; do not reject from diff ratio alone."
@@ -121,7 +126,11 @@ else:
             shift=((ca[0]-cb[0])**2+(ca[1]-cb[1])**2)**0.5
             res["neutralDiff"]["centroidShiftPx"]=shift
             if shift>45:
-                res["warnings"].append("large alpha centroid shift; inspect body/stool/camera translation")
+                msg="large alpha centroid shift; inspect body/stool/camera translation"
+                if args.mode=="full":
+                    res["warnings"].append(msg)
+                else:
+                    res["signals"].append("NONBLOCKING_"+msg.replace(" ","_").upper())
                 res["signals"].append("CENTROID_SHIFT_RISK")
                 res["recommendedActions"].append(
                     "Inspect core body/stool registration; if core is stable, repair only the moved limb/contact region."
@@ -142,6 +151,14 @@ elif res["warnings"]:
 else:
     res["status"]="PASS"
     res["gateClass"]="PASS"
+
+res["qaMode"]=args.mode
+res["phasePolicy"]="PRE_RUNTIME_LIGHTWEIGHT" if args.mode=="lightweight" else "FULL_DIAGNOSTIC"
+if args.mode=="lightweight" and not res["errors"]:
+    res["status"]="PASS"
+    res["gateClass"]="PASS_LIGHTWEIGHT"
+    if res["signals"]:
+        res["recommendedActions"].append("Carry non-blocking visual signals forward to POST_RUNTIME screenshot QA; do not retry before implementation.")
 
 res["retryPolicy"]={
     "sameFailureSameStrategyMaxAttempts":1,
