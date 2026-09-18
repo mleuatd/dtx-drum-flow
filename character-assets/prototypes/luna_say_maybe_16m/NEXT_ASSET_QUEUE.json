@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:53:00+09:00",
+  "updatedAt": "2026-09-19T05:20:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -19,9 +19,9 @@
     "currentAssetStatus": "NEW_IMAGE_REQUIRED",
     "reason": "Missing formal hit; first appears M17, occurrences 31.",
     "nextAfterCompletion": "ASSETQ-004",
-    "status": "READY",
-    "blocker": null,
-    "nextAction": "Create LT:R hit for B17 using the pipeline-first generation/edit workflow.",
+    "status": "BLOCKED_EXTERNAL_DIRECT_EDIT",
+    "blocker": "Current image generator repeatedly returns edit_op=null/fresh redraw even for explicit baseline/crop targets; local raster-edit fallbacks failed visual QA.",
+    "nextAction": "Resume ASSETQ-003 only with a direct-edit-capable image path or safer local-only edit from verified neutral baseline. Do not advance to ASSETQ-004 until hit PASS.",
     "dependencyStatus": "CLEARED_M9_16_DONE"
   },
   "items": [
@@ -75,9 +75,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 31.",
       "nextAfterCompletion": "ASSETQ-004",
-      "status": "READY",
-      "blocker": null,
-      "nextAction": "Create LT:R hit for B17 using the pipeline-first generation/edit workflow.",
+      "status": "BLOCKED_EXTERNAL_DIRECT_EDIT",
+      "blocker": "Current image generator repeatedly returns edit_op=null/fresh redraw even for explicit baseline/crop targets; local raster-edit fallbacks failed visual QA.",
+      "nextAction": "Resume ASSETQ-003 only with a direct-edit-capable image path or safer local-only edit from verified neutral baseline. Do not advance to ASSETQ-004 until hit PASS.",
       "dependencyStatus": "CLEARED_M9_16_DONE"
     },
     {
