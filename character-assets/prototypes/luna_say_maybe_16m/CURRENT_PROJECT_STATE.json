@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:05:00+09:00",
+  "updatedAt": "2026-09-18T22:34:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 8,
-    "status": "COMPLETE_LIVE_QA"
+    "measureEnd": 16,
+    "status": "DEPLOY_AND_LIVE_QA_PENDING"
   },
   "completedMeasureBlocks": [
     {
@@ -22,8 +22,8 @@
   "blockedMeasureBlocks": [
     {
       "measures": "9-16",
-      "status": "BLOCKED_IMAGE_REQUIRED",
-      "blocker": "RC+SN:R/L hit is formal/preloaded; rebound is still missing. runtimeScope stays 1-8."
+      "status": "IN_PROGRESS_LIVE_QA",
+      "blocker": "Static and pre-live runtime QA passed. Waiting for post-deploy public live QA and screenshot inspection before DONE."
     }
   ],
   "limbAuthority": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
@@ -41,13 +41,13 @@
   "currentAssetStatus": {
     "actionKeyCount": 30,
     "REUSE_APPROVED": 6,
-    "REUSE_NEEDS_RUNTIME_QA": 1,
+    "REUSE_NEEDS_RUNTIME_QA": 2,
     "NEW_IMAGE_REQUIRED": 22,
-    "BLOCKED": 1,
+    "BLOCKED": 0,
     "newImageFilesNeeded": 44,
-    "blockedImageFiles": 1,
+    "blockedImageFiles": 0,
     "BD_SN_RUNTIME_PRELOADED": true,
-    "liveRuntimeScopeUnchanged": true
+    "liveRuntimeScopeUnchanged": false
   },
   "approvedAssets": [
     "SN:L",
@@ -61,8 +61,6 @@
     "BD+SN:RF/L preloaded exact mapping; live transition QA pending"
   ],
   "missingAssets": [
-    "RC+SN:R/L rebound",
-    "RC+SN:R/L corrected rebound",
     "22 later action-key hit/rebound pairs listed in FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json"
   ],
   "rejectedAssets": "See M5_PLUS_PROGRESS_LEDGER.json skippedOrRejected and CHARACTER_QA_ISSUES.json",
@@ -122,14 +120,19 @@
     "planningValidation": 35335328767,
     "characterAssetValidation": 35335334538,
     "lunaBlockQaSmoke": 35337759100,
-    "openWorkSweepValidate": 35343438639
+    "openWorkSweepValidate": 35343438639,
+    "m9_16PreLive": {
+      "run": 35350383202,
+      "artifact": 10549653076,
+      "status": "SUCCESS"
+    }
   },
   "nextRecommendedBlock": {
     "blockId": "B09_16",
     "measures": "9-16",
     "reason": "Immediate contiguous public-runtime blocker; only one corrected image pair is missing."
   },
-  "nextRecommendedWork": "Create ASSETQ-002 RC+SN:R/L rebound from the accepted hit at character-assets/layers/character/combo/rc_sn_hit_refresh.png; then resume M9-16 static/runtime QA.",
+  "nextRecommendedWork": "Wait for validation and Pages deploy of runtimeScope 1-16, then run public PC/Xperia live runtime QA and screenshot inspection. Do not mark M9-16 DONE until those pass.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
