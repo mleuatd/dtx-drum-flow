@@ -18,7 +18,7 @@ jobs:
       - name: Install basic audio dependencies
         run: pip install -r tools/audio_pipeline/requirements.txt
       - name: Python syntax
-        run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py tools/audio_pipeline/realign_existing_midi.py tools/audio_pipeline/video_chart_extractor.py tools/songsterr_gp_to_chart.py tools/chart_validation.py tools/validate_luna_full_song_planning.py
+        run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py tools/audio_pipeline/realign_existing_midi.py tools/audio_pipeline/video_chart_extractor.py tools/songsterr_gp_to_chart.py tools/chart_validation.py tools/validate_luna_full_song_planning.py tools/validate_production_pipeline.py tools/character_candidate_qa.py tools/build-character-qa-preview.py tools/character_image_diff_metrics.py
       - name: Pipeline CLI smoke test
         run: |
           python tools/audio_pipeline/pipeline.py --help
@@ -35,11 +35,39 @@ jobs:
           node --check site/original-audio.js
           node --check site/oshi-sketch/app.js
           node --check tools/luna-block-qa.mjs
+          node --check tools/build-next-asset-queue.mjs
+          node --check tools/build-character-generation-prompt.mjs
+          node --check tools/derive-rebound-instruction.mjs
+          node --check tools/build-staging-json.mjs
+          node --check tools/build-block-start-checklist.mjs
+          node --check tools/find-reuse-candidates.mjs
+          node --check tools/build-qa-sampling-and-risk.mjs
+          node --check tools/build-qa-summary.mjs
+          node --check tools/build-next-chat-handoff.mjs
+          node --check tools/luna-production-path.mjs
+          node --check tools/prepare-registration-plan.mjs
       - name: Oshi sketch smoke test
         run: node tools/oshi_sketch_smoke.js
       - name: FINAL chart validation and Luna regression
         run: python tools/chart_validation.py
       - name: Luna full-song planning validation
         run: python tools/validate_luna_full_song_planning.py
+      - name: Production pipeline validation
+        run: python tools/validate_production_pipeline.py
+      - name: Production pipeline smoke tests
+        run: |
+          node tools/build-next-asset-queue.mjs /tmp/next-assets.json
+          node tools/build-character-generation-prompt.mjs 'RC+SN:R/L' hit /tmp/rcsn-hit.md
+          node tools/derive-rebound-instruction.mjs 'RC+SN:R/L' character-assets/layers/character/base/neutral.png 0.2 /tmp/rcsn-rebound.md
+          node tools/build-staging-json.mjs 'RC+SN:R/L' /tmp/nonexistent-hit.png /tmp/nonexistent-rebound.png /tmp/staging.json
+          node tools/prepare-registration-plan.mjs /tmp/staging.json /tmp/registration-plan.json
+          node tools/build-block-start-checklist.mjs 1 8 /tmp/block.json
+          node tools/find-reuse-candidates.mjs 'SN:L' > /tmp/reuse.json
+          node tools/build-qa-sampling-and-risk.mjs 1 8 /tmp/sampling.json
+          node tools/luna-production-path.mjs 1 8 /tmp/fast.json
+          grep -q 'FAST_PATH' /tmp/fast.json
+          node tools/luna-production-path.mjs 9 16 /tmp/full.json
+          grep -q 'FULL_PATH' /tmp/full.json
+          node tools/build-next-chat-handoff.mjs /tmp/next-chat.md
       - name: UI contract checks
         run: python tools/ui_contract_test.py
