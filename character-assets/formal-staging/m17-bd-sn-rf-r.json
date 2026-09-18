@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "status": "READY_FOR_FORMAL_IMPORT",
+  "actionKey": "BD+SN:RF/R",
+  "block": "B17",
+  "measure": 17,
+  "createdAt": "2026-09-19T06:40:00+09:00",
+  "method": "approved SN:R pose preserved; deterministic local BD kick cue only; no face/hair/body/stool redraw",
+  "reference": {
+    "approvedSnRPath": "character-assets/layers/character/sn/hit_r.png",
+    "approvedSnRSha256": "fa55c4624bbc4790584bf46bb740490f96d4ca0e63f3eb95b2d662a3a0118971",
+    "bdReferencePath": "character-assets/layers/character/bd/hit_rf.png",
+    "bdReferenceSha256": "2f720394bb4da7a96b2e41d4e211a36130306d32fd06f2d641964efce07c639b"
+  },
+  "assets": [
+    {
+      "phase": "hit",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_sn_rf_r_hit_refresh_20260919.png",
+      "formalPath": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+      "sha256": "71515ebc9678959f2b85a4136133f23ef847c2b844a3f0e4b127ba573a192d5b",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "phase": "rebound",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_sn_rf_r_rebound_refresh_20260919.png",
+      "formalPath": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
+      "sha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
+      "width": 1448,
+      "height": 1086
+    }
+  ],
+  "qa": {
+    "binary": "PASS_LOCAL",
+    "visual": "PASS_FIXED_DRUM_COMPOSITE",
+    "hitChangedPixelRatioVsApprovedSnR": 0.0003790075598017969,
+    "reboundChangedPixelRatioVsApprovedSnR": 0.00008012575928695705,
+    "hitDiffBBoxVsApprovedSnR": [
+      448,
+      788,
+      500,
+      824
+    ],
+    "reboundDiffBBoxVsApprovedSnR": [
+      466,
+      806,
+      486,
+      824
+    ],
+    "notes": [
+      "Right-hand SN pose is inherited exactly from APPROVED SN:R.",
+      "Only right-foot kick motion cue is added for the combo hit/rebound.",
+      "Existing BD+SN:RF/L formal files are not overwritten."
+    ]
+  },
+  "runtimeMapped": false,
+  "manifestRegistered": false
+}
