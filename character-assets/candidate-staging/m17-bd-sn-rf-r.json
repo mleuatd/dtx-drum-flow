@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "READY_FOR_REVIEW_IMPORT",
+  "status": "IMPORTED_REVIEW_ONLY",
   "actionKey": "BD+SN:RF/R",
   "block": "B17",
   "measure": 17,
@@ -13,8 +13,7 @@
       "githubCandidatePath": "character-assets/candidates/m17/bd_sn_rf_r_hit_refresh.png",
       "sha256": "71515ebc9678959f2b85a4136133f23ef847c2b844a3f0e4b127ba573a192d5b",
       "width": 1448,
-      "height": 1086,
-      "downloadUrl": "https://uce75b5dfac6ba6ed615b4da0b2c.dl.dropboxusercontent.com/cd/0/get/DIaUy5JaPQROyXcRc-MckIBkpf0FId-3FNKD_ayptBJFr2uYEDccTmvfb6oZ60WGzN5XiLqbZSr4oZXhonNnHRpyq8wR2t3GYw5DxmSlAuMHTYYl1mkdh6tU9TmdKBD4-qZ_lVOATCPaoR1t4sSfnzP7nTIT4i38_8nOfVI4PMdVMg/file?c_luid=e8a8ea13"
+      "height": 1086
     },
     {
       "phase": "rebound",
@@ -22,15 +21,14 @@
       "githubCandidatePath": "character-assets/candidates/m17/bd_sn_rf_r_rebound_refresh.png",
       "sha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
       "width": 1448,
-      "height": 1086,
-      "downloadUrl": "https://ucb1fa1cd264446d50eeecd14679.dl.dropboxusercontent.com/cd/0/get/DIbaEPFMtnV33VjxskwrIvkKXujELVmf1wUoHOSIFTtXJz2LyVBrtgb1S20oVO5OJeZN3t7xQLyUyokIaam8TfueO2uGiK78Gt35rXSd47Jt4vqmvPQDD_YfV7AQ-CqOTLo6j0Q_Q1dnu4v2FIJGfmuk3u1oHKu8xxOQm4MXCGTU5g/file?c_luid=e8a8ea13"
+      "height": 1086
     }
   ],
   "qa": {
     "binary": "PASS_LOCAL",
     "visual": "PASS_FIXED_DRUM_COMPOSITE",
     "hitChangedPixelRatioVsApprovedSnR": 0.0003790075598017969,
-    "reboundChangedPixelRatioVsApprovedSnR": 0.00008012575928695705
+    "reboundChangedPixelRatioVsApprovedSnR": 8.012575928695705e-05
   },
   "runtimeMapped": false,
   "manifestRegistered": false,
