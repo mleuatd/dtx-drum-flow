@@ -123,4 +123,4 @@ assert Path(P/"CHARACTER_ASSET_GENERATION_SPEC.md").is_file()
 assert Path(P/"ASSET_NAMING_RULES.md").is_file()
 assert Path(P/"NEXT_IMPLEMENTATION_HANDOFF.md").is_file()
 
-print(f"PASS Luna planning validation: {len(counts; infrastructure masters OK)} action keys, {len(groups)} groups, live scope 1-8, {len(blocks)} blocks")
+print(f"PASS Luna planning validation: {len(counts)} action keys, {len(groups)} groups, live scope 1-8, {len(blocks)} blocks; infrastructure masters OK")
