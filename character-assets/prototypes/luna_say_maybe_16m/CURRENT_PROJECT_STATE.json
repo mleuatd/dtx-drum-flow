@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:44:00+09:00",
+  "updatedAt": "2026-09-18T20:05:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -85,7 +85,21 @@
     "lbValidatorFix": "3c475a6fb9d8993b4a964d013103f963a8cca385",
     "headBeforeStateFile": "3c475a6fb9d8993b4a964d013103f963a8cca385",
     "staleStatusOverride": "7b77b04a387ea3bde056dcdfe91a926901ab85e7",
-    "planningLedgerComplete": "28466422e88210ff6ed9844f3ff4497a50d752f6"
+    "planningLedgerComplete": "28466422e88210ff6ed9844f3ff4497a50d752f6",
+    "prepQueue": "9adccf918887edff29b97e5c9477fce6dd4cf153",
+    "namingRules": "a3146993a5d4493c6f9b5ab6fa72d557a1f89714",
+    "actionKeyMap": "0f3d773b344dbfae28fab6e2cf8cb76e86fa0805",
+    "generationSpec": "3a7ab8a7ad9139725489ae16681b540331ceca05",
+    "contactPoints": "6185bb64465a915f5cfeaace65c7142d80be25cf",
+    "transitionRules": "c45898f3e6ffd0c1429162d72f60fd23e3d72738",
+    "qaChecklist": "89c9b3196bfc1d2c83442ac24b6a7be6be28c12c",
+    "rejectedRegistry": "df9398ffd9ce1317dddc384ec5a88caa1e47a154",
+    "blockCompletion": "a4aac66fb29392517ad1cf24c3f5eb1ffb73eab4",
+    "limbAwareComboRuntime": "7968d44b5971c463e14c9c3f761c6016ffe5a8ed",
+    "blockQaRunner": "068197521968659b75ddf1ba682dad8b192f87d1",
+    "blockQaWorkflow": "bf6e6fa99fb646a388f0b00252f46ac2e591ddd4",
+    "infrastructureValidatorFix": "d6b76d998117ff53e5fdcd9d3441db1ad58ea445",
+    "blockQaSyntaxCheck": "52820b67001e48b53957047699b5494b437cec06"
   },
   "latestQaRuns": {
     "m5_8": 35327283366,
@@ -110,7 +124,17 @@
     "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_IMPLEMENTATION_BLOCK_PLAN.json",
     "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_EXISTING_ASSET_QA_PLAN.json",
     "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
-    "character-assets/config/assets_manifest.json"
+    "character-assets/config/assets_manifest.json",
+    "character-assets/prototypes/luna_say_maybe_16m/ASSET_NAMING_RULES.md",
+    "character-assets/prototypes/luna_say_maybe_16m/ASSET_NAMING_RULES.json",
+    "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json",
+    "character-assets/prototypes/luna_say_maybe_16m/CHARACTER_ASSET_GENERATION_SPEC.md",
+    "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+    "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+    "character-assets/prototypes/luna_say_maybe_16m/QA_CHECKLIST_MASTER.json",
+    "character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json",
+    "character-assets/prototypes/luna_say_maybe_16m/BLOCK_COMPLETION_DEFINITION.json",
+    "character-assets/prototypes/luna_say_maybe_16m/NEXT_IMPLEMENTATION_HANDOFF.md"
   ],
   "historicalFiles": [
     "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -119,10 +143,14 @@
   "instructionsForNextChat": [
     "Read CURRENT_PROJECT_STATE.json first.",
     "Then read M5_PLUS_PROGRESS_LEDGER.json.",
+    "Then read NEXT_IMPLEMENTATION_HANDOFF.md.",
+    "Before generating/editing character assets, read CHARACTER_ASSET_GENERATION_SPEC.md, INSTRUMENT_CONTACT_POINTS.json, ASSET_NAMING_RULES.md and QA_CHECKLIST_MASTER.json.",
+    "Use ACTION_KEY_ASSET_MAP.json for actionKey-to-asset/runtime resolution.",
+    "Use REJECTED_ASSET_REGISTRY.json as a hard deny-list.",
+    "Use BLOCK_COMPLETION_DEFINITION.json before marking any measure block DONE.",
     "Use latest GitHub main as sole source of truth.",
     "Do not regenerate approved assets.",
-    "Do not expand runtimeScope until required images and QA gates pass.",
-    "Do not use historical/rejected assets."
+    "Do not expand runtimeScope until required images and QA gates pass."
   ],
   "planningStatus": {
     "status": "DONE",
@@ -135,5 +163,23 @@
     "blockedImageFiles": 2,
     "reusableQaEvents": 775,
     "blocksPlanned": 15
+  },
+  "infrastructureStatus": {
+    "status": "DONE",
+    "namingRules": [
+      "character-assets/prototypes/luna_say_maybe_16m/ASSET_NAMING_RULES.md",
+      "character-assets/prototypes/luna_say_maybe_16m/ASSET_NAMING_RULES.json"
+    ],
+    "actionKeyAssetMap": "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json",
+    "generationSpec": "character-assets/prototypes/luna_say_maybe_16m/CHARACTER_ASSET_GENERATION_SPEC.md",
+    "instrumentContactPoints": "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+    "poseTransitionRules": "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+    "qaChecklist": "character-assets/prototypes/luna_say_maybe_16m/QA_CHECKLIST_MASTER.json",
+    "rejectedAssetRegistry": "character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json",
+    "blockCompletionDefinition": "character-assets/prototypes/luna_say_maybe_16m/BLOCK_COMPLETION_DEFINITION.json",
+    "blockQaWorkflow": ".github/workflows/luna-block-qa.yml",
+    "blockQaRunner": "tools/luna-block-qa.mjs",
+    "planningValidator": "tools/validate_luna_full_song_planning.py",
+    "comboRuntimeResolution": "exact limb-aware combo key first, existing wildcard fallback second"
   }
 }
