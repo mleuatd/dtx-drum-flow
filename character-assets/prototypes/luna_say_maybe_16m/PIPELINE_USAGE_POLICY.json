@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "status": "CURRENT_MANDATORY",
+  "principle": "PIPELINE_FIRST_NO_MANUAL_DUPLICATION",
+  "rules": [
+    "Before Luna implementation work, read CURRENT_PROJECT_STATE.json, M5_PLUS_PROGRESS_LEDGER.json, NEXT_IMPLEMENTATION_HANDOFF.md, and PRODUCTION_PIPELINE.md.",
+    "Before doing a repeatable operation manually, query the pipeline dispatcher and use the returned existing tool/workflow when available.",
+    "Do not manually reimplement an operation already covered by a repository tool/workflow.",
+    "If an existing tool cannot be used, record a MANUAL_OVERRIDE with tool, reason, evidence, and follow-up fix in the ledger.",
+    "New reusable logic discovered during manual work should be promoted into a tool/workflow before repeating the operation.",
+    "Image generation itself is not automated by this policy; generation still follows image/tool availability and visual QA gates."
+  ],
+  "taskRouting": {
+    "choose-next-asset": [
+      "tools/production-pipeline-dispatcher.mjs",
+      "tools/build-next-asset-queue.mjs"
+    ],
+    "build-generation-prompt": [
+      "tools/production-pipeline-dispatcher.mjs",
+      "tools/build-character-generation-prompt.mjs"
+    ],
+    "derive-rebound": [
+      "tools/production-pipeline-dispatcher.mjs",
+      "tools/derive-rebound-instruction.mjs"
+    ],
+    "candidate-qa": [
+      ".github/workflows/luna-candidate-qa.yml",
+      "tools/character_candidate_qa.py",
+      "tools/build-character-qa-preview.py",
+      "tools/character_image_diff_metrics.py"
+    ],
+    "build-staging": [
+      "tools/build-staging-json.mjs"
+    ],
+    "prepare-registration": [
+      "tools/prepare-registration-plan.mjs"
+    ],
+    "block-start": [
+      "tools/build-block-start-checklist.mjs",
+      "tools/luna-production-path.mjs"
+    ],
+    "reuse-analysis": [
+      "tools/find-reuse-candidates.mjs"
+    ],
+    "runtime-qa": [
+      "tools/build-qa-sampling-and-risk.mjs",
+      "tools/luna-block-qa.mjs"
+    ],
+    "qa-summary": [
+      "tools/build-qa-summary.mjs"
+    ],
+    "next-chat": [
+      "tools/build-next-chat-handoff.mjs"
+    ],
+    "fast-path": [
+      ".github/workflows/luna-fast-path.yml"
+    ],
+    "full-path": [
+      ".github/workflows/luna-full-path.yml"
+    ]
+  },
+  "compliance": {
+    "dispatcherRequired": true,
+    "manualOverrideRequiredWhenToolSkipped": true,
+    "validationMustCheckPolicyFiles": true,
+    "nextChatMustMentionPipelineFirst": true,
+    "stateMustExposePolicy": true
+  }
+}
