@@ -5,18 +5,20 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 8,
-    "noteCount": 61,
-    "groupCount": 59,
+    "measureEnd": 16,
+    "noteCount": 144,
+    "groupCount": 124,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 17.016741,
+    "lastNoteTime": 30.829691,
     "expectedKeys": [
       "SN:L",
       "SN:R",
       "BD:RF",
       "HH:R",
       "BD+RC:*",
-      "RD:R"
+      "RD:R",
+      "BD+SN:*",
+      "RC+SN:*"
     ]
   },
   "requiredFrames": {
@@ -87,17 +89,17 @@
     },
     "bd_sn_rf_l_hit": {
       "path": "layers/character/combo/bd_sn_hit_refresh.png",
-      "state": "runtime-preloaded-not-live",
+      "state": "ready",
       "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466"
     },
     "bd_sn_rf_l_rebound": {
       "path": "layers/character/combo/bd_sn_rebound_refresh.png",
-      "state": "runtime-preloaded-not-live",
+      "state": "ready",
       "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0"
     },
     "rc_sn_r_l_hit_refresh": {
       "path": "layers/character/combo/rc_sn_hit_refresh.png",
-      "state": "runtime-ready-not-live",
+      "state": "ready",
       "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png",
       "actionKey": "RC+SN:R/L",
@@ -106,7 +108,7 @@
     },
     "rc_sn_r_l_rebound_refresh": {
       "path": "layers/character/combo/rc_sn_rebound_refresh.png",
-      "state": "runtime-ready-not-live",
+      "state": "ready",
       "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da"
     }
   },
@@ -118,7 +120,9 @@
     "BD+RC:*": "bd_rc_hit",
     "RD:R": "rd_r_hit",
     "BD+SN:RF/L": "bd_sn_rf_l_hit",
-    "RC+SN:R/L": "rc_sn_r_l_hit_refresh"
+    "RC+SN:R/L": "rc_sn_r_l_hit_refresh",
+    "BD+SN:*": "bd_sn_rf_l_hit",
+    "RC+SN:*": "rc_sn_r_l_hit_refresh"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -157,6 +161,16 @@
       "rebound": "bd_sn_rf_l_rebound"
     },
     "RC+SN:R/L": {
+      "prep": "neutral",
+      "hit": "rc_sn_r_l_hit_refresh",
+      "rebound": "rc_sn_r_l_rebound_refresh"
+    },
+    "BD+SN:*": {
+      "prep": "neutral",
+      "hit": "bd_sn_rf_l_hit",
+      "rebound": "bd_sn_rf_l_rebound"
+    },
+    "RC+SN:*": {
       "prep": "neutral",
       "hit": "rc_sn_r_l_hit_refresh",
       "rebound": "rc_sn_r_l_rebound_refresh"
@@ -208,6 +222,15 @@
       "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
       "liveRuntimeScope": "1-8"
     },
-    "preLiveCompatibility": "Exact limb-aware BD+SN:RF/L and RC+SN:R/L preloaded; legacy wildcard mappings intentionally withheld until live runtimeScope expansion to satisfy planning gate."
+    "preLiveCompatibility": "Exact limb-aware BD+SN:RF/L and RC+SN:R/L preloaded; legacy wildcard mappings intentionally withheld until live runtimeScope expansion to satisfy planning gate.",
+    "m9_16PreLive": {
+      "status": "PASS",
+      "run": 35350383202,
+      "artifact": 10549653076,
+      "frameMismatch": 0,
+      "loadFailure": 0,
+      "warnings": 0,
+      "consolePageErrors": 0
+    }
   }
 }
