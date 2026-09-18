@@ -12,26 +12,63 @@ permissions:
 jobs:
   full:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MEASURE_START: ${{ inputs.measure_start }}
+      MEASURE_END: ${{ inputs.measure_end }}
+      QA_SAMPLING_FILE: sampling.json
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: {node-version: "20"}
-      - name: Select path and block plan
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Prepare full-path production plan
         run: |
           node tools/luna-production-path.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" path.json
+          grep -q '"path": "FULL_PATH"' path.json
           node tools/build-block-start-checklist.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" block.json
           node tools/build-next-asset-queue.mjs next-assets.json
           node tools/build-qa-sampling-and-risk.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" sampling.json
-      - name: Full-path gate
+          python tools/chart_validation.py
+          python tools/validate_luna_full_song_planning.py
+          python tools/validate_production_pipeline.py
+      - name: Evaluate block readiness
+        id: readiness
+        shell: bash
         run: |
-          grep -q '"path": "FULL_PATH"' path.json
-          echo "No image generation or formal save is performed by this planning workflow."
-      - name: Upload production plan
+          python - <<'PY'
+          import json, os
+          b=json.load(open("block.json"))
+          blocked=bool(b.get("newAssets") or b.get("blocked") or b.get("pending"))
+          print("BLOCKED_IMAGE_OR_RUNTIME_PENDING" if blocked else "READY_FOR_BROWSER_QA")
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              f.write("ready="+("false" if blocked else "true")+"\n")
+          PY
+      - name: Install Playwright
+        if: steps.readiness.outputs.ready == 'true'
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run block QA when fully ready
+        if: steps.readiness.outputs.ready == 'true'
+        run: node tools/luna-block-qa.mjs
+      - name: Record blocked summary
+        if: steps.readiness.outputs.ready != 'true'
+        run: |
+          mkdir -p qa-artifacts-luna-block
+          cp block.json qa-artifacts-luna-block/summary.json
+      - name: Upload production evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: luna-full-path-plan
+          name: luna-full-path-m${{ inputs.measure_start }}-${{ inputs.measure_end }}
           path: |
             path.json
             block.json
             next-assets.json
             sampling.json
+            qa-artifacts-luna-block
+          if-no-files-found: warn
