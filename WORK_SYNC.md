@@ -1,5 +1,22 @@
 # Work / Normal Chat 同期ルール
 
+# 2026-09-18 M5+ REFRESHED EXPANSION — READ FIRST
+
+Before continuing Luna Say Maybe measures 5+, read:
+- `character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json`
+- `character-assets/prototypes/luna_say_maybe_16m/HANDOFF_M5_PLUS_2026-09-18.md`
+- `character-assets/prototypes/luna_say_maybe_16m/CHARACTER_QA_ISSUES.json`
+- `character-assets/prototypes/luna_say_maybe_16m/M5_8_REQUIRED_CHARACTER_ASSETS.json`
+- `character-assets/prototypes/luna_say_maybe_16m/M9_16_REQUIRED_CHARACTER_ASSETS.json`
+- `site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json`
+- `character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json`
+
+Current live runtime is still measures 1-4. Runtime scope is now read from `asset_inventory.json`; do not reintroduce hardcoded measure-end values.
+BD+SN refreshed hit/rebound are preserved in formal layer paths with status `VISUAL_QA_PASSED_RUNTIME_PENDING`, but are not runtime-mapped.
+RD:R and RC+SN refreshed pairs remain blocked/rework-required. Rejected generations and misleading Dropbox aliases are listed in the progress ledger; never reuse them.
+Measures 17-148 limb draft is analysis-only and must not be promoted to runtime authority while 195 notes remain unresolved.
+
+
 # 2026-09-18 CHARACTER QA LEDGER — READ FIRST
 
 Before any Luna Say Maybe character-image work, read:
