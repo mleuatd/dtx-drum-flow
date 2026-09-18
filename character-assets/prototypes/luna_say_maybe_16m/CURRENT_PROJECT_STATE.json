@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:47:00+09:00",
+  "updatedAt": "2026-09-18T22:58:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -137,7 +137,7 @@
     "measures": "17",
     "reason": "M9-16 is DONE; continue contiguously with the next required asset/action-key queue."
   },
-  "nextRecommendedWork": "Begin M17 preparation from NEXT_ASSET_QUEUE / OPEN_WORK_QUEUE. M9-16 is DONE and must not be reopened unless a regression is found.",
+  "nextRecommendedWork": "M9-16 is DONE. ASSETQ-003 LT:R hit is READY for M17, but do not start M17 image generation unless explicitly requested.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
@@ -290,5 +290,51 @@
     "done": 1,
     "blocked": 18,
     "canRunNow": 0
+  },
+  "finalReconciliation": {
+    "status": "DONE",
+    "liveRuntimeScope": {
+      "measureStart": 1,
+      "measureEnd": 16,
+      "status": "COMPLETE_LIVE_QA"
+    },
+    "rcSn": {
+      "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+      "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "hitPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "reboundPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "dropboxHit": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png",
+      "dropboxRebound": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_rebound_refresh_20260918.png",
+      "binary": "1448x1086 RGBA alpha; SHA256 reverified on latest main"
+    },
+    "coverage": {
+      "m9_16Notes": 83,
+      "m9_16Groups": 65,
+      "missingLimbs": 0,
+      "unresolvedActionKeys": 0,
+      "missingFrames": 0,
+      "rejectedRuntimeAssets": 0
+    },
+    "qa": {
+      "preLiveRun": 35350383202,
+      "livePcXperiaRun": 35351134562,
+      "liveArtifact": 10549284671,
+      "validateRun": 35351278979,
+      "characterAssetValidationRun": 35351227038,
+      "pagesDeployRun": 35351010527
+    },
+    "reconciliationCommits": [
+      "400e010b18a0ca7685ba61f591092bec6f928d99",
+      "d7f46992f4974f5a884c576acb737ee522c436c9",
+      "c3b1254638f1bd86fbc98f9f974bc6aa7f55e906",
+      "f2828792e44bfb0ff5d1e060dc2d7344d2d8c008",
+      "f8e50687de986cac8522a3c58e628721559c8b66",
+      "201b712cf4b176e88318813646e5edaddc4a7e05",
+      "1e4ee5cd76c0018c202ba28e1dbc8382cae5a4bc",
+      "fe95466c7ee79d2068b94745a3a45949e1fa6708",
+      "ec5c95b7553816d1a08cd78ad8cc77cbdd913493"
+    ],
+    "nextReadyTask": "ASSETQ-003 LT:R hit for M17",
+    "m17ImageGenerationStarted": false
   }
 }
