@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "READY_FOR_FORMAL_IMPORT",
+  "status": "FORMAL_PROMOTED_MANUAL_EXACT_BYTES",
   "actionKey": "BD+SN:RF/R",
   "block": "B17",
   "measure": 17,
@@ -54,5 +54,8 @@
     ]
   },
   "runtimeMapped": false,
-  "manifestRegistered": false
+  "manifestRegistered": true,
+  "formalPromotionCommit": "b3208b4869e9af496770ac967c06975ef175176f",
+  "note": "Generic importer run failed only because DROPBOX_ACCESS_TOKEN secret was unavailable; exact bytes were imported through review workflow temp URLs and promoted via Git object API.",
+  "updatedAt": "2026-09-19T06:50:00+09:00"
 }
