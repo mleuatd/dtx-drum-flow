@@ -1,0 +1,10 @@
+import fs from "node:fs/promises";
+const base="character-assets/prototypes/luna_say_maybe_16m";const read=async p=>JSON.parse(await fs.readFile(p,"utf8"));
+const ledger=await read(base+"/M5_PLUS_PROGRESS_LEDGER.json"),state=await read(base+"/CURRENT_PROJECT_STATE.json"),policy=await read(base+"/PIPELINE_USAGE_POLICY.json");
+const overrides=ledger.manualOverrides||[];const suggestions=[];
+if(overrides.length>=2)suggestions.push({id:"AUTO-OPT-MANUAL-OVERRIDE",priority:"HIGH",reason:"Repeated MANUAL_OVERRIDE records detected",action:"Extend/repair skipped tools so the repeated manual operation becomes pipeline-native."});
+if(!state.productionPipeline?.contextCache)suggestions.push({id:"AUTO-OPT-CONTEXT-CACHE",priority:"HIGH",reason:"No unified context cache registered",action:"Build/register PIPELINE_CONTEXT_CACHE.json and prefer it for repeated read-heavy planning."});
+if(!state.productionPipeline?.incrementalValidation)suggestions.push({id:"AUTO-OPT-INCREMENTAL-VALIDATION",priority:"HIGH",reason:"Validation scope not registered",action:"Use changed-file scope classification so docs/pipeline-only commits skip unrelated heavy tests."});
+if(Object.keys(policy.taskRouting).length<13)suggestions.push({id:"AUTO-OPT-ROUTING-GAP",priority:"MEDIUM",reason:"Task routing coverage may be incomplete",action:"Review recurrent manual task categories and add dispatcher routes."});
+const out={schemaVersion:1,generatedAt:new Date().toISOString(),manualOverrideCount:overrides.length,suggestions,rule:"At each new work session, run this audit. Add HIGH suggestions to the ledger automatically when not already tracked."};
+const dest=process.argv[2]||base+"/AUTO_OPTIMIZATION_REPORT.json";await fs.writeFile(dest,JSON.stringify(out,null,2)+"\n");console.log(JSON.stringify(out,null,2));
