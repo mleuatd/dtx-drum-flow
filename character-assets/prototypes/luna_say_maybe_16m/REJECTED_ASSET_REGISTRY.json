@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:10:00+09:00",
+  "updatedAt": "2026-09-19T05:05:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -188,6 +188,25 @@
       "date": "2026-09-18",
       "replacementAsset": null,
       "status": "NEVER_USE"
+    }
+  ],
+  "rejected": [
+    {
+      "id": "M17-LT-R-HIT-ATTEMPT-1",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "8533bd408a8a026890754374e4b230c208ab35710a74d90a7ba9f909eaccd2f0",
+      "path": "/mnt/data/a_clean_white_transparent_background_illustration.png",
+      "reason": "Fresh redraw / continuity failure: face direction, hair identity, clothing, body scale, stool/body registration and overall character silhouette differ materially from approved neutral. edit_op=null. Binary PNG QA passed but character continuity hard gate failed.",
+      "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+      "diffBBox": [
+        90,
+        23,
+        1329,
+        1063
+      ],
+      "date": "2026-09-19"
     }
   ]
 }
