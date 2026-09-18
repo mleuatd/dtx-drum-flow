@@ -1,21 +1,22 @@
 {
-  "version": 10,
-  "scope": "Luna Say Maybe measures 1-4 parapara complete",
-  "imageSetState": "m1-4-complete",
+  "version": 11,
+  "scope": "Luna Say Maybe measures 1-8 parapara complete pending live QA",
+  "imageSetState": "m1-8-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 4,
-    "noteCount": 28,
-    "groupCount": 27,
+    "measureEnd": 8,
+    "noteCount": 61,
+    "groupCount": 59,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 10.110266,
+    "lastNoteTime": 17.016741,
     "expectedKeys": [
       "SN:L",
       "SN:R",
       "BD:RF",
       "HH:R",
-      "BD+RC:*"
+      "BD+RC:*",
+      "RD:R"
     ]
   },
   "requiredFrames": {
@@ -120,6 +121,7 @@
       "rebound": "bd_rc_rebound"
     },
     "RD:R": {
+      "prep": "neutral",
       "hit": "rd_r_hit",
       "rebound": "rd_r_rebound"
     }
@@ -135,22 +137,23 @@
     "module": "site/character-prototype.js",
     "fallback": "base/neutral.png",
     "activeOnlyFor": "Luna Say Maybe",
-    "prototypeWindow": "measures 1-4 only",
+    "prototypeWindow": "measures 1-8",
     "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
     "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json"
   },
   "runtimeFallbackKeys": [],
   "missingExactFrames": [],
   "qa": {
-    "scope": "measures 1-4",
-    "notesResolved": 28,
-    "groupsResolved": 27,
+    "scope": "measures 1-8",
+    "notesResolved": 61,
+    "groupsResolved": 59,
     "unresolved": 0,
-    "imageAssetCount": 12,
-    "characterVariantState": "COMPLETE",
+    "imageAssetCount": 14,
+    "characterVariantState": "RUNTIME_QA_PENDING",
     "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
     "fixedDrumPixelSha256": "7fe4c002958a63c32379d11bede1f0ca0282ea21401fe2d0d0d4f13428403de9",
     "snRReboundRuntimePolicy": "hold sn_r_hit during the short SN:R rebound phase to avoid the discontinuous sn_r_rebound drawing; phase remains rebound",
-    "snRReboundDeprecatedFrame": "sn_r_rebound"
+    "snRReboundDeprecatedFrame": "sn_r_rebound",
+    "rdRPolicy": "refreshed baseline-derived hit/rebound mapped for measures 5-8"
   }
 }
