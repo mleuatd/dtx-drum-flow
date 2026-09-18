@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:15:00+09:00",
+  "updatedAt": "2026-09-19T06:25:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -194,7 +194,10 @@
         "LT:R rebound QA PASS run 35394228101; SHA d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf.",
         "Formal pair merged to main commit 4f177525086cc777ded5c4af7e7b316d7992d322.",
         "Dropbox mirror trigger PR #8 opened; confirmation pending.",
-        "Next READY asset: ASSETQ-005 LT:L hit."
+        "Next READY asset: ASSETQ-005 LT:L hit.",
+        "LT:L hit QA/formal PASS; SHA 774b0d5a6c1ced73f0034969601af87133dc9e4a1721a0a5489be673581dea0c; Dropbox saved.",
+        "LT:L rebound QA/formal PASS; SHA 6c87bc201404cbe91ca2cc3e8025e1ee88270de5318b81ff04eaf8f3ef451ee1; Dropbox saved.",
+        "Review import workflow run 35396068128 SUCCESS; PR #10 merged; formal blobs promoted to main commit 4a5653834e5544b2642cbfc1562f9f2eef6f0187."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -229,7 +232,7 @@
         "oldUnresolved": 195
       },
       "blocker": null,
-      "nextAction": "Create ASSETQ-005 LT:L hit; after PASS create ASSETQ-006 rebound. Keep runtime scope at 1-16 until all M17 pairs pass."
+      "nextAction": "Create ASSETQ-007 BD+SN:RF/R hit; after PASS create ASSETQ-008 rebound. Keep runtime scope at 1-16 until all M17 pairs pass."
     }
   ],
   "skippedOrRejected": [
@@ -338,7 +341,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Create ASSETQ-005 LT:L hit; after PASS create ASSETQ-006 rebound. Keep runtime scope at 1-16 until all M17 pairs pass.",
+  "nextAction": "Create ASSETQ-007 BD+SN:RF/R hit; after PASS create ASSETQ-008 rebound. Keep runtime scope at 1-16 until all M17 pairs pass.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
