@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:40:00+09:00",
+  "updatedAt": "2026-09-18T22:45:00+09:00",
   "song": "Luna Say Maybe",
   "authority": {
     "chart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
@@ -17,7 +17,9 @@
     "newImagePairs": 22,
     "blockedImagePairs": 1,
     "newImageFiles": 44,
-    "blockedImageFiles": 0
+    "blockedImageFiles": 0,
+    "REUSE_APPROVED": 8,
+    "NEW_IMAGE_REQUIRED": 22
   },
   "actions": [
     {
@@ -173,15 +175,17 @@
           "limb": "L"
         }
       ],
-      "classification": "REUSE_NEEDS_RUNTIME_QA",
+      "classification": "REUSE_APPROVED",
       "existingHit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "existingRebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
-      "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PRELOADED",
+      "manifestStatus": "LIVE_QA_PASSED",
       "runtimeMapped": true,
-      "qaStatus": "STATIC_AND_CORE_RUNTIME_PASS_LIVE_TRANSITION_PENDING",
+      "qaStatus": "LIVE_PC_XPERIA_PASS",
       "sharedAssetCandidate": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "exactReuseSafe": true,
-      "note": "Exact-limb runtime frames/mapping are preloaded while live runtimeScope remains 1-8. Full live transition QA remains pending until corrected RC+SN exists and M9-16 is enabled."
+      "note": "Approved for reuse after M9-16 public live PC/Xperia QA run 35351134562, artifact 10549284671.",
+      "liveQaRun": 35351134562,
+      "liveQaArtifact": 10549284671
     },
     {
       "actionKey": "RC+SN:R/L",
@@ -200,16 +204,18 @@
           "limb": "L"
         }
       ],
-      "classification": "REUSE_NEEDS_RUNTIME_QA",
+      "classification": "REUSE_APPROVED",
       "existingHit": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
       "existingRebound": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
-      "manifestStatus": "ABSENT",
-      "runtimeMapped": false,
-      "qaStatus": "BLOCKED_MISSING_CORRECTED_PAIR",
-      "sharedAssetCandidate": null,
-      "exactReuseSafe": false,
-      "note": "Corrected pair required; rejected historical/wrong-side generations are forbidden.",
-      "reason": "Formal refreshed RC+SN:R/L hit/rebound pair created for M9-16; static QA passed, live runtime transition QA pending."
+      "manifestStatus": "LIVE_QA_PASSED",
+      "runtimeMapped": true,
+      "qaStatus": "LIVE_PC_XPERIA_PASS",
+      "sharedAssetCandidate": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "exactReuseSafe": true,
+      "note": "Approved for reuse after M9-16 public live PC/Xperia QA run 35351134562, artifact 10549284671.",
+      "reason": "Formal refreshed RC+SN:R/L hit/rebound pair created for M9-16; static QA passed, live runtime transition QA pending.",
+      "liveQaRun": 35351134562,
+      "liveQaArtifact": 10549284671
     },
     {
       "actionKey": "BD+LT:RF/R",
