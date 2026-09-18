@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:25:00+09:00",
+  "updatedAt": "2026-09-18T21:42:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -105,7 +105,7 @@
         "BD+RC:*",
         "HH:R",
         "BD+SN:RF/L",
-        "RC+SN:L/R"
+        "RC+SN:R/L"
       ],
       "requiredNew": [
         "RD:R hit/rebound",
@@ -114,22 +114,24 @@
       ],
       "assets": {
         "bdSn": {
-          "status": "VISUAL_QA_PASSED_FORMAL_LAYER_SAVED_RUNTIME_PENDING",
+          "status": "RUNTIME_PRELOADED_LIVE_TRANSITION_QA_PENDING",
           "hit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
           "rebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
           "hitSha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
           "reboundSha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
           "visualQaRun": 35321151121,
           "visualQaArtifact": 10537157014,
-          "runtimeMapped": false,
+          "runtimeMapped": true,
           "formalHit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
           "formalRebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
           "formalLayerCommit": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
-          "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PENDING"
+          "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PENDING",
+          "runtimeKey": "BD+SN:RF/L",
+          "preloadCommit": "35e0cde374f715c03b937489b3153ad2405b8cf4"
         },
         "rcSn": {
-          "status": "IN_PROGRESS_REGEN_REQUIRED",
-          "reason": "Generated RC+SN pair targeted screen-left cymbal rather than authoritative screen-right RC; skipped."
+          "status": "BLOCKED_IMAGE_REQUIRED",
+          "reason": "Corrected RC+SN:R/L hit/rebound do not exist. Historical/wrong-side/front-facing attempts are REJECTED_NEVER_USE. Current chat has no usable approved-neutral image attachment for an edit operation."
         },
         "rd": {
           "status": "DONE_REUSE_APPROVED_M5_8",
@@ -1766,5 +1768,16 @@
       }
     ],
     "rule": "Safe HIGH-priority optimization findings are implemented autonomously and recorded; no user prompt is required unless image generation, user preference, or risky product behavior change is involved."
-  }
+  },
+  "manualOverrides": [
+    {
+      "id": "MANUAL_OVERRIDE-20260918-OPENWORK",
+      "at": "2026-09-18T21:42:00+09:00",
+      "skippedTool": "tools/start-pipeline-task.mjs / production-pipeline-dispatcher.mjs direct execution",
+      "reason": "Current chat GitHub connector exposes repository contents/actions reads and file writes but no workflow_dispatch/direct repository Node execution entrypoint.",
+      "evidence": "Pipeline policy and repository tool logic were read from latest main; equivalent queue/bootstrap logic is being reproduced from authoritative JSON only.",
+      "workaround": "Create OPEN_WORK_QUEUE.json and required prep outputs directly from latest-main authoritative files; keep runtimeScope 1-8.",
+      "followUpFix": "If GitHub workflow dispatch becomes available, use start-pipeline-task/full-path workflows directly for future sessions."
+    }
+  ]
 }
