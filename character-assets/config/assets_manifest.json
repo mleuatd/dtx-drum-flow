@@ -370,6 +370,44 @@
         "Fixed-drum visual QA PASS; neutral diff 0.3549%; centroid shift <1px",
         "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
       ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "71515ebc9678959f2b85a4136133f23ef847c2b844a3f0e4b127ba573a192d5b",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 BD+SN:RF/R hit; APPROVED SN:R pose preserved with deterministic local BD kick cue",
+      "part": "BD+SN",
+      "phase": "hit",
+      "hand": "RF/R",
+      "notes": [
+        "Dropbox exact bytes saved under /ChatGPT/dtx-drum-flow/ on 2026-09-19.",
+        "Review import workflow run 35397944277 SUCCESS.",
+        "Fixed-drum visual QA PASS; only BD kick cue differs from APPROVED SN:R.",
+        "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 BD+SN:RF/R rebound; APPROVED SN:R pose preserved with deterministic local BD kick cue",
+      "part": "BD+SN",
+      "phase": "rebound",
+      "hand": "RF/R",
+      "notes": [
+        "Dropbox exact bytes saved under /ChatGPT/dtx-drum-flow/ on 2026-09-19.",
+        "Review import workflow run 35397944277 SUCCESS.",
+        "Fixed-drum visual QA PASS; only BD kick cue differs from APPROVED SN:R.",
+        "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
