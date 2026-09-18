@@ -175,6 +175,19 @@
       "date": "2026-09-18",
       "replacementAsset": null,
       "status": "NEVER_USE"
+    },
+    {
+      "asset": "RC+SN retry from Dropbox/GitHub preview target",
+      "type": "IMAGE",
+      "actionKey": "RC+SN:R/L",
+      "phase": "hit",
+      "sha256": "49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c",
+      "githubPath": null,
+      "dropboxPath": null,
+      "rejectionReason": "edit_op=null; generated a fresh front-facing character with materially changed identity/camera/body/stool instead of an approved-neutral-derived edit. Fails FAIL-EDIT-NULL and FAIL-FRONT-CHAR. Never register or reuse.",
+      "date": "2026-09-18",
+      "replacementAsset": null,
+      "status": "NEVER_USE"
     }
   ]
 }
