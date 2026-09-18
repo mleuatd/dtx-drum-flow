@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:20:00+09:00",
+  "updatedAt": "2026-09-19T05:35:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -19,9 +19,9 @@
     "currentAssetStatus": "NEW_IMAGE_REQUIRED",
     "reason": "Missing formal hit; first appears M17, occurrences 31.",
     "nextAfterCompletion": "ASSETQ-004",
-    "status": "BLOCKED_EXTERNAL_DIRECT_EDIT",
-    "blocker": "Current image generator repeatedly returns edit_op=null/fresh redraw even for explicit baseline/crop targets; local raster-edit fallbacks failed visual QA.",
-    "nextAction": "Resume ASSETQ-003 only with a direct-edit-capable image path or safer local-only edit from verified neutral baseline. Do not advance to ASSETQ-004 until hit PASS.",
+    "status": "BLOCKED_LOCAL_EDIT_QUALITY",
+    "blocker": "Direct edit unavailable; tested local stick-only and APPROVED-RD-arm transforms both failed visual QA.",
+    "nextAction": "Resume ASSETQ-003 with a different natural local arm/wrist/stick edit. Do not proceed to ASSETQ-004.",
     "dependencyStatus": "CLEARED_M9_16_DONE"
   },
   "items": [
@@ -75,9 +75,9 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 31.",
       "nextAfterCompletion": "ASSETQ-004",
-      "status": "BLOCKED_EXTERNAL_DIRECT_EDIT",
-      "blocker": "Current image generator repeatedly returns edit_op=null/fresh redraw even for explicit baseline/crop targets; local raster-edit fallbacks failed visual QA.",
-      "nextAction": "Resume ASSETQ-003 only with a direct-edit-capable image path or safer local-only edit from verified neutral baseline. Do not advance to ASSETQ-004 until hit PASS.",
+      "status": "BLOCKED_LOCAL_EDIT_QUALITY",
+      "blocker": "Direct edit unavailable; tested local stick-only and APPROVED-RD-arm transforms both failed visual QA.",
+      "nextAction": "Resume ASSETQ-003 with a different natural local arm/wrist/stick edit. Do not proceed to ASSETQ-004.",
       "dependencyStatus": "CLEARED_M9_16_DONE"
     },
     {
