@@ -13,7 +13,7 @@
     "groupCount": 215
   },
   "qaInfrastructure": {
-    "state": "CORRECTIVE_COMMIT_PUSHED",
+    "state": "CORRECTIVE_COMMIT_PUSHED_AWAITING_WORKFLOW_RESULT",
     "workflow": ".github/workflows/runtime-character-qa.yml",
     "runner": "tools/runtime-character-qa.mjs",
     "documentation": "docs/PUBLIC_RUNTIME_QA.md",
@@ -27,7 +27,11 @@
     "artifact": "public-runtime-qa-35400421004",
     "runId": "35400421004",
     "testedCommitSha": "4660e7111065ea7ed45509e7d3f95d3922954b51",
-    "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35400421004"
+    "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35400421004",
+    "correctiveCommits": [
+      "edf4b4416366428c9061ea385563564fd7021e11",
+      "dea73641486b528c7038bb7809db7215690a146a"
+    ]
   },
   "requiredActions": [
     "BD+RD:RF/R",
@@ -49,8 +53,8 @@
     "rootCause": "Workflow concurrency used cancel-in-progress:true. A later main push arrived while this run was waiting for its matching Pages deployment, so GitHub cancelled the active Playwright/deployment-wait step before browser QA began.",
     "correctiveCommit": "edf4b4416366428c9061ea385563564fd7021e11",
     "retryWhen": "automatically on corrective main commit; concurrency now queues instead of cancelling active QA",
-    "requiredNext": "inspect the new Runtime Character QA run, its runtime-qa.json and screenshots; only then decide PASS/FAIL",
+    "requiredNext": "New workflow trigger is enabled. Inspect the next Runtime Character QA run; if Chromium QA reaches runtime, analyze runtime-qa.json/screenshots. Do not mark DONE before evidence exists.",
     "artifact": null
   },
-  "updatedAt": "2026-09-18T22:16:47.786Z"
+  "updatedAt": "2026-09-18T22:17:08.092Z"
 }
