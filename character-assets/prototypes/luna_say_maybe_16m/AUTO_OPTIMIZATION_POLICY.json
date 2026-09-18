@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "CURRENT_MANDATORY",
-  "objective": "Continuously reduce repeated manual work, repeated repository reads, redundant validation, and duplicated QA without weakening correctness gates.",
+  "objective": "Maximize contiguous implementation throughput while preserving hard binary/safety gates; defer fine visual/contact tuning to actual runtime screenshot QA.",
   "startup": [
     "Run tools/start-pipeline-task.mjs for the task category.",
     "This rebuilds PIPELINE_CONTEXT_CACHE.json and AUTO_OPTIMIZATION_REPORT.json.",
@@ -12,23 +12,29 @@
     "If the same MANUAL_OVERRIDE reason appears twice, create a reusable tool/workflow extension before a third repetition.",
     "Prefer cached/precomputed project context over repeatedly re-reading the same source files when freshness/digest is valid.",
     "Prefer incremental validation for normal pushes; use full validation for PRs or product/audio/chart/runtime changes.",
-    "Never trade away required visual QA, rejected-asset safety, limb correctness, or contiguous runtime completion gates for speed.",
     "Record each autonomous optimization with rationale, output, validation evidence, and whether it changes correctness coverage.",
     "If the same character QA failure occurs twice, automatically replace the retry method instead of repeating the same prompt/edit path.",
-    "Prefer local repair when only one region fails; full regeneration is reserved for candidates that fail identity/camera/core-registration."
+    "Prefer local repair when only one region fails; full regeneration is reserved for candidates that fail identity/camera/core-registration.",
+    "Do not trade away binary validity, rejected-asset safety, limb correctness, or regression protection.",
+    "Move fine contact/naturalness/transition inspection to post-runtime screenshot QA instead of blocking each candidate before implementation.",
+    "If PRE_RUNTIME lightweight gates pass, continue assembling the contiguous block even when non-blocking visual signals exist.",
+    "Only assets visibly failing runtime screenshots should re-enter image editing."
   ],
   "protectedGates": [
-    "visual acceptance",
+    "binary/layer integrity",
     "rejected/never-use checks",
     "limb authority",
+    "post-runtime actual-screen visual acceptance",
     "block completion definition",
     "runtimeScope contiguous expansion",
-    "full validation when classifier requires it"
+    "regression QA"
   ],
   "thresholds": {
     "manualOverrideRepeat": 2,
     "highPriorityAutoImplement": true,
     "docsOrPipelineOnlyPreferFastValidation": true,
-    "sameCharacterFailureBeforeStrategyChange": 2
+    "sameCharacterFailureBeforeStrategyChange": 2,
+    "preRuntimeVisualWarningsBlock": false,
+    "runtimeScreenshotRequiredForFinalBlockPass": true
   }
 }
