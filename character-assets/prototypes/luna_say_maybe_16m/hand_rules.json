@@ -1,41 +1,148 @@
 {
-  "version": 1,
-  "prototype": "luna-say-maybe-measures-1-16",
+  "version": 2,
+  "prototype": "luna-say-maybe-full-song",
   "handedness": "right-handed",
-  "technique": "cross-hand",
-  "rules": {
-    "HH": {
-      "quarter": ["R"],
-      "eighth": ["R"],
-      "sixteenth": ["R", "L"],
-      "sixteenthAlternates": true
-    },
-    "SN": {
-      "default": ["L"]
-    },
-    "BD": {
-      "default": ["RF"]
-    },
-    "LP": {
-      "default": ["LF"]
-    },
-    "LC": {
-      "default": ["R"]
-    },
-    "RC": {
-      "default": ["R"]
-    },
-    "RD": {
-      "default": ["R"]
-    },
-    "TOMS": {
-      "sequence": ["R", "L"],
-      "restartAfterMs": 360
+  "technique": "cross-hand default with phrase-aware sticking",
+  "authorityPolicy": "Per-note sidecar is authoritative. Renderer must not guess when an assignment exists.",
+  "semantics": {
+    "hands": [
+      "L",
+      "R"
+    ],
+    "feet": [
+      "LF",
+      "RF"
+    ],
+    "parts": {
+      "LC": "left cymbal",
+      "HH": "hi-hat",
+      "SN": "snare",
+      "HT": "high tom",
+      "LT": "low tom",
+      "FT": "floor tom",
+      "RC": "right crash",
+      "RD": "ride",
+      "LP": "left-foot hi-hat pedal",
+      "LB": "left-foot bass pedal",
+      "BD": "main bass drum"
     }
   },
-  "orientation": {
-    "characterFaces": "left",
-    "cameraMirrorAllowed": false,
-    "globalTranslationAllowed": false
-  }
+  "rules": {
+    "BD": {
+      "default": [
+        "RF"
+      ],
+      "reason": "Main bass-drum pedal under right foot on standard right-handed setup."
+    },
+    "LP": {
+      "default": [
+        "LF"
+      ],
+      "reason": "Project label explicitly defines LP as left-foot hi-hat."
+    },
+    "LB": {
+      "default": [
+        "LF"
+      ],
+      "reason": "Project label explicitly defines LB as left-foot bass drum."
+    },
+    "HH": {
+      "default": [
+        "R"
+      ],
+      "rapidGapSeconds": 0.13,
+      "rapidSequence": [
+        "R",
+        "L"
+      ],
+      "rapidAlternates": true
+    },
+    "SN": {
+      "default": [
+        "L"
+      ],
+      "rapidGapSeconds": 0.13,
+      "rapidSequence": [
+        "R",
+        "L"
+      ],
+      "rapidAlternates": true,
+      "startHandPolicy": "Choose a single-stroke alternating start hand phrase-by-phrase; prefer R lead, but choose parity/start so the final hand leaves the immediately following required cymbal/tom hand available. Respect simultaneous-hand conflicts and the authoritative M1-16 precedent."
+    },
+    "LC": {
+      "default": [
+        "R"
+      ],
+      "reason": "Preserve existing project right-handed cymbal convention; phrase solver may override only to avoid impossible simultaneous conflict."
+    },
+    "RC": {
+      "default": [
+        "R"
+      ]
+    },
+    "RD": {
+      "default": [
+        "R"
+      ]
+    },
+    "TOMS": {
+      "parts": [
+        "HT",
+        "LT",
+        "FT"
+      ],
+      "sequence": [
+        "R",
+        "L"
+      ],
+      "restartAfterMs": 360,
+      "startHand": "R",
+      "reason": "Use relaxed alternating single strokes for tom fills; restart R after phrase break."
+    }
+  },
+  "simultaneousPolicies": [
+    {
+      "match": "SN + cymbal",
+      "assignment": "SN=L, cymbal=R"
+    },
+    {
+      "match": "SN + one tom",
+      "assignment": "SN=L, tom=R"
+    },
+    {
+      "match": "two hand-played instruments",
+      "assignment": "must use distinct hands; resolve by instrument-side preference and phrase continuity"
+    },
+    {
+      "match": "foot + hand instruments",
+      "assignment": "feet do not consume hand availability"
+    }
+  ],
+  "validation": {
+    "prohibitSameLimbSimultaneous": true,
+    "prohibitMissingLimb": true,
+    "rapidSameHandRepeatMaxGapSeconds": 0.13,
+    "authoritativePrefixMeasures": [
+      1,
+      16
+    ],
+    "allowDocumentedPrefixExceptionOnly": false
+  },
+  "researchReferences": [
+    {
+      "title": "Drumeo - How To Play Drums",
+      "url": "https://www.drumeo.com/beat/how-to-play-drums/",
+      "note": "Standard setup places bass drum at right foot and hi-hat pedal at left foot."
+    },
+    {
+      "title": "Drumeo - Latin grooves",
+      "url": "https://www.drumeo.com/beat/5-latin-grooves-every-drummer-should-know/",
+      "note": "Examples use right hand on ride/cowbell, left hand around snare/toms, left foot on hi-hat."
+    },
+    {
+      "title": "Vic Firth - Fresh Approach to Drumset sampler",
+      "url": "https://ae.vicfirth.com/wp-content/uploads/Fresh-Approach-to-Drumset-SAMPLER.pdf",
+      "note": "Tom single-stroke exercises use R-L alternation."
+    }
+  ]
 }
