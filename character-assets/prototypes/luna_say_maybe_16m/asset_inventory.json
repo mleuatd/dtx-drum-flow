@@ -78,6 +78,11 @@
       "path": "layers/character/rd/hit_r_refresh.png",
       "state": "ready",
       "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415"
+    },
+    "rd_r_rebound": {
+      "path": "layers/character/rd/rebound_r_refresh.png",
+      "state": "ready",
+      "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4"
     }
   },
   "runtimeFrameMap": {
@@ -115,7 +120,8 @@
       "rebound": "bd_rc_rebound"
     },
     "RD:R": {
-      "hit": "rd_r_hit"
+      "hit": "rd_r_hit",
+      "rebound": "rd_r_rebound"
     }
   },
   "motionTiming": {
