@@ -135,3 +135,22 @@ Before repeatable work, run `node tools/production-pipeline-dispatcher.mjs <task
 Use the returned existing tools/workflows instead of recreating equivalent logic manually.
 If a required existing tool cannot be used, record a `MANUAL_OVERRIDE` with skipped tool, reason, evidence and follow-up repair/extension task.
 A result can be technically correct but still non-compliant if a mandatory existing tool was skipped without override evidence.
+
+## Open-work sweep — 2026-09-18 21:51 JST
+
+All currently executable non-image ledger work has been exhausted.
+
+- OPEN_WORK_QUEUE: `OPEN_WORK_QUEUE.json`
+- total normalized work items: 19
+- DONE now: 1 (approved BD+SN:RF/L exact runtime preload outside live scope)
+- BLOCKED: 18
+- canRunNow: 0
+- live runtimeScope remains 1-8
+
+Immediate blocker:
+1. attach the approved neutral/home pose PNG as a usable image target in the current chat;
+2. create `ASSETQ-001 RC+SN:R/L hit` using `GENERATED_PROMPT_rc_sn_r_l_hit.md`;
+3. after visual acceptance, create `ASSETQ-002 rebound` using `REBOUND_INSTRUCTION_rc_sn_r_l.md`;
+4. then continue NIMG-013 through NIMG-023.
+
+Existing approved BD+SN:RF/L frames are now preloaded under exact runtime key `BD+SN:RF/L` while public/live runtimeScope remains 1-8. They are NOT yet live-transition-approved.
