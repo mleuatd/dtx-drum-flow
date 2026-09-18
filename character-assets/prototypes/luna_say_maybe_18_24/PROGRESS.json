@@ -4,7 +4,7 @@
     "measureStart": 18,
     "measureEnd": 24
   },
-  "status": "PUBLIC_RUNTIME_QA_FAILED",
+  "status": "PUBLIC_RUNTIME_QA_RETRY_PENDING",
   "sourceOfTruth": "GitHub main",
   "runtimeScope": {
     "measureStart": 1,
@@ -13,7 +13,7 @@
     "groupCount": 215
   },
   "qaInfrastructure": {
-    "state": "FAIL",
+    "state": "CORRECTIVE_COMMIT_PUSHED",
     "workflow": ".github/workflows/runtime-character-qa.yml",
     "runner": "tools/runtime-character-qa.mjs",
     "documentation": "docs/PUBLIC_RUNTIME_QA.md",
@@ -44,10 +44,13 @@
   "blocker": {
     "workflowRunId": "35400421004",
     "failedStep": "Wait for matching Pages deployment and run browser QA",
-    "error": "See workflow log and public-runtime-qa artifact",
-    "investigated": false,
-    "retryWhen": "after root cause is identified and a corrective commit changes the failing condition",
-    "requiredNext": "inspect runtime-qa.json and job log; do not rerun unchanged failure"
+    "error": "GitHub Actions cancelled the QA step after ~118 seconds; no qa-artifacts were produced.",
+    "investigated": true,
+    "rootCause": "Workflow concurrency used cancel-in-progress:true. A later main push arrived while this run was waiting for its matching Pages deployment, so GitHub cancelled the active Playwright/deployment-wait step before browser QA began.",
+    "correctiveCommit": "edf4b4416366428c9061ea385563564fd7021e11",
+    "retryWhen": "automatically on corrective main commit; concurrency now queues instead of cancelling active QA",
+    "requiredNext": "inspect the new Runtime Character QA run, its runtime-qa.json and screenshots; only then decide PASS/FAIL",
+    "artifact": null
   },
-  "updatedAt": "2026-09-18T22:15:16.303972+00:00"
+  "updatedAt": "2026-09-18T22:16:47.786Z"
 }
