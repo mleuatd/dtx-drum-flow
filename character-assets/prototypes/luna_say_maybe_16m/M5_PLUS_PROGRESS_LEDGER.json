@@ -1,19 +1,23 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T17:58:00+09:00",
+  "updatedAt": "2026-09-18T18:05:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
   "liveRuntimeScope": {
     "measureStart": 1,
     "measureEnd": 8,
-    "status": "DEPLOY_AND_LIVE_QA_PENDING"
+    "status": "COMPLETE_LIVE_QA",
+    "runtimeQaRun": 35327283366,
+    "runtimeQaArtifact": 10539831628,
+    "validateStatus": "SUCCESS",
+    "characterAssetValidationStatus": "SUCCESS"
   },
   "blocks": [
     {
       "id": "M5_8",
       "measures": "5-8",
-      "status": "IMPLEMENTED_RUNTIME_QA_PENDING",
+      "status": "DONE",
       "chart": {
         "notes": 33,
         "groups": 32,
@@ -46,13 +50,15 @@
         "RD:R hit/rebound saved to Dropbox",
         "RD:R hit/rebound imported to formal GitHub layer paths",
         "asset_inventory runtimeScope extended to measures 1-8",
-        "RD:R hit/rebound mapped in runtimeFrameMap/runtimePhaseFrameMap"
+        "RD:R hit/rebound mapped in runtimeFrameMap/runtimePhaseFrameMap",
+        "GitHub Pages deployment confirmed for M1-8 runtime",
+        "Runtime Character QA run 35327283366 completed successfully",
+        "472 total live screenshots captured across PC and Xperia-class portrait",
+        "M5-8 subset: 256 runtime records, browser errors 0, asset issues 0, init errors 0",
+        "RD:R hit/rebound correct-frame checks passed with zero mismatches",
+        "PC and Xperia screenshots visually inspected for RD:R hit/rebound registration"
       ],
-      "remaining": [
-        "GitHub Pages deploy completion",
-        "PC/Xperia live runtime screenshot QA",
-        "Close CHAR-QA-0005 and mark M5-8 DONE if no defects"
-      ],
+      "remaining": [],
       "assets": {
         "rdHit": {
           "path": "character-assets/layers/character/rd/hit_r_refresh.png",
@@ -64,6 +70,23 @@
           "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
           "dropbox": "/ChatGPT/dtx-drum-flow/rd_r_rebound_refresh_20260918.png"
         }
+      },
+      "runtimeQa": {
+        "run": 35327283366,
+        "artifact": 10539831628,
+        "recordsTotal": 472,
+        "m5_8Records": 256,
+        "pcErrors": 0,
+        "xperiaErrors": 0,
+        "assetIssues": 0,
+        "initErrors": 0,
+        "rdFrameMismatches": 0,
+        "screenshots": [
+          "pc/29_m5_10.541921_RD_R_hit.png",
+          "pc/29_m5_10.541921_RD_R_rebound.png",
+          "xperia-portrait/29_m5_10.541921_RD_R_hit.png",
+          "xperia-portrait/29_m5_10.541921_RD_R_rebound.png"
+        ]
       }
     },
     {
@@ -256,7 +279,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Wait for latest deploy, run public GitHub Pages runtime QA for measures 1-8 on PC/Xperia, inspect screenshots, then close M5-8 or log defects.",
+  "nextAction": "Measures 5-8 are DONE. Next block is measures 9-16: finish RC+SN hit/rebound, then runtime-map already visual-QA-passed BD+SN plus shared RD assets and run live QA through M16.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -266,6 +289,7 @@
     "runtimeQaTrigger": "0da8a9680a92b42db314a46c76c22cbd0f0020b3",
     "validatorFix": "3914354eab0410b0b7f11d671d4b48e1a2138b5b",
     "fullLimbDraft": "2c885eba3c49598791ec7d5232ced63fd655d659",
-    "actionInventory": "ffd976ecc2cb7fca3fc025dc5217ee302ef0417e"
+    "actionInventory": "ffd976ecc2cb7fca3fc025dc5217ee302ef0417e",
+    "m5_8RuntimeQaTrigger": "50d5fc028838d8e1033dc0f29e6ba2ca6478ba7b"
   }
 }
