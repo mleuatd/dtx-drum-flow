@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T18:39:00+09:00",
+  "updatedAt": "2026-09-18T18:48:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -288,7 +288,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Execute nonImageGenerationWorkQueue NIMG-001 through NIMG-012 now. RC+SN image generation is the only image-dependent blocker; after corrected hit/rebound exist, resume NIMG-013 onward.",
+  "nextAction": "Image-independent M9-16 preparation is complete through NIMG-012. Wait for corrected RC+SN hit/rebound, then resume at NIMG-013; do not change live runtimeScope from 1-8 before static QA passes.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -299,7 +299,12 @@
     "validatorFix": "3914354eab0410b0b7f11d671d4b48e1a2138b5b",
     "fullLimbDraft": "2c885eba3c49598791ec7d5232ced63fd655d659",
     "actionInventory": "ffd976ecc2cb7fca3fc025dc5217ee302ef0417e",
-    "m5_8RuntimeQaTrigger": "50d5fc028838d8e1033dc0f29e6ba2ca6478ba7b"
+    "m5_8RuntimeQaTrigger": "50d5fc028838d8e1033dc0f29e6ba2ca6478ba7b",
+    "m9_16RuntimePlan": "8e67e51ceeb9347a7fc04bf22329c014238705dc",
+    "m9_16AssetReadiness": "e4e9840b0103c0b28bb76dcd2d2808f6cf2b14e8",
+    "temporaryExportRemoval": "e2cfb8d9afd0fc2f2f7f542cfeade3921691b3ac",
+    "rcSnBlockedQa": "6949226263e1310e52f99389e79391b103e9bcae",
+    "m9_16NonImageDocs": "1b3ae783681dfb03f4cab0e7c3146be60da41ceb"
   },
   "nonImageGenerationWorkQueue": {
     "purpose": "All work that can be prepared or completed without invoking image generation. Execute in order; do not mark M9_16 DONE until RC+SN image-dependent gates also pass.",
@@ -385,65 +390,117 @@
       },
       {
         "id": "NIMG-006",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Audit asset_inventory and assets_manifest for M9-16 readiness; list exact entries/paths/status transitions needed once RC+SN is approved.",
         "dependsOn": [
           "NIMG-002",
           "NIMG-004"
-        ]
+        ],
+        "completedAt": "2026-09-18T18:48:00+09:00",
+        "evidence": [
+          "Audited assets_manifest and asset_inventory. Live inventory remains 1-8 and contains approved RD:R only; BD+SN exists in manifest as VISUAL_QA_PASSED_RUNTIME_PENDING; RC+SN is intentionally absent.",
+          "Prepared exact post-approval additions in M9_16_RUNTIME_EXPANSION_PLAN.json.",
+          "Reconciled M9_16_REQUIRED_CHARACTER_ASSETS.json: RD reuse approved, BD+SN runtime pending, RC+SN corrected-image blocked."
+        ],
+        "commitSha": "e4e9840b0103c0b28bb76dcd2d2808f6cf2b14e8"
       },
       {
         "id": "NIMG-007",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Audit runtimeFrameMap/runtimePhaseFrameMap and prepare the exact mapping changes required for BD+SN, RD:R reuse, and RC+SN without changing live runtimeScope yet.",
         "dependsOn": [
           "NIMG-006"
-        ]
+        ],
+        "completedAt": "2026-09-18T18:48:00+09:00",
+        "evidence": [
+          "Confirmed combo runtime keys follow existing keyFor() wildcard convention, not limb-qualified names.",
+          "Planned mappings: BD+SN:* -> bd_sn_hit_refresh and RC+SN:* -> rc_sn_hit_refresh; prep=neutral, hit/rebound use matching refresh frames.",
+          "RD:R remains mapped to approved rd_r_hit/rd_r_rebound. No live inventory mapping changed yet.",
+          "Target scope expectedKeys: SN:L, SN:R, BD:RF, HH:R, BD+RC:*, RD:R, BD+SN:*, RC+SN:*."
+        ],
+        "commitSha": "8e67e51ceeb9347a7fc04bf22329c014238705dc"
       },
       {
         "id": "NIMG-008",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Audit validation workflows/tests and determine which checks must pass for runtimeScope 1-16; fix validation infrastructure bugs that are independent of missing RC+SN assets.",
         "dependsOn": [
           "NIMG-006"
+        ],
+        "completedAt": "2026-09-18T18:48:00+09:00",
+        "evidence": [
+          "Audited validate.yml: Python syntax, pipeline smoke, synthetic timing, browser JS syntax, Oshi smoke, FINAL chart regression, UI contract.",
+          "Audited character-assets-validate.yml: validate_assets.py remains authoritative asset check.",
+          "No validation-infrastructure bug independent of missing RC+SN was found.",
+          "validate run 35330736687 SUCCESS and Character asset validation run 35330736653 SUCCESS on runtime-plan commit; later reconcile commit validate 35330791030 SUCCESS / character validation 35330791016 SUCCESS."
         ]
       },
       {
         "id": "NIMG-009",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Audit Playwright Runtime Character QA workflow for measures 9-16, PC 1280x900 and Xperia-class 384x864; prepare target timestamps/screenshots and expected DOM evidence.",
         "dependsOn": [
           "NIMG-004",
           "NIMG-005"
-        ]
+        ],
+        "completedAt": "2026-09-18T18:48:00+09:00",
+        "evidence": [
+          "Prepared M9_16_RUNTIME_EXPANSION_PLAN.json with 65 M9-16 QA events, both viewports, expected DOM evidence, and regression requirements.",
+          "Target runtime scope after image approval: measures 1-16, 144 notes, 124 groups.",
+          "Runtime Character QA workflow already supports PC 1280x900 and Xperia 384x864; current script remains M1-8 until runtime expansion is actually enabled to avoid false evidence."
+        ],
+        "commitSha": "8e67e51ceeb9347a7fc04bf22329c014238705dc"
       },
       {
         "id": "NIMG-010",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Clean up temporary QA/export infrastructure created solely to recover source PNGs if it is no longer needed, without deleting evidence artifacts.",
-        "dependsOn": []
+        "dependsOn": [],
+        "completedAt": "2026-09-18T18:48:00+09:00",
+        "evidence": [
+          "Temporary .github/workflows/export-luna-character-sources.yml removed after source recovery.",
+          "Existing GitHub Actions artifact/evidence remains preserved.",
+          "Post-removal validate run 35330824420 SUCCESS."
+        ],
+        "commitSha": "e2cfb8d9afd0fc2f2f7f542cfeade3921691b3ac"
       },
       {
         "id": "NIMG-011",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Update CHARACTER_QA_ISSUES with the latest failed RC+SN generation attempt (fresh unrelated front-facing character/edit_op=null) and image-generation rate-limit blocker; never register that image.",
-        "dependsOn": []
+        "dependsOn": [],
+        "completedAt": "2026-09-18T18:48:00+09:00",
+        "evidence": [
+          "Added CHAR-QA-0007 BLOCKED for latest RC+SN retry: unrelated front-facing redraw, edit_op=null, never registered.",
+          "Updated RD reviewQueue entries to DONE using approved refresh assets.",
+          "Updated RC+SN reviewQueue entries to BLOCKED due corrected-image absence and temporary image-generation rate limit.",
+          "Character asset validation run 35330852735 SUCCESS after QA-ledger update."
+        ],
+        "commitSha": "6949226263e1310e52f99389e79391b103e9bcae"
       },
       {
         "id": "NIMG-012",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Update handoff/VARIANT_STATUS/CHANGELOG so a new chat knows M5-8 is DONE, RD is reusable, BD+SN is formal+visual-QA-passed, and only corrected RC+SN image pair blocks M9-16 runtime expansion.",
         "dependsOn": [
           "NIMG-001",
           "NIMG-011"
-        ]
+        ],
+        "completedAt": "2026-09-18T18:48:00+09:00",
+        "evidence": [
+          "Updated VARIANT_STATUS.md with live M1-8 state, RD reuse, BD+SN readiness, sole RC+SN blocker and target M1-16 runtime scope.",
+          "Updated HANDOFF_M5_PLUS_2026-09-18.md with exact safe restart point and NIMG-013 resume instruction.",
+          "Updated CHANGELOG.md with M9-16 non-image preparation summary.",
+          "Commits: VARIANT_STATUS f006a9d60369b4852e46e4b6ffb1894104472ce3; HANDOFF 61e0b9e8970c6e7827d25b8cda884295f826e0b3; CHANGELOG 1b3ae783681dfb03f4cab0e7c3146be60da41ceb."
+        ],
+        "commitSha": "1b3ae783681dfb03f4cab0e7c3146be60da41ceb"
       },
       {
         "id": "NIMG-013",
@@ -546,14 +603,7 @@
         ]
       }
     ],
-    "nextRunnable": [
-      "NIMG-006",
-      "NIMG-007",
-      "NIMG-008",
-      "NIMG-009",
-      "NIMG-010",
-      "NIMG-011",
-      "NIMG-012"
-    ]
+    "nextRunnable": [],
+    "nextBlocked": "NIMG-013"
   }
 }
