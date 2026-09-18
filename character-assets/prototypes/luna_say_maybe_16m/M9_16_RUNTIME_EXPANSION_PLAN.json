@@ -2,10 +2,13 @@
   "schemaVersion": 1,
   "song": "Luna Say Maybe",
   "sourceOfTruth": "FINAL notes + Luna_say_maybe_1_16_limbs.json",
-  "liveRuntimeUnchangedUntilReady": true,
+  "liveRuntimeUnchangedUntilReady": false,
   "currentRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 8
+    "measureEnd": 16,
+    "noteCount": 144,
+    "groupCount": 124,
+    "status": "COMPLETE_LIVE_QA"
   },
   "targetRuntimeScope": {
     "measureStart": 1,
@@ -29,22 +32,22 @@
     "bd_sn_hit_refresh": {
       "path": "layers/character/combo/bd_sn_hit_refresh.png",
       "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
-      "state": "visual_qa_passed_runtime_pending"
+      "state": "live_qa_passed"
     },
     "bd_sn_rebound_refresh": {
       "path": "layers/character/combo/bd_sn_rebound_refresh.png",
       "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
-      "state": "visual_qa_passed_runtime_pending"
+      "state": "live_qa_passed"
     },
     "rc_sn_hit_refresh": {
       "path": "layers/character/combo/rc_sn_hit_refresh.png",
       "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
-      "state": "runtime_ready"
+      "state": "live_qa_passed"
     },
     "rc_sn_rebound_refresh": {
       "path": "layers/character/combo/rc_sn_rebound_refresh.png",
       "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
-      "state": "runtime_ready"
+      "state": "live_qa_passed"
     }
   },
   "runtimeFrameMapChanges": {
@@ -648,11 +651,18 @@
     "M1-8 regression"
   ],
   "rcSnStatus": {
-    "status": "FORMAL_PAIR_READY_FOR_RUNTIME_QA",
+    "status": "LIVE_QA_PASSED",
     "actionKey": "RC+SN:R/L",
     "hitPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
-    "reboundPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png"
+    "reboundPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+    "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+    "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+    "preLiveQaRun": 35350383202,
+    "liveQaRun": 35351134562,
+    "liveQaArtifact": 10549284671
   },
   "qaRequestedAt": "2026-09-18T22:22:00+09:00",
-  "qaRequestReason": "RC+SN formal pair ready; run complete pre-live M9-16 QA on latest main before runtimeScope expansion."
+  "qaRequestReason": "RC+SN formal pair ready; run complete pre-live M9-16 QA on latest main before runtimeScope expansion.",
+  "completedAt": "2026-09-18T22:47:00+09:00",
+  "completionStatus": "DONE"
 }
