@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "status": "REQUESTED",
+  "actionKey": "LT:R",
+  "block": "B17",
+  "measure": 17,
+  "method": "deterministic baseline-preserving local stick edit after contact-point recalibration",
+  "baselinePath": "character-assets/layers/character/base/neutral.png",
+  "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "contactPoint": {
+    "x": 885,
+    "y": 455
+  },
+  "notes": [
+    "Do not use previous rejected generated candidates.",
+    "Workflow output must pass graded candidate QA before mapping."
+  ]
+}
