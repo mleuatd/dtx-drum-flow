@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "status": "READY_FOR_REVIEW_IMPORT",
+  "actionKey": "BD+SN:RF/R",
+  "block": "B17",
+  "measure": 17,
+  "createdAt": "2026-09-19T06:44:00+09:00",
+  "method": "approved SN:R pose preserved; deterministic local BD kick cue only; no full-character redraw",
+  "assets": [
+    {
+      "phase": "hit",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_sn_rf_r_hit_refresh_20260919.png",
+      "githubCandidatePath": "character-assets/candidates/m17/bd_sn_rf_r_hit_refresh.png",
+      "sha256": "71515ebc9678959f2b85a4136133f23ef847c2b844a3f0e4b127ba573a192d5b",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "phase": "rebound",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_sn_rf_r_rebound_refresh_20260919.png",
+      "githubCandidatePath": "character-assets/candidates/m17/bd_sn_rf_r_rebound_refresh.png",
+      "sha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
+      "width": 1448,
+      "height": 1086
+    }
+  ],
+  "qa": {
+    "binary": "PASS_LOCAL",
+    "visual": "PASS_FIXED_DRUM_COMPOSITE",
+    "hitChangedPixelRatioVsApprovedSnR": 0.0003790075598017969,
+    "reboundChangedPixelRatioVsApprovedSnR": 0.00008012575928695705
+  },
+  "runtimeMapped": false,
+  "manifestRegistered": false
+}
