@@ -39,8 +39,6 @@ jobs:
           ]
 
           token = os.environ.get('DROPBOX_ACCESS_TOKEN')
-          if not token:
-              raise SystemExit('DROPBOX_ACCESS_TOKEN secret is required')
 
           manifest_path = pathlib.Path('character-assets/config/assets_manifest.json')
           inv_path = pathlib.Path('character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json')
@@ -54,14 +52,20 @@ jobs:
               stage = json.loads(stage_path.read_text(encoding='utf-8'))
               key = stage['assetKey']
               expected = stage['sha256']
-              req_dl = urllib.request.Request(
-                  'https://content.dropboxapi.com/2/files/download',
-                  method='POST',
-                  headers={
-                      'Authorization': f'Bearer {token}',
-                      'Dropbox-API-Arg': json.dumps({'path': stage['dropboxPath']}),
-                  },
-              )
+              if token:
+                  req_dl = urllib.request.Request(
+                      'https://content.dropboxapi.com/2/files/download',
+                      method='POST',
+                      headers={
+                          'Authorization': f'Bearer {token}',
+                          'Dropbox-API-Arg': json.dumps({'path': stage['dropboxPath']}),
+                      },
+                  )
+              else:
+                  url = stage.get('downloadUrl')
+                  if not url:
+                      raise SystemExit(f"{key}: DROPBOX_ACCESS_TOKEN or temporary downloadUrl is required")
+                  req_dl = urllib.request.Request(url, method='GET')
               with urllib.request.urlopen(req_dl) as r:
                   raw = r.read()
               source_sha = hashlib.sha256(raw).hexdigest()
@@ -131,6 +135,7 @@ jobs:
 
               stage['status'] = 'IMPORTED'
               stage['importedSha256'] = expected
+              stage.pop('downloadUrl', None)
               stage_path.write_text(json.dumps(stage, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
               print('verified/imported', key, expected)
 
