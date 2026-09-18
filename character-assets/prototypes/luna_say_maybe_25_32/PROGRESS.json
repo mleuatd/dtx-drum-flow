@@ -4,7 +4,7 @@
     "measureStart": 25,
     "measureEnd": 32
   },
-  "status": "ASSET_CANDIDATE_BUILD_PREPARED",
+  "status": "CANDIDATES_GENERATED_VISUAL_QA_PENDING",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Execute the committed HT:R deterministic builder workflow; inspect generated fixed-drum composites before approval. If push trigger did not start, use workflow_dispatch or any available Actions execution path; do not redo source analysis.",
-  "updatedAt": "2026-09-19T08:29:00+09:00",
+  "requiredNext": "Perform actual visual QA on the generated HT:R/HT:L/RC:R fixed-drum composites before any formal promotion. Then persist PASS pairs to Dropbox and formal GitHub paths; next generate FT+SN:R/L and BD+HT:RF/R.",
+  "updatedAt": "2026-09-19T08:36:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -173,11 +173,17 @@
     "pipeline": "character-assets/CHARACTER_ASSET_PIPELINE.md",
     "transactionTemplate": "character-assets/config/character_pair_transaction.template.json",
     "preparedAt": "2026-09-19T08:30:00+09:00",
-    "policy": "Use generic candidate/import/QA/runtime infrastructure; avoid per-measure workflow proliferation. Persist each action pair as a resumable transaction."
+    "policy": "Use generic candidate/import/QA/runtime infrastructure; avoid per-measure workflow proliferation. Persist each action pair as a resumable transaction.",
+    "generalizedBuilderCommit": "2a2d80c6ba62d83310868b5ba7a045a1607007b9",
+    "generalizedActions": [
+      "HT:R",
+      "HT:L",
+      "RC:R"
+    ]
   },
   "production": {
     "htR": {
-      "status": "BUILDER_READY_EXECUTION_PENDING",
+      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
       "builder": "tools/build-m25-40-candidates.py",
       "workflow": ".github/workflows/build-m25-40-character-candidates.yml",
       "method": "same baseline-preserving deterministic local right-stick edit pattern that passed M17 LT:R live QA",
@@ -185,7 +191,26 @@
       "plannedCandidateHit": "character-assets/review-candidates/m25_40/ht_r_hit_attempt01.png",
       "plannedCandidateRebound": "character-assets/review-candidates/m25_40/ht_r_rebound_attempt01.png",
       "qaEvidence": "character-assets/generated-qa/m25_40/ht_r/",
-      "note": "Builder and push-trigger workflow are committed. Candidate outputs are not yet present on main, so they are not claimed as generated or approved."
+      "note": "Builder and push-trigger workflow are committed. Candidate outputs are not yet present on main, so they are not claimed as generated or approved.",
+      "generatedCommit": "c41e5714266e63ac30e61b16f47e061ce7e64301",
+      "hitSha256": "84c1736b8a39d148dd6007f35dff9f18a938992288c81fe915f4f704180f0400",
+      "reboundSha256": "2f4b1629668a2ce30f2cc7012470f573026a406846c9becaeedbb07c35d86baf"
+    },
+    "htL": {
+      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
+      "generatedCommit": "ab52f5070a757e0dfa0773911e71bb887ddb36bb",
+      "hitPath": "character-assets/review-candidates/m25_40/ht_l_hit_attempt01.png",
+      "reboundPath": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt01.png",
+      "hitSha256": "1e02c423368becbb0b5510b9b3bec627a076948f402695c148576174bd3d2469",
+      "reboundSha256": "3e984e3332b63682e629d45e28422cf48518ddc4418deff3335c84424f06c062"
+    },
+    "rcR": {
+      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
+      "generatedCommit": "ab52f5070a757e0dfa0773911e71bb887ddb36bb",
+      "hitPath": "character-assets/review-candidates/m25_40/rc_r_hit_attempt01.png",
+      "reboundPath": "character-assets/review-candidates/m25_40/rc_r_rebound_attempt01.png",
+      "hitSha256": "a58360df0afddbc81d67c1fa21f2e46f589f5981d3574f2274fab2f09cd9f9c1",
+      "reboundSha256": "f6c86b9e3047c041b622e85365a3a09d9ecee000a9739949553f282f964ff1ca"
     }
   }
 }
