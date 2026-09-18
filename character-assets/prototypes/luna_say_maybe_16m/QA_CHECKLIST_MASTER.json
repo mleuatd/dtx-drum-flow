@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "statusValues": [
+    "PASS",
+    "FAIL",
+    "BLOCKED",
+    "NOT_APPLICABLE"
+  ],
+  "sections": {
+    "binary": [
+      "PNG",
+      "1448x1086",
+      "RGBA",
+      "transparent alpha present",
+      "SHA256 recorded",
+      "expected formal/review path"
+    ],
+    "character": [
+      "same identity",
+      "same camera",
+      "same body scale",
+      "same stool position",
+      "hair consistency",
+      "clothing consistency"
+    ],
+    "layerPurity": [
+      "person + stool only",
+      "no drum/cymbal/pedal hardware",
+      "no background contamination"
+    ],
+    "limb": [
+      "correct hand",
+      "correct foot",
+      "matches full-song limb sidecar"
+    ],
+    "instrument": [
+      "correct part",
+      "correct screen side",
+      "contact matches INSTRUMENT_CONTACT_POINTS"
+    ],
+    "animation": [
+      "prep valid",
+      "hit valid",
+      "rebound valid",
+      "post valid",
+      "neutral recovery",
+      "rapid transition valid",
+      "no disappearance",
+      "no body/camera/stool jump"
+    ],
+    "runtime": [
+      "manifest entry",
+      "inventory frame entry",
+      "runtime mapping only when approved",
+      "asset warning 0",
+      "init error 0",
+      "console/page error 0"
+    ],
+    "device": [
+      "PC 1280x900 screenshot QA",
+      "Xperia 384x864 screenshot QA"
+    ],
+    "regression": [
+      "previous completed blocks pass",
+      "existing runtime mappings unchanged unless intended",
+      "live runtimeScope changes only for approved contiguous block"
+    ]
+  },
+  "rules": [
+    "Any mandatory FAIL/BLOCKED prevents block DONE.",
+    "NOT_APPLICABLE requires a reason.",
+    "Visual QA cannot be replaced by DOM-only evidence where visual continuity/contact is required."
+  ]
+}
