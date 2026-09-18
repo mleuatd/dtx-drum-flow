@@ -4,6 +4,7 @@
   "principle": "PIPELINE_FIRST_NO_MANUAL_DUPLICATION",
   "rules": [
     "Before Luna implementation work, read CURRENT_PROJECT_STATE.json, M5_PLUS_PROGRESS_LEDGER.json, NEXT_IMPLEMENTATION_HANDOFF.md, and PRODUCTION_PIPELINE.md.",
+    "Before any character image generation/edit/retry, read CHARACTER_GENERATION_PLAYBOOK.json from PIPELINE_CONTEXT_CACHE and apply it before the first image attempt.",
     "Before doing a repeatable operation manually, query the pipeline dispatcher and use the returned existing tool/workflow when available.",
     "Do not manually reimplement an operation already covered by a repository tool/workflow.",
     "If an existing tool cannot be used, record a MANUAL_OVERRIDE with tool, reason, evidence, and follow-up fix in the ledger.",
@@ -67,6 +68,11 @@
     "optimize-pipeline": [
       "tools/audit-pipeline-efficiency.mjs",
       "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json"
+    ],
+    "character-generation-preflight": [
+      "tools/start-pipeline-task.mjs",
+      "tools/build-pipeline-context-cache.mjs",
+      "character-assets/prototypes/luna_say_maybe_16m/CHARACTER_GENERATION_PLAYBOOK.json"
     ]
   },
   "compliance": {
@@ -74,6 +80,7 @@
     "manualOverrideRequiredWhenToolSkipped": true,
     "validationMustCheckPolicyFiles": true,
     "nextChatMustMentionPipelineFirst": true,
-    "stateMustExposePolicy": true
+    "stateMustExposePolicy": true,
+    "characterGenerationPlaybookRequired": true
   }
 }
