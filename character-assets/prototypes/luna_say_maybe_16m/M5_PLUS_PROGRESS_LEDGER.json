@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T06:56:00+09:00",
+  "updatedAt": "2026-09-19T07:02:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -206,7 +206,11 @@
         "ASSETQ-009 FT:R hit DONE; SHA bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a.",
         "ASSETQ-010 FT:R rebound DONE; SHA eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce.",
         "Formal import workflow 35398522113 SUCCESS.",
-        "Next READY: ASSETQ-011 FT:L hit."
+        "Next READY: ASSETQ-011 FT:L hit.",
+        "ASSETQ-011 FT:L hit DONE; SHA c11c71cec4dbee4cc6f7ec3ccbae1646e677887a6a6ff45fb188c97967d5b863.",
+        "ASSETQ-012 FT:L rebound DONE; SHA 3f22c7e2ec10e9d63fbbc200ddef2a8d8af31f8d342d0eb76f304d1a9a9a2b4c.",
+        "Formal import workflow 35398907345 SUCCESS.",
+        "Next READY: ASSETQ-013 BD+LT:RF/R hit."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -241,7 +245,7 @@
         "oldUnresolved": 195
       },
       "blocker": null,
-      "nextAction": "Create ASSETQ-011 FT:L hit, then ASSETQ-012 rebound. Keep runtime scope at 1-16 until all M17 pairs pass."
+      "nextAction": "Create ASSETQ-013 BD+LT:RF/R hit, then ASSETQ-014 rebound. Keep runtime scope at 1-16 until the pair passes."
     }
   ],
   "skippedOrRejected": [
@@ -350,7 +354,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Create ASSETQ-011 FT:L hit, then ASSETQ-012 rebound. Keep runtime scope at 1-16 until all M17 pairs pass.",
+  "nextAction": "Create ASSETQ-013 BD+LT:RF/R hit, then ASSETQ-014 rebound. Keep runtime scope at 1-16 until the pair passes.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
