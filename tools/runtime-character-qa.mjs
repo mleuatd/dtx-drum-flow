@@ -65,7 +65,7 @@ for (const vp of viewports) {
   await fs.mkdir(dir,{recursive:true});
   for (let i=0;i<events.length;i++) {
     const ev=events[i];
-    for (const ph of phases) {
+    for (const ph of samplesFor(i)) {
       const t=Math.max(0,ev.time+ph.offset);
       await page.evaluate((time)=>{
         const timeline=document.getElementById("timeline");
