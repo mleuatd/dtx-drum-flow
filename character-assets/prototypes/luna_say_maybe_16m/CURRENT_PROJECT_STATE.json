@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:51:00+09:00",
+  "updatedAt": "2026-09-18T21:55:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -79,7 +79,10 @@
     "implementationInfrastructureValidate": "SUCCESS run 35337828588",
     "lunaBlockQaSmoke": "SUCCESS run 35337759100",
     "lunaBlockQaSmokeArtifact": 10543239081,
-    "openWorkSweep": "PENDING_LATEST_MAIN_VALIDATION"
+    "openWorkSweep": "SUCCESS run 35343438639",
+    "bdSnRuntimePreloadValidate": "SUCCESS run 35343194244",
+    "bdSnRuntimePreloadCharacterAssetValidation": "SUCCESS run 35343194377",
+    "bdSnRuntimePreloadDeploy": "SUCCESS run 35343194336"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -105,7 +108,11 @@
     "blockQaRunner": "068197521968659b75ddf1ba682dad8b192f87d1",
     "blockQaWorkflow": "bf6e6fa99fb646a388f0b00252f46ac2e591ddd4",
     "infrastructureValidatorFix": "d6b76d998117ff53e5fdcd9d3441db1ad58ea445",
-    "blockQaSyntaxCheck": "52820b67001e48b53957047699b5494b437cec06"
+    "blockQaSyntaxCheck": "52820b67001e48b53957047699b5494b437cec06",
+    "bdSnRuntimePreload": "35e0cde374f715c03b937489b3153ad2405b8cf4",
+    "openWorkQueue": "7a857f5be4e4f85115513f65eab23fa741e915aa",
+    "openWorkLedgerNormalize": "49f0a98f515a7b687f9c1e33a28a1b7eb476ad51",
+    "openWorkFinalDocs": "d3d1cde4985a555926cd7ae451c5f23a8c1225b6"
   },
   "latestQaRuns": {
     "m5_8": 35327283366,
@@ -113,7 +120,8 @@
     "fullSongLimbPromotion": 35333901757,
     "planningValidation": 35335328767,
     "characterAssetValidation": 35335334538,
-    "lunaBlockQaSmoke": 35337759100
+    "lunaBlockQaSmoke": 35337759100,
+    "openWorkSweepValidate": 35343438639
   },
   "nextRecommendedBlock": {
     "blockId": "B09_16",
