@@ -1,0 +1,58 @@
+{
+  "file": "character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+  "status": "PASS",
+  "gateClass": "PASS",
+  "errors": [],
+  "warnings": [],
+  "signals": [],
+  "recommendedActions": [],
+  "sha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
+  "format": "PNG",
+  "mode": "RGBA",
+  "size": [
+    1448,
+    1086
+  ],
+  "alphaBBox": [
+    57,
+    23,
+    1179,
+    1063
+  ],
+  "neutralDiff": {
+    "comparable": true,
+    "changedPixelRatio": 0.0015929764048716463,
+    "meanChannelDiff": [
+      0.1446257236755085,
+      0.14455768037198702,
+      0.14447246726290405,
+      0.040067331074550024
+    ],
+    "bboxA": [
+      57,
+      23,
+      1179,
+      1063
+    ],
+    "bboxB": [
+      57,
+      23,
+      1179,
+      1063
+    ],
+    "centroidA": [
+      732.7283251841401,
+      555.931413274881
+    ],
+    "centroidB": [
+      732.8859402535277,
+      555.8446234505221
+    ],
+    "centroidShiftPx": 0.17993049688783608
+  },
+  "retryPolicy": {
+    "sameFailureSameStrategyMaxAttempts": 1,
+    "onConfirmedVisualFailure": "classify failure ID, then run tools/character-retry-controller.mjs",
+    "metadataOnlyOrMetricOnlySignal": "do not auto-reject"
+  }
+}
