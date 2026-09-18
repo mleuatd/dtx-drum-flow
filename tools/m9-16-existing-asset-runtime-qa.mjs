@@ -10,6 +10,7 @@ const plan=JSON.parse(await fs.readFile(planPath,"utf8"));
 
 const qaInventory=structuredClone(inventory);
 qaInventory.runtimeScope=structuredClone(plan.targetRuntimeScope);
+qaInventory.runtimeScope.expectedKeys=qaInventory.runtimeScope.expectedKeys.map(k=>k==="BD+SN:*"?"BD+SN:RF/L":k==="RC+SN:*"?"RC+SN:R/L":k);
 for(const [id,frame] of Object.entries(plan.requiredFramesToAdd)){
   if(id.startsWith("bd_sn_")) qaInventory.requiredFrames[id]=frame;
 }
@@ -46,6 +47,11 @@ function samplesFor(index){
     {name:"rebound",offset:reboundOffset},
     {name:"post",offset:postOffset}
   ];
+}
+function runtimeKeyForEvent(ev){
+  if(ev.key==="BD+SN:*") return "BD+SN:RF/L";
+  if(ev.key==="RC+SN:*") return "RC+SN:R/L";
+  return ev.key;
 }
 function expectedFrame(key,phase){
   const phases=qaInventory.runtimePhaseFrameMap[key]||{};
@@ -128,18 +134,19 @@ for(const vp of viewports){
           root:{x:rr.x,y:rr.y,w:rr.width,h:rr.height}
         };
       });
-      const expected=(sample.name==="hit"||sample.name==="rebound")?expectedFrame(ev.key,sample.name):null;
-      const keyMatch=(sample.name==="hit"||sample.name==="rebound")?dom.animationKey===ev.key:true;
+      const runtimeKey=runtimeKeyForEvent(ev);
+      const expected=(sample.name==="hit"||sample.name==="rebound")?expectedFrame(runtimeKey,sample.name):null;
+      const keyMatch=(sample.name==="hit"||sample.name==="rebound")?dom.animationKey===runtimeKey:true;
       const frameMatch=expected?dom.frame===expected:true;
       const loadOk=dom.character.naturalWidth===1448&&dom.character.naturalHeight===1086&&dom.drum.naturalWidth===1448&&dom.drum.naturalHeight===1086;
       const noWarnings=!dom.assetIssue&&!dom.initError;
       const base=`${String(globalIndex+1).padStart(2,"0")}_m${ev.measure}_${ev.time.toFixed(6)}_${keySafe(ev.key)}_${sample.name}`;
       const shot=path.join(vp.name,base+".png");
       await page.locator(".stage").screenshot({path:path.join(outRoot,shot)});
-      const rec={viewport:vp.name,event:ev,previous:prev,next,sample:sample.name,sampleTime:t,expectedFrame:expected,keyMatch,frameMatch,loadOk,noWarnings,crossesMissingNeighbor,dom,screenshot:shot};
+      const rec={viewport:vp.name,event:ev,runtimeKey,previous:prev,next,sample:sample.name,sampleTime:t,expectedFrame:expected,keyMatch,frameMatch,loadOk,noWarnings,crossesMissingNeighbor,dom,screenshot:shot};
       summary.records.push(rec);
-      summary.perKey[ev.key]??={records:0,hitMismatches:0,reboundMismatches:0,loadFailures:0,warnings:0,measures:new Set(),times:new Set(),neighborBlocked:0,screenshots:[]};
-      const agg=summary.perKey[ev.key];
+      summary.perKey[runtimeKey]??={records:0,hitMismatches:0,reboundMismatches:0,loadFailures:0,warnings:0,measures:new Set(),times:new Set(),neighborBlocked:0,screenshots:[]};
+      const agg=summary.perKey[runtimeKey];
       agg.records++;
       agg.measures.add(ev.measure); agg.times.add(ev.time); agg.screenshots.push(shot);
       if(sample.name==="hit"&&!frameMatch)agg.hitMismatches++;
