@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19",
+  "project": "DTX Drum Flow",
+  "song": "Luna Say Maybe",
+  "scope": {
+    "measureStart": 18,
+    "measureEnd": 24
+  },
+  "sourceOfTruth": "latest main at branch creation",
+  "branch": "work/luna-m18-24-character-assets",
+  "concurrency": {
+    "m17": "EXTERNAL_OTHER_DEVICE_DO_NOT_TOUCH",
+    "forcePush": false
+  },
+  "authoritativeLimbSource": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
+  "existingReuse": [
+    "BD+RC:RF/R",
+    "BD:RF",
+    "RD:R",
+    "SN:L",
+    "HH:R"
+  ],
+  "requiredNew": [
+    {
+      "assetKey": "BD+RD:RF/R",
+      "combination": "BD+RD",
+      "firstMeasure": 18,
+      "limbs": "BD:RF + RD:R",
+      "hit": {
+        "status": "PENDING"
+      },
+      "rebound": {
+        "status": "PENDING"
+      }
+    },
+    {
+      "assetKey": "RD+SN:R/L",
+      "combination": "RD+SN",
+      "firstMeasure": 18,
+      "limbs": "RD:R + SN:L",
+      "hit": {
+        "status": "PENDING"
+      },
+      "rebound": {
+        "status": "PENDING"
+      }
+    },
+    {
+      "assetKey": "BD+HH:RF/R",
+      "combination": "BD+HH",
+      "firstMeasure": 20,
+      "limbs": "BD:RF + HH:R",
+      "hit": {
+        "status": "PENDING"
+      },
+      "rebound": {
+        "status": "PENDING"
+      }
+    },
+    {
+      "assetKey": "HH+SN:R/L",
+      "combination": "HH+SN",
+      "firstMeasure": 20,
+      "limbs": "HH:R + SN:L",
+      "hit": {
+        "status": "PENDING"
+      },
+      "rebound": {
+        "status": "PENDING"
+      }
+    }
+  ],
+  "currentTask": "BD+RD:RF/R hit",
+  "status": "READY_FOR_IMAGE_GENERATION",
+  "resumeRule": "Read ledger and verify real files. Continue first non-DONE phase; never regenerate completed assets unless missing or SHA mismatch.",
+  "notes": [
+    "M18-24 scan completed against latest main.",
+    "M17 is isolated and must not be modified.",
+    "Persist each pair before advancing."
+  ]
+}
