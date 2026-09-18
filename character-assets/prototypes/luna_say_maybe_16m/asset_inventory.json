@@ -103,6 +103,11 @@
       "actionKey": "RC+SN:R/L",
       "phase": "hit",
       "note": "User-approved formal hit; rebound and M9-16 live transition QA pending."
+    },
+    "rc_sn_r_l_rebound_refresh": {
+      "path": "layers/character/combo/rc_sn_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da"
     }
   },
   "runtimeFrameMap": {
@@ -152,7 +157,8 @@
       "rebound": "bd_sn_rf_l_rebound"
     },
     "RC+SN:R/L": {
-      "hit": "rc_sn_r_l_hit_refresh"
+      "hit": "rc_sn_r_l_hit_refresh",
+      "rebound": "rc_sn_r_l_rebound_refresh"
     }
   },
   "motionTiming": {
