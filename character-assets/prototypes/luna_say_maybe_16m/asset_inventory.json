@@ -5,20 +5,30 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 16,
-    "noteCount": 144,
-    "groupCount": 124,
+    "measureEnd": 24,
+    "noteCount": 272,
+    "groupCount": 215,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 30.829691,
+    "lastNoteTime": 44.750554,
     "expectedKeys": [
       "SN:L",
       "SN:R",
-      "BD:RF",
-      "HH:R",
       "BD+RC:*",
+      "HH:R",
+      "BD:RF",
       "RD:R",
       "BD+SN:RF/L",
-      "RC+SN:R/L"
+      "RC+SN:R/L",
+      "BD+SN:RF/R",
+      "LT:R",
+      "LT:L",
+      "BD+LT:RF/R",
+      "FT:R",
+      "FT:L",
+      "RD+SN:R/L",
+      "BD+RD:RF/R",
+      "BD+HH:RF/R",
+      "HH+SN:R/L"
     ]
   },
   "requiredFrames": {
@@ -180,6 +190,56 @@
       "sha256": "3f22c7e2ec10e9d63fbbc200ddef2a8d8af31f8d342d0eb76f304d1a9a9a2b4c",
       "actionKey": "FT:L",
       "phase": "rebound"
+    },
+    "bd_rd_rf_r_hit": {
+      "path": "layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+      "state": "ready",
+      "sha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7"
+    },
+    "bd_rd_rf_r_rebound": {
+      "path": "layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6"
+    },
+    "rd_sn_r_l_hit": {
+      "path": "layers/character/combo/rd_sn_r_l_hit_refresh.png",
+      "state": "ready",
+      "sha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05"
+    },
+    "rd_sn_r_l_rebound": {
+      "path": "layers/character/combo/rd_sn_r_l_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb"
+    },
+    "bd_hh_rf_r_hit": {
+      "path": "layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+      "state": "ready",
+      "sha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381"
+    },
+    "bd_hh_rf_r_rebound": {
+      "path": "layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "2210399c2f56425bf8f10f42e26044320b68a98993b7129b34f34b1082a2a461"
+    },
+    "hh_sn_r_l_hit": {
+      "path": "layers/character/combo/hh_sn_r_l_hit_refresh.png",
+      "state": "ready",
+      "sha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685"
+    },
+    "hh_sn_r_l_rebound": {
+      "path": "layers/character/combo/hh_sn_r_l_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40"
+    },
+    "bd_lt_rf_r_hit": {
+      "path": "layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+      "state": "ready",
+      "sha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50"
+    },
+    "bd_lt_rf_r_rebound": {
+      "path": "layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11"
     }
   },
   "runtimeFrameMap": {
@@ -195,7 +255,12 @@
     "RC+SN:*": "rc_sn_r_l_hit_refresh",
     "BD+SN:RF/R": "bd_sn_rf_r_hit",
     "FT:R": "ft_r_hit",
-    "FT:L": "ft_l_hit"
+    "FT:L": "ft_l_hit",
+    "BD+RD:RF/R": "bd_rd_rf_r_hit",
+    "RD+SN:R/L": "rd_sn_r_l_hit",
+    "BD+HH:RF/R": "bd_hh_rf_r_hit",
+    "HH+SN:R/L": "hh_sn_r_l_hit",
+    "BD+LT:RF/R": "bd_lt_rf_r_hit"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -262,6 +327,31 @@
       "prep": "neutral",
       "hit": "ft_l_hit",
       "rebound": "ft_l_rebound"
+    },
+    "BD+RD:RF/R": {
+      "prep": "neutral",
+      "hit": "bd_rd_rf_r_hit",
+      "rebound": "bd_rd_rf_r_rebound"
+    },
+    "RD+SN:R/L": {
+      "prep": "neutral",
+      "hit": "rd_sn_r_l_hit",
+      "rebound": "rd_sn_r_l_rebound"
+    },
+    "BD+HH:RF/R": {
+      "prep": "neutral",
+      "hit": "bd_hh_rf_r_hit",
+      "rebound": "bd_hh_rf_r_rebound"
+    },
+    "HH+SN:R/L": {
+      "prep": "neutral",
+      "hit": "hh_sn_r_l_hit",
+      "rebound": "hh_sn_r_l_rebound"
+    },
+    "BD+LT:RF/R": {
+      "prep": "neutral",
+      "hit": "bd_lt_rf_r_hit",
+      "rebound": "bd_lt_rf_r_rebound"
     }
   },
   "motionTiming": {
@@ -380,5 +470,7 @@
       "reboundSha256": "3f22c7e2ec10e9d63fbbc200ddef2a8d8af31f8d342d0eb76f304d1a9a9a2b4c"
     }
   },
-  "qaUpdatedAt": "2026-09-19T07:02:00+09:00"
+  "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
+  "updatedAt": "2026-09-19T07:05:00+09:00",
+  "note": "Runtime inventory expanded through M24 after deterministic source-SHA-locked M18-24 pair generation; includes already-approved M17 assets present on main."
 }
