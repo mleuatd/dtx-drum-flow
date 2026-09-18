@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "song": "Luna Say Maybe",
+  "scope": {
+    "measureStart": 9,
+    "measureEnd": 16
+  },
+  "mode": "QA-only Playwright inventory interception; public runtime remained M1-8",
+  "run": 35331851179,
+  "artifact": 10542000517,
+  "runConclusion": "SUCCESS",
+  "targetQaScope": {
+    "measureStart": 1,
+    "measureEnd": 16,
+    "noteCount": 144,
+    "groupCount": 124
+  },
+  "viewports": {
+    "pc": {
+      "width": 1280,
+      "height": 900,
+      "result": "PASS",
+      "consoleErrors": 0,
+      "assetWarnings": 0,
+      "initErrors": 0
+    },
+    "xperiaPortrait": {
+      "width": 384,
+      "height": 864,
+      "result": "PASS",
+      "consoleErrors": 0,
+      "assetWarnings": 0,
+      "initErrors": 0
+    }
+  },
+  "automatedChecks": {
+    "frameMismatches": 0,
+    "loadFailures": 0,
+    "assetWarnings": 0,
+    "consolePageErrors": 0
+  },
+  "manualScreenshotInspection": {
+    "result": "PASS_WITH_RC_SN_ADJACENCY_BLOCK",
+    "method": "Contact sheets reviewed for every reusable action key on PC and Xperia; all hit/rebound/post screenshots retained in artifact.",
+    "findings": [
+      "No visible character disappearance, registration jump, wrong-person frame, or fixed-drum position drift found in reusable assets.",
+      "Hit and rebound frames are stable across their repeated M9-16 occurrences.",
+      "Final HH:R event at 30.829691 returns to neutral after rebound.",
+      "BD+SN 25.434007 -> RC+SN 25.649835 and RC+SN 25.649835 -> BD:RF 25.865662 remain unapprovable because RC+SN is represented by a QA-only neutral stub."
+    ]
+  },
+  "perKey": {
+    "BD:RF": {
+      "status": "BLOCKED",
+      "coreAssetBehavior": "PASS",
+      "measures": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "times": [
+        17.232568,
+        18.095878,
+        19.822496,
+        20.685806,
+        21.549115,
+        23.275734,
+        24.139043,
+        25.002353,
+        25.865662,
+        26.728971,
+        28.45559,
+        29.318899,
+        30.182209
+      ],
+      "occurrences": 13,
+      "pcResult": "PASS",
+      "xperiaResult": "PASS",
+      "hitResult": "PASS",
+      "reboundResult": "PASS",
+      "postNeutralResult": "PASS except RC+SN-adjacent transition remains BLOCKED",
+      "transitionResult": "PARTIAL_BLOCKED_BY_MISSING_RC_SN",
+      "frameMismatches": {
+        "hit": 0,
+        "rebound": 0
+      },
+      "loadFailures": 0,
+      "assetWarnings": 0,
+      "visiblePoseJumpFound": false,
+      "fixedDrumRegistration": "PASS by manual contact-sheet inspection",
+      "screenshotEvidence": {
+        "run": 35331851179,
+        "artifact": 10542000517,
+        "pattern": "pc|xperia-portrait/*_BD_RF_{pre|hit|rebound|post}.png"
+      },
+      "issues": [
+        "Transition from missing RC+SN at 25.649835 into BD:RF at 25.865662 cannot be visually approved until corrected RC+SN exists."
+      ]
+    },
+    "RD:R": {
+      "status": "DONE",
+      "coreAssetBehavior": "PASS",
+      "measures": [
+        9
+      ],
+      "times": [
+        17.448396,
+        17.88005,
+        18.311705,
+        18.74336
+      ],
+      "occurrences": 4,
+      "pcResult": "PASS",
+      "xperiaResult": "PASS",
+      "hitResult": "PASS",
+      "reboundResult": "PASS",
+      "postNeutralResult": "PASS",
+      "transitionResult": "PASS",
+      "frameMismatches": {
+        "hit": 0,
+        "rebound": 0
+      },
+      "loadFailures": 0,
+      "assetWarnings": 0,
+      "visiblePoseJumpFound": false,
+      "fixedDrumRegistration": "PASS by manual contact-sheet inspection",
+      "screenshotEvidence": {
+        "run": 35331851179,
+        "artifact": 10542000517,
+        "pattern": "pc|xperia-portrait/*_RD_R_{pre|hit|rebound|post}.png"
+      },
+      "issues": []
+    },
+    "SN:L": {
+      "status": "DONE",
+      "coreAssetBehavior": "PASS",
+      "measures": [
+        9,
+        11
+      ],
+      "times": [
+        17.664223,
+        18.527532,
+        22.304511
+      ],
+      "occurrences": 3,
+      "pcResult": "PASS",
+      "xperiaResult": "PASS",
+      "hitResult": "PASS",
+      "reboundResult": "PASS",
+      "postNeutralResult": "PASS",
+      "transitionResult": "PASS",
+      "frameMismatches": {
+        "hit": 0,
+        "rebound": 0
+      },
+      "loadFailures": 0,
+      "assetWarnings": 0,
+      "visiblePoseJumpFound": false,
+      "fixedDrumRegistration": "PASS by manual contact-sheet inspection",
+      "screenshotEvidence": {
+        "run": 35331851179,
+        "artifact": 10542000517,
+        "pattern": "pc|xperia-portrait/*_SN_L_{pre|hit|rebound|post}.png"
+      },
+      "issues": []
+    },
+    "HH:R": {
+      "status": "DONE",
+      "coreAssetBehavior": "PASS",
+      "measures": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "times": [
+        19.175014,
+        19.606669,
+        20.038324,
+        20.469978,
+        20.901633,
+        21.333288,
+        21.764942,
+        22.196597,
+        22.628252,
+        23.059906,
+        23.491561,
+        23.923216,
+        24.354871,
+        24.786525,
+        25.21818,
+        26.081489,
+        26.513144,
+        26.944799,
+        27.376453,
+        27.808108,
+        28.239763,
+        28.671417,
+        29.103072,
+        29.534727,
+        29.966381,
+        30.398036,
+        30.829691
+      ],
+      "occurrences": 27,
+      "pcResult": "PASS",
+      "xperiaResult": "PASS",
+      "hitResult": "PASS",
+      "reboundResult": "PASS",
+      "postNeutralResult": "PASS",
+      "transitionResult": "PASS",
+      "frameMismatches": {
+        "hit": 0,
+        "rebound": 0
+      },
+      "loadFailures": 0,
+      "assetWarnings": 0,
+      "visiblePoseJumpFound": false,
+      "fixedDrumRegistration": "PASS by manual contact-sheet inspection",
+      "screenshotEvidence": {
+        "run": 35331851179,
+        "artifact": 10542000517,
+        "pattern": "pc|xperia-portrait/*_HH_R_{pre|hit|rebound|post}.png"
+      },
+      "issues": []
+    },
+    "BD+RC:*": {
+      "status": "DONE",
+      "coreAssetBehavior": "PASS",
+      "measures": [
+        10,
+        12,
+        15
+      ],
+      "times": [
+        18.959187,
+        22.412424,
+        27.592281
+      ],
+      "occurrences": 3,
+      "pcResult": "PASS",
+      "xperiaResult": "PASS",
+      "hitResult": "PASS",
+      "reboundResult": "PASS",
+      "postNeutralResult": "PASS",
+      "transitionResult": "PASS",
+      "frameMismatches": {
+        "hit": 0,
+        "rebound": 0
+      },
+      "loadFailures": 0,
+      "assetWarnings": 0,
+      "visiblePoseJumpFound": false,
+      "fixedDrumRegistration": "PASS by manual contact-sheet inspection",
+      "screenshotEvidence": {
+        "run": 35331851179,
+        "artifact": 10542000517,
+        "pattern": "pc|xperia-portrait/*_BD_RC__{pre|hit|rebound|post}.png"
+      },
+      "issues": []
+    },
+    "BD+SN:*": {
+      "status": "BLOCKED",
+      "coreAssetBehavior": "PASS",
+      "measures": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "times": [
+        19.390842,
+        20.254151,
+        21.11746,
+        21.98077,
+        22.844079,
+        23.707388,
+        24.570698,
+        25.434007,
+        26.297317,
+        27.160626,
+        28.023935,
+        28.887245,
+        29.750554,
+        30.613863
+      ],
+      "occurrences": 14,
+      "pcResult": "PASS",
+      "xperiaResult": "PASS",
+      "hitResult": "PASS",
+      "reboundResult": "PASS",
+      "postNeutralResult": "PASS except RC+SN-adjacent transition remains BLOCKED",
+      "transitionResult": "PARTIAL_BLOCKED_BY_MISSING_RC_SN",
+      "frameMismatches": {
+        "hit": 0,
+        "rebound": 0
+      },
+      "loadFailures": 0,
+      "assetWarnings": 0,
+      "visiblePoseJumpFound": false,
+      "fixedDrumRegistration": "PASS by manual contact-sheet inspection",
+      "screenshotEvidence": {
+        "run": 35331851179,
+        "artifact": 10542000517,
+        "pattern": "pc|xperia-portrait/*_BD_SN__{pre|hit|rebound|post}.png"
+      },
+      "issues": [
+        "Transition from BD+SN at 25.434007 into missing RC+SN at 25.649835 cannot be visually approved until corrected RC+SN exists."
+      ]
+    }
+  },
+  "blockedTransitions": [
+    {
+      "from": {
+        "key": "BD+SN:*",
+        "time": 25.434007,
+        "measure": 13
+      },
+      "through": {
+        "key": "RC+SN:*",
+        "time": 25.649835,
+        "measure": 13,
+        "status": "BLOCKED_MISSING_IMAGES"
+      }
+    },
+    {
+      "through": {
+        "key": "RC+SN:*",
+        "time": 25.649835,
+        "measure": 13,
+        "status": "BLOCKED_MISSING_IMAGES"
+      },
+      "to": {
+        "key": "BD:RF",
+        "time": 25.865662,
+        "measure": 14
+      }
+    }
+  ],
+  "qaHarnessFix": {
+    "firstRun": 35331421842,
+    "firstArtifact": 10541059175,
+    "firstResult": "FAIL_QA_HARNESS_RACE",
+    "fixCommit": "17f858b67ed9d67b6a9a5cdcf744dacbf611b148",
+    "detail": "Wait for character/drum naturalWidth/naturalHeight before evaluating load state; first-run transient naturalWidth=0 was not a visible runtime defect."
+  }
+}
