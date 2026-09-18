@@ -1,0 +1,37 @@
+{
+  "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "hit": {
+    "path": "character-assets/layers/character/lt/hit_r_refresh.png",
+    "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+    "changedPixelRatio": 0.0012559394808868269,
+    "diffBBox": [
+      879,
+      375,
+      1017,
+      461
+    ]
+  },
+  "rebound": {
+    "path": "character-assets/layers/character/lt/rebound_r_refresh.png",
+    "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+    "changedPixelRatio": 0.0010715230507819258,
+    "diffBBox": [
+      894,
+      375,
+      1017,
+      419
+    ]
+  },
+  "contact": {
+    "part": "LT",
+    "hitTarget": {
+      "x": 885,
+      "y": 455
+    },
+    "reboundTarget": {
+      "x": 900,
+      "y": 390
+    }
+  },
+  "method": "baseline-preserving local stick edit; no face/hair/body/stool redraw"
+}
