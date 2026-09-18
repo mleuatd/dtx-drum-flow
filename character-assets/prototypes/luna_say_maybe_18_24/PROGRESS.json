@@ -3,94 +3,48 @@
   "updatedAt": "2026-09-19",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
-  "scope": {
-    "measureStart": 18,
-    "measureEnd": 24
-  },
+  "scope": {"measureStart": 18, "measureEnd": 24},
   "sourceOfTruth": "latest main at branch creation",
   "branch": "work/luna-m18-24-character-assets",
-  "concurrency": {
-    "m17": "EXTERNAL_OTHER_DEVICE_DO_NOT_TOUCH",
-    "forcePush": false
-  },
+  "concurrency": {"m17": "EXTERNAL_OTHER_DEVICE_DO_NOT_TOUCH", "forcePush": false},
   "authoritativeLimbSource": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
-  "existingReuse": [
-    "BD+RC:RF/R",
-    "BD:RF",
-    "RD:R",
-    "SN:L",
-    "HH:R"
-  ],
+  "existingReuse": ["BD+RC:RF/R","BD:RF","RD:R","SN:L","HH:R"],
   "requiredNew": [
     {
-      "assetKey": "BD+RD:RF/R",
-      "combination": "BD+RD",
-      "firstMeasure": 18,
-      "limbs": "BD:RF + RD:R",
-      "hit": {
-        "status": "GENERATING",
-        "error": null,
-        "retryState": "EDIT_WORKING_COPY",
-        "attempts": 2,
-        "sourceAssetKey": "neutral/home",
-        "sourceDropboxPath": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
-        "sourceSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-        "workingDropboxPath": "/ChatGPT/dtx-drum-flow/m18_24_work/bd_rd_rf_r_hit_source.png"
+      "assetKey":"BD+RD:RF/R","combination":"BD+RD","firstMeasure":18,"limbs":"BD:RF + RD:R",
+      "hit":{
+        "status":"BLOCKED","error":"SOURCE_BINARY_NOT_ATTACHABLE_TO_IMAGE_EDITOR","retryState":"EDIT_WORKING_COPY","attempts":2,
+        "sourceAssetKey":"neutral/home",
+        "sourceDropboxPath":"/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+        "sourceSha256":"886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+        "workingDropboxPath":"/ChatGPT/dtx-drum-flow/m18_24_work/bd_rd_rf_r_hit_source.png"
       },
-      "rebound": {
-        "status": "PENDING"
-      }
+      "rebound":{"status":"PENDING"}
     },
-    {
-      "assetKey": "RD+SN:R/L",
-      "combination": "RD+SN",
-      "firstMeasure": 18,
-      "limbs": "RD:R + SN:L",
-      "hit": {
-        "status": "PENDING"
-      },
-      "rebound": {
-        "status": "PENDING"
-      }
-    },
-    {
-      "assetKey": "BD+HH:RF/R",
-      "combination": "BD+HH",
-      "firstMeasure": 20,
-      "limbs": "BD:RF + HH:R",
-      "hit": {
-        "status": "PENDING"
-      },
-      "rebound": {
-        "status": "PENDING"
-      }
-    },
-    {
-      "assetKey": "HH+SN:R/L",
-      "combination": "HH+SN",
-      "firstMeasure": 20,
-      "limbs": "HH:R + SN:L",
-      "hit": {
-        "status": "PENDING"
-      },
-      "rebound": {
-        "status": "PENDING"
-      }
-    }
+    {"assetKey":"RD+SN:R/L","combination":"RD+SN","firstMeasure":18,"limbs":"RD:R + SN:L","hit":{"status":"PENDING"},"rebound":{"status":"PENDING"}},
+    {"assetKey":"BD+HH:RF/R","combination":"BD+HH","firstMeasure":20,"limbs":"BD:RF + HH:R","hit":{"status":"PENDING"},"rebound":{"status":"PENDING"}},
+    {"assetKey":"HH+SN:R/L","combination":"HH+SN","firstMeasure":20,"limbs":"HH:R + SN:L","hit":{"status":"PENDING"},"rebound":{"status":"PENDING"}}
   ],
-  "currentTask": "BD+RD:RF/R hit edit from Dropbox working copy",
-  "status": "IN_PROGRESS",
-  "resumeRule": "Read ledger and verify real files. Continue first non-DONE phase; never regenerate completed assets unless missing or SHA mismatch.",
-  "notes": [
+  "currentTask":"BD+RD:RF/R hit: obtain identical source PNG as actual image-editor input",
+  "status":"BLOCKED",
+  "resumeRule":"Read ledger and verify real files. Continue first non-DONE phase; never regenerate completed assets unless missing or SHA mismatch.",
+  "notes":[
     "M18-24 scan completed against latest main.",
     "M17 is isolated and must not be modified.",
-    "Persist each pair before advancing."
+    "Persist each pair before advancing.",
+    "2026-09-19: Dropbox working copy exists and matches neutral by Dropbox content_hash and byte size (971237). No duplicate copy created.",
+    "2026-09-19: Dropbox temporary download URL was obtained, but current execution environment cannot materialize that URL as an image-editor attachment.",
+    "2026-09-19: GitHub default-branch search found no same named neutral binary; repository search found no usable reverse staging/import retrieval path.",
+    "2026-09-19: Do not fall back to fresh redraw. Previous accidental fresh generation is rejected and must not be used."
   ],
-  "lastAttempt": {
-    "phase": "BD+RD hit",
-    "result": "REJECTED",
-    "reason": "two-panel dark sheet; embedded drums/text; fresh redraw",
-    "localFile": "/mnt/data/a_clean_white_background_black_and_white_rough_sk.png"
-  },
-  "blocker": null
+  "lastAttempt":{"phase":"BD+RD hit","result":"REJECTED","reason":"two-panel dark sheet; embedded drums/text; fresh redraw","localFile":"/mnt/data/a_clean_white_background_black_and_white_rough_sk.png"},
+  "blocker":{
+    "code":"SOURCE_BINARY_NOT_ATTACHABLE_TO_IMAGE_EDITOR",
+    "phase":"BD+RD:RF/R hit",
+    "workingDropboxPath":"/ChatGPT/dtx-drum-flow/m18_24_work/bd_rd_rf_r_hit_source.png",
+    "verifiedDropboxSize":971237,
+    "verifiedDropboxContentHash":"0c1a064d1bd270c54e0c1f05b89731410c88222c4e295f5933afc8bcadeb6485",
+    "investigated":["Dropbox direct download/link","GitHub same-binary lookup","connector-to-local/conversation transfer","reverse staging/import retrieval"],
+    "requiredNext":"Make the verified source PNG available as a real current-conversation image attachment or otherwise materialize the identical binary into an image-editor-addressable input; then verify SHA256 before editing."
+  }
 }
