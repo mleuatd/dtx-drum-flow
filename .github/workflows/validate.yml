@@ -46,6 +46,9 @@ jobs:
           node --check tools/build-next-chat-handoff.mjs
           node --check tools/luna-production-path.mjs
           node --check tools/prepare-registration-plan.mjs
+          node --check tools/production-pipeline-dispatcher.mjs
+          node --check tools/start-pipeline-task.mjs
+          node --check tools/check-pipeline-compliance.mjs
       - name: Oshi sketch smoke test
         run: node tools/oshi_sketch_smoke.js
       - name: FINAL chart validation and Luna regression
@@ -69,5 +72,9 @@ jobs:
           node tools/luna-production-path.mjs 9 16 /tmp/full.json
           grep -q 'FULL_PATH' /tmp/full.json
           node tools/build-next-chat-handoff.mjs /tmp/next-chat.md
+          node tools/production-pipeline-dispatcher.mjs 'choose-next-asset' /tmp/route.json
+          grep -q 'USE_PIPELINE' /tmp/route.json
+          node tools/start-pipeline-task.mjs 'choose-next-asset' /tmp/session.json
+          grep -q 'PIPELINE_REQUIRED' /tmp/session.json
       - name: UI contract checks
         run: python tools/ui_contract_test.py
