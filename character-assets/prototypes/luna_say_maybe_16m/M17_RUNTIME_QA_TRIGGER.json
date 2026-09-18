@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-19T07:22:00+09:00",
+  "requestedAt": "2026-09-19T07:28:00+09:00",
   "block": "M17",
   "measureStart": 17,
   "measureEnd": 17,
@@ -19,5 +19,6 @@
     "hitSha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
     "rebound": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
     "reboundSha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11"
-  }
+  },
+  "retryReason": "Retry after workflow improvement: Dropbox mirror is now non-blocking and exact final pair is preserved as artifact."
 }
