@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T06:50:00+09:00",
+  "updatedAt": "2026-09-19T06:56:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -8,21 +8,21 @@
     "currentBlocker": "M9-16 pre-live runtime QA is running; RC+SN pair is formal. Later M17 asset queue remains dependency-blocked until M9-16 closes."
   },
   "nextItem": {
-    "id": "ASSETQ-009",
-    "actionKey": "FT:R",
+    "id": "ASSETQ-011",
+    "actionKey": "FT:L",
     "phase": "hit",
     "block": "B17",
     "firstMeasure": 17,
-    "occurrenceCount": 9,
+    "occurrenceCount": 8,
     "priority": "P1",
     "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
     "currentAssetStatus": "NEW_IMAGE_REQUIRED",
-    "reason": "Missing formal hit; first appears M17, occurrences 9.",
-    "nextAfterCompletion": "ASSETQ-010",
+    "reason": "Missing formal hit; first appears M17, occurrences 8.",
+    "nextAfterCompletion": "ASSETQ-012",
     "status": "READY",
     "blocker": null,
-    "nextAction": "Create FT:R hit for B17 using deterministic baseline-preserving local stick edit to recalibrated FT contact.",
-    "dependencyStatus": "BD_SN_RF_R_PAIR_DONE"
+    "nextAction": "Create FT:L hit for B17 using deterministic approved-neutral-preserving local left-stick edit to recalibrated FT contact.",
+    "dependencyStatus": "FT_R_PAIR_DONE"
   },
   "items": [
     {
@@ -201,13 +201,19 @@
       "occurrenceCount": 9,
       "priority": "P1",
       "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
-      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
+      "currentAssetStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "reason": "Missing formal hit; first appears M17, occurrences 9.",
       "nextAfterCompletion": "ASSETQ-010",
-      "status": "READY",
+      "status": "DONE",
       "blocker": null,
-      "nextAction": "Create FT:R hit for B17 using deterministic baseline-preserving local stick edit to recalibrated FT contact.",
-      "dependencyStatus": "BD_SN_RF_R_PAIR_DONE"
+      "nextAction": "Completed; do not regenerate.",
+      "dependencyStatus": "BD_SN_RF_R_PAIR_DONE",
+      "completedAt": "2026-09-19T06:56:00+09:00",
+      "evidence": {
+        "formalPath": "character-assets/layers/character/ft/hit_r_refresh.png",
+        "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+        "formalImportRun": 35398522113
+      }
     },
     {
       "id": "ASSETQ-010",
@@ -218,12 +224,18 @@
       "occurrenceCount": 9,
       "priority": "P1",
       "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
-      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
+      "currentAssetStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "reason": "Missing formal rebound; first appears M17, occurrences 9.",
       "nextAfterCompletion": "ASSETQ-011",
-      "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
-      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+      "status": "DONE",
+      "blocker": null,
+      "nextAction": "Completed; do not regenerate.",
+      "completedAt": "2026-09-19T06:56:00+09:00",
+      "evidence": {
+        "formalPath": "character-assets/layers/character/ft/rebound_r_refresh.png",
+        "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+        "formalImportRun": 35398522113
+      }
     },
     {
       "id": "ASSETQ-011",
@@ -237,9 +249,10 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 8.",
       "nextAfterCompletion": "ASSETQ-012",
-      "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
-      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+      "status": "READY",
+      "blocker": null,
+      "nextAction": "Create FT:L hit for B17 using deterministic approved-neutral-preserving local left-stick edit to recalibrated FT contact.",
+      "dependencyStatus": "FT_R_PAIR_DONE"
     },
     {
       "id": "ASSETQ-012",
