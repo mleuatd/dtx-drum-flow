@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Reusable resume-safe character asset pair transaction for Luna M25-148",
+  "status": "TEMPLATE",
+  "actionKey": "PART:LIMB",
+  "scope": {"measureStart": 0, "measureEnd": 0},
+  "parent": {
+    "githubPath": "character-assets/layers/character/base/neutral.png",
+    "sha256": "REQUIRED",
+    "width": 1448,
+    "height": 1086
+  },
+  "immutable": ["camera","head","face","hair","torso","clothes","seatAnchor","canvasRegistration"],
+  "allowedMotion": ["requiredArm","requiredHand","requiredStick","requiredFoot"],
+  "phases": {
+    "hit": {"stage":"PLAN","attempt":0,"dropboxPath":null,"sha256":null,"qaStatus":"PENDING","formalPath":null,"formalCommit":null},
+    "rebound": {"stage":"PLAN","attempt":0,"dropboxPath":null,"sha256":null,"qaStatus":"PENDING","formalPath":null,"formalCommit":null}
+  },
+  "qa": {"static":"PENDING","compositeVisual":"PENDING","runtimePC":"PENDING","runtimeXperia":"PENDING","screenshots":"PENDING"},
+  "updatedAt": null
+}
