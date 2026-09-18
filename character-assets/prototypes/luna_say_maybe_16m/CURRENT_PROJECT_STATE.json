@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:05:00+09:00",
+  "updatedAt": "2026-09-18T20:10:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -73,7 +73,10 @@
     "fullSongLimb": "SUCCESS",
     "planningValidation": "SUCCESS run 35335328767",
     "characterAssetValidation": "SUCCESS run 35335334538",
-    "validateAfterLbFix": "SUCCESS run 35335334582"
+    "validateAfterLbFix": "SUCCESS run 35335334582",
+    "implementationInfrastructureValidate": "SUCCESS run 35337828588",
+    "lunaBlockQaSmoke": "SUCCESS run 35337759100",
+    "lunaBlockQaSmokeArtifact": 10543239081
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -106,7 +109,8 @@
     "m9_16Reusable": 35331851179,
     "fullSongLimbPromotion": 35333901757,
     "planningValidation": 35335328767,
-    "characterAssetValidation": 35335334538
+    "characterAssetValidation": 35335334538,
+    "lunaBlockQaSmoke": 35337759100
   },
   "nextRecommendedBlock": {
     "blockId": "B09_16",
@@ -180,6 +184,14 @@
     "blockQaWorkflow": ".github/workflows/luna-block-qa.yml",
     "blockQaRunner": "tools/luna-block-qa.mjs",
     "planningValidator": "tools/validate_luna_full_song_planning.py",
-    "comboRuntimeResolution": "exact limb-aware combo key first, existing wildcard fallback second"
+    "comboRuntimeResolution": "exact limb-aware combo key first, existing wildcard fallback second",
+    "blockQaSmoke": {
+      "run": 35337759100,
+      "artifact": 10543239081,
+      "range": "1-8",
+      "status": "PASS_AUTOMATED_REQUIRES_VISUAL_SCREENSHOT_REVIEW",
+      "problems": 0
+    },
+    "validateRun": 35337828588
   }
 }
