@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:10:00+09:00",
+  "updatedAt": "2026-09-19T05:20:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -163,7 +163,7 @@
     {
       "id": "M17_148",
       "measures": "17-148",
-      "status": "IN_PROGRESS_IMAGE_ASSETS",
+      "status": "BLOCKED_EXTERNAL_DIRECT_EDIT",
       "chart": {
         "notes": 2014,
         "lastMeasure": 148,
@@ -179,7 +179,11 @@
         "2026-09-19: baseline-parent access blocker RESOLVED via Dropbox Library -> materialize -> byte-identical working copy -> current conversation attachment. Verified SHA256 886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9.",
         "2026-09-19: ASSETQ-003 LT:R hit entered IN_PROGRESS.",
         "LT:R hit attempt #1 QA FAIL: binary valid 1448x1086 RGBA transparent, but fresh-redraw/identity/camera/clothing/body/stool continuity failed; SHA 8533bd408a8a026890754374e4b230c208ab35710a74d90a7ba9f909eaccd2f0. Retry only LT:R hit from approved neutral.",
-        "LT:R hit attempt #2 QA FAIL: binary valid, but second fresh redraw; edit_op=null and whole-character continuity failed. Next retry switches to explicit current-conversation baseline reference."
+        "LT:R hit attempt #2 QA FAIL: binary valid, but second fresh redraw; edit_op=null and whole-character continuity failed. Next retry switches to explicit current-conversation baseline reference.",
+        "LT:R hit attempt #3 explicit current-conversation baseline reference: FAIL, edit_op=null, full-character redraw, SHA 6fcd0e1c3e12492c9d53c9b6db41250b7d82ada8caee6bd5a2c1af8ba21481b8.",
+        "LT:R local raster edit #1: FAIL due visible black artifact/malformed hand region, SHA 5bbd18c5b4a498c7541d11df096d584a71c3b0bd3cbc332dcb80024c0a62f482.",
+        "LT:R local raster edit #2: FAIL due malformed forearm/hand/stick patch and residual artifact, SHA dd20a5599314a30f3119cbb0e2413f2d664886528276d219137560a9e371b822.",
+        "LT:R crop-targeted image edit: FAIL; image generator ignored crop target and returned full-character redraw with edit_op=null, SHA f9efcaa8933c5b297bf18e2a3ffcd57815b5ae1fcc2a395372abf6be3f395a60."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -213,8 +217,8 @@
         "status": "SUPERSEDED_HISTORICAL",
         "oldUnresolved": 195
       },
-      "blocker": null,
-      "nextAction": "Retry ASSETQ-003 LT:R hit using explicit current-conversation approved-neutral file reference."
+      "blocker": "ASSETQ-003 LT:R hit cannot pass mandatory direct-edit gate in the current image tool: multiple full-image and crop-targeted attempts all returned edit_op=null/fresh redraw; two local raster-edit fallbacks preserved baseline but produced malformed arm/hand artifacts and failed visual QA.",
+      "nextAction": "Resume at ASSETQ-003 LT:R hit only. Do not restart M17 or regenerate completed M1-16 assets. First try a direct-edit-capable image path/tool; if unavailable, continue from the baseline working copy with a safer local-edit method. Rebound remains blocked until hit PASS."
     }
   ],
   "skippedOrRejected": [
@@ -323,7 +327,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Retry ASSETQ-003 LT:R hit using explicit current-conversation approved-neutral file reference.",
+  "nextAction": "Resume-first at ASSETQ-003 LT:R hit QA/edit only. Current blocker is external direct-edit failure; runtime remains 1-16.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
