@@ -27,7 +27,7 @@ function updateDevHud(extra=""){
   hud.textContent=lines.join("\n");
 }
 setInterval(()=>updateDevHud(),250);
-const EFFECT_POINTS={HH:[255,465],SN:[570,520],BD:[505,790],HT:[690,455],LT:[790,510],FT:[910,585],RC:[1090,195],RD:[1070,370]};
+const EFFECT_POINTS={HH:[190,390],SN:[420,535],BD:[735,650],HT:[575,360],LT:[885,455],FT:[1165,535],RC:[1215,145],RD:[965,250]};
 
 function loadImage(src){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(src);image.onerror=()=>reject(new Error("image HTTP/load failure: "+src));image.src=assetUrl(src)})}
 function markAssetIssue(src){if(!els.root)return;els.root.dataset.assetIssue=src||"unknown";els.root.classList.add("asset-warning")}
