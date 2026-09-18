@@ -260,7 +260,9 @@
     "RD+SN:R/L": "rd_sn_r_l_hit",
     "BD+HH:RF/R": "bd_hh_rf_r_hit",
     "HH+SN:R/L": "hh_sn_r_l_hit",
-    "BD+LT:RF/R": "bd_lt_rf_r_hit"
+    "BD+LT:RF/R": "bd_lt_rf_r_hit",
+    "LT:R": "lt_r_hit",
+    "LT:L": "lt_l_hit"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -352,6 +354,16 @@
       "prep": "neutral",
       "hit": "bd_lt_rf_r_hit",
       "rebound": "bd_lt_rf_r_rebound"
+    },
+    "LT:R": {
+      "prep": "neutral",
+      "hit": "lt_r_hit",
+      "rebound": "lt_r_rebound"
+    },
+    "LT:L": {
+      "prep": "neutral",
+      "hit": "lt_l_hit",
+      "rebound": "lt_l_rebound"
     }
   },
   "motionTiming": {
@@ -468,6 +480,20 @@
       "formalImportRun": 35398907345,
       "hitSha256": "c11c71cec4dbee4cc6f7ec3ccbae1646e677887a6a6ff45fb188c97967d5b863",
       "reboundSha256": "3f22c7e2ec10e9d63fbbc200ddef2a8d8af31f8d342d0eb76f304d1a9a9a2b4c"
+    },
+    "m17RuntimeMappingFix": {
+      "updatedAt": "2026-09-19T07:50:00+09:00",
+      "reason": "LT:R/L formal frames existed in requiredFrames but exact runtimeFrameMap/runtimePhaseFrameMap entries were missing, causing neutral fallback and validator failure.",
+      "mappings": {
+        "LT:R": {
+          "hit": "lt_r_hit",
+          "rebound": "lt_r_rebound"
+        },
+        "LT:L": {
+          "hit": "lt_l_hit",
+          "rebound": "lt_l_rebound"
+        }
+      }
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
