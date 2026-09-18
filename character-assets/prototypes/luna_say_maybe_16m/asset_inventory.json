@@ -1,5 +1,5 @@
 {
-  "version": 11,
+  "version": 12,
   "scope": "Luna Say Maybe measures 1-8 parapara complete",
   "imageSetState": "m1-8-complete",
   "chartNoteCount": 2158,
@@ -84,6 +84,16 @@
       "path": "layers/character/rd/rebound_r_refresh.png",
       "state": "ready",
       "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4"
+    },
+    "bd_sn_rf_l_hit": {
+      "path": "layers/character/combo/bd_sn_hit_refresh.png",
+      "state": "runtime-preloaded-not-live",
+      "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466"
+    },
+    "bd_sn_rf_l_rebound": {
+      "path": "layers/character/combo/bd_sn_rebound_refresh.png",
+      "state": "runtime-preloaded-not-live",
+      "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0"
     }
   },
   "runtimeFrameMap": {
@@ -92,7 +102,8 @@
     "HH:R": "hh_r_hit",
     "BD:RF": "bd_rf_hit",
     "BD+RC:*": "bd_rc_hit",
-    "RD:R": "rd_r_hit"
+    "RD:R": "rd_r_hit",
+    "BD+SN:RF/L": "bd_sn_rf_l_hit"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -124,6 +135,11 @@
       "prep": "neutral",
       "hit": "rd_r_hit",
       "rebound": "rd_r_rebound"
+    },
+    "BD+SN:RF/L": {
+      "prep": "neutral",
+      "hit": "bd_sn_rf_l_hit",
+      "rebound": "bd_sn_rf_l_rebound"
     }
   },
   "motionTiming": {
@@ -156,6 +172,7 @@
     "snRReboundDeprecatedFrame": "sn_r_rebound",
     "rdRPolicy": "refreshed baseline-derived hit/rebound mapped for measures 5-8",
     "runtimeQaRun": 35327283366,
-    "runtimeQaArtifact": 10539831628
+    "runtimeQaArtifact": 10539831628,
+    "bdSnPreloadPolicy": "BD+SN:RF/L exact-limb frames are preloaded in runtime maps while live runtimeScope remains 1-8; they are not considered live-approved until M9-16 transitions and PC/Xperia QA pass."
   }
 }
