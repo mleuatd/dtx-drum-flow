@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:10:00+09:00",
+  "updatedAt": "2026-09-19T07:18:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -148,7 +148,7 @@
     "measures": "17",
     "reason": "Continue M17 contiguous asset completion; BD+SN:RF/R pair is formal, FT:R is next."
   },
-  "nextRecommendedWork": "Create final M17 BD+LT:RF/R hit/rebound with lightweight pre-runtime QA; formal-register both; then map M17 and perform consolidated PC/Xperia screenshot QA. Do not stop for contact micro-tuning before runtime.",
+  "nextRecommendedWork": "M17 image set is 12/12 formal. Run consolidated actual-app measure 17 PC/Xperia screenshot QA; repair only visible runtime defects. Do not regenerate passed images pre-runtime.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
@@ -370,5 +370,16 @@
     "autoLoad": "tools/build-pipeline-context-cache.mjs includes the playbook; tools/start-pipeline-task.mjs exposes it for every session.",
     "behavior": "Before first character image attempt: use compact playbook, approved neutral parent, authoritative limb/contact, then open longer registries only if needed.",
     "goal": "Reduce first-attempt redraw failures and avoid repeated full-ledger reading."
+  },
+  "m17ImageSet": {
+    "status": "FORMAL_12_OF_12_RUNTIME_QA_PENDING",
+    "completedAssets": 12,
+    "totalAssets": 12,
+    "finalPair": {
+      "actionKey": "BD+LT:RF/R",
+      "hitSha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
+      "reboundSha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11",
+      "buildCommit": "55993556eba1db34f203428cd1f851fb99016db6"
+    }
   }
 }
