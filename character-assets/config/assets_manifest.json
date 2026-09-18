@@ -297,11 +297,47 @@
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
         "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
+    },
+    {
+      "path": "character-assets/layers/character/lt/hit_r_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 LT:R hit; deterministic baseline-preserving local stick edit after contact-point recalibration",
+      "part": "LT",
+      "phase": "hit",
+      "hand": "R",
+      "notes": [
+        "Candidate QA PASS run 35394228101",
+        "Contact point recalibrated to current locked drum: LT=(885,455)",
+        "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/lt/rebound_r_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 17 LT:R rebound; deterministic baseline-preserving local stick edit",
+      "part": "LT",
+      "phase": "rebound",
+      "hand": "R",
+      "notes": [
+        "Candidate QA PASS run 35394228101",
+        "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-18",
   "qaScope": "Luna Say Maybe measures 1-16 complete live QA",
   "authoritativeImageCount": 16,
   "note": "Approved fixed neutral/home pose, fixed 11-lane drum, M1-8 approved variants, and M9-16 RD/BD+SN/RC+SN live-QA-passed variants. Runtime scope is inventory-driven through measure 16.",
-  "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+  "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "updatedAt": "2026-09-19T07:15:00+09:00"
 }
