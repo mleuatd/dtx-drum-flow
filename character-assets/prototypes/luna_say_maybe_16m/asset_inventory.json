@@ -262,7 +262,8 @@
     "HH+SN:R/L": "hh_sn_r_l_hit",
     "BD+LT:RF/R": "bd_lt_rf_r_hit",
     "LT:R": "lt_r_hit",
-    "LT:L": "lt_l_hit"
+    "LT:L": "lt_l_hit",
+    "BD+RC:RF/R": "bd_rc_hit"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -364,6 +365,11 @@
       "prep": "neutral",
       "hit": "lt_l_hit",
       "rebound": "lt_l_rebound"
+    },
+    "BD+RC:RF/R": {
+      "prep": "neutral",
+      "hit": "bd_rc_hit",
+      "rebound": "bd_rc_rebound"
     }
   },
   "motionTiming": {
@@ -537,6 +543,6 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T07:05:00+09:00",
-  "note": "Runtime inventory expanded through M24 after deterministic source-SHA-locked M18-24 pair generation; includes already-approved M17 assets present on main."
+  "updatedAt": "2026-09-19T08:28:00+09:00",
+  "note": "Runtime inventory expanded through M24 after deterministic source-SHA-locked M18-24 pair generation; includes already-approved M17 assets present on main. M25-40 mapping-only exact alias BD+RC:RF/R prepared without expanding runtime scope before missing M25 assets are formal."
 }
