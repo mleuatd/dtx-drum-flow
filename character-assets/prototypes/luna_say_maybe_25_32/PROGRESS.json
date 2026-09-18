@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 25,
+    "measureEnd": 32
+  },
+  "status": "ASSET_CREATION_PENDING",
+  "sourceOfTruth": "GitHub main",
+  "analysis": {
+    "combinedRange": "M25-40",
+    "noteCount": 107,
+    "groupCount": 79,
+    "uniqueActionCount": 16,
+    "classificationCounts": {
+      "A_REUSE": 10,
+      "B_MAPPING_ONLY": 1,
+      "C_NEW_ASSET": 5,
+      "D_DATA_ISSUE": 0
+    },
+    "reusableActions": [
+      "BD:RF",
+      "RC+SN:R/L",
+      "SN:R",
+      "SN:L",
+      "BD+SN:RF/L",
+      "FT:L",
+      "FT:R",
+      "HH+SN:R/L",
+      "HH:R",
+      "BD+HH:RF/R"
+    ],
+    "mappingOnly": [
+      {
+        "actionKey": "BD+RC:RF/R",
+        "reuseMapping": "BD+RC:*"
+      }
+    ],
+    "newActions": [
+      "HT:R",
+      "RC:R",
+      "FT+SN:R/L",
+      "BD+HT:RF/R",
+      "HT:L"
+    ]
+  },
+  "missingAssets": [
+    {
+      "actionKey": "HT:R",
+      "part": "HT",
+      "limb": "R",
+      "phases": [
+        "hit",
+        "rebound"
+      ],
+      "measures": [
+        25,
+        29
+      ],
+      "firstTime": 46.261345,
+      "reference": "neutral / nearest approved tom pose",
+      "planned": [
+        "layers/character/ht/hit_r_refresh.png",
+        "layers/character/ht/rebound_r_refresh.png"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "actionKey": "RC:R",
+      "part": "RC",
+      "limb": "R",
+      "phases": [
+        "hit",
+        "rebound"
+      ],
+      "measures": [
+        26,
+        27,
+        29
+      ],
+      "firstTime": 47.448396,
+      "reference": "approved cymbal-side pose; preserve baseline",
+      "planned": [
+        "layers/character/rc/hit_r_refresh.png",
+        "layers/character/rc/rebound_r_refresh.png"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "actionKey": "FT+SN:R/L",
+      "part": "FT+SN",
+      "limb": "R/L",
+      "phases": [
+        "hit",
+        "rebound"
+      ],
+      "measures": [
+        28
+      ],
+      "firstTime": 50.469978,
+      "reference": "approved FT:R and SN:L poses; combine only required limb motion",
+      "planned": [
+        "layers/character/combo/ft_sn_r_l_hit_refresh.png",
+        "layers/character/combo/ft_sn_r_l_rebound_refresh.png"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "actionKey": "BD+HT:RF/R",
+      "part": "BD+HT",
+      "limb": "RF/R",
+      "phases": [
+        "hit",
+        "rebound"
+      ],
+      "measures": [
+        29
+      ],
+      "firstTime": 52.196597,
+      "reference": "HT:R pair plus approved local BD kick cue",
+      "planned": [
+        "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+        "layers/character/combo/bd_ht_rf_r_rebound_refresh.png"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "actionKey": "HT:L",
+      "part": "HT",
+      "limb": "L",
+      "phases": [
+        "hit",
+        "rebound"
+      ],
+      "measures": [
+        29
+      ],
+      "firstTime": 52.736165,
+      "reference": "neutral / nearest approved tom pose",
+      "planned": [
+        "layers/character/ht/hit_l_refresh.png",
+        "layers/character/ht/rebound_l_refresh.png"
+      ],
+      "status": "PENDING"
+    }
+  ],
+  "rapidRepeat": {
+    "minimumObservedGapSec": 0.107913,
+    "policy": "runtime must preserve rapid transitions; neutral only after sequence gap permits"
+  },
+  "definitionOfDone": {
+    "staticQA": "PENDING",
+    "runtimeMapping": "PENDING",
+    "publicRuntimeBrowserQA": "PENDING",
+    "screenshotReview": "PENDING",
+    "done": false
+  },
+  "requiredNext": "Create and formally persist the five missing hit/rebound action pairs (10 PNGs), then mapping/static QA.",
+  "updatedAt": "2026-09-19T07:00:00+09:00"
+}
