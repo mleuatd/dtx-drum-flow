@@ -13,6 +13,7 @@ lifecycle=load("character-assets/prototypes/luna_say_maybe_16m/ASSET_LIFECYCLE.j
 rejected=load("character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json")
 failures=load("character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json")
 usage_policy=load("character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json")
+auto_policy=load("character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json")
 contacts=load("character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json")
 assert state["liveRuntimeScope"]["measureStart"]==1 and state["liveRuntimeScope"]["measureEnd"]==8
 pp=ledger.get("productionPipelineSpeedup")
@@ -41,8 +42,8 @@ required=[
 "tools/build-staging-json.mjs","tools/build-block-start-checklist.mjs","tools/find-reuse-candidates.mjs",
 "tools/build-qa-sampling-and-risk.mjs","tools/build-qa-summary.mjs","tools/build-next-chat-handoff.mjs","tools/luna-production-path.mjs",
 ".github/workflows/luna-fast-path.yml",".github/workflows/luna-full-path.yml",".github/workflows/luna-candidate-qa.yml",
-"tools/production-pipeline-dispatcher.mjs","tools/start-pipeline-task.mjs","tools/check-pipeline-compliance.mjs",
-"character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json","character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md",
+"tools/production-pipeline-dispatcher.mjs","tools/start-pipeline-task.mjs","tools/check-pipeline-compliance.mjs","tools/build-pipeline-context-cache.mjs","tools/classify-validation-scope.mjs","tools/audit-pipeline-efficiency.mjs",
+"character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json","character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md","character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json",
 "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md","character-assets/prototypes/luna_say_maybe_16m/COMMIT_BOUNDARY_RULES.md","character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md"
 ]
 for p in required: assert (ROOT/p).is_file(),p
@@ -80,3 +81,15 @@ pipeline_doc=(BASE/"PRODUCTION_PIPELINE.md").read_text(encoding="utf-8")
 assert "Mandatory execution entry" in pipeline_doc and "production-pipeline-dispatcher.mjs" in pipeline_doc
 handoff=(BASE/"NEXT_IMPLEMENTATION_HANDOFF.md").read_text(encoding="utf-8")
 assert "Mandatory pipeline-first execution" in handoff
+
+# Autonomous optimization contracts.
+assert auto_policy["status"]=="CURRENT_MANDATORY"
+assert auto_policy["thresholds"]["highPriorityAutoImplement"] is True
+assert "session-bootstrap" in usage_policy["taskRouting"]
+assert "optimize-pipeline" in usage_policy["taskRouting"]
+assert state.get("autonomousOptimization",{}).get("status")=="MANDATORY"
+assert "audit-pipeline-efficiency.mjs" in state["autonomousOptimization"]["efficiencyAudit"]
+validate_yml=(ROOT/".github/workflows/validate.yml").read_text(encoding="utf-8")
+assert "Classify validation scope" in validate_yml and "classify-validation-scope.mjs" in validate_yml
+start_src=(ROOT/"tools/start-pipeline-task.mjs").read_text(encoding="utf-8")
+assert "build-pipeline-context-cache.mjs" in start_src and "audit-pipeline-efficiency.mjs" in start_src
