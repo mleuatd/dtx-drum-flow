@@ -152,6 +152,20 @@
       "sha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
       "actionKey": "BD+SN:RF/R",
       "phase": "rebound"
+    },
+    "ft_r_hit": {
+      "path": "layers/character/ft/hit_r_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+      "actionKey": "FT:R",
+      "phase": "hit"
+    },
+    "ft_r_rebound": {
+      "path": "layers/character/ft/rebound_r_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+      "actionKey": "FT:R",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -165,7 +179,8 @@
     "RC+SN:R/L": "rc_sn_r_l_hit_refresh",
     "BD+SN:*": "bd_sn_rf_l_hit",
     "RC+SN:*": "rc_sn_r_l_hit_refresh",
-    "BD+SN:RF/R": "bd_sn_rf_r_hit"
+    "BD+SN:RF/R": "bd_sn_rf_r_hit",
+    "FT:R": "ft_r_hit"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -222,6 +237,11 @@
       "prep": "neutral",
       "hit": "bd_sn_rf_r_hit",
       "rebound": "bd_sn_rf_r_rebound"
+    },
+    "FT:R": {
+      "prep": "neutral",
+      "hit": "ft_r_hit",
+      "rebound": "ft_r_rebound"
     }
   },
   "motionTiming": {
@@ -326,7 +346,13 @@
       "reboundSha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
       "reviewImportRun": 35397944277,
       "visualQa": "PASS_FIXED_DRUM_COMPOSITE"
+    },
+    "ftR": {
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "formalImportRun": 35398522113,
+      "hitSha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+      "reboundSha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce"
     }
   },
-  "qaUpdatedAt": "2026-09-19T06:50:00+09:00"
+  "qaUpdatedAt": "2026-09-19T06:56:00+09:00"
 }
