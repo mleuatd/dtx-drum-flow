@@ -55,3 +55,43 @@ Both canvases are 1448x1086. The runtime stack is drum behind character, with ma
 
 ## Later-measure assets
 Additional historical 1-16 character PNGs may still exist in the repository tree, but they are outside the active refreshed 1-4 visual scope and must not be treated as newly approved for expansion without explicit review.
+
+
+## Refreshed expansion status — 2026-09-18
+
+The refreshed visual runtime remains **measures 1-4 only** until later-measure frames pass the same visual/runtime QA standard. Expansion analysis has now been completed for measures 5-16 without changing the live mapping.
+
+### Measures 5-8
+Authoritative coverage from FINAL notes + 1-16 limb sidecar:
+- 33 notes / 32 time groups
+- keys: `BD:RF`, `RD:R`, `SN:L`, `BD+RC:*`
+- approved M1-4 reuse: BD, SN:L, BD+RC
+- new refreshed frames required: `RD:R hit` + `RD:R rebound`
+
+The historical `layers/character/rd/hit_r.png` was visually compared against the current fixed drum + refreshed M1-4 baseline in GitHub Actions run `35315598184`, artifact `10535695236`, and was rejected. It is a different/shifted drawing family and must not be used.
+
+Definition:
+`prototypes/luna_say_maybe_16m/M5_8_REQUIRED_CHARACTER_ASSETS.json`
+
+### Measures 9-16
+Authoritative coverage:
+- 83 notes / 65 time groups / missing limb assignments 0
+- group keys include `BD:RF`, `RD:R`, `SN:L`, `BD+RC`, `HH:R`, `BD+SN:RF/L`, `RC+SN:L/R`
+- new refreshed frames beyond the M1-4 set: RD hit/rebound, BD+SN hit/rebound, RC+SN hit/rebound
+
+Historical `bd_sn_hit.png` and `rc_sn_hit.png` were visually compared in GitHub Actions run `35315877548`, artifact `10535690785`, and rejected for the same baseline mismatch. No refreshed rebound frames exist.
+
+Definition:
+`prototypes/luna_say_maybe_16m/M9_16_REQUIRED_CHARACTER_ASSETS.json`
+
+### Measures 17-148
+The FINAL chart contains 2,014 notes after measure 16 through measure 148. None carries embedded limb/hand/foot metadata. The only precomputed authoritative limb assignment currently in GitHub is `Luna_say_maybe_1_16_limbs.json`.
+
+`hand_rules.json` exists, but it is a rule specification scoped to the 1-16 prototype, not a per-note full-song authoritative sidecar. Do not guess hands/feet for measure 17+ runtime mapping. A full-song limb sidecar must be generated/validated and made authoritative before refreshed visual mapping continues past measure 16.
+
+### Current blocker
+The exact approved neutral can be recovered and visually inspected from GitHub QA artifacts, but the image-editing interface available in this normal-chat workflow cannot take that repository/artifact PNG as a direct edit target. Because project rules forbid a fresh look-alike redraw, the six required refreshed frames for measures 5-16 are left BLOCKED rather than generating an inconsistent character.
+
+Tracked issues:
+- `CHAR-QA-0005`: RD:R refreshed hit/rebound
+- `CHAR-QA-0006`: BD+SN and RC+SN refreshed hit/rebound
