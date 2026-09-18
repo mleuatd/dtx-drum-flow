@@ -79,6 +79,47 @@ assert any(n.get("rhythm") == "32nd" for n in kana["notes"]), "Kanaetai: 32nd no
 assert all(float(n.get("alignmentOffsetSec", 0)) == 0 for n in kana["notes"]), "Kanaetai: pre-audio alignment must be zero"
 assert kana.get("alignment", {}).get("pendingOriginalAudioSync") is True, "Kanaetai: sync-pending flag missing"
 
+
+# Luna full-song limb sidecar validation.
+full_limbs = load("site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json")
+prefix_limbs = load("site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json")
+assignments = full_limbs.get("assignments", [])
+assert full_limbs.get("scope", {}).get("measureStart") == 1
+assert full_limbs.get("scope", {}).get("measureEnd") == 148
+assert full_limbs.get("scope", {}).get("noteCount") == len(luna["notes"]) == len(assignments)
+allowed_limbs = {"L", "R", "LF", "RF"}
+assign_map = {(round(float(a["time"]), 6), a["part"]): a["limb"] for a in assignments}
+assert len(assign_map) == len(assignments), "Luna limbs: duplicate time/part assignment"
+for n in luna["notes"]:
+    k = (round(float(n["time"]), 6), n["part"])
+    assert k in assign_map, f"Luna limbs: missing {k}"
+    assert assign_map[k] in allowed_limbs, f"Luna limbs: invalid limb {assign_map[k]} at {k}"
+
+prefix_map = {(round(float(a["time"]), 6), a["part"]): a["limb"] for a in prefix_limbs["assignments"]}
+for k, limb in prefix_map.items():
+    assert assign_map.get(k) == limb, f"Luna limbs: M1-16 regression at {k}: {assign_map.get(k)} != {limb}"
+
+by_time = {}
+for n in luna["notes"]:
+    by_time.setdefault(round(float(n["time"]), 6), []).append(n)
+for t, ns in by_time.items():
+    seen = {}
+    for n in ns:
+        limb = assign_map[(t, n["part"])]
+        if limb in seen:
+            raise AssertionError(f"Luna limbs: simultaneous same-limb conflict at {t}: {seen[limb]} + {n['part']} on {limb}")
+        seen[limb] = n["part"]
+
+sn = [n for n in luna["notes"] if n["part"] == "SN"]
+for a, b in zip(sn, sn[1:]):
+    gap = float(b["time"]) - float(a["time"])
+    if gap <= 0.130000001:
+        ka = (round(float(a["time"]), 6), "SN")
+        kb = (round(float(b["time"]), 6), "SN")
+        assert assign_map[ka] != assign_map[kb], f"Luna limbs: rapid SN same-hand repeat at {a['time']} -> {b['time']}"
+
+print("PASS Luna full-song limbs:", len(assignments), "assignments")
+
 print("PASS Luna regression:", len(luna["notes"]), "notes", dict(sorted(luna_parts.items())))
 print("PASS Kanaetai:", len(kana["notes"]), "notes", dict(sorted(kana_parts.items())), "max_gap", round(max_gap,3))
 
