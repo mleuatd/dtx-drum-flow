@@ -4,7 +4,7 @@
     "measureStart": 25,
     "measureEnd": 32
   },
-  "status": "ASSET_CREATION_PENDING",
+  "status": "ASSET_CREATION_BLOCKED_BY_SOURCE_TRANSPORT",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -154,6 +154,28 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Create and formally persist the five missing hit/rebound action pairs (10 PNGs), then mapping/static QA.",
-  "updatedAt": "2026-09-19T07:00:00+09:00"
+  "requiredNext": "Materialize the verified Dropbox/GitHub PNG into a conversation image target without re-encoding, then generate HT:R hit. Do not regenerate analysis or use the re-encoded attachment.",
+  "updatedAt": "2026-09-19T07:30:00+09:00",
+  "sourceNeutralVerification": {
+    "status": "PASS",
+    "githubPath": "character-assets/layers/character/base/neutral.png",
+    "githubInventorySha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "githubDecodedBytes": 971237,
+    "dropboxPath": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+    "dropboxBytes": 971237,
+    "dropboxContentHash": "0c1a064d1bd270c54e0c1f05b89731410c88222c4e295f5933afc8bcadeb6485",
+    "verification": "For this <4 MiB file, Dropbox content_hash equals SHA256(binary SHA256(file)); SHA256(bytes.fromhex(GitHub inventory SHA256)) exactly matches Dropbox content_hash.",
+    "verifiedAt": "2026-09-19T07:30:00+09:00"
+  },
+  "blocker": {
+    "failedStep": "HT:R hit image-edit input handoff",
+    "error": "The formal Dropbox/GitHub neutral is cryptographically verified, but the current image editor cannot accept a Dropbox file_id/URL or GitHub base64 payload as its image-edit target. The only conversation image target is the re-encoded attachment that the task explicitly forbids as a substitute.",
+    "investigated": true,
+    "rootCause": "Connector-to-image-editor binary handoff is unavailable in this chat toolset.",
+    "affectedAction": "HT:R",
+    "affectedAsset": "layers/character/ht/hit_r_refresh.png",
+    "requiredNext": "Materialize the verified Dropbox/GitHub PNG into a conversation image target without re-encoding, then generate HT:R hit. Do not regenerate analysis or use the re-encoded attachment.",
+    "retryWhen": "A direct Dropbox/GitHub-to-image-editor file handoff becomes available or the verified raw PNG is attached as an actual file target.",
+    "updatedAt": "2026-09-19T07:30:00+09:00"
+  }
 }
