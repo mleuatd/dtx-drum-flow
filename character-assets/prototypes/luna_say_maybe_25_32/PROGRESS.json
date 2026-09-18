@@ -4,7 +4,7 @@
     "measureStart": 25,
     "measureEnd": 32
   },
-  "status": "ASSET_CREATION_BLOCKED_BY_SOURCE_TRANSPORT",
+  "status": "ASSET_CANDIDATE_BUILD_PREPARED",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Resume directly at HT:R hit once the exact verified Neutral can be used as the image-edit source. Do not substitute or redraw.",
-  "updatedAt": "2026-09-19T08:30:00+09:00",
+  "requiredNext": "Execute the committed HT:R deterministic builder workflow; inspect generated fixed-drum composites before approval. If push trigger did not start, use workflow_dispatch or any available Actions execution path; do not redo source analysis.",
+  "updatedAt": "2026-09-19T08:29:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -167,38 +167,25 @@
     "verification": "For this <4 MiB file, Dropbox content_hash equals SHA256(binary SHA256(file)); SHA256(bytes.fromhex(GitHub inventory SHA256)) exactly matches Dropbox content_hash.",
     "verifiedAt": "2026-09-19T07:30:00+09:00"
   },
-  "blocker": {
-    "failedStep": "HT:R hit image-edit input handoff",
-    "error": "The formal Dropbox/GitHub neutral is cryptographically verified, but the current image editor cannot accept a Dropbox file_id/URL or GitHub base64 payload as its image-edit target. The only conversation image target is the re-encoded attachment that the task explicitly forbids as a substitute.",
-    "investigated": true,
-    "rootCause": "Connector-to-image-editor binary handoff is unavailable in this chat toolset.",
-    "affectedAction": "HT:R",
-    "affectedAsset": "layers/character/ht/hit_r_refresh.png",
-    "requiredNext": "Resume directly at HT:R hit once the exact verified Neutral can be used as the image-edit source. Do not substitute or redraw.",
-    "retryWhen": "An exact-byte native image source handoff is available to image editing.",
-    "updatedAt": "2026-09-19T07:30:00+09:00",
-    "attemptedMethods": [
-      "Dropbox connector search/get metadata/file preview: formal file is accessible and verified.",
-      "Dropbox temporary download URL: connector can issue a single-use binary URL, but it is not exposed as a conversation image/file parameter to the image editor.",
-      "GitHub fetch_file encoding=base64: formal PNG bytes are retrievable (971237 decoded bytes), but connector payload cannot be promoted to an image-editor target.",
-      "ChatGPT Files conversation/library search + materialize: no exact formal neutral exists as a native ChatGPT file; nearest Library image was 971425 bytes and SHA256 27431356d780878932c2d0200053ef0454116c16626c9a097e04aca9cb00ca26, so it was rejected.",
-      "Container/raw URL path investigated: does not create a conversation image target usable by image editing, and no re-encoding/substitution was performed."
-    ],
-    "exactError": "No supported connector/files handoff can expose the cryptographically verified Dropbox/GitHub PNG as the image editor's usable source image in this chat. image editing can only target a usable image present in conversation; connector URLs/base64/file IDs are not accepted image targets.",
-    "toolLimitation": "Dropbox/GitHub connectors and ChatGPT Files are separate surfaces; the current toolset has no Dropbox->ChatGPT conversation-file import or connector-file->image-editor reference bridge.",
-    "investigatedAt": "2026-09-19T07:55:00+09:00",
-    "lastRetry": {
-      "checkedAt": "2026-09-19T08:18:00+09:00",
-      "result": "BLOCKED",
-      "newFinding": "Alternative relays were evaluated. GitHub Actions/artifacts, Dropbox, Files, and container can preserve or verify the exact PNG, but none can expose that stored PNG as a native source image to the current image-edit operation. Generating without the source or using the known near-match would violate the approved-source requirement.",
-      "action": "Do not repeat transport analysis. Resume directly at HT:R hit if an exact-byte native image source becomes available."
-    }
-  },
+  "blocker": null,
   "infrastructurePreparation": {
     "status": "READY",
     "pipeline": "character-assets/CHARACTER_ASSET_PIPELINE.md",
     "transactionTemplate": "character-assets/config/character_pair_transaction.template.json",
     "preparedAt": "2026-09-19T08:30:00+09:00",
     "policy": "Use generic candidate/import/QA/runtime infrastructure; avoid per-measure workflow proliferation. Persist each action pair as a resumable transaction."
+  },
+  "production": {
+    "htR": {
+      "status": "BUILDER_READY_EXECUTION_PENDING",
+      "builder": "tools/build-m25-40-candidates.py",
+      "workflow": ".github/workflows/build-m25-40-character-candidates.yml",
+      "method": "same baseline-preserving deterministic local right-stick edit pattern that passed M17 LT:R live QA",
+      "sourceSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+      "plannedCandidateHit": "character-assets/review-candidates/m25_40/ht_r_hit_attempt01.png",
+      "plannedCandidateRebound": "character-assets/review-candidates/m25_40/ht_r_rebound_attempt01.png",
+      "qaEvidence": "character-assets/generated-qa/m25_40/ht_r/",
+      "note": "Builder and push-trigger workflow are committed. Candidate outputs are not yet present on main, so they are not claimed as generated or approved."
+    }
   }
 }
