@@ -20,7 +20,10 @@
       "neverUse": false,
       "firstMeasure": 1,
       "lastMeasure": 148,
-      "occurrenceCount": 314
+      "occurrenceCount": 314,
+      "legacyRuntimeKey": "SN:L",
+      "limbAwareRuntimeKey": "SN:L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "SN:R",
@@ -38,7 +41,10 @@
       "neverUse": false,
       "firstMeasure": 1,
       "lastMeasure": 148,
-      "occurrenceCount": 69
+      "occurrenceCount": 69,
+      "legacyRuntimeKey": "SN:R",
+      "limbAwareRuntimeKey": "SN:R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD:RF",
@@ -56,7 +62,10 @@
       "neverUse": false,
       "firstMeasure": 2,
       "lastMeasure": 143,
-      "occurrenceCount": 129
+      "occurrenceCount": 129,
+      "legacyRuntimeKey": "BD:RF",
+      "limbAwareRuntimeKey": "BD:RF",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+RC:RF/R",
@@ -74,7 +83,10 @@
       "neverUse": false,
       "firstMeasure": 2,
       "lastMeasure": 147,
-      "occurrenceCount": 63
+      "occurrenceCount": 63,
+      "legacyRuntimeKey": "BD+RC:*",
+      "limbAwareRuntimeKey": "BD+RC:RF/R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "HH:R",
@@ -92,7 +104,10 @@
       "neverUse": false,
       "firstMeasure": 2,
       "lastMeasure": 144,
-      "occurrenceCount": 248
+      "occurrenceCount": 248,
+      "legacyRuntimeKey": "HH:R",
+      "limbAwareRuntimeKey": "HH:R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "RD:R",
@@ -110,7 +125,10 @@
       "neverUse": false,
       "firstMeasure": 5,
       "lastMeasure": 147,
-      "occurrenceCount": 53
+      "occurrenceCount": 53,
+      "legacyRuntimeKey": "RD:R",
+      "limbAwareRuntimeKey": "RD:R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+SN:RF/L",
@@ -128,7 +146,10 @@
       "neverUse": false,
       "firstMeasure": 10,
       "lastMeasure": 144,
-      "occurrenceCount": 22
+      "occurrenceCount": 22,
+      "legacyRuntimeKey": "BD+SN:*",
+      "limbAwareRuntimeKey": "BD+SN:RF/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "RC+SN:R/L",
@@ -146,7 +167,10 @@
       "neverUse": false,
       "firstMeasure": 13,
       "lastMeasure": 141,
-      "occurrenceCount": 34
+      "occurrenceCount": 34,
+      "legacyRuntimeKey": "RC+SN:*",
+      "limbAwareRuntimeKey": "RC+SN:R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+LT:RF/R",
@@ -164,7 +188,10 @@
       "neverUse": false,
       "firstMeasure": 17,
       "lastMeasure": 140,
-      "occurrenceCount": 3
+      "occurrenceCount": 3,
+      "legacyRuntimeKey": "BD+LT:*",
+      "limbAwareRuntimeKey": "BD+LT:RF/R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+SN:RF/R",
@@ -182,7 +209,10 @@
       "neverUse": false,
       "firstMeasure": 17,
       "lastMeasure": 140,
-      "occurrenceCount": 17
+      "occurrenceCount": 17,
+      "legacyRuntimeKey": "BD+SN:*",
+      "limbAwareRuntimeKey": "BD+SN:RF/R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "FT:L",
@@ -200,7 +230,10 @@
       "neverUse": false,
       "firstMeasure": 17,
       "lastMeasure": 144,
-      "occurrenceCount": 8
+      "occurrenceCount": 8,
+      "legacyRuntimeKey": "FT:L",
+      "limbAwareRuntimeKey": "FT:L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "FT:R",
@@ -218,7 +251,10 @@
       "neverUse": false,
       "firstMeasure": 17,
       "lastMeasure": 144,
-      "occurrenceCount": 9
+      "occurrenceCount": 9,
+      "legacyRuntimeKey": "FT:R",
+      "limbAwareRuntimeKey": "FT:R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "LT:L",
@@ -236,7 +272,10 @@
       "neverUse": false,
       "firstMeasure": 17,
       "lastMeasure": 148,
-      "occurrenceCount": 22
+      "occurrenceCount": 22,
+      "legacyRuntimeKey": "LT:L",
+      "limbAwareRuntimeKey": "LT:L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "LT:R",
@@ -254,7 +293,10 @@
       "neverUse": false,
       "firstMeasure": 17,
       "lastMeasure": 148,
-      "occurrenceCount": 31
+      "occurrenceCount": 31,
+      "legacyRuntimeKey": "LT:R",
+      "limbAwareRuntimeKey": "LT:R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+RD:RF/R",
@@ -272,7 +314,10 @@
       "neverUse": false,
       "firstMeasure": 18,
       "lastMeasure": 147,
-      "occurrenceCount": 29
+      "occurrenceCount": 29,
+      "legacyRuntimeKey": "BD+RD:*",
+      "limbAwareRuntimeKey": "BD+RD:RF/R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "RD+SN:R/L",
@@ -290,7 +335,10 @@
       "neverUse": false,
       "firstMeasure": 18,
       "lastMeasure": 147,
-      "occurrenceCount": 23
+      "occurrenceCount": 23,
+      "legacyRuntimeKey": "RD+SN:*",
+      "limbAwareRuntimeKey": "RD+SN:R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+HH:RF/R",
@@ -308,7 +356,10 @@
       "neverUse": false,
       "firstMeasure": 20,
       "lastMeasure": 144,
-      "occurrenceCount": 224
+      "occurrenceCount": 224,
+      "legacyRuntimeKey": "BD+HH:*",
+      "limbAwareRuntimeKey": "BD+HH:RF/R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "HH+SN:R/L",
@@ -326,7 +377,10 @@
       "neverUse": false,
       "firstMeasure": 20,
       "lastMeasure": 144,
-      "occurrenceCount": 143
+      "occurrenceCount": 143,
+      "legacyRuntimeKey": "HH+SN:*",
+      "limbAwareRuntimeKey": "HH+SN:R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "HT:R",
@@ -344,7 +398,10 @@
       "neverUse": false,
       "firstMeasure": 25,
       "lastMeasure": 78,
-      "occurrenceCount": 16
+      "occurrenceCount": 16,
+      "legacyRuntimeKey": "HT:R",
+      "limbAwareRuntimeKey": "HT:R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "RC:R",
@@ -362,7 +419,10 @@
       "neverUse": false,
       "firstMeasure": 26,
       "lastMeasure": 29,
-      "occurrenceCount": 3
+      "occurrenceCount": 3,
+      "legacyRuntimeKey": "RC:R",
+      "limbAwareRuntimeKey": "RC:R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "FT+SN:R/L",
@@ -380,7 +440,10 @@
       "neverUse": false,
       "firstMeasure": 28,
       "lastMeasure": 86,
-      "occurrenceCount": 13
+      "occurrenceCount": 13,
+      "legacyRuntimeKey": "FT+SN:*",
+      "limbAwareRuntimeKey": "FT+SN:R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+HT:RF/R",
@@ -398,7 +461,10 @@
       "neverUse": false,
       "firstMeasure": 29,
       "lastMeasure": 72,
-      "occurrenceCount": 6
+      "occurrenceCount": 6,
+      "legacyRuntimeKey": "BD+HT:*",
+      "limbAwareRuntimeKey": "BD+HT:RF/R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "HT:L",
@@ -416,7 +482,10 @@
       "neverUse": false,
       "firstMeasure": 29,
       "lastMeasure": 78,
-      "occurrenceCount": 14
+      "occurrenceCount": 14,
+      "legacyRuntimeKey": "HT:L",
+      "limbAwareRuntimeKey": "HT:L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "LT+SN:R/L",
@@ -434,7 +503,10 @@
       "neverUse": false,
       "firstMeasure": 46,
       "lastMeasure": 77,
-      "occurrenceCount": 4
+      "occurrenceCount": 4,
+      "legacyRuntimeKey": "LT+SN:*",
+      "limbAwareRuntimeKey": "LT+SN:R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+HH+SN:RF/R/L",
@@ -452,7 +524,10 @@
       "neverUse": false,
       "firstMeasure": 47,
       "lastMeasure": 68,
-      "occurrenceCount": 14
+      "occurrenceCount": 14,
+      "legacyRuntimeKey": "BD+HH+SN:*",
+      "limbAwareRuntimeKey": "BD+HH+SN:RF/R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+HT:RF/L",
@@ -470,7 +545,10 @@
       "neverUse": false,
       "firstMeasure": 54,
       "lastMeasure": 54,
-      "occurrenceCount": 1
+      "occurrenceCount": 1,
+      "legacyRuntimeKey": "BD+HT:*",
+      "limbAwareRuntimeKey": "BD+HT:RF/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+RC+SN:RF/R/L",
@@ -488,7 +566,10 @@
       "neverUse": false,
       "firstMeasure": 68,
       "lastMeasure": 72,
-      "occurrenceCount": 3
+      "occurrenceCount": 3,
+      "legacyRuntimeKey": "BD+RC+SN:*",
+      "limbAwareRuntimeKey": "BD+RC+SN:RF/R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+FT:RF/L",
@@ -506,7 +587,10 @@
       "neverUse": false,
       "firstMeasure": 105,
       "lastMeasure": 136,
-      "occurrenceCount": 5
+      "occurrenceCount": 5,
+      "legacyRuntimeKey": "BD+FT:*",
+      "limbAwareRuntimeKey": "BD+FT:RF/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+FT+SN:RF/R/L",
@@ -524,7 +608,10 @@
       "neverUse": false,
       "firstMeasure": 105,
       "lastMeasure": 106,
-      "occurrenceCount": 3
+      "occurrenceCount": 3,
+      "legacyRuntimeKey": "BD+FT+SN:*",
+      "limbAwareRuntimeKey": "BD+FT+SN:RF/R/L",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     },
     {
       "actionKey": "BD+FT:RF/R",
@@ -542,12 +629,16 @@
       "neverUse": false,
       "firstMeasure": 136,
       "lastMeasure": 141,
-      "occurrenceCount": 4
+      "occurrenceCount": 4,
+      "legacyRuntimeKey": "BD+FT:*",
+      "limbAwareRuntimeKey": "BD+FT:RF/R",
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
     }
   ],
   "rules": {
     "comboRuntimeWildcard": "All multi-part limb-aware action keys map to <sorted parts>:* in current runtime.",
     "rejectedAssets": "Rejected files are not entries here; they are deny-listed in REJECTED_ASSET_REGISTRY.json.",
-    "updateRequirement": "Any new formal asset must update this file, assets_manifest.json and the progress ledger before runtime mapping."
+    "updateRequirement": "Any new formal asset must update this file, assets_manifest.json and the progress ledger before runtime mapping.",
+    "comboRuntimeResolution": "site/character-prototype.js resolves exact limb-aware combo key first, then existing <parts>:* wildcard for backward compatibility."
   }
 }
