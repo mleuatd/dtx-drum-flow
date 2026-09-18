@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "status": "READY_FOR_REVIEW_IMPORT",
+  "actionKey": "LT:L",
+  "block": "B17",
+  "measure": 17,
+  "createdAt": "2026-09-19T06:15:00+09:00",
+  "method": "approved neutral baseline preserved; deterministic local left-stick edit to recalibrated LT contact",
+  "baselinePath": "character-assets/layers/character/base/neutral.png",
+  "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "contactPoint": {
+    "hit": {
+      "x": 885,
+      "y": 455
+    },
+    "rebound": {
+      "x": 900,
+      "y": 390
+    }
+  },
+  "assets": [
+    {
+      "phase": "hit",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/lt_l_hit_refresh_20260919.png",
+      "githubCandidatePath": "character-assets/candidates/m17/lt_l_hit_refresh.png",
+      "sha256": "774b0d5a6c1ced73f0034969601af87133dc9e4a1721a0a5489be673581dea0c",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "phase": "rebound",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/lt_l_rebound_refresh_20260919.png",
+      "githubCandidatePath": "character-assets/candidates/m17/lt_l_rebound_refresh.png",
+      "sha256": "6c87bc201404cbe91ca2cc3e8025e1ee88270de5318b81ff04eaf8f3ef451ee1",
+      "width": 1448,
+      "height": 1086
+    }
+  ],
+  "qa": {
+    "binary": "PASS_LOCAL",
+    "visual": "PASS_FIXED_DRUM_COMPOSITE",
+    "hitChangedPixelRatio": 0.0033086851235717266,
+    "reboundChangedPixelRatio": 0.0035490624014325976,
+    "hitCentroidShiftPx": 0.9153015176493562,
+    "reboundCentroidShiftPx": 0.6427387307623466
+  },
+  "runtimeMapped": false,
+  "manifestRegistered": false
+}
