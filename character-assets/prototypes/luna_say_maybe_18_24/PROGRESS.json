@@ -28,10 +28,14 @@
       "firstMeasure": 18,
       "limbs": "BD:RF + RD:R",
       "hit": {
-        "status": "QA_FAILED",
-        "error": "Retry #2 returned a two-panel dark reference sheet containing its own drum kit/text, not one transparent/formal character-only 1448x1086 hit frame; identity/camera also diverged from locked baseline.",
-        "retryState": "BLOCKED_NEEDS_TRUE_BASELINE_IMAGE_EDIT",
-        "attempts": 2
+        "status": "GENERATING",
+        "error": null,
+        "retryState": "EDIT_WORKING_COPY",
+        "attempts": 2,
+        "sourceAssetKey": "neutral/home",
+        "sourceDropboxPath": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+        "sourceSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+        "workingDropboxPath": "/ChatGPT/dtx-drum-flow/m18_24_work/bd_rd_rf_r_hit_source.png"
       },
       "rebound": {
         "status": "PENDING"
@@ -74,8 +78,8 @@
       }
     }
   ],
-  "currentTask": "BD+RD:RF/R hit",
-  "status": "BLOCKED_IMAGE_GENERATION_INPUT",
+  "currentTask": "BD+RD:RF/R hit edit from Dropbox working copy",
+  "status": "IN_PROGRESS",
   "resumeRule": "Read ledger and verify real files. Continue first non-DONE phase; never regenerate completed assets unless missing or SHA mismatch.",
   "notes": [
     "M18-24 scan completed against latest main.",
@@ -88,5 +92,5 @@
     "reason": "two-panel dark sheet; embedded drums/text; fresh redraw",
     "localFile": "/mnt/data/a_clean_white_background_black_and_white_rough_sk.png"
   },
-  "blocker": "Current image generation attempts are fresh redraws/reference sheets rather than edits of the approved neutral baseline. Formal registration would violate baseline lock. Need the actual approved baseline supplied as image-edit target in the conversation/runtime before retrying."
+  "blocker": null
 }
