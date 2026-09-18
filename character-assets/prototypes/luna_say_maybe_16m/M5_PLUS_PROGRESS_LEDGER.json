@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T18:48:00+09:00",
+  "updatedAt": "2026-09-18T18:55:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -605,5 +605,75 @@
     ],
     "nextRunnable": [],
     "nextBlocked": "NIMG-013"
+  },
+  "existingAssetRuntimeQa": {
+    "id": "M9_16_EXISTING_ASSET_RUNTIME_QA",
+    "title": "M9-16 EXISTING ASSET RUNTIME QA",
+    "scope": "measures 9-16",
+    "liveRuntimeScopeUnchanged": "1-8",
+    "status": "IN_PROGRESS",
+    "rule": "Existing approved/reusable images must be exercised in the actual M9-16 note contexts; prior M1-8 approval is not sufficient.",
+    "qaMode": "GitHub Actions Playwright against public Pages with QA-only intercepted inventory expanded to M1-16. RC+SN is a neutral stub only to allow initialization and is excluded from approval.",
+    "assets": [
+      {
+        "actionKey": "BD:RF",
+        "status": "TODO"
+      },
+      {
+        "actionKey": "RD:R",
+        "status": "TODO"
+      },
+      {
+        "actionKey": "SN:L",
+        "status": "TODO"
+      },
+      {
+        "actionKey": "HH:R",
+        "status": "TODO"
+      },
+      {
+        "actionKey": "BD+RC:*",
+        "status": "TODO"
+      },
+      {
+        "actionKey": "BD+SN:*",
+        "status": "TODO"
+      }
+    ],
+    "blocked": [
+      {
+        "actionKey": "RC+SN:*",
+        "status": "BLOCKED",
+        "reason": "Corrected hit/rebound images do not exist yet; never approve using QA stub."
+      }
+    ],
+    "requiredPerAssetEvidence": [
+      "measures",
+      "times",
+      "screenshots",
+      "PC result",
+      "Xperia result",
+      "hit result",
+      "rebound result",
+      "post/neutral result",
+      "transition result",
+      "issues"
+    ],
+    "requiredChecks": [
+      "correct instrument contact",
+      "authoritative limbs",
+      "hit->rebound continuity",
+      "neutral return when timing allows",
+      "no unwanted neutral between close notes",
+      "no pose jump",
+      "no image disappearance",
+      "fixed-drum registration",
+      "no asset/init warnings",
+      "no console/page errors"
+    ],
+    "notes": [
+      "QA-only inventory interception must not modify public/live asset_inventory.json.",
+      "Any transition crossing the missing RC+SN event must remain BLOCKED until corrected RC+SN exists."
+    ]
   }
 }
