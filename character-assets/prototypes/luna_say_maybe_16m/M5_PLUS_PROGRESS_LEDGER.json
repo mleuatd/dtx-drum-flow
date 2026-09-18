@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:30:00+09:00",
+  "updatedAt": "2026-09-18T20:55:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -288,7 +288,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Infrastructure preparation complete. Resume product work with corrected RC+SN:R/L pair, then NIMG-013..023.",
+  "nextAction": "Production pipeline is ready. Actual product work resumes at NEXT_ASSET_QUEUE ASSETQ-001: corrected RC+SN:R/L hit, then rebound; image generation required.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -1160,309 +1160,448 @@
   },
   "productionPipelineSpeedup": {
     "id": "PRODUCTION_PIPELINE_SPEEDUP",
-    "status": "IN_PROGRESS",
+    "status": "DONE",
     "createdAt": "2026-09-18T20:30:00+09:00",
     "purpose": "Automate and standardize asset generation planning, candidate QA, staging, block QA, handoff, and fast/full production paths.",
     "queue": [
       {
         "id": "SPEED-001",
-        "status": "IN_PROGRESS",
+        "status": "DONE",
         "task": "Next asset queue",
         "startedAt": "2026-09-18T20:30:00+09:00",
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "5fd9fe41aa41c1baae422f1984e478fc305fb376",
+        "evidence": [
+          "46-file queue created; RC+SN:R/L hit then rebound are P0."
+        ],
+        "outputFiles": [
+          "character-assets/prototypes/luna_say_maybe_16m/NEXT_ASSET_QUEUE.json",
+          "tools/build-next-asset-queue.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-002",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Generation prompt builder",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "4a9bfe93e02e293edd002f85adf3c2701378a492",
+        "evidence": [
+          "Prompt builder reads mapping/contact/rejected/queue masters."
+        ],
+        "outputFiles": [
+          "tools/build-character-generation-prompt.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-003",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Rebound instruction derivation",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "8acd346c05259ddbcc18cc68d6f73d32aadc85f1",
+        "evidence": [
+          "Rebound instruction derives from accepted hit and next-note gap."
+        ],
+        "outputFiles": [
+          "tools/derive-rebound-instruction.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-004",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Candidate binary QA",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "45280ec3109d7f3b0fa509789c6250da2d42b9d4",
+        "evidence": [
+          "Binary/alpha/SHA/bbox/crop/background/diff QA implemented."
+        ],
+        "outputFiles": [
+          "tools/character_candidate_qa.py"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-005",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Fixed-drum composite preview",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "38cf23274ea319c5c2740a3b7d6488794c33b5c5",
+        "evidence": [
+          "Fixed-drum neutral/hit/rebound composites implemented."
+        ],
+        "outputFiles": [
+          "tools/build-character-qa-preview.py"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-006",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Neutral/hit/rebound comparison",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "38cf23274ea319c5c2740a3b7d6488794c33b5c5",
+        "evidence": [
+          "Vertical neutral/hit/rebound comparison artifact implemented."
+        ],
+        "outputFiles": [
+          "tools/build-character-qa-preview.py"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-007",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Image-diff metrics",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "7d9966972870da356370640c033dad91a41cc759",
+        "evidence": [
+          "Changed-pixel/bbox/centroid shift metrics implemented as WARN support."
+        ],
+        "outputFiles": [
+          "tools/character_image_diff_metrics.py"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-008",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Contact-point QA overlay",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "38cf23274ea319c5c2740a3b7d6488794c33b5c5",
+        "evidence": [
+          "Contact-point overlay uses INSTRUMENT_CONTACT_POINTS; unknown exact points remain relative."
+        ],
+        "outputFiles": [
+          "tools/build-character-qa-preview.py"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-009",
-        "status": "TODO",
+        "status": "DONE",
         "task": "One-step formal registration design",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "498a5f4e1c96b9abcddef481ef45f2b2121c3621",
+        "evidence": [
+          "Staging is single transfer record; registration planner derives downstream steps without changing live scope."
+        ],
+        "outputFiles": [
+          "character-assets/prototypes/luna_say_maybe_16m/STAGING_SCHEMA.json",
+          "tools/prepare-registration-plan.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-010",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Staging JSON generator",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "9b67258623ef1c95552de4d70f31f48ef29e0a1f",
+        "evidence": [
+          "Hit/rebound pair staging generator implemented."
+        ],
+        "outputFiles": [
+          "tools/build-staging-json.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-011",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Asset lifecycle definition",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "6c11b5f42114837d4d49ab852afd12451b8ea5fa",
+        "evidence": [
+          "Candidate->QA->formal->runtime->live lifecycle and reject terminal states defined."
+        ],
+        "outputFiles": [
+          "character-assets/prototypes/luna_say_maybe_16m/ASSET_LIFECYCLE.json"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-012",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Action-key completion template",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "f86b42b3f4419b31c541abfbde5bd7202c92dbaa",
+        "evidence": [
+          "15-step action-key completion flow with formal/runtime/DONE gates."
+        ],
+        "outputFiles": [
+          "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_COMPLETION_TEMPLATE.json"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-013",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Block start checklist generator",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "db0f040f868e58536395667e5524e905c631ee5c",
+        "evidence": [
+          "Block note/group/action/reuse/new/blocked/dependency checklist generator."
+        ],
+        "outputFiles": [
+          "tools/build-block-start-checklist.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-014",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Reuse candidate finder",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "cf9bff657568f612336956af4d21bbd6f0eba1fa",
+        "evidence": [
+          "Exact match may remain approved; non-exact suggestions are REUSE_CANDIDATE only."
+        ],
+        "outputFiles": [
+          "tools/find-reuse-candidates.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-015",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Reuse prohibition reason generator",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "cf9bff657568f612336956af4d21bbd6f0eba1fa",
+        "evidence": [
+          "Automatic mismatch/rejected/no-rebound/no-QA reasons emitted."
+        ],
+        "outputFiles": [
+          "tools/find-reuse-candidates.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-016",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Playwright QA sampling",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "095a677e46ce483e145a0f0589f0dab1aed75fa2",
+        "evidence": [
+          "First/middle/last/shortest/longest/boundary/high-risk sampling integrated into browser QA."
+        ],
+        "outputFiles": [
+          "tools/build-qa-sampling-and-risk.mjs",
+          "tools/luna-block-qa.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-017",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Transition risk scoring",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "15619787e27d49dee47158491d101d673980f96a",
+        "evidence": [
+          "Transition risk scoring includes short gaps, combo changes, cymbal/snare, tom/cymbal, limb changes and blocked adjacency."
+        ],
+        "outputFiles": [
+          "tools/build-qa-sampling-and-risk.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-018",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Screenshot naming",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "095a677e46ce483e145a0f0589f0dab1aed75fa2",
+        "evidence": [
+          "Screenshot names now encode measure/time/previous/current/next/phase/viewport with safe hash slugs."
+        ],
+        "outputFiles": [
+          "tools/luna-block-qa.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-019",
-        "status": "TODO",
+        "status": "DONE",
         "task": "QA summary generator",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "9cfb217c450d75a6f391f70f96dce15027d28830",
+        "evidence": [
+          "Machine-readable QA summary merger implemented."
+        ],
+        "outputFiles": [
+          "tools/build-qa-summary.mjs"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-020",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Next-chat command generator",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "d9f441b537215890b6058a843415755803900173",
+        "evidence": [
+          "Current-state-to-copy/paste command generator and generated command added."
+        ],
+        "outputFiles": [
+          "tools/build-next-chat-handoff.mjs",
+          "character-assets/prototypes/luna_say_maybe_16m/NEXT_CHAT_COMMAND.md"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-021",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Commit boundary rules",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "74b22e3ba1ee86a00a2b9aab07eebcb3404515e5",
+        "evidence": [
+          "Candidate/formal/mapping/runtime/QA/docs rollback boundaries defined."
+        ],
+        "outputFiles": [
+          "character-assets/prototypes/luna_say_maybe_16m/COMMIT_BOUNDARY_RULES.md"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-022",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Autonomy boundary rules",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "876feb61081cac86efb8fecb5a68068b0b4ba7ba",
+        "evidence": [
+          "No-confirmation safe operations and true stop conditions formalized."
+        ],
+        "outputFiles": [
+          "character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-023",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Failure pattern registry",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "bf03175d60a5ff1491473c21fffa955fc598eaf6",
+        "evidence": [
+          "10 known failure patterns encoded with detection/severity/action/evidence."
+        ],
+        "outputFiles": [
+          "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-024",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Fast Path",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "a231c1afb385be44dcefb21ff0877ec3866c4891",
+        "evidence": [
+          "Fast Path now validates + runs risk-aware browser QA + screenshots + summary for approved/mapped ranges."
+        ],
+        "outputFiles": [
+          "tools/luna-production-path.mjs",
+          ".github/workflows/luna-fast-path.yml"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
       },
       {
         "id": "SPEED-025",
-        "status": "TODO",
+        "status": "DONE",
         "task": "Full Path",
-        "startedAt": null,
-        "completedAt": null,
-        "commitSha": null,
-        "evidence": [],
-        "outputFiles": [],
+        "startedAt": "2026-09-18T20:30:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "519f65c0d3af3acd3915964a85b44c6156f60ee1",
+        "evidence": [
+          "Full Path detects missing/pending assets and blocks safely; browser QA runs only when ready."
+        ],
+        "outputFiles": [
+          "tools/luna-production-path.mjs",
+          ".github/workflows/luna-full-path.yml"
+        ],
         "blocker": null,
-        "nextAction": null
+        "nextAction": "Use output in production pipeline; no manual re-derivation needed."
+      },
+      {
+        "id": "SPEED-026",
+        "task": "Integrate risk-aware sampling into real Luna Block QA runner",
+        "status": "DONE",
+        "startedAt": "2026-09-18T20:48:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "095a677e46ce483e145a0f0589f0dab1aed75fa2",
+        "evidence": [
+          "Risk-aware plan is consumed by browser runner, not just generated as documentation.",
+          "M1-8 regression run 35340512012 SUCCESS."
+        ],
+        "outputFiles": [
+          "tools/luna-block-qa.mjs"
+        ],
+        "blocker": null,
+        "nextAction": "Reuse for Fast/Full Path QA."
+      },
+      {
+        "id": "SPEED-027",
+        "task": "Add one-command candidate-image QA workflow",
+        "status": "DONE",
+        "startedAt": "2026-09-18T20:50:00+09:00",
+        "completedAt": "2026-09-18T20:55:00+09:00",
+        "commitSha": "44942a8f6b50c1b2366fa02a51c9a263e20d6644",
+        "evidence": [
+          "Manual workflow installs Pillow and runs binary QA, composites/contact overlay and diff metrics."
+        ],
+        "outputFiles": [
+          ".github/workflows/luna-candidate-qa.yml"
+        ],
+        "blocker": null,
+        "nextAction": "Run when candidate hit/rebound paths exist."
       }
     ],
     "guardrails": [
@@ -1472,6 +1611,44 @@
       "NO_REJECTED_ASSET_REUSE",
       "NO_NEUTRAL_PSEUDO_PASS"
     ],
-    "resumeRule": "Read CURRENT_PROJECT_STATE.json and M5_PLUS_PROGRESS_LEDGER.json from latest main; continue first non-DONE SPEED item. Never redo DONE items unless validation proves drift."
+    "resumeRule": "Read CURRENT_PROJECT_STATE.json and M5_PLUS_PROGRESS_LEDGER.json from latest main; continue first non-DONE SPEED item. Never redo DONE items unless validation proves drift.",
+    "completedAt": "2026-09-18T20:55:00+09:00",
+    "validationEvidence": {
+      "contractValidate": {
+        "run": 35340578530,
+        "status": "SUCCESS"
+      },
+      "riskAwareBlockQa": {
+        "run": 35340512012,
+        "artifact": 10544374908,
+        "status": "SUCCESS"
+      },
+      "previousPipelineSmoke": {
+        "run": 35340402456,
+        "status": "SUCCESS"
+      }
+    },
+    "outputs": {
+      "nextAssetQueue": "character-assets/prototypes/luna_say_maybe_16m/NEXT_ASSET_QUEUE.json",
+      "promptBuilder": "tools/build-character-generation-prompt.mjs",
+      "reboundBuilder": "tools/derive-rebound-instruction.mjs",
+      "candidateQa": "tools/character_candidate_qa.py",
+      "preview": "tools/build-character-qa-preview.py",
+      "diffMetrics": "tools/character_image_diff_metrics.py",
+      "stagingSchema": "character-assets/prototypes/luna_say_maybe_16m/STAGING_SCHEMA.json",
+      "stagingBuilder": "tools/build-staging-json.mjs",
+      "registrationPlanner": "tools/prepare-registration-plan.mjs",
+      "lifecycle": "character-assets/prototypes/luna_say_maybe_16m/ASSET_LIFECYCLE.json",
+      "blockChecklist": "tools/build-block-start-checklist.mjs",
+      "reuseFinder": "tools/find-reuse-candidates.mjs",
+      "samplingRisk": "tools/build-qa-sampling-and-risk.mjs",
+      "qaSummary": "tools/build-qa-summary.mjs",
+      "nextChatGenerator": "tools/build-next-chat-handoff.mjs",
+      "fastWorkflow": ".github/workflows/luna-fast-path.yml",
+      "fullWorkflow": ".github/workflows/luna-full-path.yml",
+      "candidateQaWorkflow": ".github/workflows/luna-candidate-qa.yml",
+      "pipelineDoc": "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md"
+    },
+    "nextAction": "Production pipeline is ready. Actual product work resumes at NEXT_ASSET_QUEUE ASSETQ-001: corrected RC+SN:R/L hit, then rebound; image generation required."
   }
 }
