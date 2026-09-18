@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:27:00+09:00",
+  "updatedAt": "2026-09-18T22:49:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -74,9 +74,10 @@
       "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Missing formal hit; first appears M17, occurrences 31.",
       "nextAfterCompletion": "ASSETQ-004",
-      "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Depends on completion of earlier contiguous asset queue items through ASSETQ-002.",
-      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+      "status": "READY",
+      "blocker": null,
+      "nextAction": "Create LT:R hit for B17 using the pipeline-first generation/edit workflow.",
+      "dependencyStatus": "CLEARED_M9_16_DONE"
     },
     {
       "id": "ASSETQ-004",
@@ -91,8 +92,8 @@
       "reason": "Missing formal rebound; first appears M17, occurrences 31.",
       "nextAfterCompletion": "ASSETQ-005",
       "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 16 must be complete before public runtime reaches this action..",
-      "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
+      "blocker": "Waiting for ASSETQ-003 LT:R hit.",
+      "nextAction": "Create rebound only after ASSETQ-003 hit passes candidate/formal QA."
     },
     {
       "id": "ASSETQ-005",
@@ -766,5 +767,11 @@
       "blocker": "Depends on completion of earlier contiguous asset queue items through Earlier contiguous measures through 135 must be complete before public runtime reaches this action..",
       "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
     }
-  ]
+  ],
+  "liveRuntimeScope": {
+    "measureStart": 1,
+    "measureEnd": 16,
+    "status": "COMPLETE_LIVE_QA"
+  },
+  "nextAssetId": "ASSETQ-003"
 }
