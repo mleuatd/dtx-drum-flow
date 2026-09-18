@@ -13,7 +13,9 @@
     "Prefer cached/precomputed project context over repeatedly re-reading the same source files when freshness/digest is valid.",
     "Prefer incremental validation for normal pushes; use full validation for PRs or product/audio/chart/runtime changes.",
     "Never trade away required visual QA, rejected-asset safety, limb correctness, or contiguous runtime completion gates for speed.",
-    "Record each autonomous optimization with rationale, output, validation evidence, and whether it changes correctness coverage."
+    "Record each autonomous optimization with rationale, output, validation evidence, and whether it changes correctness coverage.",
+    "If the same character QA failure occurs twice, automatically replace the retry method instead of repeating the same prompt/edit path.",
+    "Prefer local repair when only one region fails; full regeneration is reserved for candidates that fail identity/camera/core-registration."
   ],
   "protectedGates": [
     "visual acceptance",
@@ -26,6 +28,7 @@
   "thresholds": {
     "manualOverrideRepeat": 2,
     "highPriorityAutoImplement": true,
-    "docsOrPipelineOnlyPreferFastValidation": true
+    "docsOrPipelineOnlyPreferFastValidation": true,
+    "sameCharacterFailureBeforeStrategyChange": 2
   }
 }
