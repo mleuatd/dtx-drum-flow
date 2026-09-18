@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:55:00+09:00",
+  "updatedAt": "2026-09-18T21:12:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -1650,5 +1650,63 @@
       "pipelineDoc": "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md"
     },
     "nextAction": "Production pipeline is ready. Actual product work resumes at NEXT_ASSET_QUEUE ASSETQ-001: corrected RC+SN:R/L hit, then rebound; image generation required."
+  },
+  "pipelineUsageEnforcement": {
+    "id": "PIPELINE_USAGE_ENFORCEMENT",
+    "status": "DONE",
+    "createdAt": "2026-09-18T21:12:00+09:00",
+    "completedAt": "2026-09-18T21:12:00+09:00",
+    "queue": [
+      {
+        "id": "USE-001",
+        "status": "DONE",
+        "task": "Make pipeline-first/no-manual-duplication policy explicit.",
+        "evidence": [
+          "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json",
+          "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md"
+        ]
+      },
+      {
+        "id": "USE-002",
+        "status": "DONE",
+        "task": "Add task-category dispatcher for mandatory existing tool/workflow routing.",
+        "evidence": [
+          "tools/production-pipeline-dispatcher.mjs"
+        ]
+      },
+      {
+        "id": "USE-003",
+        "status": "DONE",
+        "task": "Make generated next-chat commands require dispatcher-first execution.",
+        "evidence": [
+          "tools/build-next-chat-handoff.mjs updated"
+        ]
+      },
+      {
+        "id": "USE-004",
+        "status": "DONE",
+        "task": "Expose mandatory policy in CURRENT_PROJECT_STATE instructionsForNextChat.",
+        "evidence": [
+          "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json updated"
+        ]
+      },
+      {
+        "id": "USE-005",
+        "status": "DONE",
+        "task": "Create resumable ACTIVE_PIPELINE_SESSION plan with required tools.",
+        "evidence": [
+          "tools/start-pipeline-task.mjs"
+        ]
+      },
+      {
+        "id": "USE-006",
+        "status": "DONE",
+        "task": "Create compliance checker for required tool evidence/manual override.",
+        "evidence": [
+          "tools/check-pipeline-compliance.mjs"
+        ]
+      }
+    ],
+    "rule": "If a route exists, existing repository tool/workflow usage is mandatory-first. Skipping it requires MANUAL_OVERRIDE evidence in the ledger/session."
   }
 }
