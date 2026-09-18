@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:05:00+09:00",
+  "updatedAt": "2026-09-19T05:10:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -178,7 +178,8 @@
         "2026-09-19: M17 session verified ASSETQ-003 READY, baseline GitHub path/SHA, Dropbox formal neutral existence, playbook/failure/contact rules; stopped before generation to avoid prohibited fresh redraw.",
         "2026-09-19: baseline-parent access blocker RESOLVED via Dropbox Library -> materialize -> byte-identical working copy -> current conversation attachment. Verified SHA256 886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9.",
         "2026-09-19: ASSETQ-003 LT:R hit entered IN_PROGRESS.",
-        "LT:R hit attempt #1 QA FAIL: binary valid 1448x1086 RGBA transparent, but fresh-redraw/identity/camera/clothing/body/stool continuity failed; SHA 8533bd408a8a026890754374e4b230c208ab35710a74d90a7ba9f909eaccd2f0. Retry only LT:R hit from approved neutral."
+        "LT:R hit attempt #1 QA FAIL: binary valid 1448x1086 RGBA transparent, but fresh-redraw/identity/camera/clothing/body/stool continuity failed; SHA 8533bd408a8a026890754374e4b230c208ab35710a74d90a7ba9f909eaccd2f0. Retry only LT:R hit from approved neutral.",
+        "LT:R hit attempt #2 QA FAIL: binary valid, but second fresh redraw; edit_op=null and whole-character continuity failed. Next retry switches to explicit current-conversation baseline reference."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -213,7 +214,7 @@
         "oldUnresolved": 195
       },
       "blocker": null,
-      "nextAction": "Retry ASSETQ-003 LT:R hit as direct edit from approved neutral working copy; do not reuse attempt #1."
+      "nextAction": "Retry ASSETQ-003 LT:R hit using explicit current-conversation approved-neutral file reference."
     }
   ],
   "skippedOrRejected": [
@@ -275,6 +276,13 @@
       "sha256": "8533bd408a8a026890754374e4b230c208ab35710a74d90a7ba9f909eaccd2f0",
       "reason": "Fresh redraw / continuity failure vs approved neutral; edit_op=null; large whole-frame changes. Do not reuse.",
       "date": "2026-09-19"
+    },
+    {
+      "asset": "LT:R hit attempt #2",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "7be15ee7e39c25575ac8e563d0102038efc9edc576c994a02c996fab50ab7d49",
+      "reason": "Second fresh redraw / continuity failure; edit_op=null. Retry with explicit current-conversation baseline reference.",
+      "date": "2026-09-19"
     }
   ],
   "infrastructure": [
@@ -315,7 +323,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Retry ASSETQ-003 LT:R hit from approved neutral working copy; then QA before rebound.",
+  "nextAction": "Retry ASSETQ-003 LT:R hit using explicit current-conversation approved-neutral file reference.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
