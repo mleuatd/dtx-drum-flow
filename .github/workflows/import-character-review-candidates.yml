@@ -1,0 +1,102 @@
+name: Import character review candidates from Dropbox
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/candidate-staging/**/*.json"
+  workflow_dispatch:
+    inputs:
+      staging_path:
+        description: "Repository path to one candidate staging JSON"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  import-review-candidates:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Resolve staging JSON
+        id: stage
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            STAGING_PATH="${{ inputs.staging_path }}"
+          else
+            STAGING_PATH="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^character-assets/candidate-staging/.*\.json$' | head -n 1)"
+          fi
+          test -n "$STAGING_PATH"
+          test -f "$STAGING_PATH"
+          echo "path=$STAGING_PATH" >> "$GITHUB_OUTPUT"
+      - name: Download and verify review candidates
+        env:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+          STAGING_PATH: ${{ steps.stage.outputs.path }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, urllib.request
+          from PIL import Image
+
+          stage_path=pathlib.Path(os.environ["STAGING_PATH"])
+          stage=json.loads(stage_path.read_text(encoding="utf-8"))
+          if stage.get("status")=="IMPORTED_REVIEW_ONLY":
+              print("Already imported")
+              raise SystemExit(0)
+          token=os.environ.get("DROPBOX_ACCESS_TOKEN")
+          if not token:
+              raise SystemExit("DROPBOX_ACCESS_TOKEN is required")
+          for item in stage.get("assets",[]):
+              dropbox_path=item["dropboxPath"]
+              target=pathlib.Path(item["githubCandidatePath"])
+              req=urllib.request.Request(
+                  "https://content.dropboxapi.com/2/files/download",
+                  method="POST",
+                  headers={
+                      "Authorization":f"Bearer {token}",
+                      "Dropbox-API-Arg":json.dumps({"path":dropbox_path}),
+                  },
+              )
+              with urllib.request.urlopen(req) as r:
+                  raw=r.read()
+              sha=hashlib.sha256(raw).hexdigest()
+              if sha != item["sha256"]:
+                  raise SystemExit(f"sha mismatch for {dropbox_path}: {sha}")
+              tmp=pathlib.Path("/tmp/candidate.png")
+              tmp.write_bytes(raw)
+              im=Image.open(tmp)
+              if im.format!="PNG":
+                  raise SystemExit("candidate is not PNG")
+              rgba=im.convert("RGBA")
+              if rgba.size!=(int(item["width"]),int(item["height"])):
+                  raise SystemExit(f"size mismatch: {rgba.size}")
+              if rgba.getchannel("A").getextrema()[0]>=255:
+                  raise SystemExit("candidate has no transparency")
+              target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_bytes(raw)
+              print("review candidate verified",target,sha)
+          stage["status"]="IMPORTED_REVIEW_ONLY"
+          stage["runtimeMapped"]=False
+          stage["manifestRegistered"]=False
+          stage_path.write_text(json.dumps(stage,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          PY
+      - name: Commit review-only candidates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/candidates character-assets/candidate-staging
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "assets: import character review candidates"
+          git pull --rebase origin main
+          git push origin HEAD:main
