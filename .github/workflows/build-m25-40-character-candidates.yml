@@ -23,6 +23,7 @@ jobs:
           git add character-assets/review-candidates/m25_40 character-assets/generated-qa/m25_40
           git diff --cached --quiet && exit 0
           git commit -m "assets: build M25-40 review candidates"
+          git pull --rebase origin main
           git push
       - uses: actions/upload-artifact@v4
         if: always()
