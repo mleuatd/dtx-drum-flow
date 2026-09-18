@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:50:00+09:00",
+  "updatedAt": "2026-09-19T07:15:00+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -325,7 +325,7 @@
     {
       "taskId": "OWQ-018",
       "sourceQueue": "M17_148",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "task": "Create later missing character pairs for 22 NEW_IMAGE_REQUIRED action keys.",
       "dependency": "M9_16 DONE and NEXT_ASSET_QUEUE order",
       "requiresImageGeneration": true,
@@ -346,7 +346,12 @@
         "Rejected image-gen SHAs: 8533bd40..., 7be15ee7..., 6fcd0e1c..., f9efcaa8....",
         "Rejected local-edit SHAs: 5bbd18c5..., dd20a559....",
         "Runtime scope intentionally remains M1-16.",
-        "2026-09-19 pipeline fix: adaptive retry controller added; edit_op=null is no longer standalone auto-reject; repeated same strategy is prohibited."
+        "2026-09-19 pipeline fix: adaptive retry controller added; edit_op=null is no longer standalone auto-reject; repeated same strategy is prohibited.",
+        "ASSETQ-003 LT:R hit formal QA PASS; SHA b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72.",
+        "ASSETQ-004 LT:R rebound formal QA PASS; SHA d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf.",
+        "Build M17 LT R pair workflow run 35394228101 SUCCESS.",
+        "Formal pair merged to main commit 4f177525086cc777ded5c4af7e7b316d7992d322.",
+        "Next READY is ASSETQ-005 LT:L hit."
       ]
     },
     {
