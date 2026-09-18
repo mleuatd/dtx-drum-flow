@@ -1,0 +1,13 @@
+import fs from "node:fs/promises";
+const base="character-assets/prototypes/luna_say_maybe_16m";
+const read=async p=>JSON.parse(await fs.readFile(p,"utf8"));
+const actionKey=process.argv[2],hit=process.argv[3],nextGap=process.argv[4]?Number(process.argv[4]):null;
+if(!actionKey||!hit)throw new Error("usage: node tools/derive-rebound-instruction.mjs <ACTION_KEY> <accepted-hit-path> [next-gap-seconds] [out.md]");
+const contacts=await read(base+"/INSTRUMENT_CONTACT_POINTS.json");const transitions=await read(base+"/POSE_TRANSITION_RULES.json");
+const parts=actionKey.split(":")[0].split("+"),limbs=actionKey.split(":")[1].split("/");
+const rapid=Number.isFinite(nextGap)&&nextGap<=transitions.timings.rapidRepeatMaxGapSeconds;
+const lines=["# Rebound Derivation Instruction","", "Action key: "+actionKey,"Accepted hit source: "+hit,"Neutral baseline: character-assets/layers/character/base/neutral.png","", "Create the rebound by editing the accepted hit, not by redrawing from scratch.","Preserve character identity, camera, canvas registration, stool, clothing, hair mass and non-essential body regions.", rapid?"The next note is rapid/close. Use restrained rebound; do not insert full neutral.":"Partially recover striking limbs toward neutral; runtime may return to neutral after rebound if next gap permits.","","Authoritative moving limbs:"];
+for(let i=0;i<parts.length;i++)lines.push("- "+parts[i]+" / "+limbs[i]+": recover away from "+(contacts.parts[parts[i]]?.target||parts[i])+" while preserving continuity.");
+lines.push("","Forbidden: camera jump, stool/body translation, mirrored pose, different character, drum hardware in character layer.","Timing reference: hitEnd="+transitions.timings.hitEndSeconds+"s, reboundEnd="+transitions.timings.reboundEndSeconds+"s, rapidGap<="+transitions.timings.rapidRepeatMaxGapSeconds+"s.");
+const safe=actionKey.toLowerCase().replace(/\+/g,"_").replace(/[:/]/g,"_").replace(/[^a-z0-9_]+/g,"_");
+const out=process.argv[5]||base+"/REBOUND_INSTRUCTION_"+safe+".md";await fs.writeFile(out,lines.join("\n")+"\n");console.log(JSON.stringify({actionKey,hit,nextGap,rapid,out},null,2));
