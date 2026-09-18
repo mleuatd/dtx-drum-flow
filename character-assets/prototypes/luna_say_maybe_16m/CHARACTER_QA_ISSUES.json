@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 16
   },
-  "updatedAt": "2026-09-18T16:40:00+09:00",
+  "updatedAt": "2026-09-18T16:58:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -93,13 +93,21 @@
       "assetKey": "bd_sn_hit",
       "path": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "status": "READY_FOR_REVIEW",
-      "note": "First current-chat attempt was rejected because drum kit objects leaked into character layer. Corrected character-only candidate generated and passed basic layer/content inspection; still requires fixed-drum contact/transition QA before registration."
+      "note": "First current-chat attempt was rejected because drum kit objects leaked into character layer. Corrected character-only candidate generated and passed basic layer/content inspection; still requires fixed-drum contact/transition QA before registration.",
+      "visualQaPassed": true,
+      "runtimeQaPassed": false,
+      "visualQaRun": 35321151121,
+      "visualQaArtifact": 10537157014
     },
     {
       "assetKey": "bd_sn_rebound",
       "path": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
       "status": "READY_FOR_REVIEW",
-      "note": "First current-chat attempt was rejected because drum kit objects leaked into character layer. Corrected character-only candidate generated and passed basic layer/content inspection; still requires fixed-drum contact/transition QA before registration."
+      "note": "First current-chat attempt was rejected because drum kit objects leaked into character layer. Corrected character-only candidate generated and passed basic layer/content inspection; still requires fixed-drum contact/transition QA before registration.",
+      "visualQaPassed": true,
+      "runtimeQaPassed": false,
+      "visualQaRun": 35321151121,
+      "visualQaArtifact": 10537157014
     },
     {
       "assetKey": "rc_sn_hit",
@@ -261,7 +269,7 @@
     {
       "id": "CHAR-QA-0006",
       "createdAt": "2026-09-18T15:45:00+09:00",
-      "updatedAt": "2026-09-18T16:40:00+09:00",
+      "updatedAt": "2026-09-18T16:58:00+09:00",
       "completedAt": null,
       "status": "IN_PROGRESS",
       "severity": "high",
@@ -284,7 +292,11 @@
         "Rejected wrong-direction RC+SN: hit SHA256 bd43dfc7ee0fd3013e94e18e866e623ff1b79d3b8ece8bf6d442d943f847d5c5; rebound SHA256 27431356d780878932c2d0200053ef0454116c16626c9a097e04aca9cb00ca26."
       ],
       "verification": [
-        "Historical BD+SN and RC+SN candidates rejected and not added to refreshed runtime mapping."
+        "Historical BD+SN and RC+SN candidates rejected and not added to refreshed runtime mapping.",
+        "Refreshed BD+SN hit/rebound were imported review-only to GitHub in commit 36a4c7706f2110aa9040f3dedcdf1fff968af8b0; runtimeMapped=false and manifestRegistered=false.",
+        "Visual QA run 35321151121 succeeded; artifact 10537157014 composites the GitHub candidate binaries over the fixed drum.",
+        "BD+SN review candidate alpha bounds: hit=(87,24)-(1179,1086), rebound=(57,26)-(1327,1059), compared with neutral=(57,23)-(1179,1063).",
+        "Visual inspection: current BD+SN pair remains within refreshed drawing family and no drum hardware is baked into the character PNG. Runtime transition QA is still pending and the overall issue remains open because RC+SN is not yet corrected."
       ],
       "blocker": "Refreshed image creation requires direct editing of the exact approved baseline. The current repository artifact can be inspected here, but is not accepted as an editable source by the available image-editing interface in this same workflow; generating a new look-alike is prohibited."
     }
