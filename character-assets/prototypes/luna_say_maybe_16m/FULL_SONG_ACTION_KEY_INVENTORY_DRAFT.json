@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-18T17:10:00+09:00",
+  "authority": "PART_COMBINATION_INVENTORY_ONLY_NO_LIMB_GUESSING",
+  "scope": {
+    "measureStart": 17,
+    "measureEnd": 148,
+    "noteCount": 2014,
+    "groupCount": 1403
+  },
+  "description": "Counts simultaneous part combinations only. Does not assign hands/feet and must not be used as limb authority.",
+  "combinations": [
+    {
+      "partKey": "SN",
+      "count": 363,
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "unresolvedGroups": 159,
+      "sampleTimes": [
+        31.261345,
+        31.585086,
+        31.800914,
+        32.016741,
+        33.527532
+      ]
+    },
+    {
+      "partKey": "BD+HH",
+      "count": 224,
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        36.225374,
+        36.441201,
+        37.304511,
+        37.951993,
+        38.16782
+      ]
+    },
+    {
+      "partKey": "HH",
+      "count": 209,
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        36.872856,
+        37.088683,
+        37.736165,
+        38.599475,
+        38.815302
+      ]
+    },
+    {
+      "partKey": "HH+SN",
+      "count": 143,
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        36.657029,
+        37.520338,
+        38.383647,
+        39.246957,
+        40.110266
+      ]
+    },
+    {
+      "partKey": "BD",
+      "count": 104,
+      "firstMeasure": 17,
+      "lastMeasure": 143,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        31.045518,
+        32.987964,
+        45.074295,
+        46.800914,
+        47.232568
+      ]
+    },
+    {
+      "partKey": "BD+RC",
+      "count": 58,
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        32.772137,
+        44.858468,
+        45.721777,
+        46.585086,
+        48.311705
+      ]
+    },
+    {
+      "partKey": "LT",
+      "count": 53,
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        32.124655,
+        32.232568,
+        32.448396,
+        68.815302,
+        115.002353
+      ]
+    },
+    {
+      "partKey": "RC+SN",
+      "count": 33,
+      "firstMeasure": 25,
+      "lastMeasure": 141,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        45.290122,
+        47.016741,
+        47.88005,
+        48.74336,
+        49.606669
+      ]
+    },
+    {
+      "partKey": "RD",
+      "count": 33,
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        33.419619,
+        33.635446,
+        34.282928,
+        35.146237,
+        35.362065
+      ]
+    },
+    {
+      "partKey": "HT",
+      "count": 30,
+      "firstMeasure": 25,
+      "lastMeasure": 78,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        46.261345,
+        52.736165,
+        52.844079,
+        53.059906,
+        80.362065
+      ]
+    },
+    {
+      "partKey": "BD+RD",
+      "count": 29,
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        33.851273,
+        34.498755,
+        34.714583,
+        35.577892,
+        111.11746
+      ]
+    },
+    {
+      "partKey": "BD+SN",
+      "count": 25,
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "unresolvedGroups": 20,
+      "sampleTimes": [
+        31.477173,
+        31.908827,
+        46.153432,
+        68.16782,
+        68.599475
+      ]
+    },
+    {
+      "partKey": "RD+SN",
+      "count": 23,
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        33.203791,
+        34.067101,
+        34.93041,
+        35.793719,
+        111.333288
+      ]
+    },
+    {
+      "partKey": "FT",
+      "count": 17,
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        32.556309,
+        32.664223,
+        46.369259,
+        46.477173,
+        50.254151
+      ]
+    },
+    {
+      "partKey": "BD+HH+SN",
+      "count": 14,
+      "firstMeasure": 47,
+      "lastMeasure": 68,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        83.275734,
+        84.139043,
+        85.002353,
+        85.865662,
+        86.728971
+      ]
+    },
+    {
+      "partKey": "FT+SN",
+      "count": 13,
+      "firstMeasure": 28,
+      "lastMeasure": 86,
+      "unresolvedGroups": 7,
+      "sampleTimes": [
+        50.469978,
+        50.901633,
+        51.11746,
+        51.333288,
+        108.959187
+      ]
+    },
+    {
+      "partKey": "BD+FT",
+      "count": 9,
+      "firstMeasure": 105,
+      "lastMeasure": 141,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        184.498755,
+        185.362065,
+        236.728971,
+        236.944799,
+        237.160626
+      ]
+    },
+    {
+      "partKey": "BD+HT",
+      "count": 7,
+      "firstMeasure": 29,
+      "lastMeasure": 72,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        52.196597,
+        52.628252,
+        79.822496,
+        95.362065,
+        96.225374
+      ]
+    },
+    {
+      "partKey": "LT+SN",
+      "count": 4,
+      "firstMeasure": 46,
+      "lastMeasure": 77,
+      "unresolvedGroups": 1,
+      "sampleTimes": [
+        81.11746,
+        81.98077,
+        120.829691,
+        135.937604
+      ]
+    },
+    {
+      "partKey": "BD+FT+SN",
+      "count": 3,
+      "firstMeasure": 105,
+      "lastMeasure": 106,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        183.419619,
+        184.282928,
+        185.146237
+      ]
+    },
+    {
+      "partKey": "BD+LT",
+      "count": 3,
+      "firstMeasure": 17,
+      "lastMeasure": 140,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        32.340482,
+        127.520338,
+        244.714583
+      ]
+    },
+    {
+      "partKey": "BD+RC+SN",
+      "count": 3,
+      "firstMeasure": 68,
+      "lastMeasure": 72,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        120.398036,
+        125.577892,
+        126.657029
+      ]
+    },
+    {
+      "partKey": "RC",
+      "count": 3,
+      "firstMeasure": 26,
+      "lastMeasure": 29,
+      "unresolvedGroups": 0,
+      "sampleTimes": [
+        47.448396,
+        49.175014,
+        51.764942
+      ]
+    }
+  ]
+}
