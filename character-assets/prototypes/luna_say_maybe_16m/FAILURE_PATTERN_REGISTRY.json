@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T20:45:00+09:00",
+  "patterns": [
+    {
+      "id": "FAIL-RC-WRONG-SIDE",
+      "name": "wrong-side RC",
+      "severity": "HIGH",
+      "detection": "RC target appears screen-left or matches LC/HH region instead of screen-right RC",
+      "automaticAction": "REJECT candidate; never register",
+      "qaAction": "Compare against INSTRUMENT_CONTACT_POINTS RC and fixed-drum composite",
+      "neverUse": true,
+      "evidence": "M9-16 RC+SN attempts"
+    },
+    {
+      "id": "FAIL-RD-WRONG-SIDE",
+      "name": "RD wrong-side",
+      "severity": "HIGH",
+      "detection": "Ride strike occurs on screen-left/incorrect cymbal",
+      "automaticAction": "REJECT candidate",
+      "qaAction": "Compare to approved RD:R refresh pair and RD contact point",
+      "neverUse": true,
+      "evidence": "M5-8 earlier RD attempt"
+    },
+    {
+      "id": "FAIL-FRONT-CHAR",
+      "name": "front-facing new character",
+      "severity": "CRITICAL",
+      "detection": "identity/camera no longer matches approved three-quarter-back baseline",
+      "automaticAction": "REJECT and prohibit registration",
+      "qaAction": "Identity/camera/stool visual comparison",
+      "neverUse": true,
+      "evidence": "RD/RC+SN redraw failures"
+    },
+    {
+      "id": "FAIL-EDIT-NULL",
+      "name": "edit_op null / fresh redraw",
+      "severity": "CRITICAL",
+      "detection": "generation metadata or visible result indicates fresh redraw rather than baseline edit",
+      "automaticAction": "REJECT",
+      "qaAction": "Require exact baseline-bound edit",
+      "neverUse": true,
+      "evidence": "latest RC+SN failed regeneration"
+    },
+    {
+      "id": "FAIL-DRUM-LEAK",
+      "name": "drum hardware leak",
+      "severity": "HIGH",
+      "detection": "character layer contains drum/cymbal/pedal pixels",
+      "automaticAction": "REJECT formal save",
+      "qaAction": "Transparent-layer inspection + fixed-drum composite",
+      "neverUse": true,
+      "evidence": "BD+SN first attempt"
+    },
+    {
+      "id": "FAIL-STOOL-SHIFT",
+      "name": "stool shift",
+      "severity": "HIGH",
+      "detection": "stool/body registration moves between neutral/hit/rebound",
+      "automaticAction": "WARN/REJECT after visual confirmation",
+      "qaAction": "alpha bbox/centroid metrics + overlay",
+      "neverUse": false,
+      "evidence": "known transition risk"
+    },
+    {
+      "id": "FAIL-CAMERA-JUMP",
+      "name": "camera jump",
+      "severity": "HIGH",
+      "detection": "large whole-frame diff / body scale or camera orientation change",
+      "automaticAction": "WARN then visual rejection if confirmed",
+      "qaAction": "diff metrics + neutral/hit/rebound comparison",
+      "neverUse": false,
+      "evidence": "historical character variants"
+    },
+    {
+      "id": "FAIL-DROPBOX-ALIAS",
+      "name": "misleading Dropbox alias",
+      "severity": "CRITICAL",
+      "detection": "filename suggests approved SHA but bytes/SHA differ",
+      "automaticAction": "NEVER_USE exact path; verify SHA before import",
+      "qaAction": "Registry/path/SHA check",
+      "neverUse": true,
+      "evidence": "bd_sn misleading aliases documented in ledger"
+    },
+    {
+      "id": "FAIL-REJECT-REUSE",
+      "name": "rejected candidate reused",
+      "severity": "CRITICAL",
+      "detection": "GitHub/Dropbox path or SHA matches REJECTED_ASSET_REGISTRY",
+      "automaticAction": "Fail validation/runtime registration",
+      "qaAction": "deny-list lookup",
+      "neverUse": true,
+      "evidence": "general safeguard"
+    },
+    {
+      "id": "FAIL-SNR-REBOUND",
+      "name": "SN:R rebound jump",
+      "severity": "MEDIUM",
+      "detection": "deprecated sn_r_rebound causes visual discontinuity",
+      "automaticAction": "Use approved runtime policy holding sn_r_hit",
+      "qaAction": "Do not remap deprecated rebound without new QA",
+      "neverUse": false,
+      "evidence": "asset_inventory qa.snRReboundRuntimePolicy"
+    },
+    {
+      "id": "FAIL-NATURALWIDTH-RACE",
+      "name": "naturalWidth race in QA harness",
+      "severity": "MEDIUM",
+      "detection": "naturalWidth=0 immediately after src swap despite visible image shortly after",
+      "automaticAction": "Wait for image dimensions/load before classifying failure",
+      "qaAction": "Re-run after load wait",
+      "neverUse": false,
+      "evidence": "M9-16 existing-asset QA first run"
+    }
+  ]
+}
