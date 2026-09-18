@@ -155,7 +155,7 @@
     "done": false
   },
   "requiredNext": "Resume directly at HT:R hit once the exact verified Neutral can be used as the image-edit source. Do not substitute or redraw.",
-  "updatedAt": "2026-09-19T08:18:00+09:00",
+  "updatedAt": "2026-09-19T08:30:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -193,5 +193,12 @@
       "newFinding": "Alternative relays were evaluated. GitHub Actions/artifacts, Dropbox, Files, and container can preserve or verify the exact PNG, but none can expose that stored PNG as a native source image to the current image-edit operation. Generating without the source or using the known near-match would violate the approved-source requirement.",
       "action": "Do not repeat transport analysis. Resume directly at HT:R hit if an exact-byte native image source becomes available."
     }
+  },
+  "infrastructurePreparation": {
+    "status": "READY",
+    "pipeline": "character-assets/CHARACTER_ASSET_PIPELINE.md",
+    "transactionTemplate": "character-assets/config/character_pair_transaction.template.json",
+    "preparedAt": "2026-09-19T08:30:00+09:00",
+    "policy": "Use generic candidate/import/QA/runtime infrastructure; avoid per-measure workflow proliferation. Persist each action pair as a resumable transaction."
   }
 }
