@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "status": "READY_FOR_FORMAL_IMPORT",
+  "actionKey": "FT:L",
+  "block": "B17",
+  "measure": 17,
+  "createdAt": "2026-09-19T06:58:00+09:00",
+  "method": "approved neutral preserved; deterministic local left-stick edit using LT:L-proven grip/mask to recalibrated FT contact",
+  "contactPoint": {
+    "hit": {
+      "x": 1165,
+      "y": 535
+    },
+    "rebound": {
+      "x": 1095,
+      "y": 475
+    }
+  },
+  "assets": [
+    {
+      "phase": "hit",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_l_hit_refresh_20260919.png",
+      "formalPath": "character-assets/layers/character/ft/hit_l_refresh.png",
+      "sha256": "c11c71cec4dbee4cc6f7ec3ccbae1646e677887a6a6ff45fb188c97967d5b863",
+      "width": 1448,
+      "height": 1086,
+      "downloadUrl": "https://uc381baa7ec0c35337a5f9be816f.dl.dropboxusercontent.com/cd/0/get/DIa4QmbDW5CYX6E3Uub6wWqzUjvnncSKVz4lt68-onYNH4k8TYHbD3JauLFFV_xiZhbDYqz0Ov87Ssczivqr3ckVHlWFzGRmcHtsX1cMGXlqTtYBElWTlNwm3CG-cIIXM1RYkEhLirJblLNkw2vNkeEMmA5xFF10bDVJZ_VR7LHxKA/file?c_luid=e8a8ea13"
+    },
+    {
+      "phase": "rebound",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_l_rebound_refresh_20260919.png",
+      "formalPath": "character-assets/layers/character/ft/rebound_l_refresh.png",
+      "sha256": "3f22c7e2ec10e9d63fbbc200ddef2a8d8af31f8d342d0eb76f304d1a9a9a2b4c",
+      "width": 1448,
+      "height": 1086,
+      "downloadUrl": "https://uc8510dce9652200e6f6fa239ec6.dl.dropboxusercontent.com/cd/0/get/DIYYy2gnoSPfCsOnGM_QbqZ13PkDpp0_9Rdo7T1ESFF95mHh_QIfMUUZDISuV5pbvvVe8ve_4DzrN761wm5Kyw-7CZ3Zm0LQRNCFGczN_ECfYMoHkP2AMtC0-uXnUbY_GUhONOzebNEgH0jZYZuzbWlBroXjuPm1OE5xyaruE01ADw/file?c_luid=e8a8ea13"
+    }
+  ],
+  "qa": {
+    "binary": "PASS_LOCAL",
+    "visual": "PASS_FIXED_DRUM_COMPOSITE",
+    "hitChangedPixelRatio": 0.006803694433421853,
+    "reboundChangedPixelRatio": 0.006093373218155734
+  },
+  "runtimeMapped": false,
+  "manifestRegistered": false
+}
