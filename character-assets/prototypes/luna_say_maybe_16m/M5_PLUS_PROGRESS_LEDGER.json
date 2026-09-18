@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:51:00+09:00",
+  "updatedAt": "2026-09-19T04:52:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -163,7 +163,7 @@
     {
       "id": "M17_148",
       "measures": "17-148",
-      "status": "BLOCKED_UPSTREAM_AND_IMAGE_REQUIRED",
+      "status": "BLOCKED_IMAGE_PARENT_ACCESS",
       "chart": {
         "notes": 2014,
         "lastMeasure": 148,
@@ -174,7 +174,8 @@
         "Full-song action-key inventory completed",
         "Full-song asset classification completed",
         "Implementation blocks 9-148 planned",
-        "Reusable-asset QA schedule prepared"
+        "Reusable-asset QA schedule prepared",
+        "2026-09-19: M17 session verified ASSETQ-003 READY, baseline GitHub path/SHA, Dropbox formal neutral existence, playbook/failure/contact rules; stopped before generation to avoid prohibited fresh redraw."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -208,8 +209,8 @@
         "status": "SUPERSEDED_HISTORICAL",
         "oldUnresolved": 195
       },
-      "blocker": "M9-16 contiguous block is not complete; later block also requires 22 new action-key image pairs.",
-      "nextAction": "Finish M9-16 first, then follow NEXT_ASSET_QUEUE order for later missing pairs."
+      "blocker": "M9-16 is complete. Current blocker is external: ASSETQ-003 LT:R requires direct editing from the approved neutral baseline, but the current image editor cannot consume GitHub/Dropbox connector preview bytes as an editable parent image.",
+      "nextAction": "Resume with ASSETQ-003 LT:R hit only when approved neutral PNG is available as a usable current-conversation image input; after hit PASS, continue ASSETQ-004 rebound."
     }
   ],
   "skippedOrRejected": [
@@ -304,7 +305,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "M9-16 closed. Next READY asset is ASSETQ-003 LT:R hit for M17; do not start M17 image generation unless explicitly requested.",
+  "nextAction": "External blocker recorded. Resume at ASSETQ-003 LT:R hit with approved neutral as direct-edit parent; do not text-generate or substitute neutral.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -1895,5 +1896,22 @@
     "liveQaRun": 35351134562,
     "liveQaArtifact": 10549284671,
     "screenshotVisualQa": "PASS"
-  }
+  },
+  "sessionBlockers": [
+    {
+      "at": "2026-09-19T04:52:00+09:00",
+      "id": "M17-IMAGE-PARENT-ACCESS",
+      "status": "OPEN",
+      "blocker": "Approved neutral exists in GitHub/Dropbox but is not available to the current image editor as an editable input.",
+      "completed": [
+        "Latest main/state/queue verified",
+        "M1-16 COMPLETE_LIVE_QA confirmed",
+        "ASSETQ-003 LT:R hit confirmed READY",
+        "Baseline path/SHA and Dropbox file verified",
+        "Generation playbook/failure/contact rules loaded"
+      ],
+      "resumeUnit": "ASSETQ-003 LT:R hit",
+      "nextReady": "ASSETQ-003 LT:R hit"
+    }
+  ]
 }
