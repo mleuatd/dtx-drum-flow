@@ -12,12 +12,12 @@ const qaInventory=structuredClone(inventory);
 qaInventory.runtimeScope=structuredClone(plan.targetRuntimeScope);
 qaInventory.runtimeScope.expectedKeys=qaInventory.runtimeScope.expectedKeys.map(k=>k==="BD+SN:*"?"BD+SN:RF/L":k==="RC+SN:*"?"RC+SN:R/L":k);
 for(const [id,frame] of Object.entries(plan.requiredFramesToAdd)){
-  if(id.startsWith("bd_sn_")) qaInventory.requiredFrames[id]=frame;
+  if(id.startsWith("bd_sn_")||id.startsWith("rc_sn_")) qaInventory.requiredFrames[id]=frame;
 }
 qaInventory.runtimeFrameMap["BD+SN:*"]="bd_sn_hit_refresh";
 qaInventory.runtimePhaseFrameMap["BD+SN:*"]={prep:"neutral",hit:"bd_sn_hit_refresh",rebound:"bd_sn_rebound_refresh"};
-qaInventory.runtimeFrameMap["RC+SN:*"]="neutral";
-qaInventory.runtimePhaseFrameMap["RC+SN:*"]={prep:"neutral",hit:"neutral",rebound:"neutral"};
+qaInventory.runtimeFrameMap["RC+SN:*"]="rc_sn_r_l_hit_refresh";
+qaInventory.runtimePhaseFrameMap["RC+SN:*"]={prep:"neutral",hit:"rc_sn_r_l_hit_refresh",rebound:"rc_sn_r_l_rebound_refresh"};
 
 const allEvents=plan.m9_16QaEvents;
 const events=allEvents;
@@ -99,7 +99,6 @@ for(const vp of viewports){
 
   for(let globalIndex=0;globalIndex<allEvents.length;globalIndex++){
     const ev=allEvents[globalIndex];
-    if(ev.key==="RC+SN:*")continue;
     const prev=allEvents[globalIndex-1]||null;
     const next=allEvents[globalIndex+1]||null;
     const crossesMissingNeighbor=prev?.key==="RC+SN:*"||next?.key==="RC+SN:*";
