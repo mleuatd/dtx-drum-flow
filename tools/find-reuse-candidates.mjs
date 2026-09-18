@@ -1,0 +1,7 @@
+import fs from "node:fs/promises";
+const base="character-assets/prototypes/luna_say_maybe_16m";const target=process.argv[2];if(!target)throw new Error("usage: node tools/find-reuse-candidates.mjs <ACTION_KEY>");
+const read=async p=>JSON.parse(await fs.readFile(p,"utf8"));const map=await read(base+"/ACTION_KEY_ASSET_MAP.json");const rejected=await read(base+"/REJECTED_ASSET_REGISTRY.json");
+const [parts,limbs]=target.split(":");const pp=parts.split("+"),ll=limbs.split("/");
+const reasons=(e)=>{const out=[];const [ep,el]=e.actionKey.split(":");if(ep!==parts)out.push("combo/instrument mismatch");if(el!==limbs)out.push("limb mismatch");if(e.neverUse)out.push("rejected/never-use");if(!e.reboundAsset)out.push("no rebound");if(!String(e.qaStatus).includes("APPROVED")&&!String(e.qaStatus).includes("PASS"))out.push("no approved QA");return out};
+const candidates=map.entries.map(e=>({actionKey:e.actionKey,classification:e.actionKey===target&&e.classification==="REUSE_APPROVED"?"REUSE_APPROVED":"REUSE_CANDIDATE",hit:e.hitAsset,rebound:e.reboundAsset,qaStatus:e.qaStatus,reasons:reasons(e)})).sort((a,b)=>a.reasons.length-b.reasons.length||a.actionKey.localeCompare(b.actionKey));
+console.log(JSON.stringify({target,candidates},null,2));
