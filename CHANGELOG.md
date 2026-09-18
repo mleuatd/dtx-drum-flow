@@ -1,3 +1,10 @@
+## 2026-09-18 — Luna implementation infrastructure preparation
+- Added formal asset naming rules (human + machine-readable), a 30-key action-to-asset mapping master, character generation/edit spec, 11-part instrument contact master, pose transition rules, QA checklist, rejected-asset deny registry, and block completion gates.
+- Added one-command `Luna Block QA` workflow/runner with measure range and optional exact actionKey input. It reports missing/BLOCKED assets without substituting neutral, and produces PC/Xperia screenshots plus summary JSON when a range is QA-ready.
+- Added backward-compatible exact limb-aware combo mapping support before wildcard fallback, preventing future collisions such as `BD+SN:RF/L` vs `BD+SN:RF/R` while preserving current M1-8 behavior.
+- Extended planning validation to enforce master coverage, naming, contact coverage, rejected-runtime safety and live-scope invariants.
+- No character images were generated or overwritten; live runtimeScope remains measures 1-8.
+
 > Current-state note (2026-09-18 19:41 JST): this file is historical chronology, not the current-state authority. For current status use `character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json`. Older entries describing runtime 1-4, M5-8 blockers, unfinished RD, or unresolved full-song limbs are superseded by later entries.
 
 ## 2026-09-18 — Luna full-song limb assignment authority
