@@ -23,17 +23,17 @@ No character generation should start until the approved neutral baseline, author
 
 ## Main flow
 1. `tools/build-next-asset-queue.mjs` selects production order.
-2. `tools/build-character-generation-prompt.mjs` creates the exact hit/rebound edit instruction.
-3. For rebound, `tools/derive-rebound-instruction.mjs` derives motion from the accepted hit.
-4. Candidate receives `tools/character_candidate_qa.py`.
-5. `tools/build-character-qa-preview.py` makes fixed-drum composites, vertical neutral/hit/rebound review, and contact overlay.
-6. `tools/character_image_diff_metrics.py` flags suspicious whole-frame/registration changes.
-7. `tools/build-staging-json.mjs` creates the single pair transfer record.
-8. `tools/prepare-registration-plan.mjs` produces the formal-registration step plan.
-9. ACTION_KEY_ASSET_MAP / manifest / inventory / ledger are updated only after gates pass.
-10. `tools/build-block-start-checklist.mjs` and `tools/build-qa-sampling-and-risk.mjs` prepare block QA.
-11. `tools/build-qa-summary.mjs` compresses QA evidence.
-12. `tools/build-next-chat-handoff.mjs` creates a copy/paste continuation command.
+2. Build/derive the hit/rebound pair using approved assets and deterministic local edits whenever possible.
+3. Run PRE_RUNTIME lightweight QA only: binary validity, alpha/layer integrity, rejected-asset safety, obvious wrong limb/action, obvious identity/camera corruption, obvious hardware/background contamination.
+4. Record contact/diff/centroid/edit-metadata/minor visual concerns as non-blocking signals. Do not micro-tune them before implementation.
+5. Formal-save/register the pair and continue immediately to the next READY asset.
+6. When every required asset for the contiguous block is formal, update manifest/inventory/mapping and build the provisional runtime block.
+7. Capture actual app screenshots on PC and Xperia-class portrait.
+8. Perform POST_RUNTIME visual QA for contact, hit/rebound/neutral naturalness, registration, disappearance/jumps, and regression.
+9. Repair only assets visibly failing runtime screenshots; keep all others fixed.
+10. After screenshot QA passes, promote the contiguous runtimeScope and record COMPLETE_LIVE_QA.
+
+The authoritative timing policy is `M17_QA_PHASE_POLICY.json`.
 
 ## Fast Path
 Use only when every action key in the range is REUSE_APPROVED and runtimeMapped.
@@ -46,10 +46,12 @@ Workflow: `.github/workflows/luna-full-path.yml`.
 It plans missing assets and gates formal save/runtime QA. It does not fabricate or substitute images.
 
 ## Visual candidate utilities
-Python tools require Pillow when executed. They never modify the source PNG:
-- character_candidate_qa.py
-- build-character-qa-preview.py
-- character_image_diff_metrics.py
+Python tools require Pillow when executed.
+- `character_candidate_qa.py`: PRE_RUNTIME lightweight mode by default; use `--mode full` only for diagnostic review.
+- `build-character-qa-preview.py`: diagnostic preview; not a pre-runtime hard gate.
+- `character_image_diff_metrics.py`: diagnostic signal; not a pre-runtime hard gate.
+
+Fine contact and animation naturalness are judged after runtime implementation using actual PC/Xperia screenshots.
 
 ## Safety
 - REJECTED_ASSET_REGISTRY.json and FAILURE_PATTERN_REGISTRY.json are hard safety inputs.
