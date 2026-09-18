@@ -309,3 +309,33 @@ Prepared non-image implementation plan:
 - after corrected RC+SN exists, resume at NIMG-013 in `M5_PLUS_PROGRESS_LEDGER.json`.
 
 Temporary `.github/workflows/export-luna-character-sources.yml` used only to recover source PNGs was removed after evidence/source recovery completed.
+
+
+## Full-song limb assignment completed — 2026-09-18 19:20 JST
+
+The previous M17-148 limb-authority blocker is resolved.
+
+Authoritative files:
+- `site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json`
+- `character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_LIMB_VALIDATION.json`
+- `character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY.json`
+- `character-assets/prototypes/luna_say_maybe_16m/hand_rules.json` version 2
+
+Validation:
+- 2,158 notes assigned through measure 148
+- M1-16 prefix mismatch 0
+- 64 rapid-SN phrases resolved
+- 8 SN+tom collisions resolved
+- missing limb 0
+- simultaneous same-limb 0
+- rapid same-hand SN 0
+- unresolved group 0
+
+Promotion workflow: run 35333901757 / artifact 10541538868.
+Promotion commit: `7cb90cd2b810cb3a4d60a57a962658bf7c47f8ab`.
+
+The runtime fallback for LB was corrected from RF to LF because `site/app.js` defines LB as left-foot bass drum.
+
+Do not use `Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json` as authority anymore. It is historical only.
+
+The remaining immediate blocker is still the M9-16 corrected RC+SN image pair, not limb assignment.
