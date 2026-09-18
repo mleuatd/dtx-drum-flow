@@ -1,0 +1,79 @@
+name: Import M17 formal pair from Dropbox
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/formal-staging/m17-*.json"
+
+permissions:
+  contents: write
+
+jobs:
+  import-formal-pair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+      - name: Resolve staging JSON
+        id: stage
+        shell: bash
+        run: |
+          STAGING_PATH="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^character-assets/formal-staging/m17-.*\.json$' | head -n 1)"
+          test -n "$STAGING_PATH"
+          test -f "$STAGING_PATH"
+          echo "path=$STAGING_PATH" >> "$GITHUB_OUTPUT"
+      - name: Download, verify, and install exact formal bytes
+        env:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+          STAGING_PATH: ${{ steps.stage.outputs.path }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,urllib.request
+          from PIL import Image
+          stage_path=pathlib.Path(os.environ["STAGING_PATH"])
+          stage=json.loads(stage_path.read_text(encoding="utf-8"))
+          if stage.get("status")=="FORMAL_IMPORTED":
+              print("Already imported"); raise SystemExit(0)
+          token=os.environ.get("DROPBOX_ACCESS_TOKEN")
+          if not token: raise SystemExit("DROPBOX_ACCESS_TOKEN required")
+          installed=[]
+          for item in stage.get("assets",[]):
+              dbx=item["dropboxPath"]; target=pathlib.Path(item["formalPath"])
+              req=urllib.request.Request(
+                  "https://content.dropboxapi.com/2/files/download",
+                  method="POST",
+                  headers={"Authorization":f"Bearer {token}","Dropbox-API-Arg":json.dumps({"path":dbx})})
+              with urllib.request.urlopen(req) as r: raw=r.read()
+              sha=hashlib.sha256(raw).hexdigest()
+              if sha!=item["sha256"]: raise SystemExit(f"sha mismatch {dbx}: {sha}")
+              tmp=pathlib.Path("/tmp/m17-formal.png"); tmp.write_bytes(raw)
+              im=Image.open(tmp)
+              if im.format!="PNG": raise SystemExit(f"not PNG: {dbx}")
+              rgba=im.convert("RGBA")
+              if rgba.size!=(int(item["width"]),int(item["height"])): raise SystemExit(f"size mismatch {dbx}: {rgba.size}")
+              if rgba.getchannel("A").getextrema()[0]>=255: raise SystemExit(f"no transparency: {dbx}")
+              target.parent.mkdir(parents=True,exist_ok=True); target.write_bytes(raw)
+              installed.append({"formalPath":str(target),"sha256":sha})
+          stage["status"]="FORMAL_IMPORTED"
+          stage["importedAssets"]=installed
+          stage["runtimeMapped"]=False
+          stage_path.write_text(json.dumps(stage,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          PY
+      - name: Commit formal pair
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/character character-assets/formal-staging
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "assets: import M17 formal pair"
+          git pull --rebase origin main
+          git push origin HEAD:main
