@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Resume at HT:R hit when the formal neutral can be surfaced as a native conversation image target without re-encoding. Keep sourceNeutralVerification PASS and do not repeat M25-40 analysis.",
-  "updatedAt": "2026-09-19T08:12:00+09:00",
+  "requiredNext": "Resume directly at HT:R hit once the exact verified Neutral can be used as the image-edit source. Do not substitute or redraw.",
+  "updatedAt": "2026-09-19T08:18:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -174,8 +174,8 @@
     "rootCause": "Connector-to-image-editor binary handoff is unavailable in this chat toolset.",
     "affectedAction": "HT:R",
     "affectedAsset": "layers/character/ht/hit_r_refresh.png",
-    "requiredNext": "Resume at HT:R hit when the formal neutral can be surfaced as a native conversation image target without re-encoding. Keep sourceNeutralVerification PASS and do not repeat M25-40 analysis.",
-    "retryWhen": "A connector-to-conversation-file/image-editor bridge is available. Do not use the 971425-byte Library near-match or the prior re-encoded attachment.",
+    "requiredNext": "Resume directly at HT:R hit once the exact verified Neutral can be used as the image-edit source. Do not substitute or redraw.",
+    "retryWhen": "An exact-byte native image source handoff is available to image editing.",
     "updatedAt": "2026-09-19T07:30:00+09:00",
     "attemptedMethods": [
       "Dropbox connector search/get metadata/file preview: formal file is accessible and verified.",
@@ -188,11 +188,10 @@
     "toolLimitation": "Dropbox/GitHub connectors and ChatGPT Files are separate surfaces; the current toolset has no Dropbox->ChatGPT conversation-file import or connector-file->image-editor reference bridge.",
     "investigatedAt": "2026-09-19T07:55:00+09:00",
     "lastRetry": {
-      "checkedAt": "2026-09-19T08:12:00+09:00",
-      "observedMain": "bc50ba07018cdf8d1ae2f06f0af2b3a0f3114c94",
+      "checkedAt": "2026-09-19T08:18:00+09:00",
       "result": "BLOCKED",
-      "newFinding": "Current tool inventory still has no connector/Library/container -> native conversation image target bridge for image editing. All 10 planned M25-32 formal PNG paths remain absent on current main, so there is no completed asset to resume from.",
-      "action": "Preserved verified Neutral and prior analysis; did not regenerate, substitute, re-encode, or alter unrelated M17/M18-24 work."
+      "newFinding": "Alternative relays were evaluated. GitHub Actions/artifacts, Dropbox, Files, and container can preserve or verify the exact PNG, but none can expose that stored PNG as a native source image to the current image-edit operation. Generating without the source or using the known near-match would violate the approved-source requirement.",
+      "action": "Do not repeat transport analysis. Resume directly at HT:R hit if an exact-byte native image source becomes available."
     }
   }
 }
