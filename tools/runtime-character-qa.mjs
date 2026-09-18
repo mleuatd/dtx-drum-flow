@@ -31,7 +31,39 @@ const events = [
   {time:9.462784,key:"BD:RF",measure:4},
   {time:9.678612,key:"HH:R",measure:4},
   {time:9.894439,key:"SN:L",measure:4},
-  {time:10.110266,key:"HH:R",measure:4}
+  {time:10.110266,key:"HH:R",measure:4},
+  {time:10.326094,key:"BD:RF",measure:5},
+  {time:10.541921,key:"RD:R",measure:5},
+  {time:10.757748,key:"SN:L",measure:5},
+  {time:10.973576,key:"RD:R",measure:5},
+  {time:11.189403,key:"BD:RF",measure:5},
+  {time:11.405230,key:"RD:R",measure:5},
+  {time:11.621058,key:"SN:L",measure:5},
+  {time:11.836885,key:"RD:R",measure:5},
+  {time:12.052712,key:"BD+RC:*",measure:6},
+  {time:12.268540,key:"RD:R",measure:6},
+  {time:12.484367,key:"SN:L",measure:6},
+  {time:12.700194,key:"RD:R",measure:6},
+  {time:12.916022,key:"BD:RF",measure:6},
+  {time:13.131849,key:"RD:R",measure:6},
+  {time:13.347676,key:"SN:L",measure:6},
+  {time:13.563504,key:"RD:R",measure:6},
+  {time:13.779331,key:"BD:RF",measure:7},
+  {time:13.995158,key:"RD:R",measure:7},
+  {time:14.210986,key:"SN:L",measure:7},
+  {time:14.426813,key:"RD:R",measure:7},
+  {time:14.642640,key:"BD:RF",measure:7},
+  {time:14.858468,key:"RD:R",measure:7},
+  {time:15.074295,key:"SN:L",measure:7},
+  {time:15.290122,key:"RD:R",measure:7},
+  {time:15.505950,key:"BD:RF",measure:8},
+  {time:15.721777,key:"RD:R",measure:8},
+  {time:15.937604,key:"SN:L",measure:8},
+  {time:16.153432,key:"RD:R",measure:8},
+  {time:16.369259,key:"BD:RF",measure:8},
+  {time:16.585086,key:"RD:R",measure:8},
+  {time:16.800914,key:"SN:L",measure:8},
+  {time:17.016741,key:"RD:R",measure:8}
 ];
 const viewports = [
   {name:"pc", width:1280, height:900},
@@ -129,3 +161,4 @@ await fs.writeFile(path.join(root,"runtime-qa.json"),JSON.stringify(summary,null
 await browser.close();
 
 // inventory-scope-refactor recheck 2026-09-18
+// M1-8 RD runtime QA trigger 2026-09-18T18:01+09:00
