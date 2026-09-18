@@ -12,23 +12,44 @@ permissions:
 jobs:
   fast:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MEASURE_START: ${{ inputs.measure_start }}
+      MEASURE_END: ${{ inputs.measure_end }}
+      QA_SAMPLING_FILE: sampling.json
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: {node-version: "20"}
-      - name: Select path
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Select fast path and prepare QA
         run: |
           node tools/luna-production-path.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" path.json
           grep -q '"path": "FAST_PATH"' path.json
-      - name: Build block checklist
-        run: node tools/build-block-start-checklist.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" block.json
-      - name: Build QA sampling/risk
-        run: node tools/build-qa-sampling-and-risk.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" sampling.json
-      - name: Upload plan evidence
+          node tools/build-block-start-checklist.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" block.json
+          node tools/build-qa-sampling-and-risk.mjs "${{ inputs.measure_start }}" "${{ inputs.measure_end }}" sampling.json
+          python tools/chart_validation.py
+          python tools/validate_luna_full_song_planning.py
+          python tools/validate_production_pipeline.py
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run risk-aware block QA
+        run: node tools/luna-block-qa.mjs
+      - name: Build QA summary
+        run: node tools/build-qa-summary.mjs qa-artifacts-luna-block/summary.json --out qa-artifacts-luna-block/merged-summary.json
+      - name: Upload evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: luna-fast-path-plan
+          name: luna-fast-path-m${{ inputs.measure_start }}-${{ inputs.measure_end }}
           path: |
             path.json
             block.json
             sampling.json
+            qa-artifacts-luna-block
+          if-no-files-found: warn
