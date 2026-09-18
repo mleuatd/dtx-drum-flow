@@ -64,9 +64,13 @@ def main():
         if n["part"] in {"LP","LB"}: return "LF"
         return "R"
     def key(g):
-        parts=sorted({n["part"] for n in g})
-        if len(parts)>1:return "+".join(parts)+":*"
-        return parts[0]+":"+hand(g[0])
+        ordered=sorted(g,key=lambda n:n["part"])
+        parts=[n["part"] for n in ordered]
+        if len(parts)>1:
+            exact="+".join(parts)+":"+"/".join(hand(n) for n in ordered)
+            if exact in inventory["runtimeFrameMap"]: return exact
+            return "+".join(parts)+":*"
+        return parts[0]+":"+hand(ordered[0])
     keys={key(g) for g in groups}
     if len(scoped)!=scope["noteCount"] or len(groups)!=scope["groupCount"]: errors.append("runtime scope count mismatch")
     if keys!=set(scope["expectedKeys"]): errors.append(f"runtime key set mismatch {sorted(keys)}")
