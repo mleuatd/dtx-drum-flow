@@ -1,5 +1,16 @@
 # Work / Normal Chat 同期ルール
 
+# 2026-09-18 CHARACTER QA LEDGER — READ FIRST
+
+Before any Luna Say Maybe character-image work, read:
+- `character-assets/prototypes/luna_say_maybe_16m/CHARACTER_QA_ISSUES.json`
+- `character-assets/prototypes/luna_say_maybe_16m/CHARACTER_QA_WORKFLOW.md`
+
+The QA ledger is the persistent source of truth for unresolved visual defects, work status, timestamps, and completion verification. Do not rely on chat history alone. Do not delete completed issues; update their status and verification fields.
+
+The active refreshed visual scope is measures 1-4, with neutral + 10 hit/rebound character variants already present in GitHub main. Older statements below describing a two-image-only baseline are historical and must not override the current ledger, manifest, inventory, or VARIANT_STATUS.
+
+
 ## 2026-09-17 CURRENT OVERRIDE — READ FIRST
 
 For the current Luna Say Maybe character task, the authoritative handoff is:
