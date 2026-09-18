@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:24:00+09:00",
+  "updatedAt": "2026-09-18T22:36:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -612,41 +612,64 @@
       },
       {
         "id": "NIMG-018",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Extend asset_inventory.runtimeScope to measures 1-16 with recomputed noteCount/groupCount/expectedKeys; do not hardcode site/character-prototype.js.",
         "dependsOn": [
           "NIMG-017",
           "pre-live M9-16 QA PASS"
         ],
-        "blocker": "Waiting for pre-live M9-16 PC/Xperia runtime QA run 35349674000 to pass before expanding live runtimeScope."
+        "blocker": null,
+        "completedAt": "2026-09-18T22:36:00+09:00",
+        "evidence": [
+          "asset_inventory.runtimeScope expanded to measures 1-16: 144 notes, 124 groups, expected legacy compatibility keys plus exact limb-aware RC+SN/BD+SN mappings.",
+          "Runtime expansion commit 8a272c4f95d1cfd79c59f5996087e5aec1d6293d."
+        ]
       },
       {
         "id": "NIMG-019",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Run character asset validation, manifest/inventory validation, runtime key coverage, limb missing, UI/runtime contract and M1-8 regression; fix all failures.",
         "dependsOn": [
           "NIMG-018"
+        ],
+        "completedAt": "2026-09-18T22:36:00+09:00",
+        "blocker": null,
+        "evidence": [
+          "General syntax-and-smoke/validation SUCCESS on state commit 748e2bdd0655eb50f8ad82ee5d1c7227ed472a3d (run 35350915606).",
+          "Character Asset Validation SUCCESS run 35350915613; validate_assets.py passed.",
+          "Pre-live M9-16 QA run 35350383202 SUCCESS; artifact 10549653076; zero frame mismatches/load failures/warnings/errors on PC/Xperia."
         ]
       },
       {
         "id": "NIMG-020",
-        "status": "BLOCKED",
+        "status": "DONE",
         "phase": "AFTER_IMAGE",
         "task": "Commit/push runtime expansion in small safe commits and verify GitHub Pages deploy success.",
         "dependsOn": [
           "NIMG-019"
+        ],
+        "completedAt": "2026-09-18T22:36:00+09:00",
+        "blocker": null,
+        "evidence": [
+          "GitHub Pages build/deploy SUCCESS run 35350915615 for M1-16 runtimeScope state.",
+          "Public URL remains https://mleuatd.github.io/dtx-drum-flow/."
         ]
       },
       {
         "id": "NIMG-021",
-        "status": "BLOCKED",
+        "status": "IN_PROGRESS",
         "phase": "AFTER_IMAGE",
         "task": "Run live public GitHub Pages QA for M9-16 on PC and Xperia viewports; verify BD+SN, RD:R and RC+SN hit/rebound/neutral behavior, console errors and asset warnings.",
         "dependsOn": [
           "NIMG-020"
-        ]
+        ],
+        "blocker": null,
+        "evidence": [
+          "Public live M9-16 PC/Xperia QA triggered by commit 6efa21bbab92616d690ebe13f2590a38be88022d, run 35351024757."
+        ],
+        "canRunNow": true
       },
       {
         "id": "NIMG-022",
@@ -668,7 +691,7 @@
       }
     ],
     "nextRunnable": [],
-    "nextBlocked": "NIMG-018"
+    "nextBlocked": "NIMG-021"
   },
   "existingAssetRuntimeQa": {
     "id": "M9_16_EXISTING_ASSET_RUNTIME_QA",
