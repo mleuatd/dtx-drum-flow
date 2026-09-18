@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:32:00+09:00",
+  "updatedAt": "2026-09-18T21:40:00+09:00",
   "song": "Luna Say Maybe",
   "authority": {
     "chart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
@@ -176,11 +176,12 @@
       "classification": "REUSE_NEEDS_RUNTIME_QA",
       "existingHit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "existingRebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
-      "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PENDING",
-      "runtimeMapped": false,
-      "qaStatus": "STATIC_AND_QA_ONLY_RUNTIME_PASS_CORE",
+      "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PRELOADED",
+      "runtimeMapped": true,
+      "qaStatus": "STATIC_AND_CORE_RUNTIME_PASS_LIVE_TRANSITION_PENDING",
       "sharedAssetCandidate": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
-      "exactReuseSafe": true
+      "exactReuseSafe": true,
+      "note": "Exact-limb runtime frames/mapping are preloaded while live runtimeScope remains 1-8. Full live transition QA remains pending until corrected RC+SN exists and M9-16 is enabled."
     },
     {
       "actionKey": "RC+SN:R/L",
