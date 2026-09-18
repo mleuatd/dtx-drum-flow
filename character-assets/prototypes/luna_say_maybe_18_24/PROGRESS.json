@@ -28,7 +28,9 @@
       "firstMeasure": 18,
       "limbs": "BD:RF + RD:R",
       "hit": {
-        "status": "PENDING"
+        "status": "QA_FAILED",
+        "error": "Generation returned a multi-panel contact/reference sheet instead of one formal 1448x1086 character-only BD+RD hit frame. Rejected; never register as runtime asset.",
+        "retryState": "RETRY_REQUIRED_SINGLE_FRAME_BASELINE_DERIVED"
       },
       "rebound": {
         "status": "PENDING"
@@ -72,11 +74,17 @@
     }
   ],
   "currentTask": "BD+RD:RF/R hit",
-  "status": "READY_FOR_IMAGE_GENERATION",
+  "status": "IN_PROGRESS",
   "resumeRule": "Read ledger and verify real files. Continue first non-DONE phase; never regenerate completed assets unless missing or SHA mismatch.",
   "notes": [
     "M18-24 scan completed against latest main.",
     "M17 is isolated and must not be modified.",
     "Persist each pair before advancing."
-  ]
+  ],
+  "lastAttempt": {
+    "phase": "BD+RD hit",
+    "result": "REJECTED",
+    "reason": "multi-panel sheet / wrong artifact type",
+    "localFile": "/mnt/data/wide_clean_white_background_hand_drawn_black_and.png"
+  }
 }
