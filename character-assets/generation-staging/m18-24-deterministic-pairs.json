@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "READY_TO_BUILD",
+  "scope": "M18-24",
+  "method": "preserve approved single-action pair exactly; add only deterministic local second-limb cue",
+  "pairs": [
+    "BD+RD:RF/R",
+    "RD+SN:R/L",
+    "BD+HH:RF/R",
+    "HH+SN:R/L"
+  ],
+  "safety": "source SHA locked; no fresh redraw; M17 untouched"
+}
