@@ -17,8 +17,8 @@
       "HH:R",
       "BD+RC:*",
       "RD:R",
-      "BD+SN:*",
-      "RC+SN:*"
+      "BD+SN:RF/L",
+      "RC+SN:R/L"
     ]
   },
   "requiredFrames": {
@@ -230,7 +230,8 @@
       "frameMismatch": 0,
       "loadFailure": 0,
       "warnings": 0,
-      "consolePageErrors": 0
+      "consolePageErrors": 0,
+      "expectedKeyPolicy": "Exact limb-aware keys are primary for BD+SN:RF/L and RC+SN:R/L; wildcard aliases remain compatibility fallbacks only."
     }
   }
 }
