@@ -1,13 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T17:03:00+09:00",
+  "updatedAt": "2026-09-18T17:14:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
   "liveRuntimeScope": {
     "measureStart": 1,
     "measureEnd": 4,
-    "status": "COMPLETE_LIVE_QA"
+    "status": "COMPLETE_LIVE_QA_AFTER_INVENTORY_SCOPE_REFACTOR",
+    "runtimeQaRun": 35321917979,
+    "runtimeQaArtifact": 10536838661,
+    "validateStatus": "SUCCESS",
+    "characterAssetValidationStatus": "SUCCESS"
   },
   "blocks": [
     {
@@ -74,14 +78,18 @@
       ],
       "assets": {
         "bdSn": {
-          "status": "VISUAL_QA_PASSED_RUNTIME_PENDING",
+          "status": "VISUAL_QA_PASSED_FORMAL_LAYER_SAVED_RUNTIME_PENDING",
           "hit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
           "rebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
           "hitSha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
           "reboundSha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
           "visualQaRun": 35321151121,
           "visualQaArtifact": 10537157014,
-          "runtimeMapped": false
+          "runtimeMapped": false,
+          "formalHit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+          "formalRebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+          "formalLayerCommit": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
+          "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PENDING"
         },
         "rcSn": {
           "status": "IN_PROGRESS_REGEN_REQUIRED",
@@ -126,7 +134,28 @@
         "Resolve 8 SN+tom same-limb collisions",
         "Generate and validate authoritative full-song limb sidecar",
         "Inventory later-measure action keys and create required images block-by-block"
-      ]
+      ],
+      "actionInventory": {
+        "path": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json",
+        "noteCount": 2014,
+        "groupCount": 1403,
+        "authority": "PART_COMBINATION_ONLY_NO_LIMB_GUESSING",
+        "topCombinations": [
+          "SN 363",
+          "BD+HH 224",
+          "HH 209",
+          "HH+SN 143",
+          "BD 104",
+          "BD+RC 58",
+          "LT 53",
+          "RC+SN 33",
+          "RD 33",
+          "HT 30",
+          "BD+RD 29",
+          "BD+SN 25",
+          "RD+SN 23"
+        ]
+      }
     }
   ],
   "skippedOrRejected": [
@@ -197,7 +226,33 @@
     {
       "status": "DONE",
       "item": "Full-song draft limb analysis file created without altering runtime authority"
+    },
+    {
+      "status": "DONE",
+      "item": "Inventory-driven runtime scope refactor",
+      "detail": "site/character-prototype.js now reads inventory.runtimeScope; inventory remains 1-4, so public behavior unchanged."
+    },
+    {
+      "status": "DONE",
+      "item": "Post-refactor live runtime QA",
+      "detail": "Runtime Character QA run 35321917979 success; artifact 10536838661."
+    },
+    {
+      "status": "DONE",
+      "item": "Runtime-pending layer validator support",
+      "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Regenerate RD:R hit/rebound correctly from exact baseline; do not expand live runtime until RD pair passes composite QA."
+  "nextAction": "Image blocker remains: produce a true baseline-derived RD:R hit/rebound pair. Until then do not expand live runtime beyond M1-4. BD+SN is safely preserved and visual-QA-passed but not runtime-mapped.",
+  "lastKnownCommits": {
+    "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
+    "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
+    "bdSnManifest": "de930be6ce607550cff4aff134501a6e204ad794",
+    "runtimeScopeRefactor": "69ab1b5be285ad133c9dc98e80332bbd29443401",
+    "runtimeScopeCacheFinal": "5cdeacfcba3f72e79b5bb10a70b0522ac7085a47",
+    "runtimeQaTrigger": "0da8a9680a92b42db314a46c76c22cbd0f0020b3",
+    "validatorFix": "3914354eab0410b0b7f11d671d4b48e1a2138b5b",
+    "fullLimbDraft": "2c885eba3c49598791ec7d5232ced63fd655d659",
+    "actionInventory": "ffd976ecc2cb7fca3fc025dc5217ee302ef0417e"
+  }
 }
