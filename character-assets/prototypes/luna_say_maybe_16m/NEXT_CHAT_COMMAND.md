@@ -31,3 +31,7 @@ Rejected/Never Use資産の再利用、neutral代替PASS、runtimeScopeの先行
 
 ### Current blocker update
 Latest RC+SN hit retry SHA256 `49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c` is `NEVER_USE` because generation metadata reported `edit_op=null` and visual QA confirmed a fresh front-facing redraw. Retry only from the approved neutral as a true image edit; rebound remains blocked until hit passes.
+
+
+### Current RC+SN state
+`ASSETQ-001 RC+SN:R/L hit` is complete and formally imported. Use `character-assets/layers/character/combo/rc_sn_hit_refresh.png` (SHA256 `f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82`) as the sole source for `ASSETQ-002 rebound`. Do not regenerate the hit. Runtime scope remains 1-8 until the pair and M9-16 gates pass.
