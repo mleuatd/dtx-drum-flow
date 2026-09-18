@@ -1,3 +1,12 @@
+## 2026-09-18 — M9-16 non-image preparation
+- Kept live runtime safely at measures 1-8 while image generation is unavailable.
+- Reconciled M9-16 state: approved RD:R refresh pair is reused; corrected BD+SN refresh pair remains formal-layer-saved and visual-QA-passed; corrected RC+SN is the sole missing image pair.
+- Verified M9-16 coverage: 83 notes / 65 groups / 0 missing limbs. RC+SN occurs once at measure 13, 25.649835, with SN=L and RC=R.
+- Added `M9_16_RUNTIME_EXPANSION_PLAN.json`: target 1-16 scope is 144 notes / 124 groups with runtime keys `SN:L`, `SN:R`, `BD:RF`, `HH:R`, `BD+RC:*`, `RD:R`, `BD+SN:*`, `RC+SN:*`.
+- Recorded latest rejected RC+SN regeneration as `CHAR-QA-0007`: unrelated front-facing redraw (`edit_op=null`), never registered. Retry is temporarily blocked by image-generation rate limit.
+- Removed the temporary source-export workflow after source recovery; existing Actions artifacts remain as evidence.
+- Prepared the remaining image-independent work queue in `M5_PLUS_PROGRESS_LEDGER.json`; resume image-dependent work at NIMG-013 after corrected RC+SN hit/rebound are available.
+
 # Changelog
 
 ## 2026-09-18 — M5+ refreshed continuation / progress-ledger pass
