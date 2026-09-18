@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-19T07:52:00+09:00",
+  "requestedAt": "2026-09-19T08:06:00+09:00",
   "block": "M17",
   "measureStart": 17,
   "measureEnd": 17,
@@ -20,11 +20,12 @@
     "rebound": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
     "reboundSha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11"
   },
-  "retryReason": "Final M17 pass after LT exact runtime mapping and non-cancelling Pages deployment fix.",
+  "retryReason": "Final M17 review after targeted visual fixes and runtime QA overlap/target-selection corrections.",
   "freezeMainUntilQaComplete": false,
   "notes": [
-    "Pages deploy concurrency now preserves exact-SHA deployments.",
-    "LT:R/L exact runtimeFrameMap and phase mappings are present.",
-    "M17 image set is formal 12/12; no image regeneration is requested."
+    "LT:L and FT:L overlong left-stick tails were trimmed with locked neutral pixel restoration.",
+    "BD+SN:RF/R front-camera jump was replaced by locked rear-camera neutral + approved BD cue + short deterministic right-stick stroke.",
+    "runtime-character-qa now tests only requested action keys, chooses the widest-gap occurrence, and skips rebound/neutral phases that are not observable before the next note.",
+    "Do not touch M18+ work."
   ]
 }
