@@ -113,10 +113,13 @@
   "qaLoop": [
     "Run candidate binary/layer QA.",
     "Compare baseline vs candidate for identity/camera/body/stool continuity.",
+    "Treat generation metadata such as edit_op=null as a risk signal, not a standalone automatic rejection; visual continuity and changed-region locality are decisive.",
     "Build fixed-drum composite/contact preview.",
     "Check correct actionKey, limb and contact side.",
     "Run diff metrics for suspicious whole-frame changes.",
-    "If FAIL: record one-line failure reason, tighten only the failed constraint, retry from approved baseline or accepted hit as appropriate.",
+    "If FAIL: classify the failure ID and invoke tools/character-retry-controller.mjs.",
+    "Never repeat the same failed strategy more than once. The second occurrence of the same failure must switch strategy automatically.",
+    "If the pose is valid except for a local artifact/contact issue, repair only that region; do not regenerate the full character.",
     "Do not formal-save until all mandatory checks pass."
   ],
   "speedRules": [
@@ -124,13 +127,18 @@
     "Use this compact playbook + current actionKey context first.",
     "Open long registries only when the playbook or QA indicates a relevant risk.",
     "Carry the same pre-generation brief across a batch of up to four images.",
-    "For rebound, reuse the accepted hit context instead of rebuilding the entire context from scratch."
+    "For rebound, reuse the accepted hit context instead of rebuilding the entire context from scratch.",
+    "A failed strategy may be attempted once. Repeating the same failure must trigger the retry controller and a different edit method.",
+    "Prefer repair-over-regenerate: if identity/camera/stool pass, fix only the failed limb/contact/artifact region.",
+    "Do not treat metadata-only evidence as stronger than visual continuity evidence."
   ],
   "successHeuristics": [
     "Prefer local pose edits over whole-character redraws.",
     "Keep core torso/pelvis/stool nearly fixed whenever physically possible.",
     "Use fixed-drum composite before formal save, not after.",
     "Treat visual continuity as a hard gate, not a cosmetic preference.",
-    "When unsure about side/contact, derive it from repository contact/limb data rather than guessing."
+    "When unsure about side/contact, derive it from repository contact/limb data rather than guessing.",
+    "Use graded QA: binary/layer corruption is hard FAIL; metadata-only redraw risk is WARN until visual continuity confirms it.",
+    "Each FAIL must reduce uncertainty by changing one strategy variable; identical retries are prohibited."
   ]
 }
