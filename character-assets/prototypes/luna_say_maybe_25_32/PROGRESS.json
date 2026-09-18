@@ -155,7 +155,7 @@
     "done": false
   },
   "requiredNext": "For current chunk M25-28: verify the push-triggered FT+SN:R/L output commit, then perform visual QA for HT:R, RC:R and FT+SN:R/L composites. Promote only PASS pairs, persist exact bytes to Dropbox/formal GitHub paths, update inventory/runtime mapping, and run block/runtime QA. Do not begin M29 assets until this chunk is checkpointed.",
-  "updatedAt": "2026-09-19T08:39:00+09:00",
+  "updatedAt": "2026-09-19T08:45:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -240,5 +240,20 @@
       "29": 5
     },
     "reason": "M29 introduces BD+HT:RF/R and HT:L, taking cumulative new actions from 3 to 5."
+  },
+  "resumeCheckpoint": {
+    "checkedAt": "2026-09-19T08:45:00+09:00",
+    "latestMainObserved": "7bead2ce05910216fbe3c66b10c0ea758989b51e",
+    "confirmedCompositeEvidence": [
+      "character-assets/generated-qa/m25_40/ht_r/hit_composite.png",
+      "character-assets/generated-qa/m25_40/ht_r/rebound_composite.png",
+      "character-assets/generated-qa/m25_40/ht_l/hit_composite.png",
+      "character-assets/generated-qa/m25_40/ht_l/rebound_composite.png",
+      "character-assets/generated-qa/m25_40/rc_r/hit_composite.png",
+      "character-assets/generated-qa/m25_40/rc_r/rebound_composite.png"
+    ],
+    "dropboxM25_40SearchResult": "NO_MATCHES",
+    "ftSnOutputObserved": false,
+    "note": "Parallel main advanced with M25-28/M29-40 split and FT+SN builder plus M29 transaction scaffolding. Preserve these changes. Next work remains visual inspection of generated composites and verification/execution of FT+SN builder output."
   }
 }
