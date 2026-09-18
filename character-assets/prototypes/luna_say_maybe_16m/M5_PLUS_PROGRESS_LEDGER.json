@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T06:50:00+09:00",
+  "updatedAt": "2026-09-19T06:56:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -202,7 +202,11 @@
         "ASSETQ-008 BD+SN:RF/R rebound DONE; formal character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png; SHA adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77.",
         "Method: APPROVED SN:R pose preserved; deterministic local BD kick cue only.",
         "Review import workflow 35397944277 SUCCESS; formal promotion completed without recompression.",
-        "Next READY: ASSETQ-009 FT:R hit."
+        "Next READY: ASSETQ-009 FT:R hit.",
+        "ASSETQ-009 FT:R hit DONE; SHA bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a.",
+        "ASSETQ-010 FT:R rebound DONE; SHA eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce.",
+        "Formal import workflow 35398522113 SUCCESS.",
+        "Next READY: ASSETQ-011 FT:L hit."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -237,7 +241,7 @@
         "oldUnresolved": 195
       },
       "blocker": null,
-      "nextAction": "Create ASSETQ-009 FT:R hit, then ASSETQ-010 rebound. Keep runtime scope at 1-16 until all M17 pairs pass."
+      "nextAction": "Create ASSETQ-011 FT:L hit, then ASSETQ-012 rebound. Keep runtime scope at 1-16 until all M17 pairs pass."
     }
   ],
   "skippedOrRejected": [
@@ -346,7 +350,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Create ASSETQ-009 FT:R hit, then ASSETQ-010 rebound. Keep runtime scope at 1-16 until all M17 pairs pass.",
+  "nextAction": "Create ASSETQ-011 FT:L hit, then ASSETQ-012 rebound. Keep runtime scope at 1-16 until all M17 pairs pass.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
