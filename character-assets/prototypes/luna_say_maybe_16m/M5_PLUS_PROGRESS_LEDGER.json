@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:00:00+09:00",
+  "updatedAt": "2026-09-18T19:10:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -720,5 +720,66 @@
       "Manual contact-sheet review completed for BD:RF, RD:R, SN:L, HH:R, BD+RC:*, BD+SN:* on both viewports.",
       "Final HH:R at 30.829691 confirmed rebound -> neutral return."
     ]
+  },
+  "fullSongLimbAssignment": {
+    "id": "FULL_SONG_LIMB_ASSIGNMENT",
+    "scope": "measures 17-148",
+    "status": "IN_PROGRESS",
+    "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+    "authoritativePrefix": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json",
+    "researchBasis": [
+      "Standard right-handed kit: bass-drum pedal under right foot; hi-hat pedal under left foot.",
+      "Typical right-handed groove: right hand keeps hi-hat/ride/cymbal time, left hand handles snare backbeat.",
+      "Single-stroke rolls/fills use alternating R-L sticking as a baseline.",
+      "Phrase-aware sticking may change the starting hand so the required hand is free for the next cymbal/tom strike.",
+      "Simultaneous notes must never assign one limb to two instruments; SN+right-side tom naturally resolves SN=L and tom=R unless phrase evidence requires otherwise."
+    ],
+    "queue": [
+      {
+        "id": "LIMB-001",
+        "status": "DONE",
+        "task": "Research standard drum-set hand/foot coordination and sticking principles."
+      },
+      {
+        "id": "LIMB-002",
+        "status": "IN_PROGRESS",
+        "task": "Formalize project limb rules from research plus authoritative M1-16 precedent."
+      },
+      {
+        "id": "LIMB-003",
+        "status": "TODO",
+        "task": "Resolve rapid-SN phrase detection and start-hand selection."
+      },
+      {
+        "id": "LIMB-004",
+        "status": "TODO",
+        "task": "Resolve all simultaneous same-limb conflicts, including eight known SN+tom collisions."
+      },
+      {
+        "id": "LIMB-005",
+        "status": "TODO",
+        "task": "Generate full-song per-note limb candidate for measures 17-148."
+      },
+      {
+        "id": "LIMB-006",
+        "status": "TODO",
+        "task": "Validate candidate: no missing limbs, no simultaneous same-limb collisions, no impossible rapid same-hand repeats, and consistency with M1-16 precedent."
+      },
+      {
+        "id": "LIMB-007",
+        "status": "TODO",
+        "task": "Promote validated full-song limb sidecar to authoritative project source and update hand_rules/status/handoff."
+      },
+      {
+        "id": "LIMB-008",
+        "status": "TODO",
+        "task": "Recompute full-song action-key inventory using authoritative limbs for later character-image planning."
+      }
+    ],
+    "progress": [
+      "Initial draft had 1,819 mechanically resolved notes and 195 unresolved.",
+      "Known unresolved categories: 179 rapid-SN notes and 8 simultaneous SN+tom groups (16 notes)."
+    ],
+    "nextAction": "Formalize v2 limb rules and generate a validation report before promotion."
   }
 }
