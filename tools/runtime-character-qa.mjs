@@ -1,164 +1,38 @@
-// QA trigger: post SN:R rebound continuity fix 2026-09-18T12:41+09:00
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const URL = "https://mleuatd.github.io/dtx-drum-flow/";
-const events = [
-  {time:4.714583,key:"SN:L",measure:1},
-  {time:4.930410,key:"SN:R",measure:1},
-  {time:5.038324,key:"SN:L",measure:1},
-  {time:5.146237,key:"BD+RC:*",measure:2},
-  {time:5.362065,key:"HH:R",measure:2},
-  {time:5.577892,key:"SN:L",measure:2},
-  {time:5.793719,key:"HH:R",measure:2},
-  {time:6.009547,key:"BD:RF",measure:2},
-  {time:6.225374,key:"HH:R",measure:2},
-  {time:6.441201,key:"SN:L",measure:2},
-  {time:6.657029,key:"HH:R",measure:2},
-  {time:6.872856,key:"BD:RF",measure:3},
-  {time:7.088683,key:"HH:R",measure:3},
-  {time:7.304511,key:"SN:L",measure:3},
-  {time:7.520338,key:"HH:R",measure:3},
-  {time:7.736165,key:"BD:RF",measure:3},
-  {time:7.951993,key:"HH:R",measure:3},
-  {time:8.167820,key:"SN:L",measure:3},
-  {time:8.383647,key:"HH:R",measure:3},
-  {time:8.599475,key:"BD:RF",measure:4},
-  {time:8.815302,key:"HH:R",measure:4},
-  {time:9.031129,key:"SN:L",measure:4},
-  {time:9.246957,key:"HH:R",measure:4},
-  {time:9.462784,key:"BD:RF",measure:4},
-  {time:9.678612,key:"HH:R",measure:4},
-  {time:9.894439,key:"SN:L",measure:4},
-  {time:10.110266,key:"HH:R",measure:4},
-  {time:10.326094,key:"BD:RF",measure:5},
-  {time:10.541921,key:"RD:R",measure:5},
-  {time:10.757748,key:"SN:L",measure:5},
-  {time:10.973576,key:"RD:R",measure:5},
-  {time:11.189403,key:"BD:RF",measure:5},
-  {time:11.405230,key:"RD:R",measure:5},
-  {time:11.621058,key:"SN:L",measure:5},
-  {time:11.836885,key:"RD:R",measure:5},
-  {time:12.052712,key:"BD+RC:*",measure:6},
-  {time:12.268540,key:"RD:R",measure:6},
-  {time:12.484367,key:"SN:L",measure:6},
-  {time:12.700194,key:"RD:R",measure:6},
-  {time:12.916022,key:"BD:RF",measure:6},
-  {time:13.131849,key:"RD:R",measure:6},
-  {time:13.347676,key:"SN:L",measure:6},
-  {time:13.563504,key:"RD:R",measure:6},
-  {time:13.779331,key:"BD:RF",measure:7},
-  {time:13.995158,key:"RD:R",measure:7},
-  {time:14.210986,key:"SN:L",measure:7},
-  {time:14.426813,key:"RD:R",measure:7},
-  {time:14.642640,key:"BD:RF",measure:7},
-  {time:14.858468,key:"RD:R",measure:7},
-  {time:15.074295,key:"SN:L",measure:7},
-  {time:15.290122,key:"RD:R",measure:7},
-  {time:15.505950,key:"BD:RF",measure:8},
-  {time:15.721777,key:"RD:R",measure:8},
-  {time:15.937604,key:"SN:L",measure:8},
-  {time:16.153432,key:"RD:R",measure:8},
-  {time:16.369259,key:"BD:RF",measure:8},
-  {time:16.585086,key:"RD:R",measure:8},
-  {time:16.800914,key:"SN:L",measure:8},
-  {time:17.016741,key:"RD:R",measure:8}
-];
-const viewports = [
-  {name:"pc", width:1280, height:900},
-  {name:"xperia-portrait", width:384, height:864}
-];
-function samplesFor(index) {
-  const ev=events[index];
-  const next=events[index+1];
-  const gap=next ? Math.max(0,next.time-ev.time) : Infinity;
-  const baseHitEnd=0.18, baseReboundEnd=0.28;
-  let hitEnd=baseHitEnd, reboundEnd=baseReboundEnd;
-  if(Number.isFinite(gap)&&gap<baseReboundEnd){
-    hitEnd=Math.min(baseHitEnd,Math.max(.055,gap*.65));
-    reboundEnd=Math.min(baseReboundEnd,Math.max(hitEnd+.02,gap-.004));
-  }
-  const hitOffset=Math.min(.03,Math.max(.012,hitEnd*.45));
-  const reboundOffset=hitEnd+(reboundEnd-hitEnd)*.5;
-  const postOffset=Number.isFinite(gap)
-    ? Math.max(reboundEnd+.006,Math.min(gap+.012,baseReboundEnd+.03))
-    : baseReboundEnd+.03;
-  return [
-    {name:"pre",offset:-.015},
-    {name:"hit",offset:hitOffset},
-    {name:"rebound",offset:reboundOffset},
-    {name:"post",offset:postOffset}
-  ];
-}
-const browser = await chromium.launch({headless:true});
-const root = "qa-artifacts";
-await fs.mkdir(root,{recursive:true});
-const summary = {url:URL, generatedAt:new Date().toISOString(), records:[]};
-
-for (const vp of viewports) {
-  const context = await browser.newContext({viewport:{width:vp.width,height:vp.height}, deviceScaleFactor:1});
-  const page = await context.newPage();
-  const errors=[];
-  page.on("console",m=>{ if(m.type()==="error") errors.push("console: "+m.text()); });
-  page.on("pageerror",e=>errors.push("pageerror: "+String(e)));
-  await page.goto(URL,{waitUntil:"networkidle",timeout:120000});
-  await page.waitForFunction(()=>window.__DTX_APP_READY__===true,{timeout:30000});
-  await page.waitForFunction(()=>{
-    const el=document.getElementById("characterBackdrop");
-    return el && el.classList.contains("character-ready") && el.dataset.state;
-  },{timeout:30000});
-
-  const dir=path.join(root,vp.name);
-  await fs.mkdir(dir,{recursive:true});
-  for (let i=0;i<events.length;i++) {
-    const ev=events[i];
-    for (const ph of samplesFor(i)) {
-      const t=Math.max(0,ev.time+ph.offset);
-      await page.evaluate((time)=>{
-        const timeline=document.getElementById("timeline");
-        timeline.value=String(time);
-        timeline.dispatchEvent(new Event("input",{bubbles:true}));
-      },t);
-      await page.waitForTimeout(100);
-      const dom=await page.evaluate(()=>{
-        const root=document.getElementById("characterBackdrop");
-        const char=document.getElementById("characterLayer");
-        const drum=document.getElementById("drumLayer");
-        const stage=document.querySelector(".stage");
-        const canvas=document.getElementById("laneCanvas");
-        const rr=root.getBoundingClientRect(), cr=char.getBoundingClientRect(), dr=drum.getBoundingClientRect(), sr=stage.getBoundingClientRect(), lr=canvas.getBoundingClientRect();
-        return {
-          currentTime:document.getElementById("currentTime")?.textContent,
-          frame:root.dataset.frame||"",
-          phase:root.dataset.phase||"",
-          animationKey:root.dataset.animationKey||"",
-          limbs:root.dataset.limbs||"",
-          state:root.dataset.state||"",
-          active:root.dataset.active||"",
-          assetIssue:root.dataset.assetIssue||"",
-          initError:root.dataset.initError||"",
-          pose:root.dataset.pose||"",
-          sizes:{
-            root:{x:rr.x,y:rr.y,w:rr.width,h:rr.height},
-            character:{x:cr.x,y:cr.y,w:cr.width,h:cr.height,naturalWidth:char.naturalWidth,naturalHeight:char.naturalHeight},
-            drum:{x:dr.x,y:dr.y,w:dr.width,h:dr.height,naturalWidth:drum.naturalWidth,naturalHeight:drum.naturalHeight},
-            stage:{x:sr.x,y:sr.y,w:sr.width,h:sr.height},
-            canvas:{x:lr.x,y:lr.y,w:lr.width,h:lr.height}
-          }
-        };
-      });
-      const safeKey=ev.key.replace(/[^A-Za-z0-9]+/g,"_");
-      const base=`${String(i+1).padStart(2,"0")}_m${ev.measure}_${ev.time.toFixed(6)}_${safeKey}_${ph.name}`;
-      await page.locator(".stage").screenshot({path:path.join(dir,base+".png")});
-      summary.records.push({viewport:vp.name,event:ev,sample:ph.name,sampleTime:t,dom,screenshot:path.join(vp.name,base+".png")});
-    }
-  }
-  summary[vp.name]={errors};
-  await context.close();
-}
-await fs.writeFile(path.join(root,"runtime-qa.json"),JSON.stringify(summary,null,2));
-await browser.close();
-
-// inventory-scope-refactor recheck 2026-09-18
-// M1-8 RD runtime QA trigger 2026-09-18T18:01+09:00
+const PUBLIC_URL=process.env.PUBLIC_URL||"https://mleuatd.github.io/dtx-drum-flow/";
+const EXPECTED_SHA=process.env.GITHUB_SHA||"";
+const RUN_ID=process.env.GITHUB_RUN_ID||"local";
+const M0=Number(process.env.MEASURE_START||18), M1=Number(process.env.MEASURE_END||24);
+const ROOT="qa-artifacts";
+const TARGETS=(process.env.QA_ACTIONS||"BD+RD:RF/R,RD+SN:R/L,BD+HH:RF/R,HH+SN:R/L").split(",").filter(Boolean);
+const viewports=[{name:"pc",width:1280,height:900},{name:"xperia-portrait",width:384,height:864}];
+const readJson=async p=>JSON.parse(await fs.readFile(p,"utf8"));
+const chart=await readJson("site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json");
+const limbs=await readJson("site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json");
+const inv=await readJson("character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json");
+const limbMap=new Map((limbs.assignments||[]).map(x=>[`${Number(x.time).toFixed(6)}|${x.part}`,x.limb]));
+const notes=(chart.notes||[]).filter(n=>n.measure>=M0&&n.measure<=M1).map(n=>({...n,limb:limbMap.get(`${Number(n.time).toFixed(6)}|${n.part}`)||n.limb}));
+const groups=[]; for(const n of notes){const g=groups.at(-1);if(g&&Math.abs(n.time-g[0].time)<=.008)g.push(n);else groups.push([n]);}
+const exactKey=g=>{const a=[...g].sort((x,y)=>x.part.localeCompare(y.part));return a.length>1?a.map(n=>n.part).join("+")+":"+a.map(n=>n.limb).join("/"):a[0].part+":"+a[0].limb};
+const keyFor=g=>{const exact=exactKey(g);if(inv.runtimeFrameMap?.[exact])return exact;const parts=[...new Set(g.map(n=>n.part))].sort();const wildcard=parts.join("+")+":*";return inv.runtimeFrameMap?.[wildcard]?wildcard:exact};
+const candidates=groups.map((g,i)=>({g,i,key:keyFor(g),time:Number(g[0].time),measure:g[0].measure,next:groups[i+1]?.[0]?.time??Infinity}));
+const wanted=[...new Set([...TARGETS,...candidates.map(x=>x.key)])];
+const selected=[];
+for(const key of wanted){const list=candidates.filter(x=>x.key===key);if(!list.length)continue;selected.push(list.find(x=>x.next-x.time>.20)||list[0]);}
+for(const t of TARGETS)if(!selected.some(x=>x.key===t))throw new Error("required M18-24 action missing: "+t);
+const timing=inv.motionTiming||{}, baseHit=Number(timing.hitEndSeconds??.09), baseRebound=Number(timing.reboundEndSeconds??.17);
+function phaseTimes(ev){const gap=Math.max(0,ev.next-ev.time);let hit=baseHit,rebound=baseRebound;if(Number.isFinite(gap)&&gap<baseRebound){hit=Math.min(baseHit,Math.max(.055,gap*.65));rebound=Math.min(baseRebound,Math.max(hit+.02,gap-.004));}return {hit:ev.time+Math.max(.012,hit*.45),rebound:ev.time+hit+(rebound-hit)*.5,neutral:ev.time+rebound+.012};}
+function expectedFrame(key,phase){if(phase==="neutral")return inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";const id=inv.runtimePhaseFrameMap?.[key]?.[phase]||inv.runtimeFrameMap?.[key];return inv.requiredFrames?.[id]?.path||"";}
+async function waitForDeployment(){const deadline=Date.now()+12*60*1000;let last="";while(Date.now()<deadline){try{const r=await fetch(new URL("build.json?ts="+Date.now(),PUBLIC_URL),{cache:"no-store"});if(r.ok){const j=await r.json();last=j.commitSha||"";if(!EXPECTED_SHA||last===EXPECTED_SHA)return j;}}catch{}await new Promise(r=>setTimeout(r,10000));}throw new Error(`Pages deployment timeout: expected=${EXPECTED_SHA} observed=${last}`);}
+await fs.mkdir(ROOT,{recursive:true}); const deployment=await waitForDeployment();
+const browser=await chromium.launch({headless:true}); const records=[]; let failed=0;
+for(const vp of viewports){const context=await browser.newContext({viewport:{width:vp.width,height:vp.height}});const page=await context.newPage();const consoleErrors=[],pageErrors=[],failedRequests=[];
+page.on("console",m=>{if(m.type()==="error")consoleErrors.push(m.text())});page.on("pageerror",e=>pageErrors.push(String(e)));page.on("requestfailed",r=>failedRequests.push(r.url()+" :: "+(r.failure()?.errorText||"failed")));page.on("response",r=>{if(r.status()>=400)failedRequests.push(r.status()+" "+r.url())});
+await page.goto(PUBLIC_URL+"?qa=1",{waitUntil:"networkidle",timeout:120000});await page.waitForFunction(()=>window.__DTX_APP_READY__===true,{timeout:30000});await page.waitForFunction(()=>window.__DTX_CHARACTER_QA__?.snapshot().state?.startsWith("ready"),{timeout:30000});
+const dir=path.join(ROOT,vp.name);await fs.mkdir(dir,{recursive:true});
+for(const ev of selected){for(const [phase,t] of Object.entries(phaseTimes(ev))){await page.evaluate(time=>{const el=document.getElementById("timeline");el.value=String(time);el.dispatchEvent(new Event("input",{bubbles:true}))},t);await page.waitForTimeout(140);const actual=await page.evaluate(()=>window.__DTX_CHARACTER_QA__.snapshot());const expPhase=phase,expKey=phase==="neutral"?"neutral":ev.key,expFrame=expectedFrame(ev.key,phase);const charOk=actual.character.complete&&actual.character.naturalWidth>0&&actual.character.naturalHeight>0;const drumOk=actual.drum.complete&&actual.drum.naturalWidth>0&&actual.drum.naturalHeight>0&&/drum_base\.png/.test(actual.drum.src);const pass=actual.phase===expPhase&&actual.animationKey===expKey&&actual.frame===expFrame&&charOk&&drumOk&&!actual.assetWarning&&!actual.initError;const safe=ev.key.replace(/[^A-Za-z0-9]+/g,"_");const shot=path.join(vp.name,`m${ev.measure}_${safe}_${phase}.png`);await page.locator(".stage").screenshot({path:path.join(ROOT,shot)});if(!pass)failed++;records.push({commitSha:EXPECTED_SHA,deploymentPublicUrl:PUBLIC_URL,workflowRunId:RUN_ID,testedAt:new Date().toISOString(),browser:"chromium",viewport:vp,measure:ev.measure,testedTime:t,expectedActionKey:expKey,actualActionKey:actual.animationKey,expectedPhase:expPhase,actualPhase:actual.phase,expectedFrame:expFrame,actualFrame:actual.frame,limbs:actual.limbs,characterImageLoad:{ok:charOk,...actual.character},drumImageLoad:{ok:drumOk,...actual.drum},runtimeScope:actual.runtimeScope,assetWarning:actual.assetWarning,initError:actual.initError,consoleErrors:[...consoleErrors],pageErrors:[...pageErrors],failedRequests:[...failedRequests],screenshotPath:shot,status:pass?"PASS":"FAIL"});}}
+await context.close();}
+await browser.close();const summary={commitSha:EXPECTED_SHA,deployment,publicUrl:PUBLIC_URL,workflowRunId:RUN_ID,measureRange:[M0,M1],selectedActions:selected.map(x=>({measure:x.measure,time:x.time,key:x.key})),testedAt:new Date().toISOString(),failed,passed:records.length-failed,records};await fs.writeFile(path.join(ROOT,"runtime-qa.json"),JSON.stringify(summary,null,2));if(failed)process.exitCode=1;
