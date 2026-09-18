@@ -1,3 +1,12 @@
+## 2026-09-18 — Production pipeline speedup complete
+- Implemented SPEED-001..025 plus SPEED-026 risk-aware runner integration and SPEED-027 candidate-QA workflow.
+- Added automatic next-asset queue, generation/rebound instruction builders, candidate binary QA, fixed-drum/comparison/contact preview, image-diff metrics, staging/lifecycle/registration planning, block checklist/reuse analysis, transition-risk sampling, standardized screenshot naming, QA summary and next-chat command generation.
+- Added Fast Path for approved/mapped reuse-only blocks and Full Path for blocks with missing/pending assets; Full Path never substitutes neutral for missing assets.
+- Added failure-pattern registry, commit/autonomy rules, production pipeline guide, and production-pipeline validation.
+- Production contract validation run 35340578530 SUCCESS.
+- Risk-aware M1-8 Luna Block QA run 35340512012 SUCCESS, artifact 10544374908.
+- No character image was generated or overwritten; live runtimeScope remains 1-8.
+
 ## 2026-09-18 — Luna implementation infrastructure preparation
 - Added formal asset naming rules (human + machine-readable), a 30-key action-to-asset mapping master, character generation/edit spec, 11-part instrument contact master, pose transition rules, QA checklist, rejected-asset deny registry, and block completion gates.
 - Added one-command `Luna Block QA` workflow/runner with measure range and optional exact actionKey input. It reports missing/BLOCKED assets without substituting neutral, and produces PC/Xperia screenshots plus summary JSON when a range is QA-ready.
