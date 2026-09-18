@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Materialize the verified Dropbox/GitHub PNG into a conversation image target without re-encoding, then generate HT:R hit. Do not regenerate analysis or use the re-encoded attachment.",
-  "updatedAt": "2026-09-19T07:30:00+09:00",
+  "requiredNext": "Resume at HT:R hit when the formal neutral can be surfaced as a native conversation image target without re-encoding. Keep sourceNeutralVerification PASS and do not repeat M25-40 analysis.",
+  "updatedAt": "2026-09-19T07:55:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -174,8 +174,18 @@
     "rootCause": "Connector-to-image-editor binary handoff is unavailable in this chat toolset.",
     "affectedAction": "HT:R",
     "affectedAsset": "layers/character/ht/hit_r_refresh.png",
-    "requiredNext": "Materialize the verified Dropbox/GitHub PNG into a conversation image target without re-encoding, then generate HT:R hit. Do not regenerate analysis or use the re-encoded attachment.",
-    "retryWhen": "A direct Dropbox/GitHub-to-image-editor file handoff becomes available or the verified raw PNG is attached as an actual file target.",
-    "updatedAt": "2026-09-19T07:30:00+09:00"
+    "requiredNext": "Resume at HT:R hit when the formal neutral can be surfaced as a native conversation image target without re-encoding. Keep sourceNeutralVerification PASS and do not repeat M25-40 analysis.",
+    "retryWhen": "A connector-to-conversation-file/image-editor bridge is available. Do not use the 971425-byte Library near-match or the prior re-encoded attachment.",
+    "updatedAt": "2026-09-19T07:30:00+09:00",
+    "attemptedMethods": [
+      "Dropbox connector search/get metadata/file preview: formal file is accessible and verified.",
+      "Dropbox temporary download URL: connector can issue a single-use binary URL, but it is not exposed as a conversation image/file parameter to the image editor.",
+      "GitHub fetch_file encoding=base64: formal PNG bytes are retrievable (971237 decoded bytes), but connector payload cannot be promoted to an image-editor target.",
+      "ChatGPT Files conversation/library search + materialize: no exact formal neutral exists as a native ChatGPT file; nearest Library image was 971425 bytes and SHA256 27431356d780878932c2d0200053ef0454116c16626c9a097e04aca9cb00ca26, so it was rejected.",
+      "Container/raw URL path investigated: does not create a conversation image target usable by image editing, and no re-encoding/substitution was performed."
+    ],
+    "exactError": "No supported connector/files handoff can expose the cryptographically verified Dropbox/GitHub PNG as the image editor's usable source image in this chat. image editing can only target a usable image present in conversation; connector URLs/base64/file IDs are not accepted image targets.",
+    "toolLimitation": "Dropbox/GitHub connectors and ChatGPT Files are separate surfaces; the current toolset has no Dropbox->ChatGPT conversation-file import or connector-file->image-editor reference bridge.",
+    "investigatedAt": "2026-09-19T07:55:00+09:00"
   }
 }
