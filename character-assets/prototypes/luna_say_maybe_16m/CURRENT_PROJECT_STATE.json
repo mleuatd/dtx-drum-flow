@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:10:00+09:00",
+  "updatedAt": "2026-09-18T20:55:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -117,7 +117,7 @@
     "measures": "9-16",
     "reason": "Immediate contiguous public-runtime blocker; only one corrected image pair is missing."
   },
-  "nextRecommendedWork": "Create corrected RC+SN:R/L hit/rebound from approved neutral; run NIMG-013..023; extend live runtime to 1-16 only after QA passes.",
+  "nextRecommendedWork": "Use NEXT_ASSET_QUEUE ASSETQ-001. Create corrected RC+SN:R/L hit from approved neutral using generated prompt; then ASSETQ-002 rebound. After approval continue NIMG-013..023.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
@@ -138,23 +138,30 @@
     "character-assets/prototypes/luna_say_maybe_16m/QA_CHECKLIST_MASTER.json",
     "character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json",
     "character-assets/prototypes/luna_say_maybe_16m/BLOCK_COMPLETION_DEFINITION.json",
-    "character-assets/prototypes/luna_say_maybe_16m/NEXT_IMPLEMENTATION_HANDOFF.md"
+    "character-assets/prototypes/luna_say_maybe_16m/NEXT_IMPLEMENTATION_HANDOFF.md",
+    "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md",
+    "character-assets/prototypes/luna_say_maybe_16m/NEXT_ASSET_QUEUE.json",
+    "character-assets/prototypes/luna_say_maybe_16m/STAGING_SCHEMA.json",
+    "character-assets/prototypes/luna_say_maybe_16m/ASSET_LIFECYCLE.json",
+    "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_COMPLETION_TEMPLATE.json",
+    "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json",
+    "character-assets/prototypes/luna_say_maybe_16m/COMMIT_BOUNDARY_RULES.md",
+    "character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md",
+    "character-assets/prototypes/luna_say_maybe_16m/NEXT_CHAT_COMMAND.md"
   ],
   "historicalFiles": [
     "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
     "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json"
   ],
   "instructionsForNextChat": [
-    "Read CURRENT_PROJECT_STATE.json first.",
-    "Then read M5_PLUS_PROGRESS_LEDGER.json.",
-    "Then read NEXT_IMPLEMENTATION_HANDOFF.md.",
-    "Before generating/editing character assets, read CHARACTER_ASSET_GENERATION_SPEC.md, INSTRUMENT_CONTACT_POINTS.json, ASSET_NAMING_RULES.md and QA_CHECKLIST_MASTER.json.",
-    "Use ACTION_KEY_ASSET_MAP.json for actionKey-to-asset/runtime resolution.",
-    "Use REJECTED_ASSET_REGISTRY.json as a hard deny-list.",
-    "Use BLOCK_COMPLETION_DEFINITION.json before marking any measure block DONE.",
-    "Use latest GitHub main as sole source of truth.",
-    "Do not regenerate approved assets.",
-    "Do not expand runtimeScope until required images and QA gates pass."
+    "Read CURRENT_PROJECT_STATE.json, M5_PLUS_PROGRESS_LEDGER.json, NEXT_IMPLEMENTATION_HANDOFF.md, then PRODUCTION_PIPELINE.md.",
+    "Use NEXT_ASSET_QUEUE.json instead of manually deciding the next image.",
+    "Use generation/rebound builders instead of manually reconstructing prompts.",
+    "Use candidate QA + preview + diff tools before formal save.",
+    "Use staging JSON as the pair transfer record.",
+    "Choose Fast/Full Path using tools/luna-production-path.mjs.",
+    "Never reuse rejected assets or neutral-substitute missing assets.",
+    "Do not expand runtimeScope until contiguous block completion gates pass."
   ],
   "planningStatus": {
     "status": "DONE",
@@ -193,5 +200,36 @@
       "problems": 0
     },
     "validateRun": 35337828588
+  },
+  "productionPipeline": {
+    "status": "DONE",
+    "speedItems": "SPEED-001..027",
+    "nextAssetQueue": "character-assets/prototypes/luna_say_maybe_16m/NEXT_ASSET_QUEUE.json",
+    "productionGuide": "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md",
+    "tools": {
+      "promptBuilder": "tools/build-character-generation-prompt.mjs",
+      "reboundBuilder": "tools/derive-rebound-instruction.mjs",
+      "candidateQa": "tools/character_candidate_qa.py",
+      "preview": "tools/build-character-qa-preview.py",
+      "diffMetrics": "tools/character_image_diff_metrics.py",
+      "staging": "tools/build-staging-json.mjs",
+      "blockChecklist": "tools/build-block-start-checklist.mjs",
+      "reuseFinder": "tools/find-reuse-candidates.mjs",
+      "samplingRisk": "tools/build-qa-sampling-and-risk.mjs",
+      "qaSummary": "tools/build-qa-summary.mjs",
+      "nextChat": "tools/build-next-chat-handoff.mjs",
+      "pathSelector": "tools/luna-production-path.mjs"
+    },
+    "workflows": {
+      "candidateQa": ".github/workflows/luna-candidate-qa.yml",
+      "fastPath": ".github/workflows/luna-fast-path.yml",
+      "fullPath": ".github/workflows/luna-full-path.yml",
+      "blockQa": ".github/workflows/luna-block-qa.yml"
+    },
+    "validation": {
+      "productionContractRun": 35340578530,
+      "riskAwareM1_8Run": 35340512012,
+      "riskAwareArtifact": 10544374908
+    }
   }
 }
