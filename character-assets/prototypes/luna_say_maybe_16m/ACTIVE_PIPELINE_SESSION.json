@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-18T21:45:00+09:00",
   "taskCategory": "full-path",
-  "status": "IN_PROGRESS_PRELIVE_RUNTIME_QA",
+  "status": "DONE_M9_16",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -10,10 +10,10 @@
   "branch": "main",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 8,
+    "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "Complete M9-16 pre-live PC/Xperia runtime QA, then expand runtimeScope to 1-16 only if it passes.",
+  "currentNextWork": "Begin contiguous M17+ asset production from NEXT_ASSET_QUEUE.",
   "nextAsset": {
     "id": "ASSETQ-003",
     "actionKey": "LT:R",
@@ -25,8 +25,11 @@
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
   "manualOverride": {
     "id": "MANUAL_OVERRIDE-20260918-OPENWORK",
-    "reason": "No workflow_dispatch/direct repository Node execution entrypoint in current connector.",
-    "workaround": "Equivalent authoritative JSON logic executed through GitHub file reads/writes; validation remains mandatory."
+    "reason": "Current connector exposed GitHub file/workflow operations but no direct repository Node execution entrypoint.",
+    "workaround": "Used repository-native workflows and authoritative GitHub file updates through the connected GitHub tool; no substitute image generation or QA relaxation.",
+    "skippedTool": "tools/start-pipeline-task.mjs / tools/production-pipeline-dispatcher.mjs direct local execution",
+    "evidence": "Existing pipeline session/policy and GitHub Actions workflows were used; pre-live run 35350383202, live run 35351134562, validate 35351278979, Character Asset Validation 35351227038.",
+    "followUpFix": "Keep/extend workflow_dispatch or connector-callable pipeline entrypoint so future sessions can invoke the dispatcher directly."
   },
   "completionEvidence": [
     {
@@ -80,9 +83,37 @@
       "tool": "M9-16 pre-live runtime QA",
       "status": "IN_PROGRESS",
       "run": 35349932176
+    },
+    {
+      "tool": "M9-16 pre-live runtime QA",
+      "status": "SUCCESS",
+      "run": 35350383202,
+      "artifact": 10549653076
+    },
+    {
+      "tool": "M1-16 validate",
+      "status": "SUCCESS",
+      "run": 35351278979
+    },
+    {
+      "tool": "Character Asset Validation",
+      "status": "SUCCESS",
+      "run": 35351227038
+    },
+    {
+      "tool": "GitHub Pages deploy",
+      "status": "SUCCESS",
+      "run": 35351010527
+    },
+    {
+      "tool": "M9-16 public live PC/Xperia QA",
+      "status": "SUCCESS",
+      "run": 35351134562,
+      "artifact": 10549284671,
+      "screenshotVisualQa": "PASS"
     }
   ],
-  "completedAt": "2026-09-18T21:55:00+09:00",
-  "blocker": "M9-16 pre-live runtime QA must pass before live runtimeScope expansion.",
-  "nextAction": "Review run 35349932176; on PASS expand runtimeScope 1-16, validate/deploy, then live runtime QA."
+  "completedAt": "2026-09-18T22:49:00+09:00",
+  "blocker": null,
+  "nextAction": "Start the next queued M17 action-key asset; do not reopen M9-16 unless regression evidence appears."
 }
