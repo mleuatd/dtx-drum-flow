@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:10:00+09:00",
+  "updatedAt": "2026-09-18T21:25:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -149,13 +149,16 @@
     "character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md",
     "character-assets/prototypes/luna_say_maybe_16m/NEXT_CHAT_COMMAND.md",
     "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json",
-    "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md"
+    "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md",
+    "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json"
   ],
   "historicalFiles": [
     "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
     "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json"
   ],
   "instructionsForNextChat": [
+    "Run tools/start-pipeline-task.mjs for the task category at session start; it rebuilds context cache and runs the efficiency audit.",
+    "Autonomously implement safe HIGH-priority optimization suggestions from AUTO_OPTIMIZATION_REPORT.json without asking the user.",
     "Read CURRENT_PROJECT_STATE.json, M5_PLUS_PROGRESS_LEDGER.json, NEXT_IMPLEMENTATION_HANDOFF.md, PRODUCTION_PIPELINE.md, then PIPELINE_USAGE_POLICY.json.",
     "Before repeatable work, run tools/production-pipeline-dispatcher.mjs for the task category and use the returned existing tool/workflow.",
     "Do not manually duplicate an operation already covered by a repository tool/workflow.",
@@ -244,5 +247,15 @@
     "dispatcher": "tools/production-pipeline-dispatcher.mjs",
     "rule": "PIPELINE_FIRST_NO_MANUAL_DUPLICATION",
     "manualOverride": "Required in ledger when an existing repository tool/workflow is skipped."
+  },
+  "autonomousOptimization": {
+    "status": "MANDATORY",
+    "policy": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json",
+    "efficiencyAudit": "tools/audit-pipeline-efficiency.mjs",
+    "contextCacheBuilder": "tools/build-pipeline-context-cache.mjs",
+    "validationScopeClassifier": "tools/classify-validation-scope.mjs",
+    "sessionBootstrap": "tools/start-pipeline-task.mjs",
+    "behavior": "At each session start, rebuild context cache, run efficiency audit, and autonomously implement safe HIGH-priority optimization suggestions.",
+    "safety": "Do not weaken visual QA/rejected checks/limb authority/block completion/runtimeScope gates."
   }
 }
