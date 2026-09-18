@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T18:34:00+09:00",
+  "updatedAt": "2026-09-18T18:39:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -312,43 +312,75 @@
     "queue": [
       {
         "id": "NIMG-001",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Reconcile stale M9-16 ledger state: RD:R is already approved from M5-8 and must be reused, not regenerated.",
-        "dependsOn": []
+        "dependsOn": [],
+        "completedAt": "2026-09-18T18:39:00+09:00",
+        "evidence": [
+          "M9-16 RD state corrected to DONE_REUSE_APPROVED_M5_8 in this ledger.",
+          "Approved RD refresh paths and SHA256 copied from completed M5-8 block."
+        ]
       },
       {
         "id": "NIMG-002",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Verify GitHub bytes and SHA256 for approved RD:R hit/rebound and BD+SN hit/rebound against manifest/ledger; record any mismatch as QA issue.",
         "dependsOn": [
           "NIMG-001"
+        ],
+        "completedAt": "2026-09-18T18:39:00+09:00",
+        "evidence": [
+          "GitHub RD hit SHA256 a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415, size 1017467.",
+          "GitHub RD rebound SHA256 c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4, size 956929.",
+          "GitHub BD+SN hit SHA256 b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466, size 959113.",
+          "GitHub BD+SN rebound SHA256 872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0, size 949447.",
+          "All four match ledger/manifest expected SHA256."
         ]
       },
       {
         "id": "NIMG-003",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Verify Dropbox existence, file IDs, sizes and names for approved RD:R and corrected BD+SN assets; flag misleading aliases as NEVER_USE.",
         "dependsOn": [
           "NIMG-002"
+        ],
+        "completedAt": "2026-09-18T18:39:00+09:00",
+        "evidence": [
+          "Dropbox RD hit id id:Ec2HdgD6JJYAAAAAAAAAQA size 1017467.",
+          "Dropbox RD rebound id id:Ec2HdgD6JJYAAAAAAAAAQQ size 956929.",
+          "Dropbox corrected BD+SN hit id id:Ec2HdgD6JJYAAAAAAAAAPg size 959113.",
+          "Dropbox corrected BD+SN rebound id id:Ec2HdgD6JJYAAAAAAAAAPw size 949447.",
+          "Misleading non-_correct BD+SN aliases still exist and remain NEVER_USE per skippedOrRejected."
         ]
       },
       {
         "id": "NIMG-004",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Recompute measures 9-16 noteCount, groupCount, missingLimbs and exact action-key counts from FINAL notes + authoritative 1-16 limb sidecar.",
-        "dependsOn": []
+        "dependsOn": [],
+        "completedAt": "2026-09-18T18:39:00+09:00",
+        "evidence": [
+          "Recomputed from FINAL notes + 1-16 limb sidecar: M9-16 noteCount=83, groupCount=65, missingLimbs=0, first=17.232568, last=30.829691.",
+          "Counts: BD:RF 13, RD:R 4, SN:L 3, BD+RC:RF/R 3, HH:R 27, BD+SN:RF/L 14, RC+SN one group."
+        ]
       },
       {
         "id": "NIMG-005",
-        "status": "TODO",
+        "status": "DONE",
         "phase": "NOW",
         "task": "Record authoritative RC+SN event details (measure/time/limbs: SN=L, RC=R) and fixed-drum target side for later image QA.",
         "dependsOn": [
           "NIMG-004"
+        ],
+        "completedAt": "2026-09-18T18:39:00+09:00",
+        "evidence": [
+          "Only RC+SN group is measure 13 at 25.649835.",
+          "Authoritative limbs: SN=L and RC=R.",
+          "Fixed-drum/runtime effect point identifies RC on screen-right; later image QA must verify right-hand RC + left-hand SN."
         ]
       },
       {
@@ -513,6 +545,15 @@
           "NIMG-022"
         ]
       }
+    ],
+    "nextRunnable": [
+      "NIMG-006",
+      "NIMG-007",
+      "NIMG-008",
+      "NIMG-009",
+      "NIMG-010",
+      "NIMG-011",
+      "NIMG-012"
     ]
   }
 }
