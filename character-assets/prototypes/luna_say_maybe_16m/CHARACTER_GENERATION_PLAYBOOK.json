@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "status": "CURRENT_MANDATORY",
+  "purpose": "Compact pre-generation memory for character-image work. Read before the first generation/edit attempt in every character-asset session.",
+  "readPolicy": {
+    "when": [
+      "Before any NEW_IMAGE_REQUIRED character hit/rebound generation or edit",
+      "Before retrying a rejected character candidate",
+      "Before deriving rebound from an accepted hit"
+    ],
+    "rule": "Use this compact playbook first. Read longer registries/specs only when the current actionKey needs more detail.",
+    "sourcePriority": [
+      "approved neutral baseline / baseline lock",
+      "this playbook",
+      "FAILURE_PATTERN_REGISTRY.json",
+      "REJECTED_ASSET_REGISTRY.json",
+      "INSTRUMENT_CONTACT_POINTS.json",
+      "POSE_TRANSITION_RULES.json",
+      "QA_CHECKLIST_MASTER.json"
+    ]
+  },
+  "baselineRule": {
+    "parentImageRequired": true,
+    "mode": "DIRECT_EDIT",
+    "rules": [
+      "Do not create a fresh character drawing from text alone.",
+      "The approved initial neutral/home pose is the mandatory parent reference for every new character variant.",
+      "A nearby APPROVED variant may be used only as a secondary reference; it never replaces the neutral parent reference.",
+      "If the approved baseline bytes cannot be obtained and identified, do not generate.",
+      "Rejected/NEVER_USE candidates may never be used as a parent or style reference."
+    ]
+  },
+  "immutableVisualIdentity": [
+    "same character identity",
+    "same three-quarter-back / over-shoulder camera direction",
+    "same body scale and approximately 4-head chibi proportion",
+    "same face/head silhouette and hair identity",
+    "same long hair flow family",
+    "same clothing",
+    "same stool/body registration",
+    "same white-background black rough-line style",
+    "same handmade uneven sketch feeling",
+    "same person-to-fixed-drum registration"
+  ],
+  "allowedChanges": [
+    "minimum arm/hand/stick movement needed for the target part",
+    "minimum leg/foot movement needed for the target pedal",
+    "small torso lean required by believable reach",
+    "hit-to-rebound motion needed for continuity"
+  ],
+  "highRiskFailures": [
+    {
+      "id": "FRESH_REDRAW",
+      "avoid": "Do not generate from text-only description; require direct baseline edit.",
+      "detect": "Different face/body/camera or metadata/visual evidence of fresh redraw."
+    },
+    {
+      "id": "FRONT_FACING",
+      "avoid": "Preserve approved back/over-shoulder camera.",
+      "detect": "Face/camera turns toward front or side."
+    },
+    {
+      "id": "WRONG_SIDE_INSTRUMENT",
+      "avoid": "Resolve target contact point before generation.",
+      "detect": "Right-side RC/RD appears on left-side cymbal or vice versa."
+    },
+    {
+      "id": "DRUM_LEAK",
+      "avoid": "Character layer must remain person + stool only.",
+      "detect": "Cymbal/drum/pedal/hardware pixels appear in the character PNG."
+    },
+    {
+      "id": "STOOL_BODY_SHIFT",
+      "avoid": "Keep pelvis/stool/core body anchored to baseline.",
+      "detect": "Large registration jump between neutral/hit/rebound."
+    },
+    {
+      "id": "CAMERA_SCALE_JUMP",
+      "avoid": "Only local limb edits.",
+      "detect": "Whole body scale, viewpoint, crop, or framing changes."
+    },
+    {
+      "id": "WRONG_LIMB",
+      "avoid": "Read authoritative limb sidecar/actionKey before generation.",
+      "detect": "Hand/foot side does not match actionKey."
+    },
+    {
+      "id": "BAD_REBOUND",
+      "avoid": "Derive rebound from accepted hit plus baseline, not as an unrelated redraw.",
+      "detect": "Rebound does not visually connect hit to next/neutral state."
+    },
+    {
+      "id": "STYLE_DRIFT",
+      "avoid": "Keep rough black linework; no coloring, shading, gradients, polished anime rendering.",
+      "detect": "Line/finish quality no longer matches approved set."
+    },
+    {
+      "id": "REJECTED_REUSE",
+      "avoid": "Check reject registry and SHA/path deny list before use.",
+      "detect": "Candidate/path/SHA matches rejected asset."
+    }
+  ],
+  "firstAttemptChecklist": [
+    "Resolve current READY actionKey and phase from NEXT_ASSET_QUEUE.json.",
+    "Resolve authoritative limb(s) from full-song limb sidecar.",
+    "Load/identify approved neutral baseline as parent image.",
+    "Resolve instrument contact point and screen side.",
+    "Check this playbook highRiskFailures.",
+    "Check FAILURE_PATTERN_REGISTRY only for target-relevant failures.",
+    "Check nearest APPROVED hit/rebound only as secondary reference.",
+    "Generate/edit only after the above are satisfied."
+  ],
+  "qaLoop": [
+    "Run candidate binary/layer QA.",
+    "Compare baseline vs candidate for identity/camera/body/stool continuity.",
+    "Build fixed-drum composite/contact preview.",
+    "Check correct actionKey, limb and contact side.",
+    "Run diff metrics for suspicious whole-frame changes.",
+    "If FAIL: record one-line failure reason, tighten only the failed constraint, retry from approved baseline or accepted hit as appropriate.",
+    "Do not formal-save until all mandatory checks pass."
+  ],
+  "speedRules": [
+    "Do not reread every historical ledger on every attempt.",
+    "Use this compact playbook + current actionKey context first.",
+    "Open long registries only when the playbook or QA indicates a relevant risk.",
+    "Carry the same pre-generation brief across a batch of up to four images.",
+    "For rebound, reuse the accepted hit context instead of rebuilding the entire context from scratch."
+  ],
+  "successHeuristics": [
+    "Prefer local pose edits over whole-character redraws.",
+    "Keep core torso/pelvis/stool nearly fixed whenever physically possible.",
+    "Use fixed-drum composite before formal save, not after.",
+    "Treat visual continuity as a hard gate, not a cosmetic preference.",
+    "When unsure about side/contact, derive it from repository contact/limb data rather than guessing."
+  ]
+}
