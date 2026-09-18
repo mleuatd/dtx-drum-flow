@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "IN_PROGRESS_M17_ASSETQ_005",
+  "status": "IN_PROGRESS_M17_ASSETQ_007",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,10 +13,10 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "ASSETQ-005 LT:L hit",
+  "currentNextWork": "ASSETQ-007 BD+SN:RF/R hit",
   "nextAsset": {
-    "id": "ASSETQ-005",
-    "actionKey": "LT:L",
+    "id": "ASSETQ-007",
+    "actionKey": "BD+SN:RF/R",
     "phase": "hit",
     "firstMeasure": 17,
     "status": "READY",
@@ -116,6 +116,6 @@
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
   "blocker": null,
-  "nextAction": "Create LT:L hit using recalibrated LT contact point; use adaptive/local repair strategy and do not touch completed LT:R pair.",
-  "updatedAt": "2026-09-19T07:15:00+09:00"
+  "nextAction": "Create BD+SN:RF/R hit using approved references; do not touch completed LT:R/L pairs.",
+  "updatedAt": "2026-09-19T06:25:00+09:00"
 }
