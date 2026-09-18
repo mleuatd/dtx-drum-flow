@@ -1,0 +1,36 @@
+name: Export approved character references
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "character-assets/reference-export-trigger.json"
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Collect current approved references
+        run: |
+          mkdir -p reference-bundle
+          cp character-assets/layers/character/base/neutral.png reference-bundle/neutral.png
+          cp character-assets/layers/character/sn/hit_l.png reference-bundle/sn_hit_l.png
+          cp character-assets/layers/character/sn/rebound_l.png reference-bundle/sn_rebound_l.png
+          cp character-assets/layers/character/sn/hit_r.png reference-bundle/sn_hit_r.png
+          cp character-assets/layers/character/hh/hit_r.png reference-bundle/hh_hit_r.png
+          cp character-assets/layers/character/rd/hit_r_refresh.png reference-bundle/rd_hit_r.png
+          cp character-assets/layers/character/bd/hit_rf.png reference-bundle/bd_hit_rf.png
+          cp character-assets/layers/character/combo/bd_sn_hit_refresh.png reference-bundle/bd_sn_hit.png
+          cp character-assets/layers/character/combo/rc_sn_hit_refresh.png reference-bundle/rc_sn_hit.png
+          cp character-assets/layers/drum/drum_base.png reference-bundle/drum_base.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: approved-character-reference-bundle
+          path: reference-bundle
+          if-no-files-found: error
