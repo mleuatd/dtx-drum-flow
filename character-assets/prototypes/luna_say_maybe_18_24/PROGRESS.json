@@ -4,7 +4,7 @@
     "measureStart": 18,
     "measureEnd": 24
   },
-  "status": "PUBLIC_RUNTIME_QA_PENDING",
+  "status": "PUBLIC_RUNTIME_QA_FAILED",
   "sourceOfTruth": "GitHub main",
   "runtimeScope": {
     "measureStart": 1,
@@ -13,7 +13,7 @@
     "groupCount": 215
   },
   "qaInfrastructure": {
-    "state": "IMPLEMENTED_PENDING_RUN",
+    "state": "FAIL",
     "workflow": ".github/workflows/runtime-character-qa.yml",
     "runner": "tools/runtime-character-qa.mjs",
     "documentation": "docs/PUBLIC_RUNTIME_QA.md",
@@ -24,7 +24,10 @@
       "384x864"
     ],
     "deploymentGate": "public build.json commitSha must equal GITHUB_SHA",
-    "artifact": "public-runtime-qa-<run_id>"
+    "artifact": "public-runtime-qa-35400421004",
+    "runId": "35400421004",
+    "testedCommitSha": "4660e7111065ea7ed45509e7d3f95d3922954b51",
+    "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35400421004"
   },
   "requiredActions": [
     "BD+RD:RF/R",
@@ -35,9 +38,16 @@
   "definitionOfDone": {
     "staticQA": "PASS",
     "runtimeMapping": "PASS",
-    "publicRuntimeBrowserQA": "PENDING",
+    "publicRuntimeBrowserQA": "FAIL",
     "done": false
   },
-  "blocker": null,
-  "updatedAt": "2026-09-19T07:08:00+09:00"
+  "blocker": {
+    "workflowRunId": "35400421004",
+    "failedStep": "Wait for matching Pages deployment and run browser QA",
+    "error": "See workflow log and public-runtime-qa artifact",
+    "investigated": false,
+    "retryWhen": "after root cause is identified and a corrective commit changes the failing condition",
+    "requiredNext": "inspect runtime-qa.json and job log; do not rerun unchanged failure"
+  },
+  "updatedAt": "2026-09-18T22:15:16.303972+00:00"
 }
