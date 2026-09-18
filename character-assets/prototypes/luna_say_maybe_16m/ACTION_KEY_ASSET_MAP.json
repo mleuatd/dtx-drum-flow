@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:18:00+09:00",
+  "updatedAt": "2026-09-18T22:45:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -136,10 +136,10 @@
       "prepAsset": "character-assets/layers/character/base/neutral.png",
       "hitAsset": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "reboundAsset": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
-      "classification": "REUSE_NEEDS_RUNTIME_QA",
-      "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PRELOADED",
+      "classification": "REUSE_APPROVED",
+      "manifestStatus": "LIVE_QA_PASSED",
       "runtimeMapped": true,
-      "qaStatus": "STATIC_AND_CORE_RUNTIME_PASS_LIVE_TRANSITION_PENDING",
+      "qaStatus": "LIVE_PC_XPERIA_PASS",
       "sharedAsset": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "missing": false,
       "blocked": false,
@@ -150,7 +150,9 @@
       "legacyRuntimeKey": "BD+SN:*",
       "limbAwareRuntimeKey": "BD+SN:RF/L",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "runtimeState": "PRELOADED_OUTSIDE_LIVE_SCOPE"
+      "runtimeState": "LIVE_M1_16",
+      "liveQaRun": 35351134562,
+      "liveQaArtifact": 10549284671
     },
     {
       "actionKey": "RC+SN:R/L",
@@ -158,10 +160,10 @@
       "prepAsset": "character-assets/layers/character/base/neutral.png",
       "hitAsset": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
       "reboundAsset": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
-      "classification": "REUSE_NEEDS_RUNTIME_QA",
-      "manifestStatus": "RUNTIME_READY",
+      "classification": "REUSE_APPROVED",
+      "manifestStatus": "LIVE_QA_PASSED",
       "runtimeMapped": true,
-      "qaStatus": "STATIC_PASS_RUNTIME_QA_PENDING",
+      "qaStatus": "LIVE_PC_XPERIA_PASS",
       "sharedAsset": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
       "missing": false,
       "blocked": false,
@@ -172,9 +174,11 @@
       "legacyRuntimeKey": "RC+SN:*",
       "limbAwareRuntimeKey": "RC+SN:R/L",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "runtimeState": "EXACT_PRELOADED_WILDCARD_GATED_OUTSIDE_LIVE_SCOPE",
+      "runtimeState": "LIVE_M1_16",
       "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
-      "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da"
+      "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "liveQaRun": 35351134562,
+      "liveQaArtifact": 10549284671
     },
     {
       "actionKey": "BD+LT:RF/R",
