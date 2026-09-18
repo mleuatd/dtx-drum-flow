@@ -200,7 +200,6 @@
       "hand": "RF/L",
       "notes": [
         "Visual QA run 35321151121 artifact 10537157014",
-        "Do not use until runtime transition QA passes.",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
         "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
@@ -219,7 +218,6 @@
       "hand": "RF/L",
       "notes": [
         "Visual QA run 35321151121 artifact 10537157014",
-        "Do not use until runtime transition QA passes.",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
         "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
@@ -276,7 +274,6 @@
         "Canonical candidate QA PASS",
         "Fixed-drum visual review PASS",
         "Formal Dropbox/GitHub save complete",
-        "Live runtime QA pending",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
         "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
@@ -297,15 +294,14 @@
         "Canonical candidate QA PASS",
         "Fixed-drum visual review PASS",
         "Formal Dropbox/GitHub save complete",
-        "Live runtime QA pending",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
         "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
       ]
     }
   ],
   "qaUpdatedAt": "2026-09-18",
-  "qaScope": "Luna Say Maybe measures 1-8 complete live QA",
+  "qaScope": "Luna Say Maybe measures 1-16 complete live QA",
   "authoritativeImageCount": 16,
-  "note": "Approved fixed neutral/home pose from 2026-09-18 current-chat source, fixed 11-lane drum, and 10 measures 1-4 action variants.",
+  "note": "Approved fixed neutral/home pose, fixed 11-lane drum, M1-8 approved variants, and M9-16 RD/BD+SN/RC+SN live-QA-passed variants. Runtime scope is inventory-driven through measure 16.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
 }
