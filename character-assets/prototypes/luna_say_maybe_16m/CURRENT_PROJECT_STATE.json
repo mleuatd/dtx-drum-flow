@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T19:39:00+09:00",
+  "repository": "mleuatd/dtx-drum-flow",
+  "branch": "main",
+  "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+  "liveRuntimeScope": {
+    "measureStart": 1,
+    "measureEnd": 8,
+    "status": "COMPLETE_LIVE_QA"
+  },
+  "completedMeasureBlocks": [
+    {
+      "measures": "1-4",
+      "status": "DONE"
+    },
+    {
+      "measures": "5-8",
+      "status": "DONE"
+    }
+  ],
+  "blockedMeasureBlocks": [
+    {
+      "measures": "9-16",
+      "status": "BLOCKED_IMAGE_REQUIRED",
+      "blocker": "Corrected RC+SN:R/L hit/rebound pair"
+    }
+  ],
+  "limbAuthority": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
+  "fullSongLimbStatus": {
+    "status": "DONE",
+    "measures": "1-148",
+    "noteCount": 2158,
+    "groupCount": 1527,
+    "missingLimbs": 0,
+    "simultaneousSameLimb": 0,
+    "rapidSnSameHand": 0
+  },
+  "fullSongNoteCount": 2158,
+  "fullSongGroupCount": 1527,
+  "currentAssetStatus": {
+    "actionKeyCount": 30,
+    "REUSE_APPROVED": 6,
+    "REUSE_NEEDS_RUNTIME_QA": 1,
+    "NEW_IMAGE_REQUIRED": 22,
+    "BLOCKED": 1,
+    "newImageFilesNeeded": 44,
+    "blockedImageFiles": 2
+  },
+  "approvedAssets": [
+    "SN:L",
+    "SN:R",
+    "HH:R",
+    "BD:RF",
+    "BD+RC:RF/R",
+    "RD:R"
+  ],
+  "runtimePendingAssets": [
+    "BD+SN:RF/L"
+  ],
+  "missingAssets": [
+    "RC+SN:R/L corrected hit",
+    "RC+SN:R/L corrected rebound",
+    "22 later action-key hit/rebound pairs listed in FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json"
+  ],
+  "rejectedAssets": "See M5_PLUS_PROGRESS_LEDGER.json skippedOrRejected and CHARACTER_QA_ISSUES.json",
+  "neverUseAssets": [
+    "/ChatGPT/dtx-drum-flow/bd_sn_hit_refresh_candidate_20260918_b222db6a.png",
+    "/ChatGPT/dtx-drum-flow/bd_sn_rebound_refresh_candidate_20260918_87296211.png",
+    "historical/rejected wrong-side or different-character RD/RC+SN generations"
+  ],
+  "validationStatus": {
+    "fullSongLimb": "SUCCESS",
+    "planningValidation": "PENDING_LATEST_RUN",
+    "characterAssetValidation": "PENDING_LATEST_RUN"
+  },
+  "latestRelevantCommits": {
+    "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
+    "assetClassification": "3cba9d40d7335f5e20aabd04d1dd4cf3b66f7e35",
+    "blockPlan": "aa62e1128a8a6ef19042b852089c79117563d759",
+    "qaPlan": "e3dd49194b63bdd00c0857d0717cb98b36450c7f",
+    "planningValidator": "578eb3aead04a7acbb5cd94e2c460cf6acfefdfc",
+    "validateWorkflow": "ea797203afa30a0406ef7947eb378bba799f1a50",
+    "lbValidatorFix": "3c475a6fb9d8993b4a964d013103f963a8cca385",
+    "headBeforeStateFile": "3c475a6fb9d8993b4a964d013103f963a8cca385"
+  },
+  "latestQaRuns": {
+    "m5_8": 35327283366,
+    "m9_16Reusable": 35331851179,
+    "fullSongLimbPromotion": 35333901757
+  },
+  "nextRecommendedBlock": {
+    "blockId": "B09_16",
+    "measures": "9-16",
+    "reason": "Immediate contiguous public-runtime blocker; only one corrected image pair is missing."
+  },
+  "nextRecommendedWork": "Create corrected RC+SN:R/L hit/rebound from approved neutral; run NIMG-013..023; extend live runtime to 1-16 only after QA passes.",
+  "authoritativeFiles": [
+    "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
+    "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
+    "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+    "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
+    "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY.json",
+    "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
+    "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_IMPLEMENTATION_BLOCK_PLAN.json",
+    "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_EXISTING_ASSET_QA_PLAN.json",
+    "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
+    "character-assets/config/assets_manifest.json"
+  ],
+  "historicalFiles": [
+    "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
+    "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json"
+  ],
+  "instructionsForNextChat": [
+    "Read CURRENT_PROJECT_STATE.json first.",
+    "Then read M5_PLUS_PROGRESS_LEDGER.json.",
+    "Use latest GitHub main as sole source of truth.",
+    "Do not regenerate approved assets.",
+    "Do not expand runtimeScope until required images and QA gates pass.",
+    "Do not use historical/rejected assets."
+  ]
+}
