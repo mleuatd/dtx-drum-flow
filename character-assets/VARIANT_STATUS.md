@@ -118,3 +118,14 @@ Use:
 `prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json`
 
 It includes rejected generation SHA/reasons, misleading Dropbox aliases that must never be used, candidate/formal layer preservation status, QA evidence, and exact next actions.
+
+
+## M9-16 non-image preparation — 2026-09-18 18:45 JST
+- Live runtime is **measures 1-8**, not 1-4.
+- M5-8 is DONE. Approved RD:R refresh pair is reused for M9-16; do not regenerate.
+- BD+SN refreshed hit/rebound are formal-layer-saved and static visual-QA-passed; runtime QA remains pending.
+- Corrected RC+SN hit/rebound is the only missing image pair blocking runtime expansion to M16.
+- Authoritative RC+SN event: measure 13, time 25.649835, SN=L / RC=R. Runtime combo key will be `RC+SN:*`.
+- Prepared expansion plan: `prototypes/luna_say_maybe_16m/M9_16_RUNTIME_EXPANSION_PLAN.json`.
+- Target runtime scope after RC+SN approval: 1-16, 144 notes / 124 groups, expected keys `SN:L`, `SN:R`, `BD:RF`, `HH:R`, `BD+RC:*`, `RD:R`, `BD+SN:*`, `RC+SN:*`.
+- Latest RC+SN regeneration attempt was rejected because it produced an unrelated front-facing redraw (`edit_op=null`). Image-generation rate limiting currently blocks retry; see `CHAR-QA-0007`.
