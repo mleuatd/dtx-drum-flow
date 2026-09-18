@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:18:00+09:00",
+  "updatedAt": "2026-09-19T08:08:41.545+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
@@ -8,14 +8,14 @@
     "currentBlocker": "M9-16 pre-live runtime QA is running; RC+SN pair is formal. Later M17 asset queue remains dependency-blocked until M9-16 closes."
   },
   "nextItem": {
-    "id": "M17-POST-RUNTIME-QA",
+    "id": "M17-COMPLETE",
     "actionKey": "M17_ALL",
-    "phase": "runtime",
+    "phase": "complete",
     "block": "B17",
     "firstMeasure": 17,
-    "status": "READY",
+    "status": "DONE",
     "blocker": null,
-    "nextAction": "Run consolidated M17 actual-app PC/Xperia screenshot QA. Repair only visibly failing assets."
+    "nextAction": "M17 COMPLETE_LIVE_QA. Stop on this terminal; do not advance to M18+."
   },
   "items": [
     {
@@ -840,5 +840,22 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "nextAssetId": "ASSETQ-003"
+  "nextAssetId": "ASSETQ-003",
+  "m17Completion": {
+    "status": "COMPLETE_LIVE_QA",
+    "runId": 35404442282,
+    "artifactId": 10571731825,
+    "testedCommitSha": "8ebea91559444b6c5601da464b2f4468dbf5bcad",
+    "testedAt": "2026-09-18T23:08:41.545Z",
+    "deploymentBuiltAt": "2026-09-18T23:08:07Z",
+    "pc": "PASS",
+    "xperia": "PASS",
+    "failed": 0,
+    "passed": 22,
+    "skippedOverlapped": 4,
+    "records": 26,
+    "visualReview": "PASS",
+    "regressionM1_16": "PASS_BY_NO_RUNTIME_ERRORS_AND_NO_M17_SCOPE_SIDE_EFFECTS",
+    "note": "FT:L rebound/neutral are not observable before the next chart action and are recorded as SKIP_OVERLAPPED, not failures."
+  }
 }
