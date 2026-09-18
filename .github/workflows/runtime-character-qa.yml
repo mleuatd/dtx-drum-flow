@@ -4,33 +4,59 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/runtime-character-qa.yml"
+      - "site/**"
+      - "character-assets/**"
       - "tools/runtime-character-qa.mjs"
+      - ".github/workflows/runtime-character-qa.yml"
+      - ".github/workflows/deploy-site.yml"
+      - "docs/PUBLIC_RUNTIME_QA.md"
   workflow_dispatch:
+    inputs:
+      measure_start:
+        description: "First measure"
+        required: false
+        default: "18"
+      measure_end:
+        description: "Last measure"
+        required: false
+        default: "24"
+      actions:
+        description: "Comma-separated required action keys"
+        required: false
+        default: "BD+RD:RF/R,RD+SN:R/L,BD+HH:RF/R,HH+SN:R/L"
 
 permissions:
   contents: read
+
+concurrency:
+  group: public-runtime-qa-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   qa:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
+      MEASURE_START: ${{ inputs.measure_start || '18' }}
+      MEASURE_END: ${{ inputs.measure_end || '24' }}
+      QA_ACTIONS: ${{ inputs.actions || 'BD+RD:RF/R,RD+SN:R/L,BD+HH:RF/R,HH+SN:R/L' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Install Playwright
+      - name: Install Playwright Chromium
         run: |
-          npm init -y
-          npm install playwright@1.55.0
+          npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
-      - name: Run public GitHub Pages runtime QA
+      - name: Wait for matching Pages deployment and run browser QA
         run: node tools/runtime-character-qa.mjs
       - name: Upload runtime QA evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: runtime-character-qa
+          name: public-runtime-qa-${{ github.run_id }}
           path: qa-artifacts
           if-no-files-found: warn
+          retention-days: 30
