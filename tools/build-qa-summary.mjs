@@ -1,0 +1,7 @@
+import fs from "node:fs/promises";
+const inputs=process.argv.slice(2);if(!inputs.length)throw new Error("usage: node tools/build-qa-summary.mjs <summary-or-result-json>... [--out path]");
+const oi=inputs.indexOf("--out");const out=oi>=0?inputs[oi+1]:"qa-summary-merged.json";const files=oi>=0?inputs.slice(0,oi):inputs;
+const data=[];for(const f of files){try{data.push({file:f,data:JSON.parse(await fs.readFile(f,"utf8"))})}catch(e){data.push({file:f,error:String(e)})}}
+const flat=JSON.stringify(data);const summary={schemaVersion:1,generatedAt:new Date().toISOString(),sources:files,testedRanges:data.map(x=>x.data?.range).filter(Boolean),testedActionKeys:[...new Set(data.flatMap(x=>x.data?.actionKeys||x.data?.testedActionKeys||[]))],screenshots:data.flatMap(x=>x.data?.screenshots||x.data?.browser?Object.values(x.data.browser||{}).flatMap(v=>(v.records||[]).map(r=>r.screenshot)):[]),mismatchCount:(flat.match(/mismatch/gi)||[]).length,warningCount:(flat.match(/warning/gi)||[]).length,assetErrorCount:(flat.match(/assetIssue/gi)||[]).length,consoleErrorCount:(flat.match(/console:/gi)||[]).length,blockedItems:data.flatMap(x=>x.data?.staticProblems||x.data?.blockedItems||[]),recommendedNextAction:null};
+summary.recommendedNextAction=summary.blockedItems.length?"Resolve highest-priority blocked item, then rerun QA.":"Review visual screenshots for high-risk transitions, then apply block completion gates.";
+await fs.writeFile(out,JSON.stringify(summary,null,2)+"\n");console.log(JSON.stringify(summary,null,2));
