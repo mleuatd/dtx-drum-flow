@@ -9,8 +9,8 @@
   },
   "summary": {
     "total": 19,
-    "done": 8,
-    "blocked": 10,
+    "done": 13,
+    "blocked": 5,
     "canRunNow": 1
   },
   "firstBlockedAsset": null,
@@ -211,7 +211,7 @@
     {
       "taskId": "NIMG-021",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Run live public GitHub Pages QA for M9-16 on PC and Xperia viewports; verify BD+SN, RD:R and RC+SN hit/rebound/neutral behavior, console errors and asset warnings.",
       "dependency": "NIMG-020",
       "requiresImageGeneration": false,
@@ -219,14 +219,18 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-020.",
+      "blocker": null,
       "recommendedTool": "tools/build-qa-sampling-and-risk.mjs + luna-block-qa.mjs",
-      "executionOrder": 12
+      "executionOrder": 12,
+      "completedAt": "2026-09-18T22:47:00+09:00",
+      "evidence": [
+        "Public live M9-16 QA SUCCESS run 35351134562 artifact 10549284671; PC/Xperia screenshot review PASS."
+      ]
     },
     {
       "taskId": "NIMG-022",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Capture and visually inspect runtime screenshots for BD+SN, RD:R and RC+SN hit/rebound on both viewports; record run/artifact IDs and results.",
       "dependency": "NIMG-021",
       "requiresImageGeneration": false,
@@ -234,14 +238,18 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-021.",
+      "blocker": null,
       "recommendedTool": "tools/build-qa-summary.mjs + visual screenshot review",
-      "executionOrder": 13
+      "executionOrder": 13,
+      "completedAt": "2026-09-18T22:47:00+09:00",
+      "evidence": [
+        "Public live M9-16 QA SUCCESS run 35351134562 artifact 10549284671; PC/Xperia screenshot review PASS."
+      ]
     },
     {
       "taskId": "NIMG-023",
       "sourceQueue": "nonImageGenerationWorkQueue",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Close M9_16 as DONE only when all DONE criteria pass; otherwise leave open with exact remaining defects and next action.",
       "dependency": "NIMG-022",
       "requiresImageGeneration": false,
@@ -249,14 +257,18 @@
       "requiresGitHubAction": true,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Blocked by dependency NIMG-022.",
+      "blocker": null,
       "recommendedTool": "BLOCK_COMPLETION_DEFINITION.json + ledger/state/handoff",
-      "executionOrder": 14
+      "executionOrder": 14,
+      "completedAt": "2026-09-18T22:47:00+09:00",
+      "evidence": [
+        "Public live M9-16 QA SUCCESS run 35351134562 artifact 10549284671; PC/Xperia screenshot review PASS."
+      ]
     },
     {
       "taskId": "OWQ-015",
       "sourceQueue": "M9_16",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Close measures 9-16 as DONE.",
       "dependency": "NIMG-023",
       "requiresImageGeneration": true,
@@ -264,27 +276,33 @@
       "requiresGitHubAction": true,
       "requiresDropbox": true,
       "canRunNow": false,
-      "blocker": "Corrected RC+SN pair and downstream QA/deploy gates are incomplete.",
+      "blocker": null,
       "recommendedTool": "BLOCK_COMPLETION_DEFINITION.json",
-      "executionOrder": 15
+      "executionOrder": 15,
+      "completedAt": "2026-09-18T22:47:00+09:00",
+      "evidence": [
+        "Public live M9-16 QA SUCCESS run 35351134562 artifact 10549284671; PC/Xperia screenshot review PASS."
+      ]
     },
     {
       "taskId": "OWQ-016",
       "sourceQueue": "M9_16_EXISTING_ASSET_RUNTIME_QA",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "task": "Verify BD+SN -> RC+SN -> BD transition around 25.434007 / 25.649835 / 25.865662.",
       "dependency": "Corrected RC+SN pair + runtime mapping",
       "requiresImageGeneration": true,
       "requiresRuntimeQA": true,
       "requiresGitHubAction": true,
       "requiresDropbox": false,
-      "canRunNow": true,
+      "canRunNow": false,
       "blocker": null,
       "recommendedTool": "luna-block-qa + risk-aware sampling",
       "executionOrder": 16,
       "evidence": [
-        "Corrected RC+SN pair is formal; pre-live transition QA rerun 35349932176 in progress."
-      ]
+        "Corrected RC+SN pair is formal; pre-live transition QA rerun 35349932176 in progress.",
+        "Public live M9-16 QA SUCCESS run 35351134562 artifact 10549284671; PC/Xperia screenshot review PASS."
+      ],
+      "completedAt": "2026-09-18T22:47:00+09:00"
     },
     {
       "taskId": "OWQ-017",
@@ -297,22 +315,22 @@
       "requiresGitHubAction": true,
       "requiresDropbox": true,
       "canRunNow": false,
-      "blocker": "Upstream contiguous block M9-16 is incomplete and later action pairs are also missing.",
+      "blocker": "M9-16 dependency cleared; M17 still requires its queued new character assets before implementation.",
       "recommendedTool": "NEXT_ASSET_QUEUE + luna-full-path",
       "executionOrder": 17
     },
     {
       "taskId": "OWQ-018",
       "sourceQueue": "M17_148",
-      "status": "BLOCKED",
+      "status": "READY",
       "task": "Create later missing character pairs for 22 NEW_IMAGE_REQUIRED action keys.",
       "dependency": "M9_16 DONE and NEXT_ASSET_QUEUE order",
       "requiresImageGeneration": true,
       "requiresRuntimeQA": false,
       "requiresGitHubAction": true,
       "requiresDropbox": true,
-      "canRunNow": false,
-      "blocker": "Image generation required for later action keys; upstream M9-16 remains incomplete.",
+      "canRunNow": true,
+      "blocker": null,
       "recommendedTool": "NEXT_ASSET_QUEUE + generation prompt builder",
       "executionOrder": 18
     },
@@ -327,7 +345,7 @@
       "requiresGitHubAction": true,
       "requiresDropbox": true,
       "canRunNow": false,
-      "blocker": "Depends on missing image pairs and preceding contiguous blocks.",
+      "blocker": "Depends on M17+ required asset pairs from NEXT_ASSET_QUEUE.",
       "recommendedTool": "block-start checklist + Fast/Full Path workflows",
       "executionOrder": 19
     }
