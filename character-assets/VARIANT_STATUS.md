@@ -1,3 +1,29 @@
+## Full-song limb authority — 2026-09-18 19:20 JST
+
+Luna Say Maybe now has an authoritative full-song per-note limb sidecar:
+
+- `site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json`
+- scope: measures 1-148
+- notes: 2,158
+- missing limbs: 0
+- simultaneous same-limb conflicts: 0
+- rapid-SN same-hand repeats: 0
+- M1-16 prefix regression mismatches: 0
+
+Rules:
+- BD=RF
+- LP=LF
+- LB=LF
+- normal HH/RC/RD/LC default to R
+- SN default L
+- rapid SN uses alternating R/L with phrase-aware start-hand selection
+- tom fills use alternating R/L; simultaneous SN+tom resolves SN=L and tom=R
+
+Runtime limb lookup now uses the full-song sidecar. Character image runtimeScope remains measures 1-8 until M9-16 RC+SN image work is complete.
+
+Limb-aware later-measure action inventory:
+`prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY.json`
+
 # Character Variant Status
 
 ## Persistent visual QA ledger — 2026-09-18
