@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 33,
+    "measureEnd": 40
+  },
+  "status": "WAITING_FOR_BLOCK_A_ASSETS",
+  "sourceOfTruth": "GitHub main",
+  "analysis": {
+    "combinedRange": "M25-40",
+    "noteCount": 123,
+    "groupCount": 84,
+    "uniqueActionCount": 8,
+    "classificationCounts": {
+      "A_REUSE": 7,
+      "B_MAPPING_ONLY": 1,
+      "C_NEW_ASSET": 0,
+      "D_DATA_ISSUE": 0
+    },
+    "reusableActions": [
+      "BD+HH:RF/R",
+      "HH+SN:R/L",
+      "HH:R",
+      "SN:L",
+      "SN:R",
+      "BD+SN:RF/R",
+      "LT:R"
+    ],
+    "mappingOnly": [
+      {
+        "actionKey": "BD+RC:RF/R",
+        "reuseMapping": "BD+RC:*"
+      }
+    ],
+    "newActions": []
+  },
+  "dependency": "No M33-40-only character PNG is required by current chart/limb analysis. Complete Block A formal assets and QA first; then extend runtime scope and verify Block B.",
+  "definitionOfDone": {
+    "staticQA": "PENDING",
+    "runtimeMapping": "PENDING",
+    "publicRuntimeBrowserQA": "PENDING",
+    "screenshotReview": "PENDING",
+    "done": false
+  },
+  "requiredNext": "After M25-32 reaches runtime-ready state, reuse formal assets/mappings and perform M33-40 static/public runtime QA.",
+  "updatedAt": "2026-09-19T07:00:00+09:00"
+}
