@@ -1,0 +1,36 @@
+name: Runtime Character QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/runtime-character-qa.yml"
+      - "tools/runtime-character-qa.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run public GitHub Pages runtime QA
+        run: node tools/runtime-character-qa.mjs
+      - name: Upload runtime QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: runtime-character-qa
+          path: qa-artifacts
+          if-no-files-found: warn
