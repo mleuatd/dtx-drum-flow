@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:28:00+09:00",
+  "updatedAt": "2026-09-18T19:43:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -156,15 +156,18 @@
     {
       "id": "M17_148",
       "measures": "17-148",
-      "status": "ANALYSIS_IN_PROGRESS_LIMB_AUTHORITY_NOT_READY",
+      "status": "PLANNED_LIMB_AUTHORITY_DONE_ASSETS_PENDING",
       "chart": {
         "notes": 2014,
         "lastMeasure": 148,
         "embeddedLimbFields": 0
       },
       "progress": [
-        "Full-song limb coverage gap report committed",
-        "Draft analysis separates mechanically resolvable notes from unresolved notes without promoting them to authority"
+        "Full-song limb authority completed and promoted",
+        "Full-song action-key inventory completed",
+        "Full-song asset classification completed",
+        "Implementation blocks 9-148 planned",
+        "Reusable-asset QA schedule prepared"
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -175,31 +178,28 @@
         "status": "ANALYSIS_ONLY_NOT_RUNTIME_AUTHORITY"
       },
       "remaining": [
-        "Formalize rapid-SN alternation/start-hand rules",
-        "Resolve 8 SN+tom same-limb collisions",
-        "Generate and validate authoritative full-song limb sidecar",
-        "Inventory later-measure action keys and create required images block-by-block"
+        "Complete corrected RC+SN:R/L pair and M9-16 live expansion first",
+        "Create later-measure missing character pairs according to FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
+        "Implement later blocks contiguously with validation/live QA"
       ],
       "actionInventory": {
-        "path": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json",
-        "noteCount": 2014,
-        "groupCount": 1403,
-        "authority": "PART_COMBINATION_ONLY_NO_LIMB_GUESSING",
-        "topCombinations": [
-          "SN 363",
-          "BD+HH 224",
-          "HH 209",
-          "HH+SN 143",
-          "BD 104",
-          "BD+RC 58",
-          "LT 53",
-          "RC+SN 33",
-          "RD 33",
-          "HT 30",
-          "BD+RD 29",
-          "BD+SN 25",
-          "RD+SN 23"
-        ]
+        "path": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY.json",
+        "actionKeyCount": 30,
+        "authority": "FULL_SONG_LIMB_AWARE"
+      },
+      "limbAuthority": {
+        "status": "DONE",
+        "fullSongPath": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
+        "fullSongNotes": 2158,
+        "fullSongGroups": 1527,
+        "missingLimbs": 0,
+        "simultaneousSameLimb": 0,
+        "rapidSnSameHand": 0
+      },
+      "historicalDraft": {
+        "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
+        "status": "SUPERSEDED_HISTORICAL",
+        "oldUnresolved": 195
       }
     }
   ],
@@ -288,7 +288,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Reusable M9-16 asset behavior is QA-complete except the two transitions touching missing RC+SN. Wait for corrected RC+SN hit/rebound, resume at NIMG-013, then re-run the two blocked transitions plus full M9-16 live QA before marking the block DONE.",
+  "nextAction": "Follow NEXT_IMPLEMENTATION_HANDOFF.md: create corrected RC+SN:R/L hit/rebound, then complete NIMG-013..023 and expand live runtime to 1-16 only after QA.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -852,59 +852,110 @@
   },
   "fullSongImplementationPlanning": {
     "id": "FULL_SONG_IMPLEMENTATION_PLANNING",
-    "status": "IN_PROGRESS",
+    "status": "DONE",
     "createdAt": "2026-09-18T19:28:00+09:00",
     "purpose": "Plan all Luna Say Maybe measures 1-148 character implementation work without image generation or runtimeScope expansion.",
     "queue": [
       {
         "id": "PLAN-001",
-        "status": "IN_PROGRESS",
-        "task": "Classify every full-song limb-aware action key."
+        "status": "DONE",
+        "task": "Classify every full-song limb-aware action key.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "30 limb-aware action keys classified in FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json.",
+          "REUSE_APPROVED 6 / REUSE_NEEDS_RUNTIME_QA 1 / NEW_IMAGE_REQUIRED 22 / BLOCKED 1."
+        ]
       },
       {
         "id": "PLAN-002",
-        "status": "TODO",
-        "task": "Classify approved reuse, reuse-needs-runtime-QA, new-image-required, blocked, and rejected-never-use."
+        "status": "DONE",
+        "task": "Classify approved reuse, reuse-needs-runtime-QA, new-image-required, blocked, and rejected-never-use.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "Exact whole-character reuse limited to approved six keys plus BD+SN:RF/L runtime-pending pair; rejected assets excluded."
+        ]
       },
       {
         "id": "PLAN-003",
-        "status": "TODO",
-        "task": "Create the minimal new character-image requirement inventory with hit/rebound separated."
+        "status": "DONE",
+        "task": "Create the minimal new character-image requirement inventory with hit/rebound separated.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "44 new later hit/rebound files + 2 blocked RC+SN files enumerated with priority and QA requirements."
+        ]
       },
       {
         "id": "PLAN-004",
-        "status": "TODO",
-        "task": "Split measures 17-148 into implementation blocks based on asset novelty, reuse rate, fills and QA complexity."
+        "status": "DONE",
+        "task": "Split measures 17-148 into implementation blocks based on asset novelty, reuse rate, fills and QA complexity.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "15 contiguous implementation blocks covering measures 9-148 created in FULL_SONG_IMPLEMENTATION_BLOCK_PLAN.json."
+        ]
       },
       {
         "id": "PLAN-005",
-        "status": "TODO",
-        "task": "Rank implementation blocks to minimize image generation and maximize reuse."
+        "status": "DONE",
+        "task": "Rank implementation blocks to minimize image generation and maximize reuse.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "B09_16 selected P0 because public runtime must remain contiguous; B18_19, B20_24 and B105_108 are later low-novelty two-pair candidates after dependencies clear."
+        ]
       },
       {
         "id": "PLAN-006",
-        "status": "TODO",
-        "task": "Prepare exact-timestamp runtime QA plan for reusable assets after measure 16."
+        "status": "DONE",
+        "task": "Prepare exact-timestamp runtime QA plan for reusable assets after measure 16.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "FULL_SONG_EXISTING_ASSET_QA_PLAN.json created with exact pre/hit/rebound/post timings for 775 reusable events on PC/Xperia."
+        ]
       },
       {
         "id": "PLAN-007",
-        "status": "TODO",
-        "task": "Audit and safely extend validation for full-song action inventory, mappings and required assets without expanding runtimeScope."
+        "status": "DONE",
+        "task": "Audit and safely extend validation for full-song action inventory, mappings and required assets without expanding runtimeScope.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "Added tools/validate_luna_full_song_planning.py and validate workflow step; success run 35335328767. Character asset validation with LB=LF fix success run 35335334538; validate run 35335334582 success."
+        ]
       },
       {
         "id": "PLAN-008",
-        "status": "TODO",
-        "task": "Mark stale documentation as HISTORICAL/RESOLVED/SUPERSEDED while preserving history."
+        "status": "DONE",
+        "task": "Mark stale documentation as HISTORICAL/RESOLVED/SUPERSEDED while preserving history.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "VARIANT_STATUS, HANDOFF and CHANGELOG now contain current-state override/superseded notices; historical text retained."
+        ]
       },
       {
         "id": "PLAN-009",
-        "status": "TODO",
-        "task": "Create CURRENT_PROJECT_STATE.json as first-read current-state authority."
+        "status": "DONE",
+        "task": "Create CURRENT_PROJECT_STATE.json as first-read current-state authority.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "CURRENT_PROJECT_STATE.json created as first-read current-state authority."
+        ]
       },
       {
         "id": "PLAN-010",
-        "status": "TODO",
-        "task": "Create NEXT_IMPLEMENTATION_HANDOFF.md for autonomous continuation."
+        "status": "DONE",
+        "task": "Create NEXT_IMPLEMENTATION_HANDOFF.md for autonomous continuation.",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "evidence": [
+          "NEXT_IMPLEMENTATION_HANDOFF.md created with exact next work and autonomy rules."
+        ]
+      },
+      {
+        "id": "PLAN-011",
+        "status": "DONE",
+        "completedAt": "2026-09-18T19:43:00+09:00",
+        "task": "Align character asset validator LB fallback with project semantics.",
+        "evidence": [
+          "tools/character_layers/validate_assets.py corrected from LB=RF to LB=LF.",
+          "Character asset validation run 35335334538 SUCCESS."
+        ]
       }
     ],
     "guardrails": [
@@ -914,6 +965,36 @@
       "NO_REJECTED_ASSET_REUSE",
       "NO_LIMB_REGUESSING"
     ],
-    "nextAction": "Complete PLAN-001 through PLAN-010 autonomously; add PLAN-011+ if new work is discovered."
+    "nextAction": "Follow NEXT_IMPLEMENTATION_HANDOFF.md: create corrected RC+SN:R/L hit/rebound, then complete NIMG-013..023 and expand live runtime to 1-16 only after QA.",
+    "completedAt": "2026-09-18T19:43:00+09:00",
+    "outputs": {
+      "assetPlan": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
+      "blockPlan": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_IMPLEMENTATION_BLOCK_PLAN.json",
+      "qaPlan": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_EXISTING_ASSET_QA_PLAN.json",
+      "currentState": "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
+      "handoff": "character-assets/prototypes/luna_say_maybe_16m/NEXT_IMPLEMENTATION_HANDOFF.md"
+    },
+    "summary": {
+      "actionKeyCount": 30,
+      "reuseApproved": 6,
+      "reuseNeedsRuntimeQa": 1,
+      "newImageRequired": 22,
+      "blocked": 1,
+      "newImageFiles": 44,
+      "blockedImageFiles": 2,
+      "reusableQaEvents": 775,
+      "nextRecommendedBlock": "B09_16"
+    },
+    "commits": {
+      "queue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
+      "assetClassification": "3cba9d40d7335f5e20aabd04d1dd4cf3b66f7e35",
+      "blockPlan": "aa62e1128a8a6ef19042b852089c79117563d759",
+      "qaPlan": "e3dd49194b63bdd00c0857d0717cb98b36450c7f",
+      "planningValidator": "578eb3aead04a7acbb5cd94e2c460cf6acfefdfc",
+      "validateWorkflow": "ea797203afa30a0406ef7947eb378bba799f1a50",
+      "lbValidatorFix": "3c475a6fb9d8993b4a964d013103f963a8cca385",
+      "currentState": "5a41a3f16f91fc099b7e09dc1f2d6013b556d437",
+      "nextHandoff": "03820d6762f8488de21f801641b931fc5fa218e9"
+    }
   }
 }
