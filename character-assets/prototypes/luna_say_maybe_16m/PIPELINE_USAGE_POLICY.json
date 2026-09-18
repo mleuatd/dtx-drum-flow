@@ -11,8 +11,12 @@
     "New reusable logic discovered during manual work should be promoted into a tool/workflow before repeating the operation.",
     "Image generation itself is not automated by this policy; generation still follows image/tool availability and visual QA gates.",
     "At session start, run the efficiency audit; autonomously implement safe HIGH-priority optimization suggestions and record them in the ledger.",
-    "When character candidate QA fails, classify the failure and run character-retry-controller before any retry.",
-    "Do not repeat an identical generation/edit strategy after the same failure occurs twice; strategy change is mandatory."
+    "Do not repeat an identical generation/edit strategy after the same failure occurs twice; strategy change is mandatory.",
+    "Use two-phase character QA: lightweight PRE_RUNTIME hard gates first, then consolidated POST_RUNTIME screenshot QA after contiguous block assembly.",
+    "Pre-runtime contact precision, diff metrics, centroid shift, edit metadata, and minor visual concerns are non-blocking signals unless they reveal an obvious hard failure.",
+    "When a true hard failure occurs, classify it and run character-retry-controller before any retry.",
+    "Do not repeat an identical generation/edit strategy after the same true hard failure occurs twice; strategy change is mandatory.",
+    "After all assets for the current block exist, prioritize provisional runtime mapping and screenshot QA before micro-adjusting individual images."
   ],
   "taskRouting": {
     "choose-next-asset": [
@@ -79,6 +83,13 @@
     "character-retry-decision": [
       "tools/character-retry-controller.mjs",
       "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json"
+    ],
+    "qa-phase-policy": [
+      "character-assets/prototypes/luna_say_maybe_16m/M17_QA_PHASE_POLICY.json"
+    ],
+    "post-runtime-visual-qa": [
+      "tools/luna-block-qa.mjs",
+      "tools/build-qa-sampling-and-risk.mjs"
     ]
   },
   "compliance": {
@@ -87,6 +98,7 @@
     "validationMustCheckPolicyFiles": true,
     "nextChatMustMentionPipelineFirst": true,
     "stateMustExposePolicy": true,
-    "characterGenerationPlaybookRequired": true
+    "characterGenerationPlaybookRequired": true,
+    "twoPhaseQaRequired": true
   }
 }
