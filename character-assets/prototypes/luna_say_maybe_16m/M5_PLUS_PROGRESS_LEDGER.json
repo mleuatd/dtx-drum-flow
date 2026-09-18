@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:50:00+09:00",
+  "updatedAt": "2026-09-19T07:15:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -163,7 +163,7 @@
     {
       "id": "M17_148",
       "measures": "17-148",
-      "status": "READY_ADAPTIVE_RETRY",
+      "status": "IN_PROGRESS_ASSETS",
       "chart": {
         "notes": 2014,
         "lastMeasure": 148,
@@ -187,7 +187,14 @@
         "Further explicit current-conversation/file-id image edit attempts still returned edit_op=null/full redraw; rejected.",
         "Minimal-stick local edit preserved identity but failed natural fixed-drum composite path; SHA 6046034f1288c641b76a81e7cc52a41120f3009ba6e915002ff9eb273385040a.",
         "APPROVED RD:R right-arm rotation reuse failed shoulder/hair attachment QA; SHA f1a9de8243a44f4aa5da41239607b98c8009fa2bd031ea7c1e1c55e018250af3.",
-        "Pipeline improvement completed: adaptive retry controller added, graded candidate QA added, edit_op=null changed from automatic rejection to visual-risk signal, repeated-strategy retry loop prohibited."
+        "Pipeline improvement completed: adaptive retry controller added, graded candidate QA added, edit_op=null changed from automatic rejection to visual-risk signal, repeated-strategy retry loop prohibited.",
+        "Contact-point QA root cause fixed: LT effect/contact point recalibrated from stale (790,510) to current drum surface (885,455).",
+        "Adaptive retry produced deterministic baseline-preserving LT:R pair.",
+        "LT:R hit QA PASS run 35394228101; SHA b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72.",
+        "LT:R rebound QA PASS run 35394228101; SHA d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf.",
+        "Formal pair merged to main commit 4f177525086cc777ded5c4af7e7b316d7992d322.",
+        "Dropbox mirror trigger PR #8 opened; confirmation pending.",
+        "Next READY asset: ASSETQ-005 LT:L hit."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -222,7 +229,7 @@
         "oldUnresolved": 195
       },
       "blocker": null,
-      "nextAction": "Resume ASSETQ-003 LT:R hit through adaptive retry controller. Same failed strategy cannot repeat; metadata-only edit_op=null is not a standalone rejection."
+      "nextAction": "Create ASSETQ-005 LT:L hit; after PASS create ASSETQ-006 rebound. Keep runtime scope at 1-16 until all M17 pairs pass."
     }
   ],
   "skippedOrRejected": [
@@ -331,7 +338,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Resume-first at ASSETQ-003 LT:R hit using adaptive retry controller.",
+  "nextAction": "Create ASSETQ-005 LT:L hit; after PASS create ASSETQ-006 rebound. Keep runtime scope at 1-16 until all M17 pairs pass.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
