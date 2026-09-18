@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:05:00+09:00",
+  "updatedAt": "2026-09-18T22:27:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
     "liveRuntimeScope": "1-8",
-    "currentBlocker": "ASSETQ-002 rebound remains; ASSETQ-001 hit is formal and preloaded. Live runtimeScope remains 1-8."
+    "currentBlocker": "M9-16 pre-live runtime QA is running; RC+SN pair is formal. Later M17 asset queue remains dependency-blocked until M9-16 closes."
   },
   "nextItem": {
-    "id": "ASSETQ-002",
-    "actionKey": "RC+SN:R/L",
-    "phase": "rebound",
-    "block": "B09_16",
-    "firstMeasure": 13,
-    "occurrenceCount": 34,
-    "priority": "P0",
-    "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
+    "id": "ASSETQ-003",
+    "actionKey": "LT:R",
+    "phase": "hit",
+    "block": "B17",
+    "firstMeasure": 17,
+    "occurrenceCount": 31,
+    "priority": "P1",
+    "dependency": "Earlier contiguous measures through 16 must be complete before public runtime reaches this action.",
     "currentAssetStatus": "NEW_IMAGE_REQUIRED",
-    "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
-    "nextAfterCompletion": "ASSETQ-003",
-    "status": "READY_IMAGE_GENERATION",
-    "blocker": null,
-    "nextAction": "Create rebound from accepted formal hit character-assets/layers/character/combo/rc_sn_hit_refresh.png; do not regenerate neutral or hit."
+    "reason": "Missing formal hit; first appears M17, occurrences 31.",
+    "nextAfterCompletion": "ASSETQ-004",
+    "status": "BLOCKED_DEPENDENCY",
+    "blocker": "Depends on completion of earlier contiguous asset queue items through ASSETQ-002.",
+    "nextAction": "Resume only after all earlier required image pairs and contiguous block gates are complete."
   },
   "items": [
     {
@@ -52,12 +52,15 @@
       "occurrenceCount": 34,
       "priority": "P0",
       "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
-      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
+      "currentAssetStatus": "FORMAL_REGISTERED",
       "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
       "nextAfterCompletion": "ASSETQ-003",
-      "status": "READY_IMAGE_GENERATION",
+      "status": "DONE",
       "blocker": null,
-      "nextAction": "Create rebound from accepted formal hit character-assets/layers/character/combo/rc_sn_hit_refresh.png; do not regenerate neutral or hit."
+      "nextAction": "Completed: formal rebound registered and exact-key preloaded outside live scope.",
+      "githubPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_rebound_refresh_20260918.png",
+      "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da"
     },
     {
       "id": "ASSETQ-003",
