@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "song": "Luna Say Maybe",
+  "scope": {
+    "measureStart": 9,
+    "measureEnd": 16,
+    "noteCount": 83,
+    "groupCount": 65,
+    "firstNoteTime": 17.232568,
+    "lastNoteTime": 30.829691
+  },
+  "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json",
+  "chartSource": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+  "groupKeyCounts": {
+    "BD:RF": 13,
+    "RD:R": 4,
+    "SN:L": 3,
+    "BD+RC:RF/R": 3,
+    "HH:R": 27,
+    "BD+SN:RF/L": 14,
+    "RC+SN:L/R": 1
+  },
+  "reusableApprovedKeys": [
+    "BD:RF",
+    "SN:L",
+    "BD+RC:*",
+    "HH:R"
+  ],
+  "requiredRefreshedKeys": {
+    "RD:R": {
+      "frames": [
+        "rd_r_hit",
+        "rd_r_rebound"
+      ],
+      "sourceRequirement": "Direct edit of refreshed M1-4 baseline",
+      "state": "BLOCKED"
+    },
+    "BD+SN:RF/L": {
+      "frames": [
+        "bd_sn_hit_refresh",
+        "bd_sn_rebound_refresh"
+      ],
+      "historicalHit": "layers/character/combo/bd_sn_hit.png",
+      "historicalHitStatus": "REJECTED_VISUAL_MISMATCH",
+      "state": "BLOCKED"
+    },
+    "RC+SN:L/R": {
+      "frames": [
+        "rc_sn_hit_refresh",
+        "rc_sn_rebound_refresh"
+      ],
+      "historicalHit": "layers/character/combo/rc_sn_hit.png",
+      "historicalHitStatus": "REJECTED_VISUAL_MISMATCH",
+      "state": "BLOCKED"
+    }
+  },
+  "implementationState": "NOT_WIRED_UNTIL_REFRESHED_VARIANTS_PASS_QA",
+  "qaEvidence": {
+    "visualQaRun": 35315877548,
+    "artifactId": 10535690785,
+    "qaIssue": "CHAR-QA-0006"
+  },
+  "note": "RD:R refreshed frames are shared requirements with measures 5-8."
+}
