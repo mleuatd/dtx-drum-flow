@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe BD+HT:RF/R transaction for Luna M29-40",
+  "status": "SOURCE_LOCK",
+  "actionKey": "BD+HT:RF/R",
+  "scope": {
+    "measureStart": 29,
+    "measureEnd": 40
+  },
+  "parent": {
+    "githubPath": "character-assets/layers/character/ht/hit_r_refresh.png",
+    "sha256": "PENDING_HT_R_FORMAL_APPROVAL",
+    "width": 1448,
+    "height": 1086
+  },
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration",
+    "HT right-arm pose except approved BD cue region"
+  ],
+  "allowedMotion": [
+    "rightFoot",
+    "BD kick cue only"
+  ],
+  "phases": {
+    "hit": {
+      "stage": "SOURCE_LOCK",
+      "attempt": 0,
+      "dropboxPath": null,
+      "sha256": null,
+      "qaStatus": "WAITING_UPSTREAM_HT_R_APPROVAL",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+      "formalCommit": null
+    },
+    "rebound": {
+      "stage": "SOURCE_LOCK",
+      "attempt": 0,
+      "dropboxPath": null,
+      "sha256": null,
+      "qaStatus": "WAITING_UPSTREAM_HT_R_APPROVAL",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
+      "formalCommit": null
+    }
+  },
+  "qa": {
+    "static": "PENDING",
+    "compositeVisual": "PENDING",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "updatedAt": "2026-09-19T08:42:00+09:00"
+}
