@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "M17_IMAGES_COMPLETE_RUNTIME_QA_READY",
+  "status": "M17_COMPLETE_LIVE_QA_STOPPED_FOR_CONFLICT_AVOIDANCE",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,15 +13,8 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "M17 consolidated actual-app screenshot QA",
-  "nextAsset": {
-    "id": "M17-POST-RUNTIME-QA",
-    "actionKey": "M17_ALL",
-    "phase": "runtime",
-    "firstMeasure": 17,
-    "status": "READY",
-    "blocker": null
-  },
+  "currentNextWork": "NONE_ON_THIS_TERMINAL",
+  "nextAsset": null,
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
   "manualOverride": {
@@ -116,6 +109,23 @@
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
   "blocker": null,
-  "nextAction": "Run measure 17 PC/Xperia actual-app QA. Only repair assets that visibly fail.",
-  "updatedAt": "2026-09-19T07:18:00+09:00"
+  "nextAction": "Stop. M17 COMPLETE_LIVE_QA; do not proceed to M18+ from this terminal.",
+  "updatedAt": "2026-09-19T08:08:41.545+09:00",
+  "m17RuntimeQa": {
+    "status": "COMPLETE_LIVE_QA",
+    "runId": 35404442282,
+    "artifactId": 10571731825,
+    "testedCommitSha": "8ebea91559444b6c5601da464b2f4468dbf5bcad",
+    "testedAt": "2026-09-18T23:08:41.545Z",
+    "deploymentBuiltAt": "2026-09-18T23:08:07Z",
+    "pc": "PASS",
+    "xperia": "PASS",
+    "failed": 0,
+    "passed": 22,
+    "skippedOverlapped": 4,
+    "records": 26,
+    "visualReview": "PASS",
+    "regressionM1_16": "PASS_BY_NO_RUNTIME_ERRORS_AND_NO_M17_SCOPE_SIDE_EFFECTS",
+    "note": "FT:L rebound/neutral are not observable before the next chart action and are recorded as SKIP_OVERLAPPED, not failures."
+  }
 }
