@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 4
   },
-  "updatedAt": "2026-09-18T12:24:00+09:00",
+  "updatedAt": "2026-09-18T12:48:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -43,7 +43,9 @@
     {
       "assetKey": "sn_r_rebound",
       "path": "character-assets/layers/character/sn/rebound_r.png",
-      "status": "OPEN"
+      "status": "DONE",
+      "runtimeReplacementAssetKey": "sn_r_hit",
+      "note": "Original sn_r_rebound.png retained for history but no longer used at runtime after live QA found a large transition jump."
     },
     {
       "assetKey": "hh_r_hit",
@@ -161,9 +163,9 @@
     {
       "id": "CHAR-QA-0004",
       "createdAt": "2026-09-18T12:17:00+09:00",
-      "updatedAt": "2026-09-18T12:24:00+09:00",
-      "completedAt": null,
-      "status": "IN_PROGRESS",
+      "updatedAt": "2026-09-18T12:48:00+09:00",
+      "completedAt": "2026-09-18T12:48:00+09:00",
+      "status": "DONE",
       "severity": "high",
       "assetKey": "sn_r_rebound",
       "phase": "rebound",
@@ -180,7 +182,15 @@
         "Same phase/frame sequence is present in Xperia-class portrait evidence with no browser console/page errors."
       ],
       "verification": [
-        "Correction started: replace the visually discontinuous SN:R rebound runtime mapping with the stable SN:R hit frame for the very short rebound interval, preserving the rebound phase state while eliminating the camera/body jump."
+        "Runtime replacement implemented in asset_inventory.json: SN:R rebound -> sn_r_hit while dataset phase remains rebound.",
+        "Original sn_r_rebound.png retained but marked RETAINED_NOT_RUNTIME in assets_manifest.json and M1_4_REQUIRED_CHARACTER_ASSETS.json.",
+        "GitHub Pages deploy for commit 1845fb9247b46e15f410602a3fec4f65c12929f0 completed successfully.",
+        "Final live runtime QA run 35304314820 completed successfully against https://mleuatd.github.io/dtx-drum-flow/.",
+        "Artifact 10531651257 contains 216 screenshots + runtime-qa.json.",
+        "PC 1280x900: SN:R hit at 4.960410s uses sn/hit_r.png; rebound at 5.017439s keeps sn/hit_r.png with phase=rebound; next SN:L hit at 5.050324s uses sn/hit_l.png.",
+        "Xperia-class portrait 384x864 shows the same hit/rebound/next-hit sequence.",
+        "Browser console/page errors: 0 on PC and Xperia; asset warnings/init errors: 0; character/drum dimensions remain constant within each viewport.",
+        "Visual check confirms the previous camera/body/stool jump is removed."
       ]
     }
   ]
