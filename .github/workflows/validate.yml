@@ -18,7 +18,7 @@ jobs:
       - name: Install basic audio dependencies
         run: pip install -r tools/audio_pipeline/requirements.txt
       - name: Python syntax
-        run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py tools/audio_pipeline/realign_existing_midi.py tools/audio_pipeline/video_chart_extractor.py tools/songsterr_gp_to_chart.py tools/chart_validation.py
+        run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py tools/audio_pipeline/realign_existing_midi.py tools/audio_pipeline/video_chart_extractor.py tools/songsterr_gp_to_chart.py tools/chart_validation.py tools/validate_luna_full_song_planning.py
       - name: Pipeline CLI smoke test
         run: |
           python tools/audio_pipeline/pipeline.py --help
@@ -38,5 +38,7 @@ jobs:
         run: node tools/oshi_sketch_smoke.js
       - name: FINAL chart validation and Luna regression
         run: python tools/chart_validation.py
+      - name: Luna full-song planning validation
+        run: python tools/validate_luna_full_song_planning.py
       - name: UI contract checks
         run: python tools/ui_contract_test.py
