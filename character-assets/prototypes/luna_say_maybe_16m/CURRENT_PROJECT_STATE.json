@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:15:00+09:00",
+  "updatedAt": "2026-09-19T06:25:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -145,7 +145,7 @@
     "measures": "17",
     "reason": "M9-16 is DONE; continue contiguously with the next required asset/action-key queue."
   },
-  "nextRecommendedWork": "M17 in progress. LT:R hit/rebound are formal QA-passed and merged; next READY is ASSETQ-005 LT:L hit. runtimeScope remains 1-16 until the full M17 asset gate passes.",
+  "nextRecommendedWork": "M17 in progress. LT:R and LT:L pairs are formal QA-passed; next READY is ASSETQ-007 BD+SN:RF/R hit. runtimeScope remains 1-16 until the full M17 asset gate passes.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
