@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "status": "READY_FOR_FORMAL_IMPORT",
+  "actionKey": "FT:R",
+  "block": "B17",
+  "measure": 17,
+  "createdAt": "2026-09-19T06:52:00+09:00",
+  "method": "approved neutral preserved; deterministic local right-stick edit from neutral grip to recalibrated FT contact",
+  "contactPoint": {
+    "hit": {
+      "x": 1165,
+      "y": 535
+    },
+    "rebound": {
+      "x": 1115,
+      "y": 470
+    }
+  },
+  "assets": [
+    {
+      "phase": "hit",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_r_hit_refresh_20260919.png",
+      "formalPath": "character-assets/layers/character/ft/hit_r_refresh.png",
+      "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+      "width": 1448,
+      "height": 1086,
+      "downloadUrl": "https://uc7e207693466d74529f35a6e1dd.dl.dropboxusercontent.com/cd/0/get/DIZRmJ7szE0YlFZbe6Fc3RO7BycUnv6velITedCJUvxB8Z06sgX0NNtn83ym3_qgbuFvaYTjc9Qblmc5vD-n02jmx5TLsERdeqrdGwf-l_NpaPFSNUqYFah6YvYD5pZ8PDbHO8fOqkN-7TOv3m7-if2DbFAMeLFBaAjONavacl06Eg/file?c_luid=e8a8ea13"
+    },
+    {
+      "phase": "rebound",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_r_rebound_refresh_20260919.png",
+      "formalPath": "character-assets/layers/character/ft/rebound_r_refresh.png",
+      "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+      "width": 1448,
+      "height": 1086,
+      "downloadUrl": "https://uc7544dd2e9a8bd01dbe6db639d3.dl.dropboxusercontent.com/cd/0/get/DIanZBKZnVZnPzWyizoS1sHrRkCWGf8bon30d-jOgaNO7FCyIsywZ1TIpm_nwoVUeZEEgo0iuG8GUjUryYX51gQOtspvyqBHkOlIl2lvzT5CToHi8_B8opGYQRZhFllZXUcYNownG93cQd71jxJkjt4Nw9qhbYDv3gTaw_XEzmo1kw/file?c_luid=e8a8ea13"
+    }
+  ],
+  "qa": {
+    "binary": "PASS_LOCAL",
+    "visual": "PASS_FIXED_DRUM_COMPOSITE",
+    "hitChangedPixelRatio": 0.0019936052013064315,
+    "reboundChangedPixelRatio": 0.0013462399397657784
+  },
+  "runtimeMapped": false,
+  "manifestRegistered": false
+}
