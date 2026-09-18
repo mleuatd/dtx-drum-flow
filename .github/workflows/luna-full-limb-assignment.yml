@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate-and-validate:
@@ -22,6 +22,17 @@ jobs:
           node-version: "20"
       - name: Generate and validate full-song limbs
         run: node tools/generate-luna-full-limbs.mjs
+      - name: Promote validated sidecar and report
+        run: |
+          cp limb-artifacts/Luna_say_maybe_full_limbs_CANDIDATE.json site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json
+          cp limb-artifacts/Luna_say_maybe_full_limbs_VALIDATION.json character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_LIMB_VALIDATION.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_LIMB_VALIDATION.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: promote Luna full-song limb sidecar"
+            git push
+          fi
       - name: Upload limb evidence
         if: always()
         uses: actions/upload-artifact@v4
