@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:45:00+09:00",
+  "updatedAt": "2026-09-19T05:45:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -35,11 +35,11 @@
     {
       "id": "FAIL-EDIT-NULL",
       "name": "edit_op null / fresh redraw",
-      "severity": "CRITICAL",
+      "severity": "HIGH",
       "detection": "generation metadata or visible result indicates fresh redraw rather than baseline edit",
-      "automaticAction": "REJECT",
-      "qaAction": "Require exact baseline-bound edit",
-      "neverUse": true,
+      "automaticAction": "Do not auto-reject solely from edit_op=null. Treat it as a redraw-risk signal; reject only when visual continuity/locality QA confirms identity/camera/body/stool redraw.",
+      "qaAction": "Run identity/camera/stool/body-scale comparison and changed-region locality check. If those pass and only intended limb motion changed, continue QA despite null metadata. If they fail, invoke character-retry-controller and change strategy.",
+      "neverUse": false,
       "evidence": "latest RC+SN failed regeneration"
     },
     {
@@ -112,5 +112,10 @@
       "neverUse": false,
       "evidence": "M9-16 existing-asset QA first run"
     }
-  ]
+  ],
+  "adaptiveRetry": {
+    "sameFailureSameStrategyMaxAttempts": 1,
+    "onRepeat": "Invoke tools/character-retry-controller.mjs and force a different strategy.",
+    "policy": "FAIL is not a terminal boolean. Every failure must produce a next strategy or a specific external blocker."
+  }
 }
