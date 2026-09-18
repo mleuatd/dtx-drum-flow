@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-18T21:45:00+09:00",
   "taskCategory": "full-path",
-  "status": "IN_PROGRESS_REBOUND_REQUIRED",
+  "status": "IN_PROGRESS_PRELIVE_RUNTIME_QA",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,15 +13,13 @@
     "measureEnd": 8,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "Create RC+SN:R/L rebound from the accepted formal hit; hit import is complete.",
+  "currentNextWork": "Complete M9-16 pre-live PC/Xperia runtime QA, then expand runtimeScope to 1-16 only if it passes.",
   "nextAsset": {
-    "id": "ASSETQ-002",
-    "actionKey": "RC+SN:R/L",
-    "phase": "rebound",
-    "block": "B09_16",
-    "status": "READY_IMAGE_GENERATION",
-    "source": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
-    "sourceSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82"
+    "id": "ASSETQ-003",
+    "actionKey": "LT:R",
+    "phase": "hit",
+    "block": "B17",
+    "status": "BLOCKED_DEPENDENCY_M9_16"
   },
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
@@ -68,9 +66,23 @@
       "githubPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
       "importCommit": "127f430df5dbc118f42b8b09128b7cd2ff387074",
       "importWorkflowRun": 35347550282
+    },
+    {
+      "tool": "RC+SN rebound formal import",
+      "status": "SUCCESS",
+      "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "githubPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_rebound_refresh_20260918.png",
+      "importCommit": "4f28e3fd0ffdbf92eebbf376a7843072475e3ebf",
+      "importWorkflowRun": 35349223044
+    },
+    {
+      "tool": "M9-16 pre-live runtime QA",
+      "status": "IN_PROGRESS",
+      "run": 35349932176
     }
   ],
   "completedAt": "2026-09-18T21:55:00+09:00",
-  "blocker": "Only RC+SN:R/L rebound remains on the image critical path before M9-16 static/runtime completion work can continue.",
-  "nextAction": "Use character-assets/layers/character/combo/rc_sn_hit_refresh.png as the rebound source. Do not regenerate the hit."
+  "blocker": "M9-16 pre-live runtime QA must pass before live runtimeScope expansion.",
+  "nextAction": "Review run 35349932176; on PASS expand runtimeScope 1-16, validate/deploy, then live runtime QA."
 }
