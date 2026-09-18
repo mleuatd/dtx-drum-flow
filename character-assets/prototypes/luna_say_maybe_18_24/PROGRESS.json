@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 18,
+    "measureEnd": 24
+  },
+  "status": "PUBLIC_RUNTIME_QA_PENDING",
+  "sourceOfTruth": "GitHub main",
+  "runtimeScope": {
+    "measureStart": 1,
+    "measureEnd": 24,
+    "noteCount": 272,
+    "groupCount": 215
+  },
+  "qaInfrastructure": {
+    "state": "IMPLEMENTED_PENDING_RUN",
+    "workflow": ".github/workflows/runtime-character-qa.yml",
+    "runner": "tools/runtime-character-qa.mjs",
+    "documentation": "docs/PUBLIC_RUNTIME_QA.md",
+    "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+    "browser": "Chromium",
+    "viewports": [
+      "1280x900",
+      "384x864"
+    ],
+    "deploymentGate": "public build.json commitSha must equal GITHUB_SHA",
+    "artifact": "public-runtime-qa-<run_id>"
+  },
+  "requiredActions": [
+    "BD+RD:RF/R",
+    "RD+SN:R/L",
+    "BD+HH:RF/R",
+    "HH+SN:R/L"
+  ],
+  "definitionOfDone": {
+    "staticQA": "PASS",
+    "runtimeMapping": "PASS",
+    "publicRuntimeBrowserQA": "PENDING",
+    "done": false
+  },
+  "blocker": null,
+  "updatedAt": "2026-09-19T07:08:00+09:00"
+}
