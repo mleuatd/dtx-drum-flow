@@ -127,8 +127,8 @@
       }
     }
   ],
-  "currentTask": "Validate M1-24 runtime mapping/build, wait for Pages deploy, then public-browser runtime QA",
-  "status": "IN_PROGRESS",
+  "currentTask": "Public GitHub Pages real-browser M18-24 runtime QA and evidence capture",
+  "status": "BLOCKED",
   "resumeRule": "Read ledger and verify real files. Continue first non-DONE phase; never regenerate completed assets unless missing or SHA mismatch.",
   "notes": [
     "M18-24 scan completed against latest main.",
@@ -145,7 +145,25 @@
     "reason": "two-panel dark sheet; embedded drums/text; fresh redraw",
     "localFile": "/mnt/data/a_clean_white_background_black_and_white_rough_sk.png"
   },
-  "blocker": null,
+  "blocker": {
+    "code": "PUBLIC_RUNTIME_BROWSER_UNAVAILABLE",
+    "phase": "M18-24 public runtime QA",
+    "investigated": [
+      "Direct public GitHub Pages inventory URL via current web runtime",
+      "Direct public GitHub Pages generated PNG URL via current web runtime"
+    ],
+    "retryWhen": [
+      "Public GitHub Pages becomes accessible to a browser/computer-use runtime",
+      "A GitHub Actions public-runtime QA workflow/run becomes available for the M1-24 mapping commit"
+    ],
+    "independentWorkCompleted": [
+      "All 8 M18-24 deterministic source-derived PNGs generated on main",
+      "All 8 candidate QA JSON gates PASS",
+      "M1-24 runtime inventory mapped: 272 notes / 215 groups / 18 expected keys",
+      "PROGRESS records source/output SHA256 and GitHub paths"
+    ],
+    "requiredNext": "Run actual deployed Pages app and inspect representative M18-24 hit/rebound/neutral transitions; capture evidence and only then mark DONE."
+  },
   "runbook": "character-assets/prototypes/luna_say_maybe_18_24/AUTONOMOUS_RUNBOOK.md",
   "resumeProtocolVersion": 2,
   "preImplementation": {
@@ -234,6 +252,7 @@
       "BD+HH:RF/R",
       "HH+SN:R/L"
     ],
-    "publicQa": "PENDING"
+    "publicQa": "BLOCKED_BY_CURRENT_BROWSER_TOOL_ACCESS",
+    "publicQaEvidence": "Direct public Pages URL fetch attempted from current web environment; tool reported URL inaccessible. Static generated QA PASS is not being misreported as runtime QA."
   }
 }
