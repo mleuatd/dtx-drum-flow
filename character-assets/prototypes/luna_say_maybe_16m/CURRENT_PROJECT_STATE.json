@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T20:55:00+09:00",
+  "updatedAt": "2026-09-18T21:10:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -147,14 +147,19 @@
     "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json",
     "character-assets/prototypes/luna_say_maybe_16m/COMMIT_BOUNDARY_RULES.md",
     "character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md",
-    "character-assets/prototypes/luna_say_maybe_16m/NEXT_CHAT_COMMAND.md"
+    "character-assets/prototypes/luna_say_maybe_16m/NEXT_CHAT_COMMAND.md",
+    "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json",
+    "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md"
   ],
   "historicalFiles": [
     "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
     "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json"
   ],
   "instructionsForNextChat": [
-    "Read CURRENT_PROJECT_STATE.json, M5_PLUS_PROGRESS_LEDGER.json, NEXT_IMPLEMENTATION_HANDOFF.md, then PRODUCTION_PIPELINE.md.",
+    "Read CURRENT_PROJECT_STATE.json, M5_PLUS_PROGRESS_LEDGER.json, NEXT_IMPLEMENTATION_HANDOFF.md, PRODUCTION_PIPELINE.md, then PIPELINE_USAGE_POLICY.json.",
+    "Before repeatable work, run tools/production-pipeline-dispatcher.mjs for the task category and use the returned existing tool/workflow.",
+    "Do not manually duplicate an operation already covered by a repository tool/workflow.",
+    "If an existing tool must be skipped, record MANUAL_OVERRIDE with tool/reason/evidence/follow-up in the ledger.",
     "Use NEXT_ASSET_QUEUE.json instead of manually deciding the next image.",
     "Use generation/rebound builders instead of manually reconstructing prompts.",
     "Use candidate QA + preview + diff tools before formal save.",
@@ -231,5 +236,13 @@
       "riskAwareM1_8Run": 35340512012,
       "riskAwareArtifact": 10544374908
     }
+  },
+  "pipelineUsagePolicy": {
+    "status": "MANDATORY",
+    "policyJson": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json",
+    "policyDoc": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md",
+    "dispatcher": "tools/production-pipeline-dispatcher.mjs",
+    "rule": "PIPELINE_FIRST_NO_MANUAL_DUPLICATION",
+    "manualOverride": "Required in ledger when an existing repository tool/workflow is skipped."
   }
 }
