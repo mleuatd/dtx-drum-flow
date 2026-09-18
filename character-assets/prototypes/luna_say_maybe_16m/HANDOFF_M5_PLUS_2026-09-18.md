@@ -148,3 +148,102 @@ At restart, read this file, `CHARACTER_QA_ISSUES.json`, `M5_8_REQUIRED_CHARACTER
 Do not wire historical later-measure PNGs and do not treat the rejected fresh RD generation as an asset.
 
 The next successful image step must demonstrate a true edit of the exact approved baseline before any generated later-measure frame is registered.
+
+
+## Continuation update — 2026-09-18 17:15 JST
+
+### New persistent progress ledger
+Read first:
+`character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json`
+
+It records:
+- completed / in-progress / blocked blocks,
+- every skipped or rejected generation,
+- misleading Dropbox aliases that must never be used,
+- GitHub-saved review/runtime-pending assets,
+- validation/runtime QA evidence,
+- exact next action.
+
+### Measures 5-8 current state
+Still BLOCKED by RD:R hit/rebound.
+
+Rejected current-chat RD attempts:
+1. first pair: strike direction went to screen-left instead of fixed-drum RD on screen-right;
+2. explicit-reference retry: image system ignored baseline and produced a different front-facing hoodie character;
+3. unrelated management-sheet image generation was also rejected.
+
+Do not register any of those images.
+
+### Measures 9-16 current state
+BD+SN refreshed hit/rebound:
+- static fixed-drum visual QA PASSED;
+- runtime QA PENDING;
+- formal layer paths now exist:
+  - `character-assets/layers/character/combo/bd_sn_hit_refresh.png`
+  - `character-assets/layers/character/combo/bd_sn_rebound_refresh.png`
+- SHA-256:
+  - hit `b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466`
+  - rebound `872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0`
+- manifest status: `VISUAL_QA_PASSED_RUNTIME_PENDING`
+- not present in `runtimeFrameMap` / `runtimePhaseFrameMap`
+
+Visual QA evidence:
+- run `35321151121`
+- artifact `10537157014`
+
+RC+SN:
+- current-chat pair rejected because crash motion targeted screen-left rather than fixed-drum RC on screen-right.
+- regenerate before any mapping.
+
+### Runtime infrastructure update
+`site/character-prototype.js` now derives `startMeasure/endMeasure` from `asset_inventory.runtimeScope`.
+Current inventory still says measures 1-4, so live scope is unchanged.
+
+Validation:
+- UI contract: success after test update.
+- character asset validation: success after validator was changed to permit extra runtime-pending later-measure layer PNGs while separately enforcing the 12 active M1-4 layer PNGs.
+- public Pages deploy after scope refactor: success.
+- live Runtime Character QA: run `35321917979`, artifact `10536838661`, success.
+
+Do not restore hardcoded `PROTOTYPE_MEASURE_END=4`; expand by updating the authoritative inventory only after the next block has approved assets.
+
+### Measures 17-148 analysis progress
+New:
+`site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json`
+- resolved by current formal rules: 1,819
+- unresolved: 195
+- rapid-SN notes requiring rule refinement: 179
+- simultaneous same-limb conflict groups: 8
+- ANALYSIS ONLY, not runtime authority.
+
+New:
+`character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json`
+- 2,014 notes
+- 1,403 groups
+- part-combination counts only; no hand/foot inference.
+
+### Exact next work order
+1. Create a true baseline-derived RD:R hit/rebound pair. This is the blocker for measures 5-8.
+2. Fixed-drum composite QA. Reject on any face/hair/body/camera/registration drift.
+3. Register RD assets and extend inventory scope to 1-8 only.
+4. Deploy and run live PC/Xperia QA for measures 1-8.
+5. Regenerate RC+SN hit/rebound correctly to screen-right RC with left-hand SN.
+6. Once RD + RC+SN + existing BD+SN are all good, extend inventory/runtime through measure 16 and live-QA it.
+7. Separately formalize rapid-SN and SN+tom conflict rules before promoting any measure 17+ limb sidecar.
+
+### Important skip/reject safety
+Two Dropbox files have misleading names but contain the rejected first BD+SN generation with drum hardware baked into the character layer. They are documented in `M5_PLUS_PROGRESS_LEDGER.json` and staging metadata. NEVER USE them.
+
+Correct Dropbox candidates have filenames ending in `_correct.png`.
+
+### Current code/data milestones
+- review candidate import: `36a4c7706f2110aa9040f3dedcdf1fff968af8b0`
+- formal BD+SN layer save: `e3b7ed9929443eca2f9d95a964ec740e9c632ecf`
+- BD+SN manifest runtime-pending: `de930be6ce607550cff4aff134501a6e204ad794`
+- inventory-scope runtime refactor: `69ab1b5be285ad133c9dc98e80332bbd29443401`
+- final scope-refactor cache update: `5cdeacfcba3f72e79b5bb10a70b0522ac7085a47`
+- post-refactor live QA trigger: `0da8a9680a92b42db314a46c76c22cbd0f0020b3`
+- runtime-pending validator support: `3914354eab0410b0b7f11d671d4b48e1a2138b5b`
+- full-song limb analysis draft: `2c885eba3c49598791ec7d5232ced63fd655d659`
+- later-measure part-combination inventory: `ffd976ecc2cb7fca3fc025dc5217ee302ef0417e`
+- progress-ledger refresh after QA/analysis: `71ec5e0d358a3b9473b87d8b33a7e5f34510199d`
