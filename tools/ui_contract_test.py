@@ -15,7 +15,7 @@ checks={
 "Xperia viewport":'viewport-fit=cover' in html and 'user-scalable=no' in html,
 "character canvas stays transparent":'if(!isLuna){ctx.fillStyle="#0e172a";ctx.fillRect(0,0,w,h)}' in js and 'background:transparent' in css,
 "prototype runtime scope 1-8":inventory.get("runtimeScope",{}).get("measureStart")==1 and inventory.get("runtimeScope",{}).get("measureEnd")==8 and "inventory.runtimeScope?.measureStart" in character_js and "inventory.runtimeScope?.measureEnd" in character_js,
-"precomputed limb mapping":'Luna_say_maybe_1_16_limbs.json' in character_js and 'if(note?.limb)return note.limb' in character_js,
+"precomputed limb mapping":'Luna_say_maybe_full_limbs.json' in character_js and 'if(note?.limb)return note.limb' in character_js,
 "m1-8 parapara character runtime":'runtimeFrameMap' in character_js and 'runtimePhaseFrameMap' in character_js and 'Object.values(data.frames)' in character_js and 'Promise.allSettled' in character_js,
 "effect layer retained":'id="effectLayer"' in html and 'triggerEffect(g,phase)' in character_js,
 }
