@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T06:50:00+09:00",
+  "updatedAt": "2026-09-19T06:56:00+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -359,7 +359,11 @@
         "ASSETQ-007 BD+SN:RF/R hit formal QA PASS; SHA 71515ebc9678959f2b85a4136133f23ef847c2b844a3f0e4b127ba573a192d5b.",
         "ASSETQ-008 BD+SN:RF/R rebound formal QA PASS; SHA adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77.",
         "Review import workflow 35397944277 SUCCESS; exact candidate bytes promoted to formal paths.",
-        "Next READY is ASSETQ-009 FT:R hit."
+        "Next READY is ASSETQ-009 FT:R hit.",
+        "ASSETQ-009 FT:R hit DONE; SHA bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a.",
+        "ASSETQ-010 FT:R rebound DONE; SHA eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce.",
+        "Formal import workflow 35398522113 SUCCESS.",
+        "Next READY is ASSETQ-011 FT:L hit."
       ]
     },
     {
