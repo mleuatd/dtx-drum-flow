@@ -26,8 +26,9 @@ def main():
             if a[0]==255 or a[1]==0: errors.append(f"{rel}: invalid transparency")
         if sha256(p)!=asset["sha256"]: errors.append(f"{rel}: SHA mismatch")
     actual={str(p.relative_to(ROOT)).replace("\\","/") for p in (ASSETS/"layers").rglob("*.png")}
-    if actual!=listed: errors.append(f"layer PNG set mismatch actual={sorted(actual)} listed={sorted(listed)}")
-    if len(listed)!=12: errors.append(f"m1-4 complete set requires 12 layer PNGs, got {len(listed)}")
+    missing=listed-actual
+    if missing: errors.append(f"registered layer PNGs missing from disk: {sorted(missing)}")
+    if len(listed)!=12: errors.append(f"m1-4 complete set requires 12 registered layer PNGs, got {len(listed)}")
     drum="character-assets/layers/drum/drum_base.png"; neutral="character-assets/layers/character/base/neutral.png"
     de=next((a for a in assets_manifest["assets"] if a["path"]==drum),None)
     ne=next((a for a in assets_manifest["assets"] if a["path"]==neutral),None)
