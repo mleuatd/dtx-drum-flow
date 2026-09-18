@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:40:00+09:00",
+  "updatedAt": "2026-09-18T22:05:00+09:00",
   "policy": {
     "ordering": "blocking dependency -> first measure -> high occurrence -> actionKey; hit before rebound",
     "activeBlock": "B09_16",
     "liveRuntimeScope": "1-8",
-    "currentBlocker": "ASSETQ-001 still blocked: latest image-generation retry returned edit_op=null fresh redraw SHA256 49a78e87...; approved neutral was not bound as a true edit target."
+    "currentBlocker": "ASSETQ-002 rebound remains; ASSETQ-001 hit is formal and preloaded. Live runtimeScope remains 1-8."
   },
   "nextItem": {
-    "id": "ASSETQ-001",
+    "id": "ASSETQ-002",
     "actionKey": "RC+SN:R/L",
-    "phase": "hit",
+    "phase": "rebound",
     "block": "B09_16",
     "firstMeasure": 13,
     "occurrenceCount": 34,
     "priority": "P0",
     "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
-    "currentAssetStatus": "BLOCKED",
+    "currentAssetStatus": "NEW_IMAGE_REQUIRED",
     "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
-    "nextAfterCompletion": "ASSETQ-002",
-    "status": "BLOCKED_IMAGE_EDIT_BINDING",
-    "blocker": "Latest retry failed formal baseline-edit QA: edit_op=null / front-facing different-character redraw; candidate SHA256 49a78e87... is NEVER_USE.",
-    "nextAction": "Retry only with approved neutral bound as an actual image-edit source; require baseline-preserving hit PASS before rebound."
+    "nextAfterCompletion": "ASSETQ-003",
+    "status": "READY_IMAGE_GENERATION",
+    "blocker": null,
+    "nextAction": "Create rebound from accepted formal hit character-assets/layers/character/combo/rc_sn_hit_refresh.png; do not regenerate neutral or hit."
   },
   "items": [
     {
@@ -33,12 +33,15 @@
       "occurrenceCount": 34,
       "priority": "P0",
       "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
-      "currentAssetStatus": "BLOCKED",
+      "currentAssetStatus": "FORMAL_REGISTERED",
       "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
       "nextAfterCompletion": "ASSETQ-002",
-      "status": "BLOCKED_IMAGE_EDIT_BINDING",
-      "blocker": "Latest retry failed formal baseline-edit QA: edit_op=null / front-facing different-character redraw; candidate SHA256 49a78e87... is NEVER_USE.",
-      "nextAction": "Retry only with approved neutral bound as an actual image-edit source; require baseline-preserving hit PASS before rebound."
+      "status": "DONE",
+      "blocker": null,
+      "nextAction": "Completed: formal hit registered and exact-key preloaded outside live scope.",
+      "githubPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png",
+      "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82"
     },
     {
       "id": "ASSETQ-002",
@@ -49,12 +52,12 @@
       "occurrenceCount": 34,
       "priority": "P0",
       "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
-      "currentAssetStatus": "BLOCKED",
+      "currentAssetStatus": "NEW_IMAGE_REQUIRED",
       "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
       "nextAfterCompletion": "ASSETQ-003",
-      "status": "BLOCKED_DEPENDENCY",
-      "blocker": "Accepted corrected RC+SN:R/L hit does not exist.",
-      "nextAction": "After ASSETQ-001 is accepted, derive rebound using REBOUND_INSTRUCTION_rc_sn_r_l.md."
+      "status": "READY_IMAGE_GENERATION",
+      "blocker": null,
+      "nextAction": "Create rebound from accepted formal hit character-assets/layers/character/combo/rc_sn_hit_refresh.png; do not regenerate neutral or hit."
     },
     {
       "id": "ASSETQ-003",
