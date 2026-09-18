@@ -1,17 +1,18 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:48:00+09:00",
+  "updatedAt": "2026-09-18T22:51:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 8,
+    "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA",
-    "runtimeQaRun": 35327283366,
-    "runtimeQaArtifact": 10539831628,
+    "runtimeQaRun": 35351134562,
+    "runtimeQaArtifact": 10549284671,
     "validateStatus": "SUCCESS",
-    "characterAssetValidationStatus": "SUCCESS"
+    "characterAssetValidationStatus": "SUCCESS",
+    "pagesDeployStatus": "SUCCESS"
   },
   "blocks": [
     {
@@ -303,7 +304,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Create RC+SN:R/L rebound from formal hit SHA256 f85cb442...; keep runtimeScope 1-8 until pair/QA/deploy gates pass.",
+  "nextAction": "M9-16 closed. Next READY asset is ASSETQ-003 LT:R hit for M17; do not start M17 image generation unless explicitly requested.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -1879,7 +1880,9 @@
         "status": "SUCCESS"
       }
     },
-    "finalStatus": "BLOCKED_ONLY_IMAGE_AND_DOWNSTREAM_DEPENDENCIES"
+    "finalStatus": "BLOCKED_ONLY_IMAGE_AND_DOWNSTREAM_DEPENDENCIES",
+    "runtimeScope": "1-16",
+    "status": "DONE_M9_16_RECONCILED"
   },
   "m9_16Closure": {
     "status": "DONE",
