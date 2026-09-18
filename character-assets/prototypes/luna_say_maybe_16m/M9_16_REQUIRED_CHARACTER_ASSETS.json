@@ -33,7 +33,11 @@
         "rd_r_rebound"
       ],
       "sourceRequirement": "Direct edit of refreshed M1-4 baseline",
-      "state": "BLOCKED"
+      "state": "DONE_REUSE_APPROVED_M5_8",
+      "hit": "character-assets/layers/character/rd/hit_r_refresh.png",
+      "rebound": "character-assets/layers/character/rd/rebound_r_refresh.png",
+      "hitSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+      "reboundSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4"
     },
     "BD+SN:RF/L": {
       "frames": [
@@ -55,14 +59,24 @@
       ],
       "historicalHit": "layers/character/combo/rc_sn_hit.png",
       "historicalHitStatus": "REJECTED_VISUAL_MISMATCH",
-      "state": "BLOCKED"
+      "state": "BLOCKED_CORRECTED_IMAGE_REQUIRED",
+      "authoritativeEvent": {
+        "measure": 13,
+        "time": 25.649835,
+        "limbs": {
+          "SN": "L",
+          "RC": "R"
+        },
+        "runtimeKey": "RC+SN:*"
+      }
     }
   },
-  "implementationState": "NOT_WIRED_UNTIL_REFRESHED_VARIANTS_PASS_QA",
+  "implementationState": "PREPARED_NOT_WIRED_RC_SN_IMAGE_BLOCKED",
   "qaEvidence": {
     "visualQaRun": 35315877548,
     "artifactId": 10535690785,
     "qaIssue": "CHAR-QA-0006"
   },
-  "note": "RD:R refreshed frames are shared requirements with measures 5-8."
+  "note": "RD:R is approved and reusable from completed M5-8. BD+SN is visual-QA-passed and formal-layer-saved. Corrected RC+SN hit/rebound is the only missing image pair before runtime wiring.",
+  "runtimeExpansionPlan": "M9_16_RUNTIME_EXPANSION_PLAN.json"
 }
