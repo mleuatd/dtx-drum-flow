@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:35:00+09:00",
+  "updatedAt": "2026-09-19T05:50:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -163,7 +163,7 @@
     {
       "id": "M17_148",
       "measures": "17-148",
-      "status": "BLOCKED_EXTERNAL_DIRECT_EDIT_AND_LOCAL_QA",
+      "status": "READY_ADAPTIVE_RETRY",
       "chart": {
         "notes": 2014,
         "lastMeasure": 148,
@@ -186,7 +186,8 @@
         "LT:R crop-targeted image edit: FAIL; image generator ignored crop target and returned full-character redraw with edit_op=null, SHA f9efcaa8933c5b297bf18e2a3ffcd57815b5ae1fcc2a395372abf6be3f395a60.",
         "Further explicit current-conversation/file-id image edit attempts still returned edit_op=null/full redraw; rejected.",
         "Minimal-stick local edit preserved identity but failed natural fixed-drum composite path; SHA 6046034f1288c641b76a81e7cc52a41120f3009ba6e915002ff9eb273385040a.",
-        "APPROVED RD:R right-arm rotation reuse failed shoulder/hair attachment QA; SHA f1a9de8243a44f4aa5da41239607b98c8009fa2bd031ea7c1e1c55e018250af3."
+        "APPROVED RD:R right-arm rotation reuse failed shoulder/hair attachment QA; SHA f1a9de8243a44f4aa5da41239607b98c8009fa2bd031ea7c1e1c55e018250af3.",
+        "Pipeline improvement completed: adaptive retry controller added, graded candidate QA added, edit_op=null changed from automatic rejection to visual-risk signal, repeated-strategy retry loop prohibited."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -220,8 +221,8 @@
         "status": "SUPERSEDED_HISTORICAL",
         "oldUnresolved": 195
       },
-      "blocker": "ASSETQ-003 LT:R hit remains blocked. Image editor ignores all explicit baseline/file-id edit attempts (edit_op=null/full redraw). Local minimal-stick and APPROVED-RD-arm reuse alternatives preserve identity but fail natural-motion/attachment QA.",
-      "nextAction": "Resume only ASSETQ-003 LT:R hit using a genuinely local edit capable of preserving the approved neutral while producing a natural right-arm/wrist/stick path to LT. Do not advance to rebound or restart earlier measures."
+      "blocker": null,
+      "nextAction": "Resume ASSETQ-003 LT:R hit through adaptive retry controller. Same failed strategy cannot repeat; metadata-only edit_op=null is not a standalone rejection."
     }
   ],
   "skippedOrRejected": [
@@ -330,7 +331,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Resume-first at ASSETQ-003 LT:R hit only; use a better local-edit-capable method. Runtime remains 1-16.",
+  "nextAction": "Resume-first at ASSETQ-003 LT:R hit using adaptive retry controller.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
