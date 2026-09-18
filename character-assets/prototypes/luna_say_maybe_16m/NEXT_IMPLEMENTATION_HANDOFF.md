@@ -102,3 +102,30 @@ Do not ask the user about naming, file placement, block boundaries, QA timestamp
 - One-command QA: `.github/workflows/luna-block-qa.yml` with `tools/luna-block-qa.mjs`
 
 Runtime combo resolution is now exact limb-aware key first, legacy wildcard second. Existing M1-8 behavior is preserved. Before any new image generation/edit, read the generation spec, contact master, naming rules and QA checklist. Before runtime mapping, consult ACTION_KEY_ASSET_MAP and the rejected registry.
+
+
+## Production Pipeline Speedup — COMPLETE
+
+Read `PRODUCTION_PIPELINE.md` after CURRENT_PROJECT_STATE / ledger / this handoff.
+
+Current production entrypoint:
+- `NEXT_ASSET_QUEUE.json`
+- next: ASSETQ-001 = corrected `RC+SN:R/L` hit
+- then ASSETQ-002 = corrected rebound
+
+Do not manually reconstruct production steps when a pipeline tool exists.
+Use:
+- prompt builder
+- rebound derivation
+- candidate QA/composite/diff
+- staging JSON
+- registration plan
+- block checklist
+- reuse finder
+- risk-aware sampling
+- QA summary
+- Fast/Full Path workflows
+- next-chat command generator
+
+Risk-aware M1-8 regression after runner integration: run 35340512012 SUCCESS, artifact 10544374908.
+Production pipeline contract validation: run 35340578530 SUCCESS.
