@@ -8,6 +8,7 @@ const planPath="character-assets/prototypes/luna_say_maybe_16m/M9_16_RUNTIME_EXP
 const inventory=JSON.parse(await fs.readFile(inventoryPath,"utf8"));
 const plan=JSON.parse(await fs.readFile(planPath,"utf8"));
 
+const liveMode=Number(inventory.runtimeScope?.measureEnd||0)>=16;
 const qaInventory=structuredClone(inventory);
 qaInventory.runtimeScope=structuredClone(plan.targetRuntimeScope);
 qaInventory.runtimeScope.expectedKeys=qaInventory.runtimeScope.expectedKeys.map(k=>k==="BD+SN:*"?"BD+SN:RF/L":k==="RC+SN:*"?"RC+SN:R/L":k);
@@ -66,7 +67,7 @@ await fs.mkdir(outRoot,{recursive:true});
 const summary={
   url:URL,
   generatedAt:new Date().toISOString(),
-  mode:"QA-only inventory interception; public runtime remains M1-8",
+  mode:liveMode?"public live inventory M1-16":"QA-only inventory interception; public runtime remains M1-8",
   targetScope:qaInventory.runtimeScope,
   rcSnPolicy:"RC+SN formal hit/rebound pair is included in approval; verify BD+SN -> RC+SN -> BD transition.",
   records:[],
