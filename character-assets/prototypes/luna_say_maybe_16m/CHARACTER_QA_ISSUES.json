@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 16
   },
-  "updatedAt": "2026-09-18T18:06:00+09:00",
+  "updatedAt": "2026-09-18T18:45:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -79,15 +79,15 @@
     },
     {
       "assetKey": "rd_r_hit",
-      "path": "character-assets/layers/character/rd/hit_r.png",
-      "status": "IN_PROGRESS",
-      "note": "Historical candidate rejected. 2026-09-18 current-chat direct-baseline generation attempt also rejected in composite QA: arm reaches screen-left/left cymbal area, not authoritative RD/right-side target. Regenerate; do not register current candidate."
+      "path": "character-assets/layers/character/rd/hit_r_refresh.png",
+      "status": "DONE",
+      "note": "Approved refreshed RD:R hit from completed M5-8; reuse for M9-16. SHA256 a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415."
     },
     {
       "assetKey": "rd_r_rebound",
-      "path": "character-assets/layers/character/rd/rebound_r.png",
-      "status": "IN_PROGRESS",
-      "note": "Current generated rebound not usable because paired RD hit is directionally wrong and hit/rebound pair is not a coherent right-ride motion. Regenerate as a pair."
+      "path": "character-assets/layers/character/rd/rebound_r_refresh.png",
+      "status": "DONE",
+      "note": "Approved refreshed RD:R rebound from completed M5-8; reuse for M9-16. SHA256 c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4."
     },
     {
       "assetKey": "bd_sn_hit",
@@ -112,14 +112,14 @@
     {
       "assetKey": "rc_sn_hit",
       "path": "character-assets/layers/character/combo/rc_sn_hit.png",
-      "status": "IN_PROGRESS",
-      "note": "Current generated candidate rejected in fixed-drum composite: supposed RC/right-crash motion reaches screen-left/left cymbal area. Regenerate using fixed drum screen-right crash target."
+      "status": "BLOCKED",
+      "note": "Corrected RC+SN pair still unavailable. Latest retry failed to bind the approved neutral as a true edit and produced an unrelated front-facing character (edit_op=null), then image generation hit a temporary rate limit. Never register the rejected generation."
     },
     {
       "assetKey": "rc_sn_rebound",
       "path": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
-      "status": "IN_PROGRESS",
-      "note": "Current generated rebound cannot be accepted because paired RC+SN hit targets the wrong side and pair is not coherent. Regenerate after corrected hit."
+      "status": "BLOCKED",
+      "note": "Corrected RC+SN pair still unavailable. Latest retry failed to bind the approved neutral as a true edit and produced an unrelated front-facing character (edit_op=null), then image generation hit a temporary rate limit. Never register the rejected generation."
     }
   ],
   "issues": [
@@ -309,6 +309,27 @@
         "Visual inspection: current BD+SN pair remains within refreshed drawing family and no drum hardware is baked into the character PNG. Runtime transition QA is still pending and the overall issue remains open because RC+SN is not yet corrected."
       ],
       "blocker": "Refreshed image creation requires direct editing of the exact approved baseline. The current repository artifact can be inspected here, but is not accepted as an editable source by the available image-editing interface in this same workflow; generating a new look-alike is prohibited."
+    },
+    {
+      "id": "CHAR-QA-0007",
+      "createdAt": "2026-09-18T18:45:00+09:00",
+      "updatedAt": "2026-09-18T18:45:00+09:00",
+      "status": "BLOCKED",
+      "severity": "high",
+      "assetKey": "rc_sn_hit,rc_sn_rebound",
+      "category": "image-generation-interface",
+      "measure": "9-16",
+      "timestamp": "25.649835",
+      "observation": "Latest RC+SN retry did not edit the approved neutral. It produced a fresh unrelated front-facing character (generation metadata edit_op=null). A subsequent retry could not run because the image-generation rate limit was reached.",
+      "requiredFix": "After image generation becomes available, use the exact approved neutral as the edit target and create only the RC+SN pair: right hand to screen-right RC and left hand to SN. Reject any fresh redraw or edit_op=null result.",
+      "evidence": [
+        "Authoritative event: measure 13 at 25.649835, SN=L and RC=R.",
+        "Rejected latest generation was not saved to Dropbox, GitHub assets, manifest, inventory, runtime mapping, or Pages.",
+        "Image generation rate limit blocked immediate retry."
+      ],
+      "verification": [
+        "Pending corrected hit/rebound pair and fixed-drum composite QA."
+      ]
     }
   ],
   "generationAttempts": [
