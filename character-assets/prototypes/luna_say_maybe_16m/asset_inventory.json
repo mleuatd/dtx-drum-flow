@@ -138,6 +138,20 @@
       "sha256": "6c87bc201404cbe91ca2cc3e8025e1ee88270de5318b81ff04eaf8f3ef451ee1",
       "actionKey": "LT:L",
       "phase": "rebound"
+    },
+    "bd_sn_rf_r_hit": {
+      "path": "layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "71515ebc9678959f2b85a4136133f23ef847c2b844a3f0e4b127ba573a192d5b",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "hit"
+    },
+    "bd_sn_rf_r_rebound": {
+      "path": "layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -150,7 +164,8 @@
     "BD+SN:RF/L": "bd_sn_rf_l_hit",
     "RC+SN:R/L": "rc_sn_r_l_hit_refresh",
     "BD+SN:*": "bd_sn_rf_l_hit",
-    "RC+SN:*": "rc_sn_r_l_hit_refresh"
+    "RC+SN:*": "rc_sn_r_l_hit_refresh",
+    "BD+SN:RF/R": "bd_sn_rf_r_hit"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -202,6 +217,11 @@
       "prep": "neutral",
       "hit": "rc_sn_r_l_hit_refresh",
       "rebound": "rc_sn_r_l_rebound_refresh"
+    },
+    "BD+SN:RF/R": {
+      "prep": "neutral",
+      "hit": "bd_sn_rf_r_hit",
+      "rebound": "bd_sn_rf_r_rebound"
     }
   },
   "motionTiming": {
@@ -299,7 +319,14 @@
       },
       "method": "deterministic approved-neutral-preserving local left-stick edit",
       "runtimeScopeUnchanged": true
+    },
+    "bdSnRfR": {
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "hitSha256": "71515ebc9678959f2b85a4136133f23ef847c2b844a3f0e4b127ba573a192d5b",
+      "reboundSha256": "adcb3f79e5b3d3fa483c85e8d82d6be5b69234bdef0131567698e028d0eb0c77",
+      "reviewImportRun": 35397944277,
+      "visualQa": "PASS_FIXED_DRUM_COMPOSITE"
     }
   },
-  "qaUpdatedAt": "2026-09-19T06:25:00+09:00"
+  "qaUpdatedAt": "2026-09-19T06:50:00+09:00"
 }
