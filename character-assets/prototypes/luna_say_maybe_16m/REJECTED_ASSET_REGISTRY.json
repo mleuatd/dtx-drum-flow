@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:20:00+09:00",
+  "updatedAt": "2026-09-19T05:35:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -263,6 +263,53 @@
       "sha256": "f9efcaa8933c5b297bf18e2a3ffcd57815b5ae1fcc2a395372abf6be3f395a60",
       "path": "/mnt/data/a_clean_line_art_ink_sketch_illustration_on_a_tran.png",
       "reason": "Attempted local-crop image edit was ignored by image generator; returned unrelated full-character redraw with edit_op=null. Direct-edit/crop constraint failed.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-ATTEMPT-4",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "path": "/mnt/data/a_clean_black_background_monochrome_manga_anime_li.png",
+      "reason": "Current-conversation baseline reference still yielded edit_op=null/full redraw; direct-edit gate failed.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-ATTEMPT-5",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "path": "/mnt/data/a_clean_black_background_line_art_illustration_a.png",
+      "reason": "Explicit current-conversation file reference still yielded edit_op=null/full redraw.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-ATTEMPT-6",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "path": "/mnt/data/a_clean_line_art_manga_style_illustration_on_a_t.png",
+      "reason": "Explicit file-id image edit verification still yielded edit_op=null/full redraw.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-MINIMAL-STICK",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "6046034f1288c641b76a81e7cc52a41120f3009ba6e915002ff9eb273385040a",
+      "path": "/mnt/data/lt_r_hit_minimal_stick_edit.png",
+      "reason": "Identity preservation passed, but fixed-drum composite showed an unnatural stick path crossing the hair/body toward LT; animation/contact visual QA failed.",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "M17-LT-R-HIT-RD-ARM-ROTATE-1",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "status": "REJECTED_NEVER_USE",
+      "sha256": "f1a9de8243a44f4aa5da41239607b98c8009fa2bd031ea7c1e1c55e018250af3",
+      "path": "/mnt/data/lt_r_hit_rd_arm_rotate_try1.png",
+      "reason": "APPROVED RD:R arm reuse preserved drawing family but rotated arm broke shoulder/hair overlap and produced implausible attachment; visual QA failed.",
       "date": "2026-09-19"
     }
   ]
