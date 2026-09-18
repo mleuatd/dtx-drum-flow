@@ -154,7 +154,7 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "For current chunk M25-28: verify the push-triggered FT+SN:R/L output commit, then perform visual QA for HT:R, RC:R and FT+SN:R/L composites. Promote only PASS pairs, persist exact bytes to Dropbox/formal GitHub paths, update inventory/runtime mapping, and run block/runtime QA. Do not begin M29 assets until this chunk is checkpointed.",
+  "requiredNext": "Rebuild M25-28 candidates with limb-local replacement rather than stick overlays/full-image delta merge. Prefer already approved locked-baseline tom/cymbal limb parents. Workflow push race has been fixed with rebase-before-push; rerun after builder correction. Do not formalize current attempt01 images.",
   "updatedAt": "2026-09-19T08:55:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
@@ -183,7 +183,7 @@
   },
   "production": {
     "htR": {
-      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
+      "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
       "builder": "tools/build-m25-40-candidates.py",
       "workflow": ".github/workflows/build-m25-40-character-candidates.yml",
       "method": "same baseline-preserving deterministic local right-stick edit pattern that passed M17 LT:R live QA",
@@ -202,7 +202,7 @@
       }
     },
     "htL": {
-      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
+      "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
       "generatedCommit": "ab52f5070a757e0dfa0773911e71bb887ddb36bb",
       "hitPath": "character-assets/review-candidates/m25_40/ht_l_hit_attempt01.png",
       "reboundPath": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt01.png",
@@ -210,7 +210,7 @@
       "reboundSha256": "3e984e3332b63682e629d45e28422cf48518ddc4418deff3335c84424f06c062"
     },
     "rcR": {
-      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
+      "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
       "generatedCommit": "ab52f5070a757e0dfa0773911e71bb887ddb36bb",
       "hitPath": "character-assets/review-candidates/m25_40/rc_r_hit_attempt01.png",
       "reboundPath": "character-assets/review-candidates/m25_40/rc_r_rebound_attempt01.png",
@@ -218,7 +218,7 @@
       "reboundSha256": "f6c86b9e3047c041b622e85365a3a09d9ecee000a9739949553f282f964ff1ca"
     },
     "ftSnRL": {
-      "status": "WORKFLOW_RETRIGGERED_OUTPUT_NOT_OBSERVED",
+      "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
       "builder": "tools/build-m25-40-candidates.py",
       "builderCommit": "9e58069af46c44c1d94c7a63723899907367ef6f",
       "method": "merge approved FT:R and SN:L deltas on locked neutral; no redraw",
@@ -263,5 +263,33 @@
     "note": "Parallel main advanced with M25-28/M29-40 split and FT+SN builder plus M29 transaction scaffolding. Preserve these changes. Next work remains visual inspection of generated composites and verification/execution of FT+SN builder output.",
     "htRShaReconciled": true,
     "htRCurrentEvidence": "character-assets/generated-qa/m25_40/ht_r/build-result.json from generalized builder commit ab52f5070a757e0dfa0773911e71bb887ddb36bb"
+  },
+  "visualQA": {
+    "checkedAt": "2026-09-19T08:55:00+09:00",
+    "sourceArtifact": {
+      "runId": 35407286522,
+      "artifactId": 10572996524,
+      "zipSha256": "05ffa41ec02983f1c81dc4d40859caf8d13eef470655f32e5196908af30714b0"
+    },
+    "htR": {
+      "status": "FAIL",
+      "reason": "Generated added right stick crosses the torso/hair as an abnormally long horizontal stroke while the original right-hand stick remains, producing a physically implausible duplicate-stick pose.",
+      "requiredCorrection": "Use an approved tom-side arm/stick parent or replace the entire right arm/stick local region; do not merely overlay a second stick."
+    },
+    "htL": {
+      "status": "FAIL",
+      "reason": "Added left stick begins from the wrong body/hair area rather than a natural hand grip, so the stick is visibly detached from the playing hand.",
+      "requiredCorrection": "Derive from an approved left-hand tom pose or replace the complete left arm/hand/stick local region."
+    },
+    "rcR": {
+      "status": "FAIL",
+      "reason": "RC target stick is added while the original right-hand stick remains, creating two sticks from the same hand.",
+      "requiredCorrection": "Use an approved cymbal-side right-arm/stick parent or replace the complete right arm/hand/stick local region."
+    },
+    "ftSnRL": {
+      "status": "FAIL",
+      "reason": "Delta merge imports a different whole-body/face/camera baseline from legacy FT/SN parents; it violates the locked character baseline.",
+      "requiredCorrection": "Do not merge full-image deltas from legacy-baseline assets. Restrict source extraction to limb-local masks only or derive both limbs from locked-baseline approved assets."
+    }
   }
 }
