@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:53:00+09:00",
+  "updatedAt": "2026-09-18T22:10:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -149,6 +149,32 @@
       "date": "2026-09-18",
       "replacementAsset": "character-assets/layers/character/sn/hit_r.png",
       "status": "NEVER_USE_AT_RUNTIME"
+    },
+    {
+      "asset": "RC+SN current-chat hit candidate",
+      "type": "IMAGE",
+      "actionKey": "RC+SN:R/L",
+      "phase": "hit",
+      "sha256": "d3a28e9dc751c860ffc0c00dcdcdfbc12e9dc6b4d4c9405ce8ba7a328b7948f5",
+      "githubPath": null,
+      "dropboxPath": null,
+      "rejectionReason": "edit_op=null / fresh-redraw risk confirmed by large changes in static baseline regions (head/face/hair/legs/stool); not a sufficiently exact approved-neutral-derived edit.",
+      "date": "2026-09-18",
+      "replacementAsset": null,
+      "status": "NEVER_USE"
+    },
+    {
+      "asset": "RC+SN current-chat rebound candidate",
+      "type": "IMAGE",
+      "actionKey": "RC+SN:R/L",
+      "phase": "rebound",
+      "sha256": "e185e1f7c9e5aa8fe0b692239202b86adb7abcbd6dab44e160a2f6c03677ae3a",
+      "githubPath": null,
+      "dropboxPath": null,
+      "rejectionReason": "edit_op=null / fresh-redraw risk confirmed by large changes in static baseline regions (head/face/hair/legs/stool); pair continuity cannot override baseline identity/registration failure.",
+      "date": "2026-09-18",
+      "replacementAsset": null,
+      "status": "NEVER_USE"
     }
   ]
 }
