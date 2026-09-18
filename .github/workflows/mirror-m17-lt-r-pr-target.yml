@@ -1,0 +1,40 @@
+name: Mirror formal M17 LT R to Dropbox
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "character-assets/dropbox-mirror-trigger/m17-lt-r.json"
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Upload exact formal main bytes to Dropbox
+        env:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,urllib.request
+          token=os.environ.get("DROPBOX_ACCESS_TOKEN")
+          if not token: raise SystemExit("DROPBOX_ACCESS_TOKEN required")
+          expected={
+            "character-assets/layers/character/lt/hit_r_refresh.png":"b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+            "character-assets/layers/character/lt/rebound_r_refresh.png":"d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf"
+          }
+          dest={
+            "character-assets/layers/character/lt/hit_r_refresh.png":"/ChatGPT/dtx-drum-flow/lt_r_hit_refresh_20260919.png",
+            "character-assets/layers/character/lt/rebound_r_refresh.png":"/ChatGPT/dtx-drum-flow/lt_r_rebound_refresh_20260919.png"
+          }
+          for src,sha_expected in expected.items():
+              raw=pathlib.Path(src).read_bytes(); sha=hashlib.sha256(raw).hexdigest()
+              if sha!=sha_expected: raise SystemExit(f"SHA mismatch {src}: {sha}")
+              req=urllib.request.Request("https://content.dropboxapi.com/2/files/upload",data=raw,method="POST",headers={"Authorization":f"Bearer {token}","Content-Type":"application/octet-stream","Dropbox-API-Arg":json.dumps({"path":dest[src],"mode":"overwrite","autorename":False,"mute":True})})
+              with urllib.request.urlopen(req) as r: print(r.read().decode())
+          PY
