@@ -1,3 +1,14 @@
+## 2026-09-18 — Luna full-song limb assignment authority
+- Researched standard right-handed drum-set coordination before extending limb assignments: bass drum under right foot, hi-hat pedal under left foot, right-hand cymbal timekeeping, left-hand snare backbeat, alternating R/L single strokes for rapid/fill passages.
+- Upgraded `hand_rules.json` to v2, explicitly adding `LB=LF` and phrase-aware rapid-SN/simultaneous-hit policies.
+- Added full-song limb generator and CI validation.
+- Promoted `Luna_say_maybe_full_limbs.json` for all 2,158 notes through measure 148.
+- Validation: M1-16 mismatch 0, missing limbs 0, simultaneous same-limb conflicts 0, rapid-SN same-hand repeats 0, unresolved groups 0.
+- Resolved all 8 known SN+tom conflicts as SN=L + FT/LT=R and 64 rapid-SN phrases with alternating phrase-aware sticking.
+- Added limb-aware `FULL_SONG_ACTION_KEY_INVENTORY.json` with 1,527 time groups.
+- Corrected runtime LB fallback from RF to LF and switched runtime limb lookup to the authoritative full-song sidecar while keeping character runtimeScope at measures 1-8.
+- Added normal validation coverage for the full-song limb sidecar.
+
 ## 2026-09-18 — M9-16 reusable existing-asset runtime QA
 - Added dedicated QA-only Playwright harness/workflow that intercepts inventory inside the test browser only; public/live runtime remains measures 1-8.
 - Exercised every M9-16 occurrence of reusable `BD:RF`, `RD:R`, `SN:L`, `HH:R`, `BD+RC:*`, and formal refreshed `BD+SN:*` at pre/hit/rebound/post on PC 1280x900 and Xperia 384x864.
