@@ -227,14 +227,15 @@
       "x": 0,
       "y": 0,
       "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
-      "status": "M5_8_READY",
+      "status": "M5_8_READY_LIVE_QA",
       "purpose": "Luna measures 5-8 refreshed RD:R variant derived from approved neutral baseline",
       "part": "RD",
       "phase": "hit",
       "hand": "R",
       "notes": [
-        "Fixed-drum composite QA passed in normal chat before registration.",
-        "Runtime QA pending on public GitHub Pages."
+        "Fixed-drum composite QA passed before registration.",
+        "Public GitHub Pages Runtime Character QA run 35327283366 passed on PC and Xperia-class portrait.",
+        "Runtime QA artifact 10539831628."
       ]
     },
     {
@@ -244,19 +245,20 @@
       "x": 0,
       "y": 0,
       "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
-      "status": "M5_8_READY",
+      "status": "M5_8_READY_LIVE_QA",
       "purpose": "Luna measures 5-8 refreshed RD:R variant derived from approved neutral baseline",
       "part": "RD",
       "phase": "rebound",
       "hand": "R",
       "notes": [
-        "Fixed-drum composite QA passed in normal chat before registration.",
-        "Runtime QA pending on public GitHub Pages."
+        "Fixed-drum composite QA passed before registration.",
+        "Public GitHub Pages Runtime Character QA run 35327283366 passed on PC and Xperia-class portrait.",
+        "Runtime QA artifact 10539831628."
       ]
     }
   ],
   "qaUpdatedAt": "2026-09-18",
-  "qaScope": "M1-4 complete; M5-8 mapped and pending live runtime QA",
+  "qaScope": "Luna Say Maybe measures 1-8 complete live QA",
   "authoritativeImageCount": 16,
   "note": "Approved fixed neutral/home pose from 2026-09-18 current-chat source, fixed 11-lane drum, and 10 measures 1-4 action variants.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
