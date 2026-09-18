@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "IN_PROGRESS_M17_ASSETQ_003",
+  "status": "BLOCKED_EXTERNAL_DIRECT_EDIT_AFTER_RETRIES",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,14 +13,14 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "Generate/edit ASSETQ-003 LT:R hit from approved neutral working copy, then run candidate QA.",
+  "currentNextWork": "ASSETQ-003 LT:R hit only",
   "nextAsset": {
     "id": "ASSETQ-003",
     "actionKey": "LT:R",
     "phase": "hit",
     "firstMeasure": 17,
-    "status": "IN_PROGRESS",
-    "blocker": null
+    "status": "BLOCKED_EXTERNAL_DIRECT_EDIT",
+    "blocker": "Image generator repeatedly returns edit_op=null/fresh redraw even when baseline or crop is explicitly surfaced; local raster fallbacks failed visual QA."
   },
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
@@ -116,16 +116,54 @@
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
   "blocker": {
-    "type": "EXTERNAL_IMAGE_PARENT_ACCESS",
-    "status": "RESOLVED",
-    "resolvedAt": "2026-09-19T05:00:00+09:00",
-    "resolution": "Dropbox formal neutral was surfaced through Library -> files.materialize -> byte-identical /mnt/data working copy -> current conversation attachment for direct image edit.",
-    "baselineGithubPath": "character-assets/layers/character/base/neutral.png",
-    "baselineDropboxPath": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+    "type": "EXTERNAL_DIRECT_EDIT_FAILURE",
+    "status": "OPEN",
+    "at": "2026-09-19T05:20:00+09:00",
     "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
     "workingCopyPath": "/mnt/data/neutral_m17_parent_for_edit.png",
-    "workingCopySha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+    "workingCopySha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "attempts": [
+      {
+        "kind": "image_gen",
+        "result": "FAIL",
+        "sha256": "8533bd408a8a026890754374e4b230c208ab35710a74d90a7ba9f909eaccd2f0",
+        "reason": "fresh redraw edit_op=null"
+      },
+      {
+        "kind": "image_gen",
+        "result": "FAIL",
+        "sha256": "7be15ee7e39c25575ac8e563d0102038efc9edc576c994a02c996fab50ab7d49",
+        "reason": "fresh redraw edit_op=null"
+      },
+      {
+        "kind": "image_gen_explicit_baseline",
+        "result": "FAIL",
+        "sha256": "6fcd0e1c3e12492c9d53c9b6db41250b7d82ada8caee6bd5a2c1af8ba21481b8",
+        "reason": "fresh redraw edit_op=null"
+      },
+      {
+        "kind": "local_raster_edit",
+        "result": "FAIL",
+        "sha256": "5bbd18c5b4a498c7541d11df096d584a71c3b0bd3cbc332dcb80024c0a62f482",
+        "reason": "black artifact/malformed hand"
+      },
+      {
+        "kind": "local_raster_edit",
+        "result": "FAIL",
+        "sha256": "dd20a5599314a30f3119cbb0e2413f2d664886528276d219137560a9e371b822",
+        "reason": "malformed forearm/hand/stick artifact"
+      },
+      {
+        "kind": "image_gen_crop_target",
+        "result": "FAIL",
+        "sha256": "f9efcaa8933c5b297bf18e2a3ffcd57815b5ae1fcc2a395372abf6be3f395a60",
+        "reason": "crop ignored, full redraw edit_op=null"
+      }
+    ],
+    "completed": "Latest main verified; M1-16 preserved; approved neutral materialized and SHA verified; LT:R contact point resolved; all generated/local candidates QA-rejected; reject registry and ledger updated.",
+    "resumeUnit": "ASSETQ-003 LT:R hit only",
+    "nextReady": "ASSETQ-003 LT:R hit remains the first unfinished asset."
   },
-  "nextAction": "Direct-edit approved neutral working copy for LT:R hit. Do not fresh-redraw.",
-  "updatedAt": "2026-09-19T05:00:00+09:00"
+  "nextAction": "On next identical resume command, do not redo previous attempts. Resume at ASSETQ-003 LT:R hit from the verified baseline working copy and use a direct-edit-capable path if available; otherwise continue a safer local-only edit. Rebound stays blocked.",
+  "updatedAt": "2026-09-19T05:20:00+09:00"
 }
