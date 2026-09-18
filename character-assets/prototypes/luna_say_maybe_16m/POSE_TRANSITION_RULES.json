@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T19:52:00+09:00",
+  "authority": {
+    "runtime": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
+    "limbs": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json"
+  },
+  "timings": {
+    "prepBoundarySeconds": 0,
+    "hitEndSeconds": 0.18,
+    "reboundEndSeconds": 0.28,
+    "rapidRepeatMaxGapSeconds": 0.09,
+    "returnToNeutralAfterNonRapidHit": true
+  },
+  "rules": {
+    "normalSingle": "neutral -> hit -> rebound -> neutral",
+    "closeNextNote": "Compress hit/rebound windows to fit before next onset; do not force neutral between close notes.",
+    "eighthAndSixteenth": "Use event-gap-aware hit/rebound; remain in flowing action sequence until phrase gap permits neutral.",
+    "rapidSn": "Use authoritative alternating L/R sidecar; each event transitions to its assigned hit/rebound without inserting neutral between rapid events.",
+    "tomFill": "Follow authoritative R/L sidecar and instrument order; no body/camera/stool jump between tom assets.",
+    "simultaneous": "One combo hit/rebound represents all simultaneous limbs; never serialize the simultaneous instruments.",
+    "handPlusFoot": "Hand and foot move within the same combo frame; stool and body registration remain locked.",
+    "comboToCombo": "Directly transition via rebound/next hit according to event gap; neutral only when gap is non-rapid and timing permits.",
+    "cymbalToSnare": "Preserve torso/camera; move only required arms/shoulders, honoring limb assignment.",
+    "tomToTom": "Keep seated base fixed and make consecutive stick/arm movements continuous.",
+    "finalNote": "hit -> rebound -> neutral after reboundEndSeconds."
+  },
+  "forbidden": [
+    "unnecessary neutral flash between close events",
+    "character disappearance",
+    "camera change",
+    "stool translation",
+    "whole-body teleport",
+    "hit/rebound order reversal"
+  ],
+  "knownException": {
+    "SN:R": "Runtime rebound deliberately holds approved sn_r_hit because retained sn_r_rebound caused a visual jump; phase remains rebound."
+  }
+}
