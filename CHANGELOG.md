@@ -1,3 +1,13 @@
+## 2026-09-18 — Open ledger work exhausted to image blocker
+- Swept all non-DONE ledger statuses and materialized `OPEN_WORK_QUEUE.json`.
+- Normalized 19 meaningful remaining work items: 1 completed during the sweep, 18 blocked, 0 executable without the missing corrected RC+SN image pair.
+- Preloaded approved `BD+SN:RF/L` hit/rebound under an exact runtime key without expanding live runtimeScope; live transition QA remains pending.
+- Normalized stale `RC+SN:L/R` wording to authoritative `RC+SN:R/L`.
+- Prepared corrected RC+SN hit prompt and rebound derivation instruction.
+- Materialized PIPELINE_CONTEXT_CACHE, AUTO_OPTIMIZATION_REPORT and ACTIVE_PIPELINE_SESSION under a documented MANUAL_OVERRIDE because the current connector exposes no direct workflow_dispatch/repo Node execution entrypoint.
+- NEXT_ASSET_QUEUE no longer leaves dependent future image tasks as ambiguous TODO; ASSETQ-001 is the explicit current blocker and later entries are dependency-blocked.
+- No image was generated, no approved asset was overwritten, and live runtimeScope remains 1-8.
+
 ## 2026-09-18 — Mandatory pipeline-first tool usage enforcement
 - Added mandatory `PIPELINE_USAGE_POLICY.json/.md`: existing repository tools/workflows are the default execution path, not optional helpers.
 - Added `tools/production-pipeline-dispatcher.mjs` to route task categories to required existing tools/workflows before manual work.
