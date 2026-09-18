@@ -39,7 +39,8 @@ required=[
 "tools/character_candidate_qa.py","tools/build-character-qa-preview.py","tools/character_image_diff_metrics.py",
 "tools/build-staging-json.mjs","tools/build-block-start-checklist.mjs","tools/find-reuse-candidates.mjs",
 "tools/build-qa-sampling-and-risk.mjs","tools/build-qa-summary.mjs","tools/build-next-chat-handoff.mjs","tools/luna-production-path.mjs",
-".github/workflows/luna-fast-path.yml",".github/workflows/luna-full-path.yml"
+".github/workflows/luna-fast-path.yml",".github/workflows/luna-full-path.yml",".github/workflows/luna-candidate-qa.yml",
+"character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md","character-assets/prototypes/luna_say_maybe_16m/COMMIT_BOUNDARY_RULES.md","character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md"
 ]
 for p in required: assert (ROOT/p).is_file(),p
 # Fast/full path static criteria: current M1-8 all approved+mapped; M9-16 contains blocked/pending assets.
@@ -48,3 +49,17 @@ assert all(by[k]["classification"]=="REUSE_APPROVED" and by[k]["runtimeMapped"] 
 assert by["RC+SN:R/L"]["classification"]=="BLOCKED"
 assert by["BD+SN:RF/L"]["classification"]=="REUSE_NEEDS_RUNTIME_QA"
 print("PASS production pipeline validation: queue schema, 30-key map, staging/lifecycle, rejected safety, tools/workflows, fast/full criteria, live scope 1-8")
+
+# Sampling, screenshot naming, fast/full and handoff generator implementation contracts.
+sampling_src=(ROOT/"tools/build-qa-sampling-and-risk.mjs").read_text(encoding="utf-8")
+assert "first" in sampling_src and "middle" in sampling_src and "shortest-gap" in sampling_src and "longest-gap" in sampling_src and "high-risk" in sampling_src
+runner_src=(ROOT/"tools/luna-block-qa.mjs").read_text(encoding="utf-8")
+assert "QA_SAMPLING_FILE" in runner_src and "__p_" in runner_src and "__c_" in runner_src and "__n_" in runner_src
+path_src=(ROOT/"tools/luna-production-path.mjs").read_text(encoding="utf-8")
+assert "FAST_PATH" in path_src and "FULL_PATH" in path_src
+next_chat_src=(ROOT/"tools/build-next-chat-handoff.mjs").read_text(encoding="utf-8")
+assert "NEXT_IMPLEMENTATION_HANDOFF.md" in next_chat_src and "NEXT_CHAT_COMMAND.md" in next_chat_src
+assert Path(BASE/"STAGING_SCHEMA.json").is_file()
+assert Path(BASE/"ASSET_LIFECYCLE.json").is_file()
+assert Path(BASE/"ACTION_KEY_COMPLETION_TEMPLATE.json").is_file()
+assert Path(BASE/"FAILURE_PATTERN_REGISTRY.json").is_file()
