@@ -52,7 +52,7 @@ by={x["actionKey"]:x for x in mapping["entries"]}
 assert all(by[k]["classification"]=="REUSE_APPROVED" and by[k]["runtimeMapped"] for k in ["SN:L","SN:R","BD:RF","HH:R","BD+RC:RF/R","RD:R"])
 assert by["RC+SN:R/L"]["classification"] in {"BLOCKED","REUSE_NEEDS_RUNTIME_QA","REUSE_APPROVED"}
 assert by["BD+SN:RF/L"]["classification"] in {"REUSE_NEEDS_RUNTIME_QA","REUSE_APPROVED"}
-print(f"PASS production pipeline validation: queue schema, 30-key map, staging/lifecycle, rejected safety, tools/workflows, fast/full criteria, live scope 1-{state[\"liveRuntimeScope\"][\"measureEnd\"]}")
+print(f"PASS production pipeline validation: queue schema, 30-key map, staging/lifecycle, rejected safety, tools/workflows, fast/full criteria, live scope 1-{state['liveRuntimeScope']['measureEnd']}")
 
 # Sampling, screenshot naming, fast/full and handoff generator implementation contracts.
 sampling_src=(ROOT/"tools/build-qa-sampling-and-risk.mjs").read_text(encoding="utf-8")
