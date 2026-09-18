@@ -1,38 +1,29 @@
-DTX Drum Flow の Luna Say Maybe 作業を、最新GitHub mainを唯一の正本として継続してください。
+DTX Drum Flow の Luna Say Maybe 作業を最新GitHub mainから継続してください。
 
-最初に必ず以下を順に読んでください。
+最初に以下を読んでください。
 1. `character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json`
 2. `character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json`
-3. `character-assets/prototypes/luna_say_maybe_16m/NEXT_IMPLEMENTATION_HANDOFF.md`
-4. `character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md`
-5. `character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json`
+3. `character-assets/prototypes/luna_say_maybe_16m/OPEN_WORK_QUEUE.json`
+4. `character-assets/prototypes/luna_say_maybe_16m/NEXT_IMPLEMENTATION_HANDOFF.md`
+5. `character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md`
+6. `character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json`
 
-最重要:
-反復可能な作業を手作業で始める前に、必ず
-`node tools/production-pipeline-dispatcher.mjs <task-category>`
-または
-`node tools/start-pipeline-task.mjs <task-category>`
-を使い、返された既存tool/workflowを優先してください。
+現在、画像生成なしで実行可能だった台帳残作業はすべて消化済みです。
+live runtimeScopeは1〜8のままです。
+既存BD+SN:RF/Lは exact runtime mapping まで先行登録済みで、live transition QAだけ未完了です。
 
-同等処理を既存toolがあるのに手作業で再実装しないでください。
-既存toolを使えない場合だけ、M5_PLUS_PROGRESS_LEDGER.jsonへ MANUAL_OVERRIDE として、
-- skipped tool
-- reason
-- evidence
-- follow-up repair/extension
-を記録してください。
+次の唯一の実行可能化条件は、approved neutral/home pose PNGをこのチャットに画像として添付することです。
+添付後は、
+- ASSETQ-001 RC+SN:R/L hit
+- ASSETQ-002 rebound
+の順に進めてください。
 
-現在のlive runtimeScope: 1〜8
-次のproduction queue:
-- ASSETQ-001
-- actionKey: RC+SN:R/L
-- phase: hit
-- block: B09_16
-- status: BLOCKED_IMAGE_GENERATION_REQUIRED
+hit指示:
+`character-assets/prototypes/luna_say_maybe_16m/GENERATED_PROMPT_rc_sn_r_l_hit.md`
 
-approved assetは再生成・上書きしないでください。
-Rejected / NEVER_USE資産は絶対に再利用しないでください。
-不足画像をneutralで代替してPASSにしないでください。
-必要画像とQA gateが揃うまでruntimeScopeを拡張しないでください。
+rebound指示:
+`character-assets/prototypes/luna_say_maybe_16m/REBOUND_INSTRUCTION_rc_sn_r_l.md`
 
-台帳の最初の未完了項目から自律的に処理し、完了ごとに小さくcommit/pushしてください。
+画像生成後は candidate QA → fixed-drum composite/contact QA → staging → formal save → NIMG-013..023 の順で、既存pipeline/toolを優先して自律的に進めてください。
+
+Rejected/Never Use資産の再利用、neutral代替PASS、runtimeScopeの先行拡張は禁止です。
