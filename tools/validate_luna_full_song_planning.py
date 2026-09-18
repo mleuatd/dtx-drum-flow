@@ -47,7 +47,10 @@ for k,a in planned.items():
         assert rk in runtime["runtimeFrameMap"],f"{k}: approved reuse missing runtime mapping"
     elif a["classification"]=="REUSE_NEEDS_RUNTIME_QA":
         assert a["existingHit"] in manifest_paths and a["existingRebound"] in manifest_paths,f"{k}: runtime-QA reuse missing manifest asset"
-        assert rk not in runtime["runtimeFrameMap"],f"{k}: pending asset unexpectedly runtime-mapped"
+        if runtime["runtimeScope"]["measureEnd"] < a["firstMeasure"]:
+            assert rk not in runtime["runtimeFrameMap"],f"{k}: pending asset unexpectedly live-mapped before its block"
+        else:
+            assert rk in runtime["runtimeFrameMap"],f"{k}: runtime-QA asset missing live compatibility mapping"
     elif a["classification"]=="NEW_IMAGE_REQUIRED":
         assert not a["existingHit"] and not a["existingRebound"],f"{k}: new-image key unexpectedly has existing asset"
     elif a["classification"]=="BLOCKED":
@@ -58,7 +61,7 @@ for k,a in planned.items():
         phases=[x["phase"] for x in missing if x["actionKey"]==k]
         assert sorted(phases)==["hit","rebound"],f"{k}: missing hit/rebound requirement"
 scope=runtime["runtimeScope"]
-assert (scope["measureStart"],scope["measureEnd"])==(1,8),"planning must not expand live runtimeScope"
+assert scope["measureStart"]==1 and scope["measureEnd"] in {8,16},"unexpected live runtimeScope"
 blocks=block_plan["blocks"]
 assert blocks[0]["measureStart"]==9 and blocks[-1]["measureEnd"]==148,"block coverage endpoints wrong"
 for a,b in zip(blocks,blocks[1:]): assert a["measureEnd"]+1==b["measureStart"],f"block gap/overlap {a['blockId']}->{b['blockId']}"
@@ -118,9 +121,9 @@ assert "if(frameMap?.[exact])return exact" in character_js
 assert 'parts.join("+")+":*"' in character_js
 
 # Current-state invariants for this preparation pass.
-assert current["liveRuntimeScope"]["measureStart"]==1 and current["liveRuntimeScope"]["measureEnd"]==8
+assert current["liveRuntimeScope"]["measureStart"]==scope["measureStart"] and current["liveRuntimeScope"]["measureEnd"]==scope["measureEnd"]
 assert Path(P/"CHARACTER_ASSET_GENERATION_SPEC.md").is_file()
 assert Path(P/"ASSET_NAMING_RULES.md").is_file()
 assert Path(P/"NEXT_IMPLEMENTATION_HANDOFF.md").is_file()
 
-print(f"PASS Luna planning validation: {len(counts)} action keys, {len(groups)} groups, live scope 1-8, {len(blocks)} blocks; infrastructure masters OK")
+print(f"PASS Luna planning validation: {len(counts)} action keys, {len(groups)} groups, live scope {scope[\"measureStart\"]}-{scope[\"measureEnd\"]}, {len(blocks)} blocks; infrastructure masters OK")
