@@ -118,9 +118,7 @@
     "BD+RC:*": "bd_rc_hit",
     "RD:R": "rd_r_hit",
     "BD+SN:RF/L": "bd_sn_rf_l_hit",
-    "RC+SN:R/L": "rc_sn_r_l_hit_refresh",
-    "RC+SN:*": "rc_sn_r_l_hit_refresh",
-    "BD+SN:*": "bd_sn_rf_l_hit"
+    "RC+SN:R/L": "rc_sn_r_l_hit_refresh"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -162,16 +160,6 @@
       "prep": "neutral",
       "hit": "rc_sn_r_l_hit_refresh",
       "rebound": "rc_sn_r_l_rebound_refresh"
-    },
-    "RC+SN:*": {
-      "prep": "neutral",
-      "hit": "rc_sn_r_l_hit_refresh",
-      "rebound": "rc_sn_r_l_rebound_refresh"
-    },
-    "BD+SN:*": {
-      "prep": "neutral",
-      "hit": "bd_sn_rf_l_hit",
-      "rebound": "bd_sn_rf_l_rebound"
     }
   },
   "motionTiming": {
@@ -219,6 +207,7 @@
       "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
       "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
       "liveRuntimeScope": "1-8"
-    }
+    },
+    "preLiveCompatibility": "Exact limb-aware BD+SN:RF/L and RC+SN:R/L preloaded; legacy wildcard mappings intentionally withheld until live runtimeScope expansion to satisfy planning gate."
   }
 }
