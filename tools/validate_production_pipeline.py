@@ -12,6 +12,7 @@ staging=load("character-assets/prototypes/luna_say_maybe_16m/STAGING_SCHEMA.json
 lifecycle=load("character-assets/prototypes/luna_say_maybe_16m/ASSET_LIFECYCLE.json")
 rejected=load("character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json")
 failures=load("character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json")
+usage_policy=load("character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json")
 contacts=load("character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json")
 assert state["liveRuntimeScope"]["measureStart"]==1 and state["liveRuntimeScope"]["measureEnd"]==8
 pp=ledger.get("productionPipelineSpeedup")
@@ -40,6 +41,8 @@ required=[
 "tools/build-staging-json.mjs","tools/build-block-start-checklist.mjs","tools/find-reuse-candidates.mjs",
 "tools/build-qa-sampling-and-risk.mjs","tools/build-qa-summary.mjs","tools/build-next-chat-handoff.mjs","tools/luna-production-path.mjs",
 ".github/workflows/luna-fast-path.yml",".github/workflows/luna-full-path.yml",".github/workflows/luna-candidate-qa.yml",
+"tools/production-pipeline-dispatcher.mjs","tools/start-pipeline-task.mjs","tools/check-pipeline-compliance.mjs",
+"character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json","character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.md",
 "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md","character-assets/prototypes/luna_say_maybe_16m/COMMIT_BOUNDARY_RULES.md","character-assets/prototypes/luna_say_maybe_16m/AUTONOMY_BOUNDARIES.md"
 ]
 for p in required: assert (ROOT/p).is_file(),p
@@ -63,3 +66,17 @@ assert Path(BASE/"STAGING_SCHEMA.json").is_file()
 assert Path(BASE/"ASSET_LIFECYCLE.json").is_file()
 assert Path(BASE/"ACTION_KEY_COMPLETION_TEMPLATE.json").is_file()
 assert Path(BASE/"FAILURE_PATTERN_REGISTRY.json").is_file()
+
+# Mandatory pipeline-first usage contracts.
+assert usage_policy["status"]=="CURRENT_MANDATORY"
+assert usage_policy["principle"]=="PIPELINE_FIRST_NO_MANUAL_DUPLICATION"
+assert usage_policy["compliance"]["dispatcherRequired"] is True
+assert "build-generation-prompt" in usage_policy["taskRouting"]
+assert state.get("pipelineUsagePolicy",{}).get("status")=="MANDATORY"
+assert state["pipelineUsagePolicy"]["dispatcher"]=="tools/production-pipeline-dispatcher.mjs"
+assert any("production-pipeline-dispatcher.mjs" in x for x in state["instructionsForNextChat"])
+assert any("MANUAL_OVERRIDE" in x for x in state["instructionsForNextChat"])
+pipeline_doc=(BASE/"PRODUCTION_PIPELINE.md").read_text(encoding="utf-8")
+assert "Mandatory execution entry" in pipeline_doc and "production-pipeline-dispatcher.mjs" in pipeline_doc
+handoff=(BASE/"NEXT_IMPLEMENTATION_HANDOFF.md").read_text(encoding="utf-8")
+assert "Mandatory pipeline-first execution" in handoff
