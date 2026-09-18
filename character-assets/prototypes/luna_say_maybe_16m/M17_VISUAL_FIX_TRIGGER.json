@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "requestedAt": "2026-09-19T08:04:00+09:00",
+  "scope": "M17_ONLY",
+  "reason": "Actual runtime screenshots show overlong left-stick visuals on LT:L/FT:L and a camera/pose jump on BD+SN:RF/R. Apply targeted deterministic fixes only; preserve all other M17 assets and all M18+ work.",
+  "sourceQa": {
+    "runId": 35401388310,
+    "artifactId": 10570426831,
+    "commitSha": "3d75e0bbe3e036b12d24cac554487387e426148e"
+  },
+  "targets": [
+    "LT:L",
+    "FT:L",
+    "BD+SN:RF/R"
+  ],
+  "conflictPolicy": "Do not modify M18+ files or overwrite unrelated concurrent commits."
+}
