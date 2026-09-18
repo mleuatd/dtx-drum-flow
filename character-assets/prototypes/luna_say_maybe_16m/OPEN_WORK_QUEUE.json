@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:02:00+09:00",
+  "updatedAt": "2026-09-19T08:08:41.545+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -310,7 +310,7 @@
     {
       "taskId": "OWQ-017",
       "sourceQueue": "M17_148",
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS_OTHER_TERMINAL",
       "task": "Begin contiguous measures 17-148 implementation after M9-16 completion.",
       "dependency": "M9_16 DONE",
       "requiresImageGeneration": true,
@@ -318,9 +318,13 @@
       "requiresGitHubAction": true,
       "requiresDropbox": true,
       "canRunNow": false,
-      "blocker": "M9-16 dependency cleared; M17 still requires its queued new character assets before implementation.",
+      "blocker": "M17 COMPLETE_LIVE_QA. M18+ work is intentionally left to other terminal(s) to avoid concurrent edits.",
       "recommendedTool": "NEXT_ASSET_QUEUE + luna-full-path",
-      "executionOrder": 17
+      "executionOrder": 17,
+      "evidence": [
+        "M17 COMPLETE_LIVE_QA run 35404442282, artifact 10571731825, failed=0, PC/Xperia PASS.",
+        "This terminal must not advance to M18+."
+      ]
     },
     {
       "taskId": "OWQ-018",
@@ -385,5 +389,6 @@
       "recommendedTool": "block-start checklist + Fast/Full Path workflows",
       "executionOrder": 19
     }
-  ]
+  ],
+  "m17Status": "COMPLETE_LIVE_QA"
 }
