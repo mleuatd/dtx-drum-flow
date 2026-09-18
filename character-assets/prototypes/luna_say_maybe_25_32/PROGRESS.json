@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Perform actual visual QA on the generated HT:R/HT:L/RC:R fixed-drum composites before any formal promotion. Then persist PASS pairs to Dropbox and formal GitHub paths; next generate FT+SN:R/L and BD+HT:RF/R.",
-  "updatedAt": "2026-09-19T08:36:00+09:00",
+  "requiredNext": "For current chunk M25-28: verify the push-triggered FT+SN:R/L output commit, then perform visual QA for HT:R, RC:R and FT+SN:R/L composites. Promote only PASS pairs, persist exact bytes to Dropbox/formal GitHub paths, update inventory/runtime mapping, and run block/runtime QA. Do not begin M29 assets until this chunk is checkpointed.",
+  "updatedAt": "2026-09-19T08:39:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -211,6 +211,34 @@
       "reboundPath": "character-assets/review-candidates/m25_40/rc_r_rebound_attempt01.png",
       "hitSha256": "a58360df0afddbc81d67c1fa21f2e46f589f5981d3574f2274fab2f09cd9f9c1",
       "reboundSha256": "f6c86b9e3047c041b622e85365a3a09d9ecee000a9739949553f282f964ff1ca"
+    },
+    "ftSnRL": {
+      "status": "BUILDER_COMMITTED_WORKFLOW_TRIGGERED",
+      "builder": "tools/build-m25-40-candidates.py",
+      "builderCommit": "9e58069af46c44c1d94c7a63723899907367ef6f",
+      "method": "merge approved FT:R and SN:L deltas on locked neutral; no redraw",
+      "plannedHit": "character-assets/review-candidates/m25_40/ft_sn_r_l_hit_attempt01.png",
+      "plannedRebound": "character-assets/review-candidates/m25_40/ft_sn_r_l_rebound_attempt01.png",
+      "qaEvidence": "character-assets/generated-qa/m25_40/ft_sn_r_l/",
+      "note": "Push-triggered GitHub Actions build requested by builder commit; do not claim generated until output commit exists."
     }
+  },
+  "workChunk": {
+    "policy": "Split before the measure where the cumulative count of new action pairs reaches 4 or more.",
+    "currentChunk": "M25-28",
+    "nextChunkStartsAt": 29,
+    "currentChunkNewActions": [
+      "HT:R",
+      "RC:R",
+      "FT+SN:R/L"
+    ],
+    "cumulativeNewActionCountByMeasure": {
+      "25": 1,
+      "26": 2,
+      "27": 2,
+      "28": 3,
+      "29": 5
+    },
+    "reason": "M29 introduces BD+HT:RF/R and HT:L, taking cumulative new actions from 3 to 5."
   }
 }
