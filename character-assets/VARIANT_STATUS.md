@@ -1,5 +1,14 @@
 # Character Variant Status
 
+## Persistent visual QA ledger — 2026-09-18
+
+All current and future character-pose visual defects are tracked in:
+- `prototypes/luna_say_maybe_16m/CHARACTER_QA_ISSUES.json`
+- `prototypes/luna_say_maybe_16m/CHARACTER_QA_WORKFLOW.md`
+
+Every new chat/session must read the ledger before editing character assets. Completed items remain in the ledger as `DONE`; unnecessary items become `WONT_FIX` with a reason. Do not treat an asset as visually approved merely because manifest/runtime validation passes.
+
+
 ## Authoritative state — 2026-09-18
 
 Active prototype scope: **Luna Say Maybe measures 1-4**.
