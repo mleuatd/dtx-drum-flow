@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T22:36:00+09:00",
+  "updatedAt": "2026-09-18T22:48:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -92,7 +92,7 @@
     {
       "id": "M9_16",
       "measures": "9-16",
-      "status": "BLOCKED_IMAGE_REQUIRED",
+      "status": "DONE",
       "chart": {
         "notes": 83,
         "groups": 65,
@@ -114,7 +114,7 @@
       ],
       "assets": {
         "bdSn": {
-          "status": "RUNTIME_PRELOADED_LIVE_TRANSITION_QA_PENDING",
+          "status": "DONE_LIVE_QA_PASSED",
           "hit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
           "rebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
           "hitSha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
@@ -127,18 +127,23 @@
           "formalLayerCommit": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
           "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PENDING",
           "runtimeKey": "BD+SN:RF/L",
-          "preloadCommit": "35e0cde374f715c03b937489b3153ad2405b8cf4"
+          "preloadCommit": "35e0cde374f715c03b937489b3153ad2405b8cf4",
+          "liveQaRun": 35351134562,
+          "liveQaArtifact": 10549284671
         },
         "rcSn": {
-          "status": "HIT_FORMAL_REGISTERED_REBOUND_PENDING",
+          "status": "DONE_LIVE_QA_PASSED",
           "hit": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
-          "rebound": null,
+          "rebound": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
           "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
           "hitDropbox": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png",
           "runtimeKey": "RC+SN:R/L",
           "hitImportCommit": "127f430df5dbc118f42b8b09128b7cd2ff387074",
           "liveRuntimeScopeUnchanged": true,
-          "note": "User approved current hit for implementation. Rebound is still required before M9-16 runtime activation."
+          "note": "User approved current hit for implementation. Rebound is still required before M9-16 runtime activation.",
+          "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+          "liveQaRun": 35351134562,
+          "liveQaArtifact": 10549284671
         },
         "rd": {
           "status": "DONE_REUSE_APPROVED_M5_8",
@@ -150,19 +155,9 @@
           "reuseForMeasures": "9-16"
         }
       },
-      "remaining": [
-        "Create RC+SN:R/L rebound derived from the accepted hit; IMAGE_GENERATION_REQUIRED",
-        "Run static fixed-drum QA for corrected RC+SN pair",
-        "Register approved RC+SN pair to Dropbox and formal GitHub layer paths",
-        "Add RC+SN pair to manifest and asset_inventory",
-        "Runtime-map existing approved BD+SN pair and approved RD pair together with corrected RC+SN",
-        "Extend runtimeScope from measures 1-8 to 1-16",
-        "Run all validation and regression checks",
-        "Deploy GitHub Pages",
-        "Run live PC/Xperia runtime QA and screenshot QA for measures 9-16"
-      ],
-      "blocker": "RC+SN:R/L hit is now formal and preloaded, but rebound is still missing. Live runtimeScope remains 1-8.",
-      "nextAction": "Create ASSETQ-002 RC+SN:R/L rebound from the accepted formal hit, then continue NIMG-013..023."
+      "remaining": [],
+      "blocker": null,
+      "nextAction": "M9-16 closed. Continue contiguous M17+ work."
     },
     {
       "id": "M17_148",
@@ -1727,7 +1722,8 @@
       "candidateQaWorkflow": ".github/workflows/luna-candidate-qa.yml",
       "pipelineDoc": "character-assets/prototypes/luna_say_maybe_16m/PRODUCTION_PIPELINE.md"
     },
-    "nextAction": "Production pipeline is ready. Actual product work resumes at NEXT_ASSET_QUEUE ASSETQ-001: corrected RC+SN:R/L hit, then rebound; image generation required."
+    "nextAction": "Production pipeline is ready. Actual product work resumes at NEXT_ASSET_QUEUE ASSETQ-001: corrected RC+SN:R/L hit, then rebound; image generation required.",
+    "nextBlocked": null
   },
   "pipelineUsageEnforcement": {
     "id": "PIPELINE_USAGE_ENFORCEMENT",
@@ -1884,5 +1880,17 @@
       }
     },
     "finalStatus": "BLOCKED_ONLY_IMAGE_AND_DOWNSTREAM_DEPENDENCIES"
+  },
+  "m9_16Closure": {
+    "status": "DONE",
+    "runtimeScope": "1-16",
+    "preLiveRun": 35350383202,
+    "preLiveArtifact": 10549653076,
+    "validateRun": 35351278979,
+    "characterAssetValidationRun": 35351227038,
+    "pagesDeployRun": 35351010527,
+    "liveQaRun": 35351134562,
+    "liveQaArtifact": 10549284671,
+    "screenshotVisualQa": "PASS"
   }
 }
