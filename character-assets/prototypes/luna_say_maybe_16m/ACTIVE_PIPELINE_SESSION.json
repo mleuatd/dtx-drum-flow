@@ -13,13 +13,14 @@
     "measureEnd": 16,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "Begin contiguous M17+ asset production from NEXT_ASSET_QUEUE.",
+  "currentNextWork": "ASSETQ-003 LT:R hit is READY for M17 preparation; do not generate M17 assets in this M9-16 closure task.",
   "nextAsset": {
     "id": "ASSETQ-003",
     "actionKey": "LT:R",
     "phase": "hit",
-    "block": "B17",
-    "status": "BLOCKED_DEPENDENCY_M9_16"
+    "firstMeasure": 17,
+    "status": "READY",
+    "blocker": null
   },
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
@@ -115,5 +116,6 @@
   ],
   "completedAt": "2026-09-18T22:49:00+09:00",
   "blocker": null,
-  "nextAction": "Start the next queued M17 action-key asset; do not reopen M9-16 unless regression evidence appears."
+  "nextAction": "M9-16 is closed. Next READY task is ASSETQ-003 LT:R hit for M17, but image generation was intentionally not started.",
+  "updatedAt": "2026-09-18T22:54:00+09:00"
 }
