@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 16
   },
-  "updatedAt": "2026-09-18T16:58:00+09:00",
+  "updatedAt": "2026-09-18T17:06:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -240,9 +240,9 @@
     {
       "id": "CHAR-QA-0005",
       "createdAt": "2026-09-18T15:40:00+09:00",
-      "updatedAt": "2026-09-18T16:40:00+09:00",
+      "updatedAt": "2026-09-18T17:06:00+09:00",
       "completedAt": null,
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "severity": "high",
       "assetKey": "rd_r_hit,rd_r_rebound",
       "phase": "hit/rebound",
@@ -259,12 +259,14 @@
         "Direct visual inspection of the composite sheet shows a different/shifted drawing rather than a minimal-limb edit of the approved baseline.",
         "The exact current neutral was exported from GitHub QA artifact and displayed as an editable candidate source in the chat.",
         "A direct-edit attempt through the available image generation interface did not perform an edit (generation metadata reported edit_op=null) and produced a materially different character/camera drawing. The candidate was rejected immediately and was not registered, mapped, committed, or deployed.",
-        "Rejected current RD hit candidate SHA256 c18133f7c8a01d9db46d224290551b5c59c71fcc3135f3eff448d64bf4c5524d; rebound SHA256 1667e27ea0e5b714ada7ffcb26be9d80365b1c48f22da1a6f34596a9cb075207. Neither was registered."
+        "Rejected current RD hit candidate SHA256 c18133f7c8a01d9db46d224290551b5c59c71fcc3135f3eff448d64bf4c5524d; rebound SHA256 1667e27ea0e5b714ada7ffcb26be9d80365b1c48f22da1a6f34596a9cb075207. Neither was registered.",
+        "Explicit-reference RD retry rejected; SHA256 efe2a68e2f23302d7cd78231fe941c858d0f52c972ba4d23a2cce76d10cd6e8f.",
+        "Unrelated management-sheet misgeneration also rejected; SHA256 f82163d6c9b6476e4e67688258decbbce52d0ae382ebab3dfe4d23b347582361."
       ],
       "verification": [
         "Historical candidate rejected; it has not been added to the refreshed runtime inventory or mapping."
       ],
-      "blocker": "The exact approved neutral is available locally and in Dropbox/GitHub QA artifacts, but the available image-generation interface did not bind it as an edit source and instead performed a fresh generation. Because project rules forbid a fresh look-alike redraw, no further later-measure image generation should be attempted in this environment unless the exact baseline can be passed as a true edit target."
+      "blocker": "Two current-chat regeneration attempts failed in different ways: first targeted the wrong screen side; second ignored the exact baseline and produced a different front-facing character. Image generation must demonstrate true baseline edit before RD can proceed."
     },
     {
       "id": "CHAR-QA-0006",
@@ -373,6 +375,24 @@
       "height": 1086,
       "reason": "Corrected regeneration contains person+stool only and preserves baseline drawing family; fixed-drum contact/transition QA still required before GitHub asset registration.",
       "createdAt": "2026-09-18T16:40:00+09:00"
+    },
+    {
+      "createdAt": "2026-09-18T17:06:00+09:00",
+      "assetKey": "rd_r_hit",
+      "result": "REJECTED_SKIP",
+      "sha256": "efe2a68e2f23302d7cd78231fe941c858d0f52c972ba4d23a2cce76d10cd6e8f",
+      "width": 1448,
+      "height": 1086,
+      "reason": "Explicit-reference retry ignored the approved baseline and produced a different front-facing hoodie character/camera. Not registered."
+    },
+    {
+      "createdAt": "2026-09-18T17:06:00+09:00",
+      "assetKey": "*",
+      "result": "REJECTED_SKIP",
+      "sha256": "f82163d6c9b6476e4e67688258decbbce52d0ae382ebab3dfe4d23b347582361",
+      "width": 1448,
+      "height": 1086,
+      "reason": "Image system produced a project-management sheet instead of a character pose. Not registered."
     }
   ]
 }
