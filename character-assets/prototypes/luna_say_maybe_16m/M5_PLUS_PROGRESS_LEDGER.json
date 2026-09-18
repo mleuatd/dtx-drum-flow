@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:48:00+09:00",
+  "updatedAt": "2026-09-18T21:55:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -294,7 +294,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Provide/use approved neutral image in a usable current-chat image target, then create ASSETQ-001 corrected RC+SN:R/L hit followed by ASSETQ-002 rebound.",
+  "nextAction": "Attach approved neutral/home pose PNG in the current chat; create corrected RC+SN:R/L hit then rebound; continue NIMG-013..023.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -1794,6 +1794,25 @@
       "done": 1,
       "blocked": 18,
       "canRunNow": 0
-    }
+    },
+    "validationEvidence": {
+      "finalValidate": {
+        "run": 35343438639,
+        "status": "SUCCESS"
+      },
+      "bdSnPreloadValidate": {
+        "run": 35343194244,
+        "status": "SUCCESS"
+      },
+      "bdSnCharacterAssetValidation": {
+        "run": 35343194377,
+        "status": "SUCCESS"
+      },
+      "bdSnDeploy": {
+        "run": 35343194336,
+        "status": "SUCCESS"
+      }
+    },
+    "finalStatus": "BLOCKED_ONLY_IMAGE_AND_DOWNSTREAM_DEPENDENCIES"
   }
 }
