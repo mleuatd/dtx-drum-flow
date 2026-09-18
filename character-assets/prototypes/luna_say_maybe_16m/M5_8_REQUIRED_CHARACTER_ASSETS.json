@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "song": "Luna Say Maybe",
+  "scope": {
+    "measureStart": 5,
+    "measureEnd": 8,
+    "noteCount": 33,
+    "groupCount": 32,
+    "firstNoteTime": 10.326094,
+    "lastNoteTime": 17.016741
+  },
+  "limbSource": "site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json",
+  "chartSource": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+  "rules": [
+    "Measures 1-4 refreshed assets are the visual baseline.",
+    "Do not use historical later-measure PNGs without visual QA.",
+    "New frames must be direct edits of the approved baseline, not redraws."
+  ],
+  "actionKeys": {
+    "BD:RF": {
+      "status": "REUSE_APPROVED",
+      "hit": "bd_rf_hit",
+      "rebound": "bd_rf_rebound"
+    },
+    "SN:L": {
+      "status": "REUSE_APPROVED",
+      "hit": "sn_l_hit",
+      "rebound": "sn_l_rebound"
+    },
+    "BD+RC:*": {
+      "status": "REUSE_APPROVED",
+      "hit": "bd_rc_hit",
+      "rebound": "bd_rc_rebound"
+    },
+    "RD:R": {
+      "status": "BLOCKED_NEW_VARIANTS_REQUIRED",
+      "hit": "rd_r_hit",
+      "rebound": "rd_r_rebound",
+      "historicalCandidate": "character-assets/layers/character/rd/hit_r.png",
+      "historicalCandidateStatus": "REJECTED_VISUAL_MISMATCH"
+    }
+  },
+  "requiredNewFrames": {
+    "rd_r_hit": {
+      "path": "layers/character/rd/hit_r_refresh.png",
+      "state": "BLOCKED",
+      "reason": "Must be derived from current approved baseline; historical candidate rejected."
+    },
+    "rd_r_rebound": {
+      "path": "layers/character/rd/rebound_r_refresh.png",
+      "state": "BLOCKED",
+      "reason": "No refreshed rebound exists; must be derived from current approved baseline."
+    }
+  },
+  "implementationState": "NOT_WIRED_UNTIL_RD_VARIANTS_PASS_QA",
+  "qaEvidence": {
+    "visualQaRun": 35315598184,
+    "artifactId": 10535695236,
+    "qaIssue": "CHAR-QA-0005"
+  }
+}
