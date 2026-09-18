@@ -37,12 +37,28 @@ const viewports = [
   {name:"pc", width:1280, height:900},
   {name:"xperia-portrait", width:384, height:864}
 ];
-const phases = [
-  {name:"pre", offset:-0.015},
-  {name:"hit", offset:0.030},
-  {name:"rebound", offset:0.190},
-  {name:"post", offset:0.300}
-];
+function samplesFor(index) {
+  const ev=events[index];
+  const next=events[index+1];
+  const gap=next ? Math.max(0,next.time-ev.time) : Infinity;
+  const baseHitEnd=0.18, baseReboundEnd=0.28;
+  let hitEnd=baseHitEnd, reboundEnd=baseReboundEnd;
+  if(Number.isFinite(gap)&&gap<baseReboundEnd){
+    hitEnd=Math.min(baseHitEnd,Math.max(.055,gap*.65));
+    reboundEnd=Math.min(baseReboundEnd,Math.max(hitEnd+.02,gap-.004));
+  }
+  const hitOffset=Math.min(.03,Math.max(.012,hitEnd*.45));
+  const reboundOffset=hitEnd+(reboundEnd-hitEnd)*.5;
+  const postOffset=Number.isFinite(gap)
+    ? Math.max(reboundEnd+.006,Math.min(gap+.012,baseReboundEnd+.03))
+    : baseReboundEnd+.03;
+  return [
+    {name:"pre",offset:-.015},
+    {name:"hit",offset:hitOffset},
+    {name:"rebound",offset:reboundOffset},
+    {name:"post",offset:postOffset}
+  ];
+}
 const browser = await chromium.launch({headless:true});
 const root = "qa-artifacts";
 await fs.mkdir(root,{recursive:true});
