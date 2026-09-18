@@ -1,0 +1,37 @@
+name: M9-16 Existing Asset Runtime QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m9-16-existing-asset-runtime-qa.yml"
+      - "tools/m9-16-existing-asset-runtime-qa.mjs"
+      - "character-assets/prototypes/luna_say_maybe_16m/M9_16_RUNTIME_EXPANSION_PLAN.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run M9-16 existing-asset QA
+        run: node tools/m9-16-existing-asset-runtime-qa.mjs
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m9-16-existing-asset-runtime-qa
+          path: qa-artifacts-existing-m9-16
+          if-no-files-found: warn
