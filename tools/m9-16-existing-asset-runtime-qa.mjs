@@ -104,7 +104,12 @@ for(const vp of viewports){
         timeline.value=String(time);
         timeline.dispatchEvent(new Event("input",{bubbles:true}));
       },t);
-      await page.waitForTimeout(110);
+      await page.waitForTimeout(80);
+      await page.waitForFunction(()=>{
+        const char=document.getElementById("characterLayer");
+        const drum=document.getElementById("drumLayer");
+        return char?.naturalWidth===1448&&char?.naturalHeight===1086&&drum?.naturalWidth===1448&&drum?.naturalHeight===1086;
+      },{timeout:5000});
       const dom=await page.evaluate(()=>{
         const root=document.getElementById("characterBackdrop");
         const char=document.getElementById("characterLayer");
