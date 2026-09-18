@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T07:12:00+09:00",
+  "updatedAt": "2026-09-19T08:08:41.545+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -163,7 +163,7 @@
     {
       "id": "M17_148",
       "measures": "17-148",
-      "status": "IN_PROGRESS_IMAGE_ASSETS",
+      "status": "IN_PROGRESS_LATER_BLOCKS_M17_COMPLETE",
       "chart": {
         "notes": 2014,
         "lastMeasure": 148,
@@ -212,7 +212,11 @@
         "Formal import workflow 35398907345 SUCCESS.",
         "Next READY: ASSETQ-013 BD+LT:RF/R hit.",
         "2026-09-19 pipeline overhaul: switched M17 image production to two-phase QA. PRE_RUNTIME now blocks only binary/safety/obvious structural failures; contact/diff/naturalness micro-QA moved to POST_RUNTIME actual PC/Xperia screenshots.",
-        "Goal: finish remaining formal assets first, then implement M17 and repair only visibly wrong runtime frames."
+        "Goal: finish remaining formal assets first, then implement M17 and repair only visibly wrong runtime frames.",
+        "M17 targeted runtime visual fixes completed for LT:L, FT:L, and BD+SN:RF/R without touching M18+.",
+        "M17 runtime QA logic corrected to test only requested keys and treat chart-overlapped rebound/neutral phases as SKIP_OVERLAPPED.",
+        "M17 final runtime QA run 35404442282 SUCCESS: failed 0, passed 22, SKIP_OVERLAPPED 4; PC PASS; Xperia PASS; screenshot visual review PASS.",
+        "M17 COMPLETE_LIVE_QA. This terminal stops here to avoid conflict with M18+ work on other terminals."
       ],
       "draft": {
         "path": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json",
@@ -247,7 +251,20 @@
         "oldUnresolved": 195
       },
       "blocker": null,
-      "nextAction": "Create final ASSETQ-013/014 BD+LT:RF/R pair with lightweight QA, formal-register it, then assemble runtime M17 and run consolidated screenshot QA."
+      "nextAction": "M17 is complete. Later measures are owned by other terminal(s); do not continue from this terminal.",
+      "m17Milestone": {
+        "status": "COMPLETE_LIVE_QA",
+        "completedAt": "2026-09-19T08:08:41.545+09:00",
+        "qaRun": 35404442282,
+        "qaArtifact": 10571731825,
+        "testedCommitSha": "8ebea91559444b6c5601da464b2f4468dbf5bcad",
+        "failed": 0,
+        "passed": 22,
+        "skippedOverlapped": 4,
+        "pc": "PASS",
+        "xperia": "PASS",
+        "visualReview": "PASS"
+      }
     }
   ],
   "skippedOrRejected": [
@@ -356,7 +373,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Finish final M17 pair first; defer fine contact/naturalness tuning to runtime screenshots.",
+  "nextAction": "M17 COMPLETE_LIVE_QA; stop this terminal before M18+.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
