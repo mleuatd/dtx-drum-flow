@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:52:00+09:00",
+  "updatedAt": "2026-09-19T06:05:00+09:00",
   "canvas": {
     "width": 1448,
     "height": 1086
   },
-  "source": "site/character-prototype.js EFFECT_POINTS plus project drum semantics; unmeasured points remain relative only.",
+  "source": "Recalibrated against current locked character-assets/layers/drum/drum_base.png and site/character-prototype.js EFFECT_POINTS; fixed-drum composite remains visual authority.",
   "parts": {
     "LC": {
       "screenSide": "screen-left",
@@ -23,12 +23,12 @@
       "expectedLimbDefault": "R",
       "target": "stick tip to upper hi-hat surface",
       "approximate": {
-        "x": 255,
-        "y": 465
+        "x": 190,
+        "y": 390
       },
       "tolerance": "visual contact around effect point; no invented pixel radius",
       "commonWrongTarget": "LC or SN",
-      "qa": "Effect coordinate is authoritative runtime reference."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
     },
     "SN": {
       "screenSide": "center-left",
@@ -36,12 +36,12 @@
       "expectedLimbDefault": "L",
       "target": "stick tip to snare head",
       "approximate": {
-        "x": 570,
-        "y": 520
+        "x": 420,
+        "y": 535
       },
       "tolerance": "visual contact around effect point",
       "commonWrongTarget": "HT",
-      "qa": "Check left/right hand from full-song limb sidecar."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
     },
     "HT": {
       "screenSide": "center",
@@ -49,12 +49,12 @@
       "expectedLimbDefault": "phrase-aware R/L",
       "target": "stick tip to high-tom head",
       "approximate": {
-        "x": 690,
-        "y": 455
+        "x": 575,
+        "y": 360
       },
       "tolerance": "visual contact around effect point",
       "commonWrongTarget": "SN or LT",
-      "qa": "Do not infer hand; use sidecar."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
     },
     "LT": {
       "screenSide": "center-right",
@@ -62,12 +62,12 @@
       "expectedLimbDefault": "phrase-aware R/L",
       "target": "stick tip to low-tom head",
       "approximate": {
-        "x": 790,
-        "y": 510
+        "x": 885,
+        "y": 455
       },
       "tolerance": "visual contact around effect point",
       "commonWrongTarget": "HT or FT",
-      "qa": "Do not infer hand; use sidecar."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
     },
     "FT": {
       "screenSide": "screen-right",
@@ -75,12 +75,12 @@
       "expectedLimbDefault": "phrase-aware R/L",
       "target": "stick tip to floor-tom head",
       "approximate": {
-        "x": 910,
-        "y": 585
+        "x": 1165,
+        "y": 535
       },
       "tolerance": "visual contact around effect point",
       "commonWrongTarget": "LT",
-      "qa": "Foot must not be mistaken for FT; FT is hand-played."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
     },
     "RC": {
       "screenSide": "screen-right",
@@ -88,12 +88,12 @@
       "expectedLimbDefault": "R",
       "target": "stick tip to right crash playing area",
       "approximate": {
-        "x": 1090,
-        "y": 195
+        "x": 1215,
+        "y": 145
       },
       "tolerance": "visual contact around effect point",
       "commonWrongTarget": "screen-left cymbal/LC or RD",
-      "qa": "Critical known failure mode: RC generation previously went screen-left."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
     },
     "RD": {
       "screenSide": "screen-right",
@@ -101,12 +101,12 @@
       "expectedLimbDefault": "R",
       "target": "stick tip to ride playing area",
       "approximate": {
-        "x": 1070,
-        "y": 370
+        "x": 965,
+        "y": 250
       },
       "tolerance": "visual contact around effect point",
       "commonWrongTarget": "RC or screen-left cymbal",
-      "qa": "Approved RD:R refresh pair is visual reference."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
     },
     "LP": {
       "screenSide": "screen-left-foot",
@@ -134,12 +134,52 @@
       "expectedLimbDefault": "RF",
       "target": "right foot to main bass pedal",
       "approximate": {
-        "x": 505,
-        "y": 790
+        "x": 735,
+        "y": 650
       },
       "tolerance": "visual pedal-contact region around effect point",
       "commonWrongTarget": "left hi-hat pedal",
-      "qa": "Right-foot mechanics should change without moving stool/body registration."
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
+    }
+  },
+  "calibration": {
+    "date": "2026-09-19",
+    "reason": "Previous effect/contact coordinates were from an older drum layout and landed off the current playing surfaces, causing false-negative contact QA.",
+    "drumPath": "character-assets/layers/drum/drum_base.png",
+    "method": "Visual calibration to current locked drum playing-surface centers; verified with overlay before commit.",
+    "points": {
+      "HH": {
+        "x": 190,
+        "y": 390
+      },
+      "SN": {
+        "x": 420,
+        "y": 535
+      },
+      "BD": {
+        "x": 735,
+        "y": 650
+      },
+      "HT": {
+        "x": 575,
+        "y": 360
+      },
+      "LT": {
+        "x": 885,
+        "y": 455
+      },
+      "FT": {
+        "x": 1165,
+        "y": 535
+      },
+      "RC": {
+        "x": 1215,
+        "y": 145
+      },
+      "RD": {
+        "x": 965,
+        "y": 250
+      }
     }
   }
 }
