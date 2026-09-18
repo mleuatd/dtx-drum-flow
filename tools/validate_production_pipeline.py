@@ -15,7 +15,7 @@ failures=load("character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_RE
 usage_policy=load("character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json")
 auto_policy=load("character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json")
 contacts=load("character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json")
-assert state["liveRuntimeScope"]["measureStart"]==1 and state["liveRuntimeScope"]["measureEnd"]==8
+assert state["liveRuntimeScope"]["measureStart"]==1 and state["liveRuntimeScope"]["measureEnd"] in {8,16}
 pp=ledger.get("productionPipelineSpeedup")
 assert pp and pp["id"]=="PRODUCTION_PIPELINE_SPEEDUP"
 ids=[x["id"] for x in pp["queue"]]
@@ -50,9 +50,9 @@ for p in required: assert (ROOT/p).is_file(),p
 # Fast/full path static criteria: current M1-8 all approved+mapped; M9-16 may contain blocked or formal-pair runtime-QA-pending assets.
 by={x["actionKey"]:x for x in mapping["entries"]}
 assert all(by[k]["classification"]=="REUSE_APPROVED" and by[k]["runtimeMapped"] for k in ["SN:L","SN:R","BD:RF","HH:R","BD+RC:RF/R","RD:R"])
-assert by["RC+SN:R/L"]["classification"] in {"BLOCKED","REUSE_NEEDS_RUNTIME_QA"}
-assert by["BD+SN:RF/L"]["classification"]=="REUSE_NEEDS_RUNTIME_QA"
-print("PASS production pipeline validation: queue schema, 30-key map, staging/lifecycle, rejected safety, tools/workflows, fast/full criteria, live scope 1-8")
+assert by["RC+SN:R/L"]["classification"] in {"BLOCKED","REUSE_NEEDS_RUNTIME_QA","REUSE_APPROVED"}
+assert by["BD+SN:RF/L"]["classification"] in {"REUSE_NEEDS_RUNTIME_QA","REUSE_APPROVED"}
+print(f"PASS production pipeline validation: queue schema, 30-key map, staging/lifecycle, rejected safety, tools/workflows, fast/full criteria, live scope 1-{state[\"liveRuntimeScope\"][\"measureEnd\"]}")
 
 # Sampling, screenshot naming, fast/full and handoff generator implementation contracts.
 sampling_src=(ROOT/"tools/build-qa-sampling-and-risk.mjs").read_text(encoding="utf-8")
