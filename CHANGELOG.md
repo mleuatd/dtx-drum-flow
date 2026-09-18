@@ -1,3 +1,13 @@
+## 2026-09-18 — Mandatory pipeline-first tool usage enforcement
+- Added mandatory `PIPELINE_USAGE_POLICY.json/.md`: existing repository tools/workflows are the default execution path, not optional helpers.
+- Added `tools/production-pipeline-dispatcher.mjs` to route task categories to required existing tools/workflows before manual work.
+- Added `tools/start-pipeline-task.mjs` to create a resumable active-session plan recording required tools for the current task.
+- Added `tools/check-pipeline-compliance.mjs` to detect missing required-tool evidence unless a documented `MANUAL_OVERRIDE` exists.
+- Updated CURRENT_PROJECT_STATE, PRODUCTION_PIPELINE, NEXT_IMPLEMENTATION_HANDOFF, NEXT_CHAT_COMMAND generator and generated NEXT_CHAT_COMMAND to require dispatcher-first execution.
+- Validation now fails if the mandatory policy/dispatcher/current-state integration disappears.
+- Manual duplication of an existing tool requires ledger evidence with skipped tool, reason, evidence and follow-up repair/extension.
+- No image assets or live runtimeScope were changed.
+
 ## 2026-09-18 — Production pipeline speedup complete
 - Implemented SPEED-001..025 plus SPEED-026 risk-aware runner integration and SPEED-027 candidate-QA workflow.
 - Added automatic next-asset queue, generation/rebound instruction builders, candidate binary QA, fixed-drum/comparison/contact preview, image-diff metrics, staging/lifecycle/registration planning, block checklist/reuse analysis, transition-risk sampling, standardized screenshot naming, QA summary and next-chat command generation.
