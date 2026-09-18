@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:00:00+09:00",
+  "updatedAt": "2026-09-19T05:20:00+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -13,7 +13,7 @@
     "blocked": 3,
     "canRunNow": 0
   },
-  "firstBlockedAsset": null,
+  "firstBlockedAsset": "ASSETQ-003 LT:R hit — external direct-edit failure after multiple strategies",
   "rule": "Process executionOrder. Do not mark dependency-blocked tasks IN_PROGRESS. No neutral substitution or rejected asset reuse.",
   "items": [
     {
@@ -325,15 +325,15 @@
     {
       "taskId": "OWQ-018",
       "sourceQueue": "M17_148",
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "task": "Create later missing character pairs for 22 NEW_IMAGE_REQUIRED action keys.",
       "dependency": "M9_16 DONE and NEXT_ASSET_QUEUE order",
       "requiresImageGeneration": true,
       "requiresRuntimeQA": false,
       "requiresGitHubAction": true,
       "requiresDropbox": true,
-      "canRunNow": true,
-      "blocker": null,
+      "canRunNow": false,
+      "blocker": "External direct-edit failure: image generator ignores baseline/crop edit target (edit_op=null), while two local raster fallbacks failed visual QA.",
       "recommendedTool": "NEXT_ASSET_QUEUE + generation prompt builder",
       "executionOrder": 18,
       "evidence": [
@@ -341,7 +341,11 @@
         "Dropbox formal baseline /ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png exists.",
         "Next queue item remains ASSETQ-003 LT:R hit.",
         "2026-09-19: prior baseline-parent access blocker RESOLVED via Dropbox Library -> materialize -> byte-identical working copy -> current conversation attachment. SHA256 verified 886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9.",
-        "ASSETQ-003 LT:R hit started."
+        "ASSETQ-003 LT:R hit started.",
+        "ASSETQ-003 LT:R hit remains first unfinished item.",
+        "Rejected image-gen SHAs: 8533bd40..., 7be15ee7..., 6fcd0e1c..., f9efcaa8....",
+        "Rejected local-edit SHAs: 5bbd18c5..., dd20a559....",
+        "Runtime scope intentionally remains M1-16."
       ]
     },
     {
