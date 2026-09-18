@@ -93,12 +93,14 @@
       "x": 0,
       "y": 0,
       "sha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd",
-      "status": "M1_4_READY",
-      "purpose": "Luna measures 1-4 parapara variant",
+      "status": "RETAINED_NOT_RUNTIME",
+      "purpose": "retained historical SN:R rebound variant; not used at runtime because live QA found a large transition jump",
       "part": "SN",
       "phase": "rebound",
       "hand": "R",
-      "notes": []
+      "notes": [
+        "Runtime replacement: SN:R rebound phase holds character-assets/layers/character/sn/hit_r.png."
+      ]
     },
     {
       "path": "character-assets/layers/character/hh/hit_r.png",
