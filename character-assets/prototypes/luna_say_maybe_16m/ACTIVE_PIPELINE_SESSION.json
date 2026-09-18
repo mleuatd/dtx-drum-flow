@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-18T21:45:00+09:00",
   "taskCategory": "full-path",
-  "status": "BLOCKED_IMAGE_EDIT_BINDING",
+  "status": "IN_PROGRESS_REBOUND_REQUIRED",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -13,20 +13,15 @@
     "measureEnd": 8,
     "status": "COMPLETE_LIVE_QA"
   },
-  "currentNextWork": "Exhaust all ledger work possible before corrected RC+SN image generation.",
+  "currentNextWork": "Create RC+SN:R/L rebound from the accepted formal hit; hit import is complete.",
   "nextAsset": {
-    "id": "ASSETQ-001",
+    "id": "ASSETQ-002",
     "actionKey": "RC+SN:R/L",
-    "phase": "hit",
+    "phase": "rebound",
     "block": "B09_16",
-    "firstMeasure": 13,
-    "occurrenceCount": 34,
-    "priority": "P0",
-    "dependency": "Blocks live runtime expansion beyond M8; must finish before later public runtime.",
-    "currentAssetStatus": "BLOCKED",
-    "reason": "Immediate M9-16 blocker; corrected pair does not exist.",
-    "nextAfterCompletion": "ASSETQ-002",
-    "status": "BLOCKED_IMAGE_GENERATION_REQUIRED"
+    "status": "READY_IMAGE_GENERATION",
+    "source": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+    "sourceSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82"
   },
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
@@ -64,9 +59,18 @@
       "status": "REJECTED_NEVER_USE",
       "sha256": "49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c",
       "reason": "edit_op=null / fresh front-facing redraw"
+    },
+    {
+      "tool": "Dropbox -> staged character import",
+      "status": "SUCCESS",
+      "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png",
+      "githubPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "importCommit": "127f430df5dbc118f42b8b09128b7cd2ff387074",
+      "importWorkflowRun": 35347550282
     }
   ],
   "completedAt": "2026-09-18T21:55:00+09:00",
-  "blocker": "Approved neutral was located and previewed from Dropbox/GitHub, but the image generator did not bind it as an edit source; retry returned edit_op=null fresh front-facing redraw SHA256 49a78e87... and was rejected.",
-  "nextAction": "Obtain a true current-chat image-edit target for approved neutral, rerun ASSETQ-001, require baseline-preserving edit PASS, then derive ASSETQ-002."
+  "blocker": "Only RC+SN:R/L rebound remains on the image critical path before M9-16 static/runtime completion work can continue.",
+  "nextAction": "Use character-assets/layers/character/combo/rc_sn_hit_refresh.png as the rebound source. Do not regenerate the hit."
 }
