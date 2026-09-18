@@ -125,3 +125,5 @@
 ## Historical entries
 See Git history for earlier character-pose experiments and full-song / 1-16 / 1-8 milestones.
 - 2026-09-18: M9-16 RC+SN:R/L hit retry rejected and deny-listed (`49a78e87...`): image generation returned `edit_op=null` and a fresh front-facing redraw instead of an approved-neutral-derived edit. Runtime scope remains 1-8; rebound/formal mapping/deploy remain blocked.
+
+- 2026-09-18: User-approved `RC+SN:R/L` hit formally saved to Dropbox and GitHub as `combo/rc_sn_hit_refresh.png` (SHA-256 `f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82`). Exact-key hit mapping is preloaded outside live scope; M9-16 remains blocked only on rebound and downstream QA.
