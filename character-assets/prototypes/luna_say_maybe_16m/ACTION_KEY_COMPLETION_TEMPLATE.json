@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "title": "ACTION_KEY_COMPLETION_TEMPLATE",
+  "steps": [
+    "select next queue item",
+    "build generation/edit prompt",
+    "create hit candidate",
+    "run binary QA",
+    "run fixed-drum/comparison/contact QA",
+    "approve hit",
+    "derive rebound instruction from accepted hit",
+    "create rebound candidate",
+    "run rebound QA",
+    "build staging JSON",
+    "record Dropbox metadata",
+    "formal GitHub save",
+    "update manifest",
+    "update ACTION_KEY_ASSET_MAP",
+    "update runtime mapping only when gates allow",
+    "run runtime QA",
+    "update ledger/state/handoff"
+  ],
+  "mandatoryGates": {
+    "beforeFormalSave": [
+      "binary QA PASS/WARN reviewed",
+      "visual static QA PASS",
+      "not in rejected registry"
+    ],
+    "beforeRuntime": [
+      "formal paths + SHA recorded",
+      "manifest registered",
+      "mapping master updated",
+      "hit/rebound both approved"
+    ],
+    "beforeDone": [
+      "runtime QA PASS",
+      "PC/Xperia visual QA PASS",
+      "regression PASS",
+      "ledger/state updated"
+    ]
+  }
+}
