@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T18:05:00+09:00",
+  "updatedAt": "2026-09-18T18:34:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -132,16 +132,25 @@
           "reason": "Generated RC+SN pair targeted screen-left cymbal rather than authoritative screen-right RC; skipped."
         },
         "rd": {
-          "status": "IN_PROGRESS_REGEN_REQUIRED",
-          "reason": "Shared blocker with M5-8."
+          "status": "DONE_REUSE_APPROVED_M5_8",
+          "hit": "character-assets/layers/character/rd/hit_r_refresh.png",
+          "rebound": "character-assets/layers/character/rd/rebound_r_refresh.png",
+          "hitSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+          "reboundSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+          "runtimeMappedThroughMeasure": 8,
+          "reuseForMeasures": "9-16"
         }
       },
       "remaining": [
-        "Correct RD:R pair",
-        "Correct RC+SN pair",
-        "Runtime-map BD+SN only after block prerequisites are satisfied",
-        "Extend runtime scope through measure 16",
-        "Live transition QA"
+        "Create corrected RC+SN L/R hit/rebound pair from approved baseline; IMAGE_GENERATION_REQUIRED",
+        "Run static fixed-drum QA for corrected RC+SN pair",
+        "Register approved RC+SN pair to Dropbox and formal GitHub layer paths",
+        "Add RC+SN pair to manifest and asset_inventory",
+        "Runtime-map existing approved BD+SN pair and approved RD pair together with corrected RC+SN",
+        "Extend runtimeScope from measures 1-8 to 1-16",
+        "Run all validation and regression checks",
+        "Deploy GitHub Pages",
+        "Run live PC/Xperia runtime QA and screenshot QA for measures 9-16"
       ]
     },
     {
@@ -279,7 +288,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Measures 5-8 are DONE. Next block is measures 9-16: finish RC+SN hit/rebound, then runtime-map already visual-QA-passed BD+SN plus shared RD assets and run live QA through M16.",
+  "nextAction": "Execute nonImageGenerationWorkQueue NIMG-001 through NIMG-012 now. RC+SN image generation is the only image-dependent blocker; after corrected hit/rebound exist, resume NIMG-013 onward.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -291,5 +300,219 @@
     "fullLimbDraft": "2c885eba3c49598791ec7d5232ced63fd655d659",
     "actionInventory": "ffd976ecc2cb7fca3fc025dc5217ee302ef0417e",
     "m5_8RuntimeQaTrigger": "50d5fc028838d8e1033dc0f29e6ba2ca6478ba7b"
+  },
+  "nonImageGenerationWorkQueue": {
+    "purpose": "All work that can be prepared or completed without invoking image generation. Execute in order; do not mark M9_16 DONE until RC+SN image-dependent gates also pass.",
+    "statuses": [
+      "TODO",
+      "IN_PROGRESS",
+      "BLOCKED",
+      "DONE"
+    ],
+    "queue": [
+      {
+        "id": "NIMG-001",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Reconcile stale M9-16 ledger state: RD:R is already approved from M5-8 and must be reused, not regenerated.",
+        "dependsOn": []
+      },
+      {
+        "id": "NIMG-002",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Verify GitHub bytes and SHA256 for approved RD:R hit/rebound and BD+SN hit/rebound against manifest/ledger; record any mismatch as QA issue.",
+        "dependsOn": [
+          "NIMG-001"
+        ]
+      },
+      {
+        "id": "NIMG-003",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Verify Dropbox existence, file IDs, sizes and names for approved RD:R and corrected BD+SN assets; flag misleading aliases as NEVER_USE.",
+        "dependsOn": [
+          "NIMG-002"
+        ]
+      },
+      {
+        "id": "NIMG-004",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Recompute measures 9-16 noteCount, groupCount, missingLimbs and exact action-key counts from FINAL notes + authoritative 1-16 limb sidecar.",
+        "dependsOn": []
+      },
+      {
+        "id": "NIMG-005",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Record authoritative RC+SN event details (measure/time/limbs: SN=L, RC=R) and fixed-drum target side for later image QA.",
+        "dependsOn": [
+          "NIMG-004"
+        ]
+      },
+      {
+        "id": "NIMG-006",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Audit asset_inventory and assets_manifest for M9-16 readiness; list exact entries/paths/status transitions needed once RC+SN is approved.",
+        "dependsOn": [
+          "NIMG-002",
+          "NIMG-004"
+        ]
+      },
+      {
+        "id": "NIMG-007",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Audit runtimeFrameMap/runtimePhaseFrameMap and prepare the exact mapping changes required for BD+SN, RD:R reuse, and RC+SN without changing live runtimeScope yet.",
+        "dependsOn": [
+          "NIMG-006"
+        ]
+      },
+      {
+        "id": "NIMG-008",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Audit validation workflows/tests and determine which checks must pass for runtimeScope 1-16; fix validation infrastructure bugs that are independent of missing RC+SN assets.",
+        "dependsOn": [
+          "NIMG-006"
+        ]
+      },
+      {
+        "id": "NIMG-009",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Audit Playwright Runtime Character QA workflow for measures 9-16, PC 1280x900 and Xperia-class 384x864; prepare target timestamps/screenshots and expected DOM evidence.",
+        "dependsOn": [
+          "NIMG-004",
+          "NIMG-005"
+        ]
+      },
+      {
+        "id": "NIMG-010",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Clean up temporary QA/export infrastructure created solely to recover source PNGs if it is no longer needed, without deleting evidence artifacts.",
+        "dependsOn": []
+      },
+      {
+        "id": "NIMG-011",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Update CHARACTER_QA_ISSUES with the latest failed RC+SN generation attempt (fresh unrelated front-facing character/edit_op=null) and image-generation rate-limit blocker; never register that image.",
+        "dependsOn": []
+      },
+      {
+        "id": "NIMG-012",
+        "status": "TODO",
+        "phase": "NOW",
+        "task": "Update handoff/VARIANT_STATUS/CHANGELOG so a new chat knows M5-8 is DONE, RD is reusable, BD+SN is formal+visual-QA-passed, and only corrected RC+SN image pair blocks M9-16 runtime expansion.",
+        "dependsOn": [
+          "NIMG-001",
+          "NIMG-011"
+        ]
+      },
+      {
+        "id": "NIMG-013",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Verify corrected RC+SN PNG dimensions, alpha/transparency, SHA256 and person+stool-only layer purity.",
+        "dependsOn": [
+          "RC+SN corrected hit/rebound images available"
+        ]
+      },
+      {
+        "id": "NIMG-014",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Composite corrected RC+SN hit/rebound over fixed drum and perform visual QA for screen-right RC contact, SN:L contact, registration and hit→rebound continuity.",
+        "dependsOn": [
+          "NIMG-013"
+        ]
+      },
+      {
+        "id": "NIMG-015",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Save approved RC+SN PNGs to Dropbox; record final paths, file IDs, sizes and SHA256.",
+        "dependsOn": [
+          "NIMG-014"
+        ]
+      },
+      {
+        "id": "NIMG-016",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Register approved RC+SN PNGs to formal GitHub refresh paths; do not overwrite historical rejected files.",
+        "dependsOn": [
+          "NIMG-014"
+        ]
+      },
+      {
+        "id": "NIMG-017",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Update manifest/inventory with RC+SN plus existing BD+SN and RD reuse; add exact hit/rebound runtime phase mappings.",
+        "dependsOn": [
+          "NIMG-015",
+          "NIMG-016"
+        ]
+      },
+      {
+        "id": "NIMG-018",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Extend asset_inventory.runtimeScope to measures 1-16 with recomputed noteCount/groupCount/expectedKeys; do not hardcode site/character-prototype.js.",
+        "dependsOn": [
+          "NIMG-017"
+        ]
+      },
+      {
+        "id": "NIMG-019",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Run character asset validation, manifest/inventory validation, runtime key coverage, limb missing, UI/runtime contract and M1-8 regression; fix all failures.",
+        "dependsOn": [
+          "NIMG-018"
+        ]
+      },
+      {
+        "id": "NIMG-020",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Commit/push runtime expansion in small safe commits and verify GitHub Pages deploy success.",
+        "dependsOn": [
+          "NIMG-019"
+        ]
+      },
+      {
+        "id": "NIMG-021",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Run live public GitHub Pages QA for M9-16 on PC and Xperia viewports; verify BD+SN, RD:R and RC+SN hit/rebound/neutral behavior, console errors and asset warnings.",
+        "dependsOn": [
+          "NIMG-020"
+        ]
+      },
+      {
+        "id": "NIMG-022",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Capture and visually inspect runtime screenshots for BD+SN, RD:R and RC+SN hit/rebound on both viewports; record run/artifact IDs and results.",
+        "dependsOn": [
+          "NIMG-021"
+        ]
+      },
+      {
+        "id": "NIMG-023",
+        "status": "BLOCKED",
+        "phase": "AFTER_IMAGE",
+        "task": "Close M9_16 as DONE only when all DONE criteria pass; otherwise leave open with exact remaining defects and next action.",
+        "dependsOn": [
+          "NIMG-022"
+        ]
+      }
+    ]
   }
 }
