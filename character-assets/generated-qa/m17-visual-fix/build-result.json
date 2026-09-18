@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "status": "BUILT_RUNTIME_REVIEW_REQUIRED",
+  "assets": [
+    {
+      "actionKey": "LT:L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/lt/hit_l_refresh.png",
+      "sha256": "d6d44e858728afbf9a66e6c766786232d7a2d4c09e8621ed9d1b475547f485bb",
+      "method": "trim overlong left-stick tail by restoring locked neutral pixels; no body/camera/stool redraw"
+    },
+    {
+      "actionKey": "LT:L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/lt/rebound_l_refresh.png",
+      "sha256": "a9281447b12f10d738a79ea72d7d314395a6cd3c6eec50ea8b667039e0ba6376",
+      "method": "trim overlong left-stick tail by restoring locked neutral pixels; no body/camera/stool redraw"
+    },
+    {
+      "actionKey": "FT:L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/ft/hit_l_refresh.png",
+      "sha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
+      "method": "trim overlong left-stick tail by restoring locked neutral pixels; no body/camera/stool redraw"
+    },
+    {
+      "actionKey": "FT:L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/ft/rebound_l_refresh.png",
+      "sha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
+      "method": "trim overlong left-stick tail by restoring locked neutral pixels; no body/camera/stool redraw"
+    },
+    {
+      "actionKey": "BD+SN:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+      "sha256": "01719a7fa5cc23ac2ae3c1ffe24c5443fd1e4c8f659466475f4b1aff862802d4",
+      "method": "locked neutral rear-camera pose + approved BD kick cue + short deterministic right-stick stroke"
+    },
+    {
+      "actionKey": "BD+SN:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
+      "sha256": "b4d8efb059c16e3aa1411abb08c499a426806b0b8ecd1f291305703447044843",
+      "method": "locked neutral rear-camera pose + approved BD kick cue + short deterministic right-stick stroke"
+    }
+  ]
+}
