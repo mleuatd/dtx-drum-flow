@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:40:00+09:00",
+  "updatedAt": "2026-09-18T22:05:00+09:00",
   "sourceOfTruth": "GitHub main M5_PLUS_PROGRESS_LEDGER.json",
   "liveRuntimeScope": {
     "measureStart": 1,
@@ -9,9 +9,9 @@
   },
   "summary": {
     "total": 19,
-    "done": 1,
-    "blocked": 18,
-    "canRunNow": 0
+    "done": 2,
+    "blocked": 17,
+    "canRunNow": 1
   },
   "firstBlockedAsset": {
     "id": "ASSETQ-001",
@@ -47,7 +47,7 @@
     {
       "taskId": "OWQ-002",
       "sourceQueue": "M9_16/assets/rcSn",
-      "status": "BLOCKED",
+      "status": "DONE",
       "task": "Create corrected RC+SN:R/L hit from approved neutral baseline.",
       "dependency": "ASSETQ-001",
       "requiresImageGeneration": true,
@@ -55,23 +55,29 @@
       "requiresGitHubAction": false,
       "requiresDropbox": false,
       "canRunNow": false,
-      "blocker": "Latest RC+SN hit retry produced edit_op=null fresh front-facing redraw SHA256 49a78e87...; approved neutral was not consumed as a true image edit.",
+      "blocker": null,
       "recommendedTool": "tools/build-character-generation-prompt.mjs / GENERATED_PROMPT_rc_sn_r_l_hit.md",
-      "executionOrder": 2
+      "executionOrder": 2,
+      "evidence": [
+        "Formal hit imported to character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+        "SHA256 f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+        "Dropbox /ChatGPT/dtx-drum-flow/rc_sn_r_l_hit_refresh_20260918.png",
+        "Import commit 127f430df5dbc118f42b8b09128b7cd2ff387074"
+      ]
     },
     {
       "taskId": "OWQ-003",
       "sourceQueue": "M9_16/assets/rcSn",
-      "status": "BLOCKED",
-      "task": "Create corrected RC+SN:R/L rebound derived from accepted hit.",
+      "status": "IN_PROGRESS",
+      "task": "Create RC+SN:R/L rebound derived from accepted formal hit.",
       "dependency": "OWQ-002 / ASSETQ-002",
       "requiresImageGeneration": true,
       "requiresRuntimeQA": false,
       "requiresGitHubAction": false,
       "requiresDropbox": false,
-      "canRunNow": false,
-      "blocker": "Accepted corrected hit does not exist.",
-      "recommendedTool": "tools/derive-rebound-instruction.mjs / REBOUND_INSTRUCTION_rc_sn_r_l.md",
+      "canRunNow": true,
+      "blocker": null,
+      "recommendedTool": "REBOUND_INSTRUCTION_rc_sn_r_l.md + image edit from accepted hit",
       "executionOrder": 3
     },
     {
