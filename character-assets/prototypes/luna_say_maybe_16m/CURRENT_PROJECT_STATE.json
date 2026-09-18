@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T21:55:00+09:00",
+  "updatedAt": "2026-09-18T21:40:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -23,7 +23,7 @@
     {
       "measures": "9-16",
       "status": "BLOCKED_IMAGE_REQUIRED",
-      "blocker": "Corrected RC+SN:R/L hit/rebound pair. Current chat lacks a usable approved-neutral image target for image edit."
+      "blocker": "Corrected RC+SN:R/L hit/rebound still missing. Latest retry SHA256 49a78e87... was rejected: edit_op=null fresh front-facing redraw, not approved-neutral-derived."
     }
   ],
   "limbAuthority": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
@@ -128,7 +128,7 @@
     "measures": "9-16",
     "reason": "Immediate contiguous public-runtime blocker; only one corrected image pair is missing."
   },
-  "nextRecommendedWork": "Attach the approved neutral/home pose PNG in the current chat, then create ASSETQ-001 corrected RC+SN:R/L hit using GENERATED_PROMPT_rc_sn_r_l_hit.md; after acceptance create ASSETQ-002 rebound. All currently possible non-image ledger work has been exhausted.",
+  "nextRecommendedWork": "Retry ASSETQ-001 only when approved neutral is bound as a true image-edit source; reject edit_op=null/fresh redraw results. Do not create rebound until hit passes.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
