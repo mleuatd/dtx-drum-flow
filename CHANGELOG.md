@@ -1,3 +1,10 @@
+## 2026-09-18 — M9-16 final state reconciliation
+- Reconciled stale ledger/queue/handoff fields after successful M1-16 live deployment and QA.
+- Confirmed live runtimeScope is 1-16; NIMG-018 through NIMG-023 are complete.
+- RC+SN:R/L formal hit/rebound remain the approved live pair; no image regeneration or asset replacement performed.
+- Released only the next contiguous queue item, ASSETQ-003 LT:R hit for M17, as READY. M17 image generation was not started.
+- Public PC/Xperia runtime QA evidence remains SUCCESS run 35351134562 / artifact 10549284671; validate 35351278979; Character Asset Validation 35351227038; Pages deploy 35351010527.
+
 ## 2026-09-18 — Open ledger work exhausted to image blocker
 - Swept all non-DONE ledger statuses and materialized `OPEN_WORK_QUEUE.json`.
 - Normalized 19 meaningful remaining work items: 1 completed during the sweep, 18 blocked, 0 executable without the missing corrected RC+SN image pair.
