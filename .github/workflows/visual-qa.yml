@@ -35,6 +35,7 @@ jobs:
             ("BD:RF rebound","character-assets/layers/character/bd/rebound_rf.png"),
             ("BD+RC hit","character-assets/layers/character/combo/bd_rc_hit.png"),
             ("BD+RC rebound","character-assets/layers/character/combo/bd_rc_rebound.png"),
+            ("RD:R hit (historical candidate)","character-assets/layers/character/rd/hit_r.png"),
           ]
           thumb=(724,543)
           margin=28; label_h=42
@@ -59,7 +60,7 @@ jobs:
             report.append(f"{label}\talpha_bbox={bbox}\tdiff_bbox={db}")
           out=Path("visual-qa")
           out.mkdir(exist_ok=True)
-          sheet.save(out/"luna_m1_4_contact_sheet.jpg",quality=92)
+          sheet.save(out/"luna_character_contact_sheet.jpg",quality=92)
           drum.save(out/"drum_base.png")
           neutral.save(out/"neutral.png")
           (out/"metrics.txt").write_text("\n".join(report),encoding="utf-8")
