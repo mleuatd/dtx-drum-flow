@@ -155,7 +155,7 @@
     "done": false
   },
   "requiredNext": "For current chunk M25-28: verify the push-triggered FT+SN:R/L output commit, then perform visual QA for HT:R, RC:R and FT+SN:R/L composites. Promote only PASS pairs, persist exact bytes to Dropbox/formal GitHub paths, update inventory/runtime mapping, and run block/runtime QA. Do not begin M29 assets until this chunk is checkpointed.",
-  "updatedAt": "2026-09-19T08:45:00+09:00",
+  "updatedAt": "2026-09-19T08:55:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -193,8 +193,13 @@
       "qaEvidence": "character-assets/generated-qa/m25_40/ht_r/",
       "note": "Builder and push-trigger workflow are committed. Candidate outputs are not yet present on main, so they are not claimed as generated or approved.",
       "generatedCommit": "c41e5714266e63ac30e61b16f47e061ce7e64301",
-      "hitSha256": "84c1736b8a39d148dd6007f35dff9f18a938992288c81fe915f4f704180f0400",
-      "reboundSha256": "2f4b1629668a2ce30f2cc7012470f573026a406846c9becaeedbb07c35d86baf"
+      "hitSha256": "999f9a69464260f062160c4af09cbcea6dff19b1f26482861a72f90e03b34473",
+      "reboundSha256": "3eeea64ed5e2a08d63c6d7611df8db0151a22d6c05521f51b697b19852348bd2",
+      "supersededCandidateSha256": {
+        "hit": "84c1736b8a39d148dd6007f35dff9f18a938992288c81fe915f4f704180f0400",
+        "rebound": "2f4b1629668a2ce30f2cc7012470f573026a406846c9becaeedbb07c35d86baf",
+        "reason": "generalized builder regenerated HT:R candidates in commit ab52f5070a757e0dfa0773911e71bb887ddb36bb"
+      }
     },
     "htL": {
       "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
@@ -213,14 +218,15 @@
       "reboundSha256": "f6c86b9e3047c041b622e85365a3a09d9ecee000a9739949553f282f964ff1ca"
     },
     "ftSnRL": {
-      "status": "BUILDER_COMMITTED_WORKFLOW_TRIGGERED",
+      "status": "WORKFLOW_RETRIGGERED_OUTPUT_NOT_OBSERVED",
       "builder": "tools/build-m25-40-candidates.py",
       "builderCommit": "9e58069af46c44c1d94c7a63723899907367ef6f",
       "method": "merge approved FT:R and SN:L deltas on locked neutral; no redraw",
       "plannedHit": "character-assets/review-candidates/m25_40/ft_sn_r_l_hit_attempt01.png",
       "plannedRebound": "character-assets/review-candidates/m25_40/ft_sn_r_l_rebound_attempt01.png",
       "qaEvidence": "character-assets/generated-qa/m25_40/ft_sn_r_l/",
-      "note": "Push-triggered GitHub Actions build requested by builder commit; do not claim generated until output commit exists."
+      "note": "Builder logic is committed and parent SHAs match current formal assets. Push retrigger was issued, but no FT+SN output commit/file is present on main yet; do not claim generated.",
+      "retriggerCommit": "63b37235c1bdb8f5628a970249b87fbcf9406827"
     }
   },
   "workChunk": {
@@ -243,7 +249,7 @@
   },
   "resumeCheckpoint": {
     "checkedAt": "2026-09-19T08:45:00+09:00",
-    "latestMainObserved": "7bead2ce05910216fbe3c66b10c0ea758989b51e",
+    "latestMainObserved": "7199f25f5ea0824193fc6ba9fd454e40a5edd785",
     "confirmedCompositeEvidence": [
       "character-assets/generated-qa/m25_40/ht_r/hit_composite.png",
       "character-assets/generated-qa/m25_40/ht_r/rebound_composite.png",
@@ -254,6 +260,8 @@
     ],
     "dropboxM25_40SearchResult": "NO_MATCHES",
     "ftSnOutputObserved": false,
-    "note": "Parallel main advanced with M25-28/M29-40 split and FT+SN builder plus M29 transaction scaffolding. Preserve these changes. Next work remains visual inspection of generated composites and verification/execution of FT+SN builder output."
+    "note": "Parallel main advanced with M25-28/M29-40 split and FT+SN builder plus M29 transaction scaffolding. Preserve these changes. Next work remains visual inspection of generated composites and verification/execution of FT+SN builder output.",
+    "htRShaReconciled": true,
+    "htRCurrentEvidence": "character-assets/generated-qa/m25_40/ht_r/build-result.json from generalized builder commit ab52f5070a757e0dfa0773911e71bb887ddb36bb"
   }
 }
