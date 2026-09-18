@@ -67,8 +67,37 @@
     ]
   },
   "rules": [
-    "Any mandatory FAIL/BLOCKED prevents block DONE.",
-    "NOT_APPLICABLE requires a reason.",
-    "Visual QA cannot be replaced by DOM-only evidence where visual continuity/contact is required."
+    "Any PRE_RUNTIME hard-gate FAIL prevents formal save.",
+    "PRE_RUNTIME non-blocking warnings are recorded but do not stop block assembly.",
+    "Detailed contact/naturalness/transition decisions are made in POST_RUNTIME visual QA using actual app screenshots.",
+    "Only assets visibly failing POST_RUNTIME QA are returned for targeted repair.",
+    "NOT_APPLICABLE requires a reason."
+  ],
+  "phasePolicy": "character-assets/prototypes/luna_say_maybe_16m/M17_QA_PHASE_POLICY.json",
+  "preRuntimeHardGate": [
+    "PNG/readable image",
+    "1448x1086",
+    "transparent alpha present",
+    "SHA256 recorded",
+    "not REJECTED/NEVER_USE",
+    "no obvious wrong limb/action",
+    "no obvious identity/camera/full-character corruption",
+    "no obvious drum/background hardware contamination"
+  ],
+  "preRuntimeNonBlocking": [
+    "exact instrument contact precision",
+    "minor stick/cymbal/tom offset",
+    "diff/centroid/edit metadata warnings",
+    "minor registration concerns",
+    "hit/rebound naturalness",
+    "neutral recovery"
+  ],
+  "postRuntimeVisualGate": [
+    "actual app screenshot at target time",
+    "PC + Xperia-class portrait",
+    "correct visible instrument contact",
+    "hit/rebound/neutral naturalness",
+    "no disappearance/jump",
+    "no M1-16 regression"
   ]
 }
