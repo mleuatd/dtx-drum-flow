@@ -1,3 +1,18 @@
+# CURRENT HANDOFF OVERRIDE — 2026-09-18 19:41 JST
+
+For current work, read `CURRENT_PROJECT_STATE.json`, then `M5_PLUS_PROGRESS_LEDGER.json`, then `NEXT_IMPLEMENTATION_HANDOFF.md`.
+
+Current facts:
+- live runtime 1-8;
+- M5-8 DONE;
+- M9-16 blocked only by corrected RC+SN:R/L hit/rebound;
+- full-song limb assignment 1-148 DONE with 0 missing/conflicts;
+- full-song asset/block/QA planning files now exist.
+
+Older contradictory sections in this document are **HISTORICAL / RESOLVED / SUPERSEDED** and retained only for audit history.
+
+---
+
 # HANDOFF — Luna Say Maybe refreshed measures 5+ expansion
 Date: 2026-09-18
 
