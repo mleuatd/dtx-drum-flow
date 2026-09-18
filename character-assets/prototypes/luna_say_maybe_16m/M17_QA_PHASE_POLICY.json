@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "status": "CURRENT_MANDATORY",
+  "purpose": "Prevent character production from stalling on pre-runtime visual micro-gates. Build the contiguous asset batch first, then validate contact/naturalness in the actual runtime screenshots.",
+  "phases": {
+    "PRE_RUNTIME_LIGHTWEIGHT": {
+      "blockingChecks": [
+        "readable PNG",
+        "1448x1086",
+        "RGBA/convertible RGBA",
+        "transparent alpha present",
+        "non-empty visible layer",
+        "SHA256 recorded",
+        "rejected/NEVER_USE SHA/path not reused",
+        "obvious wrong limb/action",
+        "obvious full-character identity/camera corruption",
+        "obvious drum/background hardware contamination"
+      ],
+      "nonBlockingSignals": [
+        "edit_op=null",
+        "moderate/large diff metrics",
+        "contact-point precision",
+        "stick/cymbal/tom center offset",
+        "minor body/stool registration shift",
+        "hit/rebound naturalness",
+        "neutral recovery quality",
+        "screen-side ambiguity that is not obviously wrong"
+      ],
+      "decision": "If blocking checks pass, formal-save/register the candidate and continue building the current contiguous block. Record non-blocking signals for post-runtime review; do not loop on them before implementation."
+    },
+    "POST_RUNTIME_VISUAL": {
+      "when": "After all required assets for the contiguous block are formal and mapped into a provisional/runtime-scope candidate build.",
+      "requiredChecks": [
+        "actual app screenshot at target measure/time",
+        "PC viewport",
+        "Xperia-class portrait viewport",
+        "correct visible instrument contact",
+        "hit -> rebound -> neutral transition naturalness",
+        "no person disappearance",
+        "no body/camera/stool jump",
+        "no obvious wrong limb",
+        "no hardware leak",
+        "no regression in previously completed measures"
+      ],
+      "repairPolicy": "Only assets that are visibly wrong in runtime screenshots return to edit. All other formal assets remain fixed."
+    }
+  },
+  "antiLoopRules": [
+    "Do not reject a pre-runtime candidate for contact-point precision alone.",
+    "Do not repeat a generation/edit solely because of diff/centroid/edit metadata warnings.",
+    "Do not require fixed-drum composite perfection before formal registration when the lightweight hard gate passes.",
+    "Batch-complete the current contiguous measure block before detailed visual micro-adjustment.",
+    "Runtime screenshot evidence outranks synthetic contact overlays for naturalness/contact decisions."
+  ],
+  "currentBlock": "M17",
+  "currentStrategy": "Complete the final BD+LT:RF/R pair with lightweight QA, then map M17 1-17 provisionally and perform consolidated PC/Xperia screenshot QA."
+}
