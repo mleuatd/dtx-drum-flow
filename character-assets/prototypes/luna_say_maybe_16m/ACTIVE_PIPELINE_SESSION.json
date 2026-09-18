@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "startedAt": "2026-09-19T04:52:00+09:00",
   "taskCategory": "full-path",
-  "status": "BLOCKED_EXTERNAL_DIRECT_EDIT_AFTER_RETRIES",
+  "status": "BLOCKED_ASSETQ_003_AFTER_DIRECT_EDIT_AND_LOCAL_QA",
   "requiredTools": [
     ".github/workflows/luna-full-path.yml"
   ],
@@ -19,8 +19,8 @@
     "actionKey": "LT:R",
     "phase": "hit",
     "firstMeasure": 17,
-    "status": "BLOCKED_EXTERNAL_DIRECT_EDIT",
-    "blocker": "Image generator repeatedly returns edit_op=null/fresh redraw even when baseline or crop is explicitly surfaced; local raster fallbacks failed visual QA."
+    "status": "BLOCKED",
+    "blocker": "Direct image edit unavailable (edit_op=null), and current local edit strategies fail visual naturalness/attachment QA."
   },
   "contextCache": "character-assets/prototypes/luna_say_maybe_16m/PIPELINE_CONTEXT_CACHE.json",
   "autoOptimizationReport": "character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_REPORT.json",
@@ -164,6 +164,6 @@
     "resumeUnit": "ASSETQ-003 LT:R hit only",
     "nextReady": "ASSETQ-003 LT:R hit remains the first unfinished asset."
   },
-  "nextAction": "On next identical resume command, do not redo previous attempts. Resume at ASSETQ-003 LT:R hit from the verified baseline working copy and use a direct-edit-capable path if available; otherwise continue a safer local-only edit. Rebound stays blocked.",
-  "updatedAt": "2026-09-19T05:20:00+09:00"
+  "nextAction": "Do not redo rejected attempts. Resume ASSETQ-003 LT:R hit with a new local edit method that preserves neutral identity and natural wrist/arm path.",
+  "updatedAt": "2026-09-19T05:35:00+09:00"
 }
