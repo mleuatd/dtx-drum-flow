@@ -1,0 +1,2096 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T19:32:00+09:00",
+  "song": "Luna Say Maybe",
+  "authority": {
+    "chart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+    "limbs": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json"
+  },
+  "summary": {
+    "actionKeyCount": 30,
+    "classificationCounts": {
+      "REUSE_APPROVED": 6,
+      "REUSE_NEEDS_RUNTIME_QA": 1,
+      "BLOCKED": 1,
+      "NEW_IMAGE_REQUIRED": 22
+    },
+    "newImagePairs": 22,
+    "blockedImagePairs": 1,
+    "newImageFiles": 44,
+    "blockedImageFiles": 2
+  },
+  "actions": [
+    {
+      "actionKey": "SN:L",
+      "count": 314,
+      "firstMeasure": 1,
+      "lastMeasure": 148,
+      "firstTime": 4.714583,
+      "lastTime": 258.095878,
+      "parts": [
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "REUSE_APPROVED",
+      "existingHit": "character-assets/layers/character/sn/hit_l.png",
+      "existingRebound": "character-assets/layers/character/sn/rebound_l.png",
+      "manifestStatus": "REGISTERED",
+      "runtimeMapped": true,
+      "qaStatus": "APPROVED_LIVE",
+      "sharedAssetCandidate": "character-assets/layers/character/sn/hit_l.png",
+      "exactReuseSafe": true
+    },
+    {
+      "actionKey": "SN:R",
+      "count": 69,
+      "firstMeasure": 1,
+      "lastMeasure": 148,
+      "firstTime": 4.93041,
+      "lastTime": 257.88005,
+      "parts": [
+        {
+          "part": "SN",
+          "limb": "R"
+        }
+      ],
+      "classification": "REUSE_APPROVED",
+      "existingHit": "character-assets/layers/character/sn/hit_r.png",
+      "existingRebound": "character-assets/layers/character/sn/hit_r.png",
+      "manifestStatus": "REGISTERED",
+      "runtimeMapped": true,
+      "qaStatus": "APPROVED_LIVE_HOLD_HIT_FOR_REBOUND",
+      "sharedAssetCandidate": "character-assets/layers/character/sn/hit_r.png",
+      "exactReuseSafe": true
+    },
+    {
+      "actionKey": "BD:RF",
+      "count": 129,
+      "firstMeasure": 2,
+      "lastMeasure": 143,
+      "firstTime": 6.009547,
+      "lastTime": 249.354871,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        }
+      ],
+      "classification": "REUSE_APPROVED",
+      "existingHit": "character-assets/layers/character/bd/hit_rf.png",
+      "existingRebound": "character-assets/layers/character/bd/rebound_rf.png",
+      "manifestStatus": "REGISTERED",
+      "runtimeMapped": true,
+      "qaStatus": "APPROVED_LIVE",
+      "sharedAssetCandidate": "character-assets/layers/character/bd/hit_rf.png",
+      "exactReuseSafe": true
+    },
+    {
+      "actionKey": "BD+RC:RF/R",
+      "count": 63,
+      "firstMeasure": 2,
+      "lastMeasure": 147,
+      "firstTime": 5.146237,
+      "lastTime": 255.50595,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "RC",
+          "limb": "R"
+        }
+      ],
+      "classification": "REUSE_APPROVED",
+      "existingHit": "character-assets/layers/character/combo/bd_rc_hit.png",
+      "existingRebound": "character-assets/layers/character/combo/bd_rc_rebound.png",
+      "manifestStatus": "REGISTERED",
+      "runtimeMapped": true,
+      "qaStatus": "APPROVED_LIVE",
+      "sharedAssetCandidate": "character-assets/layers/character/combo/bd_rc_hit.png",
+      "exactReuseSafe": true
+    },
+    {
+      "actionKey": "HH:R",
+      "count": 248,
+      "firstMeasure": 2,
+      "lastMeasure": 144,
+      "firstTime": 5.362065,
+      "lastTime": 250.326094,
+      "parts": [
+        {
+          "part": "HH",
+          "limb": "R"
+        }
+      ],
+      "classification": "REUSE_APPROVED",
+      "existingHit": "character-assets/layers/character/hh/hit_r.png",
+      "existingRebound": "character-assets/layers/character/hh/rebound_r.png",
+      "manifestStatus": "REGISTERED",
+      "runtimeMapped": true,
+      "qaStatus": "APPROVED_LIVE",
+      "sharedAssetCandidate": "character-assets/layers/character/hh/hit_r.png",
+      "exactReuseSafe": true
+    },
+    {
+      "actionKey": "RD:R",
+      "count": 53,
+      "firstMeasure": 5,
+      "lastMeasure": 147,
+      "firstTime": 10.541921,
+      "lastTime": 257.016741,
+      "parts": [
+        {
+          "part": "RD",
+          "limb": "R"
+        }
+      ],
+      "classification": "REUSE_APPROVED",
+      "existingHit": "character-assets/layers/character/rd/hit_r_refresh.png",
+      "existingRebound": "character-assets/layers/character/rd/rebound_r_refresh.png",
+      "manifestStatus": "REGISTERED",
+      "runtimeMapped": true,
+      "qaStatus": "APPROVED_LIVE",
+      "sharedAssetCandidate": "character-assets/layers/character/rd/hit_r_refresh.png",
+      "exactReuseSafe": true
+    },
+    {
+      "actionKey": "BD+SN:RF/L",
+      "count": 22,
+      "firstMeasure": 10,
+      "lastMeasure": 144,
+      "firstTime": 19.390842,
+      "lastTime": 251.621058,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "REUSE_NEEDS_RUNTIME_QA",
+      "existingHit": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+      "existingRebound": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+      "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PENDING",
+      "runtimeMapped": false,
+      "qaStatus": "STATIC_AND_QA_ONLY_RUNTIME_PASS_CORE",
+      "sharedAssetCandidate": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+      "exactReuseSafe": true
+    },
+    {
+      "actionKey": "RC+SN:R/L",
+      "count": 34,
+      "firstMeasure": 13,
+      "lastMeasure": 141,
+      "firstTime": 25.649835,
+      "lastTime": 245.793719,
+      "parts": [
+        {
+          "part": "RC",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "BLOCKED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "BLOCKED_MISSING_CORRECTED_PAIR",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Corrected pair required; rejected historical/wrong-side generations are forbidden."
+    },
+    {
+      "actionKey": "BD+LT:RF/R",
+      "count": 3,
+      "firstMeasure": 17,
+      "lastMeasure": 140,
+      "firstTime": 32.340482,
+      "lastTime": 244.714583,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "LT",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+SN:RF/R",
+      "count": 17,
+      "firstMeasure": 17,
+      "lastMeasure": 140,
+      "firstTime": 31.477173,
+      "lastTime": 244.282928,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "SN",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "FT:L",
+      "count": 8,
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "firstTime": 32.664223,
+      "lastTime": 251.836885,
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "FT:R",
+      "count": 9,
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "firstTime": 32.556309,
+      "lastTime": 251.944799,
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "LT:L",
+      "count": 22,
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "firstTime": 32.232568,
+      "lastTime": 258.74336,
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "LT:R",
+      "count": 31,
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "firstTime": 32.124655,
+      "lastTime": 258.851273,
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+RD:RF/R",
+      "count": 29,
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "firstTime": 33.851273,
+      "lastTime": 256.585086,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "RD",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "RD+SN:R/L",
+      "count": 23,
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "firstTime": 33.203791,
+      "lastTime": 256.369259,
+      "parts": [
+        {
+          "part": "RD",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+HH:RF/R",
+      "count": 224,
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "firstTime": 36.225374,
+      "lastTime": 251.189403,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HH",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "HH+SN:R/L",
+      "count": 143,
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "firstTime": 36.657029,
+      "lastTime": 250.757748,
+      "parts": [
+        {
+          "part": "HH",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "HT:R",
+      "count": 16,
+      "firstMeasure": 25,
+      "lastMeasure": 78,
+      "firstTime": 46.261345,
+      "lastTime": 137.88005,
+      "parts": [
+        {
+          "part": "HT",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "RC:R",
+      "count": 3,
+      "firstMeasure": 26,
+      "lastMeasure": 29,
+      "firstTime": 47.448396,
+      "lastTime": 51.764942,
+      "parts": [
+        {
+          "part": "RC",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "FT+SN:R/L",
+      "count": 13,
+      "firstMeasure": 28,
+      "lastMeasure": 86,
+      "firstTime": 50.469978,
+      "lastTime": 151.261345,
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+HT:RF/R",
+      "count": 6,
+      "firstMeasure": 29,
+      "lastMeasure": 72,
+      "firstTime": 52.196597,
+      "lastTime": 127.304511,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HT",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "HT:L",
+      "count": 14,
+      "firstMeasure": 29,
+      "lastMeasure": 78,
+      "firstTime": 52.736165,
+      "lastTime": 137.987964,
+      "parts": [
+        {
+          "part": "HT",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "LT+SN:R/L",
+      "count": 4,
+      "firstMeasure": 46,
+      "lastMeasure": 77,
+      "firstTime": 81.11746,
+      "lastTime": 135.937604,
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "count": 14,
+      "firstMeasure": 47,
+      "lastMeasure": 68,
+      "firstTime": 83.275734,
+      "lastTime": 119.534727,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HH",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+HT:RF/L",
+      "count": 1,
+      "firstMeasure": 54,
+      "lastMeasure": 54,
+      "firstTime": 96.225374,
+      "lastTime": 96.225374,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HT",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "count": 3,
+      "firstMeasure": 68,
+      "lastMeasure": 72,
+      "firstTime": 120.398036,
+      "lastTime": 126.657029,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "RC",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+FT:RF/L",
+      "count": 5,
+      "firstMeasure": 105,
+      "lastMeasure": 136,
+      "firstTime": 184.498755,
+      "lastTime": 237.808108,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "count": 3,
+      "firstMeasure": 105,
+      "lastMeasure": 106,
+      "firstTime": 183.419619,
+      "lastTime": 185.146237,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    },
+    {
+      "actionKey": "BD+FT:RF/R",
+      "count": 4,
+      "firstMeasure": 136,
+      "lastMeasure": 141,
+      "firstTime": 236.728971,
+      "lastTime": 245.146237,
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "R"
+        }
+      ],
+      "classification": "NEW_IMAGE_REQUIRED",
+      "existingHit": null,
+      "existingRebound": null,
+      "manifestStatus": "ABSENT",
+      "runtimeMapped": false,
+      "qaStatus": "NOT_CREATED",
+      "sharedAssetCandidate": null,
+      "exactReuseSafe": false,
+      "note": "Distinct limb/part or simultaneous-hit geometry; exact whole-character reuse is not considered safe. Create hit/rebound pair from approved baseline or closest approved derivation."
+    }
+  ],
+  "missingAssets": [
+    {
+      "assetKey": "rc_sn_r_l_hit",
+      "actionKey": "RC+SN:R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "RC",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 13,
+      "lastMeasure": 141,
+      "occurrences": 34,
+      "priority": "P0",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for RC+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "BLOCKED_IMAGE_REQUIRED"
+    },
+    {
+      "assetKey": "rc_sn_r_l_rebound",
+      "actionKey": "RC+SN:R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "RC",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 13,
+      "lastMeasure": 141,
+      "occurrences": 34,
+      "priority": "P0",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for RC+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "BLOCKED_IMAGE_REQUIRED"
+    },
+    {
+      "assetKey": "bd_lt_rf_r_hit",
+      "actionKey": "BD+LT:RF/R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "LT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 140,
+      "occurrences": 3,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+LT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_lt_rf_r_rebound",
+      "actionKey": "BD+LT:RF/R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "LT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 140,
+      "occurrences": 3,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+LT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_sn_rf_r_hit",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "SN",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 140,
+      "occurrences": 17,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_sn_rf_r_rebound",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "SN",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 140,
+      "occurrences": 17,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ft_l_hit",
+      "actionKey": "FT:L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "occurrences": 8,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ft_l_rebound",
+      "actionKey": "FT:L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "occurrences": 8,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ft_r_hit",
+      "actionKey": "FT:R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "occurrences": 9,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ft_r_rebound",
+      "actionKey": "FT:R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 144,
+      "occurrences": 9,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "lt_l_hit",
+      "actionKey": "LT:L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "occurrences": 22,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for LT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "lt_l_rebound",
+      "actionKey": "LT:L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "occurrences": 22,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for LT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "lt_r_hit",
+      "actionKey": "LT:R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "occurrences": 31,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for LT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "lt_r_rebound",
+      "actionKey": "LT:R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 17,
+      "lastMeasure": 148,
+      "occurrences": 31,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for LT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_rd_rf_r_hit",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "RD",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "occurrences": 29,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+RD",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_rd_rf_r_rebound",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "RD",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "occurrences": 29,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+RD",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "rd_sn_r_l_hit",
+      "actionKey": "RD+SN:R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "RD",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "occurrences": 23,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for RD+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "rd_sn_r_l_rebound",
+      "actionKey": "RD+SN:R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "RD",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 18,
+      "lastMeasure": 147,
+      "occurrences": 23,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for RD+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_hh_rf_r_hit",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HH",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "occurrences": 224,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HH",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_hh_rf_r_rebound",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HH",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "occurrences": 224,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HH",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "hh_sn_r_l_hit",
+      "actionKey": "HH+SN:R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "HH",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "occurrences": 143,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for HH+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "hh_sn_r_l_rebound",
+      "actionKey": "HH+SN:R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "HH",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 20,
+      "lastMeasure": 144,
+      "occurrences": 143,
+      "priority": "P1",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for HH+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ht_r_hit",
+      "actionKey": "HT:R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "HT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 25,
+      "lastMeasure": 78,
+      "occurrences": 16,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ht_r_rebound",
+      "actionKey": "HT:R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "HT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 25,
+      "lastMeasure": 78,
+      "occurrences": 16,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "rc_r_hit",
+      "actionKey": "RC:R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "RC",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 26,
+      "lastMeasure": 29,
+      "occurrences": 3,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for RC",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "rc_r_rebound",
+      "actionKey": "RC:R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "RC",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 26,
+      "lastMeasure": 29,
+      "occurrences": 3,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for RC",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ft_sn_r_l_hit",
+      "actionKey": "FT+SN:R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 28,
+      "lastMeasure": 86,
+      "occurrences": 13,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for FT+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ft_sn_r_l_rebound",
+      "actionKey": "FT+SN:R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "FT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 28,
+      "lastMeasure": 86,
+      "occurrences": 13,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for FT+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ht_rf_r_hit",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 29,
+      "lastMeasure": 72,
+      "occurrences": 6,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ht_rf_r_rebound",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 29,
+      "lastMeasure": 72,
+      "occurrences": 6,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ht_l_hit",
+      "actionKey": "HT:L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "HT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 29,
+      "lastMeasure": 78,
+      "occurrences": 14,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "ht_l_rebound",
+      "actionKey": "HT:L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "HT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 29,
+      "lastMeasure": 78,
+      "occurrences": 14,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "lt_sn_r_l_hit",
+      "actionKey": "LT+SN:R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 46,
+      "lastMeasure": 77,
+      "occurrences": 4,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for LT+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "lt_sn_r_l_rebound",
+      "actionKey": "LT+SN:R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "LT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 46,
+      "lastMeasure": 77,
+      "occurrences": 4,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for LT+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_hh_sn_rf_r_l_hit",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HH",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 47,
+      "lastMeasure": 68,
+      "occurrences": 14,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HH+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_hh_sn_rf_r_l_rebound",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HH",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 47,
+      "lastMeasure": 68,
+      "occurrences": 14,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HH+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ht_rf_l_hit",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 54,
+      "lastMeasure": 54,
+      "occurrences": 1,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ht_rf_l_rebound",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "HT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 54,
+      "lastMeasure": 54,
+      "occurrences": 1,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+HT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_rc_sn_rf_r_l_hit",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "RC",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 68,
+      "lastMeasure": 72,
+      "occurrences": 3,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+RC+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_rc_sn_rf_r_l_rebound",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "RC",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 68,
+      "lastMeasure": 72,
+      "occurrences": 3,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+RC+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ft_rf_l_hit",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 105,
+      "lastMeasure": 136,
+      "occurrences": 5,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ft_rf_l_rebound",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 105,
+      "lastMeasure": 136,
+      "occurrences": 5,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ft_sn_rf_r_l_hit",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 105,
+      "lastMeasure": 106,
+      "occurrences": 3,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+FT+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ft_sn_rf_r_l_rebound",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "R"
+        },
+        {
+          "part": "SN",
+          "limb": "L"
+        }
+      ],
+      "firstMeasure": 105,
+      "lastMeasure": 106,
+      "occurrences": 3,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+FT+SN",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ft_rf_r_hit",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "hit",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 136,
+      "lastMeasure": 141,
+      "occurrences": 4,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    },
+    {
+      "assetKey": "bd_ft_rf_r_rebound",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "rebound",
+      "parts": [
+        {
+          "part": "BD",
+          "limb": "RF"
+        },
+        {
+          "part": "FT",
+          "limb": "R"
+        }
+      ],
+      "firstMeasure": 136,
+      "lastMeasure": 141,
+      "occurrences": 4,
+      "priority": "P3",
+      "baseline": "character-assets/layers/character/base/neutral.png",
+      "target": "fixed drum position for BD+FT",
+      "qa": [
+        "same character/camera/stool registration",
+        "correct limb reaches target instrument",
+        "person+stool only",
+        "transparent 1448x1086",
+        "natural hit->rebound continuity"
+      ],
+      "status": "TODO"
+    }
+  ],
+  "rejectedNeverUseRule": "Use M5_PLUS_PROGRESS_LEDGER.skippedOrRejected and CHARACTER_QA_ISSUES as deny-list; no rejected asset is a valid fallback."
+}
