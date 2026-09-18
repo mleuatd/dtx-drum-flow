@@ -1,0 +1,49 @@
+name: Luna Block QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      measure_start:
+        description: "First measure"
+        required: true
+        default: "1"
+      measure_end:
+        description: "Last measure"
+        required: true
+        default: "8"
+      action_key:
+        description: "Optional exact limb-aware action key"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  block-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MEASURE_START: ${{ inputs.measure_start }}
+      MEASURE_END: ${{ inputs.measure_end }}
+      ACTION_KEY: ${{ inputs.action_key }}
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run block QA
+        run: node tools/luna-block-qa.mjs
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-block-qa-m${{ inputs.measure_start }}-${{ inputs.measure_end }}
+          path: qa-artifacts-luna-block
+          if-no-files-found: error
