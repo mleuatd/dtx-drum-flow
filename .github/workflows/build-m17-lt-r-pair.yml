@@ -12,7 +12,6 @@ permissions:
 
 jobs:
   build:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,15 +47,15 @@ jobs:
               req=urllib.request.Request("https://content.dropboxapi.com/2/files/upload",data=raw,method="POST",headers={"Authorization":f"Bearer {token}","Content-Type":"application/octet-stream","Dropbox-API-Arg":json.dumps({"path":dbx,"mode":"overwrite","autorename":False,"mute":True})})
               with urllib.request.urlopen(req) as r: meta=json.loads(r.read().decode())
               mirror.append({"repoPath":src,"dropboxPath":dbx,"sha256":sha,"dropboxFileId":meta.get("id"),"dropboxRev":meta.get("rev")})
-          p=pathlib.Path("character-assets/generation-staging/m17-lt-r.json")
-          stage=json.loads(p.read_text(encoding="utf-8")); stage["status"]="BUILT_QA_AND_MIRRORED"; stage["assets"]=mirror
-          p.write_text(json.dumps(stage,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          p=pathlib.Path("character-assets/generated-qa/m17-lt-r/dropbox-mirror.json")
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text(json.dumps({"status":"MIRRORED","assets":mirror},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
           PY
       - name: Commit generated pair and evidence
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/layers/character/lt character-assets/generated-qa/m17-lt-r character-assets/generation-staging/m17-lt-r.json
+          git add character-assets/layers/character/lt character-assets/generated-qa/m17-lt-r
           git commit -m "assets: build M17 LT R hit rebound"
           git pull --rebase origin main
           git push origin HEAD:main
