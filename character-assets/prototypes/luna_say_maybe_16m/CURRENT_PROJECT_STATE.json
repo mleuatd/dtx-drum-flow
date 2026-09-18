@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T04:29:00+09:00",
+  "updatedAt": "2026-09-19T05:20:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
@@ -47,7 +47,8 @@
     "newImageFilesNeeded": 44,
     "blockedImageFiles": 0,
     "BD_SN_RUNTIME_PRELOADED": true,
-    "liveRuntimeScopeUnchanged": false
+    "liveRuntimeScopeUnchanged": false,
+    "m17Blocker": "ASSETQ-003 LT:R hit external direct-edit failure; runtime remains 1-16."
   },
   "approvedAssets": [
     "SN:L",
@@ -137,7 +138,7 @@
     "measures": "17",
     "reason": "M9-16 is DONE; continue contiguously with the next required asset/action-key queue."
   },
-  "nextRecommendedWork": "M9-16 is DONE. ASSETQ-003 LT:R hit is READY for M17, but do not start M17 image generation unless explicitly requested.",
+  "nextRecommendedWork": "M17 remains blocked at ASSETQ-003 LT:R hit because the current image editor repeatedly ignores direct-edit targets (edit_op=null); do not restart earlier work. Resume only this hit from the verified neutral baseline working copy.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
