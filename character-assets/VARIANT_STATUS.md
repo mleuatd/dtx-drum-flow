@@ -1,3 +1,17 @@
+# CURRENT STATE OVERRIDE — 2026-09-18 19:41 JST
+
+Current authority is `prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json` plus `M5_PLUS_PROGRESS_LEDGER.json` on latest main.
+
+- Live runtime: measures **1-8**.
+- M5-8: **DONE**; RD:R approved.
+- M9-16: **BLOCKED only by corrected RC+SN:R/L hit/rebound**; BD+SN:RF/L exists and is runtime-pending.
+- Full-song limb authority: **DONE**, measures 1-148 / 2,158 notes / 1,527 groups.
+- Full-song implementation planning: 30 limb-aware action keys; see `FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json`.
+
+Any older statement below saying live runtime is 1-4, M5-8 is blocked, RD is unfinished, or M17-148 limbs are unresolved is **HISTORICAL / RESOLVED / SUPERSEDED** and must not be used as current state.
+
+---
+
 ## Full-song limb authority — 2026-09-18 19:20 JST
 
 Luna Say Maybe now has an authoritative full-song per-note limb sidecar:
