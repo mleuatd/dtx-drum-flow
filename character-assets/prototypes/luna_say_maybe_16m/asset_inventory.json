@@ -124,6 +124,20 @@
       "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
       "actionKey": "LT:R",
       "phase": "rebound"
+    },
+    "lt_l_hit": {
+      "path": "layers/character/lt/hit_l_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "774b0d5a6c1ced73f0034969601af87133dc9e4a1721a0a5489be673581dea0c",
+      "actionKey": "LT:L",
+      "phase": "hit"
+    },
+    "lt_l_rebound": {
+      "path": "layers/character/lt/rebound_l_refresh.png",
+      "state": "ready-runtime-pending",
+      "sha256": "6c87bc201404cbe91ca2cc3e8025e1ee88270de5318b81ff04eaf8f3ef451ee1",
+      "actionKey": "LT:L",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -273,7 +287,19 @@
       },
       "method": "deterministic baseline-preserving local stick edit",
       "runtimeScopeUnchanged": true
+    },
+    "m17LtL": {
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "hitSha256": "774b0d5a6c1ced73f0034969601af87133dc9e4a1721a0a5489be673581dea0c",
+      "reboundSha256": "6c87bc201404cbe91ca2cc3e8025e1ee88270de5318b81ff04eaf8f3ef451ee1",
+      "candidateQaRun": 35396068128,
+      "contactPoint": {
+        "x": 885,
+        "y": 455
+      },
+      "method": "deterministic approved-neutral-preserving local left-stick edit",
+      "runtimeScopeUnchanged": true
     }
   },
-  "qaUpdatedAt": "2026-09-19"
+  "qaUpdatedAt": "2026-09-19T06:25:00+09:00"
 }
