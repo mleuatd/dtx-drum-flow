@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:50:00+09:00",
+  "updatedAt": "2026-09-18T20:05:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -288,7 +288,7 @@
       "detail": "Character asset validator now allows extra registered later-measure layers while validating the active M1-4 runtime set separately."
     }
   ],
-  "nextAction": "Follow NEXT_IMPLEMENTATION_HANDOFF.md: create corrected RC+SN:R/L hit/rebound, then complete NIMG-013..023 and expand live runtime to 1-16 only after QA.",
+  "nextAction": "Infrastructure preparation complete. Resume product work with corrected RC+SN:R/L pair, then NIMG-013..023.",
   "lastKnownCommits": {
     "reviewCandidateImport": "36a4c7706f2110aa9040f3dedcdf1fff968af8b0",
     "bdSnFormalLayerSave": "e3b7ed9929443eca2f9d95a964ec740e9c632ecf",
@@ -999,64 +999,119 @@
   },
   "preparationImplementationInfrastructure": {
     "id": "PREPARATION_IMPLEMENTATION_INFRASTRUCTURE",
-    "status": "IN_PROGRESS",
+    "status": "DONE",
     "createdAt": "2026-09-18T19:50:00+09:00",
     "purpose": "Create reusable infrastructure for naming, mapping, generation, contact, transitions, QA, rejection safety, block completion, automation and validation.",
     "queue": [
       {
         "id": "PREP-001",
-        "status": "IN_PROGRESS",
-        "task": "Asset Naming Rule"
+        "status": "DONE",
+        "task": "Asset Naming Rule",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "ASSET_NAMING_RULES.md + machine-readable ASSET_NAMING_RULES.json created; existing formal assets grandfathered, future naming canonicalized."
+        ]
       },
       {
         "id": "PREP-002",
-        "status": "TODO",
-        "task": "Action Key -> Asset Mapping Master"
+        "status": "DONE",
+        "task": "Action Key -> Asset Mapping Master",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "ACTION_KEY_ASSET_MAP.json covers all 30 limb-aware action keys and exact/wildcard runtime resolution."
+        ]
       },
       {
         "id": "PREP-003",
-        "status": "TODO",
-        "task": "Character Asset Template / Generation Spec"
+        "status": "DONE",
+        "task": "Character Asset Template / Generation Spec",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "CHARACTER_ASSET_GENERATION_SPEC.md locks identity, camera, layer purity, canvas, allowed motion and standard edit prompt."
+        ]
       },
       {
         "id": "PREP-004",
-        "status": "TODO",
-        "task": "Instrument Contact Point Master"
+        "status": "DONE",
+        "task": "Instrument Contact Point Master",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "INSTRUMENT_CONTACT_POINTS.json covers all 11 parts; runtime EFFECT_POINTS used where authoritative, unmeasured parts remain relative-only."
+        ]
       },
       {
         "id": "PREP-005",
-        "status": "TODO",
-        "task": "Pose Transition Rule"
+        "status": "DONE",
+        "task": "Pose Transition Rule",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "POSE_TRANSITION_RULES.json formalizes neutral/hit/rebound/neutral, rapid-note, combo, fill and final-note behavior."
+        ]
       },
       {
         "id": "PREP-006",
-        "status": "TODO",
-        "task": "QA Checklist Master"
+        "status": "DONE",
+        "task": "QA Checklist Master",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "QA_CHECKLIST_MASTER.json defines PASS/FAIL/BLOCKED/NOT_APPLICABLE checks across binary, visual, limb, contact, animation, runtime, device and regression."
+        ]
       },
       {
         "id": "PREP-007",
-        "status": "TODO",
-        "task": "Rejected Asset Registry"
+        "status": "DONE",
+        "task": "Rejected Asset Registry",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "REJECTED_ASSET_REGISTRY.json centralizes NEVER_USE and retained-not-runtime assets without inventing unknown SHA/path values."
+        ]
       },
       {
         "id": "PREP-008",
-        "status": "TODO",
-        "task": "Block Completion Definition"
+        "status": "DONE",
+        "task": "Block Completion Definition",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "BLOCK_COMPLETION_DEFINITION.json defines mandatory DONE gates; any FAIL/BLOCKED prevents block completion."
+        ]
       },
       {
         "id": "PREP-009",
-        "status": "TODO",
-        "task": "Automation / One-command QA"
+        "status": "DONE",
+        "task": "Automation / One-command QA",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          ".github/workflows/luna-block-qa.yml + tools/luna-block-qa.mjs implement range/action-key QA, static blockers, PC/Xperia screenshots and machine-readable summary; infrastructure changes smoke-test M1-8 automatically."
+        ]
       },
       {
         "id": "PREP-010",
-        "status": "TODO",
-        "task": "Documentation / Handoff integration"
+        "status": "DONE",
+        "task": "Documentation / Handoff integration",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "CURRENT_PROJECT_STATE.json and NEXT_IMPLEMENTATION_HANDOFF.md integrated with all infrastructure masters."
+        ]
       },
       {
         "id": "PREP-011",
-        "status": "TODO",
-        "task": "Validation / consistency checks"
+        "status": "DONE",
+        "task": "Validation / consistency checks",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "evidence": [
+          "validate_luna_full_song_planning.py now validates mapping coverage, naming, contact coverage, rejected-runtime safety, exact-key support and scope invariants; validate.yml syntax-checks block QA runner."
+        ]
+      },
+      {
+        "id": "PREP-012",
+        "status": "DONE",
+        "completedAt": "2026-09-18T20:05:00+09:00",
+        "task": "Add backward-compatible limb-aware exact combo runtime resolution.",
+        "evidence": [
+          "site/character-prototype.js now resolves exact limb-aware combo mapping first and legacy <parts>:* second.",
+          "Existing M1-8 behavior remains unchanged because current inventory uses wildcard mappings.",
+          "This prevents future collisions such as BD+SN:RF/L vs BD+SN:RF/R."
+        ]
       }
     ],
     "guardrails": [
@@ -1066,6 +1121,22 @@
       "NO_REJECTED_ASSET_REUSE",
       "NO_LIMB_REGUESSING"
     ],
-    "nextAction": "Complete PREP-001..011 autonomously; add PREP-012+ for discovered infrastructure gaps."
+    "nextAction": "Infrastructure preparation complete. Resume product work with corrected RC+SN:R/L pair, then NIMG-013..023.",
+    "completedAt": "2026-09-18T20:05:00+09:00",
+    "outputs": {
+      "namingRules": [
+        "character-assets/prototypes/luna_say_maybe_16m/ASSET_NAMING_RULES.md",
+        "character-assets/prototypes/luna_say_maybe_16m/ASSET_NAMING_RULES.json"
+      ],
+      "actionMap": "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json",
+      "generationSpec": "character-assets/prototypes/luna_say_maybe_16m/CHARACTER_ASSET_GENERATION_SPEC.md",
+      "contactPoints": "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+      "transitionRules": "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+      "qaChecklist": "character-assets/prototypes/luna_say_maybe_16m/QA_CHECKLIST_MASTER.json",
+      "rejectedRegistry": "character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json",
+      "completionDefinition": "character-assets/prototypes/luna_say_maybe_16m/BLOCK_COMPLETION_DEFINITION.json",
+      "blockQaWorkflow": ".github/workflows/luna-block-qa.yml",
+      "blockQaRunner": "tools/luna-block-qa.mjs"
+    }
   }
 }
