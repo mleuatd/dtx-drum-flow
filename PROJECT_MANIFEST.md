@@ -1,29 +1,58 @@
 # DTX Drum Flow — Shared Project Manifest
 
-## Current highest-priority task — 2026-09-17
-Complete and verify the Luna Say Maybe **measures 1-4** character flipbook prototype before expanding refreshed visual work beyond measure 4.
+## Current highest-priority task — 2026-09-18
+Continue the refreshed Luna Say Maybe character flipbook from **measure 5 onward**, while preserving the completed measures 1-4 visual baseline.
 
-Current authoritative recovery file:
-`character-assets/prototypes/luna_say_maybe_16m/CURRENT_HANDOFF_CHAT_TO_WORK_2026-09-17.md`
+Current recovery/state files:
+- `character-assets/prototypes/luna_say_maybe_16m/CHARACTER_QA_ISSUES.json`
+- `character-assets/prototypes/luna_say_maybe_16m/M5_8_REQUIRED_CHARACTER_ASSETS.json`
+- `character-assets/prototypes/luna_say_maybe_16m/M9_16_REQUIRED_CHARACTER_ASSETS.json`
+- `character-assets/VARIANT_STATUS.md`
 
 ## Current coherent runtime state
-- Runtime scope: measures 1-4
+- Live refreshed runtime scope remains measures 1-4 until later-measure frames pass the same QA.
 - `site/character-prototype.js`: `PROTOTYPE_MEASURE_END=4`
 - `asset_inventory.json`: measures 1-4 / 28 notes / 27 groups
-- Action keys: `SN:L`, `SN:R`, `HH:R`, `BD:RF`, `BD+RC:*`
-- 1-16 limb metadata remains authoritative and must not be deleted.
-- The accidental temporary 1-16 runtime expansion in commit `9950d7bd...` was corrected by commit `d8f621ec57ee00372aa9c987f0782b6e7a7065ea`.
+- Current approved action keys: `SN:L`, `SN:R`, `HH:R`, `BD:RF`, `BD+RC:*`
+- Measures 5-16 have been recomputed from FINAL notes + authoritative 1-16 limb metadata, but have not been wired with rejected historical images.
+
+## Refreshed expansion preparation
+### Measures 5-8
+- 33 notes / 32 groups.
+- New key: `RD:R`.
+- Required new current-baseline frames: RD:R hit + rebound.
+- Historical `rd/hit_r.png` rejected by visual QA run `35315598184`, artifact `10535695236`.
+
+### Measures 9-16
+- 83 notes / 65 groups / limb missing = 0.
+- New current-baseline keys: `RD:R`, `BD+SN:RF/L`, `RC+SN:L/R`.
+- Required new frames across measures 5-16: six total (RD hit/rebound, BD+SN hit/rebound, RC+SN hit/rebound).
+- Historical BD+SN and RC+SN hit PNGs rejected by visual QA run `35315877548`, artifact `10535690785`.
+
+### Measures 17-148
+- FINAL chart: 2,014 notes after measure 16; last measure 148.
+- No embedded limb/hand/foot metadata exists in those 2,014 notes.
+- The only precomputed authoritative limb sidecar currently in GitHub covers measures 1-16.
+- Do not invent measure 17+ hand/foot assignments. Create and validate an authoritative full-song limb sidecar before refreshed runtime mapping continues beyond measure 16.
 
 ## Character image state
-The GitHub tree currently contains the neutral person+stool baseline and the 10 measures 1-4 hit/rebound variants referenced by `assets_manifest.json` and `asset_inventory.json`.
-Do not describe the repository as a two-image-only baseline unless those files are actually removed again.
+GitHub `main` contains the fixed neutral plus 10 refreshed M1-4 hit/rebound variants. Historical later-measure PNGs remain in the tree only as history/candidates and are not approved automatically.
+
+Approved fixed neutral:
+- `character-assets/layers/character/base/neutral.png`
+- SHA-256 `886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9`
+- 1448x1086 RGBA, x=0/y=0
 
 ## Fixed drum state
-Current GitHub `character-assets/layers/drum/drum_base.png` is still the older binary (Git blob `30a18a87ca3c1dc6db2d9fabe73be1ff48011370`, size 352715 bytes).
-The user-approved replacement exists in the originating chat as an exact 1448x1086 RGBA PNG with SHA-256:
-`afb3eb8ac19039ffbe756691a54e4403b99dfd4d6c42a1a47e234b1eb9a09b6d`
-It must replace `drum_base.png` byte-for-byte; do not regenerate, redraw, resize, recompress, recolor, or alter alpha.
-Do not update drum SHA locks before the binary replacement itself is confirmed in GitHub.
+Approved fixed drum:
+- `character-assets/layers/drum/drum_base.png`
+- SHA-256 `dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85`
+- 1448x1086 RGBA, x=0/y=0
+
+The drum is immutable for character-pose work. Do not regenerate, move, rescale, or replace it when creating character variants.
+
+## Current image-creation blocker
+The exact approved neutral is recoverable from GitHub QA artifacts for inspection, but the image-editing interface available in the current normal-chat workflow cannot consume that repository/artifact binary as a direct edit target. Since refreshed variants must be direct edits of the approved baseline and a look-alike redraw is forbidden, later-measure image creation is explicitly BLOCKED rather than lowering consistency.
 
 ## Canonical site
 - GitHub repository: https://github.com/mleuatd/dtx-drum-flow
@@ -34,8 +63,7 @@ Do not update drum SHA locks before the binary replacement itself is confirmed i
 - canvas: 1448x1086
 - registration: x=0,y=0
 - fixed drum + separate character + optional effects
-- never move/regenerate the drum per character frame
 - validation: `tools/character_layers/validate_assets.py`
 
 ## Historical context
-Older full-song/1-16/1-8 milestones remain in Git history and historical QA files, but they are not the active refreshed visual scope.
+Older full-song/1-16/1-8 runtime experiments remain in Git history. They are not the active refreshed visual scope and must not override the current manifests, QA ledger, or user-approved M1-4 baseline.
