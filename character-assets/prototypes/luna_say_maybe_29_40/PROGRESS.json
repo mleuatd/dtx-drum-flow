@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 29,
+    "measureEnd": 40
+  },
+  "status": "PREPARED_AWAITING_UPSTREAM_APPROVALS",
+  "sourceOfTruth": "GitHub main",
+  "chunkPolicy": "This block starts at M29 because cumulative new action pairs exceeded the 4-action threshold there; no additional new action pairs were identified through M40.",
+  "newActions": [
+    "BD+HT:RF/R",
+    "HT:L"
+  ],
+  "reusableFromEarlierBlock": [
+    "HT:R",
+    "RC:R"
+  ],
+  "dependencies": {
+    "BD+HT:RF/R": "Requires HT:R formal pair to pass visual QA and be promoted before deriving local BD kick cue.",
+    "HT:L": "Candidate pair already generated; may proceed to visual QA independently."
+  },
+  "production": {
+    "htL": {
+      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
+      "hitPath": "character-assets/review-candidates/m25_40/ht_l_hit_attempt01.png",
+      "reboundPath": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt01.png",
+      "hitSha256": "1e02c423368becbb0b5510b9b3bec627a076948f402695c148576174bd3d2469",
+      "reboundSha256": "3e984e3332b63682e629d45e28422cf48518ddc4418deff3335c84424f06c062"
+    },
+    "bdHtRfR": {
+      "status": "SOURCE_LOCK_WAITING_FOR_HT_R_APPROVAL",
+      "plannedHit": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+      "plannedRebound": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
+      "method": "Derive from approved HT:R pair and add only the already-approved local BD kick cue; preserve all other pixels."
+    }
+  },
+  "runtimePlan": {
+    "scope": "M29-40 after assets pass",
+    "rapidRepeatPolicy": "Preserve rapid transitions; return to neutral only when the following gap permits.",
+    "mappingOnlyReuse": "BD+RC:RF/R reuses existing BD+RC:* mapping."
+  },
+  "requiredNext": "Perform HT:L visual QA and promotion. Once upstream HT:R is formally approved, build BD+HT:RF/R from that exact approved pair plus approved BD kick cue, then run static/composite QA, formalize, update runtime mapping, and run M29-40 block/runtime QA.",
+  "updatedAt": "2026-09-19T08:42:00+09:00"
+}
