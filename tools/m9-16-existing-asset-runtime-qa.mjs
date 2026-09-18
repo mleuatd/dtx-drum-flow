@@ -81,9 +81,11 @@ for(const vp of viewports){
   const errors=[];
   page.on("console",m=>{if(m.type()==="error")errors.push("console: "+m.text());});
   page.on("pageerror",e=>errors.push("pageerror: "+String(e)));
-  await page.route(/asset_inventory\.json(?:\?.*)?$/,async route=>{
-    await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify(qaInventory)});
-  });
+  if(!liveMode){
+    await page.route(/asset_inventory\.json(?:\?.*)?$/,async route=>{
+      await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify(qaInventory)});
+    });
+  }
   await page.goto(URL,{waitUntil:"networkidle",timeout:120000});
   await page.waitForFunction(()=>window.__DTX_APP_READY__===true,{timeout:30000});
   await page.waitForFunction(()=>{
