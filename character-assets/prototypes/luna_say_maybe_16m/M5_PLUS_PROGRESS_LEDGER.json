@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:20:00+09:00",
+  "updatedAt": "2026-09-18T19:28:00+09:00",
   "project": "DTX Drum Flow",
   "song": "Luna Say Maybe",
   "sourceOfTruth": "GitHub main",
@@ -849,5 +849,71 @@
         "LC"
       ]
     }
+  },
+  "fullSongImplementationPlanning": {
+    "id": "FULL_SONG_IMPLEMENTATION_PLANNING",
+    "status": "IN_PROGRESS",
+    "createdAt": "2026-09-18T19:28:00+09:00",
+    "purpose": "Plan all Luna Say Maybe measures 1-148 character implementation work without image generation or runtimeScope expansion.",
+    "queue": [
+      {
+        "id": "PLAN-001",
+        "status": "IN_PROGRESS",
+        "task": "Classify every full-song limb-aware action key."
+      },
+      {
+        "id": "PLAN-002",
+        "status": "TODO",
+        "task": "Classify approved reuse, reuse-needs-runtime-QA, new-image-required, blocked, and rejected-never-use."
+      },
+      {
+        "id": "PLAN-003",
+        "status": "TODO",
+        "task": "Create the minimal new character-image requirement inventory with hit/rebound separated."
+      },
+      {
+        "id": "PLAN-004",
+        "status": "TODO",
+        "task": "Split measures 17-148 into implementation blocks based on asset novelty, reuse rate, fills and QA complexity."
+      },
+      {
+        "id": "PLAN-005",
+        "status": "TODO",
+        "task": "Rank implementation blocks to minimize image generation and maximize reuse."
+      },
+      {
+        "id": "PLAN-006",
+        "status": "TODO",
+        "task": "Prepare exact-timestamp runtime QA plan for reusable assets after measure 16."
+      },
+      {
+        "id": "PLAN-007",
+        "status": "TODO",
+        "task": "Audit and safely extend validation for full-song action inventory, mappings and required assets without expanding runtimeScope."
+      },
+      {
+        "id": "PLAN-008",
+        "status": "TODO",
+        "task": "Mark stale documentation as HISTORICAL/RESOLVED/SUPERSEDED while preserving history."
+      },
+      {
+        "id": "PLAN-009",
+        "status": "TODO",
+        "task": "Create CURRENT_PROJECT_STATE.json as first-read current-state authority."
+      },
+      {
+        "id": "PLAN-010",
+        "status": "TODO",
+        "task": "Create NEXT_IMPLEMENTATION_HANDOFF.md for autonomous continuation."
+      }
+    ],
+    "guardrails": [
+      "NO_IMAGE_GENERATION",
+      "NO_RUNTIME_SCOPE_EXPANSION",
+      "NO_APPROVED_ASSET_OVERWRITE",
+      "NO_REJECTED_ASSET_REUSE",
+      "NO_LIMB_REGUESSING"
+    ],
+    "nextAction": "Complete PLAN-001 through PLAN-010 autonomously; add PLAN-011+ if new work is discovered."
   }
 }
