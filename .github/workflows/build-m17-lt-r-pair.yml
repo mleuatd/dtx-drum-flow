@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - "character-assets/generation-staging/m17-lt-r.json"
+  pull_request:
+    branches: [main]
+    paths:
+      - "character-assets/generation-staging/m17-lt-r.json"
   workflow_dispatch:
 
 permissions:
