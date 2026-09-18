@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T19:51:00+09:00",
+  "updatedAt": "2026-09-18T21:40:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -137,9 +137,9 @@
       "hitAsset": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "reboundAsset": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
       "classification": "REUSE_NEEDS_RUNTIME_QA",
-      "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PENDING",
-      "runtimeMapped": false,
-      "qaStatus": "STATIC_AND_QA_ONLY_RUNTIME_PASS_CORE",
+      "manifestStatus": "VISUAL_QA_PASSED_RUNTIME_PRELOADED",
+      "runtimeMapped": true,
+      "qaStatus": "STATIC_AND_CORE_RUNTIME_PASS_LIVE_TRANSITION_PENDING",
       "sharedAsset": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "missing": false,
       "blocked": false,
@@ -149,7 +149,8 @@
       "occurrenceCount": 22,
       "legacyRuntimeKey": "BD+SN:*",
       "limbAwareRuntimeKey": "BD+SN:RF/L",
-      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
+      "runtimeState": "PRELOADED_OUTSIDE_LIVE_SCOPE"
     },
     {
       "actionKey": "RC+SN:R/L",
