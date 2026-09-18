@@ -62,4 +62,65 @@ assert (scope["measureStart"],scope["measureEnd"])==(1,8),"planning must not exp
 blocks=block_plan["blocks"]
 assert blocks[0]["measureStart"]==9 and blocks[-1]["measureEnd"]==148,"block coverage endpoints wrong"
 for a,b in zip(blocks,blocks[1:]): assert a["measureEnd"]+1==b["measureStart"],f"block gap/overlap {a['blockId']}->{b['blockId']}"
-print(f"PASS Luna planning validation: {len(counts)} action keys, {len(groups)} groups, live scope 1-8, {len(blocks)} blocks")
+
+# Implementation infrastructure validation.
+import re
+action_map=load("character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json")
+naming=load("character-assets/prototypes/luna_say_maybe_16m/ASSET_NAMING_RULES.json")
+contacts=load("character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json")
+transitions=load("character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json")
+checklist=load("character-assets/prototypes/luna_say_maybe_16m/QA_CHECKLIST_MASTER.json")
+rejected=load("character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json")
+completion=load("character-assets/prototypes/luna_say_maybe_16m/BLOCK_COMPLETION_DEFINITION.json")
+current=load("character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json")
+
+mapped={x["actionKey"]:x for x in action_map["entries"]}
+assert set(mapped)==set(counts),"ACTION_KEY_ASSET_MAP coverage drift"
+for k,e in mapped.items():
+    assert e["classification"]==planned[k]["classification"],f"{k}: mapping master classification drift"
+    assert e["occurrenceCount"]==counts[k],f"{k}: mapping master count drift"
+    if "+" in k:
+        assert e.get("limbAwareRuntimeKey")==k,f"{k}: limb-aware runtime key missing"
+        assert e.get("legacyRuntimeKey","").endswith(":*"),f"{k}: legacy wildcard runtime key missing"
+
+# Naming rules: grandfather current legacy paths; all future formal mapped paths must match canonical regex.
+legacy=set(naming["legacyApprovedPaths"])
+single_re=re.compile(naming["formal"]["singlePartRegex"])
+combo_re=re.compile(naming["formal"]["comboRegex"])
+for e in mapped.values():
+    for p in (e.get("hitAsset"),e.get("reboundAsset")):
+        if not p: continue
+        assert p in legacy or single_re.match(p) or combo_re.match(p),f"naming rule violation: {p}"
+
+# Contact master must cover all 11 drum lanes.
+parts={"LC","HH","SN","HT","LT","FT","RC","RD","LP","LB","BD"}
+assert set(contacts["parts"])==parts,f"contact-point coverage mismatch: {sorted(set(contacts['parts'])^parts)}"
+
+# Required infrastructure files are structurally non-empty.
+for name,obj,key in [
+    ("POSE_TRANSITION_RULES",transitions,"rules"),
+    ("QA_CHECKLIST_MASTER",checklist,"sections"),
+    ("BLOCK_COMPLETION_DEFINITION",completion,"mandatory"),
+]:
+    assert obj.get(key),f"{name}: missing {key}"
+
+# Rejected/retained-unsafe paths cannot be active runtime assets.
+deny_paths={x.get("githubPath") for x in rejected["entries"] if x.get("githubPath")}
+active_ids=set(runtime["runtimeFrameMap"].values())
+for phases in runtime["runtimePhaseFrameMap"].values(): active_ids.update(phases.values())
+active_paths={"character-assets/"+runtime["requiredFrames"][fid]["path"] for fid in active_ids if fid in runtime["requiredFrames"]}
+assert not (deny_paths & active_paths),f"rejected registry asset active at runtime: {sorted(deny_paths & active_paths)}"
+
+# Exact-limb combo support must exist while preserving wildcard fallback compatibility.
+character_js=(ROOT/"site/character-prototype.js").read_text(encoding="utf-8")
+assert "function exactKeyFor(group)" in character_js
+assert "if(frameMap?.[exact])return exact" in character_js
+assert 'parts.join("+")+":*"' in character_js
+
+# Current-state invariants for this preparation pass.
+assert current["liveRuntimeScope"]["measureStart"]==1 and current["liveRuntimeScope"]["measureEnd"]==8
+assert Path(P/"CHARACTER_ASSET_GENERATION_SPEC.md").is_file()
+assert Path(P/"ASSET_NAMING_RULES.md").is_file()
+assert Path(P/"NEXT_IMPLEMENTATION_HANDOFF.md").is_file()
+
+print(f"PASS Luna planning validation: {len(counts; infrastructure masters OK)} action keys, {len(groups)} groups, live scope 1-8, {len(blocks)} blocks")
