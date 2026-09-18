@@ -6,7 +6,7 @@
     "measureStart": 1,
     "measureEnd": 16
   },
-  "updatedAt": "2026-09-18T19:02:00+09:00",
+  "updatedAt": "2026-09-18T21:40:00+09:00",
   "statusDefinitions": {
     "PENDING_REVIEW": "Visual review has not yet been completed.",
     "OPEN": "A concrete correction is required.",
@@ -119,7 +119,7 @@
       "assetKey": "rc_sn_hit",
       "path": "character-assets/layers/character/combo/rc_sn_hit.png",
       "status": "BLOCKED",
-      "note": "Corrected RC+SN pair still unavailable. Latest retry failed to bind the approved neutral as a true edit and produced an unrelated front-facing character (edit_op=null), then image generation hit a temporary rate limit. Never register the rejected generation."
+      "note": "Latest 2026-09-18 retry from the Dropbox/GitHub-approved neutral preview still returned edit_op=null and a fresh front-facing redraw. Candidate SHA256 49a78e87adf12e88288a350f23d3081a7ac552cde4b1e8a66305fcc804d39d6c is NEVER_USE. Formal hit remains unavailable."
     },
     {
       "assetKey": "rc_sn_rebound",
