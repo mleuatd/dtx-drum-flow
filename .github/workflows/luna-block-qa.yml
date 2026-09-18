@@ -1,6 +1,13 @@
 name: Luna Block QA
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/luna-block-qa.yml"
+      - "tools/luna-block-qa.mjs"
+      - "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json"
+      - "character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json"
   workflow_dispatch:
     inputs:
       measure_start:
@@ -24,9 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      MEASURE_START: ${{ inputs.measure_start }}
-      MEASURE_END: ${{ inputs.measure_end }}
-      ACTION_KEY: ${{ inputs.action_key }}
+      MEASURE_START: ${{ inputs.measure_start || '1' }}
+      MEASURE_END: ${{ inputs.measure_end || '8' }}
+      ACTION_KEY: ${{ inputs.action_key || '' }}
       PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
     steps:
       - uses: actions/checkout@v4
@@ -44,6 +51,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: luna-block-qa-m${{ inputs.measure_start }}-${{ inputs.measure_end }}
+          name: luna-block-qa-m${{ inputs.measure_start || '1' }}-${{ inputs.measure_end || '8' }}
           path: qa-artifacts-luna-block
           if-no-files-found: error
