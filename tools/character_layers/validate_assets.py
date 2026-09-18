@@ -77,6 +77,24 @@ def main():
         if phases.get("hit")!=frame: errors.append(f"{k}: hit phase mismatch")
         rb=phases.get("rebound")
         if not rb or rb not in required: errors.append(f"{k}: missing rebound frame")
+    # Never allow review-only / rejected / retained-not-runtime assets into active runtime maps.
+    manifest_by_path={a["path"]:a for a in assets_manifest.get("assets",[])}
+    active_frame_ids=set()
+    for k in keys:
+        if inventory["runtimeFrameMap"].get(k): active_frame_ids.add(inventory["runtimeFrameMap"][k])
+        active_frame_ids.update(v for v in inventory["runtimePhaseFrameMap"].get(k,{}).values() if v)
+    unsafe_tokens=("PENDING","REVIEW","REJECTED","RETAINED_NOT_RUNTIME","CANDIDATE")
+    for fid in active_frame_ids:
+        frame=required.get(fid)
+        if not frame: continue
+        rel="character-assets/"+frame["path"]
+        asset=manifest_by_path.get(rel)
+        if not asset:
+            errors.append(f"{fid}: active runtime frame missing manifest entry")
+            continue
+        status=str(asset.get("status",""))
+        if any(token in status for token in unsafe_tokens):
+            errors.append(f"{fid}: unsafe manifest status for active runtime: {status}")
     if inventory.get("qa",{}).get("unresolved")!=0: errors.append("inventory unresolved must be 0")
     if errors:
         print("Character asset validation failed:")
