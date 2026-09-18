@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-18T22:12:00+09:00",
+  "assets": [
+    {
+      "id": "APPROVED_CHARACTER_BASELINE",
+      "role": "APPROVED_CHARACTER_BASELINE",
+      "githubPath": "character-assets/layers/character/base/neutral.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+      "dropboxFileId": "id:Ec2HdgD6JJYAAAAAAAAANQ",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "NEVER_REGENERATE": true,
+      "ALWAYS_REFERENCE_BEFORE_CHARACTER_GENERATION": true,
+      "note": "If image editing requires a current-conversation image target, GitHub/Dropbox presence alone is not sufficient; use the current-chat approved neutral attachment when available."
+    },
+    {
+      "id": "APPROVED_FIXED_DRUM",
+      "role": "APPROVED_FIXED_DRUM",
+      "githubPath": "character-assets/layers/drum/drum_base.png",
+      "dropboxPath": null,
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "NEVER_REGENERATE": true,
+      "ALWAYS_REFERENCE_FOR_COMPOSITE_QA": true
+    }
+  ],
+  "resolutionOrder": [
+    "REFERENCE_ASSET_REGISTRY.json",
+    "GitHub formal path",
+    "Dropbox registered copy",
+    "current-chat attachment only when the image editing tool technically requires a usable current-conversation image target"
+  ]
+}
