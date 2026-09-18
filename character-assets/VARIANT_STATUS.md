@@ -59,39 +59,62 @@ Additional historical 1-16 character PNGs may still exist in the repository tree
 
 ## Refreshed expansion status — 2026-09-18
 
-The refreshed visual runtime remains **measures 1-4 only** until later-measure frames pass the same visual/runtime QA standard. Expansion analysis has now been completed for measures 5-16 without changing the live mapping.
+Live runtime remains **measures 1-4**. Runtime scope is now read from `asset_inventory.json`, not a hardcoded JS measure end. Post-refactor public QA passed in Runtime Character QA run `35321917979` / artifact `10536838661`.
 
 ### Measures 5-8
-Authoritative coverage from FINAL notes + 1-16 limb sidecar:
-- 33 notes / 32 time groups
+Authoritative chart/limb coverage:
+- 33 notes / 32 groups / missing limbs 0
 - keys: `BD:RF`, `RD:R`, `SN:L`, `BD+RC:*`
-- approved M1-4 reuse: BD, SN:L, BD+RC
-- new refreshed frames required: `RD:R hit` + `RD:R rebound`
+- M1-4 reuse: BD, SN:L, BD+RC
 
-The historical `layers/character/rd/hit_r.png` was visually compared against the current fixed drum + refreshed M1-4 baseline in GitHub Actions run `35315598184`, artifact `10535695236`, and was rejected. It is a different/shifted drawing family and must not be used.
+Blocker:
+- refreshed `RD:R hit`
+- refreshed `RD:R rebound`
 
-Definition:
-`prototypes/luna_say_maybe_16m/M5_8_REQUIRED_CHARACTER_ASSETS.json`
+Historical RD was rejected. Current-chat RD attempts were also rejected:
+- first pair targeted screen-left instead of fixed-drum RD on screen-right;
+- explicit-reference retry produced a different front-facing character.
+
+No rejected RD file is registered or runtime-mapped.
 
 ### Measures 9-16
-Authoritative coverage:
-- 83 notes / 65 time groups / missing limb assignments 0
-- group keys include `BD:RF`, `RD:R`, `SN:L`, `BD+RC`, `HH:R`, `BD+SN:RF/L`, `RC+SN:L/R`
-- new refreshed frames beyond the M1-4 set: RD hit/rebound, BD+SN hit/rebound, RC+SN hit/rebound
+Coverage:
+- 83 notes / 65 groups / missing limbs 0
+- additional keys: `RD:R`, `BD+SN:RF/L`, `RC+SN:L/R`
 
-Historical `bd_sn_hit.png` and `rc_sn_hit.png` were visually compared in GitHub Actions run `35315877548`, artifact `10535690785`, and rejected for the same baseline mismatch. No refreshed rebound frames exist.
+BD+SN:
+- visual QA PASSED, runtime QA PENDING
+- hit: `layers/character/combo/bd_sn_hit_refresh.png`
+- rebound: `layers/character/combo/bd_sn_rebound_refresh.png`
+- hit SHA-256 `b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466`
+- rebound SHA-256 `872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0`
+- manifest status: `VISUAL_QA_PASSED_RUNTIME_PENDING`
+- visual QA: run `35321151121`, artifact `10537157014`
+- deliberately absent from runtime maps until the block can be tested coherently.
 
-Definition:
-`prototypes/luna_say_maybe_16m/M9_16_REQUIRED_CHARACTER_ASSETS.json`
+RC+SN:
+- current-chat generated pair rejected because right-crash motion targeted screen-left.
+- refreshed hit/rebound still required.
+
+RD remains the shared blocker inherited from M5-8.
 
 ### Measures 17-148
-The FINAL chart contains 2,014 notes after measure 16 through measure 148. None carries embedded limb/hand/foot metadata. The only precomputed authoritative limb assignment currently in GitHub is `Luna_say_maybe_1_16_limbs.json`.
+No authoritative per-note limb sidecar exists after measure 16.
 
-`hand_rules.json` exists, but it is a rule specification scoped to the 1-16 prototype, not a per-note full-song authoritative sidecar. Do not guess hands/feet for measure 17+ runtime mapping. A full-song limb sidecar must be generated/validated and made authoritative before refreshed visual mapping continues past measure 16.
+Analysis-only files:
+- `site/charts/luna_say_maybe/Luna_say_maybe_full_limbs_DRAFT_ANALYSIS.json`
+  - resolved by existing formal rules: 1,819
+  - unresolved: 195
+  - rapid-SN notes: 179
+  - same-limb simultaneous conflict groups: 8
+- `prototypes/luna_say_maybe_16m/FULL_SONG_ACTION_KEY_INVENTORY_DRAFT.json`
+  - 2,014 notes / 1,403 groups
+  - part-combination inventory only; no limb guessing.
 
-### Current blocker
-The exact approved neutral can be recovered and visually inspected from GitHub QA artifacts, but the image-editing interface available in this normal-chat workflow cannot take that repository/artifact PNG as a direct edit target. Because project rules forbid a fresh look-alike redraw, the six required refreshed frames for measures 5-16 are left BLOCKED rather than generating an inconsistent character.
+Do not promote these drafts to runtime authority until rapid-SN rules and the eight conflict groups are formally resolved and validated.
 
-Tracked issues:
-- `CHAR-QA-0005`: RD:R refreshed hit/rebound
-- `CHAR-QA-0006`: BD+SN and RC+SN refreshed hit/rebound
+### Persistent progress / skip ledger
+Use:
+`prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json`
+
+It includes rejected generation SHA/reasons, misleading Dropbox aliases that must never be used, candidate/formal layer preservation status, QA evidence, and exact next actions.
