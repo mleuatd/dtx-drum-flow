@@ -8,7 +8,7 @@ DRUM=ROOT/"character-assets/layers/drum/drum_base.png"
 OUT=ROOT/"character-assets/review-candidates/m25_40"
 QA=ROOT/"character-assets/generated-qa/m25_40"
 BASE_SHA="886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
-GRIP_R=(998,414); GRIP_L=(735,438)
+GRIP_R=(998,414); GRIP_L=(500,480)
 CONTACT={"HT":(575,360),"RC":(1215,145),"FT":(1165,535),"SN":(420,535)}
 REBOUND={"HT:R":(650,330),"HT:L":(650,390),"RC:R":(1110,225)}
 APPROVED={
@@ -22,8 +22,19 @@ APPROVED={
  }
 }
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def erase_original_stick(im,grip):
+ # Locked neutral already contains one stick per hand. Remove only the exposed shaft
+ # before drawing a replacement; keep a safety margin around the hand itself.
+ out=im.copy(); alpha=out.getchannel("A"); cut=Image.new("L",out.size,0); d=ImageDraw.Draw(cut)
+ if grip==GRIP_R:
+  d.line([(1004,386),(1026,316)],fill=255,width=16)
+ else:
+  d.line([(487,451),(430,386)],fill=255,width=16)
+ alpha=ImageChops.subtract(alpha,cut)
+ out.putalpha(alpha)
+ return out
 def local_stick(src,grip,target):
- im=src.copy(); s=4; layer=Image.new("RGBA",(im.width*s,im.height*s),(0,0,0,0)); d=ImageDraw.Draw(layer)
+ im=erase_original_stick(src,grip); s=4; layer=Image.new("RGBA",(im.width*s,im.height*s),(0,0,0,0)); d=ImageDraw.Draw(layer)
  p0=(grip[0]*s,grip[1]*s); p1=(target[0]*s,target[1]*s)
  d.line([p0,p1],fill=(15,15,15,255),width=11*s); d.line([p0,p1],fill=(248,248,248,255),width=5*s)
  r=6*s; d.ellipse((p1[0]-r,p1[1]-r,p1[0]+r,p1[1]+r),fill=(15,15,15,255))
@@ -31,7 +42,7 @@ def local_stick(src,grip,target):
  return Image.alpha_composite(im,layer.resize(im.size,Image.Resampling.LANCZOS))
 def save_outputs(action,hit,reb,extra=None):
  key=action.lower().replace("+","_").replace(":","_").replace("/","_")
- hp=OUT/f"{key}_hit_attempt01.png"; rp=OUT/f"{key}_rebound_attempt01.png"
+ hp=OUT/f"{key}_hit_attempt02.png"; rp=OUT/f"{key}_rebound_attempt02.png"
  OUT.mkdir(parents=True,exist_ok=True); hp.parent.mkdir(parents=True,exist_ok=True); hit.save(hp); reb.save(rp)
  q=QA/key; q.mkdir(parents=True,exist_ok=True); drum=Image.open(DRUM).convert("RGBA")
  Image.alpha_composite(drum,hit).save(q/"hit_composite.png"); Image.alpha_composite(drum,reb).save(q/"rebound_composite.png")
