@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:49:00+09:00",
+  "updatedAt": "2026-09-19T20:36:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -284,6 +284,31 @@
       "handoffNote": "CLAIM first. Download/view artifact 10583148418. DONE when visual findings are committed as evidence with PASS/WARN/FAIL per neutral/hit/rebound. If FAIL, identify only the numeric/visual defect; do not regenerate images in this task.",
       "lastCommit": "eca64cd37d4ece9771bf05705806433013073d21",
       "result": "Reviewed artifact 10583148418. Contact/debug overlay plumbing visible, but exact formal neutral/hit/rebound sources fail visual continuity due to material body/head/leg/registration shifts. Evidence recorded only; no formal PNG/tool modification."
+    },
+    {
+      "taskId": "OTHER-007",
+      "category": "dropbox_source_bridge",
+      "description": "Resolve and verify canonical Dropbox bridge files for runtime-pose source images (neutral, SN:L hit, SN:L rebound, fixed drum) using formal GitHub SHA256 as authority. Record Dropbox file IDs/paths/preview links/download-link availability and byte-verification disposition. Do not edit or promote images.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**"
+      ],
+      "dependsOn": [
+        "RTP-QA-001"
+      ],
+      "doNotTouch": [
+        "tools/runtime_pose/**",
+        "character-assets/layers/character/**",
+        "character-assets/layers/drum/**",
+        "character-assets/edit-workspaces/**"
+      ],
+      "handoffNote": "CLAIM first. Use GitHub formal SHA256 as sole identity authority, not filename similarity. Dropbox is a transport/bridge only. Record exact matches and whether preview/download/fetch can expose bytes to downstream tools. No image edits or formal overwrite.",
+      "lastCommit": null
     }
   ]
 }
