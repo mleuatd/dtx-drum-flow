@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "BD+HT:RF/L",
+  "status": "APPROVED_FOR_PROMOTION",
+  "visualQA": {
+    "status": "PASS",
+    "checkedAt": "2026-09-19T13:00:00+09:00",
+    "evidence": [
+      "Formal HT:L exact source SHA verified by builder.",
+      "Only the repository-proven local BD kick cue was added.",
+      "Changed pixels confined to small right-foot/BD-cue region.",
+      "Fixed-drum hit/rebound visual review PASS; character/camera unchanged."
+    ]
+  },
+  "dropbox": [
+    "/ChatGPT/dtx-drum-flow/bd_ht_rf_l_hit_attempt01.png",
+    "/ChatGPT/dtx-drum-flow/bd_ht_rf_l_rebound_attempt01.png"
+  ],
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "bd_ht_rf_l_hit_refresh",
+      "candidatePath": "character-assets/review-candidates/m54/bd_ht_rf_l_hit_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
+      "sha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "bd_ht_rf_l_rebound_refresh",
+      "candidatePath": "character-assets/review-candidates/m54/bd_ht_rf_l_rebound_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
+      "sha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5"
+    }
+  ]
+}
