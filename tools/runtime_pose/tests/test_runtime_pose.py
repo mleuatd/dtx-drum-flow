@@ -5,7 +5,7 @@ from common import parse_action_key
 from solve_arm_reach import solve as solve_arm
 from solve_leg_reach import solve as solve_leg
 from validate_pose import validate_contact,validate_contacts,validate_registration,validate_transition,active_joint_names
-from build_runtime_pose_constraints import solve_arm_nearest_source,solve_arm_prefer_neutral
+from build_runtime_pose_constraints import solve_arm_nearest_source,solve_arm_prefer_neutral,copy_active_chains
 
 class RuntimePoseTest(unittest.TestCase):
     def test_action_key_parser_single(self):
@@ -43,6 +43,14 @@ class RuntimePoseTest(unittest.TestCase):
         self.assertLessEqual(q["tipErrorPx"],8)
         self.assertLess(abs(q["elbow"][0]-594.573),1)
         self.assertLess(abs(q["wrist"][0]-515.776),1)
+
+    def test_copy_active_chain_keeps_hand_shoulder_neutral(self):
+        neutral={"joints":{"shoulder_l":[635,342],"elbow_l":[585,470],"wrist_l":[505,490]}}
+        state={"joints":{"shoulder_l":[694,348],"elbow_l":[657,474],"wrist_l":[593,496]}}
+        q=copy_active_chains(neutral,state,[{"part":"SN","limb":"L"}],"rebound")
+        self.assertEqual(q["shoulder_l"],[635,342])
+        self.assertEqual(q["elbow_l"],[657,474])
+        self.assertEqual(q["wrist_l"],[593,496])
 
     def test_leg_solver(self):
         q=solve_leg([800,620],[735,650],160,190,35,-1)
