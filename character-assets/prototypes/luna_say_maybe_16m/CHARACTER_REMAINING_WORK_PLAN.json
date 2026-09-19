@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:50:00+09:00",
+  "updatedAt": "2026-09-19T15:53:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -10,8 +10,8 @@
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
     "formalAndMappedThroughMeasure": 135,
-    "lastLiveQaConfirmedThroughMeasure": 106,
-    "note": "M107-135 reuse-only mappings verified and runtimeScope expanded through M135; public PC/Xperia QA pending."
+    "lastLiveQaConfirmedThroughMeasure": 135,
+    "note": "M107-135 public QA passed: run 35427385671 / artifact 10579472206, 52/52 PASS. Next M136 BD+FT:RF/R."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -210,25 +210,29 @@
       "order": 11,
       "measures": "107-135",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "RUNNING",
+      "status": "DONE",
       "newImagePairs": [],
-      "note": "447 notes / 309 groups / 12 actionKeys; all mapped. No new images. Public QA pending.",
+      "note": "447 notes / 309 groups / 12 existing keys; public QA 52/52 PASS; screenshots reviewed.",
       "startedAt": "2026-09-19T15:50:00+09:00",
       "runtimeScopeTarget": "1-135",
-      "actionCoverageVerified": true
+      "actionCoverageVerified": true,
+      "completedAt": "2026-09-19T15:53:00+09:00",
+      "qaRun": 35427385671,
+      "qaArtifact": 10579472206
     },
     {
       "id": "CHAR-012",
       "order": 12,
       "measures": "136",
       "type": "NEW_PAIR",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "READY",
       "actionKey": "BD+FT:RF/R",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
-      "preferredDerivation": "formal FT:R + approved local BD kick cue"
+      "preferredDerivation": "formal FT:R + approved local BD kick cue",
+      "note": "Released after M107-135 DONE. Use formal FT:R plus approved deterministic BD cue; no fresh redraw."
     },
     {
       "id": "CHAR-013",
