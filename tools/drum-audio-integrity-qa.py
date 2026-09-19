@@ -26,7 +26,20 @@ engine=Path("site/live-drum-engine.js").read_text(); mapping=Path("site/drum-not
 required=["kick","snare","sideStick","hihatClosed","hihatOpen","hihatPedal","tomHigh","tomLow","tomFloor","ride","rideBell","crashLeft","crashRight"]
 missing=[v for v in required if v not in engine or v not in mapping]
 procedural=[s for s in ["createOscillator(","_noiseBuffer(","metalPartials"] if s in engine]
-summary={"samplesChecked":len(rows),"reviewSamples":len(failures),"missingVoices":missing,"proceduralLegacyTokens":procedural,"status":"PASS" if not missing and not procedural and not failures else "REVIEW"}
+# Per-voice loudness calibration: use the loudest velocity layer and median RR RMS.
+# Convert to dBFS, then compute gain needed to place every family in a narrow target band.
+voice_db={}
+for voice,(base,prefix,layers,rrs) in voices.items():
+ vals=[r["rms"] for r in rows if r["soundKey"]==voice and r["layer"]==layers and r["rms"]>0]
+ voice_db[voice]=20*np.log10(float(np.median(vals))) if vals else -120.0
+target_db=-18.0
+# Keep only a tiny intentional character contour: cymbals +0.6 dB, kick/toms 0 dB, snare +0.2, hats +0.3.
+offset={"crashLeft":.6,"crashRight":.6,"ride":.4,"rideBell":.4,"hihatClosed":.3,"hihatOpen":.3,"hihatPedal":.3,"snare":.2}
+calibration={v:float(10**(((target_db+offset.get(v,0))-db)/20)) for v,db in voice_db.items()}
+post_db={v:voice_db[v]+20*np.log10(calibration[v]) for v in voice_db}
+spread=max(post_db.values())-min(post_db.values())
+(OUT/"loudness-calibration.json").write_text(json.dumps({"sourceRmsDb":voice_db,"targetDb":target_db,"gain":calibration,"postDb":post_db,"spreadDb":spread},indent=2))
+summary={"samplesChecked":len(rows),"reviewSamples":len(failures),"missingVoices":missing,"proceduralLegacyTokens":procedural,"loudnessSpreadDb":spread,"status":"PASS" if not missing and not procedural and not failures and spread<=1.0 else "REVIEW"}
 (OUT/"sample-metrics.json").write_text(json.dumps(rows,indent=2))
 (OUT/"summary.json").write_text(json.dumps(summary,indent=2))
 print(json.dumps(summary,indent=2))
