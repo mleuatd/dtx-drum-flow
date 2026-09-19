@@ -44,7 +44,7 @@ function filteredNoise(t,dur,gain,type,freq,q=.7,attack=.001,target=null){const 
 function metalPartials(t,dur,gain,freqs,target=null){for(const [i,f] of freqs.entries())tone(f,t+i*.0007,dur*(1-i*.055),gain/(1+i*.38),i%2?"sine":"triangle",f*(.82+i*.018),.001,target,(Math.random()-.5)*10)}
 const DRUM_ROOM={};
 function ensureDrumRoom(){if(DRUM_ROOM.close)return DRUM_ROOM;const input=audioCtx.createGain(),close=audioCtx.createGain(),room=audioCtx.createGain(),delayA=audioCtx.createDelay(.25),delayB=audioCtx.createDelay(.25),roomFilter=audioCtx.createBiquadFilter();close.gain.value=.82;room.gain.value=.24;delayA.delayTime.value=.017;delayB.delayTime.value=.043;roomFilter.type="lowpass";roomFilter.frequency.value=7600;input.connect(close);close.connect(drumBus);input.connect(delayA);input.connect(delayB);delayA.connect(roomFilter);delayB.connect(roomFilter);roomFilter.connect(room);room.connect(drumBus);Object.assign(DRUM_ROOM,{input,close,room});return DRUM_ROOM}
-function humanizedVelocity(v){return Math.max(.16,Math.min(1,v*(.94+Math.random()*.10)))}
+function humanizedVelocity(v){const n=Number(v);const x=Number.isFinite(n)?(n>1?n/127:n):.8;return Math.max(.72,Math.min(.92,.80+(x-.5)*.16))}
 function drumAt(part,vel=.8,when=null,note=null){
   if(!$("drumSound").checked||!audioCtx||!liveDrumEngine)return;
   const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002);
@@ -59,7 +59,7 @@ function resetNextNote(at=time){const t=clampTime(at);nextNote=chart.notes.findI
 function resetMetronome(at=time){const beatSec=60/(chart.bpm||120);nextMetronomeBeat=Math.max(0,Math.ceil((clampTime(at)-.005)/beatSec))}
 function metronomeAt(beatIndex,when){if(!$("metronomeSound")?.checked||!audioCtx)return;const accent=beatIndex%4===0;tone(accent?1760:1180,when,.045,accent?.11:.07,"square",accent?1500:1000)}
 function scheduleMetronome(horizon){if(!$("metronomeSound")?.checked||!audioCtx)return;const beatSec=60/(chart.bpm||120);while(true){const beatTime=nextMetronomeBeat*beatSec,target=playAnchorCtx+(beatTime-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)metronomeAt(nextMetronomeBeat,target);nextMetronomeBeat++}}
-function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.12;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)drumAt(n.part,n.velocity,target,n);nextNote++}scheduleMetronome(horizon)}
+function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.12;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)drumAt(n.part,humanizedVelocity(n.velocity),target,n);nextNote++}scheduleMetronome(horizon)}
 async function startPlayback(){
   if(playing)return;
   if(time>=chart.duration)time=0;
