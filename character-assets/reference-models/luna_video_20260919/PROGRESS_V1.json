@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T19:45:00+09:00",
+  "updatedAt": "2026-09-19T19:55:00+09:00",
   "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
   "completed": [
     "Reference video metadata/SHA registered",
@@ -11,17 +11,20 @@
     "Appearance ratios aggregated into APPEARANCE_MODEL_V1",
     "4-head CHIBI_RETARGET_PROFILE_V1 registered",
     "Reference-model QA recorded without modifying formal runtime assets",
-    "SN:L runtime prototype plan connected to neutral/hit/rebound formal SHAs, snare contact (420,535), and transition timing"
+    "SN:L runtime prototype plan connected to neutral/hit/rebound formal SHAs, snare contact (420,535), and transition timing",
+    "Resolved exact formal bytes for SN:L rebound via Dropbox SHA match 79484f...c777",
+    "Added provisional runtime pose anchors for neutral/SN:L hit/rebound",
+    "Added constrained render package binding video appearance, 4-head retarget, runtime camera, fixed drum and SN contact",
+    "Added prototype pose QA gate"
   ],
-  "currentStage": "RUNTIME_PROTOTYPE_RENDER_PREP",
+  "currentStage": "READY_TO_RENDER_VIDEO_APPEARANCE_SN_L_PROTOTYPE",
   "next": [
-    "Derive numeric runtime pose anchors from approved neutral and SN:L hit/rebound formal frames",
-    "Apply video-derived appearance constraints to those runtime poses",
-    "Render constrained neutral/SN:L hit/rebound prototype candidates",
-    "Run cowlick deterministic normalization",
-    "Run line-style deterministic normalization",
-    "Composite with locked drum and run contact/registration QA",
-    "If prototype passes, run actual web runtime PC/Xperia QA before any broader propagation"
+    "Render constrained 4-head neutral candidate using video-derived appearance with existing runtime neutral pose/camera",
+    "Render constrained SN:L hit and rebound candidates from their formal motion sources",
+    "Apply cowlick deterministic normalization",
+    "Apply line-style deterministic normalization",
+    "Composite all three with locked drum and verify SN contact/registration/transition",
+    "Only after prototype QA, consider formal promotion and broader actionKey propagation"
   ],
   "formalRuntimeAssetsModified": false,
   "doNotBulkPromoteYet": true,
