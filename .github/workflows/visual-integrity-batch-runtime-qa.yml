@@ -39,7 +39,7 @@ jobs:
           import path from "node:path";
 
           const url=process.env.PUBLIC_URL;
-          const target=process.env.QA_ACTIONS.split(",").filter(Boolean)[0];
+          const targets=process.env.QA_ACTIONS.split(",").map(x=>x.trim()).filter(Boolean);
           const chart=JSON.parse(await fs.readFile("site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json","utf8"));
           const limbs=JSON.parse(await fs.readFile("site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json","utf8"));
           const inv=JSON.parse(await fs.readFile("character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json","utf8"));
@@ -48,23 +48,24 @@ jobs:
           const groups=[]; for(const n of notes){const g=groups.at(-1);if(g&&Math.abs(n.time-g[0].time)<=.008)g.push(n);else groups.push([n]);}
           const exactKey=g=>{const a=[...g].sort((x,y)=>x.part.localeCompare(y.part));return a.length>1?a.map(n=>n.part).join("+")+":"+a.map(n=>n.limb).join("/"):a[0].part+":"+a[0].limb};
           const keyFor=g=>{const exact=exactKey(g);if(inv.runtimeFrameMap?.[exact])return exact;const parts=[...new Set(g.map(n=>n.part))].sort();const wildcard=parts.join("+")+":*";return inv.runtimeFrameMap?.[wildcard]?wildcard:exact};
-          const candidates=groups.map((g,i)=>({g,key:keyFor(g),time:Number(g[0].time),measure:g[0].measure,next:Number(groups[i+1]?.[0]?.time??Infinity)})).filter(x=>x.key===target);
-          if(!candidates.length) throw new Error("target action missing: "+target);
-          const ev=[...candidates].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0];
           const hitEnd=Number(inv.motionTiming?.hitEndSeconds??.09), reboundEnd=Number(inv.motionTiming?.reboundEndSeconds??.17);
-          const gap=ev.next-ev.time;
-          if(Number.isFinite(gap)&&gap<reboundEnd+.03) throw new Error(`no clean neutral recovery gap for ${target}: ${gap}`);
-          const hitFrameId=inv.runtimePhaseFrameMap?.[target]?.hit||inv.runtimeFrameMap?.[target];
-          const reboundFrameId=inv.runtimePhaseFrameMap?.[target]?.rebound||inv.runtimeFrameMap?.[target];
-          const hitFrame=inv.requiredFrames?.[hitFrameId]?.path;
-          const reboundFrame=inv.requiredFrames?.[reboundFrameId]?.path;
           const neutralFrame=inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";
-          const points=[
-            {label:"neutral_before",time:0,phase:"neutral",key:"neutral",frame:neutralFrame},
-            {label:"hit",time:ev.time+.012,phase:"hit",key:target,frame:hitFrame},
-            {label:"rebound",time:ev.time+hitEnd+(reboundEnd-hitEnd)*.48,phase:"rebound",key:target,frame:reboundFrame},
-            {label:"neutral_after",time:ev.time+reboundEnd+.012,phase:"neutral",key:"neutral",frame:neutralFrame}
-          ];
+          const sequences=[];
+          for(const target of targets){
+            const candidates=groups.map((g,i)=>({g,key:keyFor(g),time:Number(g[0].time),measure:g[0].measure,next:Number(groups[i+1]?.[0]?.time??Infinity)})).filter(x=>x.key===target);
+            if(!candidates.length) throw new Error("target action missing: "+target);
+            const ev=[...candidates].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0];
+            const gap=ev.next-ev.time;
+            if(Number.isFinite(gap)&&gap<reboundEnd+.03) throw new Error(`no clean neutral recovery gap for ${target}: ${gap}`);
+            const hitFrameId=inv.runtimePhaseFrameMap?.[target]?.hit||inv.runtimeFrameMap?.[target];
+            const reboundFrameId=inv.runtimePhaseFrameMap?.[target]?.rebound||inv.runtimeFrameMap?.[target];
+            sequences.push({target,ev,points:[
+              {label:"neutral_before",time:0,phase:"neutral",key:"neutral",frame:neutralFrame},
+              {label:"hit",time:ev.time+.012,phase:"hit",key:target,frame:inv.requiredFrames?.[hitFrameId]?.path},
+              {label:"rebound",time:ev.time+hitEnd+(reboundEnd-hitEnd)*.48,phase:"rebound",key:target,frame:inv.requiredFrames?.[reboundFrameId]?.path},
+              {label:"neutral_after",time:ev.time+reboundEnd+.012,phase:"neutral",key:"neutral",frame:neutralFrame}
+            ]});
+          }
           await fs.mkdir("qa-artifacts/explicit-sequence",{recursive:true});
           const browser=await chromium.launch({headless:true}); const records=[]; let failed=0;
           for(const vp of [{name:"pc",width:1280,height:900},{name:"xperia-portrait",width:384,height:864}]){
@@ -73,7 +74,7 @@ jobs:
             await page.goto(url+"?qa=1&explicit=1",{waitUntil:"networkidle",timeout:120000});
             await page.waitForFunction(()=>window.__DTX_APP_READY__===true,null,{timeout:45000});
             await page.waitForFunction(()=>window.__DTX_CHARACTER_QA__?.snapshot().ready===true,null,{timeout:45000});
-            for(const p of points){
+            for(const {target,ev,points} of sequences) for(const p of points){
               await page.evaluate(time=>{const el=document.getElementById("timeline");el.value=String(time);el.dispatchEvent(new Event("input",{bubbles:true}))},p.time);
               await page.waitForTimeout(160);
               const a=await page.evaluate(()=>window.__DTX_CHARACTER_QA__.snapshot());
@@ -86,7 +87,7 @@ jobs:
             await context.close();
           }
           await browser.close();
-          await fs.writeFile("qa-artifacts/explicit-sequence.json",JSON.stringify({target,measure:ev.measure,eventTime:ev.time,sequence:"neutral->hit->rebound->neutral",failed,passed:records.length-failed,records},null,2));
+          await fs.writeFile("qa-artifacts/explicit-sequence.json",JSON.stringify({targets,sequence:"neutral->hit->rebound->neutral",failed,passed:records.length-failed,records},null,2));
           if(failed) process.exit(1);
           JS
       - name: Upload transition evidence
