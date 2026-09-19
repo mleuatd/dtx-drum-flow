@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T17:57:00+09:00",
+  "updatedAt": "2026-09-19T19:02:00+09:00",
   "status": "WORKSPACE_CREATED_STYLE_RULE_LOCKED_BASELINE_PRESERVED",
   "snapshotBranch": "snapshot/character-pre-cowlick-edit-20260919",
   "snapshotCommit": "e80b32c8deee0d925df97dbbc882c73f3a201687",
-  "currentStage": "PRE_EDIT_STYLE_AND_SAFETY_LOCK",
+  "currentStage": "DETERMINISTIC_COWLICK_TOOL_IMPLEMENTED_PROFILE_PROVISIONAL",
   "completed": [
     "Pinned pre-edit repository commit",
     "Created recovery branch",
@@ -12,13 +12,29 @@
     "Created baseline-to-each-variant review queue",
     "Recorded current cowlick reference constraints without falsely claiming five directions are already locked",
     "Locked top-level repeated-fine-stroke style baseline: visually thick/dark lines are built from multiple same-width pencil/pen passes, not a thicker digital brush.",
-    "Bound workspace to IMAGE_EDIT_MASTER_RULE.md as highest-level common edit policy."
+    "Bound workspace to IMAGE_EDIT_MASTER_RULE.md as highest-level common edit policy.",
+    "Registered deterministic cowlick implementation specification.",
+    "Added tools/cowlick/apply_cowlick.py with SHA guard, ROI hard clipping, and outside-ROI pixel verification.",
+    "Added provisional video-calibrated luna_3q_back_left_v1 profile.",
+    "Executed tool against approved neutral SHA 886e3490...; outside-ROI changed pixels = 0."
   ],
-  "nextStage": "Finalize corrected baseline neutral crown/cowlick using STYLE_BASELINE_SPEC repeated-fine-stroke construction before touching formal/runtime assets.",
+  "nextStage": "Refine/approve profile geometry against the 360-degree reference frames, then promote only after visual approval; do not use free-form generation for this cowlick operation.",
   "runtimeAssetsModifiedByWorkspaceCreation": false,
   "masterImageEditRule": {
     "path": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
     "precedence": "HIGHEST_LEVEL_COMMON_IMAGE_EDIT_RULE",
     "mustReadBeforeAnyImageEdit": true
+  },
+  "deterministicCowlickTool": {
+    "spec": "character-assets/prototypes/luna_say_maybe_16m/COWLICK_DETERMINISTIC_TOOL_SPEC.md",
+    "executable": "tools/cowlick/apply_cowlick.py",
+    "profile": "tools/cowlick/profiles/luna_3q_back_left_v1.json",
+    "sourceNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "lastLocalQa": {
+      "outputSha256": "81e6973e6a3b8a2089902cfd75d3638a96043ed285af11430b4ba574e677affd",
+      "insideRoiChangedPixels": 1019,
+      "outsideRoiChangedPixels": 0,
+      "formalPromoted": false
+    }
   }
 }
