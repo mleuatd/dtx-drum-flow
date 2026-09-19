@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "actionKey": "BD+HT:RF/R",
+  "visualQa": "PASS",
+  "visualQaEvidence": [
+    "character-assets/generated-qa/m29_40/bd_ht_rf_r/hit_composite_attempt01.png",
+    "character-assets/generated-qa/m29_40/bd_ht_rf_r/rebound_composite_attempt01.png"
+  ],
+  "visualQaNotes": "Actual workflow artifact composites inspected. Formal HT:R parent is preserved; BD cue changes are confined to lower-leg/foot region. No new duplicate/detached stick, no camera/head/hair/torso drift, and no drum pixels are introduced into the character candidate.",
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "bd_ht_rf_r_hit_refresh",
+      "candidatePath": "character-assets/review-candidates/m29_40/bd_ht_rf_r_hit_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+      "sha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "bd_ht_rf_r_rebound_refresh",
+      "candidatePath": "character-assets/review-candidates/m29_40/bd_ht_rf_r_rebound_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
+      "sha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372"
+    }
+  ],
+  "approvedAgainstMain": "84013541aea703023167769702532b5086c314f6",
+  "sourceBuildRun": 35412919595,
+  "sourceArtifact": 10573729312,
+  "updatedAt": "2026-09-19T10:37:00+09:00"
+}
