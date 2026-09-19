@@ -1,3 +1,9 @@
+# 2026-09-20 BATCH PREP AUTOMATION — READ BEFORE 2x4 VISUAL QA
+
+For future 2-action / 4-frame visual-integrity batches, prefer `tools/character_layers/prepare_visual_integrity_batch.py` and the `Visual Integrity Batch Prep` workflow. It reads the latest BRUSHUP_LEDGER, auto-selects two eligible action keys by project priority, verifies formal SHA-256/canvas, and generates full-resolution character-only/fixed-drum composite evidence plus neutral->hit->rebound->neutral strips and a batch manifest. Use Dropbox only when GitHub main does not already provide the authoritative formal bytes or when historical/candidate recovery is required.
+
+Current batch closure: BD:RF is VERIFIED after runtime run 35473367417 / artifact 10593426362; HH:R remains HOLD_VISUAL_INTEGRITY after one minimal retry failed.
+
 ## 2026-09-20 Visual-integrity 2x4 batch 02 — BD:RF + HH:R static review
 
 - BD:RF hit/rebound: full-resolution current-main static review PASS for anatomy, linework, and fixed-drum composite. Runtime transition remains pending; no formal PNG rewrite in this review step.

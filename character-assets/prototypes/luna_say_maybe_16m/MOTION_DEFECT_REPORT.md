@@ -1,3 +1,10 @@
+## 2026-09-20 — Visual Integrity Batch 02 closure
+
+- BD:RF hit/rebound: human anatomy, linework, fixed-drum composite, and public runtime neutral -> hit -> rebound -> neutral QA all PASS. Runtime workflow 35473367417; artifact 10593426362. Status promoted to VERIFIED.
+- HH:R hit/rebound: static visual hard gate FAIL. One alpha-safe minimal retry also failed; formal PNGs remain unchanged and both frames stay HOLD_VISUAL_INTEGRITY.
+- HH:R retained defects: horizontal/rectangular splice across shoulder/hair, incoherent arm/forearm overlap, blocky splice residue, and rebound stick/arm dropout.
+- No force push; historical evidence/candidates preserved.
+
 ## 2026-09-20 Visual-integrity 2x4 batch 02 — BD:RF + HH:R static review
 
 - BD:RF hit/rebound: full-resolution current-main static review PASS for anatomy, linework, and fixed-drum composite. Runtime transition remains pending; no formal PNG rewrite in this review step.

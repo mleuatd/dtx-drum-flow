@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T07:24:00+09:00",
+  "updatedAt": "2026-09-20T07:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1840,7 +1840,7 @@
     },
     {
       "issueId": "MOTION-003",
-      "status": "NEEDS_RUNTIME_TRANSITION_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M143,M109",
       "time": "~249.15-249.22s",
@@ -1869,10 +1869,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T07:24:00+09:00",
+      "updatedAt": "2026-09-20T07:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "STATIC_VISUAL_QA_PASS_RUNTIME_PENDING",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -2333,6 +2333,11 @@
             "at": "2026-09-20T07:24:00+09:00",
             "decision": "STATIC_VISUAL_INTEGRITY_PASS",
             "detail": "Current method2 hit/rebound pass anatomy, linework and fixed-drum composite review. Runtime transition remains required."
+          },
+          {
+            "at": "2026-09-20T07:45:00+09:00",
+            "decision": "RUNTIME_TRANSITION_PASS",
+            "detail": "Public runtime QA passed neutral->hit->rebound->neutral on PC and Xperia portrait. Workflow 35473367417; artifact 10593426362."
           }
         ],
         "measurementTodos": [
@@ -2605,8 +2610,8 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
-        "promotionBlocked": true,
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
@@ -2619,9 +2624,11 @@
           "right-foot bass-pedal semantics",
           "fixed-drum composite"
         ],
-        "reviewedAt": "2026-09-20T07:24:00+09:00",
+        "reviewedAt": "2026-09-20T07:45:00+09:00",
         "visualQaRunId": 35472780085,
-        "visualQaArtifactId": 10593056465
+        "visualQaArtifactId": 10593056465,
+        "runtimeQaRunId": 35473367417,
+        "runtimeQaArtifactId": 10593426362
       }
     },
     {

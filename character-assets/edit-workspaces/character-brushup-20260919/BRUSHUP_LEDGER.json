@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T07:24:00+09:00",
+  "updatedAt": "2026-09-20T07:45:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -676,7 +676,17 @@
       "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
       "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
       "reviewCompletedAt": "2026-09-20T07:24:00+09:00",
-      "holdReason": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved."
+      "holdReason": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+        "at": "2026-09-20T07:45:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 6,
@@ -821,7 +831,17 @@
       "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
       "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
       "reviewCompletedAt": "2026-09-20T07:24:00+09:00",
-      "holdReason": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved."
+      "holdReason": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+        "at": "2026-09-20T07:45:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 7,
@@ -896,8 +916,8 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "visual-integrity-static-pass-runtime-pending",
-      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
+      "qaState": "visual-integrity-passed",
+      "brushupStatus": "VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -908,8 +928,8 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
-        "promotionBlocked": true,
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
@@ -933,12 +953,34 @@
           "sticks continuous and waist/pelvis/seat linework coherent",
           "RF aligns with center bass-pedal region; hit is lower/forward and rebound releases upward",
           "runtime neutral->hit->rebound->neutral still required before promotion"
-        ]
+        ],
+        "runtimeReviewedAt": "2026-09-20T07:45:00+09:00",
+        "runtimeEvidence": {
+          "workflowRunId": 35473367417,
+          "artifactId": 10593426362,
+          "testedCommitSha": "ede4ee4829f13d7c6dd65b2c8ca9b4928dacdf09",
+          "sequence": "neutral->hit->rebound->neutral",
+          "result": "PASS",
+          "viewports": [
+            "pc",
+            "xperia-portrait"
+          ]
+        }
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
       "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+        "at": "2026-09-20T07:45:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "outcome": "VERIFIED"
+      }
     },
     {
       "order": 8,
@@ -1013,8 +1055,8 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "visual-integrity-static-pass-runtime-pending",
-      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
+      "qaState": "visual-integrity-passed",
+      "brushupStatus": "VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1025,8 +1067,8 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
-        "promotionBlocked": true,
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
@@ -1050,12 +1092,34 @@
           "sticks continuous and waist/pelvis/seat linework coherent",
           "RF aligns with center bass-pedal region; hit is lower/forward and rebound releases upward",
           "runtime neutral->hit->rebound->neutral still required before promotion"
-        ]
+        ],
+        "runtimeReviewedAt": "2026-09-20T07:45:00+09:00",
+        "runtimeEvidence": {
+          "workflowRunId": 35473367417,
+          "artifactId": 10593426362,
+          "testedCommitSha": "ede4ee4829f13d7c6dd65b2c8ca9b4928dacdf09",
+          "sequence": "neutral->hit->rebound->neutral",
+          "result": "PASS",
+          "viewports": [
+            "pc",
+            "xperia-portrait"
+          ]
+        }
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
       "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+        "at": "2026-09-20T07:45:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "outcome": "VERIFIED"
+      }
     },
     {
       "order": 9,

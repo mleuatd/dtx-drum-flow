@@ -1,3 +1,10 @@
+## 2026-09-20 — Visual-integrity batch 02 closure + prep automation
+
+- Closed the 2-action/4-frame batch for BD:RF and HH:R.
+- BD:RF hit/rebound passed anatomy, linework, fixed-drum composite, and explicit public runtime neutral->hit->rebound->neutral QA on PC and Xperia portrait (run 35473367417, artifact 10593426362) and are now VERIFIED.
+- HH:R hit/rebound remain HOLD_VISUAL_INTEGRITY after one minimal alpha-safe retry failed to remove shoulder/hair splice and right-arm/stick defects; formal PNGs were not overwritten.
+- Added `tools/character_layers/prepare_visual_integrity_batch.py` and `.github/workflows/visual-integrity-batch-prep.yml` to auto-select the next two action keys from BRUSHUP_LEDGER priority, verify formal SHA/canvas, and emit character-only, fixed-drum composite, transition-strip, and manifest evidence in one batch.
+
 ## 2026-09-20 Visual-integrity 2x4 batch 02 — BD:RF + HH:R static review
 
 - BD:RF hit/rebound: full-resolution current-main static review PASS for anatomy, linework, and fixed-drum composite. Runtime transition remains pending; no formal PNG rewrite in this review step.
