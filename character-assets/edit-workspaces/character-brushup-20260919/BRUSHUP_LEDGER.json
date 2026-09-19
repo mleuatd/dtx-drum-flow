@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:54:00+09:00",
+  "updatedAt": "2026-09-20T08:55:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -3151,8 +3151,8 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3160,17 +3160,46 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_hit_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.06537817,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476580606,
+          "artifactId": 10594790972,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "mid torso/hair rectangle and floating left fragments",
+        "cause": "oversized rectangular transplant",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 34,
@@ -3263,8 +3292,8 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3272,17 +3301,46 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_rebound_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.06830085,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476580606,
+          "artifactId": 10594790972,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "mid torso/hair rectangle and floating left fragments",
+        "cause": "oversized rectangular transplant",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 35,
@@ -3798,8 +3856,8 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3807,17 +3865,46 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_hit_refresh_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.06021196,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476577082,
+          "artifactId": 10594860319,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "mid torso/hair rectangle and right hand/stick",
+        "cause": "oversized rectangular splice",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 44,
@@ -3841,8 +3928,8 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3850,17 +3937,46 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.06724904,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476577082,
+          "artifactId": 10594860319,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "mid torso/hair rectangle and right hand/stick",
+        "cause": "oversized rectangular splice",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 45,
@@ -3878,8 +3994,8 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3887,17 +4003,46 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04646149,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476568863,
+          "artifactId": 10593149790,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "upper torso/shoulder-hair splice, stick corridor, seat",
+        "cause": "large rectangular transplant/splice",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 46,
@@ -3915,8 +4060,8 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3924,17 +4069,46 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05648167,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476568863,
+          "artifactId": 10593149790,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "upper torso/shoulder-hair splice, stick corridor, seat",
+        "cause": "large rectangular transplant/splice",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 47,
@@ -4076,8 +4250,8 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4085,17 +4259,46 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04679917,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476577082,
+          "artifactId": 10594860319,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "left hand/stick corridor and seat",
+        "cause": "duplicated active-limb composite",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 50,
@@ -4117,8 +4320,8 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4126,17 +4329,46 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04756736,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476577082,
+          "artifactId": 10594860319,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "left hand/stick corridor and seat",
+        "cause": "duplicated active-limb composite",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 51,
@@ -4221,8 +4453,8 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4230,17 +4462,46 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05093073,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476568863,
+          "artifactId": 10593149790,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "right arm/hand/stick corridor above/right of torso",
+        "cause": "structural composite/transplant duplication",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 54,
@@ -4257,8 +4518,8 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4266,17 +4527,46 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05143692,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476568863,
+          "artifactId": 10593149790,
+          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
+        },
+        "failReasons": [
+          "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewTerminalId": "CHATGPT-BACK",
+      "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
+      "holdReason": "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-20260920",
+        "at": "2026-09-20T08:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY",
+        "defectLocation": "right arm/hand/stick corridor above/right of torso",
+        "cause": "structural composite/transplant duplication",
+        "attemptedRepair": "none; artifact reuse review",
+        "repairResult": "not attempted: structural/non-local",
+        "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
+        "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
+        "restartCondition": "measured ROI + candidate static visual PASS"
+      }
     },
     {
       "order": 55,
@@ -4722,6 +5012,50 @@
       ],
       "result": "IN_PROGRESS",
       "summary": "Claimed after reconciling current HOLD/CLAIM state."
+    },
+    {
+      "batchId": "BACK-VISUAL-REVIEW-20260920-01",
+      "startedAt": "2026-09-20T08:55:00+09:00",
+      "updatedAt": "2026-09-20T08:55:00+09:00",
+      "terminalId": "CHATGPT-BACK",
+      "actionKeys": [
+        "BD+RC+SN:RF/R/L",
+        "BD+HT:RF/R"
+      ],
+      "imageCount": 4,
+      "result": "HOLD_STATIC_HARD_FAIL",
+      "workflowRunId": 35476568863,
+      "workflowArtifactId": 10593149790,
+      "summary": "Artifact reused. BD+RC+SN detached/duplicated hand-stick; BD+HT rectangular torso/hair/seat splice and broken stick. Runtime QA blocked by static hard fail."
+    },
+    {
+      "batchId": "BACK-VISUAL-REVIEW-20260920-02",
+      "startedAt": "2026-09-20T08:55:00+09:00",
+      "updatedAt": "2026-09-20T08:55:00+09:00",
+      "terminalId": "CHATGPT-BACK",
+      "actionKeys": [
+        "BD+HH+SN:RF/R/L",
+        "HT:R"
+      ],
+      "imageCount": 4,
+      "result": "HOLD_STATIC_HARD_FAIL",
+      "workflowRunId": 35476577082,
+      "workflowArtifactId": 10594860319,
+      "summary": "Artifact reused. BD+HH+SN duplicated hand/stick and fragments; HT:R large rectangular torso/hair splice and duplicated arm/stick. Runtime QA blocked by static hard fail."
+    },
+    {
+      "batchId": "BACK-VISUAL-REVIEW-20260920-03",
+      "startedAt": "2026-09-20T08:55:00+09:00",
+      "updatedAt": "2026-09-20T08:55:00+09:00",
+      "terminalId": "CHATGPT-BACK",
+      "actionKeys": [
+        "HH+SN:R/L"
+      ],
+      "imageCount": 2,
+      "result": "HOLD_STATIC_HARD_FAIL",
+      "workflowRunId": 35476580606,
+      "workflowArtifactId": 10594790972,
+      "summary": "Artifact reused. HH+SN large torso/hair rectangular splice and floating fragments. Runtime QA blocked by static hard fail."
     }
   ],
   "activeVisualIntegrityBatch": {
