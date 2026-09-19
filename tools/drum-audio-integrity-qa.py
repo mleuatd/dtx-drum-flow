@@ -44,11 +44,9 @@ for voice,(base,prefix,layers,rrs) in voices.items():
  # Practice salience: transient and first 350 ms dominate note identification.
  sal=.55*db(med["early"])+.30*db(med["attack"])+.15*db(med["full"])
  voice_metrics[voice]={**med,"salienceDb":sal}
-target_db=-13.5
+# Exact common practice target: every voice is normalized to the same measured salience.\ntarget_db=-13.5
 # Deliberately flat: no cymbal boost. Tiny offsets only to help low drums survive spectral masking.
-offset={"kick":1.0,"tomHigh":.7,"tomLow":.8,"tomFloor":.8,"snare":.2,"sideStick":.2,
-        "hihatClosed":-.4,"hihatOpen":-.5,"hihatPedal":-.4,"ride":-.7,"rideBell":-.5,
-        "crashLeft":-.9,"crashRight":-.9}
+offset={v:0.0 for v in voices}
 calibration={v:float(10**(((target_db+offset.get(v,0))-m["salienceDb"])/20)) for v,m in voice_metrics.items()}
 post_db={v:voice_metrics[v]["salienceDb"]+20*np.log10(calibration[v]) for v in voice_metrics}
 spread=max(post_db.values())-min(post_db.values())
