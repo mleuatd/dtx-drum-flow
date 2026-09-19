@@ -1,3 +1,8 @@
+## 2026-09-20 — Visual Integrity Batch 06
+- Claimed and statically reviewed LT:L and BD+SN:RF/R as the next front-queue 2x4 batch.
+- Both pairs failed structural visual-integrity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
+- Evidence: workflow run 35475549511, artifact 10594285311.
+
 ## 2026-09-20 — Visual Integrity Batch 05
 - Claimed RC+SN:R/L and LT:R while excluding the active BACK-BATCH-01 keys owned by another session.
 - Static QA moved both pairs to HOLD_VISUAL_INTEGRITY: RC+SN has structural hair/torso splice artifacts; LT:R has duplicated/crossing active-stick geometry.
