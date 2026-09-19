@@ -10,6 +10,11 @@
   },
   "reviewFields": [
     "styleMatch",
+    "roughHandDrawnWobbleMatch",
+    "lineDensityMatch",
+    "vectorCleanupAbsent",
+    "multiStrokeThicknessMatch",
+    "sameBaseStrokeWidth",
     "bodyProportionMatch",
     "cameraPosePreservation",
     "headShapeMatch",
@@ -682,5 +687,8 @@
       "cowlickAngleClass": null,
       "status": "PENDING"
     }
-  ]
+  ],
+  "updatedAt": "2026-09-19T17:12:00+09:00",
+  "styleSpec": "STYLE_BASELINE_SPEC.json",
+  "styleComparisonPolicy": "For every variant, compare line construction directly against the locked corrected baseline. Apparent thick lines must be multiple repeated fine strokes, not a thicker brush."
 }
