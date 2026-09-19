@@ -34,7 +34,11 @@ jobs:
       - name: Select batch and build QA evidence
         env:
           ACTIONS: ${{ inputs.actions }}
+        shell: bash
         run: |
+          if [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ]; then
+            ACTIONS="$(tr -d '\r\n' < .github/back-visual-actions.txt)"
+          fi
           if [ -n "$ACTIONS" ]; then
             python tools/character_layers/prepare_visual_integrity_batch.py --actions "$ACTIONS" --out visual-qa/current-batch
           else
