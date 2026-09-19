@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "executedAt": "2026-09-19T19:20:00+09:00",
+  "toolVersion": "1.0.0",
+  "spec": "character-assets/prototypes/luna_say_maybe_16m/LINE_STYLE_DETERMINISTIC_TOOL_SPEC.md",
+  "profile": "tools/line_style/profiles/luna_pencil_style_v1.json",
+  "sourcePath": "character-assets/layers/character/base/neutral.png",
+  "sourceSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "candidateOutputSha256": "ab6bf001b1c176f15b5ebb91cba02320b9e7c4556a28c9736cf1f148ef67af3e",
+  "repeatedRunOutputSha256": "ab6bf001b1c176f15b5ebb91cba02320b9e7c4556a28c9736cf1f148ef67af3e",
+  "deterministicRepeatability": true,
+  "tests": {
+    "pytest": "5 passed",
+    "sourceShaGuard": true,
+    "sourceOverwriteRefused": true,
+    "corruptedProfileFails": true,
+    "geometryVerifierPasses": true
+  },
+  "qa": {
+    "canvas": [
+      1448,
+      1086
+    ],
+    "changedPixels": 360908,
+    "changedBbox": [
+      57,
+      23,
+      1179,
+      1063
+    ],
+    "centerlineDisplacementPx": 0.7757374606297559,
+    "centerlineForwardPx": 0.7757374606297559,
+    "centerlineReversePx": 0.5071986484087361,
+    "silhouetteDifferenceRatio": 0.001581767438778975,
+    "nonLineCorruptionRatio": 0.00018987982716716175,
+    "lineDensityBefore": 0.5744309425354004,
+    "lineDensityAfter": 0.4700959324836731,
+    "singleThickStrokeDetected": false,
+    "vectorLikeCleanupDetected": false,
+    "verdict": "PASS"
+  },
+  "formalPromoted": false,
+  "formalSourceModified": false,
+  "note": "Smoke test only. Candidate remains non-formal pending visual review."
+}
