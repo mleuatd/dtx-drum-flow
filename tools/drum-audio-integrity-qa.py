@@ -46,7 +46,7 @@ for voice,(base,prefix,layers,rrs) in voices.items():
  voice_metrics[voice]={**med,"salienceDb":sal}
 # Exact common practice target: every voice is normalized to the same measured salience.\ntarget_db=-13.5
 # Deliberately flat: no cymbal boost. Tiny offsets only to help low drums survive spectral masking.
-offset={v:0.0 for v in voices}
+target_db=-13.5\noffset={v:0.0 for v in voices}
 calibration={v:float(10**(((target_db+offset.get(v,0))-m["salienceDb"])/20)) for v,m in voice_metrics.items()}
 post_db={v:voice_metrics[v]["salienceDb"]+20*np.log10(calibration[v]) for v in voice_metrics}
 spread=max(post_db.values())-min(post_db.values())
