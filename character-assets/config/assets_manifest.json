@@ -922,6 +922,42 @@
       ],
       "liveQaRun": 35419097186,
       "liveQaArtifact": 10577335176
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 54 BD+HT:RF/L hit; formal HT:L preserved with proven local BD kick cue",
+      "part": "BD+HT",
+      "phase": "hit",
+      "hand": "RF/L",
+      "notes": [
+        "Fixed-drum visual QA PASS",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ht_rf_l_hit_attempt01.png",
+        "Promotion commit aa96460192aae74b10b36b9f7bfa0c3c16daa7b7"
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna measure 54 BD+HT:RF/L rebound; formal HT:L preserved with proven local BD kick cue",
+      "part": "BD+HT",
+      "phase": "rebound",
+      "hand": "RF/L",
+      "notes": [
+        "Fixed-drum visual QA PASS",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ht_rf_l_rebound_attempt01.png",
+        "Promotion commit aa96460192aae74b10b36b9f7bfa0c3c16daa7b7"
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
