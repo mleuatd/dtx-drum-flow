@@ -18,7 +18,7 @@ const devMixerValues=Object.fromEntries(DEV_MIXER.map(([v])=>[v,1]));
 function devMixerText(){
  if(!liveDrumEngine)return "MIX:engine-loading";
  const base=liveDrumEngine.getBaseGains();
- return DEV_MIXER.map(([v,l])=>l+":"+devMixerValues[v].toFixed(2)+" (final "+(base[v]*devMixerValues[v]).toFixed(3)+")").join("\n");
+ return DEV_MIXER.map(([v,l])=>l+":"+devMixerValues[v].toFixed(2)+" (final "+(base[v]*devMixerValues[v]).toFixed(3)+")").join(String.fromCharCode(10));
 }
 function refreshDevMixerHud(){const hud=$("devAudioReadout");if(hud)hud.textContent=devMixerText()}
 function initDevAudioMixer(){
