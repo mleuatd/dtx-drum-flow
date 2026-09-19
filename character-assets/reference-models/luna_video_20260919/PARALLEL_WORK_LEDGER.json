@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:20:00+09:00",
+  "updatedAt": "2026-09-19T21:29:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -52,7 +52,7 @@
       "category": "candidate_render",
       "description": "Produce constrained neutral/SN:L hit/rebound candidates from numeric packages, then deterministic cowlick/line-style postprocess and fixed-drum composite/transition QA.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "claimedAt": "2026-09-19T20:12:00+09:00",
       "startedAt": "2026-09-19T20:20:00+09:00",
       "completedAt": null,
@@ -69,10 +69,10 @@
         "character-assets/layers/character/sn/rebound_l.png",
         "character-assets/layers/character/base/neutral.png"
       ],
-      "handoffNote": "Resume only in an environment/session where exact GitHub formal neutral/hit/rebound PNG bytes can be supplied as edit targets. Use committed AI_RENDER_SN_L_* packages; then deterministic cowlick/line-style, composite QA, transition QA, runtime QA. Supporting exact-byte source QA: run 35440135805 / artifact 10583148418.",
+      "handoffNote": "Exact formal neutral/hit/rebound/drum bytes are now SHA-verified and re-exposed into this conversation. Resume constrained candidate render using neutral as mandatory parent, formal hit/rebound only as secondary evidence, AI_RENDER_SN_L_* numeric constraints, then deterministic cowlick/line-style and QA. Do not overwrite formal PNGs.",
       "lastCommit": "3cac4e8ec8a1d8f3c602bacaa6842a3afa21213b",
-      "blocker": "Pixel candidate render cannot start in this turn because the image-edit renderer requires an actual usable image target in the conversation, while the GitHub connector available here cannot hand repository PNG bytes to that renderer. Text-only/free redraw is explicitly prohibited.",
-      "currentState": "CONSTRAINT_READY_AND_QA_PASS",
+      "blocker": null,
+      "currentState": "EXACT_SOURCE_ATTACHED_RENDERER_RETRY_READY",
       "supportingQa": {
         "runId": 35440135805,
         "artifactId": 10583148418,
@@ -334,9 +334,9 @@
         "character-assets/edit-workspaces/**",
         "tools/runtime_pose/**"
       ],
-      "handoffNote": "DONE: exact-byte source acquisition solved. Renderer-parent handoff remains unavailable; use deterministic local processing or a true user/current-conversation image attachment only if needed.",
-      "lastCommit": "4f79a16e4069c4c8de5ab6f4ac701871f0e139a0",
-      "result": "Canonical neutral/hit/rebound/drum were materialized from Dropbox Library into /mnt/data and SHA-verified against GitHub formal bytes. image_gen did not bind tool-generated/conversation-displayed images as edit parents; test candidate edit_op=null fresh redraw was rejected. Local deterministic byte processing is available."
+      "handoffNote": "DONE. Reuse SOURCE_BRIDGE_INDEX_V1.json. Do not retry files.read image_file for Dropbox native pixels; use raw materialization and SHA verification.",
+      "lastCommit": "d7042bbdb2263aa82398c680c85f3547ab6317a5",
+      "result": "Autonomous bridge succeeded: Library /Dropbox mount -> raw materialize -> SHA256 verify -> re-expose exact formal files into current conversation. Exact verified aliases: neutral_886e3490bb926b49.png, sn_l_hit_contactfix_20260917.png, sn_l_rebound_contactfix_20260917.png, drum_base_dadc9764acebc0fc.png. Plain sn_hit_l.png and sn_rebound_l.png were stale/mismatched and are not formal sources."
     },
     {
       "taskId": "RTP-SNL-DET-001",
