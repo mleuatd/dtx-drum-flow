@@ -4,7 +4,7 @@
     "measureStart": 47,
     "measureEnd": 47
   },
-  "status": "DONE",
+  "status": "M47_PUBLIC_RUNTIME_QA_FAILED",
   "sourceOfTruth": "GitHub main",
   "actionKey": "BD+HH+SN:RF/R/L",
   "blockType": "NEW_PAIR",
@@ -33,25 +33,25 @@
     "screenshotReview": "PASS_PC_XPERIA"
   },
   "requiredNext": "M47 complete. Continue M48-53 reuse-only runtime verification. Do not regenerate BD+HH+SN.",
-  "updatedAt": "2026-09-19T12:49:00+09:00",
+  "updatedAt": "2026-09-19T03:41:02.528591+00:00",
   "runtimeQaEvidence": {
     "M47": {
-      "status": "PASS",
+      "status": "FAIL",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35419097186",
-      "testedCommitSha": "b788f034fa9eecab7baa5e3dcda080f9e8a3d8cf",
-      "artifact": "public-runtime-qa-35419097186",
-      "artifactId": 10577335176,
+      "runId": "35419220682",
+      "testedCommitSha": "56d9083db65e77b63115186e6d386dcab7db85e9",
+      "artifact": "public-runtime-qa-35419220682",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35419220682",
       "measureStart": 47,
       "measureEnd": 47,
       "actions": [
         "BD+HH+SN:RF/R/L"
-      ],
-      "passed": 4,
-      "failed": 0,
-      "screenshotReview": "PASS_PC_XPERIA_MANUAL_VISUAL",
-      "note": "Previous run 35419075619 was cancelled by concurrent audio push and produced a false ledger FAIL; superseded by this successful browser QA."
+      ]
     }
   },
-  "blocker": null
+  "blocker": {
+    "type": "RUNTIME_QA",
+    "workflowRunId": "35419220682",
+    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
+  }
 }
