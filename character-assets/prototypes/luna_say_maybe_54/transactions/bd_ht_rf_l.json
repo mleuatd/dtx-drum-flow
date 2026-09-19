@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe BD+HT:RF/L transaction for Luna M54",
+  "status": "VISUAL_QA_PASSED_PROMOTION_PENDING",
+  "actionKey": "BD+HT:RF/L",
+  "scope": {
+    "measureStart": 54,
+    "measureEnd": 54
+  },
+  "parent": {
+    "hitPath": "character-assets/layers/character/ht/hit_l_refresh.png",
+    "hitSha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
+    "reboundPath": "character-assets/layers/character/ht/rebound_l_refresh.png",
+    "reboundSha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0",
+    "width": 1448,
+    "height": 1086
+  },
+  "method": "Preserve formal HT:L pair exactly; add only the proven deterministic BD kick cue used by M17 BD+LT and M29 BD+HT:RF/R. No generative redraw.",
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration",
+    "HT left-hand pose outside BD cue region"
+  ],
+  "allowedMotion": [
+    "rightFoot",
+    "BD kick cue only"
+  ],
+  "phases": {
+    "hit": {
+      "stage": "APPROVE",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ht_rf_l_hit_attempt01.png",
+      "candidatePath": "character-assets/review-candidates/m54/bd_ht_rf_l_hit_attempt01.png",
+      "sha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
+      "formalCommit": null
+    },
+    "rebound": {
+      "stage": "APPROVE",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ht_rf_l_rebound_attempt01.png",
+      "candidatePath": "character-assets/review-candidates/m54/bd_ht_rf_l_rebound_attempt01.png",
+      "sha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
+      "formalCommit": null
+    }
+  },
+  "qa": {
+    "static": "PASS",
+    "compositeVisual": "PASS",
+    "locality": "PASS_BD_CUE_ONLY",
+    "transition": "PASS_VISUAL",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "build": {
+    "workflowRun": 35419441509,
+    "artifactId": 10577805136,
+    "buildCommit": "ae83188e54e1586e38fec579ab035a952416801d"
+  },
+  "blocker": null,
+  "updatedAt": "2026-09-19T13:00:00+09:00",
+  "notes": [
+    "Reused the proven BD kick cue strategy instead of generating a new body/leg pose.",
+    "Fixed-drum hit/rebound composites manually reviewed; no camera/body/stick changes outside formal HT:L."
+  ]
+}
