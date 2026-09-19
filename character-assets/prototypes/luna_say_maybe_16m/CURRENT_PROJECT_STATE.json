@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T16:01:00+09:00",
+  "updatedAt": "2026-09-19T16:04:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
     "measureEnd": 136,
-    "status": "RUNTIME_QA_PENDING_M136"
+    "status": "COMPLETE_LIVE_QA"
   },
   "completedMeasureBlocks": [
     {
@@ -91,6 +91,12 @@
       "status": "DONE",
       "qaRun": 35427385671,
       "qaArtifact": 10579472206
+    },
+    {
+      "measures": "136",
+      "status": "DONE",
+      "qaRun": 35427665852,
+      "qaArtifact": 10579347692
     }
   ],
   "blockedMeasureBlocks": [],
@@ -138,7 +144,9 @@
     "bdRcSnRfRL": "LIVE_QA_PASSED",
     "m69_104": "COMPLETE_LIVE_QA",
     "m105_106": "COMPLETE_LIVE_QA",
-    "m107_135": "COMPLETE_LIVE_QA"
+    "m107_135": "COMPLETE_LIVE_QA",
+    "m136": "COMPLETE_LIVE_QA",
+    "bdFtRfR": "LIVE_QA_PASSED"
   },
   "approvedAssets": [
     "SN:L",
@@ -194,7 +202,8 @@
     "m105_106LiveRuntimeQa": "SUCCESS run 35427241936 artifact 10579925003; 12/12 PC/Xperia PASS; screenshot review PASS",
     "m107_135MappingPreflight": "PASS: 447 notes / 309 groups / 12 actionKeys; all mapped",
     "m107_135LiveRuntimeQa": "SUCCESS run 35427385671 artifact 10579472206; 52/52 PASS; screenshots reviewed",
-    "m136PreRuntime": "PASS: deterministic candidate, Dropbox exact-byte save, fixed-drum visual QA, formal registration and mapping complete"
+    "m136PreRuntime": "PASS: deterministic candidate, Dropbox exact-byte save, fixed-drum visual QA, formal registration and mapping complete",
+    "m136LiveRuntimeQa": "SUCCESS run 35427665852 artifact 10579347692; 4/4 PC/Xperia PASS; screenshots reviewed"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -292,14 +301,19 @@
       "run": 35427385671,
       "artifact": 10579472206,
       "status": "SUCCESS"
+    },
+    "m136Live": {
+      "run": 35427665852,
+      "artifact": 10579347692,
+      "status": "SUCCESS"
     }
   },
   "nextRecommendedBlock": {
-    "blockId": "M136",
-    "measures": "136",
-    "reason": "Final new pair mapped and runtimeScope expanded through M136; public QA pending."
+    "blockId": "M137-148",
+    "measures": "137-148",
+    "reason": "M136 final new pair complete; final remaining range is reuse-only."
   },
-  "nextRecommendedWork": "Inspect M136 public runtime QA; if PASS close final new pair and release M137-148 reuse-only.",
+  "nextRecommendedWork": "Verify M137-148 action coverage, expand runtimeScope to M148, public PC/Xperia QA, then final M1-148 full-song character QA.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
