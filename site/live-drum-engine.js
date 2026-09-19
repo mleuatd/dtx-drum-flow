@@ -29,7 +29,7 @@ function voiceFor(part,note={}){
 }
 export class LiveDrumEngine{
  constructor(ctx,destination){this.ctx=ctx;this.destination=destination;this.buffers=new Map();this.loading=new Map();this.rr=new Map();this.nodes=new Set();this.userGain=Object.fromEntries(Object.keys(defs).map(v=>[v,1]));this.ready=false;this._buildBus()}
- _buildBus(){const c=this.ctx;this.input=c.createGain();this.comp=c.createDynamicsCompressor();this.out=c.createGain();this.input.gain.value=1;this.comp.threshold.value=-12;this.comp.knee.value=6;this.comp.ratio.value=3;this.comp.attack.value=.003;this.comp.release.value=.14;this.out.gain.value=1;this.input.connect(this.comp);this.comp.connect(this.out);this.out.connect(this.destination)}
+ _buildBus(){const c=this.ctx;this.input=c.createGain();this.comp=c.createDynamicsCompressor();this.out=c.createGain();this.input.gain.value=1;this.comp.threshold.value=-6;this.comp.knee.value=12;this.comp.ratio.value=1.6;this.comp.attack.value=.008;this.comp.release.value=.06;this.out.gain.value=1;this.input.connect(this.comp);this.comp.connect(this.out);this.out.connect(this.destination)}
  _url(v,l,r){const d=defs[v];return d.base+d.prefix+"_vl"+l+"_rr"+r+".flac"}
  async _load(v,l,r){const key=v+":"+l+":"+r;if(this.buffers.has(key))return this.buffers.get(key);if(this.loading.has(key))return this.loading.get(key);const p=fetch(this._url(v,l,r)).then(x=>{if(!x.ok)throw Error("sample "+x.status);return x.arrayBuffer()}).then(b=>this.ctx.decodeAudioData(b)).then(b=>(this.buffers.set(key,b),b)).catch(e=>(console.warn("drum sample fallback",key,e),null));this.loading.set(key,p);const b=await p;this.loading.delete(key);return b}
  async preload(){
@@ -53,7 +53,7 @@ export class LiveDrumEngine{
   const strength=base*familyGain;
   // Kick reinforcement: retain the acoustic sample but add short sub/low-mid body so BD remains identifiable in a dense practice mix.
   if(v==="kick")this._kickBody(when,strength);
-  g.gain.setValueAtTime(strength,when);
+  g.gain.setValueAtTime(.0001,when);g.gain.linearRampToValueAtTime(strength,when+.002);
   // Preserve audible cymbal presence, while shortening only the masking tail.
   if(isCrash){const fadeStart=when+.58,fadeEnd=when+1.42;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
   else if(isRide){const fadeStart=when+.68,fadeEnd=when+1.62;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
@@ -66,7 +66,7 @@ export class LiveDrumEngine{
   const c=this.ctx,o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter();
   o.type="sine";o.frequency.setValueAtTime(115,when);o.frequency.exponentialRampToValueAtTime(46,when+.19);
   f.type="lowpass";f.frequency.value=260;f.Q.value=1.05;
-  g.gain.setValueAtTime(.0001,when);g.gain.exponentialRampToValueAtTime(Math.max(.0002,3.40*strength),when+.006);g.gain.exponentialRampToValueAtTime(.0001,when+.40);
+  g.gain.setValueAtTime(.0001,when);g.gain.linearRampToValueAtTime(Math.max(.0002,3.40*strength),when+.008);g.gain.exponentialRampToValueAtTime(.0001,when+.40);
   o.connect(f);f.connect(g);g.connect(this.input);o.start(when);o.stop(when+.41);this.nodes.add(o);o.addEventListener("ended",()=>this.nodes.delete(o),{once:true});
  }
  triggerVoice(voice,velocity=.84,when=this.ctx.currentTime+.002){const part={kick:"BD",snare:"SN",sideStick:"SN",hihatClosed:"HH",hihatOpen:"HH",hihatPedal:"LP",tomHigh:"HT",tomLow:"LT",tomFloor:"FT",ride:"RD",rideBell:"RD",crashLeft:"LC",crashRight:"RC"}[voice]||"SN";return this.trigger(part,velocity,when,{soundKey:voice})}
