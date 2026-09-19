@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-19T17:00:00+09:00",
+  "purpose": "Immutable pre-cowlick-normalization character baseline. All later edits must be recoverable against this pinned snapshot.",
+  "snapshotBranch": "snapshot/character-pre-cowlick-edit-20260919",
+  "snapshotCommit": "e80b32c8deee0d925df97dbbc882c73f3a201687",
+  "mainObservedBeforeWorkspaceWrite": "e80b32c8deee0d925df97dbbc882c73f3a201687",
+  "authoritativeInventoryPath": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
+  "authoritativeInventoryBlobSha": "369cdf1ec9a779e3562458a10fd8a87569b20848",
+  "lockedNeutral": {
+    "id": "neutral",
+    "repoPath": "character-assets/layers/character/base/neutral.png",
+    "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+  },
+  "characterFrameCount": 61,
+  "characterFrames": [
+    {
+      "id": "neutral",
+      "repoPath": "character-assets/layers/character/base/neutral.png",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "sn_l_hit",
+      "repoPath": "character-assets/layers/character/sn/hit_l.png",
+      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "sn_l_rebound",
+      "repoPath": "character-assets/layers/character/sn/rebound_l.png",
+      "sha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "sn_r_hit",
+      "repoPath": "character-assets/layers/character/sn/hit_r.png",
+      "sha256": "fa55c4624bbc4790584bf46bb740490f96d4ca0e63f3eb95b2d662a3a0118971",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "sn_r_rebound",
+      "repoPath": "character-assets/layers/character/sn/rebound_r.png",
+      "sha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "hh_r_hit",
+      "repoPath": "character-assets/layers/character/hh/hit_r.png",
+      "sha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "hh_r_rebound",
+      "repoPath": "character-assets/layers/character/hh/rebound_r.png",
+      "sha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_rf_hit",
+      "repoPath": "character-assets/layers/character/bd/hit_rf.png",
+      "sha256": "2f720394bb4da7a96b2e41d4e211a36130306d32fd06f2d641964efce07c639b",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_rf_rebound",
+      "repoPath": "character-assets/layers/character/bd/rebound_rf.png",
+      "sha256": "0340dfe82b6826dc4023645a48306b3718f11451eed8992bb3358d4d48295e0d",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_rc_hit",
+      "repoPath": "character-assets/layers/character/combo/bd_rc_hit.png",
+      "sha256": "c166cea0c1f4477cc868f76cc7d2035a0022d4b96e925d54c6eb960ac757d242",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_rc_rebound",
+      "repoPath": "character-assets/layers/character/combo/bd_rc_rebound.png",
+      "sha256": "c7ca4b42afa236ee41f74a4ce27e2b814bb769f4f7f7f73813f10f5dc8caf528",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "rd_r_hit",
+      "repoPath": "character-assets/layers/character/rd/hit_r_refresh.png",
+      "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "rd_r_rebound",
+      "repoPath": "character-assets/layers/character/rd/rebound_r_refresh.png",
+      "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_sn_rf_l_hit",
+      "repoPath": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+      "sha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_sn_rf_l_rebound",
+      "repoPath": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+      "sha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "rc_sn_r_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+      "state": "ready",
+      "actionKey": "RC+SN:R/L",
+      "phase": "hit"
+    },
+    {
+      "id": "rc_sn_r_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "lt_r_hit",
+      "repoPath": "character-assets/layers/character/lt/hit_r_refresh.png",
+      "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+      "state": "live-qa-passed",
+      "actionKey": "LT:R",
+      "phase": "hit"
+    },
+    {
+      "id": "lt_r_rebound",
+      "repoPath": "character-assets/layers/character/lt/rebound_r_refresh.png",
+      "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+      "state": "live-qa-passed",
+      "actionKey": "LT:R",
+      "phase": "rebound"
+    },
+    {
+      "id": "lt_l_hit",
+      "repoPath": "character-assets/layers/character/lt/hit_l_refresh.png",
+      "sha256": "d6d44e858728afbf9a66e6c766786232d7a2d4c09e8621ed9d1b475547f485bb",
+      "state": "live-qa-passed",
+      "actionKey": "LT:L",
+      "phase": "hit"
+    },
+    {
+      "id": "lt_l_rebound",
+      "repoPath": "character-assets/layers/character/lt/rebound_l_refresh.png",
+      "sha256": "a9281447b12f10d738a79ea72d7d314395a6cd3c6eec50ea8b667039e0ba6376",
+      "state": "live-qa-passed",
+      "actionKey": "LT:L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_sn_rf_r_hit",
+      "repoPath": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+      "sha256": "01719a7fa5cc23ac2ae3c1ffe24c5443fd1e4c8f659466475f4b1aff862802d4",
+      "state": "live-qa-passed",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_sn_rf_r_rebound",
+      "repoPath": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
+      "sha256": "b4d8efb059c16e3aa1411abb08c499a426806b0b8ecd1f291305703447044843",
+      "state": "live-qa-passed",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "rebound"
+    },
+    {
+      "id": "ft_r_hit",
+      "repoPath": "character-assets/layers/character/ft/hit_r_refresh.png",
+      "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+      "state": "live-qa-passed",
+      "actionKey": "FT:R",
+      "phase": "hit"
+    },
+    {
+      "id": "ft_r_rebound",
+      "repoPath": "character-assets/layers/character/ft/rebound_r_refresh.png",
+      "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+      "state": "live-qa-passed",
+      "actionKey": "FT:R",
+      "phase": "rebound"
+    },
+    {
+      "id": "ft_l_hit",
+      "repoPath": "character-assets/layers/character/ft/hit_l_refresh.png",
+      "sha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
+      "state": "live-qa-passed",
+      "actionKey": "FT:L",
+      "phase": "hit"
+    },
+    {
+      "id": "ft_l_rebound",
+      "repoPath": "character-assets/layers/character/ft/rebound_l_refresh.png",
+      "sha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
+      "state": "live-qa-passed",
+      "actionKey": "FT:L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_rd_rf_r_hit",
+      "repoPath": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+      "sha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_rd_rf_r_rebound",
+      "repoPath": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+      "sha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "rd_sn_r_l_hit",
+      "repoPath": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
+      "sha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "rd_sn_r_l_rebound",
+      "repoPath": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
+      "sha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_hh_rf_r_hit",
+      "repoPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+      "sha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_hh_rf_r_rebound",
+      "repoPath": "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
+      "sha256": "2210399c2f56425bf8f10f42e26044320b68a98993b7129b34f34b1082a2a461",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "hh_sn_r_l_hit",
+      "repoPath": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
+      "sha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "hh_sn_r_l_rebound",
+      "repoPath": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
+      "sha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
+      "state": "ready",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_lt_rf_r_hit",
+      "repoPath": "character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+      "sha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
+      "state": "live-qa-passed",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "bd_lt_rf_r_rebound",
+      "repoPath": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
+      "sha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11",
+      "state": "live-qa-passed",
+      "actionKey": null,
+      "phase": null
+    },
+    {
+      "id": "ht_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/ht/hit_l_refresh.png",
+      "sha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
+      "state": "ready",
+      "actionKey": "HT:L",
+      "phase": "hit"
+    },
+    {
+      "id": "ht_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/ht/rebound_l_refresh.png",
+      "sha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0",
+      "state": "ready",
+      "actionKey": "HT:L",
+      "phase": "rebound"
+    },
+    {
+      "id": "ft_sn_r_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
+      "sha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
+      "state": "ready",
+      "actionKey": "FT+SN:R/L",
+      "phase": "hit"
+    },
+    {
+      "id": "ft_sn_r_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
+      "sha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
+      "state": "ready",
+      "actionKey": "FT+SN:R/L",
+      "phase": "rebound"
+    },
+    {
+      "id": "rc_r_hit_refresh",
+      "repoPath": "character-assets/layers/character/rc/hit_r_refresh.png",
+      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
+      "state": "ready",
+      "actionKey": "RC:R",
+      "phase": "hit"
+    },
+    {
+      "id": "rc_r_rebound_refresh",
+      "repoPath": "character-assets/layers/character/rc/rebound_r_refresh.png",
+      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
+      "state": "ready",
+      "actionKey": "RC:R",
+      "phase": "rebound"
+    },
+    {
+      "id": "ht_r_hit_refresh",
+      "repoPath": "character-assets/layers/character/ht/hit_r_refresh.png",
+      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+      "state": "ready",
+      "actionKey": "HT:R",
+      "phase": "hit"
+    },
+    {
+      "id": "ht_r_rebound_refresh",
+      "repoPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
+      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "state": "ready",
+      "actionKey": "HT:R",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_ht_rf_r_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+      "sha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
+      "state": "ready",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_ht_rf_r_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
+      "sha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
+      "state": "ready",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "rebound"
+    },
+    {
+      "id": "lt_sn_r_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png",
+      "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
+      "state": "ready",
+      "actionKey": "LT+SN:R/L",
+      "phase": "hit"
+    },
+    {
+      "id": "lt_sn_r_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
+      "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
+      "state": "ready",
+      "actionKey": "LT+SN:R/L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_hh_sn_rf_r_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "sha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
+      "state": "ready",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_hh_sn_rf_r_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "sha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
+      "state": "ready",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_ht_rf_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
+      "sha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7",
+      "state": "ready",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_ht_rf_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
+      "sha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5",
+      "state": "ready",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "sha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
+      "state": "ready",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "sha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
+      "state": "ready",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_ft_sn_rf_r_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+      "sha256": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
+      "state": "ready",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_ft_sn_rf_r_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+      "sha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
+      "state": "ready",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_ft_rf_l_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ft_rf_l_hit_refresh.png",
+      "sha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
+      "state": "ready",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_ft_rf_l_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
+      "sha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
+      "state": "ready",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "rebound"
+    },
+    {
+      "id": "bd_ft_rf_r_hit_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ft_rf_r_hit_refresh.png",
+      "sha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
+      "state": "ready",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "hit"
+    },
+    {
+      "id": "bd_ft_rf_r_rebound_refresh",
+      "repoPath": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+      "sha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
+      "state": "ready",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "rebound"
+    }
+  ],
+  "restoreRule": "To recover the exact pre-edit character set, read the files from snapshotCommit/snapshotBranch. Do not reconstruct from later variants."
+}
