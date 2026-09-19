@@ -958,12 +958,48 @@
         "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ht_rf_l_rebound_attempt01.png",
         "Promotion commit aa96460192aae74b10b36b9f7bfa0c3c16daa7b7"
       ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M68 BD+RC+SN:RF/R/L formal hit; exact RC+SN formal parent plus approved local BD cue.",
+      "part": "BD+RC+SN",
+      "phase": "hit",
+      "hand": "RF/R/L",
+      "notes": [
+        "Deterministic cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_hit_attempt01.png",
+        "Build run 35421113802 artifact 10577777737."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M68 BD+RC+SN:RF/R/L formal rebound; exact RC+SN formal parent plus approved local BD cue.",
+      "part": "BD+RC+SN",
+      "phase": "rebound",
+      "hand": "RF/R/L",
+      "notes": [
+        "Deterministic cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_rebound_attempt01.png",
+        "Build run 35421113802 artifact 10577777737."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
   "qaScope": "Luna Say Maybe measures 1-16 complete live QA",
-  "authoritativeImageCount": 38,
+  "authoritativeImageCount": 56,
   "note": "Approved fixed neutral/home pose, fixed 11-lane drum, M1-8 approved variants, and M9-16 RD/BD+SN/RC+SN live-QA-passed variants. Runtime scope is inventory-driven through measure 16.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-  "updatedAt": "2026-09-19T10:48:30+09:00"
+  "updatedAt": "2026-09-19T13:36:00+09:00"
 }
