@@ -11,6 +11,10 @@ BASE_SHA="886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
 GRIP_R=(998,414); GRIP_L=(500,480)
 CONTACT={"HT":(575,360),"RC":(1215,145),"FT":(1165,535),"SN":(420,535)}
 REBOUND={"HT:R":(650,330),"HT:L":(650,390),"RC:R":(1110,225)}
+HT_R_PARENT={
+ "hit":("character-assets/layers/character/lt/hit_r_refresh.png","b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72"),
+ "rebound":("character-assets/layers/character/lt/rebound_r_refresh.png","d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf")
+}
 LIMB_LOCAL_FT_SN={
  "hit":("character-assets/candidates/m25_28/ft_sn_r_l_hit_attempt03.png","0aea2d5072ecb5745f19f1ff5e35cdecfb1a45ec6117a38823d7d31df7a3b1d6"),
  "rebound":("character-assets/candidates/m25_28/ft_sn_r_l_rebound_attempt03.png","44f7e79110c1c7a2fb9aff757d1142a0e700a712de009a25dbf9adb9e39eb9c8")
@@ -55,6 +59,32 @@ def save_outputs(action,hit,reb,extra=None):
       "rebound":{"path":str(rp.relative_to(ROOT)),"sha256":sha(rp)}}
  if extra: res.update(extra)
  (q/"build-result.json").write_text(json.dumps(res,indent=2)+"\n"); return res
+def save_ht_r_arm_local():
+ # Attempt04 changes strategy after repeated long-stick failures:
+ # start from the live-QA-passed LT:R arm/hand/stick pose, then retarget only
+ # the exposed stick endpoint to HT. This keeps a naturally relocated right arm.
+ imgs=[]; parents=[]
+ for phase,target in (("hit",CONTACT["HT"]),("rebound",REBOUND["HT:R"])):
+  rel,expected=HT_R_PARENT[phase]; p=ROOT/rel; actual=sha(p)
+  if actual!=expected: raise SystemExit(f"HT:R parent SHA mismatch {phase}: {actual}")
+  src=Image.open(p).convert("RGBA")
+  # Preserve the approved relocated arm/hand. Remove only the LT-side exposed
+  # shaft near its old target, then draw a short retargeted shaft from the
+  # approved hand neighborhood rather than from neutral.
+  out=src.copy(); alpha=out.getchannel("A"); cut=Image.new("L",out.size,0); d=ImageDraw.Draw(cut)
+  d.line([(850,430),(900,470)],fill=255,width=34); alpha=ImageChops.subtract(alpha,cut); out.putalpha(alpha)
+  # LT:R approved hand is already forward; use a forward grip anchor to avoid
+  # the cross-body neutral-stick geometry that failed attempts 01-03.
+  out=local_stick(out,(760,410),target)
+  imgs.append(out); parents.append({"path":rel,"sha256":actual})
+ key="ht_r"; OUT.mkdir(parents=True,exist_ok=True)
+ hp=OUT/"ht_r_hit_attempt04.png"; rp=OUT/"ht_r_rebound_attempt04.png"; imgs[0].save(hp); imgs[1].save(rp)
+ q=QA/key; q.mkdir(parents=True,exist_ok=True); drum=Image.open(DRUM).convert("RGBA")
+ Image.alpha_composite(drum,imgs[0]).save(q/"hit_composite_attempt04.png")
+ Image.alpha_composite(drum,imgs[1]).save(q/"rebound_composite_attempt04.png")
+ res={"actionKey":"HT:R","status":"CANDIDATE_VISUAL_QA_REQUIRED","method":"arm-local LT:R live-QA parent retarget","approvedParents":parents,
+      "hit":{"path":str(hp.relative_to(ROOT)),"sha256":sha(hp)},"rebound":{"path":str(rp.relative_to(ROOT)),"sha256":sha(rp)}}
+ (q/"build-result-attempt04.json").write_text(json.dumps(res,indent=2)+"\n"); return res
 def save_pair(action,hit_target,rebound_target,grip=GRIP_R):
  base=Image.open(BASE).convert("RGBA")
  return save_outputs(action,local_stick(base,grip,hit_target),local_stick(base,grip,rebound_target))
@@ -90,7 +120,7 @@ if sha(BASE)!=BASE_SHA: raise SystemExit("neutral SHA mismatch")
 actions=sys.argv[1:] or ["HT:R","HT:L","RC:R","FT+SN:R/L"]
 results=[]
 for a in actions:
- if a=="HT:R": results.append(save_pair(a,CONTACT["HT"],REBOUND[a],GRIP_R))
+ if a=="HT:R": results.append(save_ht_r_arm_local())
  elif a=="HT:L": results.append(save_pair(a,CONTACT["HT"],REBOUND[a],GRIP_L))
  elif a=="RC:R": results.append(save_pair(a,CONTACT["RC"],REBOUND[a],GRIP_R))
  elif a=="FT+SN:R/L": results.append(save_ft_sn())
