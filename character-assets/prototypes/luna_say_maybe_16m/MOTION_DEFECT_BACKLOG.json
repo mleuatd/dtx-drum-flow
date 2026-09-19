@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:40:00+09:00",
+  "updatedAt": "2026-09-19T21:43:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -111,7 +111,68 @@
       "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
     }
   ],
-  "defects": [],
+  "defects": [
+    {
+      "issueId": "MOTION-001",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M143",
+      "time": "~249.89-250.05s",
+      "actionKey": "SN:L",
+      "limb": "L",
+      "part": "SN",
+      "phase": "hit->rebound",
+      "symptom": "Hit and rebound use the correct runtime action/phase, but the whole character/stool registration visibly shifts between frames. Head/torso/legs/stool move far beyond the active left-arm motion, producing a teleport-like transition.",
+      "causeCategory": "excessive_neutral_delta",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m143_SN_L_hit.png",
+        "pc/m143_SN_L_rebound.png",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change runtime mapping first. Compare both formal frames to approved neutral and quantify locked-region displacement; repair only if image-level delta is the root cause. Respect active SN:L formal-image CLAIMs before any PNG edit.",
+      "relatedAsset": [
+        "character-assets/layers/character/sn/hit_l.png",
+        "character-assets/layers/character/sn/rebound_l.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
+      ],
+      "updatedAt": "2026-09-19T21:43:00+09:00"
+    },
+    {
+      "issueId": "MOTION-002",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M143",
+      "time": "~250.11-250.27s",
+      "actionKey": "BD+RC:RF/R",
+      "limb": "RF/R",
+      "part": "BD+RC",
+      "phase": "hit->rebound",
+      "symptom": "Hit and rebound are both selected correctly, but the character changes whole-body pose/camera registration between phases. The torso, head, legs, stool relationship and overall silhouette jump rather than showing a localized rebound.",
+      "causeCategory": "camera_stool_body_lock",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m143_BD_RC_RF_R_hit.png",
+        "pc/m143_BD_RC_RF_R_rebound.png",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Treat as visual asset-continuity defect unless locked-region diff proves otherwise. Preserve fixed drum/runtime mapping; compare hit/rebound against neutral and choose the smallest image-level repair or frame-hold strategy that removes whole-body teleport.",
+      "relatedAsset": [
+        "character-assets/layers/character/combo/bd_rc_hit.png",
+        "character-assets/layers/character/combo/bd_rc_rebound.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
+      ],
+      "updatedAt": "2026-09-19T21:43:00+09:00"
+    }
+  ],
   "defectSchema": {
     "required": [
       "issueId",
