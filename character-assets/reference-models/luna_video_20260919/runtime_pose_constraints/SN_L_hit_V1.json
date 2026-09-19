@@ -1,9 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "authority": "tool",
   "actionKey": "SN:L",
-  "instrument": "SN",
-  "limb": "L",
+  "actionComponents": [
+    {
+      "part": "SN",
+      "limb": "L"
+    }
+  ],
+  "instruments": [
+    "SN"
+  ],
+  "limbs": [
+    "L"
+  ],
   "targetHeadCount": 4,
   "camera": "three-quarter-back / over-shoulder; face slightly screen-left; gaze right; drum rightward",
   "stoolAnchor": [
@@ -19,26 +29,25 @@
     "width": 1448,
     "height": 1086
   },
-  "contactPoint": [
-    420,
-    535
-  ],
   "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
   "appearanceProfileId": "luna_video_appearance_v1",
   "retargetProfileId": "luna_chibi_retarget_v1",
+  "minimalMotionRule": "neutral whole-body baseline; only actionKey limbs may differ by phase",
   "forbiddenMovementZones": [
     "camera",
     "stool",
     "pelvis beyond tolerance",
+    "inactive limbs",
     "wrong limb",
     "wrong instrument",
     "fixed drum pixels in character layer"
   ],
   "tolerancesPx": {
-    "stickTip": 8,
+    "effector": 8,
     "stool": 12,
     "hip": 18,
-    "transitionJoint": 120
+    "transitionJoint": 120,
+    "reboundSeparation": 16
   },
   "phase": "hit",
   "sourceFrameSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
@@ -56,25 +65,13 @@
       650,
       312
     ],
-    "shoulder_l": [
-      692,
-      344
-    ],
     "shoulder_r": [
       875,
       370
     ],
-    "elbow_l": [
-      631.336,
-      467.134
-    ],
     "elbow_r": [
       920,
       468
-    ],
-    "wrist_l": [
-      547.799,
-      445.259
     ],
     "wrist_r": [
       975,
@@ -103,24 +100,90 @@
     "ankle_r": [
       650,
       902
+    ],
+    "shoulder_l": [
+      635,
+      342
+    ],
+    "elbow_l": [
+      594.573,
+      473.338
+    ],
+    "wrist_l": [
+      515.776,
+      449.024
     ]
   },
+  "effectors": [
+    {
+      "part": "SN",
+      "limb": "L",
+      "kind": "stick",
+      "target": [
+        420,
+        535
+      ],
+      "point": [
+        420,
+        535
+      ],
+      "solve": {
+        "shoulder": [
+          635,
+          342
+        ],
+        "elbow": [
+          594.573,
+          473.338
+        ],
+        "wrist": [
+          515.776,
+          449.024
+        ],
+        "stickTip": [
+          420,
+          535
+        ],
+        "target": [
+          420,
+          535
+        ],
+        "tipErrorPx": 0,
+        "reachable": true,
+        "selectedBend": -1,
+        "sourcePreservationScore": 20.731,
+        "anchorPolicy": "neutral_shoulder_and_lengths",
+        "lengths": {
+          "upperArm": 137.41906709041507,
+          "forearm": 82.46211251235322,
+          "stick": 128.70508925446578,
+          "wristOffset": 0
+        }
+      }
+    }
+  ],
+  "instrument": "SN",
+  "limb": "L",
+  "contactPoint": [
+    420,
+    535
+  ],
   "stickTip": [
     420,
     535
   ],
   "reach": {
     "shoulder": [
-      692,
-      344
+      635,
+      342
     ],
     "elbow": [
-      631.336,
-      467.134
+      594.573,
+      473.338
     ],
     "wrist": [
-      547.799,
-      445.259
+      515.776,
+      449.024
     ],
     "stickTip": [
       420,
@@ -133,13 +196,13 @@
     "tipErrorPx": 0,
     "reachable": true,
     "selectedBend": -1,
-    "sourcePreservationScore": 40.127,
+    "sourcePreservationScore": 20.731,
+    "anchorPolicy": "neutral_shoulder_and_lengths",
     "lengths": {
-      "upperArm": 137.26616480400406,
-      "forearm": 86.35392289873113,
-      "stick": 156.16017418023074,
+      "upperArm": 137.41906709041507,
+      "forearm": 82.46211251235322,
+      "stick": 128.70508925446578,
       "wristOffset": 0
     }
-  },
-  "minimalMotionRule": "neutral whole-body baseline; only active left arm may differ for SN:L"
+  }
 }
