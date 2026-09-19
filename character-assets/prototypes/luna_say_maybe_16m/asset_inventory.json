@@ -5,11 +5,11 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 67,
-    "noteCount": 920,
-    "groupCount": 662,
+    "measureEnd": 68,
+    "noteCount": 933,
+    "groupCount": 669,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 118.887245,
+    "lastNoteTime": 120.398036,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -36,7 +36,8 @@
       "HT:L",
       "LT+SN:R/L",
       "BD+HH+SN:RF/R/L",
-      "BD+HT:RF/L"
+      "BD+HT:RF/L",
+      "BD+RC+SN:RF/R/L"
     ]
   },
   "requiredFrames": {
@@ -731,33 +732,17 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T13:36:00+09:00",
-  "note": "Runtime scope expanded contiguously to M67 after M54 public browser QA closure. M55-67 uses only existing runtimePhaseFrameMap entries; no new character PNGs.",
+  "updatedAt": "2026-09-19T13:40:00+09:00",
+  "note": "Runtime scope expanded contiguously to M68 after formal deterministic BD+RC+SN:RF/R/L promotion; public QA pending.",
   "runtimeQaTarget": {
-    "measureStart": 55,
-    "measureEnd": 67,
+    "measureStart": 68,
+    "measureEnd": 68,
     "actions": [
-      "BD+HH:RF/R",
-      "HH:R",
-      "HH+SN:R/L",
-      "SN:L",
-      "RC+SN:R/L",
-      "BD+RC:RF/R",
-      "FT+SN:R/L",
-      "HT:R",
-      "BD:RF",
-      "HT:L",
-      "RD:R",
-      "BD+RD:RF/R",
-      "RD+SN:R/L",
-      "SN:R",
-      "LT:R",
-      "LT:L",
-      "BD+HH+SN:RF/R/L"
+      "BD+RC+SN:RF/R/L"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_55_67/PROGRESS.json",
-    "blockKey": "M55-67",
-    "purpose": "Public PC/Xperia reuse-only character runtime checkpoint after contiguous scope expansion to M67.",
-    "retriggerAt": "2026-09-19T13:19:00+09:00"
+    "progressPath": "character-assets/prototypes/luna_say_maybe_68/PROGRESS.json",
+    "blockKey": "M68",
+    "purpose": "Public PC/Xperia character runtime checkpoint for formal BD+RC+SN:RF/R/L pair.",
+    "retriggerAt": "2026-09-19T13:40:00+09:00"
   }
 }
