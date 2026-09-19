@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T22:31:00+09:00",
+  "updatedAt": "2026-09-19T21:39:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -569,6 +569,28 @@
         "character-assets/edit-workspaces/**"
       ],
       "handoffNote": "Current evidence: validate run 35442741324 fails BD+HT:RF/R NEW_IMAGE_REQUIRED->FORMAL_REGISTERED progression; Character asset validation run 35442869222 reports 12 active-runtime entries with FORMAL_QA_PASSED_RUNTIME_PENDING. Refresh main, CLAIM before write, reconcile metadata/runtime state from existing formal evidence only; no PNG changes. CLAIMED by TERM-C; metadata/runtime disposition only."
+    },
+    {
+      "taskId": "MOTION-QA-001",
+      "category": "full_song_motion_visual_qa",
+      "description": "Use existing public/local runtime screenshot QA coverage for Luna Say Maybe M1-148 to identify visually unnatural character motion/contact/transition issues, record reproducible defects, decide minimal repair strategy, and verify fixes. Preserve current main via backup branch before any behavior/image edits.",
+      "owner": "MOTION-QA-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T21:39:00+09:00",
+      "startedAt": "2026-09-19T21:39:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json",
+        "character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_REPORT.md",
+        "qa/**"
+      ],
+      "dependsOn": [],
+      "doNotTouch": [
+        "character-assets/layers/character/** until a defect-specific fix is decided and re-checked against active CLAIMs",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_* owned by other active tasks",
+        "character-assets/edit-workspaces/** owned by other terminals"
+      ],
+      "handoffNote": "Current version is considered known-good and is protected by backup branch backup/pre-motion-qa-20260919-2138 at commit a4e3854449e292264192afa63469edf0fb5048af. Start with evidence inventory and defect listing; do not bulk-regenerate assets."
     }
   ]
 }
