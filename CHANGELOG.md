@@ -1,3 +1,11 @@
+## 2026-09-20 Visual-integrity 2x4 batch 02 — BD:RF + HH:R static review
+
+- BD:RF hit/rebound: full-resolution current-main static review PASS for anatomy, linework, and fixed-drum composite. Runtime transition remains pending; no formal PNG rewrite in this review step.
+- HH:R hit/rebound: hard FAIL. Horizontal/rectangular splice cuts shoulder/hair; arm linework remains incoherent; rebound also shows stick/arm dropout.
+- One minimal alpha-safe retry was generated only as QA evidence; it still FAILed and was not promoted.
+- Visual QA run: 35472780085, artifact 10593056465. Retry run: 35472957167, artifact 10593926080.
+- Promotion remains blocked for all four until required gates are satisfied; HH:R is HOLD.
+
 ## 2026-09-20 — Visual Integrity QA Gate for character motion repair
 
 ## 2026-09-20 — Visual-integrity 2x4 batch 01

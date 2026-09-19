@@ -1,0 +1,44 @@
+name: Visual Integrity Batch Runtime QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/visual-integrity-batch-runtime-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
+      MEASURE_START: "142"
+      MEASURE_END: "143"
+      QA_ACTIONS: "HH:R,BD:RF"
+      RUNTIME_QA_BLOCK_KEY: "VISUAL-INTEGRITY-BATCH-20260920-02"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run public runtime transition QA
+        id: browser_qa
+        continue-on-error: true
+        run: node tools/runtime-character-qa.mjs
+      - name: Upload transition evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-integrity-batch-runtime-${{ github.run_id }}
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Enforce QA result
+        if: steps.browser_qa.outcome != 'success'
+        run: exit 1

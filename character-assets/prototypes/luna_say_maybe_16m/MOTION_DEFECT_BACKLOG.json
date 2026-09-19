@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T06:58:00+09:00",
+  "updatedAt": "2026-09-20T07:24:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1840,7 +1840,7 @@
     },
     {
       "issueId": "MOTION-003",
-      "status": "NEEDS_HUMAN_ANATOMY_QA",
+      "status": "NEEDS_RUNTIME_TRANSITION_QA",
       "severity": "HIGH",
       "measures": "M143,M109",
       "time": "~249.15-249.22s",
@@ -1869,10 +1869,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T07:24:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "STATIC_VISUAL_QA_PASS_RUNTIME_PENDING",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -2328,6 +2328,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T07:24:00+09:00",
+            "decision": "STATIC_VISUAL_INTEGRITY_PASS",
+            "detail": "Current method2 hit/rebound pass anatomy, linework and fixed-drum composite review. Runtime transition remains required."
           }
         ],
         "measurementTodos": [
@@ -2597,10 +2602,10 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_RUNTIME_QA",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
@@ -2613,7 +2618,10 @@
           "seat/pelvis/leg overlap",
           "right-foot bass-pedal semantics",
           "fixed-drum composite"
-        ]
+        ],
+        "reviewedAt": "2026-09-20T07:24:00+09:00",
+        "visualQaRunId": 35472780085,
+        "visualQaArtifactId": 10593056465
       }
     },
     {
@@ -5324,7 +5332,7 @@
     },
     {
       "issueId": "MOTION-007",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M142,M115",
       "time": "~248.40-248.54s",
@@ -5353,10 +5361,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T07:24:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -5858,6 +5866,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T07:24:00+09:00",
+            "decision": "HOLD_AFTER_STATIC_HARD_FAIL",
+            "detail": "Current promoted HH:R frames fail visual hard gate; one alpha-safe minimal retry also failed. Formal PNGs were not overwritten."
           }
         ],
         "measurementTodos": [
@@ -6131,14 +6144,25 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
+        "reviewedAt": "2026-09-20T07:24:00+09:00",
+        "visualQaRunId": 35472780085,
+        "visualQaArtifactId": 10593056465,
+        "retryRunId": 35472957167,
+        "retryArtifactId": 10593926080,
+        "failReasons": [
+          "horizontal rectangular splice through shoulder/hair",
+          "arm overlap/linework corruption",
+          "rebound stick/arm dropout",
+          "one alpha-safe retry still failed"
+        ]
       }
     },
     {
@@ -13809,10 +13833,11 @@
     "rule": "Any pre-existing FIXED/VERIFIED-like disposition without explicit PASS on all mandatory axes is promotion-blocked and must be re-reviewed."
   },
   "statusReview": {
-    "reviewedAt": "2026-09-20T06:13:00+09:00",
+    "reviewedAt": "2026-09-20T07:24:00+09:00",
     "policy": "Preserve existing candidates/evidence; downgrade promotion eligibility, not evidence.",
-    "bdRf": "Downgraded to NEEDS_HUMAN_ANATOMY_QA due explicit leg/pedal/seat concern.",
+    "bdRf": "Static visual-integrity PASS; runtime transition QA pending.",
     "otherPreviouslyFixed": "Downgraded to NEEDS_VISUAL_REVIEW until anatomy + linework + fixed-drum composite gates pass.",
-    "inFix": "Remain IN_FIX but promotion is blocked by visualIntegrityQa."
+    "inFix": "Remain IN_FIX but promotion is blocked by visualIntegrityQa.",
+    "hhR": "HOLD after anatomy/linework/composite hard fail and one minimal retry failure."
   }
 }

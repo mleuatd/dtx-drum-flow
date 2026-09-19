@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T07:08:00+09:00",
+  "updatedAt": "2026-09-20T07:24:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -638,8 +638,8 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -647,20 +647,36 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_r_hit_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.06023486,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T07:24:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35472780085,
+          "artifactId": 10593056465,
+          "retryWorkflowRunId": 35472957167,
+          "retryArtifactId": 10593926080,
+          "evidence": "full-resolution current-main frames plus one alpha-safe minimal retry candidate"
+        },
+        "failReasons": [
+          "rectangular/horizontal splice boundary cuts through shoulder and hair",
+          "arm/forearm overlap remains visually incoherent",
+          "hit has blocky arm/torso splice residue",
+          "one minimal alpha-safe retry did not remove the structural splice defects"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
       "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+      "reviewCompletedAt": "2026-09-20T07:24:00+09:00",
+      "holdReason": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved."
     },
     {
       "order": 6,
@@ -767,8 +783,8 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -776,20 +792,36 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_r_rebound_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.06409425,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T07:24:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35472780085,
+          "artifactId": 10593056465,
+          "retryWorkflowRunId": 35472957167,
+          "retryArtifactId": 10593926080,
+          "evidence": "full-resolution current-main frames plus one alpha-safe minimal retry candidate"
+        },
+        "failReasons": [
+          "rectangular/horizontal splice boundary cuts through shoulder and hair",
+          "arm/forearm overlap remains visually incoherent",
+          "rebound has broken/missing stick-arm pixels near raised hand",
+          "one minimal alpha-safe retry did not remove the structural splice defects"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
       "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+      "reviewCompletedAt": "2026-09-20T07:24:00+09:00",
+      "holdReason": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved."
     },
     {
       "order": 7,
@@ -864,8 +896,8 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
+      "qaState": "visual-integrity-static-pass-runtime-pending",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -873,10 +905,10 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04917814,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_RUNTIME_QA",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
@@ -888,6 +920,19 @@
           "seat overlap",
           "RF bass-pedal semantics",
           "fixed-drum composite"
+        ],
+        "reviewedAt": "2026-09-20T07:24:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35472780085,
+          "artifactId": 10593056465,
+          "evidence": "full-resolution character_only + fixed-drum composites from current main"
+        },
+        "notes": [
+          "pelvis-thigh-knee-ankle-foot-boot chain readable",
+          "no extra/missing human leg observed",
+          "sticks continuous and waist/pelvis/seat linework coherent",
+          "RF aligns with center bass-pedal region; hit is lower/forward and rebound releases upward",
+          "runtime neutral->hit->rebound->neutral still required before promotion"
         ]
       },
       "reviewClaimState": "CLAIMED",
@@ -968,8 +1013,8 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
+      "qaState": "visual-integrity-static-pass-runtime-pending",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -977,10 +1022,10 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04466439,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_RUNTIME_QA",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
@@ -992,6 +1037,19 @@
           "seat overlap",
           "RF bass-pedal semantics",
           "fixed-drum composite"
+        ],
+        "reviewedAt": "2026-09-20T07:24:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35472780085,
+          "artifactId": 10593056465,
+          "evidence": "full-resolution character_only + fixed-drum composites from current main"
+        },
+        "notes": [
+          "pelvis-thigh-knee-ankle-foot-boot chain readable",
+          "no extra/missing human leg observed",
+          "sticks continuous and waist/pelvis/seat linework coherent",
+          "RF aligns with center bass-pedal region; hit is lower/forward and rebound releases upward",
+          "runtime neutral->hit->rebound->neutral still required before promotion"
         ]
       },
       "reviewClaimState": "CLAIMED",
@@ -3545,7 +3603,16 @@
       "hh_r_hit",
       "hh_r_rebound"
     ],
-    "stage": "EVIDENCE_GENERATION",
-    "note": "Review-only claim. Formal PNG bytes unchanged. Current-main visual QA contact sheet requested before hard-gate disposition."
+    "stage": "RUNTIME_QA_PENDING",
+    "note": "Review-only claim. Formal PNG bytes unchanged. Current-main visual QA contact sheet requested before hard-gate disposition.",
+    "updatedAt": "2026-09-20T07:24:00+09:00",
+    "staticDisposition": {
+      "BD:RF": "STATIC_PASS_RUNTIME_PENDING",
+      "HH:R": "HOLD_STATIC_HARD_FAIL_AFTER_ONE_RETRY"
+    },
+    "visualQaRunId": 35472780085,
+    "visualQaArtifactId": 10593056465,
+    "retryRunId": 35472957167,
+    "retryArtifactId": 10593926080
   }
 }

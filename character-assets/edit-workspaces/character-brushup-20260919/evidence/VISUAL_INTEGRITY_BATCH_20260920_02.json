@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "batchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+  "reviewedAt": "2026-09-20T07:24:00+09:00",
+  "sourceMainHead": "fcb82985be9d41a2230e88148c3631a1e635ec69",
+  "visualQa": {
+    "runId": 35472780085,
+    "artifactId": 10593056465,
+    "headSha": "d3b28c7e2786e7d45b24f24332fbdeae913c351d"
+  },
+  "minimalRetry": {
+    "runId": 35472957167,
+    "artifactId": 10593926080,
+    "headSha": "fcb82985be9d41a2230e88148c3631a1e635ec69",
+    "method": "alpha-composite current HH:R over approved neutral to fill transparent splice holes",
+    "promoted": false,
+    "result": "FAIL"
+  },
+  "frames": [
+    {
+      "id": "bd_rf_hit",
+      "sha256": "048513241f9b3c839506347a68859cc6582abc7d506b7c644babcc89df87979f",
+      "humanAnatomy": "PASS",
+      "linework": "PASS",
+      "fixedDrumComposite": "PASS",
+      "runtimeTransition": "PENDING"
+    },
+    {
+      "id": "bd_rf_rebound",
+      "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+      "humanAnatomy": "PASS",
+      "linework": "PASS",
+      "fixedDrumComposite": "PASS",
+      "runtimeTransition": "PENDING"
+    },
+    {
+      "id": "hh_r_hit",
+      "sha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
+      "humanAnatomy": "FAIL",
+      "linework": "FAIL",
+      "fixedDrumComposite": "FAIL",
+      "runtimeTransition": "BLOCKED",
+      "failReasons": [
+        "horizontal rectangular shoulder/hair splice",
+        "arm overlap/block residue"
+      ]
+    },
+    {
+      "id": "hh_r_rebound",
+      "sha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
+      "humanAnatomy": "FAIL",
+      "linework": "FAIL",
+      "fixedDrumComposite": "FAIL",
+      "runtimeTransition": "BLOCKED",
+      "failReasons": [
+        "horizontal rectangular shoulder/hair splice",
+        "arm overlap",
+        "stick/arm pixel dropout"
+      ]
+    }
+  ],
+  "formalPngOverwritten": false
+}
