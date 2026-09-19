@@ -22,3 +22,7 @@ Updated: 2026-09-18 22:54 JST
 `ASSETQ-003 LT:R hit` for measure 17 is READY.
 
 Do not reopen M9-16 unless regression evidence appears. Do not regenerate RC+SN. Do not start M17 image generation unless the new task explicitly requests it. Follow `NEXT_ASSET_QUEUE.json` and pipeline-first tooling.
+
+## Mandatory pipeline-first execution
+
+All new implementation work must enter through `tools/production-pipeline-dispatcher.mjs` and follow `PIPELINE_USAGE_POLICY.json`. Manual one-off execution is permitted only when explicitly recorded as a `MANUAL_OVERRIDE`; do not duplicate work already represented by the pipeline or current PROGRESS/transaction state.
