@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 07
+- Reviewed FT:R and FT:L from current-main Batch Prep evidence (run 35475676709, artifact 10594034740).
+- FT:R hit/rebound failed because the right-hand active stick is duplicated into two divergent shafts.
+- FT:L hit/rebound failed because the left stick is broken/discontinuous with a detached diagonal fragment.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY. Formal PNGs unchanged; runtime QA not entered.
+
 ## 2026-09-20 — Visual Integrity Batch 06
 - Reviewed LT:L and BD+SN:RF/R from current-main Batch Prep evidence (run 35475549511, artifact 10594285311).
 - LT:L hit/rebound failed static hard gates due duplicated/discontinuous left-hand stick geometry and a detached stick-like segment.
