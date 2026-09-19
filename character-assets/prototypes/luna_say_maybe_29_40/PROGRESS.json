@@ -4,7 +4,7 @@
     "measureStart": 29,
     "measureEnd": 40
   },
-  "status": "PREPARED_AWAITING_UPSTREAM_APPROVALS",
+  "status": "FORMAL_COMPLETE_RUNTIME_M40_QA_RUNNING",
   "sourceOfTruth": "GitHub main",
   "chunkPolicy": "This block starts at M29 because cumulative new action pairs exceeded the 4-action threshold there; no additional new action pairs were identified through M40.",
   "newActions": [
@@ -21,24 +21,35 @@
   },
   "production": {
     "htL": {
-      "status": "CANDIDATE_GENERATED_VISUAL_QA_PENDING",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
       "hitPath": "character-assets/review-candidates/m25_40/ht_l_hit_attempt01.png",
       "reboundPath": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt01.png",
-      "hitSha256": "1e02c423368becbb0b5510b9b3bec627a076948f402695c148576174bd3d2469",
-      "reboundSha256": "3e984e3332b63682e629d45e28422cf48518ddc4418deff3335c84424f06c062"
+      "hitSha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
+      "reboundSha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0",
+      "formalHit": "character-assets/layers/character/ht/hit_l_refresh.png",
+      "formalRebound": "character-assets/layers/character/ht/rebound_l_refresh.png",
+      "promotionCommit": "3fe06d9cac84755ff5fb8d9e5f9db0bff91b4a9c"
     },
     "bdHtRfR": {
-      "status": "SOURCE_LOCK_WAITING_FOR_HT_R_APPROVAL",
+      "status": "FORMAL_PROMOTED_RUNTIME_M40_QA_RUNNING",
       "plannedHit": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
       "plannedRebound": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
-      "method": "Derive from approved HT:R pair and add only the already-approved local BD kick cue; preserve all other pixels."
+      "method": "Derive from approved HT:R pair and add only the already-approved local BD kick cue; preserve all other pixels.",
+      "formalHit": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+      "formalRebound": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
+      "hitSha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
+      "reboundSha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
+      "promotionCommit": "3c8ec86298fc7ab465b92fd384998f18d67906c6"
     }
   },
   "runtimePlan": {
     "scope": "M29-40 after assets pass",
     "rapidRepeatPolicy": "Preserve rapid transitions; return to neutral only when the following gap permits.",
-    "mappingOnlyReuse": "BD+RC:RF/R reuses existing BD+RC:* mapping."
+    "mappingOnlyReuse": "BD+RC:RF/R reuses existing BD+RC:* mapping.",
+    "configuredScope": "M1-40 in asset_inventory",
+    "publicCheckpoint": "M1-28 COMPLETE_LIVE_QA; M29-40 final public runtime QA pending",
+    "qaState": "RUNNING/PENDING FINAL RESULT"
   },
-  "requiredNext": "Perform HT:L visual QA and promotion. Once upstream HT:R is formally approved, build BD+HT:RF/R from that exact approved pair plus approved BD kick cue, then run static/composite QA, formalize, update runtime mapping, and run M29-40 block/runtime QA.",
-  "updatedAt": "2026-09-19T08:42:00+09:00"
+  "requiredNext": "Do not generate more M29-40 character PNGs. Re-read latest main for M40 validate/deploy/runtime QA result. If PASS, inspect PC/Xperia screenshots and frame transitions, mark HT:L and BD+HT live-QA passed, close M29-40. If FAIL, repair only the failing mapped asset/transition. After M29-40 closes, choose the next contiguous post-M40 block from the latest queue/plan, coordinating with other terminals.",
+  "updatedAt": "2026-09-19T10:59:00+09:00"
 }
