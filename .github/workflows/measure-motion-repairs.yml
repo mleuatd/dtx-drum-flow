@@ -23,7 +23,7 @@ jobs:
         run: python tools/character_layers/measure_motion_repairs.py
       - name: Commit measurements
         run: |
-          if git diff --quiet -- character-assets/prototypes/luna_say_maybe_16m/REPAIR_MEASUREMENTS_AUTO.json; then
+          if [ -z "$(git status --porcelain -- character-assets/prototypes/luna_say_maybe_16m/REPAIR_MEASUREMENTS_AUTO.json)" ]; then
             echo "No measurement changes"
             exit 0
           fi
