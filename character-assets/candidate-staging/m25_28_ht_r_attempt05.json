@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "DROPBOX_SAVED_IMPORT_PENDING",
+  "actionKey": "HT:R",
+  "block": "M25-28",
+  "measure": 25,
+  "createdAt": "2026-09-19T10:21:00+09:00",
+  "strategy": "USE_APPROVED_LIMB_PATCH",
+  "retryDecisionPath": "character-assets/prototypes/luna_say_maybe_25_32/RETRY_DECISION_HT_R.json",
+  "method": "approved HH:R limb-patch strategy: preserve approved HH:R right arm/hand pose; erase only exposed HH stick shaft and redraw only stick toward calibrated HT contact/rebound. No full-body redraw, no LT:R forward-anchor reuse.",
+  "approvedParents": {
+    "hit": {
+      "path": "character-assets/layers/character/hh/hit_r.png",
+      "sha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd"
+    },
+    "rebound": {
+      "path": "character-assets/layers/character/hh/rebound_r.png",
+      "sha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6"
+    }
+  },
+  "contactAuthority": {
+    "path": "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+    "ht": {
+      "x": 575,
+      "y": 360
+    }
+  },
+  "localDiff": {
+    "hit": {
+      "fraction": 0.002616169632591598,
+      "bbox": [
+        355,
+        338,
+        584,
+        445
+      ]
+    },
+    "rebound": {
+      "fraction": 0.0021055268968183712,
+      "bbox": [
+        422,
+        182,
+        579,
+        312
+      ]
+    }
+  },
+  "manualOverride": {
+    "toolSkipped": "tools/build-m25-40-candidates.py",
+    "reason": "Current builder HT:R path implements the hard-stopped LT:R forward-anchor strategy. retry-controller requires a different approved-limb-patch strategy; HH:R approved patch is not implemented in the builder yet.",
+    "evidence": "attempt04 fixed-drum FAIL + RETRY_DECISION_HT_R.json hardStopSameStrategy=true",
+    "followUp": "If attempt05 passes formal/runtime QA, encode this approved-HH:R patch derivation as the reusable HT:R builder path before repeating elsewhere."
+  },
+  "assets": [
+    {
+      "phase": "hit",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_hit_attempt05.png",
+      "githubCandidatePath": "character-assets/candidates/m25_28/ht_r_hit_attempt05.png",
+      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+      "width": 1448,
+      "height": 1086,
+      "downloadUrl": "https://uc0d4bc2b814d9eb351286514a43.dl.dropboxusercontent.com/cd/0/get/DIb3yFadl7UJLCWG109KgoWEQ2FGuv9rEchsJfTYjBA-hNbpl2ZhyQgj3YGztyiEZMWOb0CmcklgzO06MrLE2qPZCuPRyiPrdD8-AWm0aQnjnr10ZNHD6pFi7Sdg9cR7QXrxoHtzF4-Mf1hTTWPyswFJ1smlvQxKlPCgSXYyrew3DQ/file?c_luid=e8a8ea13"
+    },
+    {
+      "phase": "rebound",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_rebound_attempt05.png",
+      "githubCandidatePath": "character-assets/candidates/m25_28/ht_r_rebound_attempt05.png",
+      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "width": 1448,
+      "height": 1086,
+      "downloadUrl": "https://uc86e86898b5642a683338cb2765.dl.dropboxusercontent.com/cd/0/get/DIbRaLaXHWWng-OqcpDOePVHxTMMiWpX-BARPQD5iFr_CMkbVd2N_BQMnxLU6-4JdU0C-ABODfvV_5m3GndJKO3zqaXjBOtHQgM77GDq8kubxgmZcNjAnBjYTaqVzAXx6Stb3ze0uysmC4y-uEG4ESp19VUyvkfEP93u28c4cD06Gw/file?c_luid=e8a8ea13"
+    }
+  ],
+  "qa": {
+    "binary": "PASS_LOCAL",
+    "approvedPatchStrategy": "PASS",
+    "fixedDrumComposite": "PASS_PRE_RUNTIME",
+    "hitContact": "PASS_HT_575_360",
+    "duplicateStick": "PASS_NONE",
+    "identityCameraCore": "PASS_BY_APPROVED_PARENT",
+    "transition": "PASS_PRE_RUNTIME",
+    "finalRuntimeScreenshotQa": "PENDING"
+  },
+  "runtimeMapped": false,
+  "manifestRegistered": false
+}
