@@ -4,7 +4,7 @@
     "measureStart": 25,
     "measureEnd": 32
   },
-  "status": "M25_28_PUBLIC_RUNTIME_QA_FAILED",
+  "status": "M25_28_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -155,7 +155,7 @@
     "done": false
   },
   "requiredNext": "M25-28 assets are all formal. Sync runtime scope to M1-28 (329 notes / 256 groups / lastTime 51.549115), run validation and public PC/Xperia runtime QA for M25-28, persist screenshots/evidence, then checkpoint M25-28. Do not start BD+HT until that checkpoint passes.",
-  "updatedAt": "2026-09-19T01:32:13.301969+00:00",
+  "updatedAt": "2026-09-19T01:34:37.959665+00:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -167,11 +167,7 @@
     "verification": "For this <4 MiB file, Dropbox content_hash equals SHA256(binary SHA256(file)); SHA256(bytes.fromhex(GitHub inventory SHA256)) exactly matches Dropbox content_hash.",
     "verifiedAt": "2026-09-19T07:30:00+09:00"
   },
-  "blocker": {
-    "type": "RUNTIME_QA",
-    "workflowRunId": "35412876077",
-    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
-  },
+  "blocker": null,
   "infrastructurePreparation": {
     "status": "READY",
     "pipeline": "character-assets/CHARACTER_ASSET_PIPELINE.md",
@@ -410,12 +406,12 @@
   "formalPngTotal": 10,
   "runtimeQaEvidence": {
     "M25-28": {
-      "status": "FAIL",
+      "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35412876077",
-      "testedCommitSha": "6d507c36b7c00f32342f167e92c680005035b191",
-      "artifact": "public-runtime-qa-35412876077",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35412876077",
+      "runId": "35413032881",
+      "testedCommitSha": "88917f7ec0612c31655ada22f1ba7e62dd7b262d",
+      "artifact": "public-runtime-qa-35413032881",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35413032881",
       "measureStart": 25,
       "measureEnd": 28,
       "actions": [
