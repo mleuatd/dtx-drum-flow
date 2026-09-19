@@ -3,6 +3,23 @@
 Status: **CURRENT IMPLEMENTATION SPEC / HYBRID AI + DETERMINISTIC**  
 Updated: 2026-09-19T19:35:00+09:00
 
+
+## North-star goal
+
+All video-derived appearance modeling, chibi retargeting, AI-assisted rendering, cowlick normalization, and line-style normalization exist only to support the final runtime deliverable:
+
+**character frame assets for DTX Drum Flow that animate naturally behind the notes and appear to perform the drum chart correctly in the web runtime.**
+
+The appearance model is not the final product by itself.
+
+The final product is the runtime-ready character frame set mapped to actionKey / phase and validated against the fixed drum layer.
+
+日本語要約：
+
+**動画モデルそのものは成果物ではない。最終成果物は、DTX Drum Flow のWeb runtimeでLuna Say Maybeのノーツに合わせて自然にドラム演奏する4頭身人物コマ画像群である。**
+
+Every infrastructure decision must be judged by whether it improves runtime frame quality, reproducibility, contact correctness, and scalable frame production.
+
 ## Purpose
 Build a reusable numeric appearance/geometry reference from the user's 360-degree character video, then retarget that reference to the existing DTX Drum Flow four-head chibi character system without replacing the established drum-action logic.
 
