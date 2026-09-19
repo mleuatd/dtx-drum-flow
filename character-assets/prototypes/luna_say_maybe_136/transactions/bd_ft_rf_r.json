@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+FT:RF/R transaction for Luna M136",
-  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+  "status": "DONE",
   "actionKey": "BD+FT:RF/R",
   "scope": {
     "measureStart": 136,
@@ -88,17 +88,27 @@
     "compositeVisual": "PASS",
     "locality": "PASS_BD_CUE_ONLY",
     "transition": "PASS_VISUAL",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING"
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS_REVIEWED",
+    "publicRuntime": {
+      "status": "PASS",
+      "runId": 35427665852,
+      "artifactId": 10579347692,
+      "passed": 4,
+      "failed": 0,
+      "runtimeScope": "1-136",
+      "testedCommitSha": "37aa65f6ac877f76be6a4efd8c6a02ec4aefff88"
+    }
   },
-  "updatedAt": "2026-09-19T06:49:21.823354+00:00",
+  "updatedAt": "2026-09-19T16:04:00+09:00",
   "blocker": null,
   "build": {
     "workflowRun": 35427546381,
     "artifactId": 10579317531
   },
   "notes": [
-    "Attempt01 exact bytes saved to Dropbox and promoted after deterministic locality/fixed-drum QA."
+    "Attempt01 exact bytes saved to Dropbox and promoted after deterministic locality/fixed-drum QA.",
+    "Public runtime QA run 35427665852 artifact 10579347692: 4/4 PASS on PC/Xperia hit/rebound, no browser/runtime errors; screenshots reviewed."
   ]
 }
