@@ -11,6 +11,7 @@ on:
       - "tools/character_layers/prepare_visual_integrity_batch.py"
       - ".github/workflows/visual-integrity-batch-prep.yml"
       - ".github/back-visual-actions.txt"
+      - ".github/front-visual-actions.txt"
   workflow_dispatch:
     inputs:
       actions:
@@ -36,10 +37,13 @@ jobs:
           ACTIONS: ${{ inputs.actions }}
         shell: bash
         run: |
-          # Back-queue override is only authoritative on a commit that actually
-          # changes the override file. Ordinary ledger CLAIM commits must use
-          # activeVisualIntegrityBatch from BRUSHUP_LEDGER instead.
-          if [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ] && git show --pretty="" --name-only HEAD | grep -Fxq ".github/back-visual-actions.txt"; then
+          # Explicit queue override is authoritative only when that queue file
+          # is the file changed by this commit. This keeps FRONT and BACK sessions
+          # independent; ordinary ledger CLAIM commits fall through to the ledger.
+          CHANGED="$(git show --pretty="" --name-only HEAD)"
+          if [ -z "$ACTIONS" ] && [ -f .github/front-visual-actions.txt ] && printf '%s\n' "$CHANGED" | grep -Fxq ".github/front-visual-actions.txt"; then
+            ACTIONS="$(tr -d '\r\n' < .github/front-visual-actions.txt)"
+          elif [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ] && printf '%s\n' "$CHANGED" | grep -Fxq ".github/back-visual-actions.txt"; then
             ACTIONS="$(tr -d '\r\n' < .github/back-visual-actions.txt)"
           fi
           if [ -n "$ACTIONS" ]; then
