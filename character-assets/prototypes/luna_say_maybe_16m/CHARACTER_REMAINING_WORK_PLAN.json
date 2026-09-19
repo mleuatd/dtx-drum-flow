@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:29:00+09:00",
+  "updatedAt": "2026-09-19T15:34:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -10,8 +10,8 @@
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
     "formalAndMappedThroughMeasure": 104,
-    "lastLiveQaConfirmedThroughMeasure": 68,
-    "note": "M69-104 reuse-only mappings verified and runtimeScope expanded through M104; public PC/Xperia QA pending."
+    "lastLiveQaConfirmedThroughMeasure": 104,
+    "note": "M69-104 public PC/Xperia QA passed: run 35426755584 / artifact 10579246619, 86/86 PASS. Next task M105-106 has two new BD+FT pairs."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -165,19 +165,22 @@
       "order": 9,
       "measures": "69-104",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "RUNNING",
+      "status": "DONE",
       "newImagePairs": [],
-      "note": "550 notes / 389 groups / 20 actionKeys; all present in runtimePhaseFrameMap. No new images. Public QA pending.",
+      "note": "550 notes / 389 groups / 20 existing actionKeys; public QA 86/86 PASS, screenshots reviewed.",
       "startedAt": "2026-09-19T15:29:00+09:00",
       "runtimeScopeTarget": "1-104",
-      "actionCoverageVerified": true
+      "actionCoverageVerified": true,
+      "completedAt": "2026-09-19T15:34:00+09:00",
+      "qaRun": 35426755584,
+      "qaArtifact": 10579246619
     },
     {
       "id": "CHAR-010",
       "order": 10,
       "measures": "105-106",
       "type": "NEW_PAIRS",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "READY",
       "actions": [
         {
           "actionKey": "BD+FT+SN:RF/R/L",
@@ -195,7 +198,8 @@
           ],
           "preferredDerivation": "formal FT:L + approved local BD kick cue"
         }
-      ]
+      ],
+      "note": "Released after M69-104 DONE. Use formal FT+SN:R/L and FT:L parents plus approved deterministic BD cue; no fresh redraw."
     },
     {
       "id": "CHAR-011",
