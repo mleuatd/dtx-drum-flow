@@ -5,11 +5,11 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 104,
-    "noteCount": 1483,
-    "groupCount": 1058,
+    "measureEnd": 106,
+    "noteCount": 1499,
+    "groupCount": 1066,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 181.045518,
+    "lastNoteTime": 186.225374,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -37,7 +37,9 @@
       "LT+SN:R/L",
       "BD+HH+SN:RF/R/L",
       "BD+HT:RF/L",
-      "BD+RC+SN:RF/R/L"
+      "BD+RC+SN:RF/R/L",
+      "BD+FT+SN:RF/R/L",
+      "BD+FT:RF/L"
     ]
   },
   "requiredFrames": {
@@ -375,6 +377,34 @@
       "sha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "rebound"
+    },
+    "bd_ft_sn_rf_r_l_hit_refresh": {
+      "path": "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+      "state": "ready",
+      "sha256": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "hit"
+    },
+    "bd_ft_sn_rf_r_l_rebound_refresh": {
+      "path": "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "rebound"
+    },
+    "bd_ft_rf_l_hit_refresh": {
+      "path": "layers/character/combo/bd_ft_rf_l_hit_refresh.png",
+      "state": "ready",
+      "sha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "hit"
+    },
+    "bd_ft_rf_l_rebound_refresh": {
+      "path": "layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -407,7 +437,9 @@
     "LT+SN:R/L": "lt_sn_r_l_hit_refresh",
     "BD+HH+SN:RF/R/L": "bd_hh_sn_rf_r_l_hit_refresh",
     "BD+HT:RF/L": "bd_ht_rf_l_hit_refresh",
-    "BD+RC+SN:RF/R/L": "bd_rc_sn_rf_r_l_hit_refresh"
+    "BD+RC+SN:RF/R/L": "bd_rc_sn_rf_r_l_hit_refresh",
+    "BD+FT+SN:RF/R/L": "bd_ft_sn_rf_r_l_hit_refresh",
+    "BD+FT:RF/L": "bd_ft_rf_l_hit_refresh"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -559,6 +591,16 @@
       "prep": "neutral",
       "hit": "bd_rc_sn_rf_r_l_hit_refresh",
       "rebound": "bd_rc_sn_rf_r_l_rebound_refresh"
+    },
+    "BD+FT+SN:RF/R/L": {
+      "prep": "neutral",
+      "hit": "bd_ft_sn_rf_r_l_hit_refresh",
+      "rebound": "bd_ft_sn_rf_r_l_rebound_refresh"
+    },
+    "BD+FT:RF/L": {
+      "prep": "neutral",
+      "hit": "bd_ft_rf_l_hit_refresh",
+      "rebound": "bd_ft_rf_l_rebound_refresh"
     }
   },
   "motionTiming": {
@@ -732,36 +774,18 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T15:28:00+09:00",
-  "note": "Runtime scope expanded contiguously through M104 after M68 public QA closure. M69-104 uses only existing runtimePhaseFrameMap entries; no new character PNGs.",
+  "updatedAt": "2026-09-19T15:41:00+09:00",
+  "note": "Runtime scope expanded through M106 after formal M105-106 deterministic pair promotion.",
   "runtimeQaTarget": {
-    "measureStart": 69,
-    "measureEnd": 104,
+    "measureStart": 105,
+    "measureEnd": 106,
     "actions": [
-      "LT+SN:R/L",
-      "LT:L",
-      "LT:R",
-      "BD:RF",
-      "RC+SN:R/L",
-      "SN:L",
-      "SN:R",
-      "BD+RC:RF/R",
-      "BD+RC+SN:RF/R/L",
-      "HT:R",
-      "HT:L",
-      "BD+HT:RF/R",
-      "BD+LT:RF/R",
-      "HH+SN:R/L",
-      "HH:R",
-      "BD+HH:RF/R",
-      "BD+SN:RF/L",
-      "FT+SN:R/L",
-      "BD+SN:RF/R",
-      "FT:L"
+      "BD+FT+SN:RF/R/L",
+      "BD+FT:RF/L"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_69_104/PROGRESS.json",
-    "blockKey": "M69-104",
-    "purpose": "Public PC/Xperia reuse-only character runtime checkpoint after contiguous scope expansion through M104.",
-    "retriggerAt": "2026-09-19T15:28:00+09:00"
+    "progressPath": "character-assets/prototypes/luna_say_maybe_105_106/PROGRESS.json",
+    "blockKey": "M105-106",
+    "purpose": "Public PC/Xperia character runtime checkpoint for formal M105-106 BD+FT pairs.",
+    "retriggerAt": "2026-09-19T15:41:00+09:00"
   }
 }
