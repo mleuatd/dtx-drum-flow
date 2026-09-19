@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:42:00+09:00",
+  "updatedAt": "2026-09-19T15:46:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -10,8 +10,8 @@
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
     "formalAndMappedThroughMeasure": 106,
-    "lastLiveQaConfirmedThroughMeasure": 104,
-    "note": "M105-106 two deterministic BD+FT pairs formalized, Dropbox-saved and mapped; runtimeScope 1-106; public QA pending."
+    "lastLiveQaConfirmedThroughMeasure": 106,
+    "note": "M105-106 two new pairs complete; public QA run 35427241936 artifact 10579925003, 12/12 PASS. Next M107-135 reuse-only."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -180,7 +180,7 @@
       "order": 10,
       "measures": "105-106",
       "type": "NEW_PAIRS",
-      "status": "RUNNING",
+      "status": "DONE",
       "actions": [
         {
           "actionKey": "BD+FT+SN:RF/R/L",
@@ -199,16 +199,20 @@
           "preferredDerivation": "formal FT:L + approved local BD kick cue"
         }
       ],
-      "note": "Both required pairs formalized and mapped with deterministic BD cue; public PC/Xperia QA pending.",
-      "startedAt": "2026-09-19T15:42:00+09:00"
+      "note": "Both deterministic pairs Dropbox-saved/formal/mapped; public QA 12/12 PASS.",
+      "startedAt": "2026-09-19T15:42:00+09:00",
+      "completedAt": "2026-09-19T15:46:00+09:00",
+      "qaRun": 35427241936,
+      "qaArtifact": 10579925003
     },
     {
       "id": "CHAR-011",
       "order": 11,
       "measures": "107-135",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "BLOCKED_BY_PREVIOUS",
-      "newImagePairs": []
+      "status": "READY",
+      "newImagePairs": [],
+      "note": "Released after M105-106 DONE. Reuse-only; generate no images."
     },
     {
       "id": "CHAR-012",
@@ -238,11 +242,9 @@
     }
   ],
   "summary": {
-    "remainingNewActionPairs": 3,
-    "remainingNewPngFiles": 6,
+    "remainingNewActionPairs": 1,
+    "remainingNewPngFiles": 2,
     "newActionOrder": [
-      "M105 BD+FT+SN:RF/R/L",
-      "M105 BD+FT:RF/L",
       "M136 BD+FT:RF/R"
     ]
   }
