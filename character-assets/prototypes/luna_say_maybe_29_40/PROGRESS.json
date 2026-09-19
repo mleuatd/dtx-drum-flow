@@ -4,7 +4,7 @@
     "measureStart": 29,
     "measureEnd": 40
   },
-  "status": "M29_40_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "chunkPolicy": "This block starts at M29 because cumulative new action pairs exceeded the 4-action threshold there; no additional new action pairs were identified through M40.",
   "newActions": [
@@ -21,7 +21,7 @@
   },
   "production": {
     "htL": {
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "hitPath": "character-assets/review-candidates/m25_40/ht_l_hit_attempt01.png",
       "reboundPath": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt01.png",
       "hitSha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
@@ -31,7 +31,7 @@
       "promotionCommit": "3fe06d9cac84755ff5fb8d9e5f9db0bff91b4a9c"
     },
     "bdHtRfR": {
-      "status": "FORMAL_PROMOTED_RUNTIME_M40_QA_RUNNING",
+      "status": "LIVE_QA_PASSED",
       "plannedHit": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
       "plannedRebound": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
       "method": "Derive from approved HT:R pair and add only the already-approved local BD kick cue; preserve all other pixels.",
@@ -46,12 +46,12 @@
     "scope": "M29-40 after assets pass",
     "rapidRepeatPolicy": "Preserve rapid transitions; return to neutral only when the following gap permits.",
     "mappingOnlyReuse": "BD+RC:RF/R reuses existing BD+RC:* mapping.",
-    "configuredScope": "M1-40 in asset_inventory",
-    "publicCheckpoint": "M1-28 COMPLETE_LIVE_QA; M29-40 final public runtime QA pending",
-    "qaState": "RUNNING/PENDING FINAL RESULT"
+    "configuredScope": "M1-45 observed in public runtime QA",
+    "publicCheckpoint": "M29-40 COMPLETE_LIVE_QA",
+    "qaState": "PASS"
   },
-  "requiredNext": "Do not generate more M29-40 character PNGs. Re-read latest main for M40 validate/deploy/runtime QA result. If PASS, inspect PC/Xperia screenshots and frame transitions, mark HT:L and BD+HT live-QA passed, close M29-40. If FAIL, repair only the failing mapped asset/transition. After M29-40 closes, choose the next contiguous post-M40 block from the latest queue/plan, coordinating with other terminals.",
-  "updatedAt": "2026-09-19T03:12:13.104058+00:00",
+  "requiredNext": "M29-40 complete. Continue strictly in measure order with M41-45 reuse-only verification/runtime QA; do not regenerate M29-40 character PNGs.",
+  "updatedAt": "2026-09-19T12:16:00+09:00",
   "runtimeQaEvidence": {
     "M29-40": {
       "status": "PASS",
@@ -59,9 +59,12 @@
       "runId": "35417779611",
       "testedCommitSha": "7bb37c8a6550ff5ca21c95e25aba5a9b61bdd7aa",
       "artifact": "public-runtime-qa-35417779611",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35417779611",
+      "artifactId": 10576243090,
       "measureStart": 29,
       "measureEnd": 40,
+      "passed": 16,
+      "failed": 0,
+      "screenshotReview": "PASS_PC_XPERIA_MANUAL_VISUAL",
       "actions": [
         "HT:L",
         "BD+HT:RF/R",
@@ -70,5 +73,12 @@
       ]
     }
   },
-  "blocker": null
+  "blocker": null,
+  "definitionOfDone": {
+    "staticQA": "PASS",
+    "runtimeMapping": "PASS",
+    "publicRuntimeBrowserQA": "PASS",
+    "screenshotReview": "PASS_PC_XPERIA",
+    "done": true
+  }
 }
