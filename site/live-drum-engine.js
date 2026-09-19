@@ -42,17 +42,17 @@ export class LiveDrumEngine{
  _play(v,buffer,velocity,when){
   const c=this.ctx,s=c.createBufferSource(),g=c.createGain(),pan=c.createStereoPanner?c.createStereoPanner():null;
   const isCrash=v==="crashLeft"||v==="crashRight",isRide=v==="ride"||v==="rideBell";
-  const base=.55+.45*clamp(velocity,0,1);
+  // Narrow dynamics for practice: retain accents, but prevent one family from dominating.\n  const nv=clamp(velocity,0,1);\n  const base=.70+.25*nv;
   // Near-equal perceived practice mix. Keep only small instrument-family differences.
-  const familyGain=isCrash?.88:isRide?.90:(v==="hihatClosed"||v==="hihatOpen"||v==="hihatPedal")?.92:(v==="kick")?.98:1;
+  const familyGain=isCrash?.78:isRide?.84:(v==="hihatClosed"||v==="hihatOpen"||v==="hihatPedal")?.88:(v==="kick")?.97:(v==="snare")?.96:(v==="tomHigh"||v==="tomLow"||v==="tomFloor")?.98:1;
   const strength=base*familyGain;
   g.gain.setValueAtTime(strength,when);
   // Preserve audible cymbal presence, while shortening only the masking tail.
-  if(isCrash){const fadeStart=when+.62,fadeEnd=when+1.55;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
-  else if(isRide){const fadeStart=when+.72,fadeEnd=when+1.75;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
+  if(isCrash){const fadeStart=when+.58,fadeEnd=when+1.42;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
+  else if(isRide){const fadeStart=when+.68,fadeEnd=when+1.62;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
   s.buffer=buffer;s.playbackRate.value=1+(Math.random()-.5)*.006;
   if(pan){const p=v==="crashLeft"?-.28:v==="crashRight"?.28:v==="tomHigh"?-.12:v==="tomFloor"?.12:0;pan.pan.value=p;s.connect(g);g.connect(pan);pan.connect(this.input)}else{s.connect(g);g.connect(this.input)}
-  s.start(when);if(isCrash)s.stop(Math.min(when+1.6,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.8,when+buffer.duration));
+  s.start(when);if(isCrash)s.stop(Math.min(when+1.47,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.67,when+buffer.duration));
   this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s
 }
  stop(){for(const n of this.nodes){try{n.stop()}catch{}}this.nodes.clear()}
