@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T22:09:00+09:00",
+  "updatedAt": "2026-09-19T22:12:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -504,6 +504,35 @@
         "character-assets/edit-workspaces/** owned by other terminals"
       ],
       "handoffNote": "Hybrid only. Do not automate away AI judgment. Repetitive byte/metadata/math checks -> tools; visual/semantic/pose/style decisions and candidate creation -> AI. GitHub remains coordination/state authority, not an AI engine."
+    },
+    {
+      "taskId": "RTP-AI-EDIT-001",
+      "category": "explicit_target_ai_edit_pipeline",
+      "description": "Build and exercise the minimal candidate-only SN:L hit image-edit pipeline using exact GitHub neutral bytes as mandatory first image, an explicit local alpha mask, refreshed AI_RENDER_SN_L_hit_V1 numeric constraints, and automated candidate QA. Never overwrite formal PNGs.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T22:12:00+09:00",
+      "startedAt": "2026-09-19T22:12:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "tools/image_edit/**",
+        ".github/workflows/render-sn-l-ai-candidate.yml",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_candidates/sn_l_hit_ai/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/sn_l_hit_ai/**",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
+        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json"
+      ],
+      "dependsOn": [
+        "RTP-SNL-003",
+        "RTP-HYBRID-001"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/sn/hit_l.png",
+        "character-assets/layers/character/sn/rebound_l.png",
+        "character-assets/layers/character/base/neutral.png",
+        "character-assets/edit-workspaces/character-brushup-20260919/**"
+      ],
+      "handoffNote": "Candidate-only. Exact formal neutral is mandatory first image. Mask is guidance, so enforce outside-mask pixel QA after render. Do not promote automatically. If API secret/auth is unavailable, record the technical blocker and keep the runnable workflow/tool committed."
     }
   ]
 }
