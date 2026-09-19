@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T18:38:00+09:00",
+  "updatedAt": "2026-09-19T21:08:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -198,6 +198,19 @@
       "githubPath": null,
       "dropboxPath": null,
       "rejectionReason": "Generated a documentation/comparison sheet rather than a character-only edit. Fails claimed-target scope, transparent-layer requirement, registration, and fixed-drum layer separation.",
+      "date": "2026-09-19",
+      "replacementAsset": null,
+      "status": "NEVER_USE"
+    },
+    {
+      "asset": "RTP-BRIDGE-001 image-gen candidate",
+      "type": "IMAGE",
+      "actionKey": "SN:L",
+      "phase": "hit",
+      "sha256": "e34a1f461aa887b933c111136230c4fdc5e70980b5951b9caace9fe51fb0a141",
+      "githubPath": null,
+      "dropboxPath": null,
+      "rejectionReason": "Exact formal sources were materialized locally, but image_gen did not bind them as edit parents and returned edit_op=null / unrelated full-character redraw at 1230x1278. Fails direct-edit, canvas, identity/camera/body/stool continuity gates. NEVER_USE.",
       "date": "2026-09-19",
       "replacementAsset": null,
       "status": "NEVER_USE"
