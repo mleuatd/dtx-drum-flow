@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T20:58:00+09:00",
+  "terminalId": "TERM-B",
+  "taskId": "OTHER-007",
+  "authority": "Formal GitHub SHA256 from SN_L_SOURCE_CI_QA_V1.json. Dropbox content_hash is Dropbox block hash, not SHA256, so it is not treated as byte equality proof.",
+  "files": [
+    {
+      "role": "neutral",
+      "githubSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+      "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAANQ",
+      "path": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+      "size": 971237,
+      "previewAvailable": true,
+      "downloadLinkAvailable": true,
+      "byteVerification": "MATCH previously established by SHA-bearing canonical filename/known formal size; Dropbox content_hash recorded separately"
+    },
+    {
+      "role": "sn_l_hit",
+      "githubSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+      "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAACA",
+      "path": "/ChatGPT/dtx-drum-flow/sn_hit_l.png",
+      "size": 1029289,
+      "previewAvailable": true,
+      "downloadLinkAvailable": true,
+      "byteVerification": "NOT_PROVEN_BY_DROPBOX_CONTENT_HASH; canonical bridge resolved, direct download available for SHA256 verification by a byte-capable consumer"
+    },
+    {
+      "role": "sn_l_rebound",
+      "githubSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+      "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAACQ",
+      "path": "/ChatGPT/dtx-drum-flow/sn_rebound_l.png",
+      "size": 991147,
+      "previewAvailable": true,
+      "downloadLinkAvailable": true,
+      "byteVerification": "NOT_PROVEN_BY_DROPBOX_CONTENT_HASH; canonical bridge resolved, direct download available for SHA256 verification by a byte-capable consumer"
+    },
+    {
+      "role": "fixed_drum",
+      "githubSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+      "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAANg",
+      "path": "/ChatGPT/dtx-drum-flow/drum_base_dadc9764acebc0fc.png",
+      "size": 2041652,
+      "previewAvailable": true,
+      "downloadLinkAvailable": true,
+      "byteVerification": "Canonical SHA-prefixed bridge selected over stale drum_base.png; direct download available for SHA256 verification by a byte-capable consumer"
+    }
+  ],
+  "disposition": "All four canonical Dropbox bridge objects are resolved and downloadable. No image was edited or promoted."
+}
