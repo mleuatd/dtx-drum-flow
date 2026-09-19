@@ -1,15 +1,15 @@
 {
   "version": 12,
-  "scope": "Luna Say Maybe measures 1-46 runtime mapped; public runtime QA pending",
-  "imageSetState": "m1-46-runtime-qa-pending",
+  "scope": "Luna Say Maybe measures 1-47 runtime mapped; public runtime QA pending",
+  "imageSetState": "m1-47-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 46,
-    "noteCount": 591,
-    "groupCount": 442,
+    "measureEnd": 47,
+    "noteCount": 606,
+    "groupCount": 451,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 82.736165,
+    "lastNoteTime": 84.354871,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -34,7 +34,8 @@
       "FT+SN:R/L",
       "BD+HT:RF/R",
       "HT:L",
-      "LT+SN:R/L"
+      "LT+SN:R/L",
+      "BD+HH+SN:RF/R/L"
     ]
   },
   "requiredFrames": {
@@ -514,7 +515,8 @@
     },
     "BD+HH+SN:RF/R/L": {
       "hit": "bd_hh_sn_rf_r_l_hit_refresh",
-      "rebound": "bd_hh_sn_rf_r_l_rebound_refresh"
+      "rebound": "bd_hh_sn_rf_r_l_rebound_refresh",
+      "prep": "neutral"
     }
   },
   "motionTiming": {
@@ -688,16 +690,16 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T12:34:00+09:00",
-  "note": "Runtime scope expanded deterministically through M46 after formal LT+SN:R/L promotion; unresolved keys=0.",
+  "updatedAt": "2026-09-19T12:44:00+09:00",
+  "note": "Runtime scope expanded deterministically through M47 after formal BD+HH+SN promotion; unresolved keys=0.",
   "runtimeQaTarget": {
-    "measureStart": 46,
-    "measureEnd": 46,
+    "measureStart": 47,
+    "measureEnd": 47,
     "actions": [
-      "LT+SN:R/L"
+      "BD+HH+SN:RF/R/L"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_46/PROGRESS.json",
-    "blockKey": "M46",
-    "purpose": "Public PC/Xperia checkpoint for newly promoted M46 LT+SN:R/L pair."
+    "progressPath": "character-assets/prototypes/luna_say_maybe_47/PROGRESS.json",
+    "blockKey": "M47",
+    "purpose": "Public PC/Xperia checkpoint for newly promoted M47 BD+HH+SN triple combo."
   }
 }
