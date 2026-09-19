@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19T19:45:00+09:00",
+  "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
+  "completed": [
+    "Reference video metadata/SHA registered",
+    "12-view sampling convention registered",
+    "Video-to-chibi reference-model spec registered",
+    "Landmark/silhouette/appearance/debug tooling registered",
+    "Key views 0/2/5/7/10 manually observed into MULTIVIEW_LANDMARKS_V1",
+    "Appearance ratios aggregated into APPEARANCE_MODEL_V1",
+    "4-head CHIBI_RETARGET_PROFILE_V1 registered",
+    "Reference-model QA recorded without modifying formal runtime assets",
+    "SN:L runtime prototype plan connected to neutral/hit/rebound formal SHAs, snare contact (420,535), and transition timing"
+  ],
+  "currentStage": "RUNTIME_PROTOTYPE_RENDER_PREP",
+  "next": [
+    "Derive numeric runtime pose anchors from approved neutral and SN:L hit/rebound formal frames",
+    "Apply video-derived appearance constraints to those runtime poses",
+    "Render constrained neutral/SN:L hit/rebound prototype candidates",
+    "Run cowlick deterministic normalization",
+    "Run line-style deterministic normalization",
+    "Composite with locked drum and run contact/registration QA",
+    "If prototype passes, run actual web runtime PC/Xperia QA before any broader propagation"
+  ],
+  "formalRuntimeAssetsModified": false,
+  "doNotBulkPromoteYet": true,
+  "keyFiles": [
+    "MULTIVIEW_LANDMARKS_V1.json",
+    "APPEARANCE_MODEL_V1.json",
+    "CHIBI_RETARGET_PROFILE_V1.json",
+    "QA_REFERENCE_MODEL_V1.json",
+    "RUNTIME_PROTOTYPE_SN_L_V1.json"
+  ]
+}
