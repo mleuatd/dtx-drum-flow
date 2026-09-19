@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T17:12:00+09:00",
+  "updatedAt": "2026-09-19T17:57:00+09:00",
   "status": "WORKSPACE_CREATED_STYLE_RULE_LOCKED_BASELINE_PRESERVED",
   "snapshotBranch": "snapshot/character-pre-cowlick-edit-20260919",
   "snapshotCommit": "e80b32c8deee0d925df97dbbc882c73f3a201687",
@@ -11,8 +11,14 @@
     "Captured 61 current formal/runtime character frame paths and SHA256 values",
     "Created baseline-to-each-variant review queue",
     "Recorded current cowlick reference constraints without falsely claiming five directions are already locked",
-    "Locked top-level repeated-fine-stroke style baseline: visually thick/dark lines are built from multiple same-width pencil/pen passes, not a thicker digital brush."
+    "Locked top-level repeated-fine-stroke style baseline: visually thick/dark lines are built from multiple same-width pencil/pen passes, not a thicker digital brush.",
+    "Bound workspace to IMAGE_EDIT_MASTER_RULE.md as highest-level common edit policy."
   ],
   "nextStage": "Finalize corrected baseline neutral crown/cowlick using STYLE_BASELINE_SPEC repeated-fine-stroke construction before touching formal/runtime assets.",
-  "runtimeAssetsModifiedByWorkspaceCreation": false
+  "runtimeAssetsModifiedByWorkspaceCreation": false,
+  "masterImageEditRule": {
+    "path": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
+    "precedence": "HIGHEST_LEVEL_COMMON_IMAGE_EDIT_RULE",
+    "mustReadBeforeAnyImageEdit": true
+  }
 }
