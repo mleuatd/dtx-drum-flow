@@ -7,10 +7,19 @@ def point(d,*keys):
         if isinstance(d,dict) and k in d:return d[k]
     return None
 def d(a,b): return math.hypot(a[0]-b[0],a[1]-b[1])
-def validate_contact(pkg,tol=8.0):
+def validate_contact(pkg,tol=8.0,rebound_min=16.0):
+    phase=pkg.get("phase")
     target=pkg.get("contactPoint"); tip=pkg.get("stickTip") or point(pkg.get("joints",{}),"stick_tip")
-    if not target or not tip:return {"pass":False,"reason":"missing_contact_or_tip"}
-    err=d(target,tip); return {"pass":err<=tol,"errorPx":round(err,3),"tolerancePx":tol}
+    if not target:
+        return {"pass":True,"mode":"not_applicable","reason":"no_authoritative_contact_point"}
+    if not tip:
+        return {"pass":False,"mode":phase or "unknown","reason":"missing_tip"}
+    err=d(target,tip)
+    if phase=="hit":
+        return {"pass":err<=tol,"mode":"hit_exact_contact","errorPx":round(err,3),"tolerancePx":tol}
+    if phase=="rebound":
+        return {"pass":err>=rebound_min,"mode":"rebound_separation","separationPx":round(err,3),"minimumSeparationPx":rebound_min}
+    return {"pass":True,"mode":"neutral_no_contact_required","distanceFromContactPx":round(err,3)}
 def validate_registration(pkg,neutral,stool_tol=12,hip_tol=18):
     s=pkg.get("stoolAnchor"); ns=neutral.get("stoolAnchor"); h=pkg.get("hipAnchor"); nh=neutral.get("hipAnchor")
     se=d(s,ns) if s and ns else 1e9; he=d(h,nh) if h and nh else 1e9
@@ -18,8 +27,21 @@ def validate_registration(pkg,neutral,stool_tol=12,hip_tol=18):
 def validate_transition(a,b,max_joint=120,max_stool=12,max_hip=18):
     ja=a.get("joints",{}); jb=b.get("joints",{}); shared=set(ja)&set(jb)
     shifts={k:round(d(ja[k],jb[k]),3) for k in shared if isinstance(ja[k],list) and len(ja[k])==2}
-    ms=max(shifts.values(),default=0); s=d(a["stoolAnchor"],b["stoolAnchor"]); h=d(a["hipAnchor"],b["hipAnchor"])
-    return {"pass":ms<=max_joint and s<=max_stool and h<=max_hip,"maxJointShiftPx":round(ms,3),"stoolShiftPx":round(s,3),"hipShiftPx":round(h,3),"jointShifts":shifts}
+    ms=max(shifts.values(),default=0)
+    limb=b.get("limb") or a.get("limb")
+    suffix="_l" if limb=="L" else "_r" if limb=="R" else None
+    active={k:v for k,v in shifts.items() if suffix and k.endswith(suffix) and k.startswith(("shoulder","elbow","wrist"))}
+    inactive={k:v for k,v in shifts.items() if k.startswith(("shoulder","elbow","wrist")) and k not in active}
+    core={k:v for k,v in shifts.items() if k.startswith(("head_","chin","neck","hip_"))}
+    s=d(a["stoolAnchor"],b["stoolAnchor"]); h=d(a["hipAnchor"],b["hipAnchor"])
+    return {
+        "pass":ms<=max_joint and s<=max_stool and h<=max_hip,
+        "maxJointShiftPx":round(ms,3),
+        "activeLimbMaxJointShiftPx":round(max(active.values(),default=0),3),
+        "inactiveLimbMaxJointShiftPx":round(max(inactive.values(),default=0),3),
+        "coreMaxJointShiftPx":round(max(core.values(),default=0),3),
+        "stoolShiftPx":round(s,3),"hipShiftPx":round(h,3),"jointShifts":shifts
+    }
 if __name__=="__main__":
     p=argparse.ArgumentParser(); p.add_argument("--package",required=True); p.add_argument("--neutral"); p.add_argument("--previous"); a=p.parse_args()
     pkg=load_json(a.package); out={"contact":validate_contact(pkg)}
