@@ -8,6 +8,7 @@ on:
       - "character-assets/**"
       - ".github/workflows/deploy-site.yml"
       - ".github/workflows/runtime-character-qa.yml"
+      - ".github/workflows/visual-integrity-batch-runtime-qa.yml"
       - "tools/runtime-character-qa.mjs"
       - "docs/PUBLIC_RUNTIME_QA.md"
   workflow_dispatch:
