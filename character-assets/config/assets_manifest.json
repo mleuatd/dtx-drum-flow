@@ -884,6 +884,38 @@
       ],
       "liveQaRun": 35418698275,
       "liveQaArtifact": 10576564303
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M47 BD+HH+SN:RF/R/L formal hit; exact HH+SN formal parent plus approved local BD cue.",
+      "part": "BD+HH+SN",
+      "phase": "hit",
+      "hand": "RF/R/L",
+      "notes": [
+        "Dropbox exact bytes saved; deterministic cue composition; public runtime QA pending."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M47 BD+HH+SN:RF/R/L formal rebound; exact HH+SN formal parent plus approved local BD cue.",
+      "part": "BD+HH+SN",
+      "phase": "rebound",
+      "hand": "RF/R/L",
+      "notes": [
+        "Dropbox exact bytes saved; deterministic cue composition; public runtime QA pending."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
