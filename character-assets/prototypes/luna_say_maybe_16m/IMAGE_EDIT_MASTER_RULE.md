@@ -338,3 +338,25 @@ Coordination policy:
 - the current terminal must keep progressing on its own unblocked work after delegation,
 - delegation itself is never a reason to stop the current terminal.
 
+## 17. Verified Dropbox raw-materialization bridge
+
+When an exact formal PNG is needed as an image-edit parent and GitHub/Dropbox connector APIs cannot directly expose native image pixels to the renderer, use the verified bridge below before asking the user to upload anything:
+
+`GitHub formal path+SHA256 -> Library /Dropbox mount -> files.list exact external file_id -> files.materialize(raw_file) -> local SHA256 verification -> re-expose the verified file into the current conversation -> renderer parent`
+
+Mandatory rules:
+- GitHub formal path + SHA256 remains the sole byte-identity authority.
+- Dropbox filename, path, preview, file size, and Dropbox `content_hash` are not sufficient proof by themselves.
+- Plain aliases may be stale even when their names look canonical.
+- For SN:L, the plain Dropbox aliases `sn_hit_l.png` and `sn_rebound_l.png` were proven stale for formal-source use; the exact matching formal bytes were found at `sn_l_hit_contactfix_20260917.png` and `sn_l_rebound_contactfix_20260917.png`.
+- If an obvious Dropbox alias fails SHA256, use GitHub blob size/path metadata plus the Dropbox inventory to locate alternate candidates, then materialize and SHA256-verify them.
+- `files.read(mode=image_file)` on Dropbox-mounted PNGs may return `Native image pixels were unavailable`; do not loop on this method. Switch to raw materialization.
+- Dropbox `fetch` content extraction for PNG is not a renderer bridge; do not loop on unsupported binary extraction.
+- After raw materialization, preserve the exact bytes. Do not recompress or transform before SHA verification.
+- Conversation attachment/file IDs are session-local transport references only and must never replace formal SHA256 as durable authority.
+
+Current reusable index:
+`character-assets/reference-models/luna_video_20260919/runtime_pose_qa/SOURCE_BRIDGE_INDEX_V1.json`
+
+This bridge was verified on 2026-09-19 for formal neutral, SN:L hit, SN:L rebound, and fixed drum without user file handling.
+
