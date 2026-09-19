@@ -45,12 +45,12 @@ for p,r in [(tip,26),(hit_tip,18)]:
 
 # Restrict lower mask to upper-body/action area so legs/stool cannot be imported.
 ma=np.asarray(mask).copy()
-ma[720:,:]=0
+ma[570:,:]=0\n# Absolute static guards: never import source head/right side/pelvis-seat pixels.\nma[0:325,500:930]=0\nma[560:810,560:980]=0
 mask=Image.fromarray(ma.astype(np.uint8),"L")
 
 candidate=neutral.copy()
 candidate.paste(source,(0,0),mask)
-candidate_path=OUTDIR/"sn_l_rebound_candidate_v1.png"
+candidate_path=OUTDIR/"sn_l_rebound_candidate_v2.png"
 candidate.save(candidate_path)
 
 # Exact raster diagnostics.
@@ -81,22 +81,22 @@ rebound_sep=dist(c["stickTip"],c["contactPoint"])
 
 # Composite debug: drum under candidate, preserving source canvas.
 comp=Image.alpha_composite(drum,candidate)
-comp.save(OUTDIR/"sn_l_rebound_candidate_v1_fixed_drum.png")
+comp.save(OUTDIR/"sn_l_rebound_candidate_v2_fixed_drum.png")
 
 report={
- "schemaVersion":1,
+ "schemaVersion":2,
  "issueId":"MOTION-001",
  "actionKey":"SN:L",
  "phase":"rebound",
  "candidate":str(candidate_path.relative_to(ROOT)),
  "method":"approved neutral base + source rebound pixels only inside semantic left-arm/stick corridor",
  "source":{"neutralSha256":hashlib.sha256(neutral_path.read_bytes()).hexdigest(),"reboundSha256":hashlib.sha256(source_path.read_bytes()).hexdigest(),"constraint":str(constraint_path.relative_to(ROOT))},
- "semanticMask":{"shoulder":shoulder,"elbow":elbow,"wrist":wrist,"stickTip":tip,"maskPixelCount":int(mm.sum()),"lowerCutoffY":720},
+ "semanticMask":{"shoulder":shoulder,"elbow":elbow,"wrist":wrist,"stickTip":tip,"maskPixelCount":int(mm.sum()),"lowerCutoffY":570},
  "constraintChecks":{"reboundSeparationPx":round(rebound_sep,3),"minimumSeparationPx":c["tolerancesPx"]["reboundSeparation"],"reboundPass":rebound_sep>=c["tolerancesPx"]["reboundSeparation"],"stoolAnchor":c["stoolAnchor"],"hipAnchor":c["hipAnchor"]},
  "rasterChecks":{"changedPixelsVsNeutral":changed,"changedRatioVsNeutral":round(changed/(W*H),8),"changedBBoxVsNeutral":bbox,"outsideMaskChangedPixels":outside_changed,"inactiveLowerBodyChangedPixels":inactive_lower_changed,"guardChangedPixels":guard_changed,"sourcePixelsRejectedOutsideMask":int(np.count_nonzero(diff_sq & ~mm))},
- "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
+ "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"headGuardChangedPixels":guard_changed["head"]==0,"rightArmGuardChangedPixels":guard_changed["right_arm"]==0,"pelvisSeatGuardChangedPixels":guard_changed["pelvis_seat"]==0,"legsStoolGuardChangedPixels":guard_changed["legs_stool"]==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
 }
 report["pass"]=all(report["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v1_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+(OUTDIR/"sn_l_rebound_candidate_v2_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(report,ensure_ascii=False))
 if not report["pass"]: raise SystemExit(2)
