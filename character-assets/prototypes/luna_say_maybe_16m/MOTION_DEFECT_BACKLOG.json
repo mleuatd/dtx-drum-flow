@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:43:00+09:00",
+  "schemaVersion": 2,
+  "updatedAt": "2026-09-19T21:50:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12,7 +12,13 @@
     "oneDefectAtATime": true,
     "preserveKnownGoodByDefault": true,
     "rollbackOnRegression": true,
-    "noBulkRegeneration": true
+    "noBulkRegeneration": true,
+    "repairRecipeRequiredBeforeFix": true,
+    "noVagueRepairInstructions": true,
+    "repairSpecMustSeparateLocksFromEditableRegions": true,
+    "measureBeforeImageEdit": true,
+    "candidateBeforeFormal": true,
+    "reqaRequiredBeforePromotion": true
   },
   "sweepCoverage": [
     {
@@ -140,7 +146,94 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-19T21:43:00+09:00"
+      "updatedAt": "2026-09-19T21:43:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/sn/hit_l.png",
+          "rebound": "character-assets/layers/character/sn/rebound_l.png",
+          "shaPolicy": "Resolve and record exact SHA256 for all three from latest main before any edit.",
+          "motionAuthority": "SN:L means left arm/stick is the active upper-limb motion; fixed snare contact and current limb sidecar remain authoritative."
+        },
+        "preserveExactly": [
+          "camera/view direction and canvas registration",
+          "head position and head silhouette except pixels unavoidably occluded by allowed left-arm edit",
+          "torso position/scale",
+          "right shoulder/right arm/right hand/right stick",
+          "pelvis/seat registration",
+          "both legs and both feet",
+          "drum stool position, scale, angle and legs",
+          "all pixels outside the explicitly computed left-arm/left-hand/left-stick ROI whenever technically possible"
+        ],
+        "allowedChanges": [
+          "left upper arm",
+          "left elbow region",
+          "left forearm",
+          "left hand/grip",
+          "left drumstick",
+          "small local clothing/hair occlusion pixels only where the moved left arm physically crosses them"
+        ],
+        "targetState": {
+          "hit": "Left stick reaches the authoritative SN contact while the locked body/stool registration remains aligned to neutral.",
+          "rebound": "Left stick/forearm moves naturally away from SN hit contact; shoulder/body/stool stay registered to neutral. Rebound must not be a different whole-body drawing.",
+          "transition": "neutral -> hit -> rebound -> neutral must read as one seated character moving mainly the left arm, with no whole-body teleport.",
+          "numericRequirements": [
+            "Use current runtime_pose SN:L constraints as numeric authority when available.",
+            "Before editing, measure baseline-to-hit and hit-to-rebound displacement for locked regions and record thresholds from actual neutral geometry.",
+            "Contact error at hit must satisfy current INSTRUMENT_CONTACT_POINTS/runtime_pose tolerance."
+          ]
+        },
+        "editProcedure": [
+          "Fetch latest main and verify no active conflicting CLAIM on SN:L formal paths.",
+          "Resolve exact SHA256 for neutral/hit/rebound and record them in this repairSpec.",
+          "Compute/inspect locked-region differences against neutral; confirm whether the visible jump is image-level rather than runtime mapping.",
+          "Define a left-arm/hand/stick ROI and an explicit forbidden mask for head/torso/right arm/legs/stool.",
+          "Create a candidate only; do not overwrite formal PNGs.",
+          "Bring hit/rebound static regions back to neutral registration while preserving only the action-required left-arm/stick geometry.",
+          "Composite candidate with fixed drum and verify SN contact for hit plus natural separation for rebound.",
+          "Run hit/rebound/neutral screenshot QA at the same M143 event.",
+          "Promote only if all validation checks pass and no regression is visible."
+        ],
+        "validation": {
+          "hardPass": [
+            "correct actionKey/phase remains selected",
+            "no camera shift",
+            "no stool translation/scale change",
+            "inactive right arm/legs/body do not jump",
+            "SN hit contact is visibly and numerically valid",
+            "rebound visibly moves away from hit rather than holding contact",
+            "neutral recovery has no teleport",
+            "no new character disappearance/background/drum contamination"
+          ],
+          "pixelRule": "Target outside-ROI changed pixels = 0 where the chosen edit method can enforce it; any non-zero value must be explicitly explained and reviewed.",
+          "evidenceRequired": [
+            "before screenshots",
+            "candidate screenshots",
+            "fixed-drum composite",
+            "locked-region diff/metrics",
+            "post-fix runtime screenshot"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "moving neutral to match hit/rebound",
+          "changing runtime mapping when mapping is already proven correct",
+          "changing right arm/legs/stool to make the new frame look aesthetically balanced",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If target defect is not improved or any new regression appears, restore/reconcile against the protected baseline before further attempts."
+        },
+        "decisionLog": [
+          "Runtime QA already reports correct actionKey/phase/frame and no runtime errors, so mapping change is not the first repair.",
+          "Visual evidence shows motion outside the active left arm, so repair must first quantify and eliminate locked-region displacement."
+        ]
+      }
     },
     {
       "issueId": "MOTION-002",
@@ -170,7 +263,90 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-19T21:43:00+09:00"
+      "updatedAt": "2026-09-19T21:43:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "mixed",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "Resolve exact active formal asset for BD+RC:RF/R hit from latest ACTION_KEY_ASSET_MAP/asset_inventory.",
+          "rebound": "Resolve exact active formal asset for BD+RC:RF/R rebound from latest ACTION_KEY_ASSET_MAP/asset_inventory.",
+          "shaPolicy": "Record exact main SHA256 for neutral/hit/rebound before repair.",
+          "motionAuthority": "BD+RC:RF/R requires right-hand RC plus right-foot BD in one simultaneous action; current fixed drum/contact points and limb mapping are authoritative."
+        },
+        "preserveExactly": [
+          "camera/view family",
+          "head and torso global registration unless quantified body compensation is explicitly required by reach constraints",
+          "left arm/left hand/left stick unless action map proves it is active",
+          "stool position/scale/angle",
+          "non-active leg/foot",
+          "overall seated base and canvas registration"
+        ],
+        "allowedChanges": [
+          "right arm/right hand/right stick needed for RC hit/rebound",
+          "right foot/ankle motion needed for BD",
+          "only minimal torso/shoulder compensation if numeric reachability proves it necessary",
+          "local clothing/hair occlusion pixels caused by those allowed limb changes"
+        ],
+        "targetState": {
+          "hit": "RC stick and BD foot action read simultaneously while the seated base stays registered.",
+          "rebound": "Right arm/stick rebounds naturally from RC and foot returns/rebounds consistently without changing character/camera/stool identity.",
+          "transition": "The viewer should perceive one seated character performing BD+RC, not a swap to a different drawing.",
+          "numericRequirements": [
+            "Resolve RC and BD contact targets from current INSTRUMENT_CONTACT_POINTS.",
+            "Measure locked-region displacement across neutral/hit/rebound before choosing image edit versus temporary frame-hold.",
+            "Any torso compensation must be the minimum required by reachability and documented numerically."
+          ]
+        },
+        "editProcedure": [
+          "Refresh main and resolve exact active BD+RC:RF/R hit/rebound asset paths and SHAs.",
+          "Confirm runtime mapping is already correct at M143.",
+          "Measure neutral/hit/rebound registration for head, torso, stool and inactive limbs.",
+          "If the rebound asset alone causes the jump and hit is acceptable, evaluate a frame-hold or locally repaired rebound before touching hit.",
+          "If image repair is required, derive candidate from the better-registered formal frame/neutral and edit only active right arm/stick/right foot regions.",
+          "Composite with fixed drum and validate simultaneous RC+BD contact/semantics.",
+          "Re-run the exact M143 hit/rebound runtime QA.",
+          "Keep only the minimal fix that removes the jump without weakening contact."
+        ],
+        "validation": {
+          "hardPass": [
+            "RC and BD remain simultaneous",
+            "correct right hand/right foot remain active",
+            "stool remains fixed",
+            "head/torso do not teleport",
+            "left-side inactive anatomy remains stable",
+            "hit contact remains valid",
+            "rebound moves naturally away",
+            "no regression in neighboring events"
+          ],
+          "pixelRule": "Locked-region delta must be minimized to neutral baseline and justified; target zero outside active-limb/necessary-occlusion ROI when feasible.",
+          "evidenceRequired": [
+            "before screenshots",
+            "registration metrics",
+            "candidate screenshots",
+            "fixed-drum composite",
+            "post-fix M143 screenshots",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character regeneration",
+          "changing left-arm pose without action evidence",
+          "moving stool/camera to fit the limb",
+          "changing mapping solely to hide an image continuity defect",
+          "automatic formal promotion",
+          "reusing a visually worse rebound only because metadata says it is approved"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "Any contact regression, whole-body regression, or neighboring-event regression requires reverting the candidate/fix."
+        },
+        "decisionLog": [
+          "Runtime selection is reported correct, so current evidence points first to asset continuity/registration.",
+          "Because this is a simultaneous hand+foot action, repair must preserve both action semantics and cannot be reduced to arm-only editing without checking BD foot motion."
+        ]
+      }
     }
   ],
   "defectSchema": {
@@ -190,7 +366,8 @@
       "fixDecision",
       "relatedAsset",
       "relatedCode",
-      "updatedAt"
+      "updatedAt",
+      "repairSpec"
     ],
     "statusValues": [
       "OPEN",
@@ -228,5 +405,55 @@
       "qa_gap",
       "unknown"
     ]
+  },
+  "repairSpecSchema": {
+    "purpose": "Every defect must carry a reproducible, machine-readable repair recipe before any fix begins. The recipe must tell a later AI/terminal exactly what source to use, what is locked, what may move, the target geometry/behavior, validation thresholds, rollback point, and forbidden strategies.",
+    "stateValues": [
+      "NEEDS_MEASUREMENT",
+      "DRAFT",
+      "READY_FOR_FIX",
+      "IN_FIX",
+      "FIXED_PENDING_QA",
+      "VERIFIED",
+      "BLOCKED"
+    ],
+    "required": [
+      "state",
+      "repairType",
+      "sourceAuthority",
+      "preserveExactly",
+      "allowedChanges",
+      "targetState",
+      "editProcedure",
+      "validation",
+      "forbidden",
+      "rollback",
+      "decisionLog"
+    ],
+    "repairTypeValues": [
+      "metadata_only",
+      "runtime_mapping",
+      "transition_timing",
+      "contact_point",
+      "limb_sidecar",
+      "frame_hold",
+      "local_image_edit",
+      "new_candidate_from_neutral",
+      "deterministic_postprocess",
+      "runtime_code",
+      "combo_logic",
+      "mixed"
+    ],
+    "fieldRules": {
+      "sourceAuthority": "Must identify exact formal path(s) and SHA256 before image work; GitHub main is authority.",
+      "preserveExactly": "Enumerate body/camera/stool/static regions that must not move or change. Never say only 'keep same'.",
+      "allowedChanges": "Enumerate only regions/values allowed to change for this defect.",
+      "targetState": "Describe the desired visible result and, where available, numeric contact/joint/timing targets.",
+      "editProcedure": "Ordered steps, one operation per step, including candidate path and comparison baseline.",
+      "validation": "Explicit PASS/FAIL checks with measurable thresholds where possible.",
+      "forbidden": "Known bad strategies and unrelated changes prohibited for this issue.",
+      "rollback": "Exact backup branch/commit and issue-local restore rule.",
+      "decisionLog": "Why this repair was chosen over alternatives; update whenever evidence changes."
+    }
   }
 }
