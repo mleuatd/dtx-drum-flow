@@ -1,0 +1,28 @@
+name: Expand Luna runtime scope
+on:
+  workflow_dispatch:
+    inputs:
+      measure_end:
+        description: "Inclusive Luna measure end"
+        required: true
+        default: "40"
+permissions:
+  contents: write
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python tools/expand-luna-runtime-scope.py "${{ inputs.measure_end }}"
+      - name: Commit runtime scope
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+          git diff --cached --quiet && exit 0
+          git commit -m "runtime: expand Luna scope through M${{ inputs.measure_end }}"
+          git pull --rebase origin main
+          git push origin HEAD:main
