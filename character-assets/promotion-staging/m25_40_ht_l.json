@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "HT:L",
+  "status": "APPROVED_FOR_PROMOTION",
+  "visualQA": {
+    "status": "PASS",
+    "checkedAt": "2026-09-19T09:05:00+09:00",
+    "evidence": [
+      "character-assets/generated-qa/m25_40/ht_l/hit_composite.png",
+      "character-assets/generated-qa/m25_40/ht_l/rebound_composite.png"
+    ]
+  },
+  "dropbox": [
+    "/ChatGPT/dtx-drum-flow/ht_l_hit_attempt03.png",
+    "/ChatGPT/dtx-drum-flow/ht_l_rebound_attempt02.png"
+  ],
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "ht_l_hit_refresh",
+      "candidatePath": "character-assets/review-candidates/m25_40/ht_l_hit_attempt03.png",
+      "formalPath": "character-assets/layers/character/ht/hit_l_refresh.png",
+      "sha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "ht_l_rebound_refresh",
+      "candidatePath": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt02.png",
+      "formalPath": "character-assets/layers/character/ht/rebound_l_refresh.png",
+      "sha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0"
+    }
+  ]
+}
