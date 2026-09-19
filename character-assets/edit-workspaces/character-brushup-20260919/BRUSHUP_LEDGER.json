@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-19T18:45:00+09:00",
+  "updatedAt": "2026-09-20T05:24:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -319,10 +319,12 @@
       ],
       "usageCount": 314,
       "qaState": "ready",
-      "brushupStatus": "PENDING",
-      "terminalId": null,
-      "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "brushupStatus": "CLAIMED_REPAIR",
+      "terminalId": "CHAT-MOTION-REPAIR",
+      "claimState": "CLAIMED",
+      "claimedAt": "2026-09-20T05:24:00+09:00",
+      "repairIssueId": "MOTION-001",
+      "repairMode": "deterministic_neutral_locked_active_limb_composite"
     },
     {
       "order": 3,
