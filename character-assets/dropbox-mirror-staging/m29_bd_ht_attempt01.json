@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "PENDING",
+  "purpose": "Mirror exact M29 BD+HT:RF/R attempt01 candidates after PRE_RUNTIME fixed-drum QA PASS",
+  "assets": [
+    {
+      "label": "BD+HT:RF/R hit attempt01",
+      "repoPath": "character-assets/review-candidates/m29_40/bd_ht_rf_r_hit_attempt01.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ht_rf_r_hit_attempt01.png",
+      "sha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578"
+    },
+    {
+      "label": "BD+HT:RF/R rebound attempt01",
+      "repoPath": "character-assets/review-candidates/m29_40/bd_ht_rf_r_rebound_attempt01.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ht_rf_r_rebound_attempt01.png",
+      "sha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372"
+    }
+  ],
+  "qa": {
+    "binary": "PASS",
+    "exactReproductionSha": "PASS",
+    "fixedDrumComposite": "PASS_PRE_RUNTIME",
+    "locality": "PASS",
+    "hitChangedPixelRatio": 0.00034593978612781456,
+    "reboundChangedPixelRatio": 0.00007185881586846148,
+    "note": "Formal HT:R pair preserved; only approved deterministic BD kick cue differs."
+  }
+}
