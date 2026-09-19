@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 69,
+    "measureEnd": 104
+  },
+  "status": "RUNTIME_QA_PENDING",
+  "sourceOfTruth": "GitHub main",
+  "blockType": "REUSE_ONLY",
+  "analysis": {
+    "noteCount": 550,
+    "groupCount": 389,
+    "newCharacterPngRequired": 0,
+    "actionKeyCount": 20,
+    "actionKeys": [
+      "LT+SN:R/L",
+      "LT:L",
+      "LT:R",
+      "BD:RF",
+      "RC+SN:R/L",
+      "SN:L",
+      "SN:R",
+      "BD+RC:RF/R",
+      "BD+RC+SN:RF/R/L",
+      "HT:R",
+      "HT:L",
+      "BD+HT:RF/R",
+      "BD+LT:RF/R",
+      "HH+SN:R/L",
+      "HH:R",
+      "BD+HH:RF/R",
+      "BD+SN:RF/L",
+      "FT+SN:R/L",
+      "BD+SN:RF/R",
+      "FT:L"
+    ],
+    "allMapped": true,
+    "mappingAuthority": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json runtimePhaseFrameMap",
+    "note": "M104 has no additional groups in FULL_SONG_ACTION_KEY_INVENTORY; contiguous runtime target remains through measure 104."
+  },
+  "requiredNext": "Expand contiguous runtimeScope through M104 and run public PC/Xperia runtime QA. Generate no new images.",
+  "runtimeQaEvidence": {},
+  "updatedAt": "2026-09-19T15:27:00+09:00",
+  "blocker": null
+}
