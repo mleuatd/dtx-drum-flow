@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Machine-readable mandatory gate that makes every device/chat discover the shared character-image failure knowledge before image work.",
+  "sourceOfTruth": "GitHub main",
+  "scope": "CHARACTER_IMAGE_CREATION_EDIT_RETRY_APPROVAL_ONLY",
+  "mandatory": true,
+  "readBefore": [
+    "PLAN",
+    "EDIT",
+    "GENERATE",
+    "RETRY",
+    "VISUAL_QA",
+    "APPROVE"
+  ],
+  "requiredLatestMainFiles": [
+    "WORK_SYNC.md",
+    "character-assets/CHARACTER_FAILURE_KNOWLEDGE.json",
+    "character-assets/CHARACTER_ASSET_PIPELINE.md",
+    "character-assets/LAYER_RULES.md",
+    "character-assets/BASELINE_LOCK_2026-09-16.md"
+  ],
+  "perActionRequired": [
+    "current PROGRESS",
+    "target transaction",
+    "approved/formal parent path and SHA"
+  ],
+  "rules": [
+    "Do not start character image work until the latest main version of CHARACTER_FAILURE_KNOWLEDGE.json has been read.",
+    "Apply every ACTIVE failure rule whose appliesTo matches the planned image/edit.",
+    "Check recent main commits for work from other devices and do not regenerate newer approved/formal work.",
+    "Do not accept another device's PASS/FAIL blindly; reconcile inspected bytes, SHA/path, composite evidence and transaction.",
+    "After an image visual FAIL, add reusable image-production lessons to CHARACTER_FAILURE_KNOWLEDGE.json before the next retry.",
+    "Do not put runtime, Pages, chart, or general CI failures in the image failure ledger."
+  ],
+  "failClosed": "If the shared failure ledger cannot be read from latest main, do not generate/edit/promote a character image; other non-image work may continue.",
+  "discovery": "WORK_SYNC.md and CHARACTER_ASSET_PIPELINE.md both point here/at the shared failure ledger so a new chat/device encounters the requirement through normal project entry points."
+}
