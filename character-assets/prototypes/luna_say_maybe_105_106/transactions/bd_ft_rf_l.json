@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe BD+FT:RF/L transaction for Luna M105-106",
+  "status": "SOURCE_LOCKED",
+  "actionKey": "BD+FT:RF/L",
+  "scope": {
+    "measureStart": 105,
+    "measureEnd": 106
+  },
+  "parent": {
+    "hitPath": "character-assets/layers/character/ft/hit_l_refresh.png",
+    "hitSha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
+    "reboundPath": "character-assets/layers/character/ft/rebound_l_refresh.png",
+    "reboundSha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
+    "width": 1448,
+    "height": 1086
+  },
+  "method": "Preserve formal FT:L pair exactly; add only proven deterministic BD kick cue. No generative redraw.",
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration",
+    "FT left-hand pose"
+  ],
+  "allowedMotion": [
+    "rightFoot",
+    "BD kick cue only"
+  ],
+  "preflight": {
+    "playbookRead": true,
+    "failureRegistryRead": true,
+    "rejectedRegistryRead": true,
+    "contactPointsRead": true,
+    "targetContacts": {
+      "FT": {
+        "x": 1165,
+        "y": 535
+      },
+      "SN": {
+        "x": 420,
+        "y": 535
+      },
+      "BD": {
+        "x": 735,
+        "y": 650,
+        "limb": "RF"
+      }
+    },
+    "forbiddenFailures": [
+      "FAIL-FRONT-CHAR",
+      "FAIL-DRUM-LEAK",
+      "FAIL-STOOL-SHIFT",
+      "FAIL-CAMERA-JUMP",
+      "FAIL-REJECT-REUSE"
+    ],
+    "approvedStrategyEvidence": [
+      "M47 BD+HH+SN:RF/R/L",
+      "M54 BD+HT:RF/L",
+      "M68 BD+RC+SN:RF/R/L",
+      "tools/build-m18-24-deterministic-pairs.py BD cue"
+    ]
+  },
+  "phases": {
+    "hit": {
+      "stage": "SOURCE_LOCKED",
+      "attempt": 1,
+      "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_rf_l_hit_attempt01.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ft_rf_l_hit_attempt01.png",
+      "sha256": null,
+      "qaStatus": "PENDING"
+    },
+    "rebound": {
+      "stage": "SOURCE_LOCKED",
+      "attempt": 1,
+      "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_rf_l_rebound_attempt01.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ft_rf_l_rebound_attempt01.png",
+      "sha256": null,
+      "qaStatus": "PENDING"
+    }
+  },
+  "qa": {
+    "static": "PENDING",
+    "compositeVisual": "PENDING",
+    "locality": "PENDING",
+    "transition": "PENDING",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "updatedAt": "2026-09-19T15:38:00+09:00",
+  "blocker": null
+}
