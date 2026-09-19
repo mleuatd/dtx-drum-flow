@@ -1,3 +1,11 @@
+## 2026-09-20 08:58 JST — Visual Integrity Batch 11
+- Reconnected and resumed existing FRONT CLAIM for BD+HT:RF/L + BD+FT+SN:RF/R/L.
+- Correct evidence required explicit FRONT override because the previous Prep run had incorrectly consumed the BACK override.
+- Evidence: run 35476815322 / artifact 10594496614.
+- BD+HT:RF/L -> HOLD_VISUAL_INTEGRITY: broken/extra left-stick geometry.
+- BD+FT+SN:RF/R/L -> HOLD_VISUAL_INTEGRITY: detached left stick + forked/duplicated right stick.
+- Formal PNGs unchanged; runtime QA blocked by static hard-gate failures.
+
 ## 2026-09-20 08:50 JST — Visual Integrity Batch 10
 - Processed RC:R + LT+SN:R/L while BD+RD runtime QA continued separately.
 - Evidence: run 35476534354 / artifact 10593644215.
