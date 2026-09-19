@@ -13,7 +13,7 @@ const PART_VOICES = Object.freeze({
   LB:{voice:"kick",part:"BD",articulation:"beater"},
   SN:{voice:"snare",part:"SN",articulation:"center"},
   HH:{voice:"hihatClosed",part:"HH",articulation:"closed"},
-  LP:{voice:"hihatClosed",part:"HH",articulation:"pedal"},
+  LP:{voice:"hihatPedal",part:"LP",articulation:"pedal"},
   HT:{voice:"tomHigh",part:"HT",articulation:"center"},
   LT:{voice:"tomLow",part:"LT",articulation:"center"},
   FT:{voice:"tomFloor",part:"FT",articulation:"center"},
@@ -40,7 +40,7 @@ const GM_VOICES = Object.freeze({
   49:{voice:"crashLeft",part:"LC",articulation:"edge"},
   51:{voice:"ride",part:"RD",articulation:"bow"},
   52:{voice:"crashRight",part:"RC",articulation:"edge"},
-  53:{voice:"ride",part:"RD",articulation:"bell"},
+  53:{voice:"rideBell",part:"RD",articulation:"bell"},
   55:{voice:"crashLeft",part:"LC",articulation:"splash"},
   57:{voice:"crashRight",part:"RC",articulation:"edge"},
   59:{voice:"ride",part:"RD",articulation:"edge"}
@@ -52,10 +52,12 @@ const EXPLICIT_VOICES = Object.freeze({
   sideStick:{voice:"sideStick",part:"SN"},
   hihatClosed:{voice:"hihatClosed",part:"HH"},
   hihatOpen:{voice:"hihatOpen",part:"HH"},
+  hihatPedal:{voice:"hihatPedal",part:"LP"},
   tomHigh:{voice:"tomHigh",part:"HT"},
   tomLow:{voice:"tomLow",part:"LT"},
   tomFloor:{voice:"tomFloor",part:"FT"},
   ride:{voice:"ride",part:"RD"},
+  rideBell:{voice:"rideBell",part:"RD"},
   crashLeft:{voice:"crashLeft",part:"LC"},
   crashRight:{voice:"crashRight",part:"RC"}
 });
@@ -71,6 +73,6 @@ export function resolveDrumVoice(note={},part=note.part){
 
 export function applyDrumVoice(note={},part=note.part){
   const resolved=resolveDrumVoice(note,part);
-  const gmByVoice={sideStick:37,hihatOpen:46,hihatClosed:42,ride:51,crashLeft:49,crashRight:57};
+  const gmByVoice={sideStick:37,hihatOpen:46,hihatClosed:42,hihatPedal:44,ride:51,rideBell:53,crashLeft:49,crashRight:57};
   return {part:resolved.part,note:{...note,soundKey:resolved.voice,articulation:resolved.articulation,gmNote:Number.isFinite(Number(note.gmNote))?Number(note.gmNote):(gmByVoice[resolved.voice]??note.gmNote),soundResolution:resolved.reason},resolved};
 }
