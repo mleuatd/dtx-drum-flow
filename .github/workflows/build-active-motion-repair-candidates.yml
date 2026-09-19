@@ -1,0 +1,28 @@
+name: Build active motion repair candidates
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/character_layers/build_active_motion_repair_candidates.py'
+      - '.github/workflows/build-active-motion-repair-candidates.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check pillow numpy
+      - name: Build all claimed candidates
+        run: python tools/character_layers/build_active_motion_repair_candidates.py
+      - name: Commit candidates and QA
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/edit-workspaces/motion-repair-20260920/auto/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "qa: build claimed active motion repair candidates"
+          git push
