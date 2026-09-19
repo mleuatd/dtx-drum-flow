@@ -1,0 +1,10 @@
+import fs from "node:fs";
+const engine=fs.readFileSync("site/live-drum-engine.js","utf8"),app=fs.readFileSync("site/app.js","utf8");
+const voices=["kick","snare","sideStick","hihatClosed","hihatOpen","hihatPedal","tomHigh","tomLow","tomFloor","ride","rideBell","crashLeft","crashRight"];
+const m=engine.match(/const LOUDNESS_GAIN=\{([^;]+)\}/);if(!m)throw Error("LOUDNESS_GAIN missing");
+const gains=Object.fromEntries(m[1].split(",").map(x=>{const [k,v]=x.split(":");return[k.trim(),Number(v)]}));
+const missing=voices.filter(v=>!Number.isFinite(gains[v]));
+const vals=voices.map(v=>gains[v]),familySpread=Math.max(...vals)-Math.min(...vals);
+const report={voices,gains,familySpread,engineInput:/this\.input\.gain\.value=1/.test(engine),engineOut:/this\.out\.gain\.value=1/.test(engine),appInput:/input\.gain\.value=1/.test(app),appOut:/out\.gain\.value=1/.test(app),velocityRange:/Math\.max\(\.78,Math\.min\(\.88/.test(app)};
+report.status=!missing.length&&familySpread<=1e-9&&report.engineInput&&report.engineOut&&report.appInput&&report.appOut&&report.velocityRange?"PASS":"FAIL";
+fs.mkdirSync("qa/gain-chain",{recursive:true});fs.writeFileSync("qa/gain-chain/report.json",JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(report.status!=="PASS")process.exit(1);
