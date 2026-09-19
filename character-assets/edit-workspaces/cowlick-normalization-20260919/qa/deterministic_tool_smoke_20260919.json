@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "executedAt": "2026-09-19T19:00:00+09:00",
+  "tool": "tools/cowlick/apply_cowlick.py",
+  "profile": "tools/cowlick/profiles/luna_3q_back_left_v1.json",
+  "sourcePath": "character-assets/layers/character/base/neutral.png",
+  "sourceSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "outputSha256": "81e6973e6a3b8a2089902cfd75d3638a96043ed285af11430b4ba574e677affd",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "roi": {
+    "x": 585,
+    "y": 20,
+    "width": 245,
+    "height": 165
+  },
+  "insideRoiChangedPixels": 1019,
+  "outsideRoiChangedPixels": 0,
+  "pass": true,
+  "formalPromoted": false,
+  "note": "Smoke test proves deterministic/locality guards only. Profile geometry remains provisional pending visual approval."
+}
