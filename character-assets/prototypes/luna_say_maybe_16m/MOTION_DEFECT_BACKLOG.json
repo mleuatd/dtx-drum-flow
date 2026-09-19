@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T08:07:00+09:00",
+  "updatedAt": "2026-09-20T08:10:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8882,7 +8882,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T08:10:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9845,6 +9845,13 @@
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+      },
+      "claim": {
+        "state": "CLAIMED",
+        "direction": "BACK",
+        "batch": "BACK-BATCH-01",
+        "claimedAt": "2026-09-20T08:10:00+09:00",
+        "owner": "CHATGPT-BACK"
       }
     },
     {
@@ -10689,7 +10696,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T08:10:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -11537,6 +11544,13 @@
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+      },
+      "claim": {
+        "state": "CLAIMED",
+        "direction": "BACK",
+        "batch": "BACK-BATCH-01",
+        "claimedAt": "2026-09-20T08:10:00+09:00",
+        "owner": "CHATGPT-BACK"
       }
     },
     {
