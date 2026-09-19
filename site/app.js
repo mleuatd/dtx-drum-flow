@@ -28,7 +28,9 @@ function initDevAudioMixer(){
   const row=document.createElement("div");row.className="dev-audio-row";
   const lab=document.createElement("label");lab.htmlFor="mix-"+voice;lab.textContent=label;
   const input=document.createElement("input");input.type="range";input.id="mix-"+voice;input.min=".10";input.max="2.50";input.step=".05";input.value="1";input.setAttribute("aria-label",label+" 音量");
-  const out=document.createElement("output");out.textContent="1.00×";\n  const test=document.createElement("button");test.type="button";test.className="button dev-audio-test";test.textContent="鳴らす";test.setAttribute("aria-label",label+"を鳴らす");\n  test.addEventListener("click",async()=>{await ensureAudio();liveDrumEngine.setUserGain(voice,devMixerValues[voice]);liveDrumEngine.triggerVoice?.(voice,.84,audioCtx.currentTime+.01)});
+  const out=document.createElement("output");out.textContent="1.00×";
+  const test=document.createElement("button");test.type="button";test.className="button dev-audio-test";test.textContent="鳴らす";test.setAttribute("aria-label",label+"を鳴らす");
+  test.addEventListener("click",async()=>{await ensureAudio();liveDrumEngine.setUserGain(voice,devMixerValues[voice]);liveDrumEngine.triggerVoice?.(voice,.84,audioCtx.currentTime+.01)});
   input.addEventListener("input",()=>{const n=Number(input.value);devMixerValues[voice]=n;out.textContent=n.toFixed(2)+"×";liveDrumEngine?.setUserGain(voice,n);refreshDevMixerHud()});
   row.append(lab,input,out,test);root.append(row);
  }
