@@ -42,7 +42,9 @@ export class LiveDrumEngine{
  _play(v,buffer,velocity,when){
   const c=this.ctx,s=c.createBufferSource(),g=c.createGain(),pan=c.createStereoPanner?c.createStereoPanner():null;
   const isCrash=v==="crashLeft"||v==="crashRight",isRide=v==="ride"||v==="rideBell";
-  // Narrow dynamics for practice: retain accents, but prevent one family from dominating.\n  const nv=clamp(velocity,0,1);\n  const base=.70+.25*nv;
+  // Narrow dynamics for practice: retain accents, but prevent one family from dominating.
+  const nv=clamp(velocity,0,1);
+  const base=.70+.25*nv;
   // Near-equal perceived practice mix. Keep only small instrument-family differences.
   const familyGain=isCrash?.78:isRide?.84:(v==="hihatClosed"||v==="hihatOpen"||v==="hihatPedal")?.88:(v==="kick")?.97:(v==="snare")?.96:(v==="tomHigh"||v==="tomLow"||v==="tomFloor")?.98:1;
   const strength=base*familyGain;
