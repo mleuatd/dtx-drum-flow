@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:37:00+09:00",
+  "updatedAt": "2026-09-19T20:40:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -125,10 +125,10 @@
       "category": "runtime_web_qa",
       "description": "Review existing GitHub Pages runtime behavior/checklist and prepare screenshot QA checklist for contact, registration, hit/rebound continuity and neutral recovery.",
       "owner": "TERM-B",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T20:37:00+09:00",
       "startedAt": "2026-09-19T20:37:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T20:40:00+09:00",
       "paths": [
         "site/**",
         "qa/**",
@@ -140,7 +140,8 @@
         "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
       ],
       "handoffNote": "DONE when checklist and current observed runtime issues are recorded with URLs/screenshot evidence. Refresh main immediately before any write.",
-      "lastCommit": null
+      "lastCommit": "f963ba5d841c790d8f6820cf61e467cf8c649b5d",
+      "result": "Prepared public runtime screenshot QA checklist for prep/hit/rebound/post, contact/registration, neutral recovery, PC/Xperia and runtime error evidence."
     },
     {
       "taskId": "OTHER-004",
