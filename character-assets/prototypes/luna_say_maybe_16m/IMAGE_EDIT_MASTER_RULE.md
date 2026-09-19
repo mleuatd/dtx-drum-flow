@@ -360,3 +360,30 @@ Current reusable index:
 
 This bridge was verified on 2026-09-19 for formal neutral, SN:L hit, SN:L rebound, and fixed drum without user file handling.
 
+## 18. Hybrid AI + deterministic tool boundary
+
+Do not force all work into deterministic tools. Use the cheapest reliable method for each job.
+
+AI should own:
+- visual interpretation and semantic comparison,
+- deciding what looks wrong and why,
+- choosing the smallest meaningful visual correction,
+- candidate image generation/editing when a valid edit target is available,
+- pose/style reasoning that is not reducible to stable numeric rules,
+- failure diagnosis and prioritization among plausible next actions.
+
+Deterministic tools should own:
+- SHA256 and exact-byte identity,
+- Dropbox/GitHub transport and staging/import,
+- manifest/inventory updates,
+- contact coordinates and numeric reach math,
+- repeatable geometry checks,
+- binary/canvas/alpha validation,
+- regression tests and mechanical QA,
+- repetitive bookkeeping that can be made reproducible.
+
+GitHub remains the coordination/state authority; it is not treated as the AI itself.
+Do not build a tool-only pipeline merely because automation is possible.
+Do not use AI for simple byte/metadata/math work when a deterministic tool is safer.
+Prefer a hybrid handoff: tool evidence -> AI judgment/edit -> tool verification.
+
