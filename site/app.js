@@ -1,7 +1,7 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r14";
-import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r14";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r15";
+import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r15";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
@@ -28,9 +28,9 @@ function initDevAudioMixer(){
   const row=document.createElement("div");row.className="dev-audio-row";
   const lab=document.createElement("label");lab.htmlFor="mix-"+voice;lab.textContent=label;
   const input=document.createElement("input");input.type="range";input.id="mix-"+voice;input.min=".10";input.max="2.50";input.step=".05";input.value="1";input.setAttribute("aria-label",label+" 音量");
-  const out=document.createElement("output");out.textContent="1.00×";
+  const out=document.createElement("output");out.textContent="1.00×";\n  const test=document.createElement("button");test.type="button";test.className="button dev-audio-test";test.textContent="鳴らす";test.setAttribute("aria-label",label+"を鳴らす");\n  test.addEventListener("click",async()=>{await ensureAudio();liveDrumEngine.setUserGain(voice,devMixerValues[voice]);liveDrumEngine.triggerVoice?.(voice,.84,audioCtx.currentTime+.01)});
   input.addEventListener("input",()=>{const n=Number(input.value);devMixerValues[voice]=n;out.textContent=n.toFixed(2)+"×";liveDrumEngine?.setUserGain(voice,n);refreshDevMixerHud()});
-  row.append(lab,input,out);root.append(row);
+  row.append(lab,input,out,test);root.append(row);
  }
  $("devAudioReset")?.addEventListener("click",()=>{for(const [voice] of DEV_MIXER){const input=$("mix-"+voice);if(input){input.value="1";input.dispatchEvent(new Event("input"))}}});
  refreshDevMixerHud();
