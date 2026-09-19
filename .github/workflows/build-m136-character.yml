@@ -1,0 +1,61 @@
+name: Build M136 Character Pair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tools/build-m136-bd-ft-rf-r.py"
+      - ".github/workflows/build-m136-character.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-m136-character
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Build deterministic candidate
+        run: python tools/build-m136-bd-ft-rf-r.py
+      - name: Record build run metadata
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path("character-assets/generated-qa/m136/workflow-run.json");p.parent.mkdir(parents=True,exist_ok=True)
+          run=os.environ["GITHUB_RUN_ID"];p.write_text(json.dumps({"runId":int(run),"artifactName":f"m136-character-candidate-{run}","headSha":os.environ["GITHUB_SHA"]},indent=2)+"\n")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m136-character-candidate-${{ github.run_id }}
+          path: |
+            character-assets/review-candidates/m136/
+            character-assets/generated-qa/m136/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Commit candidate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/review-candidates/m136 character-assets/generated-qa/m136
+          git diff --cached --quiet && exit 0
+          git commit -m "character: build M136 deterministic candidate"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort || true
+            sleep $((attempt * 2))
+          done
+          exit 1
