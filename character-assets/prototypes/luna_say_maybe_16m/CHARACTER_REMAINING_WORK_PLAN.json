@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:24:00+09:00",
+  "updatedAt": "2026-09-19T15:29:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,9 +9,9 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
-    "formalAndMappedThroughMeasure": 68,
+    "formalAndMappedThroughMeasure": 104,
     "lastLiveQaConfirmedThroughMeasure": 68,
-    "note": "M68 public PC/Xperia runtime QA passed: run 35426237555 / artifact 10579760232, 6/6 PASS. Next character task is M69-104 reuse-only."
+    "note": "M69-104 reuse-only mappings verified and runtimeScope expanded through M104; public PC/Xperia QA pending."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -165,9 +165,12 @@
       "order": 9,
       "measures": "69-104",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "READY",
+      "status": "RUNNING",
       "newImagePairs": [],
-      "note": "Released after M68 DONE. Reuse-only; generate no images."
+      "note": "550 notes / 389 groups / 20 actionKeys; all present in runtimePhaseFrameMap. No new images. Public QA pending.",
+      "startedAt": "2026-09-19T15:29:00+09:00",
+      "runtimeScopeTarget": "1-104",
+      "actionCoverageVerified": true
     },
     {
       "id": "CHAR-010",
