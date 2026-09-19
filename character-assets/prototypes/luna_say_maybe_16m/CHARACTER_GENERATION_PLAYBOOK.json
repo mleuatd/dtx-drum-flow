@@ -134,5 +134,31 @@
     "Fine contact alignment is cheaper and more reliable to judge in the actual app than in isolated synthetic overlays.",
     "Formal registration is not final visual approval; final approval happens after runtime screenshots.",
     "Only visible runtime defects should trigger targeted redraw/edit."
-  ]
+  ],
+  "crossTerminalLearning": {
+    "status": "MANDATORY",
+    "rule": "All terminals/sessions share image-generation lessons through GitHub main. Before any image generation/edit, refresh latest main and read this playbook plus FAILURE_PATTERN_REGISTRY and REJECTED_ASSET_REGISTRY. After any new failure or successful recovery, persist the lesson before the next image attempt.",
+    "beforeGeneration": [
+      "Refresh GitHub main; never rely on a cached ledger from another terminal.",
+      "Read CHARACTER_GENERATION_PLAYBOOK.json, FAILURE_PATTERN_REGISTRY.json and REJECTED_ASSET_REGISTRY.json.",
+      "Search action-specific transaction/history for previous attempts, SHAs and rejection reasons.",
+      "Do not repeat a strategy already marked failed or hard-stopped."
+    ],
+    "afterFailure": [
+      "Record actionKey, phase, attempt, source parent/path/SHA, candidate path/SHA when available, exact visual failure, failure-pattern id, QA evidence and timestamp.",
+      "Record what must not be repeated and the next permitted strategy.",
+      "Add reusable failure patterns to FAILURE_PATTERN_REGISTRY.json; add specific forbidden bytes/paths to REJECTED_ASSET_REGISTRY.json.",
+      "Run character-retry-controller for true hard failures before another retry."
+    ],
+    "afterSuccess": [
+      "Record the successful parent, local edit/derivation strategy, QA evidence, formal SHA and runtime screenshot result so other terminals can reuse the proven method.",
+      "Do not overwrite historical failure evidence; mark older candidates superseded/rejected instead."
+    ],
+    "concurrency": [
+      "Immediately before ledger, manifest, transaction, mapping or formal writes, re-read latest main.",
+      "If another terminal has advanced the same action, preserve the newer state and reconcile instead of overwriting it.",
+      "GitHub main is the coordination authority; Dropbox is exact-byte storage and recovery support."
+    ]
+  },
+  "updatedAt": "2026-09-19T10:58:00+09:00"
 }
