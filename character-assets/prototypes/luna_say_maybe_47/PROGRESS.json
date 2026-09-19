@@ -4,7 +4,7 @@
     "measureStart": 47,
     "measureEnd": 47
   },
-  "status": "M47_PUBLIC_RUNTIME_QA_FAILED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "actionKey": "BD+HH+SN:RF/R/L",
   "blockType": "NEW_PAIR",
@@ -25,32 +25,33 @@
     "dropboxRebound": "/ChatGPT/dtx-drum-flow/bd_hh_sn_rf_r_l_rebound_attempt01.png"
   },
   "qa": {
-    "static": "PASS_LOCAL",
-    "fixedDrumComposite": "PASS_MANUAL_VISUAL",
+    "static": "PASS",
+    "fixedDrumComposite": "PASS",
     "contact": "PASS_HH_SN_BD",
-    "transition": "PASS_VISUAL",
-    "runtime": "PENDING"
+    "transition": "PASS",
+    "runtime": "PASS",
+    "screenshotReview": "PASS_PC_XPERIA"
   },
-  "requiredNext": "Import exact Dropbox bytes as GitHub review candidates; then promote if repository QA confirms exact SHA and fixed-drum result.",
-  "updatedAt": "2026-09-19T03:38:03.602527+00:00",
+  "requiredNext": "M47 complete. Continue M48-53 reuse-only runtime verification. Do not regenerate BD+HH+SN.",
+  "updatedAt": "2026-09-19T12:49:00+09:00",
   "runtimeQaEvidence": {
     "M47": {
-      "status": "FAIL",
+      "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35419075619",
-      "testedCommitSha": "905403624c0215f49c98defc3e970c5116abd9c2",
-      "artifact": "public-runtime-qa-35419075619",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35419075619",
+      "runId": "35419097186",
+      "testedCommitSha": "b788f034fa9eecab7baa5e3dcda080f9e8a3d8cf",
+      "artifact": "public-runtime-qa-35419097186",
+      "artifactId": 10577335176,
       "measureStart": 47,
       "measureEnd": 47,
       "actions": [
         "BD+HH+SN:RF/R/L"
-      ]
+      ],
+      "passed": 4,
+      "failed": 0,
+      "screenshotReview": "PASS_PC_XPERIA_MANUAL_VISUAL",
+      "note": "Previous run 35419075619 was cancelled by concurrent audio push and produced a false ledger FAIL; superseded by this successful browser QA."
     }
   },
-  "blocker": {
-    "type": "RUNTIME_QA",
-    "workflowRunId": "35419075619",
-    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
-  }
+  "blocker": null
 }
