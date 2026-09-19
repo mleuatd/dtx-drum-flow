@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "song": "Luna Say Maybe",
+  "policy": "EXISTING_FORMAL_ASSETS_ONLY",
+  "sourceOfTruth": "GitHub main",
+  "scannedRange": {
+    "measureStart": 41,
+    "measureEnd": 148
+  },
+  "contiguousCompleteThrough": 45,
+  "runtimeScopeConfiguredThrough": 45,
+  "completeWithExistingAssets": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    50,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    70,
+    73,
+    74,
+    75,
+    76,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    137,
+    138,
+    139,
+    140,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148
+  ],
+  "blockedMeasures": [
+    46,
+    47,
+    48,
+    49,
+    51,
+    52,
+    53,
+    54,
+    67,
+    68,
+    69,
+    71,
+    72,
+    77,
+    105,
+    106,
+    136,
+    141
+  ],
+  "missingActionKeys": [
+    {
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "occurrences": 14,
+      "measures": [
+        47,
+        48,
+        49,
+        51,
+        52,
+        53,
+        67,
+        68
+      ],
+      "status": "NEED_ASSET"
+    },
+    {
+      "actionKey": "BD+FT:RF/L",
+      "occurrences": 5,
+      "measures": [
+        105,
+        106,
+        136
+      ],
+      "status": "NEED_ASSET"
+    },
+    {
+      "actionKey": "LT+SN:R/L",
+      "occurrences": 4,
+      "measures": [
+        46,
+        69,
+        77
+      ],
+      "status": "NEED_ASSET"
+    },
+    {
+      "actionKey": "BD+FT:RF/R",
+      "occurrences": 4,
+      "measures": [
+        136,
+        141
+      ],
+      "status": "NEED_ASSET"
+    },
+    {
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "occurrences": 3,
+      "measures": [
+        68,
+        71,
+        72
+      ],
+      "status": "NEED_ASSET"
+    },
+    {
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "occurrences": 3,
+      "measures": [
+        105,
+        106
+      ],
+      "status": "NEED_ASSET"
+    },
+    {
+      "actionKey": "BD+HT:RF/L",
+      "occurrences": 1,
+      "measures": [
+        54
+      ],
+      "status": "NEED_ASSET"
+    }
+  ],
+  "priority": [
+    "BD+HH+SN:RF/R/L",
+    "LT+SN:R/L",
+    "BD+FT:RF/L",
+    "BD+RC+SN:RF/R/L",
+    "BD+FT+SN:RF/R/L",
+    "BD+FT:RF/R",
+    "BD+HT:RF/L"
+  ],
+  "note": "Full M41-148 scan against current runtimeFrameMap. No new images generated. M41-45 can extend contiguously now. Later complete measures are recorded for future non-contiguous/selective runtime support; blocked measures are not falsely marked complete.",
+  "status": "SCAN_COMPLETE_M1_45_RUNTIME_CONFIGURED",
+  "nextAction": "Run validation/deploy/runtime QA for M1-45. Then implement safe selective/non-contiguous runtime activation for completeWithExistingAssets without enabling blocked measures.",
+  "updatedAt": "2026-09-19T11:24:00+09:00"
+}
