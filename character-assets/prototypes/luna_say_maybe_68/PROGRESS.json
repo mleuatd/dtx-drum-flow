@@ -4,7 +4,7 @@
     "measureStart": 68,
     "measureEnd": 68
   },
-  "status": "M68_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIR",
   "actionKey": "BD+RC+SN:RF/R/L",
@@ -16,8 +16,8 @@
     "reboundSha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
     "dropboxSaved": true
   },
-  "requiredNext": "Expand contiguous runtimeScope through M68 and run public PC/Xperia runtime QA for BD+RC+SN:RF/R/L. Do not regenerate formal bytes.",
-  "updatedAt": "2026-09-19T06:19:12.822497+00:00",
+  "requiredNext": "M68 complete. Continue M69-104 reuse-only runtime expansion; do not regenerate M68 formal bytes.",
+  "updatedAt": "2026-09-19T15:24:00+09:00",
   "blocker": null,
   "runtimeQaEvidence": {
     "M68": {
@@ -31,7 +31,13 @@
       "measureEnd": 68,
       "actions": [
         "BD+RC+SN:RF/R/L"
-      ]
+      ],
+      "artifactId": 10579760232,
+      "passed": 6,
+      "failed": 0,
+      "runtimeScope": "1-68",
+      "screenshotsReviewed": true,
+      "visualReview": "PASS_NO_REGISTRATION_DRIFT_OR_WRONG_CHARACTER"
     }
   }
 }
