@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DTX Drum Flow RepairSpec V1",
+  "schemaVersion": 1,
+  "canvas": {
+    "width": 1448,
+    "height": 1086
+  },
+  "states": [
+    "NEEDS_MEASUREMENT",
+    "MEASURED",
+    "READY_FOR_FIX",
+    "IN_FIX",
+    "FIXED_PENDING_QA",
+    "VERIFIED",
+    "BLOCKED"
+  ],
+  "repairTypes": [
+    "metadata_only",
+    "runtime_mapping",
+    "transition_timing",
+    "contact_point",
+    "limb_sidecar",
+    "frame_hold",
+    "local_image_edit",
+    "new_candidate_from_neutral",
+    "deterministic_postprocess",
+    "runtime_code",
+    "combo_logic",
+    "mixed"
+  ],
+  "requiredSections": [
+    "sourceAuthority",
+    "canvas",
+    "alphaPolicy",
+    "imageIdentity",
+    "editableRoisPx",
+    "lockedReferenceRegions",
+    "anchorPointsPx",
+    "contactTargetsPx",
+    "motionConstraints",
+    "limbSpecificConstraints",
+    "staticBodyBoundingBoxes",
+    "activeLimbBoundingBoxes",
+    "silhouetteMetrics",
+    "runtimeTiming",
+    "runtimeFramePolicy",
+    "validation",
+    "editProcedure",
+    "forbidden",
+    "rollback",
+    "decisionLog"
+  ],
+  "coordinateRule": "All x/y/width/height values are integer pixels in the 1448x1086 source canvas. Unknown values MUST be null and paired with NEEDS_MEASUREMENT.",
+  "zeroDriftRule": "Outside editable/exception ROI and for locked camera/stool/inactive body regions, permitted changed pixels and shifts are 0 unless an explicit measured exception ROI is approved.",
+  "promotionRule": "Candidate-only until SHA identity, ROI, anchors, contacts, diff checks, fixed-drum composite, runtime repeat, neighbor regression, PC and Xperia evidence all pass."
+}
