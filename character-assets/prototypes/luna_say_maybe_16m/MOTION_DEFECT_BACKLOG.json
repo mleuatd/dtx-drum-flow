@@ -3619,7 +3619,7 @@
       "updatedAt": "2026-09-20T08:36:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -4174,6 +4174,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T08:36:00+09:00",
+            "decision": "HOLD_VISUAL_INTEGRITY",
+            "detail": "Batch 08 corrected evidence: duplicated/disconnected left limb/stick and seat splice. Structural candidate reconstruction required; preserve formal PNG."
           }
         ],
         "measurementTodos": [
@@ -4420,7 +4425,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T06:13:00+09:00"
+        "updatedAt": "2026-09-20T08:36:00+09:00"
       },
       "occurrences": [
         {
@@ -4462,14 +4467,15 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Batch 08 corrected Prep: duplicated/disconnected left arm-hand-stick plus blocky seat/lower-body splice. Formal PNGs preserved; no minimal retry because structural.",
+        "workflowRunId": 35475852782,
+        "artifactId": 10594059870
       },
       "claim": null,
       "decisionLog": [
