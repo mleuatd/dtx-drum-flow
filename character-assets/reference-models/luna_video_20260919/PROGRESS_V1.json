@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:45:00+09:00",
+  "updatedAt": "2026-09-19T21:51:00+09:00",
   "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
   "completed": [
     "Reference video metadata/SHA registered",
@@ -38,15 +38,20 @@
     "Added one-image staging builder deriving runtime/GitHub fields from ACTION_KEY_ASSET_MAP",
     "Added staging validator and exact-byte reusable Python importer with SHA/canvas/alpha guards",
     "Generalized import workflow to process multiple changed staging JSONs serially",
-    "Dropbox import automation regression run 35441602584 passed without formal PNG rewrite"
+    "Dropbox import automation regression run 35441602584 passed without formal PNG rewrite",
+    "Refined SN:L hit to approved-neutral shoulder/limb lengths while preserving exact 0 px snare contact",
+    "Locked SN:L rebound shoulder to neutral to remove shoulder teleport",
+    "Refreshed SN:L hit/rebound schemaVersion 2 numeric and AI render constraint packages",
+    "Runtime Pose Tests run 35441840031 passed after neutral-shoulder policy regression test",
+    "Runtime Pose SN-L Source QA run 35441840064 passed after refinement"
   ],
-  "currentStage": "SN_L_EXACT_SOURCE_ATTACHED_RENDERER_RETRY_READY",
+  "currentStage": "SN_L_NUMERIC_REFINEMENT_PASS_RENDER_CANDIDATE_NEXT",
   "next": [
-    "Render SN:L hit candidate from exact neutral parent under AI_RENDER_SN_L_hit_V1 numeric constraints; preserve all inactive body pixels/registration as closely as renderer permits",
-    "Render SN:L rebound candidate from exact neutral parent plus accepted hit continuity under AI_RENDER_SN_L_rebound_V1",
-    "Run deterministic cowlick and line-style post-processing",
+    "Use exact approved neutral PNG as mandatory parent for SN:L hit candidate; modify only active left arm/stick to refreshed numeric constraint",
+    "Use accepted hit plus neutral parent for SN:L rebound continuity; keep shoulder/body registration neutral",
+    "Apply deterministic cowlick and line-style post-processing",
     "Composite candidates with locked drum and rerun contact/registration/transition QA",
-    "Run actual Web runtime PC/Xperia QA before any formal promotion",
+    "Run actual Web runtime PC/Xperia QA before formal promotion",
     "After SN:L proof passes, expand through generalized combo actionKey pipeline"
   ],
   "formalRuntimeAssetsModified": false,
