@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 06
+- Reviewed LT:L and BD+SN:RF/R from current-main Batch Prep evidence (run 35475549511, artifact 10594285311).
+- LT:L hit/rebound failed static hard gates due duplicated/discontinuous left-hand stick geometry and a detached stick-like segment.
+- BD+SN:RF/R hit/rebound failed static hard gates due disconnected right-hand/stick continuity plus a detached floating curved artifact line.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY. Formal PNGs unchanged; runtime QA not entered.
+
 ## 2026-09-20 — Visual Integrity Batch 05
 - Reviewed RC+SN:R/L and LT:R from current-main full-resolution Batch Prep evidence (run 35475413657, artifact 10593488275).
 - RC+SN:R/L hit/rebound both failed static hard gates because a horizontal/rectangular splice cuts through lower hair/torso geometry and remains visible over the fixed drum.
