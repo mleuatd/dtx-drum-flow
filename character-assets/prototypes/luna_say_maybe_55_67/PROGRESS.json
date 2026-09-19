@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 55,
+    "measureEnd": 67
+  },
+  "status": "RUNTIME_QA_PENDING",
+  "sourceOfTruth": "GitHub main",
+  "blockType": "REUSE_ONLY",
+  "analysis": {
+    "noteCount": 194,
+    "groupCount": 129,
+    "newCharacterPngRequired": 0,
+    "actionKeys": [
+      "BD+HH:RF/R",
+      "HH:R",
+      "HH+SN:R/L",
+      "SN:L",
+      "RC+SN:R/L",
+      "BD+RC:RF/R",
+      "FT+SN:R/L",
+      "HT:R",
+      "BD:RF",
+      "HT:L",
+      "RD:R",
+      "BD+RD:RF/R",
+      "RD+SN:R/L",
+      "SN:R",
+      "LT:R",
+      "LT:L",
+      "BD+HH+SN:RF/R/L"
+    ],
+    "allMapped": true,
+    "mappingAuthority": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json runtimePhaseFrameMap",
+    "stalePlanningMapNote": "ACTION_KEY_ASSET_MAP.json still labels some already-promoted M18-24/M47 actions as NEW_IMAGE_REQUIRED; do not generate replacements. Runtime inventory is authoritative for this reuse-only block."
+  },
+  "requiredNext": "Expand contiguous runtimeScope through M67 and run public PC/Xperia runtime QA. Generate no new images.",
+  "runtimeQaEvidence": {},
+  "updatedAt": "2026-09-19T13:18:00+09:00",
+  "blocker": null
+}
