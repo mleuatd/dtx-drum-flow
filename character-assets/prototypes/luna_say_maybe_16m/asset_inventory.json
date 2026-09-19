@@ -648,19 +648,19 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T12:12:00+09:00",
+  "updatedAt": "2026-09-19T12:18:00+09:00",
   "note": "Existing-formal-assets-only expansion: M41-45 introduces no unresolved runtime action keys; 582 notes / 435 groups / 23 keys resolve. First post-M45 missing action is LT+SN:R/L at M46, so contiguous scope stops safely at M45.",
   "runtimeQaTarget": {
-    "measureStart": 29,
-    "measureEnd": 40,
+    "measureStart": 41,
+    "measureEnd": 45,
     "actions": [
-      "HT:L",
+      "BD+HH:RF/R",
+      "HH+SN:R/L",
       "BD+HT:RF/R",
-      "HT:R",
-      "RC:R"
+      "HT:L"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_29_40/PROGRESS.json",
-    "blockKey": "M29-40",
-    "purpose": "Final public PC/Xperia runtime checkpoint for the completed M29-40 character block before moving to M41+ sequential work."
+    "progressPath": "character-assets/prototypes/luna_say_maybe_41_45/PROGRESS.json",
+    "blockKey": "M41-45",
+    "purpose": "Reuse-only public PC/Xperia character runtime checkpoint before first new post-M40 asset at M46."
   }
 }
