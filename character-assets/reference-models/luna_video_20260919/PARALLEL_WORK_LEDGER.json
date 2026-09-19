@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T22:05:00+09:00",
+  "updatedAt": "2026-09-19T22:09:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -459,10 +459,10 @@
       "category": "runtime_pose_autopilot",
       "description": "Build a GitHub Actions autopilot loop for SN:L/runtime-pose work: rebuild numeric constraints, run tests/source QA, invoke retry controller on hard failures, emit machine-readable status/next-action evidence, and stop safely before formal promotion. AI/pixel rendering remains optional and must only run when an explicit renderer/API is configured.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "CANCELLED",
       "claimedAt": "2026-09-19T22:05:00+09:00",
       "startedAt": "2026-09-19T22:05:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T22:09:00+09:00",
       "paths": [
         ".github/workflows/runtime-pose-autopilot.yml",
         "tools/runtime_pose/**",
@@ -478,7 +478,32 @@
         "character-assets/layers/drum/**",
         "character-assets/edit-workspaces/**"
       ],
-      "handoffNote": "Autopilot must never promote formal PNGs automatically. It may compute/rebuild/QA/retry-decision autonomously and emit nextAction. Pixel rendering is a pluggable stage only when an explicit renderer is configured; otherwise status must be NEEDS_RENDERER rather than looping or fabricating assets."
+      "handoffNote": "Do not build a tool-only autopilot. Use deterministic tools for repetitive/verifiable operations and AI for visual reasoning, candidate design/editing, failure diagnosis, and prioritization.",
+      "result": "Cancelled before implementation. Scope was too tool-centric and did not match the intended hybrid AI+tool workflow."
+    },
+    {
+      "taskId": "RTP-HYBRID-001",
+      "category": "hybrid_ai_tool_workflow",
+      "description": "Define and implement the minimal hybrid workflow for SN:L and later actionKeys: tools own deterministic/repeatable operations (SHA/import/numeric constraints/QA/registration), while AI owns visual reasoning, candidate design/editing, failure diagnosis, and prioritization. Avoid replacing AI work with brittle deterministic image hacks.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T22:09:00+09:00",
+      "startedAt": "2026-09-19T22:09:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
+        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json",
+        "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
+        "character-assets/prototypes/luna_say_maybe_16m/CHARACTER_GENERATION_PLAYBOOK.json"
+      ],
+      "dependsOn": [
+        "RTP-SNL-003"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/** while TERM-A claim remains active",
+        "character-assets/edit-workspaces/** owned by other terminals"
+      ],
+      "handoffNote": "Hybrid only. Do not automate away AI judgment. Repetitive byte/metadata/math checks -> tools; visual/semantic/pose/style decisions and candidate creation -> AI. GitHub remains coordination/state authority, not an AI engine."
     }
   ]
 }
