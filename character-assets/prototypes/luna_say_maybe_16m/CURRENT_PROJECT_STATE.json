@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:29:00+09:00",
+  "updatedAt": "2026-09-19T15:34:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
     "measureEnd": 104,
-    "status": "RUNTIME_QA_PENDING_M69_104"
+    "status": "COMPLETE_LIVE_QA"
   },
   "completedMeasureBlocks": [
     {
@@ -73,6 +73,12 @@
       "status": "DONE",
       "qaRun": 35426237555,
       "qaArtifact": 10579760232
+    },
+    {
+      "measures": "69-104",
+      "status": "DONE",
+      "qaRun": 35426755584,
+      "qaArtifact": 10579246619
     }
   ],
   "blockedMeasureBlocks": [],
@@ -117,7 +123,8 @@
     "bdHtRfL": "LIVE_QA_PASSED",
     "m55_67": "COMPLETE_LIVE_QA",
     "m68": "COMPLETE_LIVE_QA",
-    "bdRcSnRfRL": "LIVE_QA_PASSED"
+    "bdRcSnRfRL": "LIVE_QA_PASSED",
+    "m69_104": "COMPLETE_LIVE_QA"
   },
   "approvedAssets": [
     "SN:L",
@@ -167,7 +174,8 @@
     "m55_67MappingPreflight": "PASS: 194 notes / 129 groups / 17 actionKeys; all present in asset_inventory.runtimePhaseFrameMap",
     "m55_67LiveRuntimeQa": "SUCCESS run 35420829149 artifact 10576863064; 70/70 PC/Xperia records PASS; screenshot review PASS",
     "m68LiveRuntimeQa": "SUCCESS run 35426237555 artifact 10579760232; 6/6 PC/Xperia hit/rebound/neutral PASS; screenshot review PASS",
-    "m69_104MappingPreflight": "PASS: 550 notes / 389 groups / 20 actionKeys; all present in asset_inventory.runtimePhaseFrameMap"
+    "m69_104MappingPreflight": "PASS: 550 notes / 389 groups / 20 actionKeys; all present in asset_inventory.runtimePhaseFrameMap",
+    "m69_104LiveRuntimeQa": "SUCCESS run 35426755584 artifact 10579246619; 86/86 PC/Xperia records PASS; screenshot review PASS"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -250,14 +258,19 @@
       "run": 35426237555,
       "artifact": 10579760232,
       "status": "SUCCESS"
+    },
+    "m69_104Live": {
+      "run": 35426755584,
+      "artifact": 10579246619,
+      "status": "SUCCESS"
     }
   },
   "nextRecommendedBlock": {
-    "blockId": "M69-104",
-    "measures": "69-104",
-    "reason": "Runtime scope expanded through M104 using existing formal mappings; public PC/Xperia QA pending."
+    "blockId": "M105-106",
+    "measures": "105-106",
+    "reason": "M69-104 complete; next block contains BD+FT+SN:RF/R/L and BD+FT:RF/L new pairs."
   },
-  "nextRecommendedWork": "Inspect M69-104 public runtime QA when complete; if PASS close block and release M105-106. Generate no M69-104 images.",
+  "nextRecommendedWork": "Source-lock M105-106 from formal FT+SN:R/L and FT:L parents and add only approved deterministic BD cue.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
