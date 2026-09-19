@@ -1,3 +1,11 @@
+## 2026-09-19 — M25-28 resume reconciliation
+- Re-read GitHub main, Dropbox and M25-28 transactions before continuing; no completed block was restarted.
+- Preserved M29 HT:L already formal-promoted by a parallel session; no BD+HT derivation was started because M25-28 is not checkpoint-complete.
+- HT:R current pair is attempt03 hit (63d48afb...) + attempt02 rebound (a82a928f...); fixed-drum visual QA still FAILS because the neutral right-arm position forces an implausibly long cross-body HT stick. Formal promotion remains prohibited; next correction must replace/relocate the complete right arm/hand/stick local region from a compatible locked-baseline tom pose.
+- RC:R current pair is attempt03 hit (9dc93593...) + attempt02 rebound (8ad6abaf...); duplicate-stick defect is improved but final fixed-drum arm/stick proportion review remains HOLD. Not formalized.
+- FT+SN:R/L attempt03 was rebuilt as locked-baseline limb-local composition, exact hit/rebound bytes saved to Dropbox (0aea2d50... / 44f7e791...), and candidate staging exists at character-assets/candidate-staging/m25_28_ft_sn_attempt03.json. Local binary/character QA passed; GitHub candidate import and fixed-drum composite QA remain pending.
+- Updated all three M25-28 transactions and PROGRESS.json to the latest attempt state. No runtime mapping/scope expansion was performed.
+
 ## 2026-09-19 — Character generation preflight memory
 - Added mandatory `CHARACTER_GENERATION_PLAYBOOK.json` as a compact pre-generation memory for character image work.
 - Playbook captures recurring failure modes, successful first-attempt heuristics, baseline-parent rules, and the QA retry loop.
