@@ -33,7 +33,7 @@ jobs:
             dst.parent.mkdir(parents=True,exist_ok=True); dst.write_bytes(raw)
             key=a["assetKey"]; rel=str(dst).removeprefix("character-assets/")
             inv.setdefault("requiredFrames",{})[key]={"path":rel,"state":"ready","sha256":sha,"actionKey":s["actionKey"],"phase":a["phase"]}
-            inv.setdefault("runtimePhaseFrameMap",{}).setdefault(s["actionKey"],{})[a["phase"]]=key
+            phase_map=inv.setdefault("runtimePhaseFrameMap",{}).setdefault(s["actionKey"],{}); phase_map.setdefault("prep","neutral"); phase_map[a["phase"]]=key
             if a["phase"]=="hit": inv.setdefault("runtimeFrameMap",{})[s["actionKey"]]=key
           invp.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+"\n")
           s["status"]="PROMOTED"; sp.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n")
