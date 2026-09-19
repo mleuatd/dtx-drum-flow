@@ -5,9 +5,8 @@
 const CORE="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit/samples/";
 const CYM="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit2/samples/";
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-// Measured RMS calibration (highest velocity layer, median round-robin).
-// Targets are intentionally within 0.6 dB; character comes primarily from timbre, not loudness.
-const LOUDNESS_GAIN={kick:.819071,snare:1.622787,sideStick:1.901602,hihatClosed:1.643404,hihatOpen:1.110549,hihatPedal:2.134323,tomHigh:1.397477,tomLow:.999924,tomFloor:.999924,ride:2.109117,rideBell:1.078314,crashLeft:1.191351,crashRight:1.191351};
+// Song-independent practice-salience calibration measured from attack, early energy, and full RMS.\n// Low drums get a small masking allowance; cymbals get a small reduction. No chart-specific gains.
+const LOUDNESS_GAIN={kick:1.004637,snare:1.736809,sideStick:2.476898,hihatClosed:1.514431,hihatOpen:1.032811,hihatPedal:1.615342,tomHigh:1.467293,tomLow:1.132153,tomFloor:1.132153,ride:1.870844,rideBell:1.026662,crashLeft:1.009410,crashRight:1.009410};
 const defs={
  kick:{base:CORE,prefix:"kick",layers:4,rr:4},snare:{base:CORE,prefix:"snare",layers:6,rr:3},
  sideStick:{base:CORE,prefix:"sidestick",layers:3,rr:3},hihatClosed:{base:CORE,prefix:"hhc",layers:4,rr:4},
