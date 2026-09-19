@@ -80,6 +80,18 @@ jobs:
             Image.alpha_composite(bg,comp).save(full_composites/f"{slug}.png")
             char_bg=Image.new("RGBA",ch.size,(250,250,250,255))
             Image.alpha_composite(char_bg,ch).save(character_only/f"{slug}.png")
+          retry=out/"retry_candidates"
+          retry.mkdir(exist_ok=True)
+          for label,p in frames:
+            if label not in ("HH:R hit","HH:R rebound"): continue
+            ch=Image.open(root/p).convert("RGBA")
+            # Minimal retry: keep every visible current pixel, but restore neutral underneath transparent splice holes.
+            cand=Image.alpha_composite(neutral,ch)
+            slug=re.sub(r"[^A-Za-z0-9]+","_",label).strip("_").lower()
+            cand.save(retry/f"{slug}_alpha_safe.png")
+            comp=Image.alpha_composite(drum,cand)
+            bg=Image.new("RGBA",comp.size,(250,250,250,255))
+            Image.alpha_composite(bg,comp).save(retry/f"{slug}_alpha_safe_fixed_drum.png")
           (out/"metrics.txt").write_text("\n".join(report),encoding="utf-8")
           print("\n".join(report))
           PY
