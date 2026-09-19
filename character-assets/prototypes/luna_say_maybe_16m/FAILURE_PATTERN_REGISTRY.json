@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T17:56:00+09:00",
+  "updatedAt": "2026-09-19T18:38:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -308,6 +308,23 @@
       "neverUse": false,
       "evidence": "2026-09-19 local-edit policy consolidation",
       "updatedAt": "2026-09-19T17:56:00+09:00"
+    },
+    {
+      "id": "FAIL-BRUSHUP-DIAGRAM-INSTEAD-OF-EDIT",
+      "name": "image edit request rendered as documentation sheet",
+      "severity": "CRITICAL",
+      "actionKey": "SN:L",
+      "phase": "hit",
+      "problem": "The candidate became a before/after QA/documentation sheet rather than a transparent character-only edit.",
+      "cause": "The generation request was interpreted as a presentation/diagram instead of an edit of the claimed formal PNG.",
+      "prohibitedStrategy": "Do not use a descriptive presentation/QA-sheet prompt or accept any candidate containing labels, panels, drum drawings, or documentation text.",
+      "nextPermittedStrategy": "Retry only with the exact formal source image explicitly scoped as the edit target; require character-only transparent output and preserve all non-motion regions.",
+      "detection": "Candidate contains text/panels/comparison layout and is not a 1448x1086 character layer.",
+      "automaticAction": "REJECT; never register or reuse.",
+      "qaAction": "Require transparent character-only layer, source-target identity preservation, and fixed-drum composite QA.",
+      "neverUse": true,
+      "evidence": "TERM-A SN:L hit try01, SHA256 b6f3a419c1c00337444e2f80f4ef9bac907b3d192f9ea4dc029e0175fc0eaab0",
+      "updatedAt": "2026-09-19T18:38:00+09:00"
     }
   ],
   "adaptiveRetry": {
