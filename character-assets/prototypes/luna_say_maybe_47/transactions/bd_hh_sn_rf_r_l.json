@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+HH+SN:RF/R/L transaction for Luna M47",
-  "status": "CANDIDATE_SAVE_IMPORT_PENDING",
+  "status": "DONE",
   "actionKey": "BD+HH+SN:RF/R/L",
   "scope": {
     "measureStart": 47,
@@ -32,38 +32,47 @@
   ],
   "phases": {
     "hit": {
-      "stage": "CANDIDATE_IMPORT",
+      "stage": "DONE",
       "attempt": 1,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_hh_sn_rf_r_l_hit_attempt01.png",
       "candidatePath": "character-assets/candidates/m47/bd_hh_sn_rf_r_l_hit_attempt01.png",
       "sha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
-      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
-      "formalCommit": null
+      "formalCommit": "a329c9efbaba6991dfd18eecf975d5499be7d929"
     },
     "rebound": {
-      "stage": "CANDIDATE_IMPORT",
+      "stage": "DONE",
       "attempt": 1,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_hh_sn_rf_r_l_rebound_attempt01.png",
       "candidatePath": "character-assets/candidates/m47/bd_hh_sn_rf_r_l_rebound_attempt01.png",
       "sha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
-      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
-      "formalCommit": null
+      "formalCommit": "a329c9efbaba6991dfd18eecf975d5499be7d929"
     }
   },
   "qa": {
-    "static": "PASS_LOCAL",
+    "static": "PASS",
     "compositeVisual": "PASS",
     "contact": "PASS_HH_SN_BD",
-    "transition": "PASS_VISUAL",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING"
+    "transition": "PASS",
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS",
+    "publicRuntime": "PASS",
+    "runtimeQaRun": 35419097186,
+    "runtimeQaArtifact": 10577335176
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T12:38:00+09:00",
+  "updatedAt": "2026-09-19T12:49:00+09:00",
   "notes": [
     "Reused repository-proven deterministic SN and BD cue geometry; no generative image edit used."
-  ]
+  ],
+  "publicQa": {
+    "status": "PASS",
+    "runId": 35419097186,
+    "artifactId": 10577335176,
+    "measureRange": "47"
+  }
 }
