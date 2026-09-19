@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T12:58:00+09:00",
+  "updatedAt": "2026-09-19T13:15:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -8,10 +8,10 @@
     "rule": "Do not modify drum-audio implementation unless required to prevent a character-runtime regression. Re-read latest main before every write because audio terminal may update main concurrently."
   },
   "currentKnownState": {
-    "latestMainAtPlanning": "2ae4a3816d2dd9f55a42648b9642062e9a153791",
-    "formalAndMappedThroughMeasure": 53,
-    "lastLiveQaConfirmedThroughMeasure": 53,
-    "note": "asset_inventory runtimeScope is M1-40; M29-40 final public PC/Xperia QA closure remains the first character task."
+    "latestMainAtPlanning": "refreshed-before-write",
+    "formalAndMappedThroughMeasure": 54,
+    "lastLiveQaConfirmedThroughMeasure": 54,
+    "note": "M54 public PC/Xperia QA passed in run 35420373297 / artifact 10576732695. Next contiguous character task is M55-67 reuse-only."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -116,21 +116,26 @@
       "order": 6,
       "measures": "54",
       "type": "NEW_PAIR",
-      "status": "RUNNING",
+      "status": "DONE",
       "actionKey": "BD+HT:RF/L",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
-      "preferredDerivation": "formal HT:L + approved local BD kick cue"
+      "preferredDerivation": "formal HT:L + approved local BD kick cue",
+      "completedAt": "2026-09-19T13:15:00+09:00",
+      "qaRun": 35420373297,
+      "qaArtifact": 10576732695,
+      "note": "Browser QA 4/4 PASS; workflow failure was only ledger persistence conflict."
     },
     {
       "id": "CHAR-007",
       "order": 7,
       "measures": "55-67",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "BLOCKED_BY_PREVIOUS",
-      "newImagePairs": []
+      "status": "READY",
+      "newImagePairs": [],
+      "note": "Released after M54 DONE. Reuse-only: generate no new images."
     },
     {
       "id": "CHAR-008",
@@ -214,12 +219,9 @@
     }
   ],
   "summary": {
-    "remainingNewActionPairs": 5,
-    "remainingNewPngFiles": 10,
+    "remainingNewActionPairs": 4,
+    "remainingNewPngFiles": 8,
     "newActionOrder": [
-      "M46 LT+SN:R/L",
-      "M47 BD+HH+SN:RF/R/L",
-      "M54 BD+HT:RF/L",
       "M68 BD+RC+SN:RF/R/L",
       "M105 BD+FT+SN:RF/R/L",
       "M105 BD+FT:RF/L",
