@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T07:56:00+09:00",
+  "updatedAt": "2026-09-20T08:00:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -1424,7 +1424,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FAST-2X4-B",
+      "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
     },
     {
       "order": 12,
@@ -1474,7 +1477,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FAST-2X4-B",
+      "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
     },
     {
       "order": 13,
@@ -1521,7 +1527,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FAST-2X4-B",
+      "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
     },
     {
       "order": 14,
@@ -1568,7 +1577,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FAST-2X4-B",
+      "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
     },
     {
       "order": 15,
@@ -3718,32 +3730,42 @@
       "summary": "SN:L hit exact-parent masked edit workflow was triggered but blocked before API edit because OPENAI_API_KEY is unavailable to GitHub Actions. SN:L rebound and BD+RC hit/rebound retain prior machine-QA evidence; new human-anatomy/linework/fixed-drum visual hard gates remain pending and no false promotion was made.",
       "workflowRunId": 35471764688,
       "workflowArtifactId": 10592983884
+    },
+    {
+      "batchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+      "startedAt": "2026-09-20T08:00:00+09:00",
+      "updatedAt": "2026-09-20T08:00:00+09:00",
+      "terminalId": "CHAT-FAST-2X4-B",
+      "actionKeys": [
+        "RD:R",
+        "BD+SN:RF/L"
+      ],
+      "imageCount": 4,
+      "targets": [
+        "rd_r_hit",
+        "rd_r_rebound",
+        "bd_sn_rf_l_hit",
+        "bd_sn_rf_l_rebound"
+      ],
+      "result": "IN_PROGRESS",
+      "summary": "Claimed for current-main static visual-integrity QA."
     }
   ],
   "activeVisualIntegrityBatch": {
-    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
-    "terminalId": "CHAT-BATCH-2X4",
-    "startedAt": "2026-09-20T07:08:00+09:00",
+    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+    "terminalId": "CHAT-FAST-2X4-B",
+    "startedAt": "2026-09-20T08:00:00+09:00",
     "actionKeys": [
-      "BD:RF",
-      "HH:R"
+      "RD:R",
+      "BD+SN:RF/L"
     ],
     "frameIds": [
-      "bd_rf_hit",
-      "bd_rf_rebound",
-      "hh_r_hit",
-      "hh_r_rebound"
+      "rd_r_hit",
+      "rd_r_rebound",
+      "bd_sn_rf_l_hit",
+      "bd_sn_rf_l_rebound"
     ],
-    "stage": "RUNTIME_QA_PENDING",
-    "note": "Review-only claim. Formal PNG bytes unchanged. Current-main visual QA contact sheet requested before hard-gate disposition.",
-    "updatedAt": "2026-09-20T07:24:00+09:00",
-    "staticDisposition": {
-      "BD:RF": "STATIC_PASS_RUNTIME_PENDING",
-      "HH:R": "HOLD_STATIC_HARD_FAIL_AFTER_ONE_RETRY"
-    },
-    "visualQaRunId": 35472780085,
-    "visualQaArtifactId": 10593056465,
-    "retryRunId": 35472957167,
-    "retryArtifactId": 10593926080
+    "stage": "STATIC_QA_PENDING",
+    "note": "Review-only claim for 2x4 batch. Formal PNG bytes unchanged pending visual-integrity hard-gate disposition."
   }
 }
