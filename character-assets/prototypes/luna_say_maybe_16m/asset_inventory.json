@@ -1,15 +1,15 @@
 {
   "version": 12,
-  "scope": "Luna Say Maybe measures 1-40 runtime mapped; public runtime QA pending",
-  "imageSetState": "m1-40-runtime-qa-pending",
+  "scope": "Luna Say Maybe measures 1-45 runtime mapped; public runtime QA pending",
+  "imageSetState": "m1-45-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 40,
-    "noteCount": 502,
-    "groupCount": 378,
+    "measureEnd": 45,
+    "noteCount": 582,
+    "groupCount": 435,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 72.376453,
+    "lastNoteTime": 81.009547,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -648,8 +648,8 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T10:42:00+09:00",
-  "note": "Runtime scope expanded deterministically from FINAL chart + full limb assignments through M40; 502 notes / 378 groups; all 23 runtime keys resolved. BD+HT prep explicitly maps to neutral.",
+  "updatedAt": "2026-09-19T11:20:00+09:00",
+  "note": "Existing-formal-assets-only expansion: M41-45 introduces no unresolved runtime action keys; 582 notes / 435 groups / 23 keys resolve. First post-M45 missing action is LT+SN:R/L at M46, so contiguous scope stops safely at M45.",
   "runtimeQaTarget": {
     "measureStart": 25,
     "measureEnd": 28,
