@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T08:16:00+09:00",
+  "updatedAt": "2026-09-20T08:20:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8860,7 +8860,7 @@
     },
     {
       "issueId": "MOTION-011",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:06.7-2:06.8",
@@ -8888,7 +8888,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:10:00+09:00",
+      "updatedAt": "2026-09-20T08:20:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9843,22 +9843,23 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
+        "linework": "PENDING_MANUAL_VISUAL_GATE",
+        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
+        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger."
       },
-      "claim": {
-        "state": "CLAIMED",
-        "direction": "BACK",
-        "batch": "BACK-BATCH-01",
-        "claimedAt": "2026-09-20T08:10:00+09:00",
-        "owner": "CHATGPT-BACK"
-      }
+      "claim": null,
+      "decisionLog": [
+        {
+          "at": "2026-09-20T08:20:00+09:00",
+          "decision": "BACK_BATCH_01_HOLD_AFTER_AUTOMATED_QA",
+          "detail": "Automated candidate QA passed for hit/rebound; mandatory visual-integrity human/linework/fixed-drum gate remains without PASS evidence. Release claim and continue queue."
+        }
+      ]
     },
     {
       "issueId": "MOTION-012",
@@ -10674,7 +10675,7 @@
     },
     {
       "issueId": "MOTION-013",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:07.1-2:07.2",
@@ -10702,7 +10703,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:10:00+09:00",
+      "updatedAt": "2026-09-20T08:20:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -11542,22 +11543,23 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method3/METHOD3_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
+        "linework": "PENDING_MANUAL_VISUAL_GATE",
+        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
+        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger."
       },
-      "claim": {
-        "state": "CLAIMED",
-        "direction": "BACK",
-        "batch": "BACK-BATCH-01",
-        "claimedAt": "2026-09-20T08:10:00+09:00",
-        "owner": "CHATGPT-BACK"
-      }
+      "claim": null,
+      "decisionLog": [
+        {
+          "at": "2026-09-20T08:20:00+09:00",
+          "decision": "BACK_BATCH_01_HOLD_AFTER_AUTOMATED_QA",
+          "detail": "Automated candidate QA passed for hit/rebound; mandatory visual-integrity human/linework/fixed-drum gate remains without PASS evidence. Release claim and continue queue."
+        }
+      ]
     },
     {
       "issueId": "MOTION-014",
