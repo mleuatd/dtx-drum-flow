@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T12:13:00+09:00",
+  "updatedAt": "2026-09-19T12:16:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -10,7 +10,7 @@
   "currentKnownState": {
     "latestMainAtPlanning": "2ae4a3816d2dd9f55a42648b9642062e9a153791",
     "formalAndMappedThroughMeasure": 40,
-    "lastLiveQaConfirmedThroughMeasure": 28,
+    "lastLiveQaConfirmedThroughMeasure": 40,
     "note": "asset_inventory runtimeScope is M1-40; M29-40 final public PC/Xperia QA closure remains the first character task."
   },
   "imageLearning": {
@@ -35,7 +35,7 @@
       "order": 1,
       "measures": "29-40",
       "type": "PUBLIC_RUNTIME_QA_CLOSE",
-      "status": "RUNNING",
+      "status": "DONE",
       "work": [
         "Read latest M29-40 transactions and runtime QA result",
         "Confirm validate/deploy/public runtime QA for current M1-40 mapping",
@@ -46,14 +46,17 @@
       "newImagePairs": [],
       "runtimeQaRun": 35417779611,
       "runtimeQaHeadSha": "7bb37c8a6550ff5ca21c95e25aba5a9b61bdd7aa",
-      "note": "Runtime Character QA target switched from stale M25-28 to M29-40. Wait for a non-cancelled successful run that includes this target; audio-terminal pushes may cancel intermediate runs."
+      "note": "Runtime Character QA target switched from stale M25-28 to M29-40. Wait for a non-cancelled successful run that includes this target; audio-terminal pushes may cancel intermediate runs.",
+      "completedAt": "2026-09-19T12:16:00+09:00",
+      "qaRun": 35417779611,
+      "qaArtifact": 10576243090
     },
     {
       "id": "CHAR-002",
       "order": 2,
       "measures": "41-45",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "RUNNING",
       "work": [
         "Verify chart action keys are already formal/mapped",
         "Expand contiguous scope through M45",
