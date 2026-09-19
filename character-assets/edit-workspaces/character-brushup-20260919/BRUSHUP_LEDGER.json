@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:00:00+09:00",
+  "updatedAt": "2026-09-20T08:07:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -1405,8 +1405,8 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1414,20 +1414,41 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.01122969,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:07:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475145116,
+          "artifactId": 10593238245,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "Pair promotion blocked because RD:R rebound fails the static visual-integrity hard gate."
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
       "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+      "reviewCompletedAt": "2026-09-20T08:07:00+09:00",
+      "holdReason": "RD:R pair held because rebound has a large rectangular splice/cut across hair-torso/right-arm geometry. Formal PNGs preserved; no minimal retry attempted because the failure exceeds the light/local threshold.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+        "at": "2026-09-20T08:07:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 12,
@@ -1458,8 +1479,8 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1467,20 +1488,44 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_r_rebound_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.04430319,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:07:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475145116,
+          "artifactId": 10593238245,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "rectangular splice/cut is visible across the hair-to-torso region",
+          "right forearm/hand-stick area contains a hard rectangular discontinuity",
+          "fixed-drum composite preserves the same structural cut, so it is not a viewing artifact",
+          "failure is structural rather than a light/local line defect; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
       "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+      "reviewCompletedAt": "2026-09-20T08:07:00+09:00",
+      "holdReason": "RD:R pair held because rebound has a large rectangular splice/cut across hair-torso/right-arm geometry. Formal PNGs preserved; no minimal retry attempted because the failure exceeds the light/local threshold.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+        "at": "2026-09-20T08:07:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 13,
@@ -1508,8 +1553,8 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1517,20 +1562,45 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04645068,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:07:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475145116,
+          "artifactId": 10593238245,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "large rectangular splice crosses lower hair/skirt/seat region",
+          "seat and pelvis continuity is visibly broken by blocky rectangular replacement",
+          "left drumstick/hand path is truncated/discontinuous",
+          "fixed-drum composite confirms the structural artifact",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
       "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+      "reviewCompletedAt": "2026-09-20T08:07:00+09:00",
+      "holdReason": "BD+SN:RF/L pair held for structural splice/stick-break defects. Formal PNGs preserved; no minimal retry attempted because the failures exceed the light/local threshold.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+        "at": "2026-09-20T08:07:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 14,
@@ -1558,8 +1628,8 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1567,20 +1637,44 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04643796,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:07:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475145116,
+          "artifactId": 10593238245,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "left drumstick contains a hard rectangular missing segment near the left hand",
+          "stick/hand continuity is broken and reads as a cropped splice",
+          "fixed-drum composite preserves the same cut",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
       "reviewClaimedAt": "2026-09-20T08:00:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+      "reviewCompletedAt": "2026-09-20T08:07:00+09:00",
+      "holdReason": "BD+SN:RF/L pair held for structural splice/stick-break defects. Formal PNGs preserved; no minimal retry attempted because the failures exceed the light/local threshold.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
+        "at": "2026-09-20T08:07:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 15,
@@ -3734,7 +3828,7 @@
     {
       "batchId": "VISUAL-INTEGRITY-BATCH-20260920-04",
       "startedAt": "2026-09-20T08:00:00+09:00",
-      "updatedAt": "2026-09-20T08:00:00+09:00",
+      "updatedAt": "2026-09-20T08:07:00+09:00",
       "terminalId": "CHAT-FAST-2X4-B",
       "actionKeys": [
         "RD:R",
@@ -3747,8 +3841,10 @@
         "bd_sn_rf_l_hit",
         "bd_sn_rf_l_rebound"
       ],
-      "result": "IN_PROGRESS",
-      "summary": "Claimed for current-main static visual-integrity QA."
+      "result": "HOLD_STATIC_HARD_FAIL",
+      "summary": "RD:R hit passes static review but rebound has structural rectangular splice/cut. BD+SN:RF/L hit and rebound fail structural splice/stick-continuity hard gates. No minimal retries attempted; formal PNGs unchanged.",
+      "workflowRunId": 35475145116,
+      "workflowArtifactId": 10593238245
     }
   ],
   "activeVisualIntegrityBatch": {
@@ -3765,7 +3861,14 @@
       "bd_sn_rf_l_hit",
       "bd_sn_rf_l_rebound"
     ],
-    "stage": "STATIC_QA_PENDING",
-    "note": "Review-only claim for 2x4 batch. Formal PNG bytes unchanged pending visual-integrity hard-gate disposition."
+    "stage": "HOLD_COMPLETE",
+    "note": "Batch 04 static hard gates completed. No formal PNG changed; both actionKey pairs moved to HOLD_VISUAL_INTEGRITY and runtime QA was not entered.",
+    "updatedAt": "2026-09-20T08:07:00+09:00",
+    "staticDisposition": {
+      "RD:R": "HOLD_REBOUND_STATIC_HARD_FAIL",
+      "BD+SN:RF/L": "HOLD_BOTH_STATIC_HARD_FAIL"
+    },
+    "visualQaRunId": 35475145116,
+    "visualQaArtifactId": 10593238245
   }
 }
