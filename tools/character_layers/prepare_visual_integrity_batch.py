@@ -75,6 +75,27 @@ def select_targets(data: dict[str, Any], action_keys: list[str] | None) -> list[
             raise SystemExit(f"action keys not found in ledger: {missing}")
         return sorted(chosen, key=lambda t: (action_keys.index(t["actionKey"]), 0 if t["phase"] == "hit" else 1))
 
+    # On push-triggered runs, honor the explicit batch already CLAIMED in the ledger.
+    # This prevents auto-priority selection from stealing work owned by another parallel session.
+    active = data.get("activeVisualIntegrityBatch") or {}
+    active_keys = active.get("actionKeys") or []
+    active_batch_id = active.get("batchId")
+    if len(active_keys) == 2 and active_batch_id:
+        claimed = [
+            t for t in targets
+            if t.get("actionKey") in active_keys
+            and t.get("phase") in {"hit", "rebound"}
+            and t.get("reviewClaimState") == "CLAIMED"
+            and t.get("activeReviewBatchId") == active_batch_id
+        ]
+        found = {t.get("actionKey") for t in claimed}
+        phases_by_key = {
+            key: {t.get("phase") for t in claimed if t.get("actionKey") == key}
+            for key in active_keys
+        }
+        if found == set(active_keys) and all({"hit", "rebound"}.issubset(phases_by_key[key]) for key in active_keys):
+            return sorted(claimed, key=lambda t: (active_keys.index(t["actionKey"]), 0 if t["phase"] == "hit" else 1))
+
     grouped: OrderedDict[str, list[dict[str, Any]]] = OrderedDict()
     for t in sorted(targets, key=lambda x: x.get("order", 999999)):
         if t.get("phase") not in {"hit", "rebound"}:
@@ -126,7 +147,7 @@ def main() -> None:
     manifest: dict[str, Any] = {
         "schemaVersion": 1,
         "ledgerUpdatedAt": data.get("updatedAt"),
-        "selectionMode": "explicit" if requested else "auto-priority",
+        "selectionMode": "explicit" if requested else ("active-claimed-batch" if (data.get("activeVisualIntegrityBatch") or {}).get("actionKeys") == action_keys else "auto-priority"),
         "actionKeys": action_keys,
         "canvas": list(CANVAS),
         "registration": {"x": 0, "y": 0, "scale": 1},
