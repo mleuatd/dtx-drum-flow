@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T07:52:00+09:00",
+  "updatedAt": "2026-09-20T07:56:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -171,8 +171,8 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "visual-integrity-reviewing",
-      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "TERM-A",
       "claimState": "CLAIMED",
       "claimedAt": "2026-09-19T18:31:00+09:00",
@@ -209,30 +209,41 @@
         }
       ],
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "CLAIMED_RETRYING",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35474616622,
+          "artifactId": 10593307774,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "Pair promotion blocked because SN:L rebound fails the static visual-integrity hard gate."
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
         "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
-        "at": "2026-09-20T07:52:00+09:00",
-        "machineEvidenceChecked": false,
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "IN_PROGRESS"
+        "at": "2026-09-20T07:56:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "reviewTerminalId": "CHAT-FAST-2X4",
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+      "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
+      "holdReason": "SN:L pair held because rebound has large structural anatomy/linework failure; formal PNGs preserved and no minimal retry was attempted because the failure exceeds the light-fail threshold."
     },
     {
       "order": 2,
@@ -364,8 +375,8 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "visual-integrity-reviewing",
-      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:24:00+09:00",
@@ -374,30 +385,44 @@
       "completedAt": "2026-09-20T05:31:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json",
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35474616622,
+          "artifactId": 10593307774,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "duplicate/disconnected extra arm-hand-stick geometry is visible in rebound",
+          "rebound silhouette reads as three sticks / duplicated hand-stick structures",
+          "head/body/stool registration changes far beyond the active left-arm motion",
+          "rebound reads as a different whole-body drawing rather than a local follow-through"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
         "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
-        "at": "2026-09-20T07:52:00+09:00",
-        "machineEvidenceChecked": false,
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "IN_PROGRESS"
+        "at": "2026-09-20T07:56:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "reviewTerminalId": "CHAT-FAST-2X4",
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+      "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
+      "holdReason": "Large structural visual-integrity failure in rebound; formal PNG preserved. No minimal retry attempted because this is not a light/local defect."
     },
     {
       "order": 3,
@@ -1190,8 +1215,8 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "visual-integrity-reviewing",
-      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1199,30 +1224,45 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05741583,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35474616622,
+          "artifactId": 10593307774,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "disconnected/duplicate upper-right arm-hand-stick geometry",
+          "extra stick/arm structure contradicts one coherent shoulder-to-hand-to-stick chain",
+          "vertical/blocky splice residue crosses the body/seat/lower-body region",
+          "pelvis/seat/leg continuity is visually corrupted",
+          "fixed-drum composite exposes anatomical/contact contradiction"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
         "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
-        "at": "2026-09-20T07:52:00+09:00",
-        "machineEvidenceChecked": false,
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "IN_PROGRESS"
+        "at": "2026-09-20T07:56:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "reviewTerminalId": "CHAT-FAST-2X4",
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+      "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
+      "holdReason": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect."
     },
     {
       "order": 10,
@@ -1287,8 +1327,8 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "visual-integrity-reviewing",
-      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1296,30 +1336,45 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05115394,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35474616622,
+          "artifactId": 10593307774,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strips"
+        },
+        "failReasons": [
+          "disconnected/duplicate upper-right arm-hand-stick geometry",
+          "extra stick/arm structure contradicts one coherent shoulder-to-hand-to-stick chain",
+          "vertical/blocky splice residue crosses the body/seat/lower-body region",
+          "pelvis/seat/leg continuity is visually corrupted",
+          "fixed-drum composite exposes anatomical/contact contradiction"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
         "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
-        "at": "2026-09-20T07:52:00+09:00",
-        "machineEvidenceChecked": false,
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "IN_PROGRESS"
+        "at": "2026-09-20T07:56:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "reviewTerminalId": "CHAT-FAST-2X4",
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+      "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
+      "holdReason": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect."
     },
     {
       "order": 11,
