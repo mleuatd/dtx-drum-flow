@@ -4,7 +4,7 @@
     "measureStart": 137,
     "measureEnd": 148
   },
-  "status": "M137_148_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "M137_148_PUBLIC_RUNTIME_QA_FAILED",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY_FINAL_EXPANSION",
   "analysis": {
@@ -39,12 +39,12 @@
   "requiredNext": "Expand runtimeScope to M148 and run public PC/Xperia QA. Generate no new images.",
   "runtimeQaEvidence": {
     "M137-148": {
-      "status": "PASS",
+      "status": "FAIL",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35427791481",
-      "testedCommitSha": "57dd8c8a3633a4ca07a61fab99e31d2eeabe7142",
-      "artifact": "public-runtime-qa-35427791481",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35427791481",
+      "runId": "35428370633",
+      "testedCommitSha": "8c932c4bb852b595524e8906dd13a5b718497d83",
+      "artifact": "public-runtime-qa-35428370633",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35428370633",
       "measureStart": 137,
       "measureEnd": 148,
       "actions": [
@@ -70,6 +70,10 @@
       ]
     }
   },
-  "updatedAt": "2026-09-19T06:54:09.360648+00:00",
-  "blocker": null
+  "updatedAt": "2026-09-19T07:06:59.078586+00:00",
+  "blocker": {
+    "type": "RUNTIME_QA",
+    "workflowRunId": "35428370633",
+    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
+  }
 }
