@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T20:25:00+09:00",
+  "terminalId": "RUNTIME-POSE-TERM",
+  "taskId": "RTP-GEN-001",
+  "status": "PASS",
+  "sourceCommit": "ad0fe1f643e8769fd055d60f6faf599f0e7dce2a",
+  "workflow": {
+    "name": "Runtime Pose Tests",
+    "runId": 35440027946,
+    "conclusion": "success"
+  },
+  "scope": [
+    "single actionKey parser compatibility (SN:L)",
+    "combo actionKey parser (BD+RC:RF/R, RD+SN:R/L)",
+    "part-to-limb cardinality validation",
+    "source-nearest arm IK",
+    "leg reach solver",
+    "phase-aware neutral/hit/rebound contact QA",
+    "multi-effector exact-contact QA",
+    "missing numeric contact blocks hit",
+    "combo active-joint detection",
+    "registration/transition validators"
+  ],
+  "implementation": [
+    "tools/runtime_pose/common.py",
+    "tools/runtime_pose/build_runtime_pose_constraints.py",
+    "tools/runtime_pose/validate_pose.py",
+    "tools/runtime_pose/build_ai_render_constraint.py",
+    "tools/runtime_pose/render_pose_constraint_debug.py",
+    "tools/runtime_pose/tests/test_runtime_pose.py",
+    ".github/workflows/runtime-pose-tests.yml"
+  ],
+  "compatibility": {
+    "singleActionLegacyFieldsPreserved": true,
+    "formalPngModified": false
+  },
+  "notes": [
+    "Combo packages now carry actionComponents/effectors and preserve legacy single-action fields when exactly one effector exists.",
+    "Hit phases require authoritative numeric contact for each effector; neutral/rebound remain phase-aware.",
+    "Minimal-motion semantics use neutral as whole-body baseline and only active limb chains may differ."
+  ]
+}
