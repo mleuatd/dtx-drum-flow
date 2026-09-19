@@ -4,16 +4,19 @@
     "measureStart": 68,
     "measureEnd": 68
   },
-  "status": "SOURCE_LOCKED",
+  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIR",
   "actionKey": "BD+RC+SN:RF/R/L",
   "analysis": {
     "newCharacterPngRequired": 2,
-    "formalPairReady": false,
-    "allMapped": false
+    "formalPairReady": true,
+    "allMapped": true,
+    "hitSha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
+    "reboundSha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
+    "dropboxSaved": true
   },
-  "requiredNext": "Generate deterministic attempt01 from exact formal RC+SN:R/L hit/rebound by adding only the repository-proven BD kick cue. No generative redraw.",
-  "updatedAt": "2026-09-19T13:31:00+09:00",
+  "requiredNext": "Expand contiguous runtimeScope through M68 and run public PC/Xperia runtime QA for BD+RC+SN:RF/R/L. Do not regenerate formal bytes.",
+  "updatedAt": "2026-09-19T13:38:00+09:00",
   "blocker": null
 }
