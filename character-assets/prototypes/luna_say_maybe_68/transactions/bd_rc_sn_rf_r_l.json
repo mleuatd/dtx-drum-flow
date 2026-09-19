@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+RC+SN:RF/R/L transaction for Luna M68",
-  "status": "SOURCE_LOCKED",
+  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
   "actionKey": "BD+RC+SN:RF/R/L",
   "scope": {
     "measureStart": 68,
@@ -69,34 +69,44 @@
   },
   "phases": {
     "hit": {
-      "stage": "SOURCE_LOCKED",
+      "stage": "FORMAL",
       "attempt": 1,
       "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_hit_attempt01.png",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_hit_attempt01.png",
-      "sha256": null,
-      "qaStatus": "PENDING"
+      "sha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "formalCommit": "ede7769a22d273c5579777f8f2309a5f2f2aee8b"
     },
     "rebound": {
-      "stage": "SOURCE_LOCKED",
+      "stage": "FORMAL",
       "attempt": 1,
       "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_rebound_attempt01.png",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_rebound_attempt01.png",
-      "sha256": null,
-      "qaStatus": "PENDING"
+      "sha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "formalCommit": "ede7769a22d273c5579777f8f2309a5f2f2aee8b"
     }
   },
   "qa": {
-    "static": "PENDING",
-    "compositeVisual": "PENDING",
-    "locality": "PENDING",
-    "transition": "PENDING",
+    "static": "PASS",
+    "compositeVisual": "PASS",
+    "locality": "PASS_BD_CUE_ONLY",
+    "transition": "PASS_VISUAL",
     "runtimePC": "PENDING",
     "runtimeXperia": "PENDING",
     "screenshots": "PENDING"
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T13:31:00+09:00",
+  "updatedAt": "2026-09-19T13:38:00+09:00",
   "notes": [
-    "No image-generation model will be used for attempt01; deterministic local BD cue addition preserves exact RC+SN parent outside the cue region."
-  ]
+    "No image-generation model will be used for attempt01; deterministic local BD cue addition preserves exact RC+SN parent outside the cue region.",
+    "Attempt01 exact bytes saved to Dropbox, promoted to formal paths, and fixed-drum hit/rebound composites visually reviewed PASS."
+  ],
+  "build": {
+    "workflowRun": 35421113802,
+    "artifactId": 10577777737,
+    "buildCommit": "5f2afc61015e5e6d42e172456e9ae0d9dc21b2d2"
+  }
 }
