@@ -39,3 +39,46 @@ This means the next step is not to rebuild the screenshot system from scratch. T
 - Prefer metadata/runtime/timing/contact fixes when the image itself is not the root cause.
 - If an image edit is necessary, use the existing image-edit master rules and preserve locked body/camera/stool regions.
 - Regressions roll back.
+
+
+## Reproducible repair recipe rule
+
+Every defect record must now include a `repairSpec` **before any repair begins**.
+
+A repairSpec is not a vague note such as "make the motion natural" or "fix the arm." It must be sufficiently explicit that a later AI/terminal can execute the same intent without guessing.
+
+Each repairSpec must state:
+
+- exact source authority: formal path + SHA256 before image work,
+- what is absolutely locked,
+- what is allowed to change,
+- the desired target state,
+- numeric/contact/timing requirements where available,
+- ordered edit steps,
+- PASS/FAIL validation,
+- forbidden strategies,
+- rollback point,
+- the evidence/reason for choosing that repair.
+
+If any of those are unknown, mark the repairSpec `NEEDS_MEASUREMENT` and gather the missing measurement before editing.
+
+### Language rule
+
+Avoid ambiguous wording such as:
+
+- "make it look better",
+- "move it naturally",
+- "fix the body",
+- "match the original",
+- "adjust as needed".
+
+Replace it with explicit scope, for example:
+
+> Preserve camera, head, torso, right arm, both legs and stool. Only the left upper arm, elbow, forearm, hand and left stick may change. At hit, the stick tip must reach the authoritative SN contact. At rebound, the same arm must move away from contact while shoulder/body/stool remain registered to neutral. No formal overwrite until the same runtime screenshot event passes again.
+
+The backlog is therefore both:
+
+1. a defect list, and
+2. the future executable repair instruction set.
+
+When a visual problem is added, add its reproducible repair recipe at the same time. Do not accumulate a large list of defects with unspecified future fixes.
