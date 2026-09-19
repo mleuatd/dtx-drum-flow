@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe HT:L transaction for Luna M29-40",
-  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+  "status": "DONE",
   "actionKey": "HT:L",
   "scope": {
     "measureStart": 29,
@@ -51,12 +51,18 @@
   "qa": {
     "static": "PASS",
     "compositeVisual": "PASS",
-    "runtimePC": "PENDING_M29_40_PUBLIC_QA",
-    "runtimeXperia": "PENDING_M29_40_PUBLIC_QA",
-    "screenshots": "PENDING_M29_40_PUBLIC_QA"
+    "runtimePC": "PASS_RUN_35417779611",
+    "runtimeXperia": "PASS_RUN_35417779611",
+    "screenshots": "PASS_MANUAL_VISUAL"
   },
-  "updatedAt": "2026-09-19T10:59:00+09:00",
+  "updatedAt": "2026-09-19T12:20:00+09:00",
   "notes": [
     "Reconciled from latest main: formal pair exists and manifest marks both frames FORMAL_QA_PASSED_RUNTIME_PENDING; do not regenerate."
-  ]
+  ],
+  "publicQa": {
+    "status": "PASS",
+    "runId": 35417779611,
+    "artifactId": 10576243090,
+    "measureRange": "29-40"
+  }
 }
