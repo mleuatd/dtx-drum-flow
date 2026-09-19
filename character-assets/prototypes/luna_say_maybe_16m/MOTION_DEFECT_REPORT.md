@@ -82,3 +82,44 @@ The backlog is therefore both:
 2. the future executable repair instruction set.
 
 When a visual problem is added, add its reproducible repair recipe at the same time. Do not accumulate a large list of defects with unspecified future fixes.
+
+
+## Full M1-M148 sweep completion
+
+The current defect-discovery pass is now complete across M1-M148 using the existing final/live/public runtime QA evidence for each measure block.
+
+### Result
+
+- normalized action families reviewed: **30**
+- active repair targets: **15**
+- action families with no current repair required: **15**
+- every active target has a `repairSpec`
+- current formal PNGs remain unchanged by this sweep
+- rollback authority remains `backup/pre-motion-qa-20260919-2138` at `a4e3854449e292264192afa63469edf0fb5048af`
+
+### Repair order
+
+1. SN:L
+2. HH:R
+3. BD:RF
+4. RD:R
+5. HT:R
+6. BD+HH:RF/R
+7. HH+SN:R/L
+8. BD+RC:RF/R
+9. RC+SN:R/L
+10. BD+RD:RF/R
+11. RD+SN:R/L
+12. BD+SN:RF/L
+13. BD+HH+SN:RF/R/L
+14. BD+HT:RF/R
+15. BD+RC+SN:RF/R/L
+
+This order prioritizes reusable base actions first, then high-frequency combos, then lower-frequency multi-limb combos. Do not skip directly to a lower-priority combo when an upstream base registration rule is still unresolved unless the higher-priority issue is technically blocked.
+
+### Important exclusions
+
+- The apparently large M17 FT:L hit/rebound screenshot difference was an overlapped next-event capture (the rebound screenshot was already showing the following BD+RC hit). It is not an FT:L asset defect.
+- SN:R has a historically discontinuous rebound PNG, but the runtime deliberately holds the approved SN:R hit image during the short rebound phase while retaining `phase=rebound`; final Web QA passed. Treat this as an existing mitigation, not an active defect.
+
+The backlog is now the executable repair authority: process `fixOrder` from top to bottom, fill missing measurements/SHA/contact coordinates, create candidate-only repairs, re-run the same Web QA event, and promote only after regression-free PASS.
