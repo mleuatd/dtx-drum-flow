@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-19T18:38:00+09:00",
+  "updatedAt": "2026-09-19T18:45:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -2555,10 +2555,26 @@
       ],
       "usageCount": 4,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED",
+      "brushupStatus": "CLAIMED_RETRYING",
       "terminalId": "TERM-B",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-19T18:35:00+09:00"
+      "claimedAt": "2026-09-19T18:35:00+09:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "terminalId": "TERM-B",
+          "sourcePath": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+          "sourceSha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
+          "candidateFile": "a_clean_line_art_illustration_with_a_white_backgro.png",
+          "candidateSha256": null,
+          "status": "REJECTED",
+          "failurePattern": "FAIL-BRUSHUP-DIAGRAM-INSTEAD-OF-EDIT",
+          "failure": "Output was a labeled before/after production sheet containing drum hardware, not the required transparent character-only layer and not an exact-source local edit.",
+          "prohibitedRepeat": "Do not repeat presentation/diagram generation strategy. Do not generate a composed drum scene.",
+          "nextPermittedStrategy": "Materialize exact GitHub source PNG plus approved neutral into an image-edit-capable conversation target; edit character-only pixels locally with no labels/panels/drum pixels.",
+          "timestamp": "2026-09-19T18:45:00+09:00"
+        }
+      ]
     }
   ]
 }
