@@ -60,7 +60,7 @@ export class LiveDrumEngine{
   s.start(when);if(isCrash)s.stop(Math.min(when+1.47,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.67,when+buffer.duration));
   this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s
 }
- setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}
+ triggerVoice(voice,velocity=.84,when=this.ctx.currentTime+.002){const part={kick:"BD",snare:"SN",sideStick:"SN",hihatClosed:"HH",hihatOpen:"HH",hihatPedal:"LP",tomHigh:"HT",tomLow:"LT",tomFloor:"FT",ride:"RD",rideBell:"RD",crashLeft:"LC",crashRight:"RC"}[voice]||"SN";return this.trigger(part,velocity,when,{soundKey:voice})}\n setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}
  getUserGains(){return {...this.userGain}}
  getBaseGains(){return {...LOUDNESS_GAIN}}
  stop(){for(const n of this.nodes){try{n.stop()}catch{}}this.nodes.clear()}
