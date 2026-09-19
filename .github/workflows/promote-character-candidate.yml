@@ -1,0 +1,49 @@
+name: Promote approved character candidate
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/promotion-staging/**/*.json"
+permissions:
+  contents: write
+jobs:
+  promote:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Promote exact approved bytes
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          changed=subprocess.check_output(["git","diff-tree","--no-commit-id","--name-only","-r","HEAD"],text=True).splitlines()
+          stages=[p for p in changed if p.startswith("character-assets/promotion-staging/") and p.endswith(".json")]
+          if not stages: raise SystemExit("no promotion staging json")
+          sp=pathlib.Path(stages[0]); s=json.loads(sp.read_text())
+          if s.get("status")=="PROMOTED": raise SystemExit(0)
+          invp=pathlib.Path("character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json")
+          inv=json.loads(invp.read_text())
+          for a in s["assets"]:
+            src=pathlib.Path(a["candidatePath"]); dst=pathlib.Path(a["formalPath"])
+            raw=src.read_bytes(); sha=hashlib.sha256(raw).hexdigest()
+            if sha!=a["sha256"]: raise SystemExit(f"sha mismatch {src}: {sha}")
+            dst.parent.mkdir(parents=True,exist_ok=True); dst.write_bytes(raw)
+            key=a["assetKey"]; rel=str(dst).removeprefix("character-assets/")
+            inv.setdefault("requiredFrames",{})[key]={"path":rel,"state":"ready","sha256":sha,"actionKey":s["actionKey"],"phase":a["phase"]}
+            inv.setdefault("runtimePhaseFrameMap",{}).setdefault(s["actionKey"],{})[a["phase"]]=key
+            if a["phase"]=="hit": inv.setdefault("runtimeFrameMap",{})[s["actionKey"]]=key
+          invp.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+"\n")
+          s["status"]="PROMOTED"; sp.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n")
+          PY
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/promotion-staging
+          git diff --cached --quiet && exit 0
+          git commit -m "assets: promote approved character pair"
+          git pull --rebase origin main
+          git push origin HEAD:main
