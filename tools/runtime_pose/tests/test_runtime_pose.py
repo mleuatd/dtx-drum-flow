@@ -5,7 +5,7 @@ from common import parse_action_key
 from solve_arm_reach import solve as solve_arm
 from solve_leg_reach import solve as solve_leg
 from validate_pose import validate_contact,validate_contacts,validate_registration,validate_transition,active_joint_names
-from build_runtime_pose_constraints import solve_arm_nearest_source
+from build_runtime_pose_constraints import solve_arm_nearest_source,solve_arm_prefer_neutral
 
 class RuntimePoseTest(unittest.TestCase):
     def test_action_key_parser_single(self):
@@ -30,6 +30,19 @@ class RuntimePoseTest(unittest.TestCase):
         self.assertTrue(q["reachable"]); self.assertEqual(q["selectedBend"],-1)
         self.assertLess(abs(q["elbow"][0]-651),30)
         self.assertLess(abs(q["elbow"][1]-475),30)
+
+    def test_sn_l_prefers_neutral_shoulder_when_reachable(self):
+        neutral={"joints":{"shoulder_l":[635,342],"elbow_l":[585,470],"wrist_l":[505,490]},
+                 "props":{"stick_tip_l":[432,384]}}
+        state={"joints":{"shoulder_l":[692,344],"elbow_l":[651,475],"wrist_l":[575,516]},
+               "props":{"stick_tip_l":[445,467]}}
+        q=solve_arm_prefer_neutral(neutral,state,"l",[420,535])
+        self.assertTrue(q["reachable"])
+        self.assertEqual(q["anchorPolicy"],"neutral_shoulder_and_lengths")
+        self.assertEqual(q["shoulder"],[635,342])
+        self.assertLessEqual(q["tipErrorPx"],8)
+        self.assertLess(abs(q["elbow"][0]-594.573),1)
+        self.assertLess(abs(q["wrist"][0]-515.776),1)
 
     def test_leg_solver(self):
         q=solve_leg([800,620],[735,650],160,190,35,-1)
