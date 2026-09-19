@@ -15,10 +15,10 @@ jobs:
     timeout-minutes: 20
     env:
       PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
-      MEASURE_START: "142"
-      MEASURE_END: "143"
-      QA_ACTIONS: "HH:R,BD:RF"
-      RUNTIME_QA_BLOCK_KEY: "VISUAL-INTEGRITY-BATCH-20260920-02"
+      MEASURE_START: "1"
+      MEASURE_END: "148"
+      QA_ACTIONS: "BD:RF"
+      RUNTIME_QA_BLOCK_KEY: "VISUAL-INTEGRITY-BATCH-20260920-02-BD-NEUTRAL"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

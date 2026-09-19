@@ -59,5 +59,19 @@
       ]
     }
   ],
-  "formalPngOverwritten": false
+  "formalPngOverwritten": false,
+  "runtimeQa": {
+    "firstRun": {
+      "runId": 35473108907,
+      "artifactId": 10593281363,
+      "commitSha": "8e8639afa718327b89f69fc4c87909585a502437",
+      "passed": 8,
+      "failed": 0,
+      "note": "M142 HH:R and M143 BD:RF hit/rebound verified on PC and Xperia; neutral omitted because next event overlap."
+    },
+    "followup": {
+      "state": "REQUESTED",
+      "scope": "M1-148 / BD:RF only; runtime tool selects occurrence with largest next-event gap to capture neutral if available."
+    }
+  }
 }
