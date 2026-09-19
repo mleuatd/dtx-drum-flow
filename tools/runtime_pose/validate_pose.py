@@ -27,16 +27,16 @@ def _validate_one_effector(e,phase,tol,rebound_min):
     base={"part":e.get("part"),"limb":e.get("limb"),"kind":e.get("kind")}
     if not target:
         if phase=="hit":
-            return dict(base,pass=False,mode="missing_authoritative_contact")
-        return dict(base,pass=True,mode="contact_not_numerically_available")
+            return {**base,"pass":False,"mode":"missing_authoritative_contact"}
+        return {**base,"pass":True,"mode":"contact_not_numerically_available"}
     if not p:
-        return dict(base,pass=False,mode=phase or "unknown",reason="missing_effector_point")
+        return {**base,"pass":False,"mode":phase or "unknown","reason":"missing_effector_point"}
     err=d(target,p)
     if phase=="hit":
-        return dict(base,pass=err<=tol,mode="hit_exact_contact",errorPx=round(err,3),tolerancePx=tol)
+        return {**base,"pass":err<=tol,"mode":"hit_exact_contact","errorPx":round(err,3),"tolerancePx":tol}
     if phase=="rebound":
-        return dict(base,pass=err>=rebound_min,mode="rebound_separation",separationPx=round(err,3),minimumSeparationPx=rebound_min)
-    return dict(base,pass=True,mode="neutral_no_contact_required",distanceFromContactPx=round(err,3))
+        return {**base,"pass":err>=rebound_min,"mode":"rebound_separation","separationPx":round(err,3),"minimumSeparationPx":rebound_min}
+    return {**base,"pass":True,"mode":"neutral_no_contact_required","distanceFromContactPx":round(err,3)}
 
 def validate_contacts(pkg,tol=8.0,rebound_min=16.0):
     checks=[_validate_one_effector(e,pkg.get("phase"),tol,rebound_min) for e in _legacy_effectors(pkg)]
