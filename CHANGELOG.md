@@ -1,3 +1,10 @@
+## 2026-09-19 — M25-28 FT+SN and RC formalized; HT:R edit blocker isolated
+- FT+SN:R/L attempt03 exact bytes were imported, then rejected by actual fixed-drum review because the left SN stick missed the calibrated SN contact. Attempt04 changed only the left-stick shaft on the locked-baseline candidate, passed SN/FT contact and transition review, was saved to Dropbox, imported, and promoted exactly in commit 14a9b4449bf97fb99ca2b4c45247a22574c2c57f.
+- RC:R current deterministic pair was reproduced from locked neutral with SHA match, fixed-drum visual QA passed, exact bytes were saved to Dropbox, and formal promotion completed in b588a43d9b4c39c986bc2dd3f081d6a7df52215f.
+- Formal M25-40 new-asset count is now 6/10 PNGs: HT:L, FT+SN:R/L, and RC:R pairs. HT:R remains the only M25-28 missing pair.
+- HT:R was not force-promoted. Two image-edit attempts returned edit_op=null and unrelated new images; deterministic local prototypes attempt06/07/08 also failed visual QA. All failed outputs were rejected and not persisted to project assets.
+- HT:R is therefore BLOCKED_EXTERNAL until a true local edit can preserve locked neutral while relocating only right arm/hand/stick. Runtime scope remains M1-24 and BD+HT work remains gated behind HT:R + M25-28 checkpoint.
+
 ## 2026-09-19 — M25-28 resume reconciliation
 - Re-read GitHub main, Dropbox and M25-28 transactions before continuing; no completed block was restarted.
 - Preserved M29 HT:L already formal-promoted by a parallel session; no BD+HT derivation was started because M25-28 is not checkpoint-complete.
