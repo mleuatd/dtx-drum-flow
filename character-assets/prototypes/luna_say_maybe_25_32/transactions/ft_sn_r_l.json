@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe FT+SN:R/L transaction for Luna M25-28",
-  "status": "FORMAL",
+  "status": "DONE",
   "actionKey": "FT+SN:R/L",
   "scope": {
     "measureStart": 25,
@@ -56,23 +56,23 @@
   "method": "attempt04 minimal locked-baseline correction from attempt03: preserve character/FT:R motion; correct only left stick shaft to calibrated SN contact",
   "phases": {
     "hit": {
-      "stage": "FORMAL",
+      "stage": "DONE",
       "attempt": 4,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_hit_attempt04.png",
       "candidatePath": "character-assets/candidates/m25_28/ft_sn_r_l_hit_attempt04.png",
       "sha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
-      "qaStatus": "PASS",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
       "formalSha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
       "formalCommit": "14a9b4449bf97fb99ca2b4c45247a22574c2c57f"
     },
     "rebound": {
-      "stage": "FORMAL",
+      "stage": "DONE",
       "attempt": 4,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_rebound_attempt04.png",
       "candidatePath": "character-assets/candidates/m25_28/ft_sn_r_l_rebound_attempt04.png",
       "sha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
-      "qaStatus": "PASS",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
       "formalSha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
       "formalCommit": "14a9b4449bf97fb99ca2b4c45247a22574c2c57f"
@@ -81,14 +81,17 @@
   "qa": {
     "static": "PASS",
     "compositeVisual": "PASS",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING",
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS",
     "contact": "PASS_SN_FT",
-    "transition": "PASS"
+    "transition": "PASS",
+    "publicRuntime": "PASS",
+    "runtimeQaRun": 35413032881,
+    "runtimeQaArtifact": 10575360428
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T09:49:00+09:00",
+  "updatedAt": "2026-09-19T10:47:00+09:00",
   "localMask": {
     "x1": 300,
     "y1": 300,
@@ -99,5 +102,18 @@
   },
   "notes": [
     "Attempt03 imported successfully but fixed-drum QA found SN:L contact miss; superseded by attempt04. Attempt04 preserves locked baseline and changes only left stick shaft, PASS fixed-drum/contact/transition QA, promoted exact bytes in 14a9b4449bf97fb99ca2b4c45247a22574c2c57f."
-  ]
+  ],
+  "runtimeEvidence": {
+    "status": "PASS",
+    "runId": 35413032881,
+    "artifactId": 10575360428,
+    "artifactDigest": "sha256:b0ef325b0ee75fb3b1de37cd241396f69c6531dd698909e046fc5d426d1dacf5",
+    "testedCommitSha": "88917f7ec0612c31655ada22f1ba7e62dd7b262d",
+    "viewport": [
+      "pc-1280x900",
+      "xperia-portrait-384x864"
+    ],
+    "result": "12/12 total records PASS across HT:R, RC:R, FT+SN:R/L; no assetWarning/initError/frame mismatch",
+    "screenshotVisualReview": "PASS"
+  }
 }
