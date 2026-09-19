@@ -5,11 +5,11 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 68,
-    "noteCount": 933,
-    "groupCount": 669,
+    "measureEnd": 104,
+    "noteCount": 1483,
+    "groupCount": 1058,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 120.398036,
+    "lastNoteTime": 181.045518,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -732,17 +732,36 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T13:40:00+09:00",
-  "note": "Runtime scope expanded contiguously to M68 after formal deterministic BD+RC+SN:RF/R/L promotion; public QA pending.",
+  "updatedAt": "2026-09-19T15:28:00+09:00",
+  "note": "Runtime scope expanded contiguously through M104 after M68 public QA closure. M69-104 uses only existing runtimePhaseFrameMap entries; no new character PNGs.",
   "runtimeQaTarget": {
-    "measureStart": 68,
-    "measureEnd": 68,
+    "measureStart": 69,
+    "measureEnd": 104,
     "actions": [
-      "BD+RC+SN:RF/R/L"
+      "LT+SN:R/L",
+      "LT:L",
+      "LT:R",
+      "BD:RF",
+      "RC+SN:R/L",
+      "SN:L",
+      "SN:R",
+      "BD+RC:RF/R",
+      "BD+RC+SN:RF/R/L",
+      "HT:R",
+      "HT:L",
+      "BD+HT:RF/R",
+      "BD+LT:RF/R",
+      "HH+SN:R/L",
+      "HH:R",
+      "BD+HH:RF/R",
+      "BD+SN:RF/L",
+      "FT+SN:R/L",
+      "BD+SN:RF/R",
+      "FT:L"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_68/PROGRESS.json",
-    "blockKey": "M68",
-    "purpose": "Public PC/Xperia character runtime checkpoint for formal BD+RC+SN:RF/R/L pair.",
-    "retriggerAt": "2026-09-19T13:40:00+09:00"
+    "progressPath": "character-assets/prototypes/luna_say_maybe_69_104/PROGRESS.json",
+    "blockKey": "M69-104",
+    "purpose": "Public PC/Xperia reuse-only character runtime checkpoint after contiguous scope expansion through M104.",
+    "retriggerAt": "2026-09-19T15:28:00+09:00"
   }
 }
