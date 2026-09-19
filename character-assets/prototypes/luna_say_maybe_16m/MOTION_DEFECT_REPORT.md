@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 10
+- Reviewed RC:R and LT+SN:R/L from current-main Batch Prep evidence (run 35476534354, artifact 10593644215).
+- RC:R hit/rebound failed because the right hand carries duplicated/parallel stick shafts.
+- LT+SN:R/L hit/rebound failed because the right stick is forked/duplicated and the left active-stick path contains detached/truncated line fragments.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY. Formal PNGs unchanged; runtime QA not entered.
+
 ## 2026-09-20 — Visual Integrity Batch 09
 - Reviewed HT:L and FT+SN:R/L from current-main Batch Prep evidence (run 35476194165, artifact 10593174478).
 - HT:L hit/rebound failed because the left active stick is discontinuous and an extra short detached stick-like fragment remains near the hand.
