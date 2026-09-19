@@ -1,3 +1,7 @@
+# 2026-09-20 — Batch 03 visual-integrity sync
+
+Batch VISUAL-INTEGRITY-BATCH-20260920-03 reviewed SN:L and BD+RC:RF/R from latest GitHub main via Visual Integrity Batch Prep run 35474616622 / artifact 10593307774. SN:L hit passed static review, but rebound has severe duplicated/disconnected arm-stick geometry and whole-body discontinuity; the pair is HOLD_VISUAL_INTEGRITY. BD+RC:RF/R hit/rebound have severe duplicate/disconnected arm-stick geometry and blocky body/seat splice; the pair is HOLD_VISUAL_INTEGRITY. Runtime QA is blocked by static hard-gate failure. Formal PNGs remain unchanged. Normal queue should continue without retrying these HOLD items.
+
 # 2026-09-20 BATCH PREP AUTOMATION — READ BEFORE 2x4 VISUAL QA
 
 For future 2-action / 4-frame visual-integrity batches, prefer `tools/character_layers/prepare_visual_integrity_batch.py` and the `Visual Integrity Batch Prep` workflow. It reads the latest BRUSHUP_LEDGER, auto-selects two eligible action keys by project priority, verifies formal SHA-256/canvas, and generates full-resolution character-only/fixed-drum composite evidence plus neutral->hit->rebound->neutral strips and a batch manifest. Use Dropbox only when GitHub main does not already provide the authoritative formal bytes or when historical/candidate recovery is required.
