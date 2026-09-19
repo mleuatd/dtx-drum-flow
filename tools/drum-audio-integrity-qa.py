@@ -44,15 +44,15 @@ for voice,(base,prefix,layers,rrs) in voices.items():
  # Practice salience: transient and first 350 ms dominate note identification.
  sal=.55*db(med["early"])+.30*db(med["attack"])+.15*db(med["full"])
  voice_metrics[voice]={**med,"salienceDb":sal}
-# Exact common practice target: every voice is normalized to the same measured salience.\ntarget_db=-13.5
-# Deliberately flat: no cymbal boost. Tiny offsets only to help low drums survive spectral masking.
-target_db=-13.5\noffset={v:0.0 for v in voices}
+# Exact common practice target: every voice is normalized to the same measured salience.
+target_db=-13.5
+offset={v:0.0 for v in voices}
 calibration={v:float(10**(((target_db+offset.get(v,0))-m["salienceDb"])/20)) for v,m in voice_metrics.items()}
 post_db={v:voice_metrics[v]["salienceDb"]+20*np.log10(calibration[v]) for v in voice_metrics}
 spread=max(post_db.values())-min(post_db.values())
 (OUT/"loudness-calibration.json").write_text(json.dumps({"method":"attack+early+full RMS practice salience","voiceMetrics":voice_metrics,"targetDb":target_db,"offsetDb":offset,"gain":calibration,"postDb":post_db,"spreadDb":spread},indent=2))
-summary={"samplesChecked":len(rows),"reviewSamples":len(failures),"missingVoices":missing,"proceduralLegacyTokens":procedural,"practiceSalienceSpreadDb":spread,"status":"PASS" if not missing and not procedural and not failures and spread<=2.0 else "REVIEW"}
+summary={"samplesChecked":len(rows),"reviewSamples":len(failures),"missingVoices":missing,"proceduralLegacyTokens":procedural,"practiceSalienceSpreadDb":spread,"status":"PASS" if not missing and not procedural and not failures and spread<=0.05 else "REVIEW"}
 (OUT/"sample-metrics.json").write_text(json.dumps(rows,indent=2))
 (OUT/"summary.json").write_text(json.dumps(summary,indent=2))
 print(json.dumps(summary,indent=2))
-if missing or procedural or spread>2.0: raise SystemExit(1)
+if missing or procedural or spread>0.05: raise SystemExit(1)
