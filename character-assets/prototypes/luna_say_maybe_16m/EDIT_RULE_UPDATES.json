@@ -37,7 +37,28 @@
         "tool PASS does not equal formal promotion"
       ],
       "spec": "character-assets/prototypes/luna_say_maybe_16m/LINE_STYLE_DETERMINISTIC_TOOL_SPEC.md"
+    },
+    {
+      "id": "EDIT-RULE-20260919-003",
+      "title": "Verified autonomous Dropbox raw-materialization bridge",
+      "recordedAt": "2026-09-19T21:26:00+09:00",
+      "reason": "Avoid repeated user upload requests and prevent stale Dropbox aliases from being mistaken for formal GitHub bytes.",
+      "addedRules": [
+        "GitHub formal path+SHA256 is the only durable byte-identity authority.",
+        "Use Library /Dropbox mount plus files.materialize(raw_file) for exact-byte acquisition when native image pixels are unavailable through files.read.",
+        "Always SHA256-verify materialized bytes before renderer-parent use.",
+        "Do not trust Dropbox filename/path/preview/content_hash alone.",
+        "If an obvious alias mismatches, search alternate Dropbox candidates using GitHub blob size/path metadata and verify by SHA256.",
+        "Re-expose verified raw files into the current conversation only after SHA verification; conversation attachment IDs remain session-local transport references."
+      ],
+      "evidence": [
+        "Formal neutral 886e3490... matched neutral_886e3490bb926b49.png",
+        "Formal SN:L hit 9941584d... matched sn_l_hit_contactfix_20260917.png; plain sn_hit_l.png mismatched",
+        "Formal SN:L rebound 79484f06... matched sn_l_rebound_contactfix_20260917.png; plain sn_rebound_l.png mismatched",
+        "Formal drum dadc9764... matched drum_base_dadc9764acebc0fc.png"
+      ],
+      "index": "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/SOURCE_BRIDGE_INDEX_V1.json"
     }
   ],
-  "updatedAt": "2026-09-19T19:20:00+09:00"
+  "updatedAt": "2026-09-19T21:26:00+09:00"
 }
