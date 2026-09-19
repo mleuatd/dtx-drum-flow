@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T12:16:00+09:00",
+  "updatedAt": "2026-09-19T12:22:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,8 +9,8 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "2ae4a3816d2dd9f55a42648b9642062e9a153791",
-    "formalAndMappedThroughMeasure": 40,
-    "lastLiveQaConfirmedThroughMeasure": 40,
+    "formalAndMappedThroughMeasure": 45,
+    "lastLiveQaConfirmedThroughMeasure": 45,
     "note": "asset_inventory runtimeScope is M1-40; M29-40 final public PC/Xperia QA closure remains the first character task."
   },
   "imageLearning": {
@@ -56,21 +56,24 @@
       "order": 2,
       "measures": "41-45",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "RUNNING",
+      "status": "DONE",
       "work": [
         "Verify chart action keys are already formal/mapped",
         "Expand contiguous scope through M45",
         "Run block/public PC/Xperia QA",
         "Record checkpoint"
       ],
-      "newImagePairs": []
+      "newImagePairs": [],
+      "completedAt": "2026-09-19T12:22:00+09:00",
+      "qaRun": 35418205815,
+      "qaArtifact": 10576038940
     },
     {
       "id": "CHAR-003",
       "order": 3,
       "measures": "46",
       "type": "NEW_PAIR",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "RUNNING",
       "actionKey": "LT+SN:R/L",
       "newImagePairs": [
         "hit",
