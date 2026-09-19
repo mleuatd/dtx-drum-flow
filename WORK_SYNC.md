@@ -1,3 +1,10 @@
+# GLOBAL CHARACTER FAILURE KNOWLEDGE — READ BEFORE EVERY IMAGE EDIT
+
+Before any character-image generation/edit/approval, on every device/chat, read:
+- `character-assets/CHARACTER_FAILURE_KNOWLEDGE.json`
+
+This is the cross-action mistake-prevention ledger. Reusable lessons from any prior FAIL apply to later measures/actions too. Re-fetch latest main before starting and before promotion/commit; reconcile other-device evidence rather than overwriting it. Every new FAIL must be classified: action-specific stays in transaction/PROGRESS/CHARACTER_QA_ISSUES; reusable lessons must also update CHARACTER_FAILURE_KNOWLEDGE.json in the same work cycle.
+
 # Work / Normal Chat 同期ルール
 
 # 2026-09-18 M5+ REFRESHED EXPANSION — READ FIRST
