@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T08:34:00+09:00",
+  "updatedAt": "2026-09-20T08:36:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -3587,7 +3587,7 @@
     },
     {
       "issueId": "MOTION-005",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M137,M109",
       "time": "~238.68-238.83s",
@@ -3616,7 +3616,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:34:00+09:00",
+      "updatedAt": "2026-09-20T08:36:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "FIXED_PENDING_QA",
@@ -4462,22 +4462,23 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
+        "linework": "PENDING_MANUAL_VISUAL_GATE",
+        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
+        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       },
-      "claim": {
-        "state": "CLAIMED",
-        "direction": "BACK",
-        "batch": "BACK-BATCH-04",
-        "claimedAt": "2026-09-20T08:34:00+09:00",
-        "owner": "CHATGPT-BACK"
-      }
+      "claim": null,
+      "decisionLog": [
+        {
+          "at": "2026-09-20T08:36:00+09:00",
+          "decision": "BACK_BATCH_04_HOLD",
+          "detail": "Method2 hit/rebound automated QA both PASS with locked static regions and contact preservation; mandatory visual-integrity PASS evidence remains absent."
+        }
+      ]
     },
     {
       "issueId": "MOTION-006",
@@ -9894,7 +9895,7 @@
     },
     {
       "issueId": "MOTION-012",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M76",
       "time": "~2:14.3-2:14.4",
@@ -9922,7 +9923,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:34:00+09:00",
+      "updatedAt": "2026-09-20T08:36:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -10694,22 +10695,23 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
+        "linework": "PENDING_MANUAL_VISUAL_GATE",
+        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
+        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       },
-      "claim": {
-        "state": "CLAIMED",
-        "direction": "BACK",
-        "batch": "BACK-BATCH-04",
-        "claimedAt": "2026-09-20T08:34:00+09:00",
-        "owner": "CHATGPT-BACK"
-      }
+      "claim": null,
+      "decisionLog": [
+        {
+          "at": "2026-09-20T08:36:00+09:00",
+          "decision": "BACK_BATCH_04_HOLD",
+          "detail": "Auto hit/rebound automated QA both PASS with semantic-mask/static-region/contact checks; mandatory visual-integrity PASS evidence remains absent."
+        }
+      ]
     },
     {
       "issueId": "MOTION-013",
