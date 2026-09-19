@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T12:36:00+09:00",
+  "updatedAt": "2026-09-19T12:49:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,8 +9,8 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "2ae4a3816d2dd9f55a42648b9642062e9a153791",
-    "formalAndMappedThroughMeasure": 46,
-    "lastLiveQaConfirmedThroughMeasure": 46,
+    "formalAndMappedThroughMeasure": 47,
+    "lastLiveQaConfirmedThroughMeasure": 47,
     "note": "asset_inventory runtimeScope is M1-40; M29-40 final public PC/Xperia QA closure remains the first character task."
   },
   "imageLearning": {
@@ -89,20 +89,23 @@
       "order": 4,
       "measures": "47",
       "type": "NEW_PAIR",
-      "status": "RUNNING",
+      "status": "DONE",
       "actionKey": "BD+HH+SN:RF/R/L",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
-      "preferredDerivation": "formal HH+SN:R/L + approved local BD kick cue"
+      "preferredDerivation": "formal HH+SN:R/L + approved local BD kick cue",
+      "completedAt": "2026-09-19T12:49:00+09:00",
+      "qaRun": 35419097186,
+      "qaArtifact": 10577335176
     },
     {
       "id": "CHAR-005",
       "order": 5,
       "measures": "48-53",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "RUNNING",
       "newImagePairs": []
     },
     {
@@ -208,8 +211,8 @@
     }
   ],
   "summary": {
-    "remainingNewActionPairs": 6,
-    "remainingNewPngFiles": 12,
+    "remainingNewActionPairs": 5,
+    "remainingNewPngFiles": 10,
     "newActionOrder": [
       "M46 LT+SN:R/L",
       "M47 BD+HH+SN:RF/R/L",
