@@ -58,8 +58,8 @@
     "compositeVisual": "PASS",
     "locality": "PASS_BD_CUE_ONLY",
     "transition": "PASS_VISUAL",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
+    "runtimePC": "RETRY_PENDING_MAPPING_FIX",
+    "runtimeXperia": "RETRY_PENDING_MAPPING_FIX",
     "screenshots": "PENDING"
   },
   "build": {
@@ -68,9 +68,10 @@
     "buildCommit": "ae83188e54e1586e38fec579ab035a952416801d"
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T13:03:00+09:00",
+  "updatedAt": "2026-09-19T13:16:00+09:00",
   "notes": [
     "Reused the proven BD kick cue strategy instead of generating a new body/leg pose.",
-    "Fixed-drum hit/rebound composites manually reviewed; no camera/body/stick changes outside formal HT:L."
+    "Fixed-drum hit/rebound composites manually reviewed; no camera/body/stick changes outside formal HT:L.",
+    "Public runtime QA run 35420229339 exposed runtime mapping initError only: missing prep frame for BD+HT:RF/L. Formal image bytes remain accepted; mapping repaired with prep=neutral and promotion workflow hardened for future pairs."
   ]
 }
