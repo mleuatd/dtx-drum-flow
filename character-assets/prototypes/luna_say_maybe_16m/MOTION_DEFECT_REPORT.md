@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 04
+- Reviewed RD:R and BD+SN:RF/L from current-main full-resolution Batch Prep evidence (run 35475145116, artifact 10593238245).
+- RD:R hit passed static visual review; rebound failed anatomy/linework/composite due a hard rectangular splice through hair/torso and right forearm/hand-stick geometry. Pair moved to HOLD_VISUAL_INTEGRITY; formal PNGs unchanged.
+- BD+SN:RF/L hit failed due large blocky splice across lower hair/skirt/seat plus left-stick truncation; rebound failed due a hard rectangular left-stick dropout near the hand. Pair moved to HOLD_VISUAL_INTEGRITY; formal PNGs unchanged.
+- No minimal retry was attempted because these are structural hard-gate failures, not light/local defects. Runtime QA was not entered.
+
 ## 2026-09-20 — Visual-integrity batch 03: SN:L + BD+RC:RF/R
 
 - Batch prep workflow: 35474616622; artifact: 10593307774; exact current-main formal bytes.
