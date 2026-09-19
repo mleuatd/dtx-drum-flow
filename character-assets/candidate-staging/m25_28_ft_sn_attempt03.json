@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "status": "DROPBOX_SAVED_IMPORT_PENDING",
+  "actionKey": "FT+SN:R/L",
+  "block": "M25-28",
+  "measure": 28,
+  "createdAt": "2026-09-19T09:08:00+09:00",
+  "method": "locked-baseline limb-local composition: FT:R base + RC+SN:R/L left-SN local region only; no legacy whole-body delta merge",
+  "baselinePath": "character-assets/layers/character/base/neutral.png",
+  "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "sourceParents": {
+    "ftRHit": {
+      "path": "character-assets/layers/character/ft/hit_r_refresh.png",
+      "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a"
+    },
+    "ftRRebound": {
+      "path": "character-assets/layers/character/ft/rebound_r_refresh.png",
+      "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce"
+    },
+    "rcSnHit": {
+      "path": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82"
+    },
+    "rcSnRebound": {
+      "path": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da"
+    }
+  },
+  "localMask": {
+    "x1": 300,
+    "y1": 300,
+    "x2": 690,
+    "y2": 610,
+    "featherPx": 1.5,
+    "purpose": "left SN limb/stick only"
+  },
+  "assets": [
+    {
+      "phase": "hit",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_hit_attempt03.png",
+      "githubCandidatePath": "character-assets/candidates/m25_28/ft_sn_r_l_hit_attempt03.png",
+      "sha256": "0aea2d5072ecb5745f19f1ff5e35cdecfb1a45ec6117a38823d7d31df7a3b1d6",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "phase": "rebound",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_rebound_attempt03.png",
+      "githubCandidatePath": "character-assets/candidates/m25_28/ft_sn_r_l_rebound_attempt03.png",
+      "sha256": "44f7e79110c1c7a2fb9aff757d1142a0e700a712de009a25dbf9adb9e39eb9c8",
+      "width": 1448,
+      "height": 1086
+    }
+  ],
+  "qa": {
+    "binary": "PASS_LOCAL",
+    "visualCharacter": "PASS_LOCAL_LOCKED_BASELINE",
+    "composite": "PENDING"
+  },
+  "runtimeMapped": false,
+  "manifestRegistered": false
+}
