@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T12:22:00+09:00",
+  "updatedAt": "2026-09-19T12:36:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,8 +9,8 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "2ae4a3816d2dd9f55a42648b9642062e9a153791",
-    "formalAndMappedThroughMeasure": 45,
-    "lastLiveQaConfirmedThroughMeasure": 45,
+    "formalAndMappedThroughMeasure": 46,
+    "lastLiveQaConfirmedThroughMeasure": 46,
     "note": "asset_inventory runtimeScope is M1-40; M29-40 final public PC/Xperia QA closure remains the first character task."
   },
   "imageLearning": {
@@ -73,20 +73,23 @@
       "order": 3,
       "measures": "46",
       "type": "NEW_PAIR",
-      "status": "RUNNING",
+      "status": "DONE",
       "actionKey": "LT+SN:R/L",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
-      "preferredDerivation": "formal LT:R + approved SN:L limb-local combination; preserve locked baseline and use shared failure-learning rules"
+      "preferredDerivation": "formal LT:R + approved SN:L limb-local combination; preserve locked baseline and use shared failure-learning rules",
+      "completedAt": "2026-09-19T12:36:00+09:00",
+      "qaRun": 35418698275,
+      "qaArtifact": 10576564303
     },
     {
       "id": "CHAR-004",
       "order": 4,
       "measures": "47",
       "type": "NEW_PAIR",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "RUNNING",
       "actionKey": "BD+HH+SN:RF/R/L",
       "newImagePairs": [
         "hit",
@@ -205,8 +208,8 @@
     }
   ],
   "summary": {
-    "remainingNewActionPairs": 7,
-    "remainingNewPngFiles": 14,
+    "remainingNewActionPairs": 6,
+    "remainingNewPngFiles": 12,
     "newActionOrder": [
       "M46 LT+SN:R/L",
       "M47 BD+HH+SN:RF/R/L",
