@@ -4,7 +4,7 @@
     "measureStart": 107,
     "measureEnd": 135
   },
-  "status": "M107_135_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -29,7 +29,7 @@
     "allMapped": true,
     "mappingAuthority": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json runtimePhaseFrameMap"
   },
-  "requiredNext": "Expand contiguous runtimeScope through M135 and run public PC/Xperia runtime QA. Generate no new images.",
+  "requiredNext": "M107-135 complete. Continue M136 BD+FT:RF/R source lock and deterministic BD-cue derivation.",
   "runtimeQaEvidence": {
     "M107-135": {
       "status": "PASS",
@@ -53,9 +53,15 @@
         "BD+RD:RF/R",
         "RD+SN:R/L",
         "RD:R"
-      ]
+      ],
+      "artifactId": 10579472206,
+      "passed": 52,
+      "failed": 0,
+      "runtimeScope": "1-135",
+      "screenshotsReviewed": true,
+      "visualReview": "PASS_NO_REGISTRATION_DRIFT_OR_WRONG_CHARACTER"
     }
   },
-  "updatedAt": "2026-09-19T06:44:43.627322+00:00",
+  "updatedAt": "2026-09-19T15:53:00+09:00",
   "blocker": null
 }
