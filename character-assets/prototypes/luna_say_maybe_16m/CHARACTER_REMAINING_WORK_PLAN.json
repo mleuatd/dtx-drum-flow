@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T16:04:00+09:00",
+  "updatedAt": "2026-09-19T16:08:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,9 +9,9 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
-    "formalAndMappedThroughMeasure": 136,
+    "formalAndMappedThroughMeasure": 148,
     "lastLiveQaConfirmedThroughMeasure": 136,
-    "note": "M136 final new pair public QA passed: run 35427665852 / artifact 10579347692, 4/4 PASS. All new character pairs are now created; remaining M137-148 is reuse-only plus final full-song QA."
+    "note": "All 30 action keys formal/mapped; runtimeScope expanded to full song M148. M137-148 public PC/Xperia QA pending, then final M1-148 QA."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -243,14 +243,17 @@
       "order": 13,
       "measures": "137-148",
       "type": "REUSE_ONLY_FINAL_EXPANSION",
-      "status": "READY",
+      "status": "RUNNING",
       "work": [
         "Reuse existing formal mappings",
         "Expand to M148 after contiguous gates",
         "Run final PC/Xperia/public QA",
         "Close full-song character implementation"
       ],
-      "note": "Released after M136 DONE. Reuse-only final expansion through M148, then final full-song PC/Xperia QA."
+      "note": "196 notes / 143 groups / 19 existing actionKeys; all mapped. Final range public QA pending.",
+      "startedAt": "2026-09-19T16:08:00+09:00",
+      "runtimeScopeTarget": "1-148",
+      "actionCoverageVerified": true
     }
   ],
   "summary": {
