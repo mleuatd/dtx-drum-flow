@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "issueId": "MOTION-001",
+  "actionKey": "SN:L",
+  "phase": "rebound",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v1.png",
+  "method": "approved neutral base + source rebound pixels only inside semantic left-arm/stick corridor",
+  "source": {
+    "neutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "reboundSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+    "constraint": "character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V1.json"
+  },
+  "semanticMask": {
+    "shoulder": [
+      635,
+      342
+    ],
+    "elbow": [
+      657,
+      474
+    ],
+    "wrist": [
+      593,
+      496
+    ],
+    "stickTip": [
+      438,
+      418
+    ],
+    "maskPixelCount": 58252,
+    "lowerCutoffY": 720
+  },
+  "constraintChecks": {
+    "reboundSeparationPx": 118.377,
+    "minimumSeparationPx": 16,
+    "reboundPass": true,
+    "stoolAnchor": [
+      790,
+      724
+    ],
+    "hipAnchor": [
+      762.5,
+      637.5
+    ]
+  },
+  "rasterChecks": {
+    "changedPixelsVsNeutral": 42286,
+    "changedRatioVsNeutral": 0.02689046,
+    "changedBBoxVsNeutral": {
+      "x": 432,
+      "y": 257,
+      "width": 311,
+      "height": 315
+    },
+    "outsideMaskChangedPixels": 0,
+    "inactiveLowerBodyChangedPixels": 0,
+    "guardChangedPixels": {
+      "head": 4848,
+      "right_arm": 0,
+      "pelvis_seat": 627,
+      "legs_stool": 0
+    },
+    "sourcePixelsRejectedOutsideMask": 458964
+  },
+  "hardPass": {
+    "outsideMaskChangedPixels": true,
+    "inactiveLowerBodyChangedPixels": true,
+    "reboundSeparation": true
+  },
+  "pass": true
+}
