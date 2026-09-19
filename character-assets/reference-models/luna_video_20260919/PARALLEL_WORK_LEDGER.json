@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:42:00+09:00",
+  "updatedAt": "2026-09-19T21:51:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -373,10 +373,10 @@
       "category": "runtime_pose_numeric_refinement",
       "description": "Refine SN:L hit numeric pose after visual continuity FAIL: prefer approved-neutral shoulder and neutral limb lengths when exact SN contact remains reachable; regenerate hit constraint/AI package and machine QA, preserving formal PNGs.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T21:16:00+09:00",
       "startedAt": "2026-09-19T21:16:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T21:51:00+09:00",
       "paths": [
         "tools/runtime_pose/**",
         "character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json",
@@ -393,8 +393,9 @@
         "character-assets/layers/character/**",
         "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
       ],
-      "handoffNote": "Numeric/tool refinement only. Formal SN:L hit remains protected by TERM-A. Prefer neutral shoulder/body if exact contact is reachable; fall back to phase shoulder only when necessary.",
-      "lastCommit": null
+      "handoffNote": "DONE. Refreshed hit/rebound constraint + AI render packages are renderer-ready. Use exact neutral as mandatory parent; formal hit/rebound only as secondary motion evidence. Do not alter TERM-A formal SN:L hit claim.",
+      "lastCommit": "fdac0604a6a9fcd0fe28d5bc3f70f674c98161cd",
+      "result": "Neutral-shoulder SN:L refinement complete. Exact SN contact remains reachable at 0 px error using approved-neutral shoulder [635,342] and neutral limb/stick lengths. Hit selected bend -1, source preservation score 20.731. Hit and rebound shoulders now remain neutral, removing shoulder teleport. Runtime Pose Tests 35441840031 PASS; Runtime Pose SN-L Source QA 35441840064 PASS. Formal PNGs untouched."
     },
     {
       "taskId": "OTHER-008",
