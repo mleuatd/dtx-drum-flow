@@ -4,7 +4,7 @@
     "measureStart": 25,
     "measureEnd": 32
   },
-  "status": "M25_28_ACTIVE_CORRECTION_AND_QA",
+  "status": "BLOCKED_EXTERNAL_HT_R_EDIT",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -62,7 +62,7 @@
         "layers/character/ht/hit_r_refresh.png",
         "layers/character/ht/rebound_r_refresh.png"
       ],
-      "status": "PENDING"
+      "status": "BLOCKED_EXTERNAL"
     },
     {
       "actionKey": "RC:R",
@@ -83,7 +83,7 @@
         "layers/character/rc/hit_r_refresh.png",
         "layers/character/rc/rebound_r_refresh.png"
       ],
-      "status": "PENDING"
+      "status": "FORMAL_PROMOTED"
     },
     {
       "actionKey": "FT+SN:R/L",
@@ -102,7 +102,7 @@
         "layers/character/combo/ft_sn_r_l_hit_refresh.png",
         "layers/character/combo/ft_sn_r_l_rebound_refresh.png"
       ],
-      "status": "PENDING"
+      "status": "FORMAL_PROMOTED"
     },
     {
       "actionKey": "BD+HT:RF/R",
@@ -121,7 +121,7 @@
         "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
         "layers/character/combo/bd_ht_rf_r_rebound_refresh.png"
       ],
-      "status": "PENDING"
+      "status": "SOURCE_LOCK_WAIT_HT_R_AND_M25_28_CHECKPOINT"
     },
     {
       "actionKey": "HT:L",
@@ -140,7 +140,7 @@
         "layers/character/ht/hit_l_refresh.png",
         "layers/character/ht/rebound_l_refresh.png"
       ],
-      "status": "FORMAL_READY"
+      "status": "FORMAL_PROMOTED"
     }
   ],
   "rapidRepeat": {
@@ -154,7 +154,7 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Run/verify M25-40 candidate workflow for HT:R attempt04, inspect fixed-drum hit/rebound composites visually, then persist PASS pair to Dropbox and formal promotion. If visual FAIL, modify arm-local geometry rather than returning to neutral long-stick method.",
+  "requiredNext": "Retry HT:R only when a true local image edit can preserve the locked neutral and modify only right arm/hand/stick. Do not reuse edit_op=null generations or local prototypes attempt06/07/08. After HT:R PASS/formal, complete M25-28 runtime/block/public QA; only then start BD+HT.",
   "updatedAt": "2026-09-19T10:02:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
@@ -167,7 +167,13 @@
     "verification": "For this <4 MiB file, Dropbox content_hash equals SHA256(binary SHA256(file)); SHA256(bytes.fromhex(GitHub inventory SHA256)) exactly matches Dropbox content_hash.",
     "verifiedAt": "2026-09-19T07:30:00+09:00"
   },
-  "blocker": null,
+  "blocker": {
+    "type": "BLOCKED_EXTERNAL",
+    "actionKey": "HT:R",
+    "detail": "Required local right-arm/right-hand/right-stick edit could not be produced safely in this session. Two image-edit attempts returned edit_op=null and unrelated new images; deterministic local prototypes attempt06/07/08 failed visual QA. No failed candidate was persisted or formalized.",
+    "safeState": "RC:R and FT+SN:R/L are formal PASS and runtime-mapped in inventory; HT:L remains formal. runtimeScope remains M1-24; M25-28 was not exposed with a neutral fallback.",
+    "resumeFrom": "character-assets/prototypes/luna_say_maybe_25_32/transactions/ht_r.json"
+  },
   "infrastructurePreparation": {
     "status": "READY",
     "pipeline": "character-assets/CHARACTER_ASSET_PIPELINE.md",
@@ -185,7 +191,7 @@
   },
   "production": {
     "htR": {
-      "status": "ARM_LOCAL_BUILDER_ATTEMPT04_COMMITTED",
+      "status": "BLOCKED_EXTERNAL_EDIT_REQUIRED",
       "builder": "tools/build-m25-40-candidates.py",
       "workflow": ".github/workflows/build-m25-40-character-candidates.yml",
       "method": "same baseline-preserving deterministic local right-stick edit pattern that passed M17 LT:R live QA",
@@ -207,7 +213,36 @@
       "currentHitSha256": "63d48afb143842b1a69aa5c79866bd065f6697b945cb9b81e5fc3644aa83bd7f",
       "currentReboundSha256": "a82a928ff1dc4491acaccc57f41e1733bb44cebea85cc9c72a1d6200311fc246",
       "attempt04BuilderCommit": "10db7d1d381769b0cfe9e3cfc957df29ef0726dd",
-      "attempt04Method": "Use live-QA-passed LT:R as arm/hand/stick parent; preserve relocated right arm and retarget exposed shaft from forward grip to HT. Supersedes neutral-arm long-stick attempts."
+      "attempt04Method": "Use live-QA-passed LT:R as arm/hand/stick parent; preserve relocated right arm and retarget exposed shaft from forward grip to HT. Supersedes neutral-arm long-stick attempts.",
+      "failedEditAttempts": [
+        {
+          "attempt": 4,
+          "result": "FAIL",
+          "reason": "edit_op=null unrelated full-scene redraw",
+          "genId": "64eedebb-657a-4a72-9fba-5733ad6735e8"
+        },
+        {
+          "attempt": 5,
+          "result": "FAIL",
+          "reason": "edit_op=null unrelated QA dashboard",
+          "genId": "964627d6-4014-49e8-921e-4d32f4f7ab7b"
+        },
+        {
+          "attempt": 6,
+          "result": "FAIL",
+          "reason": "deterministic local sleeve/hand patch visually unnatural"
+        },
+        {
+          "attempt": 7,
+          "result": "FAIL",
+          "reason": "shifted-hand prototype retained duplicate/old hand geometry"
+        },
+        {
+          "attempt": 8,
+          "result": "FAIL",
+          "reason": "broader removal left visible old-stick/hand artifacts; visual QA fail"
+        }
+      ]
     },
     "htL": {
       "status": "FORMAL_PROMOTED",
@@ -289,12 +324,14 @@
   },
   "resumeCheckpoint": {
     "checkedAt": "2026-09-19T10:02:00+09:00",
+    "latestMainObserved": "f5f8d246690cf7b43ed20352f14af80c84ba621a",
     "formalPng": "6/10",
-    "htR": "attempt04 arm-local builder committed; workflow output pending",
-    "htL": "formal; preserve",
-    "rcR": "formal; preserve",
-    "ftSnRL": "formal; preserve",
-    "bdHt": "waits for formal HT:R"
+    "ftSnRL": "FORMAL PASS attempt04; Dropbox exact bytes saved; inventory mapping ready",
+    "rcR": "FORMAL PASS attempt03/02; Dropbox exact bytes saved; inventory mapping ready",
+    "htL": "FORMAL PASS; preserve",
+    "htR": "BLOCKED_EXTERNAL true local arm edit required; no accepted candidate",
+    "bdHt": "SOURCE_LOCK; do not start until HT:R formal + M25-28 checkpoint",
+    "runtimeScope": "M1-24 unchanged"
   },
   "visualQA": {
     "checkedAt": "2026-09-19T08:55:00+09:00",
