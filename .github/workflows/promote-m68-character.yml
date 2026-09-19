@@ -1,0 +1,50 @@
+name: Promote M68 Character Pair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tools/promote-m68-character-pair.py"
+      - ".github/workflows/promote-m68-character.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: promote-m68-character
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Promote exact M68 bytes and mappings
+        run: python tools/promote-m68-character-pair.py
+      - name: Commit formal M68 pair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png             character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png             character-assets/promotion-staging/m68_bd_rc_sn_attempt01.json             character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json             character-assets/config/assets_manifest.json             character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json
+          if git diff --cached --quiet; then
+            echo "No promotion delta."
+            exit 0
+          fi
+          git commit -m "assets: promote approved M68 character pair"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep $((attempt * 2))
+          done
+          echo "Unable to push M68 promotion after retries" >&2
+          exit 1
