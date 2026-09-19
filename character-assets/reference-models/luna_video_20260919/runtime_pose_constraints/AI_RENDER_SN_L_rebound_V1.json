@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "mode": "CONSTRAINED_RENDER_ONLY",
   "actionKey": "SN:L",
   "phase": "rebound",
@@ -17,25 +17,13 @@
       650,
       312
     ],
-    "shoulder_l": [
-      694,
-      348
-    ],
     "shoulder_r": [
       875,
       370
     ],
-    "elbow_l": [
-      657,
-      474
-    ],
     "elbow_r": [
       920,
       468
-    ],
-    "wrist_l": [
-      593,
-      496
     ],
     "wrist_r": [
       975,
@@ -64,17 +52,52 @@
     "ankle_r": [
       650,
       902
+    ],
+    "shoulder_l": [
+      635,
+      342
+    ],
+    "elbow_l": [
+      657,
+      474
+    ],
+    "wrist_l": [
+      593,
+      496
     ]
   },
-  "exactContactPoint": [
-    420,
-    535
+  "actionComponents": [
+    {
+      "part": "SN",
+      "limb": "L"
+    }
   ],
-  "stickTipTarget": [
-    438,
-    418
+  "effectors": [
+    {
+      "part": "SN",
+      "limb": "L",
+      "kind": "stick",
+      "target": [
+        420,
+        535
+      ],
+      "point": [
+        438,
+        418
+      ],
+      "rule": "preserve source rebound tip away from contact; validate continuity, do not force contact"
+    }
   ],
-  "pedalTarget": null,
+  "exactContactPoints": [
+    {
+      "part": "SN",
+      "limb": "L",
+      "target": [
+        420,
+        535
+      ]
+    }
+  ],
   "stoolAnchor": [
     790,
     724
@@ -130,10 +153,12 @@
     },
     "note": "Ratios are provisional medians from manually reviewed key views. Intermediate yaw views remain intentionally unresolved rather than guessed."
   },
+  "minimalMotionRule": "neutral whole-body baseline; only actionKey limbs may differ by phase",
   "forbiddenChanges": [
     "camera",
     "stool",
     "hip anchor",
+    "inactive limbs",
     "limb side",
     "instrument",
     "head count",
@@ -143,6 +168,5 @@
     "drum pixels in character layer"
   ],
   "retryPolicy": "Only numeric correction instructions from validators; no vague free-form correction.",
-  "minimalMotionRule": "neutral whole-body baseline; only active left arm may differ for SN:L",
   "formalOverwriteAllowed": false
 }
