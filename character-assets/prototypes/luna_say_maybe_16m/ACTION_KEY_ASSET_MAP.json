@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:41:00+09:00",
+  "updatedAt": "2026-09-19T15:59:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -699,14 +699,14 @@
       "actionKey": "BD+FT:RF/R",
       "runtimeKey": "BD+FT:*",
       "prepAsset": "character-assets/layers/character/base/neutral.png",
-      "hitAsset": null,
-      "reboundAsset": null,
-      "classification": "NEW_IMAGE_REQUIRED",
-      "manifestStatus": "ABSENT",
-      "runtimeMapped": false,
-      "qaStatus": "NOT_CREATED",
+      "hitAsset": "character-assets/layers/character/combo/bd_ft_rf_r_hit_refresh.png",
+      "reboundAsset": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+      "classification": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "manifestStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "runtimeMapped": true,
+      "qaStatus": "PRE_RUNTIME_QA_PASSED",
       "sharedAsset": null,
-      "missing": true,
+      "missing": false,
       "blocked": false,
       "neverUse": false,
       "firstMeasure": 136,
@@ -714,7 +714,10 @@
       "occurrenceCount": 4,
       "legacyRuntimeKey": "BD+FT:*",
       "limbAwareRuntimeKey": "BD+FT:RF/R",
-      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
+      "hitSha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
+      "reboundSha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
+      "method": "formal FT:R exact bytes plus proven deterministic local BD cue"
     }
   ],
   "rules": {
