@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:25:00+09:00",
+  "updatedAt": "2026-09-20T08:29:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -2284,27 +2284,51 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "PENDING",
         "priorQaState": "live-qa-passed",
         "historicalEvidencePreserved": true,
-        "normalizedAt": "2026-09-20T06:13:00+09:00"
+        "normalizedAt": "2026-09-20T06:13:00+09:00",
+        "reviewedAt": "2026-09-20T08:29:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475676709,
+          "artifactId": 10594034740,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and transition strips"
+        },
+        "failReasons": [
+          "right hand is connected to two divergent stick shafts",
+          "active-stick silhouette is structurally duplicated in hit and rebound",
+          "fixed-drum composite cannot resolve the duplicated grip semantics",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
       "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+      "reviewCompletedAt": "2026-09-20T08:29:00+09:00",
+      "holdReason": "FT:R pair held because the right hand visibly carries a duplicated/two-branch stick structure in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+        "at": "2026-09-20T08:29:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 24,
@@ -2326,27 +2350,51 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "PENDING",
         "priorQaState": "live-qa-passed",
         "historicalEvidencePreserved": true,
-        "normalizedAt": "2026-09-20T06:13:00+09:00"
+        "normalizedAt": "2026-09-20T06:13:00+09:00",
+        "reviewedAt": "2026-09-20T08:29:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475676709,
+          "artifactId": 10594034740,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and transition strips"
+        },
+        "failReasons": [
+          "right hand is connected to two divergent stick shafts",
+          "active-stick silhouette is structurally duplicated in hit and rebound",
+          "fixed-drum composite cannot resolve the duplicated grip semantics",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
       "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+      "reviewCompletedAt": "2026-09-20T08:29:00+09:00",
+      "holdReason": "FT:R pair held because the right hand visibly carries a duplicated/two-branch stick structure in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+        "at": "2026-09-20T08:29:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 25,
@@ -2368,27 +2416,51 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "PENDING",
         "priorQaState": "live-qa-passed",
         "historicalEvidencePreserved": true,
-        "normalizedAt": "2026-09-20T06:13:00+09:00"
+        "normalizedAt": "2026-09-20T06:13:00+09:00",
+        "reviewedAt": "2026-09-20T08:29:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475676709,
+          "artifactId": 10594034740,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and transition strips"
+        },
+        "failReasons": [
+          "left stick is not continuous from grip to tip",
+          "detached diagonal stick-like fragment remains near the outer tip",
+          "same broken-stick structure persists across hit and rebound",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
       "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+      "reviewCompletedAt": "2026-09-20T08:29:00+09:00",
+      "holdReason": "FT:L pair held because the left stick is broken/discontinuous with a detached diagonal fragment at its outer end. Formal PNGs preserved; no minimal retry because defect is structural.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+        "at": "2026-09-20T08:29:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 26,
@@ -2410,27 +2482,51 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "PENDING",
         "priorQaState": "live-qa-passed",
         "historicalEvidencePreserved": true,
-        "normalizedAt": "2026-09-20T06:13:00+09:00"
+        "normalizedAt": "2026-09-20T06:13:00+09:00",
+        "reviewedAt": "2026-09-20T08:29:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35475676709,
+          "artifactId": 10594034740,
+          "evidence": "full-resolution current-main character-only, fixed-drum composites, and transition strips"
+        },
+        "failReasons": [
+          "left stick is not continuous from grip to tip",
+          "detached diagonal stick-like fragment remains near the outer tip",
+          "same broken-stick structure persists across hit and rebound",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
       "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+      "reviewCompletedAt": "2026-09-20T08:29:00+09:00",
+      "holdReason": "FT:L pair held because the left stick is broken/discontinuous with a detached diagonal fragment at its outer end. Formal PNGs preserved; no minimal retry because defect is structural.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+        "at": "2026-09-20T08:29:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 27,
@@ -4121,7 +4217,7 @@
     {
       "batchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
       "startedAt": "2026-09-20T08:25:00+09:00",
-      "updatedAt": "2026-09-20T08:25:00+09:00",
+      "updatedAt": "2026-09-20T08:29:00+09:00",
       "terminalId": "CHAT-FRONT-2X4",
       "actionKeys": [
         "FT:R",
@@ -4134,8 +4230,10 @@
         "ft_l_hit",
         "ft_l_rebound"
       ],
-      "result": "IN_PROGRESS",
-      "summary": "Claimed after excluding active BACK-BATCH-02 keys."
+      "result": "HOLD_STATIC_HARD_FAIL",
+      "summary": "FT:R duplicated/two-branch right-stick geometry; FT:L broken left-stick with detached fragment. Formal PNGs unchanged; runtime QA not entered.",
+      "workflowRunId": 35475676709,
+      "workflowArtifactId": 10594034740
     }
   ],
   "activeVisualIntegrityBatch": {
@@ -4152,7 +4250,14 @@
       "ft_l_hit",
       "ft_l_rebound"
     ],
-    "stage": "STATIC_QA_PENDING",
-    "note": "Front-queue batch; active BACK-BATCH-02 keys excluded."
+    "stage": "HOLD_COMPLETE",
+    "note": "Front-queue batch; active BACK-BATCH-02 keys excluded.",
+    "updatedAt": "2026-09-20T08:29:00+09:00",
+    "staticDisposition": {
+      "FT:R": "HOLD_BOTH_STATIC_HARD_FAIL",
+      "FT:L": "HOLD_BOTH_STATIC_HARD_FAIL"
+    },
+    "visualQaRunId": 35475676709,
+    "visualQaArtifactId": 10594034740
   }
 }
