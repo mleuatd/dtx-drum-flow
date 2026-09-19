@@ -1,0 +1,30 @@
+name: Drum Runtime Browser QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/live-drum-engine.js'
+      - 'site/drum-note-sound-map.js'
+      - 'site/app.js'
+      - 'site/index.html'
+      - 'tools/drum-runtime-browser-qa.mjs'
+      - '.github/workflows/drum-runtime-browser-qa.yml'
+  workflow_dispatch:
+jobs:
+  browser-audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: npm install playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Start local site
+        run: python3 -m http.server 4173 -d site > /tmp/dtx-http.log 2>&1 & echo $! > /tmp/dtx-http.pid
+      - name: Run real WebAudio browser QA
+        run: node tools/drum-runtime-browser-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drum-runtime-browser-qa
+          path: qa/runtime-audio/
