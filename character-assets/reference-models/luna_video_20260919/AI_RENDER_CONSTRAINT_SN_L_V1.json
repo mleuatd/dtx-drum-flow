@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "AI_ASSISTED_OR_DETERMINISTIC_CONSTRAINED_RENDER",
+  "status": "READY_FOR_PROTOTYPE_RENDER",
+  "actionKey": "SN:L",
+  "phaseSet": [
+    "neutral",
+    "hit",
+    "rebound"
+  ],
+  "hardConstraints": {
+    "targetHeadCount": 4,
+    "appearanceModel": "character-assets/reference-models/luna_video_20260919/APPEARANCE_MODEL_V1.json",
+    "retargetProfile": "character-assets/reference-models/luna_video_20260919/CHIBI_RETARGET_PROFILE_V1.json",
+    "runtimePoseAnchors": "character-assets/reference-models/luna_video_20260919/RUNTIME_POSE_ANCHORS_SN_L_V1.json",
+    "camera": "existing DTX three-quarter-back / over-shoulder; face slightly screen-left, gaze right, drum extends rightward",
+    "stoolBodyRegistration": "preserve source runtime registration; no teleport between phases",
+    "instrumentContact": {
+      "SN": {
+        "limb": "L",
+        "x": 420,
+        "y": 535
+      }
+    },
+    "fixedDrum": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85"
+    },
+    "appearance": [
+      "long dark-teal hair with lower-back/waist mass",
+      "long gray check jacket with lapels",
+      "dark inner top",
+      "dark short skirt",
+      "black ankle boots"
+    ],
+    "forbidden": [
+      "free camera reinterpretation",
+      "front-facing substitution",
+      "hair shortening",
+      "outfit redesign",
+      "wrong limb",
+      "wrong instrument",
+      "stool/body shift",
+      "single thick digital line cleanup"
+    ]
+  },
+  "downstream": [
+    "tools/cowlick/apply_cowlick.py",
+    "tools/line_style/normalize_line_style.py",
+    "fixed-drum composite QA",
+    "neutral-hit-rebound transition QA",
+    "web runtime PC/Xperia QA"
+  ],
+  "formalOverwriteAllowed": false
+}
