@@ -6,7 +6,7 @@ const CORE="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/f
 const CYM="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit2/samples/";
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 // Song-independent practice-salience calibration measured from attack, early energy, and full RMS.\n// Low drums get a small masking allowance; cymbals get a small reduction. No chart-specific gains.
-const LOUDNESS_GAIN={kick:1,snare:1,sideStick:1,hihatClosed:1,hihatOpen:1,hihatPedal:1,tomHigh:1,tomLow:1,tomFloor:1,ride:1,rideBell:1,crashLeft:1,crashRight:1};
+const LOUDNESS_GAIN={kick:.895383,snare:1.697274,sideStick:2.420516,hihatClosed:1.585803,hihatOpen:1.094009,hihatPedal:1.691471,tomHigh:1.353683,tomLow:1.032535,tomFloor:1.032535,ride:2.027859,rideBell:1.087495,crashLeft:1.119613,crashRight:1.119613};
 const defs={
  kick:{base:CORE,prefix:"kick",layers:4,rr:4},snare:{base:CORE,prefix:"snare",layers:6,rr:3},
  sideStick:{base:CORE,prefix:"sidestick",layers:3,rr:3},hihatClosed:{base:CORE,prefix:"hhc",layers:4,rr:4},
