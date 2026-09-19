@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T07:45:00+09:00",
+  "updatedAt": "2026-09-20T07:52:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -171,8 +171,8 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "CLAIMED_RETRYING",
+      "qaState": "visual-integrity-reviewing",
+      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
       "terminalId": "TERM-A",
       "claimState": "CLAIMED",
       "claimedAt": "2026-09-19T18:31:00+09:00",
@@ -219,17 +219,20 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED",
+      "reviewClaimState": "CLAIMED",
       "lastBatchReview": {
-        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
-        "at": "2026-09-20T06:55:00+09:00",
-        "machineEvidenceChecked": true,
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+        "at": "2026-09-20T07:52:00+09:00",
+        "machineEvidenceChecked": false,
         "humanAnatomy": "PENDING_REVIEW",
         "linework": "PENDING_REVIEW",
         "fixedDrumComposite": "PENDING_REVIEW",
         "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "BLOCKED_IMAGE_EDIT_CREDENTIAL"
-      }
+        "outcome": "IN_PROGRESS"
+      },
+      "reviewTerminalId": "CHAT-FAST-2X4",
+      "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
     },
     {
       "order": 2,
@@ -361,8 +364,8 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-reviewing",
+      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:24:00+09:00",
@@ -381,17 +384,20 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED",
+      "reviewClaimState": "CLAIMED",
       "lastBatchReview": {
-        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
-        "at": "2026-09-20T06:55:00+09:00",
-        "machineEvidenceChecked": true,
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+        "at": "2026-09-20T07:52:00+09:00",
+        "machineEvidenceChecked": false,
         "humanAnatomy": "PENDING_REVIEW",
         "linework": "PENDING_REVIEW",
         "fixedDrumComposite": "PENDING_REVIEW",
         "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "PENDING_VISUAL_HARD_GATE"
-      }
+        "outcome": "IN_PROGRESS"
+      },
+      "reviewTerminalId": "CHAT-FAST-2X4",
+      "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
     },
     {
       "order": 3,
@@ -1184,8 +1190,8 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-reviewing",
+      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1203,17 +1209,20 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED",
+      "reviewClaimState": "CLAIMED",
       "lastBatchReview": {
-        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
-        "at": "2026-09-20T06:55:00+09:00",
-        "machineEvidenceChecked": true,
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+        "at": "2026-09-20T07:52:00+09:00",
+        "machineEvidenceChecked": false,
         "humanAnatomy": "PENDING_REVIEW",
         "linework": "PENDING_REVIEW",
         "fixedDrumComposite": "PENDING_REVIEW",
         "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "PENDING_VISUAL_HARD_GATE"
-      }
+        "outcome": "IN_PROGRESS"
+      },
+      "reviewTerminalId": "CHAT-FAST-2X4",
+      "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
     },
     {
       "order": 10,
@@ -1278,8 +1287,8 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-reviewing",
+      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1297,17 +1306,20 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED",
+      "reviewClaimState": "CLAIMED",
       "lastBatchReview": {
-        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
-        "at": "2026-09-20T06:55:00+09:00",
-        "machineEvidenceChecked": true,
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
+        "at": "2026-09-20T07:52:00+09:00",
+        "machineEvidenceChecked": false,
         "humanAnatomy": "PENDING_REVIEW",
         "linework": "PENDING_REVIEW",
         "fixedDrumComposite": "PENDING_REVIEW",
         "runtimeTransition": "PENDING_REVIEW",
-        "outcome": "PENDING_VISUAL_HARD_GATE"
-      }
+        "outcome": "IN_PROGRESS"
+      },
+      "reviewTerminalId": "CHAT-FAST-2X4",
+      "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03"
     },
     {
       "order": 11,
