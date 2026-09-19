@@ -8,7 +8,7 @@ const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
 const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯",RD:"◌",LP:"⌁",LB:"●",BD:"⬤"};
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
-let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,drumBus=null,liveDrumEngine=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
+let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,drumBus=null,liveDrumEngine=null,drumPreloadPromise=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
 const partEls=new Map();
 const DEV_MIXER=[
  ["kick","BD/LB"],["snare","SN"],["sideStick","SideStick"],["hihatClosed","HH Closed"],["hihatOpen","HH Open"],["hihatPedal","LP HH"],
@@ -60,7 +60,7 @@ async function ensureAudio(){
     out.gain.value=1;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
   }
   liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);for(const [v,n] of Object.entries(devMixerValues))liveDrumEngine.setUserGain(v,n);refreshDevMixerHud();
-  if(!liveDrumEngine.ready)liveDrumEngine.preload().catch(err=>console.warn("Acoustic drum preload failed",err));
+  if(!liveDrumEngine.ready){drumPreloadPromise??=liveDrumEngine.preload();await drumPreloadPromise.catch(err=>{drumPreloadPromise=null;throw err})}
   if(audioCtx.state==="suspended")await audioCtx.resume();
   return audioCtx
 }
