@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+RC+SN:RF/R/L transaction for Luna M68",
-  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+  "status": "DONE",
   "actionKey": "BD+RC+SN:RF/R/L",
   "scope": {
     "measureStart": 68,
@@ -94,15 +94,25 @@
     "compositeVisual": "PASS",
     "locality": "PASS_BD_CUE_ONLY",
     "transition": "PASS_VISUAL",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING"
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS_REVIEWED",
+    "publicRuntime": {
+      "status": "PASS",
+      "runId": 35426237555,
+      "artifactId": 10579760232,
+      "passed": 6,
+      "failed": 0,
+      "runtimeScope": "1-68",
+      "testedCommitSha": "4369481cb505434542b1483aba4dd67218513069"
+    }
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T13:38:00+09:00",
+  "updatedAt": "2026-09-19T15:24:00+09:00",
   "notes": [
     "No image-generation model will be used for attempt01; deterministic local BD cue addition preserves exact RC+SN parent outside the cue region.",
-    "Attempt01 exact bytes saved to Dropbox, promoted to formal paths, and fixed-drum hit/rebound composites visually reviewed PASS."
+    "Attempt01 exact bytes saved to Dropbox, promoted to formal paths, and fixed-drum hit/rebound composites visually reviewed PASS.",
+    "Public runtime QA run 35426237555 artifact 10579760232: 6/6 PASS (PC hit/rebound/neutral, Xperia portrait hit/rebound/neutral), no init/console/page/request errors; screenshots reviewed."
   ],
   "build": {
     "workflowRun": 35421113802,
