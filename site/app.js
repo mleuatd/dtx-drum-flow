@@ -1,7 +1,7 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r18";
-import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r18";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r19";
+import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r19";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
@@ -56,7 +56,7 @@ async function ensureAudio(){
   if(!drumBus){
     const input=audioCtx.createGain(),comp=audioCtx.createDynamicsCompressor(),out=audioCtx.createGain();
     input.gain.value=1;
-    comp.threshold.value=-18;comp.knee.value=18;comp.ratio.value=4;comp.attack.value=.002;comp.release.value=.12;
+    comp.threshold.value=-4;comp.knee.value=12;comp.ratio.value=1.35;comp.attack.value=.01;comp.release.value=.055;
     out.gain.value=1;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
   }
   liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);for(const [v,n] of Object.entries(devMixerValues))liveDrumEngine.setUserGain(v,n);refreshDevMixerHud();
