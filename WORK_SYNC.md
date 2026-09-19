@@ -1,3 +1,9 @@
+## 2026-09-20 09:12 JST — BD+RD runtime verification closed
+- Reconnected state reconciled successfully.
+- BD+RD:RF/R static gates PASS; real public runtime QA PASS on PC/Xperia (run 35477061624, artifact 10594916218, 0 failed / 14 passed overall selected actions).
+- Synthetic explicit-sequence failures were test-harness artifacts, not runtime image failures.
+- BD+RD:RF/R promoted to VERIFIED.
+
 ## 2026-09-20 09:06 JST — Visual Integrity Batch 12
 - Processed BD+FT:RF/L + BD+FT:RF/R as the final two normal-queue 2x4 targets while BD+RD runtime QA remained separate.
 - Evidence: run 35476984329 / artifact 10594531751.
