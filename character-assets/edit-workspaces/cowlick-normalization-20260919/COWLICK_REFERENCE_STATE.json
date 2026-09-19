@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19T17:00:00+09:00",
+  "status": "WORKING_REFERENCE_LOCKED_FOR_CURRENT_ANGLE_ONLY",
+  "sourceContext": {
+    "userSourceFile": "5232.png",
+    "note": "The latest user-approved cowlick appearance is accepted as a useful current-angle reference. The five viewing directions have NOT yet been formally extracted and locked as independent angle masters."
+  },
+  "currentAcceptedCharacteristics": [
+    "two distinct cowlick strands",
+    "one resembles katakana ヘ and the other the mirrored counterpart",
+    "roots are close together at the crown",
+    "each strand returns to / lands on the existing hair rather than ending in mid-air",
+    "a small triangular negative space remains between the two strands",
+    "lower strand sits slightly lower",
+    "shape is primary; source-image rough multi-line stroke style is secondary",
+    "no free reinterpretation into V, U, two floating hairs, or bifurcated single strand"
+  ],
+  "angleModel": {
+    "plannedDirections": [
+      "left",
+      "left-front",
+      "front",
+      "right-front",
+      "right"
+    ],
+    "lockedDirections": [],
+    "currentSourceAngleClassification": "NOT_YET_FORMALLY_CLASSIFIED",
+    "rule": "Do not claim a direction master until root/peak/tip landing points and silhouette have been explicitly captured for that direction."
+  },
+  "usageRule": "Use this record as crown-shape QA context only. Never import face, body, pose, camera, or composition from cowlick references."
+}
