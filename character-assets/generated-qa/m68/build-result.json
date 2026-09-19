@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "BD+RC+SN:RF/R/L",
+  "method": "formal RC+SN:R/L exact bytes + proven deterministic BD cue only",
+  "phases": {
+    "hit": {
+      "parentPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "parentSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+      "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_hit_attempt01.png",
+      "candidateSha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "changedPixels": 545,
+      "changedPixelRatio": 0.0003465757048523142,
+      "diffBBox": [
+        448,
+        789,
+        497,
+        821
+      ],
+      "locality": "PASS_BD_CUE_ONLY",
+      "compositePath": "character-assets/generated-qa/m68/bd_rc_sn_rf_r_l_hit_fixed_drum.png"
+    },
+    "rebound": {
+      "parentPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "parentSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_rebound_attempt01.png",
+      "candidateSha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "changedPixels": 126,
+      "changedPixelRatio": 8.012575928695705e-05,
+      "diffBBox": [
+        469,
+        809,
+        483,
+        821
+      ],
+      "locality": "PASS_BD_CUE_ONLY",
+      "compositePath": "character-assets/generated-qa/m68/bd_rc_sn_rf_r_l_rebound_fixed_drum.png"
+    }
+  }
+}
