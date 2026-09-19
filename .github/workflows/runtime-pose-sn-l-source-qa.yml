@@ -1,0 +1,99 @@
+name: Runtime Pose SN-L Source QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/runtime_pose/**'
+      - 'character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/**'
+      - 'character-assets/layers/character/base/neutral.png'
+      - 'character-assets/layers/character/sn/hit_l.png'
+      - 'character-assets/layers/character/sn/rebound_l.png'
+      - 'character-assets/layers/drum/drum_base.png'
+      - '.github/workflows/runtime-pose-sn-l-source-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image QA dependency
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Verify locked source SHA256
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9  character-assets/layers/character/base/neutral.png" | sha256sum -c -
+          echo "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb  character-assets/layers/character/sn/hit_l.png" | sha256sum -c -
+          echo "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777  character-assets/layers/character/sn/rebound_l.png" | sha256sum -c -
+          echo "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85  character-assets/layers/drum/drum_base.png" | sha256sum -c -
+
+      - name: Run numeric pose sequence QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          N=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V1.json
+          H=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json
+          R=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V1.json
+          python tools/runtime_pose/validate_pose.py --package "$N" --neutral "$N" > out/neutral_pose_qa.json
+          python tools/runtime_pose/validate_pose.py --package "$H" --neutral "$N" --previous "$N" > out/hit_pose_qa.json
+          python tools/runtime_pose/validate_pose.py --package "$R" --neutral "$N" --previous "$H" > out/rebound_pose_qa.json
+          python tools/runtime_pose/validate_pose.py --package "$N" --neutral "$N" --previous "$R" > out/return_pose_qa.json
+
+      - name: Run fixed-drum composite smoke QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          N=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V1.json
+          H=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json
+          R=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V1.json
+          D=character-assets/layers/drum/drum_base.png
+          python tools/runtime_pose/validate_fixed_drum_composite.py --pose "$N" --neutral "$N" --drum "$D" --candidate character-assets/layers/character/base/neutral.png > out/neutral_composite_qa.json
+          python tools/runtime_pose/validate_fixed_drum_composite.py --pose "$H" --neutral "$N" --drum "$D" --candidate character-assets/layers/character/sn/hit_l.png > out/hit_composite_qa.json
+          python tools/runtime_pose/validate_fixed_drum_composite.py --pose "$R" --neutral "$N" --drum "$D" --candidate character-assets/layers/character/sn/rebound_l.png > out/rebound_composite_qa.json
+
+      - name: Render visible constraint overlays
+        shell: bash
+        run: |
+          set -euo pipefail
+          D=character-assets/layers/drum/drum_base.png
+          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V1.json --drum "$D" --candidate character-assets/layers/character/base/neutral.png --output out/neutral_debug.png
+          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json --drum "$D" --candidate character-assets/layers/character/sn/hit_l.png --output out/hit_debug.png
+          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V1.json --drum "$D" --candidate character-assets/layers/character/sn/rebound_l.png --output out/rebound_debug.png
+
+      - name: Assert QA reports pass
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          failed=[]
+          for p in sorted(pathlib.Path("out").glob("*_qa.json")):
+              q=json.loads(p.read_text())
+              if not q.get("pass", False):
+                  failed.append((str(p), q))
+          if failed:
+              for path, q in failed:
+                  print("FAIL", path, json.dumps(q, ensure_ascii=False))
+              raise SystemExit(1)
+          print("All runtime-pose source QA reports passed")
+          PY
+
+      - name: Upload QA evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: runtime-pose-sn-l-source-qa
+          path: out/
+          if-no-files-found: error
