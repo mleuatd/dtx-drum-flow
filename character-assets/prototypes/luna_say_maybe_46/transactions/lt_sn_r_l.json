@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe LT+SN:R/L transaction for Luna M46",
+  "status": "CANDIDATE_SAVE_IMPORT_PENDING",
+  "actionKey": "LT+SN:R/L",
+  "scope": {
+    "measureStart": 46,
+    "measureEnd": 46
+  },
+  "parent": {
+    "githubPath": "character-assets/layers/character/lt/hit_r_refresh.png",
+    "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+    "reboundSha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+    "width": 1448,
+    "height": 1086
+  },
+  "derivationParents": {
+    "hit": [
+      {
+        "githubPath": "character-assets/layers/character/ft/hit_r_refresh.png",
+        "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a"
+      },
+      {
+        "githubPath": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
+        "sha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2"
+      }
+    ],
+    "rebound": [
+      {
+        "githubPath": "character-assets/layers/character/ft/rebound_r_refresh.png",
+        "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce"
+      },
+      {
+        "githubPath": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
+        "sha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb"
+      }
+    ]
+  },
+  "method": "Exact formal LT:R base; compute proven left-SN delta as formal FT+SN minus formal FT:R within local region and transfer only that delta. No full-character redraw, no generative edit.",
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration",
+    "LT right-side motion outside SN local delta"
+  ],
+  "allowedMotion": [
+    "rightStick LT formal motion",
+    "leftArm",
+    "leftHand",
+    "leftStick"
+  ],
+  "phases": {
+    "hit": {
+      "stage": "CANDIDATE_IMPORT",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/lt_sn_r_l_hit_attempt01.png",
+      "candidatePath": "character-assets/candidates/m46/lt_sn_r_l_hit_attempt01.png",
+      "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
+      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "formalPath": "character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png",
+      "formalCommit": null
+    },
+    "rebound": {
+      "stage": "CANDIDATE_IMPORT",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/lt_sn_r_l_rebound_attempt01.png",
+      "candidatePath": "character-assets/candidates/m46/lt_sn_r_l_rebound_attempt01.png",
+      "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
+      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "formalPath": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
+      "formalCommit": null
+    }
+  },
+  "qa": {
+    "static": "PASS_LOCAL",
+    "compositeVisual": "PASS",
+    "contact": "PASS_LT_SN",
+    "transition": "PASS_VISUAL",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "blocker": null,
+  "updatedAt": "2026-09-19T12:28:00+09:00",
+  "notes": [
+    "Reused successful FT+SN SN-local-delta strategy; avoided fresh redraw and all rejected full-character edit strategies."
+  ]
+}
