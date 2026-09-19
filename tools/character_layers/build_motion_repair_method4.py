@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 ROOT=Path(__file__).resolve().parents[2]
 PROTO=ROOT/"character-assets/prototypes/luna_say_maybe_16m"
+BACKLOG=PROTO/"MOTION_DEFECT_BACKLOG.json"
 WORK=ROOT/"character-assets/edit-workspaces/motion-repair-20260920/method4"
 WORK.mkdir(parents=True,exist_ok=True)
 prev=ROOT/"character-assets/edit-workspaces/motion-repair-20260920/method3/METHOD3_PROMOTION_RESULT.json"
@@ -14,6 +15,13 @@ N=np.asarray(neutral); H,W=N.shape[:2]
 contacts=json.loads((PROTO/"INSTRUMENT_CONTACT_POINTS.json").read_text())
 ledger=json.loads((ROOT/"character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json").read_text())
 fails=json.loads(prev.read_text()).get("failedCandidates",[])
+backlog=json.loads(BACKLOG.read_text())
+forced_hold_targets=[]
+rd_sn_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="RD+SN:R/L"),None)
+if rd_sn_defect and (rd_sn_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_sn_defect.get("claim") or {}).get("owner")=="CHATGPT-FRONT":
+    forced_hold_targets.append({"id":"rd_sn_r_l_rebound","actionKey":"RD+SN:R/L","phase":"rebound","_holdRepairClaim":True})
+seen={x.get("id") for x in fails}
+fails += [x for x in forced_hold_targets if x.get("id") not in seen]
 
 LAND={"shoulder_L":(635,342),"shoulder_R":(875,370),"hip_RF":(875,655),"knee_RF":(682,748),"ankle_RF":(650,902)}
 # Head core derived from neutral landmarks head_top=(720,30), chin=(615,300);
@@ -43,7 +51,9 @@ out={"schemaVersion":4,"method":"RD-specific right-side release using neutral he
 for f in fails:
     tid,key,phase=f["id"],f["actionKey"],f["phase"]
     t=next((z for z in ledger.get("targets",[]) if z.get("id")==tid),None)
-    if not t or t.get("terminalId")!="CHAT-MOTION-REPAIR" or t.get("claimState")!="CLAIMED":
+    hold_repair_claim=bool(f.get("_holdRepairClaim"))
+    legacy_claim=bool(t and t.get("terminalId")=="CHAT-MOTION-REPAIR" and t.get("claimState")=="CLAIMED")
+    if not t or not (legacy_claim or hold_repair_claim):
         out["targets"].append({"id":tid,"actionKey":key,"phase":phase,"pass":False,"skip":"claim_changed"}); continue
     srcp=ROOT/t["formalGitHubPath"]; src=Image.open(srcp).convert("RGBA"); S=np.asarray(src)
     comps=parse(key); has_bd=any(p=="BD" and l=="RF" for p,l in comps)
