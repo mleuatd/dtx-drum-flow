@@ -1,3 +1,10 @@
+## 2026-09-20 08:50 JST — Visual Integrity Batch 10
+- Processed RC:R + LT+SN:R/L while BD+RD runtime QA continued separately.
+- Evidence: run 35476534354 / artifact 10593644215.
+- RC:R -> HOLD_VISUAL_INTEGRITY: duplicated/parallel right-stick shafts.
+- LT+SN:R/L -> HOLD_VISUAL_INTEGRITY: forked right stick plus detached/truncated left-stick line.
+- Formal PNGs unchanged; runtime QA blocked by static hard-gate failures.
+
 ## 2026-09-20 08:40 JST — Visual Integrity Batch 09
 - Reconciled against parallel-session HOLD/CLAIM state and continued with HT:L + FT+SN:R/L.
 - Evidence: run 35476194165 / artifact 10593174478.
