@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T05:31:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -110,7 +110,12 @@
       "occurrenceCount": 248,
       "legacyRuntimeKey": "HH:R",
       "limbAwareRuntimeKey": "HH:R",
-      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
+      "hitSha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
+      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
+      "motionRepairLastPhase": "rebound",
+      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+      "reboundSha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216"
     },
     {
       "actionKey": "RD:R",
@@ -131,7 +136,11 @@
       "occurrenceCount": 53,
       "legacyRuntimeKey": "RD:R",
       "limbAwareRuntimeKey": "RD:R",
-      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
+      "reboundSha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
+      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
+      "motionRepairLastPhase": "rebound",
+      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant"
     },
     {
       "actionKey": "BD+SN:RF/L",
@@ -178,10 +187,13 @@
       "limbAwareRuntimeKey": "RC+SN:R/L",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
       "runtimeState": "LIVE_M1_16",
-      "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
-      "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "hitSha256": "8dc1c8b43eb55481b6306dadcd047b74e9fb913097d5b7cb723e823512f19a98",
+      "reboundSha256": "4448209cc049cafcd1926ad29f6546e8011d5030ce56db161d528dc514c3546e",
       "liveQaRun": 35351134562,
-      "liveQaArtifact": 10549284671
+      "liveQaArtifact": 10549284671,
+      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
+      "motionRepairLastPhase": "rebound",
+      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant"
     },
     {
       "actionKey": "BD+LT:RF/R",
@@ -389,7 +401,11 @@
       "legacyRuntimeKey": "RD+SN:*",
       "limbAwareRuntimeKey": "RD+SN:R/L",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00"
+      "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00",
+      "reboundSha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
+      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
+      "motionRepairLastPhase": "rebound",
+      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant"
     },
     {
       "actionKey": "BD+HH:RF/R",
@@ -433,7 +449,12 @@
       "legacyRuntimeKey": "HH+SN:*",
       "limbAwareRuntimeKey": "HH+SN:R/L",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00"
+      "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00",
+      "hitSha256": "786a85f1ecbd7411e0f0cd7f4b5a237c44fbfde10b070aacaecb82d302d1cdec",
+      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
+      "motionRepairLastPhase": "rebound",
+      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+      "reboundSha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b"
     },
     {
       "actionKey": "HT:R",
@@ -455,12 +476,15 @@
       "legacyRuntimeKey": "HT:R",
       "limbAwareRuntimeKey": "HT:R",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "hitSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
-      "reboundSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "hitSha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
+      "reboundSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
       "method": "retry-controller USE_APPROVED_LIMB_PATCH: approved HH:R arm/hand pose with stick-only retarget to HT",
       "promotionCommit": "1069bf73ff59d69c69ee0493a91de30db3f0088e",
       "liveQaRun": 35413032881,
-      "liveQaArtifact": 10575360428
+      "liveQaArtifact": 10575360428,
+      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
+      "motionRepairLastPhase": "rebound",
+      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant"
     },
     {
       "actionKey": "RC:R",

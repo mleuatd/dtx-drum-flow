@@ -110,13 +110,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
-      "status": "M1_4_READY",
+      "sha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "HH",
       "phase": "hit",
       "hand": "R",
-      "notes": []
+      "notes": [
+        "2026-09-20 deterministic motion repair HH:R hit; auto candidate QA PASS."
+      ]
     },
     {
       "path": "character-assets/layers/character/hh/rebound_r.png",
@@ -124,13 +126,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
-      "status": "M1_4_READY",
+      "sha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "HH",
       "phase": "rebound",
       "hand": "R",
-      "notes": []
+      "notes": [
+        "2026-09-20 deterministic motion repair HH:R rebound; auto candidate QA PASS."
+      ]
     },
     {
       "path": "character-assets/layers/character/bd/hit_rf.png",
@@ -248,8 +252,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
-      "status": "M5_8_READY_LIVE_QA",
+      "sha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna measures 5-8 refreshed RD:R variant derived from approved neutral baseline",
       "part": "RD",
       "phase": "rebound",
@@ -257,7 +261,8 @@
       "notes": [
         "Fixed-drum composite QA passed before registration.",
         "Public GitHub Pages Runtime Character QA run 35327283366 passed on PC and Xperia-class portrait.",
-        "Runtime QA artifact 10539831628."
+        "Runtime QA artifact 10539831628.",
+        "2026-09-20 deterministic motion repair RD:R rebound; auto candidate QA PASS."
       ]
     },
     {
@@ -266,8 +271,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "8dc1c8b43eb55481b6306dadcd047b74e9fb913097d5b7cb723e823512f19a98",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna Say Maybe M9-16 RC+SN:R/L hit; approved for M1-16 live runtime",
       "part": "RC+SN",
       "phase": "hit",
@@ -277,7 +282,8 @@
         "Fixed-drum visual review PASS",
         "Formal Dropbox/GitHub save complete",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
-        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
+        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0",
+        "2026-09-20 deterministic motion repair RC+SN:R/L hit; auto candidate QA PASS."
       ]
     },
     {
@@ -286,8 +292,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "4448209cc049cafcd1926ad29f6546e8011d5030ce56db161d528dc514c3546e",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna Say Maybe M9-16 RC+SN:R/L rebound; approved for M1-16 live runtime",
       "part": "RC+SN",
       "phase": "rebound",
@@ -297,7 +303,8 @@
         "Fixed-drum visual review PASS",
         "Formal Dropbox/GitHub save complete",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
-        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0"
+        "M9-16 runtime frame mismatches/load failures/warnings/errors: 0",
+        "2026-09-20 deterministic motion repair RC+SN:R/L rebound; auto candidate QA PASS."
       ]
     },
     {
@@ -555,14 +562,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna M25-28 HT:R attempt05 approved HH:R limb-patch pair; PRE_RUNTIME QA passed.",
       "part": "HT",
       "phase": "hit",
       "hand": "R",
       "notes": [
-        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0.",
+        "2026-09-20 deterministic motion repair HT:R hit; auto candidate QA PASS."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -573,14 +581,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna M25-28 HT:R attempt05 approved HH:R limb-patch pair; PRE_RUNTIME QA passed.",
       "part": "HT",
       "phase": "rebound",
       "hand": "R",
       "notes": [
-        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0.",
+        "2026-09-20 deterministic motion repair HT:R rebound; auto candidate QA PASS."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -727,14 +736,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
-      "status": "RUNTIME_READY",
+      "sha256": "786a85f1ecbd7411e0f0cd7f4b5a237c44fbfde10b070aacaecb82d302d1cdec",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna runtime formal character frame",
       "part": "HH+SN",
       "phase": "hit",
       "hand": "R/L",
       "notes": [
-        "Synced from asset_inventory requiredFrames for active runtime validation."
+        "Synced from asset_inventory requiredFrames for active runtime validation.",
+        "2026-09-20 deterministic motion repair HH+SN:R/L hit; auto candidate QA PASS."
       ]
     },
     {
@@ -743,14 +753,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
-      "status": "RUNTIME_READY",
+      "sha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna runtime formal character frame",
       "part": "HH+SN",
       "phase": "rebound",
       "hand": "R/L",
       "notes": [
-        "Synced from asset_inventory requiredFrames for active runtime validation."
+        "Synced from asset_inventory requiredFrames for active runtime validation.",
+        "2026-09-20 deterministic motion repair HH+SN:R/L rebound; auto candidate QA PASS."
       ]
     },
     {
@@ -807,14 +818,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
-      "status": "RUNTIME_READY",
+      "sha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna runtime formal character frame",
       "part": "RD+SN",
       "phase": "rebound",
       "hand": "R/L",
       "notes": [
-        "Synced from asset_inventory requiredFrames for active runtime validation."
+        "Synced from asset_inventory requiredFrames for active runtime validation.",
+        "2026-09-20 deterministic motion repair RD+SN:R/L rebound; auto candidate QA PASS."
       ]
     },
     {

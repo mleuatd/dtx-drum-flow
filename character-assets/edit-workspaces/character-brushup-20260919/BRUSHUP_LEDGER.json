@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T05:36:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -450,7 +450,7 @@
       "actionKey": "HH:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/hh/hit_r.png",
-      "sha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
+      "sha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
       "sourceQueueSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -550,10 +550,13 @@
       ],
       "usageCount": 248,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_r_hit_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06023486
     },
     {
       "order": 6,
@@ -561,7 +564,7 @@
       "actionKey": "HH:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/hh/rebound_r.png",
-      "sha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
+      "sha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
       "sourceQueueSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -661,10 +664,13 @@
       ],
       "usageCount": 248,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_r_rebound_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06409425
     },
     {
       "order": 7,
@@ -740,10 +746,11 @@
       ],
       "usageCount": 129,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rf_hit_qa.json"
     },
     {
       "order": 8,
@@ -819,10 +826,11 @@
       ],
       "usageCount": 129,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rf_rebound_qa.json"
     },
     {
       "order": 9,
@@ -888,10 +896,11 @@
       ],
       "usageCount": 63,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rc_hit_qa.json"
     },
     {
       "order": 10,
@@ -957,10 +966,11 @@
       ],
       "usageCount": 63,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rc_rebound_qa.json"
     },
     {
       "order": 11,
@@ -992,10 +1002,11 @@
       ],
       "usageCount": 53,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_r_hit_qa.json"
     },
     {
       "order": 12,
@@ -1003,7 +1014,7 @@
       "actionKey": "RD:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/rd/rebound_r_refresh.png",
-      "sha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+      "sha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
       "sourceQueueSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1027,10 +1038,13 @@
       ],
       "usageCount": 53,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_r_rebound_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.04430319
     },
     {
       "order": 13,
@@ -1059,10 +1073,11 @@
       ],
       "usageCount": 22,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_sn_rf_l_hit_qa.json"
     },
     {
       "order": 14,
@@ -1091,10 +1106,11 @@
       ],
       "usageCount": 22,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_sn_rf_l_rebound_qa.json"
     },
     {
       "order": 15,
@@ -1102,7 +1118,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
-      "sha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+      "sha256": "8dc1c8b43eb55481b6306dadcd047b74e9fb913097d5b7cb723e823512f19a98",
       "sourceQueueSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1128,10 +1144,13 @@
       ],
       "usageCount": 34,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rc_sn_r_l_hit_refresh_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.07070907
     },
     {
       "order": 16,
@@ -1139,7 +1158,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
-      "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "sha256": "4448209cc049cafcd1926ad29f6546e8011d5030ce56db161d528dc514c3546e",
       "sourceQueueSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1165,10 +1184,13 @@
       ],
       "usageCount": 34,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rc_sn_r_l_rebound_refresh_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06827796
     },
     {
       "order": 17,
@@ -1487,10 +1509,11 @@
       ],
       "usageCount": 29,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rd_rf_r_hit_qa.json"
     },
     {
       "order": 28,
@@ -1517,10 +1540,11 @@
       ],
       "usageCount": 29,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rd_rf_r_rebound_qa.json"
     },
     {
       "order": 29,
@@ -1547,10 +1571,11 @@
       ],
       "usageCount": 23,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_sn_r_l_hit_qa.json"
     },
     {
       "order": 30,
@@ -1558,7 +1583,7 @@
       "actionKey": "RD+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
-      "sha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
+      "sha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
       "sourceQueueSha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1577,10 +1602,13 @@
       ],
       "usageCount": 23,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_sn_r_l_rebound_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06521792
     },
     {
       "order": 31,
@@ -1684,10 +1712,11 @@
       ],
       "usageCount": 224,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_hh_rf_r_hit_qa.json"
     },
     {
       "order": 32,
@@ -1791,10 +1820,11 @@
       ],
       "usageCount": 224,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_hh_rf_r_rebound_qa.json"
     },
     {
       "order": 33,
@@ -1802,7 +1832,7 @@
       "actionKey": "HH+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
-      "sha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
+      "sha256": "786a85f1ecbd7411e0f0cd7f4b5a237c44fbfde10b070aacaecb82d302d1cdec",
       "sourceQueueSha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1888,10 +1918,13 @@
       ],
       "usageCount": 143,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_hit_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06537817
     },
     {
       "order": 34,
@@ -1899,7 +1932,7 @@
       "actionKey": "HH+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
-      "sha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
+      "sha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
       "sourceQueueSha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1985,10 +2018,13 @@
       ],
       "usageCount": 143,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_rebound_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06830085
     },
     {
       "order": 35,
@@ -2174,7 +2210,7 @@
       "actionKey": "HT:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ht/hit_r_refresh.png",
-      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+      "sha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
       "sourceQueueSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2191,10 +2227,13 @@
       ],
       "usageCount": 16,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_hit_refresh_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06021196
     },
     {
       "order": 44,
@@ -2202,7 +2241,7 @@
       "actionKey": "HT:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
-      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "sha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
       "sourceQueueSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2219,10 +2258,13 @@
       ],
       "usageCount": 16,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimState": "COMPLETED",
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_qa.json",
+      "motionRepairChangedRatioVsNeutral": 0.06724904
     },
     {
       "order": 45,
@@ -2241,10 +2283,11 @@
       ],
       "usageCount": 6,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ht_rf_r_hit_refresh_qa.json"
     },
     {
       "order": 46,
@@ -2263,10 +2306,11 @@
       ],
       "usageCount": 6,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ht_rf_r_rebound_refresh_qa.json"
     },
     {
       "order": 47,
@@ -2331,10 +2375,11 @@
       ],
       "usageCount": 14,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_hh_sn_rf_r_l_hit_refresh_qa.json"
     },
     {
       "order": 50,
@@ -2357,10 +2402,11 @@
       ],
       "usageCount": 14,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_hh_sn_rf_r_l_rebound_refresh_qa.json"
     },
     {
       "order": 51,
@@ -2416,10 +2462,11 @@
       ],
       "usageCount": 3,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rc_sn_rf_r_l_hit_refresh_qa.json"
     },
     {
       "order": 54,
@@ -2437,10 +2484,11 @@
       ],
       "usageCount": 3,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_MOTION_REPAIR",
+      "brushupStatus": "AUTO_REPAIR_METHOD1_FAIL",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-20T05:36:00+09:00"
+      "claimedAt": "2026-09-20T05:36:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rc_sn_rf_r_l_rebound_refresh_qa.json"
     },
     {
       "order": 55,

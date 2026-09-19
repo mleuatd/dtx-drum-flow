@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-09-20T05:31:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -873,7 +873,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -900,10 +900,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "mixed",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -1679,7 +1679,7 @@
     },
     {
       "issueId": "MOTION-003",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M143,M109",
       "time": "~249.15-249.22s",
@@ -1708,10 +1708,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -2367,7 +2367,7 @@
     },
     {
       "issueId": "MOTION-004",
-      "status": "ANALYZING",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M141,M135",
       "time": "~245.81-245.95s",
@@ -2396,10 +2396,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -3214,11 +3214,33 @@
             "pc/m135_RC_SN_R_L_rebound.png"
           ]
         }
-      ]
+      ],
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "rc_sn_r_l_hit_refresh",
+            "actionKey": "RC+SN:R/L",
+            "phase": "hit",
+            "oldSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+            "newSha256": "8dc1c8b43eb55481b6306dadcd047b74e9fb913097d5b7cb723e823512f19a98",
+            "changedRatioVsNeutral": 0.07070907
+          },
+          {
+            "id": "rc_sn_r_l_rebound_refresh",
+            "actionKey": "RC+SN:R/L",
+            "phase": "rebound",
+            "oldSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+            "newSha256": "4448209cc049cafcd1926ad29f6546e8011d5030ce56db161d528dc514c3546e",
+            "changedRatioVsNeutral": 0.06827796
+          }
+        ],
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      }
     },
     {
       "issueId": "MOTION-005",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M137,M109",
       "time": "~238.68-238.83s",
@@ -3247,10 +3269,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -4024,7 +4046,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4053,10 +4075,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -4830,7 +4852,7 @@
     },
     {
       "issueId": "MOTION-007",
-      "status": "ANALYZING",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M142,M115",
       "time": "~248.40-248.54s",
@@ -4859,10 +4881,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -5564,11 +5586,33 @@
             "pc/m115_HH_R_rebound.png"
           ]
         }
-      ]
+      ],
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "hh_r_hit",
+            "actionKey": "HH:R",
+            "phase": "hit",
+            "oldSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
+            "newSha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
+            "changedRatioVsNeutral": 0.06023486
+          },
+          {
+            "id": "hh_r_rebound",
+            "actionKey": "HH:R",
+            "phase": "rebound",
+            "oldSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
+            "newSha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
+            "changedRatioVsNeutral": 0.06409425
+          }
+        ],
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      }
     },
     {
       "issueId": "MOTION-008",
-      "status": "ANALYZING",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M140,M113",
       "time": "~243.86-244.01s",
@@ -5597,10 +5641,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -6415,11 +6459,33 @@
             "pc/m113_HH_SN_R_L_rebound.png"
           ]
         }
-      ]
+      ],
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "hh_sn_r_l_hit",
+            "actionKey": "HH+SN:R/L",
+            "phase": "hit",
+            "oldSha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
+            "newSha256": "786a85f1ecbd7411e0f0cd7f4b5a237c44fbfde10b070aacaecb82d302d1cdec",
+            "changedRatioVsNeutral": 0.06537817
+          },
+          {
+            "id": "hh_sn_r_l_rebound",
+            "actionKey": "HH+SN:R/L",
+            "phase": "rebound",
+            "oldSha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
+            "newSha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
+            "changedRatioVsNeutral": 0.06830085
+          }
+        ],
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      }
     },
     {
       "issueId": "MOTION-009",
-      "status": "ANALYZING",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -6448,10 +6514,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -7266,11 +7332,25 @@
             "pc/m130_RD_SN_R_L_rebound.png"
           ]
         }
-      ]
+      ],
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "rd_sn_r_l_rebound",
+            "actionKey": "RD+SN:R/L",
+            "phase": "rebound",
+            "oldSha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
+            "newSha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
+            "changedRatioVsNeutral": 0.06521792
+          }
+        ],
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      }
     },
     {
       "issueId": "MOTION-010",
-      "status": "ANALYZING",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -7298,7 +7378,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -7313,7 +7393,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -7995,11 +8075,25 @@
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
+      },
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "rd_r_rebound",
+            "actionKey": "RD:R",
+            "phase": "rebound",
+            "oldSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+            "newSha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
+            "changedRatioVsNeutral": 0.04430319
+          }
+        ],
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       }
     },
     {
       "issueId": "MOTION-011",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:06.7-2:06.8",
@@ -8027,7 +8121,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:25:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -8041,7 +8135,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -8913,7 +9007,7 @@
     },
     {
       "issueId": "MOTION-012",
-      "status": "ANALYZING",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M76",
       "time": "~2:14.3-2:14.4",
@@ -8941,7 +9035,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:25:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -8955,7 +9049,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -9640,11 +9734,33 @@
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
+      },
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "ht_r_hit_refresh",
+            "actionKey": "HT:R",
+            "phase": "hit",
+            "oldSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+            "newSha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
+            "changedRatioVsNeutral": 0.06021196
+          },
+          {
+            "id": "ht_r_rebound_refresh",
+            "actionKey": "HT:R",
+            "phase": "rebound",
+            "oldSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+            "newSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
+            "changedRatioVsNeutral": 0.06724904
+          }
+        ],
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       }
     },
     {
       "issueId": "MOTION-013",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:07.1-2:07.2",
@@ -9672,7 +9788,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:25:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9686,7 +9802,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -10443,7 +10559,7 @@
     },
     {
       "issueId": "MOTION-014",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M95",
       "time": "~2:46.4",
@@ -10471,7 +10587,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:25:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M95",
@@ -10485,7 +10601,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -11242,7 +11358,7 @@
     },
     {
       "issueId": "MOTION-015",
-      "status": "ANALYZING",
+      "status": "AUTO_REPAIR_SECOND_PASS_REQUIRED",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -11270,7 +11386,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:25:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M67",
@@ -11284,7 +11400,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",

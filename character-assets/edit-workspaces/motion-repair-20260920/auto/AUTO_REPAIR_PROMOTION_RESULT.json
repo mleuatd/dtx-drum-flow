@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "promoted": [
+    {
+      "id": "hh_r_hit",
+      "actionKey": "HH:R",
+      "phase": "hit",
+      "oldSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
+      "newSha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
+      "changedRatioVsNeutral": 0.06023486
+    },
+    {
+      "id": "hh_r_rebound",
+      "actionKey": "HH:R",
+      "phase": "rebound",
+      "oldSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
+      "newSha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
+      "changedRatioVsNeutral": 0.06409425
+    },
+    {
+      "id": "rd_r_rebound",
+      "actionKey": "RD:R",
+      "phase": "rebound",
+      "oldSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
+      "newSha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
+      "changedRatioVsNeutral": 0.04430319
+    },
+    {
+      "id": "rc_sn_r_l_hit_refresh",
+      "actionKey": "RC+SN:R/L",
+      "phase": "hit",
+      "oldSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+      "newSha256": "8dc1c8b43eb55481b6306dadcd047b74e9fb913097d5b7cb723e823512f19a98",
+      "changedRatioVsNeutral": 0.07070907
+    },
+    {
+      "id": "rc_sn_r_l_rebound_refresh",
+      "actionKey": "RC+SN:R/L",
+      "phase": "rebound",
+      "oldSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+      "newSha256": "4448209cc049cafcd1926ad29f6546e8011d5030ce56db161d528dc514c3546e",
+      "changedRatioVsNeutral": 0.06827796
+    },
+    {
+      "id": "rd_sn_r_l_rebound",
+      "actionKey": "RD+SN:R/L",
+      "phase": "rebound",
+      "oldSha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
+      "newSha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
+      "changedRatioVsNeutral": 0.06521792
+    },
+    {
+      "id": "hh_sn_r_l_hit",
+      "actionKey": "HH+SN:R/L",
+      "phase": "hit",
+      "oldSha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
+      "newSha256": "786a85f1ecbd7411e0f0cd7f4b5a237c44fbfde10b070aacaecb82d302d1cdec",
+      "changedRatioVsNeutral": 0.06537817
+    },
+    {
+      "id": "hh_sn_r_l_rebound",
+      "actionKey": "HH+SN:R/L",
+      "phase": "rebound",
+      "oldSha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
+      "newSha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
+      "changedRatioVsNeutral": 0.06830085
+    },
+    {
+      "id": "ht_r_hit_refresh",
+      "actionKey": "HT:R",
+      "phase": "hit",
+      "oldSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+      "newSha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
+      "changedRatioVsNeutral": 0.06021196
+    },
+    {
+      "id": "ht_r_rebound_refresh",
+      "actionKey": "HT:R",
+      "phase": "rebound",
+      "oldSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "newSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
+      "changedRatioVsNeutral": 0.06724904
+    }
+  ],
+  "failedCandidates": [
+    {
+      "id": "bd_rf_hit",
+      "actionKey": "BD:RF",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.02264825
+    },
+    {
+      "id": "bd_rf_rebound",
+      "actionKey": "BD:RF",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.01635138
+    },
+    {
+      "id": "bd_rc_hit",
+      "actionKey": "BD+RC:RF/R",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.07365083
+    },
+    {
+      "id": "bd_rc_rebound",
+      "actionKey": "BD+RC:RF/R",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.06621313
+    },
+    {
+      "id": "rd_r_hit",
+      "actionKey": "RD:R",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.04375312
+    },
+    {
+      "id": "bd_sn_rf_l_hit",
+      "actionKey": "BD+SN:RF/L",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.05169129
+    },
+    {
+      "id": "bd_sn_rf_l_rebound",
+      "actionKey": "BD+SN:RF/L",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.05721106
+    },
+    {
+      "id": "bd_rd_rf_r_hit",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.05814078
+    },
+    {
+      "id": "bd_rd_rf_r_rebound",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.05715701
+    },
+    {
+      "id": "rd_sn_r_l_hit",
+      "actionKey": "RD+SN:R/L",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.0648459
+    },
+    {
+      "id": "bd_hh_rf_r_hit",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.07326292
+    },
+    {
+      "id": "bd_hh_rf_r_rebound",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.07671978
+    },
+    {
+      "id": "bd_ht_rf_r_hit_refresh",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.07324003
+    },
+    {
+      "id": "bd_ht_rf_r_rebound_refresh",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.07987457
+    },
+    {
+      "id": "bd_hh_sn_rf_r_l_hit_refresh",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.07885392
+    },
+    {
+      "id": "bd_hh_sn_rf_r_l_rebound_refresh",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.08419691
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_hit_refresh",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.08387005
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "changedRatioWithinLimit": true,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "inactiveLowerLocked": true,
+        "localSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.08607224
+    }
+  ],
+  "skipped": []
+}
