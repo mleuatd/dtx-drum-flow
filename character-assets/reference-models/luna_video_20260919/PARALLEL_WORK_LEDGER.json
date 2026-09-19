@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:12:00+09:00",
+  "updatedAt": "2026-09-19T20:14:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -76,10 +76,10 @@
       "taskId": "OTHER-001",
       "category": "formal_inventory",
       "description": "Inventory existing formal character variants; reconcile actionKey/phase/limb/path/SHA against asset_inventory and runtime mapping.",
-      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
-      "status": "AVAILABLE",
-      "claimedAt": null,
-      "startedAt": null,
+      "owner": "TERM-B",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T20:14:00+09:00",
+      "startedAt": "2026-09-19T20:14:00+09:00",
       "completedAt": null,
       "paths": [
         "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
