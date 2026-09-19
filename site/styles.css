@@ -191,3 +191,7 @@ button,label.button,summary{touch-action:manipulation}
 .dev-audio-row output{font:700 11px monospace;color:#baff00;text-align:right}
 .dev-audio-actions{padding:0 10px 10px}.dev-audio-actions .button{width:100%}
 @media(max-width:699px){.dev-audio-row{grid-template-columns:76px 1fr 58px;gap:5px}.dev-audio-mixer-body{padding-left:7px;padding-right:7px}}
+
+.dev-audio-row{grid-template-columns:82px minmax(90px,1fr) 58px 68px}
+.dev-audio-test{padding:7px 5px;min-height:36px;touch-action:manipulation}
+@media(max-width:699px){.dev-audio-row{grid-template-columns:68px minmax(72px,1fr) 52px 62px}.dev-audio-test{font-size:11px;padding:6px 3px}}
