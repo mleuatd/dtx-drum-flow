@@ -308,3 +308,33 @@ Authority split:
 - tool/debug/candidate outputs remain non-formal until fixed-drum and runtime QA pass.
 
 Current implementation authority: `tools/runtime_pose/`.
+
+## 16. Autonomous source-resolution / Dropbox bridge rule
+
+Do not ask the user to manually re-upload, move, rename, or re-identify an image merely because the current terminal cannot immediately hand GitHub bytes to an image-edit renderer.
+
+Before declaring an image task BLOCKED for missing source bytes, the terminal must autonomously exhaust the available repository/connector bridge paths in this order:
+
+1. refresh latest GitHub `main` and read the formal asset path + SHA256,
+2. search the project Dropbox bridge by exact SHA256/prefix, formal filename, and known canonical aliases,
+3. verify Dropbox metadata against the GitHub formal identity; filename similarity alone is never authority,
+4. request Dropbox preview/fetch/download-link capability where available,
+5. if direct renderer handoff still cannot be created, record the exact technical boundary in the parallel ledger,
+6. split any independent bridge verification, artifact inspection, metadata reconciliation, or visual QA work into `PARALLEL_WORK_LEDGER.json` as `AVAILABLE_FOR_OTHER_TERMINAL` before stopping,
+7. continue every non-blocked tool/QA/CI/documentation task on the current terminal.
+
+User-side manual file handling is a last resort, not the default workflow.
+
+Dropbox policy:
+- Dropbox is a transport/bridge and provenance aid, not the formal authority.
+- GitHub `main` formal path + SHA256 remains the identity authority.
+- A Dropbox file may be used only after its bytes/identity are reconciled to the formal GitHub asset.
+- Do not replace exact-byte verification with visual resemblance.
+- Do not regenerate an asset merely because a connector cannot directly hand bytes to the renderer.
+- When a workaround is discovered, record it in the master rule / playbook / ledger so later terminals reuse it instead of asking the user again.
+
+Coordination policy:
+- if a bridge or verification subtask can run independently, write it to `PARALLEL_WORK_LEDGER.json` first and commit that ledger change before continuing,
+- the current terminal must keep progressing on its own unblocked work after delegation,
+- delegation itself is never a reason to stop the current terminal.
+
