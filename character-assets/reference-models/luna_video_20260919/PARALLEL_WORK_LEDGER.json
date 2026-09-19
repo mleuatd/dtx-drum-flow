@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:29:00+09:00",
+  "updatedAt": "2026-09-19T21:35:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -421,6 +421,32 @@
         "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
       ],
       "handoffNote": "CLAIM first. Indexing/evidence only. Prefer Files /Dropbox mount + raw materialize + SHA256 verification. Filename/Dropbox content_hash alone are not proof. Record stale aliases, exact matches, and unresolved assets. Do not modify formal images."
+    },
+    {
+      "taskId": "IMPORT-AUTO-001",
+      "category": "dropbox_import_automation",
+      "description": "Harden and generalize the existing Dropbox->staging JSON->GitHub character asset import path so routine asset transfer/registration is tool-driven rather than AI/manual. Reuse existing staging schema/workflow/tool; add deterministic manifest/index generation and SHA guards. No formal image edits.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T21:35:00+09:00",
+      "startedAt": "2026-09-19T21:35:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "tools/build-staging-json.mjs",
+        ".github/workflows/import-character-asset-from-dropbox.yml",
+        "character-assets/prototypes/luna_say_maybe_16m/STAGING_SCHEMA.json",
+        "character-assets/staging/**",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json"
+      ],
+      "dependsOn": [],
+      "doNotTouch": [
+        "character-assets/layers/character/**",
+        "character-assets/layers/drum/**",
+        "tools/runtime_pose/**",
+        "character-assets/edit-workspaces/**"
+      ],
+      "handoffNote": "Automation/tooling only. Formal PNG bytes must not be changed. Preserve backward compatibility with existing staging JSON files. Add validation/dry-run where possible; no force push.",
+      "lastCommit": null
     }
   ]
 }
