@@ -27,9 +27,39 @@ def copy_active_chains(neutral,state,components,phase):
         return copy.deepcopy(neutral["joints"])
     joints=copy.deepcopy(neutral["joints"])
     for c in components:
-        for name in limb_joint_names(c["limb"]):
+        limb=c["limb"]
+        for name in limb_joint_names(limb):
+            # Shoulder is part of body registration. Keep the approved-neutral
+            # shoulder fixed for hand actions unless reachability proves that
+            # a phase-specific shoulder is required later by the solver.
+            if limb in HAND_LIMBS and name.startswith("shoulder_"):
+                continue
             joints[name]=copy.deepcopy(state["joints"][name])
     return joints
+
+def solve_arm_prefer_neutral(neutral,state,side,target):
+    nshoulder=neutral["joints"]["shoulder_"+side]
+    nelbow=neutral["joints"]["elbow_"+side]
+    nwrist=neutral["joints"]["wrist_"+side]
+    ntip=neutral["props"].get("stick_tip_"+side)
+    nstick=dist(nwrist,ntip) if ntip else 150
+    neutral_solve=solve_arm_nearest_source(
+        nshoulder,target,dist(nshoulder,nelbow),dist(nelbow,nwrist),
+        nstick,nelbow,nwrist)
+    neutral_solve["anchorPolicy"]="neutral_shoulder_and_lengths"
+    if neutral_solve["reachable"]:
+        return neutral_solve
+
+    pshoulder=state["joints"]["shoulder_"+side]
+    pelbow=state["joints"]["elbow_"+side]
+    pwrist=state["joints"]["wrist_"+side]
+    ptip=state["props"].get("stick_tip_"+side)
+    pstick=dist(pwrist,ptip) if ptip else nstick
+    phase_solve=solve_arm_nearest_source(
+        pshoulder,target,dist(pshoulder,pelbow),dist(pelbow,pwrist),
+        pstick,pelbow,pwrist)
+    phase_solve["anchorPolicy"]="phase_shoulder_fallback"
+    return phase_solve
 
 def build_effectors(components,state,contacts):
     out=[]
@@ -87,12 +117,10 @@ def main():
         if limb in HAND_LIMBS:
             side=limb.lower()
             if a.phase=="hit" and target:
-                shoulder=joints["shoulder_"+side]; wrist=joints["wrist_"+side]; elbow=joints["elbow_"+side]
-                upper=dist(shoulder,elbow); fore=dist(elbow,wrist)
-                existing_tip=state["props"].get("stick_tip_"+side)
-                stick=dist(wrist,existing_tip) if existing_tip else 150
-                solved=solve_arm_nearest_source(shoulder,target,upper,fore,stick,elbow,wrist)
-                joints["elbow_"+side]=solved["elbow"]; joints["wrist_"+side]=solved["wrist"]
+                solved=solve_arm_prefer_neutral(neutral,state,side,target)
+                joints["shoulder_"+side]=copy.deepcopy(solved["shoulder"])
+                joints["elbow_"+side]=solved["elbow"]
+                joints["wrist_"+side]=solved["wrist"]
                 e["point"]=solved["stickTip"]; e["solve"]=solved
             elif a.phase=="rebound":
                 e["rule"]="preserve source rebound tip away from contact; validate continuity, do not force contact"
