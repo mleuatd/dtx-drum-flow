@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:31:00+09:00",
+  "updatedAt": "2026-09-19T20:26:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -195,10 +195,10 @@
       "category": "runtime_pose_generalization",
       "description": "Generalize tools/runtime_pose from single-part action keys (e.g. SN:L) to combo action keys (e.g. BD+RC:RF/R, RD+SN:R/L) with explicit part-to-limb pairing, per-contact constraints, phase-aware validation, and minimal-motion semantics. Add tests; do not modify formal PNGs.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T20:27:00+09:00",
       "startedAt": "2026-09-19T20:27:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T20:26:00+09:00",
       "paths": [
         "tools/runtime_pose/**",
         "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**",
@@ -214,8 +214,9 @@
         "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json",
         "character-assets/edit-workspaces/**"
       ],
-      "handoffNote": "This terminal owns runtime-pose parser/solver/validator generalization. Other terminals may inspect but must not edit tools/runtime_pose/** until this task is DONE/BLOCKED.",
-      "lastCommit": null
+      "handoffNote": "DONE. tools/runtime_pose/** may be claimed by another terminal only after refreshing main and checking this ledger. Formal PNGs were not modified.",
+      "lastCommit": "662ebfe256e62b800fec863efef0d98bc6286b72",
+      "result": "Combo action-key generalization complete. Runtime Pose Tests run 35440027946 passed. Supports explicit part-to-limb pairing, multi-effector contact validation, active-limb transition accounting, AI constraint/debug multi-effector output, and legacy single-action compatibility."
     }
   ]
 }
