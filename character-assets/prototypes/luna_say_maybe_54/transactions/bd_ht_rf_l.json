@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+HT:RF/L transaction for Luna M54",
-  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+  "status": "DONE",
   "actionKey": "BD+HT:RF/L",
   "scope": {
     "measureStart": 54,
@@ -58,9 +58,18 @@
     "compositeVisual": "PASS",
     "locality": "PASS_BD_CUE_ONLY",
     "transition": "PASS_VISUAL",
-    "runtimePC": "RETRY_PENDING_MAPPING_FIX",
-    "runtimeXperia": "RETRY_PENDING_MAPPING_FIX",
-    "screenshots": "PENDING"
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS_REVIEWED",
+    "publicRuntime": {
+      "status": "PASS",
+      "runId": 35420373297,
+      "artifactId": 10576732695,
+      "passed": 4,
+      "failed": 0,
+      "runtimeScope": "1-54",
+      "testedCommitSha": "f31c930f32e4a27403a6a7d94ec4c1656d267270"
+    }
   },
   "build": {
     "workflowRun": 35419441509,
@@ -68,10 +77,12 @@
     "buildCommit": "ae83188e54e1586e38fec579ab035a952416801d"
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T13:16:00+09:00",
+  "updatedAt": "2026-09-19T13:15:00+09:00",
   "notes": [
     "Reused the proven BD kick cue strategy instead of generating a new body/leg pose.",
     "Fixed-drum hit/rebound composites manually reviewed; no camera/body/stick changes outside formal HT:L.",
-    "Public runtime QA run 35420229339 exposed runtime mapping initError only: missing prep frame for BD+HT:RF/L. Formal image bytes remain accepted; mapping repaired with prep=neutral and promotion workflow hardened for future pairs."
+    "Public runtime QA run 35420229339 exposed runtime mapping initError only: missing prep frame for BD+HT:RF/L. Formal image bytes remain accepted; mapping repaired with prep=neutral and promotion workflow hardened for future pairs.",
+    "Public runtime QA run 35420373297 artifact 10576732695: 4/4 PASS (PC hit/rebound, Xperia portrait hit/rebound), no init/console/page/request errors; screenshots reviewed.",
+    "Workflow-level failure was isolated to generic runtime-QA state persistence rebase conflict; runtime/image result remains PASS."
   ]
 }
