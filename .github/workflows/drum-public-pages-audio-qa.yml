@@ -1,0 +1,32 @@
+name: Drum Public Pages Audio QA
+on:
+  workflow_run:
+    workflows: ["deploy-site"]
+    types: [completed]
+  workflow_dispatch:
+jobs:
+  public-audio:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: npm install playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Verify deployed build and WebAudio
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tools/drum-runtime-browser-qa.mjs')
+          s=p.read_text()
+          s=s.replace('http://127.0.0.1:4173/?qa=runtime-audio','https://mleuatd.github.io/dtx-drum-flow/?qa=public-audio')
+          p.write_text(s)
+          PY
+          for i in 1 2 3 4 5; do node tools/drum-runtime-browser-qa.mjs && exit 0; sleep 20; done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drum-public-pages-audio-qa
+          path: qa/runtime-audio/
