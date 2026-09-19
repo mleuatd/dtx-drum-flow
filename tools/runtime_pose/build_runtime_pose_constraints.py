@@ -32,10 +32,10 @@ def main():
     contacts=load_json(a.contacts); anchors=load_json(a.anchors)
     ret=load_json(a.retarget); appearance=load_json(a.appearance)
     part,limb=a.action_key.split(":",1)
-    state=copy.deepcopy(anchors["states"][a.phase]); joints=state["joints"]
-    cp=(contacts["parts"].get(part) or {}).get("approximate")
-    target=[cp["x"],cp["y"]] if cp else None
+    state=copy.deepcopy(anchors["states"][a.phase])
     neutral=anchors["states"]["neutral"]
+    # Minimal-motion rule for single-hand actions: keep the whole neutral body fixed and\n    # apply only the active arm phase anchors before exact hit IK. This prevents unrelated\n    # limbs/core from jumping between neutral -> hit -> rebound.\n    if limb in ("L","R") and a.phase!="neutral":\n        joints=copy.deepcopy(neutral["joints"])\n        side=limb.lower()\n        for name in ("shoulder_"+side,"elbow_"+side,"wrist_"+side):\n            joints[name]=copy.deepcopy(state["joints"][name])\n    else:\n        joints=copy.deepcopy(state["joints"])\n    cp=(contacts["parts"].get(part) or {}).get("approximate")
+    target=[cp["x"],cp["y"]] if cp else None
     stool=neutral["props"]["stool_center"]
     hip=midpoint(neutral["joints"]["hip_l"],neutral["joints"]["hip_r"])
     out={"schemaVersion":1,"authority":"tool","actionKey":a.action_key,"phase":a.phase,
