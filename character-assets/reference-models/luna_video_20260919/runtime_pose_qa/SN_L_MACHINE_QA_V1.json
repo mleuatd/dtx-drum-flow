@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-19T20:20:00+09:00",
+  "generatedAt": "2026-09-19T21:49:00+09:00",
   "terminalId": "RUNTIME-POSE-TERM",
   "actionKey": "SN:L",
   "authority": "GitHub main + tools/runtime_pose",
-  "sourceCommit": "50a961f065de70e6663a9f3db26e007f59d4b544",
-  "status": "CONSTRAINT_QA_PASS_CANDIDATE_RENDER_BLOCKED",
+  "sourceCommit": "f1916f6978894ae0c2136d72e749d5ea3fd9a189",
+  "status": "CONSTRAINT_QA_PASS_RENDER_READY",
   "toolChecks": {
     "contact": {
       "neutral": {
@@ -46,8 +46,8 @@
     "transitions": {
       "neutral_to_hit": {
         "pass": true,
-        "maxJointShiftPx": 61.915,
-        "activeLimbMaxJointShiftPx": 61.915,
+        "maxJointShiftPx": 42.369,
+        "activeLimbMaxJointShiftPx": 42.369,
         "inactiveLimbMaxJointShiftPx": 0,
         "coreMaxJointShiftPx": 0,
         "stoolShiftPx": 0,
@@ -56,11 +56,11 @@
           "head_top": 0,
           "chin": 0,
           "neck": 0,
-          "shoulder_l": 57.035,
+          "shoulder_l": 0,
           "shoulder_r": 0,
-          "elbow_l": 46.425,
+          "elbow_l": 10.138,
           "elbow_r": 0,
-          "wrist_l": 61.915,
+          "wrist_l": 42.369,
           "wrist_r": 0,
           "hip_l": 0,
           "hip_r": 0,
@@ -72,8 +72,8 @@
       },
       "hit_to_rebound": {
         "pass": true,
-        "maxJointShiftPx": 67.954,
-        "activeLimbMaxJointShiftPx": 67.954,
+        "maxJointShiftPx": 90.39,
+        "activeLimbMaxJointShiftPx": 90.39,
         "inactiveLimbMaxJointShiftPx": 0,
         "coreMaxJointShiftPx": 0,
         "stoolShiftPx": 0,
@@ -82,11 +82,11 @@
           "head_top": 0,
           "chin": 0,
           "neck": 0,
-          "shoulder_l": 4.472,
+          "shoulder_l": 0,
           "shoulder_r": 0,
-          "elbow_l": 26.567,
+          "elbow_l": 62.431,
           "elbow_r": 0,
-          "wrist_l": 67.954,
+          "wrist_l": 90.39,
           "wrist_r": 0,
           "hip_l": 0,
           "hip_r": 0,
@@ -108,7 +108,7 @@
           "head_top": 0,
           "chin": 0,
           "neck": 0,
-          "shoulder_l": 59.304,
+          "shoulder_l": 0,
           "shoulder_r": 0,
           "elbow_l": 72.111,
           "elbow_r": 0,
@@ -125,27 +125,32 @@
     }
   },
   "findings": [
-    "SN:L hit exact contact passes at 0 px error.",
-    "IK chooses the source-nearest elbow branch; selected bend is -1 with source preservation score 40.127 instead of the mirrored branch.",
-    "Neutral and rebound use phase-aware contact semantics and pass without being forced onto the snare.",
-    "Single-hand minimal-motion sanitization locks inactive body/core to neutral. All neutral->hit->rebound->neutral transition maxima are now <=120 px.",
+    "SN:L hit exact contact passes at 0 px using approved-neutral shoulder [635,342] and neutral limb/stick lengths.",
+    "Neutral-shoulder solve is reachable; selected bend is -1 with source-preservation score 20.731.",
+    "Hit shoulder shift is reduced from 57.035 px to 0 px; neutral->hit max joint shift is now 42.369 px.",
+    "Rebound shoulder is also locked to neutral, removing shoulder teleport across hit/rebound/neutral.",
+    "Inactive body/core/stool/hip remain fixed to neutral.",
+    "Runtime Pose Tests run 35441840031 passed.",
+    "Runtime Pose SN-L Source QA run 35441840064 passed.",
     "Formal runtime PNGs remain unchanged."
   ],
   "candidatePolicy": {
-    "status": "BLOCKED_AT_PIXEL_RENDER_INPUT",
-    "blocker": "This chat's image-editing tool requires a usable image target present in the conversation. GitHub connector can read repository metadata/text but cannot provide repository PNG bytes as an image-edit target to the image renderer in this turn. Free generation from text is prohibited by the project rules.",
-    "completedBeforeBlock": [
-      "numeric constraints ready",
-      "source-nearest IK ready",
-      "minimal-motion transition sanitization ready",
-      "phase-aware contact/registration/transition QA ready",
-      "neutral/hit/rebound AI render constraint packages ready"
+    "status": "RENDER_READY_NUMERICALLY",
+    "blocker": null,
+    "completed": [
+      "neutral-shoulder exact-contact hit solve",
+      "rebound shoulder neutral lock",
+      "schemaVersion 2 hit/rebound constraint refresh",
+      "schemaVersion 2 AI render package refresh",
+      "runtime-pose unit regression PASS",
+      "exact-byte source QA regression PASS"
     ],
     "nextPermittedStrategy": [
-      "Use the exact formal GitHub neutral/hit/rebound PNG bytes as edit targets in an environment that can pass those bytes to the renderer.",
-      "Render only inside the committed numeric constraints.",
+      "Use exact approved neutral PNG as mandatory parent.",
+      "Render only the active left arm/stick under the refreshed numeric constraints.",
+      "Use formal hit/rebound only as secondary motion evidence; do not copy their body registration drift.",
       "Apply deterministic cowlick and line-style postprocess.",
-      "Run fixed-drum composite QA and Web runtime QA before promotion."
+      "Run fixed-drum composite, transition and Web runtime QA before promotion."
     ],
     "formalAssetsModified": false
   }
