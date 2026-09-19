@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+FT:RF/R transaction for Luna M136",
-  "status": "SOURCE_LOCKED",
+  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
   "actionKey": "BD+FT:RF/R",
   "scope": {
     "measureStart": 136,
@@ -65,31 +65,40 @@
   },
   "phases": {
     "hit": {
-      "stage": "SOURCE_LOCKED",
+      "stage": "FORMAL",
       "attempt": 1,
       "candidatePath": "character-assets/review-candidates/m136/bd_ft_rf_r_hit_attempt01.png",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ft_rf_r_hit_attempt01.png",
-      "sha256": null,
-      "qaStatus": "PENDING"
+      "sha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_ft_rf_r_hit_refresh.png"
     },
     "rebound": {
-      "stage": "SOURCE_LOCKED",
+      "stage": "FORMAL",
       "attempt": 1,
       "candidatePath": "character-assets/review-candidates/m136/bd_ft_rf_r_rebound_attempt01.png",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ft_rf_r_rebound_attempt01.png",
-      "sha256": null,
-      "qaStatus": "PENDING"
+      "sha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png"
     }
   },
   "qa": {
-    "static": "PENDING",
-    "compositeVisual": "PENDING",
-    "locality": "PENDING",
-    "transition": "PENDING",
+    "static": "PASS",
+    "compositeVisual": "PASS",
+    "locality": "PASS_BD_CUE_ONLY",
+    "transition": "PASS_VISUAL",
     "runtimePC": "PENDING",
     "runtimeXperia": "PENDING",
     "screenshots": "PENDING"
   },
-  "updatedAt": "2026-09-19T15:56:00+09:00",
-  "blocker": null
+  "updatedAt": "2026-09-19T06:49:21.823354+00:00",
+  "blocker": null,
+  "build": {
+    "workflowRun": 35427546381,
+    "artifactId": 10579317531
+  },
+  "notes": [
+    "Attempt01 exact bytes saved to Dropbox and promoted after deterministic locality/fixed-drum QA."
+  ]
 }

@@ -1066,6 +1066,42 @@
         "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ft_rf_l_rebound_attempt01.png",
         "Build run 35427052800 artifact 10578359682."
       ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ft_rf_r_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M136 BD+FT:RF/R formal hit; exact FT:R parent plus approved local BD cue.",
+      "part": "BD+FT",
+      "phase": "hit",
+      "hand": "RF/R",
+      "notes": [
+        "Deterministic BD cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ft_rf_r_hit_attempt01.png",
+        "Build run 35427546381 artifact 10579317531."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M136 BD+FT:RF/R formal rebound; exact FT:R parent plus approved local BD cue.",
+      "part": "BD+FT",
+      "phase": "rebound",
+      "hand": "RF/R",
+      "notes": [
+        "Deterministic BD cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ft_rf_r_rebound_attempt01.png",
+        "Build run 35427546381 artifact 10579317531."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
@@ -1073,5 +1109,5 @@
   "authoritativeImageCount": 56,
   "note": "Approved fixed neutral/home pose, fixed 11-lane drum, M1-8 approved variants, and M9-16 RD/BD+SN/RC+SN live-QA-passed variants. Runtime scope is inventory-driven through measure 16.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-  "updatedAt": "2026-09-19T06:39:45.960040+00:00"
+  "updatedAt": "2026-09-19T06:49:21.823354+00:00"
 }
