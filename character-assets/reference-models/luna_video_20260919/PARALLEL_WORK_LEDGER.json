@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:16:00+09:00",
+  "updatedAt": "2026-09-19T21:20:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -395,6 +395,32 @@
       ],
       "handoffNote": "Numeric/tool refinement only. Formal SN:L hit remains protected by TERM-A. Prefer neutral shoulder/body if exact contact is reachable; fall back to phase shoulder only when necessary.",
       "lastCommit": null
+    },
+    {
+      "taskId": "OTHER-008",
+      "category": "formal_dropbox_bridge_index_expansion",
+      "description": "Build a comprehensive SHA-verified Dropbox bridge index for all formal character assets in BRUSHUP_LEDGER/asset_inventory. Use GitHub formal path+SHA256 as authority; use Dropbox file IDs/paths only after byte verification. Record stale/misleading aliases separately. No image edits or formal promotion.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json",
+        "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json"
+      ],
+      "dependsOn": [
+        "OTHER-007"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/**",
+        "character-assets/layers/drum/**",
+        "tools/runtime_pose/**",
+        "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
+      ],
+      "handoffNote": "CLAIM first. Indexing/evidence only. Prefer Files /Dropbox mount + raw materialize + SHA256 verification. Filename/Dropbox content_hash alone are not proof. Record stale aliases, exact matches, and unresolved assets. Do not modify formal images."
     }
   ]
 }
