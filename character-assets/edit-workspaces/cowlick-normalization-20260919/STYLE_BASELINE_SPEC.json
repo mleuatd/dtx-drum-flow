@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T17:12:00+09:00",
+  "updatedAt": "2026-09-19T17:58:00+09:00",
   "purpose": "Top-level rendering/style baseline for the original neutral and every derived character variant. This rule outranks cowlick-only rules.",
   "sourceOfTruth": {
     "primary": "locked/corrected neutral baseline",
@@ -51,5 +51,10 @@
       "HOLD",
       "FAIL"
     ]
+  },
+  "masterRuleDependency": {
+    "path": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
+    "precedence": "HIGHEST_LEVEL_COMMON_IMAGE_EDIT_RULE",
+    "relationship": "This style spec specializes line/style rules for this workspace and must be applied under the master rule."
   }
 }
