@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe BD+HH+SN:RF/R/L transaction for Luna M47",
+  "status": "CANDIDATE_SAVE_IMPORT_PENDING",
+  "actionKey": "BD+HH+SN:RF/R/L",
+  "scope": {
+    "measureStart": 47,
+    "measureEnd": 47
+  },
+  "parent": {
+    "githubPath": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
+    "sha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
+    "reboundSha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
+    "width": 1448,
+    "height": 1086
+  },
+  "method": "Exact formal HH+SN:R/L base; add only approved BD cue geometry from tools/build-m18-24-deterministic-pairs.py. No character redraw.",
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration",
+    "HH+SN upper-body pose"
+  ],
+  "allowedMotion": [
+    "rightFoot",
+    "BD kick cue only"
+  ],
+  "phases": {
+    "hit": {
+      "stage": "CANDIDATE_IMPORT",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_hh_sn_rf_r_l_hit_attempt01.png",
+      "candidatePath": "character-assets/candidates/m47/bd_hh_sn_rf_r_l_hit_attempt01.png",
+      "sha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
+      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "formalPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "formalCommit": null
+    },
+    "rebound": {
+      "stage": "CANDIDATE_IMPORT",
+      "attempt": 1,
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_hh_sn_rf_r_l_rebound_attempt01.png",
+      "candidatePath": "character-assets/candidates/m47/bd_hh_sn_rf_r_l_rebound_attempt01.png",
+      "sha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
+      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "formalPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "formalCommit": null
+    }
+  },
+  "qa": {
+    "static": "PASS_LOCAL",
+    "compositeVisual": "PASS",
+    "contact": "PASS_HH_SN_BD",
+    "transition": "PASS_VISUAL",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "blocker": null,
+  "updatedAt": "2026-09-19T12:38:00+09:00",
+  "notes": [
+    "Reused repository-proven deterministic SN and BD cue geometry; no generative image edit used."
+  ]
+}
