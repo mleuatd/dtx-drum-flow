@@ -27,7 +27,7 @@ function voiceFor(part,note={}){
  if(part==="LC")return"crashLeft";if(part==="RC")return"crashRight";return"snare";
 }
 export class LiveDrumEngine{
- constructor(ctx,destination){this.ctx=ctx;this.destination=destination;this.buffers=new Map();this.loading=new Map();this.rr=new Map();this.nodes=new Set();this.ready=false;this._buildBus()}
+ constructor(ctx,destination){this.ctx=ctx;this.destination=destination;this.buffers=new Map();this.loading=new Map();this.rr=new Map();this.nodes=new Set();this.userGain=Object.fromEntries(Object.keys(defs).map(v=>[v,1]));this.ready=false;this._buildBus()}
  _buildBus(){const c=this.ctx;this.input=c.createGain();this.comp=c.createDynamicsCompressor();this.out=c.createGain();this.input.gain.value=1;this.comp.threshold.value=-12;this.comp.knee.value=6;this.comp.ratio.value=3;this.comp.attack.value=.003;this.comp.release.value=.14;this.out.gain.value=1;this.input.connect(this.comp);this.comp.connect(this.out);this.out.connect(this.destination)}
  _url(v,l,r){const d=defs[v];return d.base+d.prefix+"_vl"+l+"_rr"+r+".flac"}
  async _load(v,l,r){const key=v+":"+l+":"+r;if(this.buffers.has(key))return this.buffers.get(key);if(this.loading.has(key))return this.loading.get(key);const p=fetch(this._url(v,l,r)).then(x=>{if(!x.ok)throw Error("sample "+x.status);return x.arrayBuffer()}).then(b=>this.ctx.decodeAudioData(b)).then(b=>(this.buffers.set(key,b),b)).catch(e=>(console.warn("drum sample fallback",key,e),null));this.loading.set(key,p);const b=await p;this.loading.delete(key);return b}
@@ -48,7 +48,7 @@ export class LiveDrumEngine{
   const nv=clamp(velocity,0,1);
   const base=.84+.08*nv;
   // Near-equal perceived practice mix. Keep only small instrument-family differences.
-  const familyGain=LOUDNESS_GAIN[v]??1;
+  const familyGain=(LOUDNESS_GAIN[v]??1)*(this.userGain[v]??1);
   const strength=base*familyGain;
   g.gain.setValueAtTime(strength,when);
   // Preserve audible cymbal presence, while shortening only the masking tail.
@@ -59,6 +59,6 @@ export class LiveDrumEngine{
   s.start(when);if(isCrash)s.stop(Math.min(when+1.47,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.67,when+buffer.duration));
   this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s
 }
- stop(){for(const n of this.nodes){try{n.stop()}catch{}}this.nodes.clear()}
+ setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}\n getUserGains(){return {...this.userGain}}\n getBaseGains(){return {...LOUDNESS_GAIN}}\n stop(){for(const n of this.nodes){try{n.stop()}catch{}}this.nodes.clear()}
 }
 export {voiceFor as resolveLiveDrumVoice};
