@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "profileId": "dessin_pencil_retrace_v1",
+  "description": "輪郭・柄・局所ディテールを抽出し、1px鉛筆線の重ね描きと疎なハッチングだけでデッサン化。ベタ塗り禁止。",
+  "bilateralDiameter": 7,
+  "bilateralSigmaColor": 38,
+  "bilateralSigmaSpace": 38,
+  "cannyLow": 42,
+  "cannyHigh": 112,
+  "detailLaplacianThreshold": 34,
+  "minimumComponentPixels": 4,
+  "toneFloor": 0.10,
+  "uniformBackgroundTolerance": 16,
+  "uniformBackgroundStdMax": 20,
+  "graphiteRgb": [28,28,28],
+  "retracePasses": [[0,0,0.74],[1,0,0.26],[-1,1,0.20],[0,-1,0.15]],
+  "hatching": [
+    {"angleDeg":24,"spacingPx":10,"toneThreshold":0.32,"alpha":0.16},
+    {"angleDeg":-27,"spacingPx":13,"toneThreshold":0.55,"alpha":0.13}
+  ],
+  "rules": {"noSolidFill":true,"baseStrokeWidthPx":1,"darknessByRetracing":true,"preserveGeometry":true,"aiGeneration":false,"deterministic":true}
+}
