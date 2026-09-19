@@ -1,12 +1,13 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
+import {LiveDrumEngine} from "./live-drum-engine.js";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
 const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯",RD:"◌",LP:"⌁",LB:"●",BD:"⬤"};
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
-let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,drumBus=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
+let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,drumBus=null,liveDrumEngine=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
 const partEls=new Map();
 const clampTime=v=>Math.max(0,Math.min(chart.duration,Number(v)||0));
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
@@ -28,11 +29,12 @@ async function ensureAudio(){
     comp.threshold.value=-18;comp.knee.value=18;comp.ratio.value=4;comp.attack.value=.002;comp.release.value=.12;
     out.gain.value=.9;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
   }
+  liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);
   if(audioCtx.state==="suspended")await audioCtx.resume();
   return audioCtx
 }
 function trackNode(node){scheduledNodes.push(node);node.addEventListener?.("ended",()=>{scheduledNodes=scheduledNodes.filter(x=>x!==node)},{once:true})}
-function stopScheduled(){for(const n of scheduledNodes){try{n.stop()}catch{}}scheduledNodes=[]}
+function stopScheduled(){for(const n of scheduledNodes){try{n.stop()}catch{}}scheduledNodes=[];liveDrumEngine?.stop()}
 function noiseBuffer(seconds=.25){const len=Math.max(1,Math.round(audioCtx.sampleRate*seconds)),b=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=b.getChannelData(0);let prev=0;for(let i=0;i<len;i++){const white=Math.random()*2-1;prev=prev*.72+white*.28;d[i]=white*.72+prev*.28}return b}
 function gainEnv(t,peak,attack,decay,target=null){const g=audioCtx.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,peak),t+attack);g.gain.exponentialRampToValueAtTime(.0001,t+decay);g.connect(target||drumBus||audioCtx.destination);return g}
 function tone(freq,t,dur,gain,type="sine",endFreq=null,attack=.002,target=null,detune=0){const o=audioCtx.createOscillator(),g=gainEnv(t,gain,attack,dur,target);o.type=type;o.frequency.setValueAtTime(freq,t);o.detune.value=detune;if(endFreq)o.frequency.exponentialRampToValueAtTime(Math.max(20,endFreq),t+dur*.72);o.connect(g);o.start(t);o.stop(t+dur+.025);trackNode(o)}
@@ -42,15 +44,9 @@ const DRUM_ROOM={};
 function ensureDrumRoom(){if(DRUM_ROOM.close)return DRUM_ROOM;const input=audioCtx.createGain(),close=audioCtx.createGain(),room=audioCtx.createGain(),delayA=audioCtx.createDelay(.25),delayB=audioCtx.createDelay(.25),roomFilter=audioCtx.createBiquadFilter();close.gain.value=.82;room.gain.value=.24;delayA.delayTime.value=.017;delayB.delayTime.value=.043;roomFilter.type="lowpass";roomFilter.frequency.value=7600;input.connect(close);close.connect(drumBus);input.connect(delayA);input.connect(delayB);delayA.connect(roomFilter);delayB.connect(roomFilter);roomFilter.connect(room);room.connect(drumBus);Object.assign(DRUM_ROOM,{input,close,room});return DRUM_ROOM}
 function humanizedVelocity(v){return Math.max(.16,Math.min(1,v*(.94+Math.random()*.10)))}
 function drumAt(part,vel=.8,when=null,note=null){
-  if(!$("drumSound").checked||!audioCtx)return;
-  const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002),v=humanizedVelocity(Math.max(.18,Math.min(1,vel||.8))),gm=Number(note?.gmNote),bus=ensureDrumRoom().input;
-  if(part==="SN"&&gm===37){tone(1120,t,.060,.19*v,"triangle",780,.001,bus);tone(2070,t+.001,.035,.075*v,"sine",1650,.001,bus);filteredNoise(t,.043,.075*v,"bandpass",2950,3.8,.001,bus)}
-  else if(part==="BD"||part==="LB"){tone(118,t,.105,.46*v,"sine",48,.001,bus);tone(63,t+.003,.28,.31*v,"sine",42,.003,bus);filteredNoise(t,.026,.105*v,"bandpass",2850,1.4,.001,bus);filteredNoise(t,.013,.038*v,"highpass",6500,.55,.001,bus)}
-  else if(part==="SN"){tone(196,t,.18,.18*v,"triangle",126,.001,bus);tone(318,t+.001,.10,.050*v,"sine",238,.001,bus);filteredNoise(t,.23,.31*v,"bandpass",1900,.72,.001,bus);filteredNoise(t,.12,.15*v,"highpass",5450,.42,.001,bus)}
-  else if(part==="HH"||part==="LP"){const open=gm===46;if(open){filteredNoise(t,.78,.16*v,"highpass",6500,.32,.001,bus);filteredNoise(t+.004,.56,.10*v,"bandpass",9600,.9,.001,bus);metalPartials(t,.48,.021*v,[5480,6940,8230,10120],bus)}else{filteredNoise(t,.105,.155*v,"highpass",7200,.36,.001,bus);filteredNoise(t,.066,.075*v,"bandpass",10100,1.15,.001,bus);metalPartials(t,.072,.015*v,[6040,7740,9340],bus)}}
-  else if(part==="HT"||part==="LT"||part==="FT"){const f=part==="HT"?174:part==="LT"?132:96,dur=part==="HT"?.34:part==="LT"?.41:.52;tone(f*1.28,t,dur*.58,.16*v,"triangle",f*.92,.001,bus);tone(f,t+.001,dur,.31*v,"sine",f*.64,.002,bus);tone(f*2.02,t+.002,dur*.48,.055*v,"sine",f*1.52,.002,bus);filteredNoise(t,.074,.078*v,"bandpass",part==="HT"?1850:part==="LT"?1380:920,1.05,.001,bus)}
-  else if(part==="RD"){tone(2360,t,.72,.052*v,"triangle",2140,.001,bus);tone(4010,t+.001,.58,.030*v,"sine",3660,.001,bus);tone(6420,t+.002,.41,.014*v,"sine",5900,.001,bus);filteredNoise(t,.72,.085*v,"highpass",5200,.48,.001,bus)}
-  else{const left=part==="LC";filteredNoise(t,1.75,.16*v,"highpass",3300,.28,.001,bus);filteredNoise(t+.004,1.12,.075*v,"bandpass",6500,.65,.001,bus);metalPartials(t,1.35,.026*v,left?[3260,4310,5720,7460,9820]:[3510,4680,6140,8030,10400],bus)}
+  if(!$("drumSound").checked||!audioCtx||!liveDrumEngine)return;
+  const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002);
+  liveDrumEngine.trigger(part,vel,t,note||{});
   setTimeout(()=>flash(part),Math.max(0,(t-audioCtx.currentTime)*1000));
 }
 function stopOriginal(){if(originalSource){try{originalSource.stop()}catch{}originalSource=null}}
