@@ -271,3 +271,21 @@ Rules:
 - known formal SHA must be verified before processing,
 - tool PASS does not authorize formal overwrite; visual review is a separate gate.
 
+## 14. Video-derived appearance model + chibi retarget rule
+
+When a user-provided 360-degree character video is used as a new appearance authority, separate appearance from motion.
+
+Authoritative specification:
+`character-assets/prototypes/luna_say_maybe_16m/VIDEO_TO_CHIBI_REFERENCE_MODEL_SPEC.md`
+
+Current profile:
+`tools/reference_model/profiles/luna_video_multiview_v1.json`
+
+Mandatory model split:
+- video-derived model owns appearance, outfit, hair family/length, multiview silhouette and proportion observations,
+- existing DTX limb/action/contact/fixed-drum data owns motion semantics and instrument contact,
+- target runtime proportion is 4.0 heads unless a later approved profile supersedes it,
+- AI may assist landmark extraction or constrained rendering but may not freely reinterpret outfit, hair, camera, limb side, contact target or proportions,
+- a monocular rotating video is treated as a normalized multiview reference, not guaranteed metric 3D,
+- cowlick and line-style deterministic post-processors remain downstream authoritative tools.
+
