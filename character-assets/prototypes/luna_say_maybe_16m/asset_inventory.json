@@ -435,18 +435,22 @@
       "rebound": "bd_rc_rebound"
     },
     "HT:L": {
+      "prep": "neutral",
       "hit": "ht_l_hit_refresh",
       "rebound": "ht_l_rebound_refresh"
     },
     "FT+SN:R/L": {
+      "prep": "neutral",
       "hit": "ft_sn_r_l_hit_refresh",
       "rebound": "ft_sn_r_l_rebound_refresh"
     },
     "RC:R": {
+      "prep": "neutral",
       "hit": "rc_r_hit_refresh",
       "rebound": "rc_r_rebound_refresh"
     },
     "HT:R": {
+      "prep": "neutral",
       "hit": "ht_r_hit_refresh",
       "rebound": "ht_r_rebound_refresh"
     }
@@ -622,8 +626,8 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T10:38:00+09:00",
-  "note": "Runtime inventory expanded through M28 only after M25-28 HT:R, RC:R and FT+SN:R/L formal pairs passed PRE_RUNTIME gates. HT:R uses retry-controller-approved HH:R limb-patch strategy. M29+ remains excluded until M25-28 public PC/Xperia checkpoint passes.",
+  "updatedAt": "2026-09-19T10:45:00+09:00",
+  "note": "M25-28 runtime scope active for public QA. Added required prep=neutral phase mappings for HT:R, RC:R and FT+SN:R/L (plus formal HT:L for next block) after QA exposed prototype initialization warning from missing prep phase.",
   "runtimeQaTarget": {
     "measureStart": 25,
     "measureEnd": 28,
