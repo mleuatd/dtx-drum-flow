@@ -1,3 +1,10 @@
+## 2026-09-19 — M68 and M69-104 character runtime closure
+- Closed M68 `BD+RC+SN:RF/R/L` without regenerating formal bytes. Formal SHA-256 remain hit `0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e` and rebound `5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619`.
+- M68 public runtime QA run `35426237555`, artifact `10579760232`: 6/6 PASS across PC/Xperia hit, rebound and neutral recovery; no init/console/page/request errors; screenshots reviewed.
+- Expanded reuse-only runtime through M104 with no new character PNGs: M69-104 contains 550 notes / 389 groups / 20 existing action keys, all present in runtimePhaseFrameMap.
+- M69-104 public runtime QA run `35426755584`, artifact `10579246619`: 86/86 PASS, runtimeScope `1-104`, no browser/runtime errors; 86 screenshots reviewed with no character disappearance, wrong-person redraw or fixed-drum registration drift.
+- M69-104 is DONE; M105-106 is released for the two new deterministic BD+FT pairs.
+
 ## 2026-09-19 — M55-67 reuse-only character closure
 - Expanded Luna Say Maybe character runtime contiguously through M67 with no new character PNG generation: 194 notes / 129 groups / 17 existing action keys.
 - Public Runtime Character QA run `35420829149`, artifact `10576863064`: 70/70 records PASS across PC and Xperia portrait; runtimeScope `1-67`; no asset/init/console/page/request errors.
