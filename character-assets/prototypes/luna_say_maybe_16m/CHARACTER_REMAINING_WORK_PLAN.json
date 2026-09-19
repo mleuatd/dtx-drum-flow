@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:53:00+09:00",
+  "updatedAt": "2026-09-19T16:01:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,9 +9,9 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
-    "formalAndMappedThroughMeasure": 135,
+    "formalAndMappedThroughMeasure": 136,
     "lastLiveQaConfirmedThroughMeasure": 135,
-    "note": "M107-135 public QA passed: run 35427385671 / artifact 10579472206, 52/52 PASS. Next M136 BD+FT:RF/R."
+    "note": "M136 final new pair formalized, Dropbox-saved and mapped; runtimeScope 1-136; public QA pending."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -225,14 +225,15 @@
       "order": 12,
       "measures": "136",
       "type": "NEW_PAIR",
-      "status": "READY",
+      "status": "RUNNING",
       "actionKey": "BD+FT:RF/R",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
       "preferredDerivation": "formal FT:R + approved local BD kick cue",
-      "note": "Released after M107-135 DONE. Use formal FT:R plus approved deterministic BD cue; no fresh redraw."
+      "note": "Final new pair deterministic formal/mapped; public PC/Xperia QA pending.",
+      "startedAt": "2026-09-19T16:01:00+09:00"
     },
     {
       "id": "CHAR-013",
