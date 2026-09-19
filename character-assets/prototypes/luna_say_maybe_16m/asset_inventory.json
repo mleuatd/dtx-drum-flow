@@ -1,6 +1,6 @@
 {
   "version": 12,
-  "scope": "Luna Say Maybe measures 1-53 runtime mapped; public runtime QA pending",
+  "scope": "Luna Say Maybe measures 1-53 runtime mapped; M48-53 public runtime QA pending",
   "imageSetState": "m1-53-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
@@ -690,21 +690,21 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T12:52:00+09:00",
+  "updatedAt": "2026-09-19T12:55:00+09:00",
   "note": "Reuse-only runtime scope extended through M53 after unresolved key check=0.",
   "runtimeQaTarget": {
     "measureStart": 48,
     "measureEnd": 53,
     "actions": [
-      "BD+HH:RF/R",
-      "HH+SN:R/L",
       "BD+HH+SN:RF/R/L",
       "RC+SN:R/L",
       "HT:R",
+      "HT:L",
+      "FT:R",
       "FT:L"
     ],
     "progressPath": "character-assets/prototypes/luna_say_maybe_48_53/PROGRESS.json",
     "blockKey": "M48-53",
-    "purpose": "Reuse-only PC/Xperia checkpoint before new M54 BD+HT:RF/L pair."
+    "purpose": "Reuse-only public PC/Xperia character runtime checkpoint before M54 new pair."
   }
 }
