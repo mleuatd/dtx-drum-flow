@@ -186,3 +186,11 @@ Until all mandatory axes pass, the target remains in a pending review state.
 All 15 repair specs now include mandatory visual-integrity requirements and measurement TODOs for relevant landmarks such as hip, pelvis, knee, ankle, foot, toe, boot connection, seat edge/contact, shoulder, elbow, wrist, hand, stick grip continuity and stick-tip contact.
 
 A low changed-pixel ratio, zero outside-ROI changes, or stable bbox/centroid can support a PASS, but can never override an anatomy, linework, or composite FAIL.
+
+## 2026-09-20 2x4 visual-integrity batch 01
+
+- Scope: `SN:L` hit/rebound + `BD+RC:RF/R` hit/rebound (4 frames).
+- `SN:L hit`: exact-source masked edit attempted via Actions run `35471764688`; BLOCKED before image edit because repository workflow lacks `OPENAI_API_KEY`. Diagnostic artifact: `10592983884`. No candidate image produced and no formal image changed.
+- `SN:L rebound`: prior repaired/formal evidence preserved; new anatomy/linework/fixed-drum/runtime-transition hard gates remain pending.
+- `BD+RC hit/rebound`: existing method2 deterministic machine QA rechecked and remains PASS. Both have 0 outside-mask changed pixels and 0 locked head/torso/stool/left-leg guard changes. These numeric checks are insufficient for visual-integrity promotion, so both remain pending visual review.
+- Result: batch recorded as PARTIAL_BLOCKED; no visual-integrity promotion and no force push.
