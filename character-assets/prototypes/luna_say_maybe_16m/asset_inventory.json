@@ -329,17 +329,19 @@
     },
     "bd_ht_rf_r_hit_refresh": {
       "path": "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
-      "state": "ready",
-      "sha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
+      "state": "motion-repair-verified",
+      "sha256": "d9fc81cda94a5bd90ddf1cc3e4062ccc537a282df4cbd1c0206f590e50769372",
       "actionKey": "BD+HT:RF/R",
-      "phase": "hit"
+      "phase": "hit",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method3/bd_ht_rf_r_hit_refresh_qa.json"
     },
     "bd_ht_rf_r_rebound_refresh": {
       "path": "layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
-      "state": "ready",
-      "sha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
+      "state": "motion-repair-verified",
+      "sha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
       "actionKey": "BD+HT:RF/R",
-      "phase": "rebound"
+      "phase": "rebound",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method3/bd_ht_rf_r_rebound_refresh_qa.json"
     },
     "lt_sn_r_l_hit_refresh": {
       "path": "layers/character/combo/lt_sn_r_l_hit_refresh.png",

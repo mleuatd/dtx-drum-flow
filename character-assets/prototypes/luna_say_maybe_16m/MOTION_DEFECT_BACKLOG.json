@@ -4112,7 +4112,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "AUTO_REPAIR_METHOD3_REQUIRED",
+      "status": "AUTO_REPAIR_METHOD4_REQUIRED",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -6551,7 +6551,7 @@
     },
     {
       "issueId": "MOTION-009",
-      "status": "AUTO_REPAIR_METHOD3_REQUIRED",
+      "status": "AUTO_REPAIR_METHOD4_REQUIRED",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -7416,7 +7416,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "AUTO_REPAIR_METHOD3_REQUIRED",
+      "status": "AUTO_REPAIR_METHOD4_REQUIRED",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -9848,7 +9848,7 @@
     },
     {
       "issueId": "MOTION-013",
-      "status": "AUTO_REPAIR_METHOD3_REQUIRED",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:07.1-2:07.2",
@@ -9890,7 +9890,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -10643,6 +10643,28 @@
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
+      },
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "bd_ht_rf_r_hit_refresh",
+            "actionKey": "BD+HT:RF/R",
+            "phase": "hit",
+            "oldSha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
+            "newSha256": "d9fc81cda94a5bd90ddf1cc3e4062ccc537a282df4cbd1c0206f590e50769372",
+            "changedRatioVsNeutral": 0.04646149
+          },
+          {
+            "id": "bd_ht_rf_r_rebound_refresh",
+            "actionKey": "BD+HT:RF/R",
+            "phase": "rebound",
+            "oldSha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
+            "newSha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
+            "changedRatioVsNeutral": 0.05648167
+          }
+        ],
+        "method": "method3: instrument-side forearm/stick corridor + neutral core lock",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method3/METHOD3_CANDIDATE_SUMMARY.json"
       }
     },
     {

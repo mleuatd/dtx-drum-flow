@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "promoted": [
+    {
+      "id": "bd_ht_rf_r_hit_refresh",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "hit",
+      "oldSha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
+      "newSha256": "d9fc81cda94a5bd90ddf1cc3e4062ccc537a282df4cbd1c0206f590e50769372",
+      "changedRatioVsNeutral": 0.04646149
+    },
+    {
+      "id": "bd_ht_rf_r_rebound_refresh",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "rebound",
+      "oldSha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
+      "newSha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
+      "changedRatioVsNeutral": 0.05648167
+    }
+  ],
+  "failedCandidates": [
+    {
+      "id": "rd_r_hit",
+      "actionKey": "RD:R",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "ratioWithinLimit": true,
+        "outsideMaskZero": true,
+        "headLocked": true,
+        "torsoCoreLocked": true,
+        "stoolLocked": true,
+        "leftLegLocked": true,
+        "localContactSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.00526922
+    },
+    {
+      "id": "bd_rd_rf_r_hit",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "ratioWithinLimit": true,
+        "outsideMaskZero": true,
+        "headLocked": true,
+        "torsoCoreLocked": true,
+        "stoolLocked": true,
+        "leftLegLocked": true,
+        "localContactSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.04883474
+    },
+    {
+      "id": "bd_rd_rf_r_rebound",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "rebound",
+      "checks": {
+        "changedVisible": true,
+        "ratioWithinLimit": true,
+        "outsideMaskZero": true,
+        "headLocked": true,
+        "torsoCoreLocked": true,
+        "stoolLocked": true,
+        "leftLegLocked": true,
+        "localContactSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.04969705
+    },
+    {
+      "id": "rd_sn_r_l_hit",
+      "actionKey": "RD+SN:R/L",
+      "phase": "hit",
+      "checks": {
+        "changedVisible": true,
+        "ratioWithinLimit": true,
+        "outsideMaskZero": true,
+        "headLocked": true,
+        "torsoCoreLocked": true,
+        "stoolLocked": true,
+        "leftLegLocked": true,
+        "localContactSourcePreservation": false
+      },
+      "changedRatioVsNeutral": 0.01472279
+    }
+  ],
+  "skipped": []
+}
