@@ -140,7 +140,7 @@
         "layers/character/ht/hit_l_refresh.png",
         "layers/character/ht/rebound_l_refresh.png"
       ],
-      "status": "PENDING"
+      "status": "FORMAL_READY"
     }
   ],
   "rapidRepeat": {
@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Inspect attempt03 HT:L/RC:R composites from workflow f57be831...; promote only if old-stick removal and proportions pass. HT:R requires arm-local relocation; FT+SN requires limb-local source masks. Do not formalize attempt01/02 failures.",
-  "updatedAt": "2026-09-19T09:02:00+09:00",
+  "requiredNext": "Continue independently: HT:R needs arm-local relocation (attempt03 long-stick FAIL); RC:R attempt03 requires final proportion review; FT+SN requires locked-baseline limb-local masks. HT:L is formal and must not be regenerated. After HT:R formalizes, derive BD+HT from it.",
+  "updatedAt": "2026-09-19T09:05:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -202,12 +202,21 @@
       }
     },
     "htL": {
-      "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
+      "status": "FORMAL_PROMOTED",
       "generatedCommit": "ab52f5070a757e0dfa0773911e71bb887ddb36bb",
       "hitPath": "character-assets/review-candidates/m25_40/ht_l_hit_attempt01.png",
       "reboundPath": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt01.png",
-      "hitSha256": "1e02c423368becbb0b5510b9b3bec627a076948f402695c148576174bd3d2469",
-      "reboundSha256": "3e984e3332b63682e629d45e28422cf48518ddc4418deff3335c84424f06c062"
+      "hitSha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
+      "reboundSha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0",
+      "approvedHitCandidate": "character-assets/review-candidates/m25_40/ht_l_hit_attempt03.png",
+      "approvedReboundCandidate": "character-assets/review-candidates/m25_40/ht_l_rebound_attempt02.png",
+      "formalHit": "character-assets/layers/character/ht/hit_l_refresh.png",
+      "formalRebound": "character-assets/layers/character/ht/rebound_l_refresh.png",
+      "dropboxHit": "/ChatGPT/dtx-drum-flow/ht_l_hit_attempt03.png",
+      "dropboxRebound": "/ChatGPT/dtx-drum-flow/ht_l_rebound_attempt02.png",
+      "visualQA": "PASS",
+      "promotionWorkflowRunId": 35408034628,
+      "promotionCommit": "3fe06d9cac84755ff5fb8d9e5f9db0bff91b4a9c"
     },
     "rcR": {
       "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
