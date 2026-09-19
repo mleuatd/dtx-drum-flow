@@ -162,7 +162,7 @@
       "GitHub main is the coordination authority; Dropbox is exact-byte storage and recovery support."
     ]
   },
-  "updatedAt": "2026-09-19T19:20:00+09:00",
+  "updatedAt": "2026-09-19T19:38:00+09:00",
   "masterImageEditRule": {
     "path": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
     "mustReadBeforeAnyImageEdit": true,
@@ -182,5 +182,15 @@
     "rule": "For line-style-only work, prefer deterministic raster normalization over generative image editing. Preserve geometry and build apparent thickness from repeated fine 1px-equivalent retraces.",
     "formalOverwriteAllowed": false,
     "candidateChainingAllowed": false
+  },
+  "videoToChibiReferenceModel": {
+    "status": "CURRENT_INFRASTRUCTURE",
+    "spec": "character-assets/prototypes/luna_say_maybe_16m/VIDEO_TO_CHIBI_REFERENCE_MODEL_SPEC.md",
+    "profile": "tools/reference_model/profiles/luna_video_multiview_v1.json",
+    "extractTool": "tools/reference_model/extract_reference_views.py",
+    "retargetTool": "tools/reference_model/retarget_chibi.py",
+    "constraintPackageTool": "tools/reference_model/build_render_constraint_package.py",
+    "targetHeadCount": 4,
+    "rule": "Video controls appearance/multiview geometry; existing DTX data controls motion/contact. AI may assist only under numeric/semantic constraints."
   }
 }
