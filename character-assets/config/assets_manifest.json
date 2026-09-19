@@ -554,14 +554,16 @@
       "x": 0,
       "y": 0,
       "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M25-28 HT:R attempt05 approved HH:R limb-patch pair; PRE_RUNTIME QA passed.",
       "part": "HT",
       "phase": "hit",
       "hand": "R",
       "notes": [
-        "Formal exact bytes registered; final live approval requires public PC/Xperia runtime screenshot QA."
-      ]
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+      ],
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "path": "character-assets/layers/character/ht/rebound_r_refresh.png",
@@ -570,14 +572,16 @@
       "x": 0,
       "y": 0,
       "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M25-28 HT:R attempt05 approved HH:R limb-patch pair; PRE_RUNTIME QA passed.",
       "part": "HT",
       "phase": "rebound",
       "hand": "R",
       "notes": [
-        "Formal exact bytes registered; final live approval requires public PC/Xperia runtime screenshot QA."
-      ]
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+      ],
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "path": "character-assets/layers/character/rc/hit_r_refresh.png",
@@ -586,14 +590,16 @@
       "x": 0,
       "y": 0,
       "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M25-28 RC:R formal pair; fixed-drum PRE_RUNTIME QA passed.",
       "part": "RC",
       "phase": "hit",
       "hand": "R",
       "notes": [
-        "Formal exact bytes registered; final live approval requires public PC/Xperia runtime screenshot QA."
-      ]
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+      ],
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "path": "character-assets/layers/character/rc/rebound_r_refresh.png",
@@ -602,14 +608,16 @@
       "x": 0,
       "y": 0,
       "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M25-28 RC:R formal pair; fixed-drum PRE_RUNTIME QA passed.",
       "part": "RC",
       "phase": "rebound",
       "hand": "R",
       "notes": [
-        "Formal exact bytes registered; final live approval requires public PC/Xperia runtime screenshot QA."
-      ]
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+      ],
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "path": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
@@ -618,14 +626,16 @@
       "x": 0,
       "y": 0,
       "sha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M25-28 FT+SN:R/L attempt04 formal pair; contact QA passed.",
       "part": "FT+SN",
       "phase": "hit",
       "hand": "R/L",
       "notes": [
-        "Formal exact bytes registered; final live approval requires public PC/Xperia runtime screenshot QA."
-      ]
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+      ],
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "path": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
@@ -634,14 +644,16 @@
       "x": 0,
       "y": 0,
       "sha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M25-28 FT+SN:R/L attempt04 formal pair; contact QA passed.",
       "part": "FT+SN",
       "phase": "rebound",
       "hand": "R/L",
       "notes": [
-        "Formal exact bytes registered; final live approval requires public PC/Xperia runtime screenshot QA."
-      ]
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+      ],
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "path": "character-assets/layers/character/ht/hit_l_refresh.png",
@@ -681,5 +693,5 @@
   "authoritativeImageCount": 38,
   "note": "Approved fixed neutral/home pose, fixed 11-lane drum, M1-8 approved variants, and M9-16 RD/BD+SN/RC+SN live-QA-passed variants. Runtime scope is inventory-driven through measure 16.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-  "updatedAt": "2026-09-19T10:30:00+09:00"
+  "updatedAt": "2026-09-19T10:48:30+09:00"
 }
