@@ -5,6 +5,9 @@
 const CORE="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit/samples/";
 const CYM="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit2/samples/";
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+// Measured RMS calibration (highest velocity layer, median round-robin).
+// Targets are intentionally within 0.6 dB; character comes primarily from timbre, not loudness.
+const LOUDNESS_GAIN={kick:.819071,snare:1.622787,sideStick:1.901602,hihatClosed:1.643404,hihatOpen:1.110549,hihatPedal:2.134323,tomHigh:1.397477,tomLow:.999924,tomFloor:.999924,ride:2.109117,rideBell:1.078314,crashLeft:1.191351,crashRight:1.191351};
 const defs={
  kick:{base:CORE,prefix:"kick",layers:4,rr:4},snare:{base:CORE,prefix:"snare",layers:6,rr:3},
  sideStick:{base:CORE,prefix:"sidestick",layers:3,rr:3},hihatClosed:{base:CORE,prefix:"hhc",layers:4,rr:4},
@@ -46,7 +49,7 @@ export class LiveDrumEngine{
   const nv=clamp(velocity,0,1);
   const base=.70+.25*nv;
   // Near-equal perceived practice mix. Keep only small instrument-family differences.
-  const familyGain=isCrash?.78:isRide?.84:(v==="hihatClosed"||v==="hihatOpen"||v==="hihatPedal")?.88:(v==="kick")?.97:(v==="snare")?.96:(v==="tomHigh"||v==="tomLow"||v==="tomFloor")?.98:1;
+  const familyGain=LOUDNESS_GAIN[v]??1;
   const strength=base*familyGain;
   g.gain.setValueAtTime(strength,when);
   // Preserve audible cymbal presence, while shortening only the masking tail.
