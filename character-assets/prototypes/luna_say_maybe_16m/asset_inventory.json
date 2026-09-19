@@ -622,6 +622,18 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T10:34:00+09:00",
-  "note": "Runtime inventory expanded through M28 only after M25-28 HT:R, RC:R and FT+SN:R/L formal pairs passed PRE_RUNTIME gates. HT:R uses retry-controller-approved HH:R limb-patch strategy. M29+ remains excluded until M25-28 public PC/Xperia checkpoint passes."
+  "updatedAt": "2026-09-19T10:38:00+09:00",
+  "note": "Runtime inventory expanded through M28 only after M25-28 HT:R, RC:R and FT+SN:R/L formal pairs passed PRE_RUNTIME gates. HT:R uses retry-controller-approved HH:R limb-patch strategy. M29+ remains excluded until M25-28 public PC/Xperia checkpoint passes.",
+  "runtimeQaTarget": {
+    "measureStart": 25,
+    "measureEnd": 28,
+    "actions": [
+      "HT:R",
+      "RC:R",
+      "FT+SN:R/L"
+    ],
+    "progressPath": "character-assets/prototypes/luna_say_maybe_25_32/PROGRESS.json",
+    "blockKey": "M25-28",
+    "purpose": "First public PC/Xperia runtime checkpoint after M25-28 formal completion"
+  }
 }
