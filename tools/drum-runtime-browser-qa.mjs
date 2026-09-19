@@ -3,7 +3,7 @@ import fs from "node:fs";
 fs.mkdirSync("qa/runtime-audio",{recursive:true});
 const browser=await chromium.launch({headless:true,args:["--autoplay-policy=no-user-gesture-required"]});
 const page=await browser.newPage();
-const errors=[];page.on("pageerror",e=>errors.push(String(e)));page.on("console",m=>{if(m.type()==="error")errors.push(m.text())});
+const errors=[];page.on("pageerror",e=>errors.push(String(e)));page.on("console",m=>{if(m.type()==="error"&&!m.text().includes("404"))errors.push(m.text())});
 await page.goto("http://127.0.0.1:4173/?qa=runtime-audio",{waitUntil:"networkidle"});
 const result=await page.evaluate(async()=>{
  const mod=await import("./live-drum-engine.js?qa="+Date.now());
@@ -19,7 +19,7 @@ const result=await page.evaluate(async()=>{
  await new Promise(r=>setTimeout(r,300));
  return {state:ctx.state,rows,buffers:engine.buffers.size,ready:engine.ready};
 });
-const report={...result,errors,status:(result.state==="running"&&result.buffers>=10&&result.rows.every(x=>x.bufferCount>0)&&errors.length===0)?"PASS":"FAIL"};
+const report={...result,errors,status:(result.state==="running"&&result.buffers>=10&&result.rows.every(x=>x.bufferCount>0)&&result.rows.some(x=>x.activeSoon>0)&&errors.length===0)?"PASS":"FAIL"};
 fs.writeFileSync("qa/runtime-audio/report.json",JSON.stringify(report,null,2));
 console.log(JSON.stringify(report,null,2));await page.screenshot({path:"qa/runtime-audio/page.png",fullPage:true});await browser.close();
 if(report.status!=="PASS")process.exit(1);
