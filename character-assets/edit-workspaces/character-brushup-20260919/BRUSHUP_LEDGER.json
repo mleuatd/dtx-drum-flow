@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T05:24:00+09:00",
+  "updatedAt": "2026-09-20T05:31:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -194,7 +194,7 @@
       "actionKey": "SN:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/sn/rebound_l.png",
-      "sha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+      "sha256": "c3f480bdd5861d5703af400089682fe94427ef07ccd14cf1ff514e45e73d9d9c",
       "sourceQueueSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -319,12 +319,14 @@
       ],
       "usageCount": 314,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED_REPAIR",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:24:00+09:00",
       "repairIssueId": "MOTION-001",
-      "repairMode": "deterministic_neutral_locked_active_limb_composite"
+      "repairMode": "deterministic_neutral_locked_active_limb_composite",
+      "completedAt": "2026-09-20T05:31:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json"
     },
     {
       "order": 3,

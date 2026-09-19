@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:35:00+09:00",
+  "updatedAt": "2026-09-20T05:31:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -23,7 +23,10 @@
       "occurrenceCount": 314,
       "legacyRuntimeKey": "SN:L",
       "limbAwareRuntimeKey": "SN:L",
-      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second"
+      "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
+      "reboundSha256": "c3f480bdd5861d5703af400089682fe94427ef07ccd14cf1ff514e45e73d9d9c",
+      "motionRepair": "MOTION-001 rebound deterministic neutral-lock v2",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json"
     },
     {
       "actionKey": "SN:R",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-09-20T05:20:00+09:00",
+  "updatedAt": "2026-09-20T05:31:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -120,7 +120,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "ANALYZING",
+      "status": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -147,10 +147,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "updatedAt": "2026-09-20T05:31:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "NEEDS_MEASUREMENT",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -855,7 +855,21 @@
             "pc/m107_SN_L_rebound.png"
           ]
         }
-      ]
+      ],
+      "reboundRepair": {
+        "status": "VERIFIED_PROMOTED",
+        "oldSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+        "newSha256": "c3f480bdd5861d5703af400089682fe94427ef07ccd14cf1ff514e45e73d9d9c",
+        "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2.png",
+        "qa": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json",
+        "changedRatioVsNeutral": 0.0234088,
+        "staticGuardChangedPixels": {
+          "head": 0,
+          "right_arm": 0,
+          "pelvis_seat": 0,
+          "legs_stool": 0
+        }
+      }
     },
     {
       "issueId": "MOTION-002",
