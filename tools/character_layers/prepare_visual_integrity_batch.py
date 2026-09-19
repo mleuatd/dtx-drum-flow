@@ -80,7 +80,7 @@ def select_targets(data: dict[str, Any], action_keys: list[str] | None) -> list[
     active = data.get("activeVisualIntegrityBatch") or {}
     active_keys = active.get("actionKeys") or []
     active_batch_id = active.get("batchId")
-    if len(active_keys) == 2 and active_batch_id:
+    if len(active_keys) in {1, 2} and active_batch_id:
         claimed = [
             t for t in targets
             if t.get("actionKey") in active_keys
