@@ -1,3 +1,18 @@
+# 2026-09-20 VISUAL INTEGRITY QA — READ BEFORE CHARACTER EDIT/APPROVAL
+
+Before any Luna Say Maybe character-image repair, generation, approval, or status promotion, read the latest main versions of:
+- `character-assets/prototypes/luna_say_maybe_16m/QA_CHECKLIST_MASTER.json`
+- `character-assets/prototypes/luna_say_maybe_16m/VISUAL_INTEGRITY_QA_RULES.md`
+- `character-assets/prototypes/luna_say_maybe_16m/VISUAL_DEFECT_TAXONOMY.json`
+- `character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json`
+- `character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json`
+
+Changed-pixel/ROI/SHA/bbox/centroid correctness never overrides a visible anatomy, linework, or fixed-drum-composite failure. VERIFIED / APPROVED_LIVE requires explicit PASS on human anatomy, linework, fixed-drum composite, runtime transition, and existing numeric/regression gates.
+
+Broken sticks, hand-stick disconnects, unexplained waist/pelvis/skirt/seat lines, unreadable pelvis→leg/foot continuity, implausible seated posture, and strike/pedal contradictions are hard failures.
+
+`BD:RF` is currently a priority `NEEDS_HUMAN_ANATOMY_QA` target. Do not promote it until the visual-integrity gates pass.
+
 # GLOBAL CHARACTER FAILURE KNOWLEDGE — READ BEFORE EVERY IMAGE EDIT
 
 Before any character-image generation/edit/approval, on every device/chat, read:
