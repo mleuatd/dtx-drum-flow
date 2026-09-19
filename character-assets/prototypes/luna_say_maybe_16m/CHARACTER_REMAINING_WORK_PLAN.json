@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:46:00+09:00",
+  "updatedAt": "2026-09-19T15:50:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,9 +9,9 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
-    "formalAndMappedThroughMeasure": 106,
+    "formalAndMappedThroughMeasure": 135,
     "lastLiveQaConfirmedThroughMeasure": 106,
-    "note": "M105-106 two new pairs complete; public QA run 35427241936 artifact 10579925003, 12/12 PASS. Next M107-135 reuse-only."
+    "note": "M107-135 reuse-only mappings verified and runtimeScope expanded through M135; public PC/Xperia QA pending."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -210,9 +210,12 @@
       "order": 11,
       "measures": "107-135",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "READY",
+      "status": "RUNNING",
       "newImagePairs": [],
-      "note": "Released after M105-106 DONE. Reuse-only; generate no images."
+      "note": "447 notes / 309 groups / 12 actionKeys; all mapped. No new images. Public QA pending.",
+      "startedAt": "2026-09-19T15:50:00+09:00",
+      "runtimeScopeTarget": "1-135",
+      "actionCoverageVerified": true
     },
     {
       "id": "CHAR-012",
