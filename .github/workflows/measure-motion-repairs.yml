@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install measurement dependencies
+        run: python -m pip install --disable-pip-version-check pillow numpy
       - name: Measure exact PNG geometry
         run: python tools/character_layers/measure_motion_repairs.py
       - name: Commit measurements
