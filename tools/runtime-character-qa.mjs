@@ -40,7 +40,18 @@ function phaseTimes(ev){
   return out;
 }
 function expectedFrame(key,phase){if(phase==="neutral")return inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";const id=inv.runtimePhaseFrameMap?.[key]?.[phase]||inv.runtimeFrameMap?.[key];return inv.requiredFrames?.[id]?.path||"";}
-async function waitForDeployment(){const deadline=Date.now()+12*60*1000;let last="";while(Date.now()<deadline){try{const r=await fetch(new URL("build.json?ts="+Date.now(),PUBLIC_URL),{cache:"no-store"});if(r.ok){const j=await r.json();last=j.commitSha||"";if(!EXPECTED_SHA||last===EXPECTED_SHA)return j;}}catch{}await new Promise(r=>setTimeout(r,10000));}throw new Error(`Pages deployment timeout: expected=${EXPECTED_SHA} observed=${last}`);}
+async function deploymentContainsExpected(observed){
+  if(!EXPECTED_SHA||observed===EXPECTED_SHA)return true;
+  if(!observed)return false;
+  try{
+    const repo=process.env.GITHUB_REPOSITORY||"mleuatd/dtx-drum-flow";
+    const r=await fetch(`https://api.github.com/repos/${repo}/compare/${EXPECTED_SHA}...${observed}`,{headers:{"Accept":"application/vnd.github+json"}});
+    if(!r.ok)return false;
+    const j=await r.json();
+    return j.status==="ahead"||j.status==="identical";
+  }catch{return false;}
+}
+async function waitForDeployment(){const deadline=Date.now()+12*60*1000;let last="";while(Date.now()<deadline){try{const r=await fetch(new URL("build.json?ts="+Date.now(),PUBLIC_URL),{cache:"no-store"});if(r.ok){const j=await r.json();last=j.commitSha||"";if(await deploymentContainsExpected(last))return {...j,expectedCommitSha:EXPECTED_SHA,acceptedDeploymentSha:last};}}catch{}await new Promise(r=>setTimeout(r,10000));}throw new Error(`Pages deployment timeout: expected-or-descendant-of=${EXPECTED_SHA} observed=${last}`);}
 await fs.mkdir(ROOT,{recursive:true}); const deployment=await waitForDeployment();
 const browser=await chromium.launch({headless:true}); const records=[]; let failed=0;
 for(const vp of viewports){const context=await browser.newContext({viewport:{width:vp.width,height:vp.height}});const page=await context.newPage();const consoleErrors=[],pageErrors=[],failedRequests=[];
