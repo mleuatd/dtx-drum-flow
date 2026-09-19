@@ -83,6 +83,16 @@ for f in fails:
     interest=diff&(alpha|sink|nink)
     D=np.asarray(Image.fromarray((interest.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(11)))>0
     M=G&D
+    # HOLD repair refinement for RD+SN rebound: keep the already-good left SN
+    # motion, but restrict the right RD source patch to the upper hand/stick
+    # corridor. This intentionally excludes the lower duplicate/disconnected
+    # right-hand fragment seen in the formal rebound while leaving locked body
+    # regions on the neutral baseline.
+    if tid=="rd_sn_r_l_rebound":
+        local=np.zeros((H,W),dtype=bool)
+        local[300:620,340:700]=True       # left SN hand/stick/forearm
+        local[205:442,850:1115]=True      # upper right RD hand/stick only
+        M &= local
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
