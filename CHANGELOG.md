@@ -1,3 +1,13 @@
+## 2026-09-20 — Visual Integrity QA Gate for character motion repair
+- Promoted human anatomy, linework integrity, and fixed-drum composite semantics to mandatory character-pose QA gates; changed-pixel/ROI/SHA/bbox/centroid checks remain necessary but are no longer sufficient for PASS.
+- Updated `QA_CHECKLIST_MASTER.json` to schemaVersion 2 with explicit hardPass/hardFail criteria for pelvis/leg/joint continuity, seated-pose readability, stick continuity/hand connection, waist/pelvis/skirt/seat artifacts, and fixed-drum strike/pedal semantics.
+- Added `VISUAL_INTEGRITY_QA_RULES.md` and `VISUAL_DEFECT_TAXONOMY.json` with first-class defect categories including human_anatomy_break, joint_continuity_break, stick_continuity_break, waistline_artifact_break, line_dropout_break, line_double_stroke_break, and fixed_drum_composite_break.
+- Updated `MOTION_DEFECT_BACKLOG.json` to schemaVersion 4. Existing candidates/evidence were preserved, but prior FIXED-like dispositions were reopened for visual-integrity review where explicit anatomy/linework/composite PASS evidence was absent.
+- `BD:RF` is now `NEEDS_HUMAN_ANATOMY_QA` and cannot return to VERIFIED / APPROVED_LIVE until pelvis→thigh→knee→ankle→foot/boot continuity, seat overlap, RF bass-pedal semantics, and fixed-drum composite coherence pass.
+- Normalized `BRUSHUP_LEDGER.json` so historical live-QA evidence is retained in prior fields while current `qaState` becomes `visual-integrity-pending` whenever mandatory visual gates remain incomplete.
+- Broken/interrupted sticks, hand-stick disconnects, unexplained waist/seat lines, anatomically implausible lower-limb structure, and composite-only contact/occlusion contradictions are now hard failures.
+- No character PNG bytes were regenerated or overwritten in this policy pass.
+
 ## 2026-09-19 — M68 and M69-104 character runtime closure
 - Closed M68 `BD+RC+SN:RF/R/L` without regenerating formal bytes. Formal SHA-256 remain hit `0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e` and rebound `5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619`.
 - M68 public runtime QA run `35426237555`, artifact `10579760232`: 6/6 PASS across PC/Xperia hit, rebound and neutral recovery; no init/console/page/request errors; screenshots reviewed.
