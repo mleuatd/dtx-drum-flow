@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe HT:R transaction for Luna M25-28",
-  "status": "BLOCKED_EXTERNAL",
+  "status": "FORMAL_RUNTIME_QA_PENDING",
   "actionKey": "HT:R",
   "scope": {
     "measureStart": 25,
@@ -30,44 +30,49 @@
   ],
   "phases": {
     "hit": {
-      "stage": "VISUAL_QA",
-      "attempt": 4,
-      "candidatePath": "character-assets/review-candidates/m25_40/ht_r_hit_attempt04.png",
-      "dropboxPath": null,
-      "sha256": "824672a7a271e230a0e0f19f99bc4f4cca420ea6052625e17a489d4543fbce21",
-      "qaStatus": "FAIL_DUPLICATE_STICK_DETACHED_HT_SHAFT",
+      "stage": "FORMAL",
+      "attempt": 5,
+      "parentPath": "character-assets/layers/character/hh/hit_r.png",
+      "parentSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
+      "candidatePath": "character-assets/candidates/m25_28/ht_r_hit_attempt05.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_hit_attempt05.png",
+      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+      "qaStatus": "PASS_PRE_RUNTIME",
       "formalPath": "character-assets/layers/character/ht/hit_r_refresh.png",
-      "formalCommit": null
+      "formalSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+      "formalCommit": "1069bf73ff59d69c69ee0493a91de30db3f0088e"
     },
     "rebound": {
-      "stage": "VISUAL_QA",
-      "attempt": 4,
-      "candidatePath": "character-assets/review-candidates/m25_40/ht_r_rebound_attempt04.png",
-      "dropboxPath": null,
-      "sha256": "0147a2d95f88b099fa62d6a61ef3d49716a9e4a925c98cac500e28bef667d5af",
-      "qaStatus": "FAIL_PAIR_WITH_HIT",
+      "stage": "FORMAL",
+      "attempt": 5,
+      "parentPath": "character-assets/layers/character/hh/rebound_r.png",
+      "parentSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
+      "candidatePath": "character-assets/candidates/m25_28/ht_r_rebound_attempt05.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_rebound_attempt05.png",
+      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "qaStatus": "PASS_PRE_RUNTIME",
       "formalPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
-      "formalCommit": null
+      "formalSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "formalCommit": "1069bf73ff59d69c69ee0493a91de30db3f0088e"
     }
   },
   "qa": {
-    "static": "PASS_CANDIDATE_BINARY",
-    "compositeVisual": "FAIL",
+    "static": "PASS",
+    "compositeVisual": "PASS_PRE_RUNTIME",
     "runtimePC": "PENDING",
     "runtimeXperia": "PENDING",
-    "screenshots": "PENDING"
+    "screenshots": "PENDING",
+    "contact": "PASS_HT_575_360",
+    "transition": "PASS_PRE_RUNTIME"
   },
   "notes": [
     "Older HT:R candidate SHA pair 84c1.../2f4b... was superseded by generalized-builder commit ab52f5070a757e0dfa0773911e71bb887ddb36bb.",
     "Attempt03 widened old-stick removal but visual QA still fails: neutral arm position forces an implausibly long cross-body HT stick. Next edit must relocate the complete right arm/hand/stick local region from a compatible locked-baseline tom pose.",
-    "Approved LT:R/FT:R exact formal parents were checked but their right arm remains neutral-like; RD:R and RC+SN have moved right arms but whole-body baseline differs too much for direct patching. No unsafe whole-body merge was performed."
+    "Approved LT:R/FT:R exact formal parents were checked but their right arm remains neutral-like; RD:R and RC+SN have moved right arms but whole-body baseline differs too much for direct patching. No unsafe whole-body merge was performed.",
+    "Attempt05 resolved retry-controller requirement with approved HH:R limb-patch strategy. Exact bytes saved to Dropbox, candidate import commit 86941c7dbaea894c74edd31539c8868f6c08fbc3, formal promotion commit 1069bf73ff59d69c69ee0493a91de30db3f0088e. Final approval deferred to M25-28 public runtime screenshots."
   ],
-  "updatedAt": "2026-09-19T10:10:00+09:00",
-  "blocker": {
-    "type": "BLOCKED_EXTERNAL",
-    "detail": "Latest main contains HT:R attempt04 built from approved LT:R parent, but fixed-drum visual QA still shows the original right-hand stick plus a second HT-directed shaft from an artificial forward anchor. A further direct-edit retry in this session again returned edit_op=null and redrew the character, so the repository retry-controller was run. It requires USE_APPROVED_LIMB_PATCH and hard-stops the same strategy.",
-    "resumeRule": "Do not reuse attempts 01-04 or image edit_op=null outputs. Resume only when a truly registered approved right-arm/right-hand/right-stick patch compatible with the locked neutral is available, or when the image editor can perform a genuine local edit. Then run PRE_RUNTIME QA and fixed-drum review before Dropbox/formal promotion."
-  },
+  "updatedAt": "2026-09-19T10:32:00+09:00",
+  "blocker": null,
   "generationAttempts": [
     {
       "attempt": 4,
@@ -105,5 +110,10 @@
       "genId": "0cbcc113-06e1-45db-a7a3-9140007fb7d2"
     }
   ],
-  "retryDecisionPath": "character-assets/prototypes/luna_say_maybe_25_32/RETRY_DECISION_HT_R.json"
+  "retryDecisionPath": "character-assets/prototypes/luna_say_maybe_25_32/RETRY_DECISION_HT_R.json",
+  "retryDecisionResolved": {
+    "decision": "USE_APPROVED_LIMB_PATCH",
+    "resolution": "Used registered approved HH:R hit/rebound right-arm/right-hand poses as parents and retargeted only exposed stick shaft.",
+    "candidateAttempt": 5
+  }
 }
