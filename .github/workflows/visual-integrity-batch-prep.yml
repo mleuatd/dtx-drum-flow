@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
     inputs:
       actions:
-        description: "Exactly two comma-separated action keys; blank = auto-select from ledger priority"
+        description: "One or two comma-separated action keys; blank = use active claimed batch, else auto-select"
         required: false
         default: ""
 
