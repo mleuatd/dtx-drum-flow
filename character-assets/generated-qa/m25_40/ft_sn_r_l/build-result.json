@@ -10,27 +10,27 @@
     "path": "character-assets/review-candidates/m25_40/ft_sn_r_l_rebound_attempt02.png",
     "sha256": "d525bee47c8b0550d6ce122d56c8062c90b2c060578ab9ded372b2442c750e01"
   },
-  "method": "merge approved FT:R and SN:L neutral deltas only",
-  "approvedParents": {
-    "hit": [
-      {
-        "path": "character-assets/layers/character/ft/hit_r_refresh.png",
-        "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a"
-      },
-      {
-        "path": "character-assets/layers/character/sn/hit_l.png",
-        "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
-      }
-    ],
-    "rebound": [
-      {
-        "path": "character-assets/layers/character/ft/rebound_r_refresh.png",
-        "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce"
-      },
-      {
-        "path": "character-assets/layers/character/sn/rebound_l.png",
-        "sha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777"
-      }
-    ]
-  }
+  "method": "locked-baseline limb-local pair when imported",
+  "approvedParents": [
+    {
+      "fallback": [
+        "character-assets/layers/character/ft/hit_r_refresh.png",
+        "character-assets/layers/character/sn/hit_l.png"
+      ],
+      "sha256": [
+        "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+        "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+      ]
+    },
+    {
+      "fallback": [
+        "character-assets/layers/character/ft/rebound_r_refresh.png",
+        "character-assets/layers/character/sn/rebound_l.png"
+      ],
+      "sha256": [
+        "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+        "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777"
+      ]
+    }
+  ]
 }
