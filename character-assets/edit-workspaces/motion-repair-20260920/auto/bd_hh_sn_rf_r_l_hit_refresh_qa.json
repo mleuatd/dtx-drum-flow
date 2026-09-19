@@ -1,0 +1,78 @@
+{
+  "id": "bd_hh_sn_rf_r_l_hit_refresh",
+  "actionKey": "BD+HH+SN:RF/R/L",
+  "phase": "hit",
+  "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+  "sourceSha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_hh_sn_rf_r_l_hit_refresh_candidate.png",
+  "candidateSha256": "f24a25c22c1a1d1a278ae508b40ba84ea43d6a91c6b62031646146a13f71ce31",
+  "components": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "contact": [
+        735,
+        650
+      ]
+    },
+    {
+      "part": "HH",
+      "limb": "R",
+      "contact": [
+        190,
+        390
+      ]
+    },
+    {
+      "part": "SN",
+      "limb": "L",
+      "contact": [
+        420,
+        535
+      ]
+    }
+  ],
+  "maskPixelCount": 137837,
+  "changedPixelsVsNeutral": 124000,
+  "changedRatioVsNeutral": 0.07885392,
+  "changedBBoxVsNeutral": {
+    "x": 355,
+    "y": 293,
+    "width": 616,
+    "height": 711
+  },
+  "headGuardChangedPixels": 0,
+  "pelvisGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "inactiveLowerChangedPixels": null,
+  "outsideMaskChangedPixels": 0,
+  "sourceLocalPreservation": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "radiusPx": 125,
+      "sourceRelevantPixels": 43401,
+      "preservedPixels": 5627,
+      "preserveRatio": 0.1297
+    },
+    {
+      "part": "SN",
+      "limb": "L",
+      "radiusPx": 125,
+      "sourceRelevantPixels": 7448,
+      "preservedPixels": 7448,
+      "preserveRatio": 1.0
+    }
+  ],
+  "checks": {
+    "changedVisible": true,
+    "changedRatioWithinLimit": true,
+    "outsideSemanticMaskZero": true,
+    "headLocked": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "inactiveLowerLocked": true,
+    "localSourcePreservation": false
+  },
+  "pass": false
+}

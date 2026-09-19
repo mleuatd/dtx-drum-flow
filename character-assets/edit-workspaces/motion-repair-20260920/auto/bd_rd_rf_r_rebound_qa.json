@@ -1,0 +1,70 @@
+{
+  "id": "bd_rd_rf_r_rebound",
+  "actionKey": "BD+RD:RF/R",
+  "phase": "rebound",
+  "source": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+  "sourceSha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rd_rf_r_rebound_candidate.png",
+  "candidateSha256": "e592a2be8c09ab97e93370550f47d0e610e1c6f829cac74fe5b0dadc3b894b2e",
+  "components": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "contact": [
+        735,
+        650
+      ]
+    },
+    {
+      "part": "RD",
+      "limb": "R",
+      "contact": [
+        965,
+        250
+      ]
+    }
+  ],
+  "maskPixelCount": 100657,
+  "changedPixelsVsNeutral": 89881,
+  "changedRatioVsNeutral": 0.05715701,
+  "changedBBoxVsNeutral": {
+    "x": 593,
+    "y": 150,
+    "width": 511,
+    "height": 854
+  },
+  "headGuardChangedPixels": 0,
+  "pelvisGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "inactiveLowerChangedPixels": null,
+  "outsideMaskChangedPixels": 0,
+  "sourceLocalPreservation": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 81067,
+      "preservedPixels": 18377,
+      "preserveRatio": 0.2267
+    },
+    {
+      "part": "RD",
+      "limb": "R",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 36283,
+      "preservedPixels": 18851,
+      "preserveRatio": 0.5196
+    }
+  ],
+  "checks": {
+    "changedVisible": true,
+    "changedRatioWithinLimit": true,
+    "outsideSemanticMaskZero": true,
+    "headLocked": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "inactiveLowerLocked": true,
+    "localSourcePreservation": false
+  },
+  "pass": false
+}

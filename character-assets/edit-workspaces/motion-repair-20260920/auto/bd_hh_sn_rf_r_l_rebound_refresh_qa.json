@@ -1,0 +1,86 @@
+{
+  "id": "bd_hh_sn_rf_r_l_rebound_refresh",
+  "actionKey": "BD+HH+SN:RF/R/L",
+  "phase": "rebound",
+  "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+  "sourceSha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_hh_sn_rf_r_l_rebound_refresh_candidate.png",
+  "candidateSha256": "096a391f23a0b77952cb4587b2edd7c35ba40aea22fab3975cc1f4f9ac9fc447",
+  "components": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "contact": [
+        735,
+        650
+      ]
+    },
+    {
+      "part": "HH",
+      "limb": "R",
+      "contact": [
+        190,
+        390
+      ]
+    },
+    {
+      "part": "SN",
+      "limb": "L",
+      "contact": [
+        420,
+        535
+      ]
+    }
+  ],
+  "maskPixelCount": 148337,
+  "changedPixelsVsNeutral": 132402,
+  "changedRatioVsNeutral": 0.08419691,
+  "changedBBoxVsNeutral": {
+    "x": 97,
+    "y": 260,
+    "width": 874,
+    "height": 744
+  },
+  "headGuardChangedPixels": 0,
+  "pelvisGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "inactiveLowerChangedPixels": null,
+  "outsideMaskChangedPixels": 0,
+  "sourceLocalPreservation": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 83948,
+      "preservedPixels": 20468,
+      "preserveRatio": 0.2438
+    },
+    {
+      "part": "HH",
+      "limb": "R",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 10,
+      "preservedPixels": 10,
+      "preserveRatio": 1.0
+    },
+    {
+      "part": "SN",
+      "limb": "L",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 18720,
+      "preservedPixels": 17300,
+      "preserveRatio": 0.9241
+    }
+  ],
+  "checks": {
+    "changedVisible": true,
+    "changedRatioWithinLimit": true,
+    "outsideSemanticMaskZero": true,
+    "headLocked": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "inactiveLowerLocked": true,
+    "localSourcePreservation": false
+  },
+  "pass": false
+}

@@ -1,0 +1,45 @@
+{
+  "id": "hh_r_hit",
+  "actionKey": "HH:R",
+  "phase": "hit",
+  "source": "character-assets/layers/character/hh/hit_r.png",
+  "sourceSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_r_hit_candidate.png",
+  "candidateSha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
+  "components": [
+    {
+      "part": "HH",
+      "limb": "R",
+      "contact": [
+        190,
+        390
+      ]
+    }
+  ],
+  "maskPixelCount": 101259,
+  "changedPixelsVsNeutral": 94721,
+  "changedRatioVsNeutral": 0.06023486,
+  "changedBBoxVsNeutral": {
+    "x": 355,
+    "y": 293,
+    "width": 616,
+    "height": 277
+  },
+  "headGuardChangedPixels": 0,
+  "pelvisGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "inactiveLowerChangedPixels": 0,
+  "outsideMaskChangedPixels": 0,
+  "sourceLocalPreservation": [],
+  "checks": {
+    "changedVisible": true,
+    "changedRatioWithinLimit": true,
+    "outsideSemanticMaskZero": true,
+    "headLocked": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "inactiveLowerLocked": true,
+    "localSourcePreservation": true
+  },
+  "pass": true
+}

@@ -1,0 +1,54 @@
+{
+  "id": "bd_rf_hit",
+  "actionKey": "BD:RF",
+  "phase": "hit",
+  "source": "character-assets/layers/character/bd/hit_rf.png",
+  "sourceSha256": "2f720394bb4da7a96b2e41d4e211a36130306d32fd06f2d641964efce07c639b",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_rf_hit_candidate.png",
+  "candidateSha256": "1c5e764e81d91e5688c1635391a1dd354c2a28c57b8c25aa13edd905c0519205",
+  "components": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "contact": [
+        735,
+        650
+      ]
+    }
+  ],
+  "maskPixelCount": 37561,
+  "changedPixelsVsNeutral": 35615,
+  "changedRatioVsNeutral": 0.02264825,
+  "changedBBoxVsNeutral": {
+    "x": 548,
+    "y": 535,
+    "width": 287,
+    "height": 469
+  },
+  "headGuardChangedPixels": 0,
+  "pelvisGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "inactiveLowerChangedPixels": null,
+  "outsideMaskChangedPixels": 0,
+  "sourceLocalPreservation": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "radiusPx": 125,
+      "sourceRelevantPixels": 43378,
+      "preservedPixels": 3994,
+      "preserveRatio": 0.0921
+    }
+  ],
+  "checks": {
+    "changedVisible": true,
+    "changedRatioWithinLimit": true,
+    "outsideSemanticMaskZero": true,
+    "headLocked": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "inactiveLowerLocked": true,
+    "localSourcePreservation": false
+  },
+  "pass": false
+}
