@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+HT:RF/R transaction for Luna M29-40",
-  "status": "FORMAL_PROMOTED_RUNTIME_M40_QA_RUNNING",
+  "status": "DONE",
   "actionKey": "BD+HT:RF/R",
   "scope": {
     "measureStart": 29,
@@ -52,18 +52,24 @@
   "qa": {
     "static": "RUNNING_M40",
     "compositeVisual": "PASS_ACTUAL_ARTIFACT_INSPECTED",
-    "runtimePC": "RUNNING",
-    "runtimeXperia": "RUNNING",
-    "screenshots": "RUNNING",
+    "runtimePC": "PASS_RUN_35417779611",
+    "runtimeXperia": "PASS_RUN_35417779611",
+    "screenshots": "PASS_MANUAL_VISUAL",
     "sourceBuildRun": 35412919595,
     "sourceArtifact": 10573729312
   },
-  "updatedAt": "2026-09-19T10:44:00+09:00",
+  "updatedAt": "2026-09-19T12:20:00+09:00",
   "dropbox": {
     "status": "BLOCKED_EXTERNAL_SECRET_MISSING",
     "mirrorRun": 35413331029,
     "reason": "GitHub Actions DROPBOX_ACCESS_TOKEN secret is absent; exact formal bytes remain safe in GitHub main. Do not regenerate."
   },
   "lastCompletedStep": "BD+HT visual QA PASS, formal promotion, inventory mapping, runtimeScope expanded through M40, manifest synchronized",
-  "requiredNext": "Wait for M40 validate/deploy/runtime QA on commit 09af34163513f421e7a2b1af460800c55488a4cb. If runtime QA passes, inspect PC/Xperia screenshots and frame transitions, then record M29-40 live QA. Dropbox mirror remains independent and must use connector/external authorized token without regenerating bytes."
+  "requiredNext": "Wait for M40 validate/deploy/runtime QA on commit 09af34163513f421e7a2b1af460800c55488a4cb. If runtime QA passes, inspect PC/Xperia screenshots and frame transitions, then record M29-40 live QA. Dropbox mirror remains independent and must use connector/external authorized token without regenerating bytes.",
+  "publicQa": {
+    "status": "PASS",
+    "runId": 35417779611,
+    "artifactId": 10576243090,
+    "measureRange": "29-40"
+  }
 }
