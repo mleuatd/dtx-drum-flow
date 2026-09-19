@@ -6,16 +6,16 @@
   "targetHeadCount": 4,
   "exactJointPositions": {
     "head_top": [
-      742,
-      53
+      720,
+      30
     ],
     "chin": [
-      658,
-      296
+      615,
+      300
     ],
     "neck": [
-      694,
-      314
+      650,
+      312
     ],
     "shoulder_l": [
       692,
@@ -23,47 +23,47 @@
     ],
     "shoulder_r": [
       875,
-      382
+      370
     ],
     "elbow_l": [
       631.336,
       467.134
     ],
     "elbow_r": [
-      730,
-      400
+      920,
+      468
     ],
     "wrist_l": [
       547.799,
       445.259
     ],
     "wrist_r": [
-      664,
-      402
+      975,
+      448
     ],
     "hip_l": [
-      703,
-      590
+      650,
+      620
     ],
     "hip_r": [
-      895,
-      640
+      875,
+      655
     ],
     "knee_l": [
-      606,
-      625
+      535,
+      690
     ],
     "knee_r": [
-      698,
-      700
+      682,
+      748
     ],
     "ankle_l": [
-      505,
-      850
+      430,
+      885
     ],
     "ankle_r": [
-      646,
-      857
+      650,
+      902
     ]
   },
   "exactContactPoint": [
@@ -143,5 +143,6 @@
     "drum pixels in character layer"
   ],
   "retryPolicy": "Only numeric correction instructions from validators; no vague free-form correction.",
+  "minimalMotionRule": "neutral whole-body baseline; only active left arm may differ for SN:L",
   "formalOverwriteAllowed": false
 }
