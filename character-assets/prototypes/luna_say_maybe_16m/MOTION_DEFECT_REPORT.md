@@ -1,3 +1,10 @@
+## 2026-09-20 — Visual Integrity Batch 11
+- Reviewed BD+HT:RF/L and BD+FT+SN:RF/R/L using explicit FRONT batch evidence (run 35476815322, artifact 10594496614).
+- BD+HT:RF/L hit/rebound failed because the left active-stick geometry contains an extra short parallel fragment and rebound grip-to-tip continuity/direction is unreadable.
+- BD+FT+SN:RF/R/L hit/rebound failed because the left stick is detached/truncated and the right-hand stick is forked/duplicated.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY. Formal PNGs unchanged; runtime QA not entered.
+- Batch Prep concurrency learning: FRONT/BACK now use independent override files so a back-session override cannot silently replace a front-session CLAIM artifact.
+
 ## 2026-09-20 — Visual Integrity Batch 10
 - Reviewed RC:R and LT+SN:R/L from current-main Batch Prep evidence (run 35476534354, artifact 10593644215).
 - RC:R hit/rebound failed because the right hand carries duplicated/parallel stick shafts.
