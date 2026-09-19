@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T06:13:00+09:00",
+  "updatedAt": "2026-09-20T06:58:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -935,7 +935,14 @@
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
         "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
-      }
+      },
+      "decisionLog": [
+        {
+          "at": "2026-09-20T06:58:00+09:00",
+          "decision": "BATCH_2X4_SN_L_HIT_EDIT_BLOCKED",
+          "detail": "Exact-parent masked SN:L hit image-edit workflow run 35471764688 stopped before the edit API because GitHub Actions has no OPENAI_API_KEY secret. No candidate pixels were produced. Existing rebound repair and all historical evidence remain preserved; visual-integrity hard gates remain pending."
+        }
+      ]
     },
     {
       "issueId": "MOTION-002",
@@ -1822,7 +1829,14 @@
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
-      }
+      },
+      "decisionLog": [
+        {
+          "at": "2026-09-20T06:58:00+09:00",
+          "decision": "BATCH_2X4_BD_RC_MACHINE_QA_RECONFIRMED",
+          "detail": "Existing method2 hit/rebound machine QA was rechecked: both pass with outside-mask changes 0 and locked head/torso/stool/left-leg guards 0. This does not satisfy the newer human-anatomy, linework, fixed-drum-composite, or runtime-transition visual hard gates, so no promotion was performed."
+        }
+      ]
     },
     {
       "issueId": "MOTION-003",
