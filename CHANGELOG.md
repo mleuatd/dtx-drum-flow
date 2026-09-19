@@ -1,3 +1,10 @@
+## 2026-09-19 — M54 character runtime QA closure
+- Closed Luna Say Maybe M54 `BD+HT:RF/L` without regenerating image bytes. Formal hit/rebound SHA-256 remain `cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7` / `13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5`.
+- Public runtime QA run `35420373297`, artifact `10576732695`: 4/4 PASS (PC hit/rebound + Xperia portrait hit/rebound), runtimeScope 1-54, expected/actual action+frame matched, 1448x1086 character/drum loads OK, no init/console/page/request errors.
+- Reviewed the four screenshots; no character/drum registration drift or wrong-character redraw was observed.
+- Workflow-level failure was not a browser/runtime failure: `Persist generic runtime QA state` hit a rebase conflict on M54 PROGRESS after another main update. M54 ledgers were closed manually from the uploaded PASS evidence.
+- Released M55-67 as the next reuse-only block; no new character image generation is permitted for that range.
+
 ## 2026-09-19 — M25-28 HT:R attempt04 rejected through pipeline retry controller
 - Re-read latest main after parallel-session updates; preserved all newer M18-24 and pipeline-first changes.
 - Found repository-generated HT:R attempt04 on main (hit SHA 824672a7..., rebound SHA 0147a2d9...) built from approved LT:R parents.
