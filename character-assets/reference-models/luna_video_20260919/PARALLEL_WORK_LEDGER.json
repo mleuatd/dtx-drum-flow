@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:44:00+09:00",
+  "updatedAt": "2026-09-19T21:42:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -401,7 +401,7 @@
       "category": "formal_dropbox_bridge_index_expansion",
       "description": "Build a comprehensive SHA-verified Dropbox bridge index for all formal character assets in BRUSHUP_LEDGER/asset_inventory. Use GitHub formal path+SHA256 as authority; use Dropbox file IDs/paths only after byte verification. Record stale/misleading aliases separately. No image edits or formal promotion.",
       "owner": "TERM-B",
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "claimedAt": "2026-09-19T21:37:00+09:00",
       "startedAt": "2026-09-19T21:37:00+09:00",
       "completedAt": null,
@@ -420,7 +420,11 @@
         "tools/runtime_pose/**",
         "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
       ],
-      "handoffNote": "CLAIM first. Indexing/evidence only. Prefer Files /Dropbox mount + raw materialize + SHA256 verification. Filename/Dropbox content_hash alone are not proof. Record stale aliases, exact matches, and unresolved assets. Do not modify formal images."
+      "handoffNote": "CLAIM first. Indexing/evidence only. Prefer Files /Dropbox mount + raw materialize + SHA256 verification. Filename/Dropbox content_hash alone are not proof. Record stale aliases, exact matches, and unresolved assets. Do not modify formal images.",
+      "blockedAt": "2026-09-19T21:42:00+09:00",
+      "lastCommit": "c36a62bc08b2dc37b9a1fd92b23e822fbef52be4",
+      "result": "Built comprehensive 60-entry formal SHA authority index and separated known misleading aliases. No Dropbox ID was promoted without byte SHA256 proof. Connector search/metadata/content_hash cannot establish SHA256 equality; byte-capable download verification is still required to populate verifiedBridge safely.",
+      "resumePoint": "Use a byte-capable Dropbox downloader for each candidate, compute SHA256, populate verifiedBridge only on exact match; keep stale/rejected aliases separate."
     },
     {
       "taskId": "IMPORT-AUTO-001",
