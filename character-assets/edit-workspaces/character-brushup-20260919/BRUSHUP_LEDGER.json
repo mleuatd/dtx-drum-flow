@@ -986,7 +986,7 @@
       "actionKey": "RD:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/rd/hit_r_refresh.png",
-      "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+      "sha256": "0ee5d80562e2b51de3567596c1b114d33b2f7c7255dedb621b922ffde9093ebf",
       "sourceQueueSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1010,11 +1010,13 @@
       ],
       "usageCount": 53,
       "qaState": "ready",
-      "brushupStatus": "AUTO_REPAIR_METHOD3_FAIL",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
-      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method3/rd_r_hit_qa.json"
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_hit_qa.json",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "motionRepairChangedRatioVsNeutral": 0.01122969
     },
     {
       "order": 12,
@@ -1502,7 +1504,7 @@
       "actionKey": "BD+RD:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
-      "sha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
+      "sha256": "0feb65893bc8204f7d00f00d5fa5c84cd7345950a9069693e30ba73c62083263",
       "sourceQueueSha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1521,11 +1523,13 @@
       ],
       "usageCount": 29,
       "qaState": "ready",
-      "brushupStatus": "AUTO_REPAIR_METHOD3_FAIL",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
-      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method3/bd_rd_rf_r_hit_qa.json"
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rd_rf_r_hit_qa.json",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "motionRepairChangedRatioVsNeutral": 0.05479521
     },
     {
       "order": 28,
@@ -1533,7 +1537,7 @@
       "actionKey": "BD+RD:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
-      "sha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
+      "sha256": "f3c383c518aebb05ede620560d6d76c4ff304d85c3e0b5337310469090ae1272",
       "sourceQueueSha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1552,11 +1556,13 @@
       ],
       "usageCount": 29,
       "qaState": "ready",
-      "brushupStatus": "AUTO_REPAIR_METHOD3_FAIL",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
-      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method3/bd_rd_rf_r_rebound_qa.json"
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rd_rf_r_rebound_qa.json",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "motionRepairChangedRatioVsNeutral": 0.05763904
     },
     {
       "order": 29,
@@ -1564,7 +1570,7 @@
       "actionKey": "RD+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
-      "sha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
+      "sha256": "1af435751264c515323a7390bb93c4aaa181c5e7bbeabed49b4626011ce9af80",
       "sourceQueueSha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1583,11 +1589,13 @@
       ],
       "usageCount": 23,
       "qaState": "ready",
-      "brushupStatus": "AUTO_REPAIR_METHOD3_FAIL",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
-      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method3/rd_sn_r_l_hit_qa.json"
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_hit_qa.json",
+      "completedAt": "2026-09-20T05:45:00+09:00",
+      "motionRepairChangedRatioVsNeutral": 0.02130264
     },
     {
       "order": 30,

@@ -244,8 +244,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
-      "status": "M5_8_READY_LIVE_QA",
+      "sha256": "0ee5d80562e2b51de3567596c1b114d33b2f7c7255dedb621b922ffde9093ebf",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna measures 5-8 refreshed RD:R variant derived from approved neutral baseline",
       "part": "RD",
       "phase": "hit",
@@ -253,7 +253,8 @@
       "notes": [
         "Fixed-drum composite QA passed before registration.",
         "Public GitHub Pages Runtime Character QA run 35327283366 passed on PC and Xperia-class portrait.",
-        "Runtime QA artifact 10539831628."
+        "Runtime QA artifact 10539831628.",
+        "2026-09-20 deterministic motion repair RD:R hit; auto candidate QA PASS."
       ]
     },
     {
@@ -714,14 +715,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
-      "status": "RUNTIME_READY",
+      "sha256": "0feb65893bc8204f7d00f00d5fa5c84cd7345950a9069693e30ba73c62083263",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+RD",
       "phase": "hit",
       "hand": "RF/R",
       "notes": [
-        "Synced from asset_inventory requiredFrames for active runtime validation."
+        "Synced from asset_inventory requiredFrames for active runtime validation.",
+        "2026-09-20 deterministic motion repair BD+RD:RF/R hit; auto candidate QA PASS."
       ]
     },
     {
@@ -730,14 +732,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
-      "status": "RUNTIME_READY",
+      "sha256": "f3c383c518aebb05ede620560d6d76c4ff304d85c3e0b5337310469090ae1272",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+RD",
       "phase": "rebound",
       "hand": "RF/R",
       "notes": [
-        "Synced from asset_inventory requiredFrames for active runtime validation."
+        "Synced from asset_inventory requiredFrames for active runtime validation.",
+        "2026-09-20 deterministic motion repair BD+RD:RF/R rebound; auto candidate QA PASS."
       ]
     },
     {
@@ -814,14 +817,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
-      "status": "RUNTIME_READY",
+      "sha256": "1af435751264c515323a7390bb93c4aaa181c5e7bbeabed49b4626011ce9af80",
+      "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna runtime formal character frame",
       "part": "RD+SN",
       "phase": "hit",
       "hand": "R/L",
       "notes": [
-        "Synced from asset_inventory requiredFrames for active runtime validation."
+        "Synced from asset_inventory requiredFrames for active runtime validation.",
+        "2026-09-20 deterministic motion repair RD+SN:R/L hit; auto candidate QA PASS."
       ]
     },
     {

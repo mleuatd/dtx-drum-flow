@@ -4112,7 +4112,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "AUTO_REPAIR_METHOD4_REQUIRED",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4144,7 +4144,7 @@
       "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -4914,7 +4914,29 @@
             "pc/m130_BD_RD_RF_R_rebound.png"
           ]
         }
-      ]
+      ],
+      "autoRepairPromotion": {
+        "promoted": [
+          {
+            "id": "bd_rd_rf_r_hit",
+            "actionKey": "BD+RD:RF/R",
+            "phase": "hit",
+            "oldSha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
+            "newSha256": "0feb65893bc8204f7d00f00d5fa5c84cd7345950a9069693e30ba73c62083263",
+            "changedRatioVsNeutral": 0.05479521
+          },
+          {
+            "id": "bd_rd_rf_r_rebound",
+            "actionKey": "BD+RD:RF/R",
+            "phase": "rebound",
+            "oldSha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
+            "newSha256": "f3c383c518aebb05ede620560d6d76c4ff304d85c3e0b5337310469090ae1272",
+            "changedRatioVsNeutral": 0.05763904
+          }
+        ],
+        "method": "method4: RD-specific right-side release from neutral head landmarks",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
+      }
     },
     {
       "issueId": "MOTION-007",
@@ -6551,7 +6573,7 @@
     },
     {
       "issueId": "MOTION-009",
-      "status": "AUTO_REPAIR_METHOD4_REQUIRED",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -7402,21 +7424,21 @@
       "autoRepairPromotion": {
         "promoted": [
           {
-            "id": "rd_sn_r_l_rebound",
+            "id": "rd_sn_r_l_hit",
             "actionKey": "RD+SN:R/L",
-            "phase": "rebound",
-            "oldSha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
-            "newSha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
-            "changedRatioVsNeutral": 0.06521792
+            "phase": "hit",
+            "oldSha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
+            "newSha256": "1af435751264c515323a7390bb93c4aaa181c5e7bbeabed49b4626011ce9af80",
+            "changedRatioVsNeutral": 0.02130264
           }
         ],
-        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
-        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+        "method": "method4: RD-specific right-side release from neutral head landmarks",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       }
     },
     {
       "issueId": "MOTION-010",
-      "status": "AUTO_REPAIR_METHOD4_REQUIRED",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8145,16 +8167,16 @@
       "autoRepairPromotion": {
         "promoted": [
           {
-            "id": "rd_r_rebound",
+            "id": "rd_r_hit",
             "actionKey": "RD:R",
-            "phase": "rebound",
-            "oldSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
-            "newSha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
-            "changedRatioVsNeutral": 0.04430319
+            "phase": "hit",
+            "oldSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
+            "newSha256": "0ee5d80562e2b51de3567596c1b114d33b2f7c7255dedb621b922ffde9093ebf",
+            "changedRatioVsNeutral": 0.01122969
           }
         ],
-        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
-        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+        "method": "method4: RD-specific right-side release from neutral head landmarks",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       }
     },
     {

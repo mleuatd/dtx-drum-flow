@@ -149,8 +149,9 @@
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
       "reboundSha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
       "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
-      "motionRepairLastPhase": "rebound",
-      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant"
+      "motionRepairLastPhase": "hit",
+      "motionRepairMethod": "method4: RD-specific right-side release from neutral head landmarks",
+      "hitSha256": "0ee5d80562e2b51de3567596c1b114d33b2f7c7255dedb621b922ffde9093ebf"
     },
     {
       "actionKey": "BD+SN:RF/L",
@@ -394,7 +395,12 @@
       "legacyRuntimeKey": "BD+RD:*",
       "limbAwareRuntimeKey": "BD+RD:RF/R",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00"
+      "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00",
+      "hitSha256": "0feb65893bc8204f7d00f00d5fa5c84cd7345950a9069693e30ba73c62083263",
+      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
+      "motionRepairLastPhase": "rebound",
+      "motionRepairMethod": "method4: RD-specific right-side release from neutral head landmarks",
+      "reboundSha256": "f3c383c518aebb05ede620560d6d76c4ff304d85c3e0b5337310469090ae1272"
     },
     {
       "actionKey": "RD+SN:R/L",
@@ -419,8 +425,9 @@
       "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00",
       "reboundSha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
       "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
-      "motionRepairLastPhase": "rebound",
-      "motionRepairMethod": "neutral-locked semantic corridor + changed-ink/alpha transplant"
+      "motionRepairLastPhase": "hit",
+      "motionRepairMethod": "method4: RD-specific right-side release from neutral head landmarks",
+      "hitSha256": "1af435751264c515323a7390bb93c4aaa181c5e7bbeabed49b4626011ce9af80"
     },
     {
       "actionKey": "BD+HH:RF/R",
