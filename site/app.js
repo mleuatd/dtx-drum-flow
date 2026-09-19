@@ -1,7 +1,7 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r15";
-import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r15";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r16";
+import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r16";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
@@ -14,7 +14,7 @@ const DEV_MIXER=[
  ["kick","BD/LB"],["snare","SN"],["sideStick","SideStick"],["hihatClosed","HH Closed"],["hihatOpen","HH Open"],["hihatPedal","LP HH"],
  ["tomHigh","HT"],["tomLow","LT"],["tomFloor","FT"],["ride","RD"],["rideBell","Ride Bell"],["crashLeft","LC"],["crashRight","RC"]
 ];
-const devMixerValues=Object.fromEntries(DEV_MIXER.map(([v])=>[v,1]));
+const DEV_MIXER_DEFAULT={kick:2.5,snare:1,sideStick:.2,hihatClosed:.2,hihatOpen:.2,hihatPedal:1,tomHigh:1,tomLow:1,tomFloor:1.05,ride:.2,rideBell:.25,crashLeft:.2,crashRight:.2};\nconst devMixerValues={...DEV_MIXER_DEFAULT};
 function devMixerText(){
  if(!liveDrumEngine)return "MIX:engine-loading";
  const base=liveDrumEngine.getBaseGains();
@@ -27,14 +27,14 @@ function initDevAudioMixer(){
  for(const [voice,label] of DEV_MIXER){
   const row=document.createElement("div");row.className="dev-audio-row";
   const lab=document.createElement("label");lab.htmlFor="mix-"+voice;lab.textContent=label;
-  const input=document.createElement("input");input.type="range";input.id="mix-"+voice;input.min=".10";input.max="2.50";input.step=".05";input.value="1";input.setAttribute("aria-label",label+" 音量");
-  const out=document.createElement("output");out.textContent="1.00×";
+  const input=document.createElement("input");input.type="range";input.id="mix-"+voice;input.min=".10";input.max="2.50";input.step=".05";input.value=String(DEV_MIXER_DEFAULT[voice]??1);input.setAttribute("aria-label",label+" 音量");
+  const out=document.createElement("output");out.textContent=Number(input.value).toFixed(2)+"×";
   const test=document.createElement("button");test.type="button";test.className="button dev-audio-test";test.textContent="鳴らす";test.setAttribute("aria-label",label+"を鳴らす");
   test.addEventListener("click",async()=>{await ensureAudio();liveDrumEngine.setUserGain(voice,devMixerValues[voice]);liveDrumEngine.triggerVoice?.(voice,.84,audioCtx.currentTime+.01)});
   input.addEventListener("input",()=>{const n=Number(input.value);devMixerValues[voice]=n;out.textContent=n.toFixed(2)+"×";liveDrumEngine?.setUserGain(voice,n);refreshDevMixerHud()});
   row.append(lab,input,out,test);root.append(row);
  }
- $("devAudioReset")?.addEventListener("click",()=>{for(const [voice] of DEV_MIXER){const input=$("mix-"+voice);if(input){input.value="1";input.dispatchEvent(new Event("input"))}}});
+ $("devAudioReset")?.addEventListener("click",()=>{for(const [voice] of DEV_MIXER){const input=$("mix-"+voice);if(input){input.value=String(DEV_MIXER_DEFAULT[voice]??1);input.dispatchEvent(new Event("input"))}}});
  refreshDevMixerHud();
 }
 
