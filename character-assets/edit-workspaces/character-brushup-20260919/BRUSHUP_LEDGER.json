@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T06:55:00+09:00",
+  "updatedAt": "2026-09-20T07:08:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -657,7 +657,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-BATCH-2X4",
+      "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
     },
     {
       "order": 6,
@@ -783,7 +786,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-BATCH-2X4",
+      "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
     },
     {
       "order": 7,
@@ -884,7 +890,10 @@
           "fixed-drum composite"
         ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-BATCH-2X4",
+      "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
     },
     {
       "order": 8,
@@ -985,7 +994,10 @@
           "fixed-drum composite"
         ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-BATCH-2X4",
+      "reviewClaimedAt": "2026-09-20T07:08:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-02"
     },
     {
       "order": 9,
@@ -3518,5 +3530,22 @@
       "workflowRunId": 35471764688,
       "workflowArtifactId": 10592983884
     }
-  ]
+  ],
+  "activeVisualIntegrityBatch": {
+    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-02",
+    "terminalId": "CHAT-BATCH-2X4",
+    "startedAt": "2026-09-20T07:08:00+09:00",
+    "actionKeys": [
+      "BD:RF",
+      "HH:R"
+    ],
+    "frameIds": [
+      "bd_rf_hit",
+      "bd_rf_rebound",
+      "hh_r_hit",
+      "hh_r_rebound"
+    ],
+    "stage": "EVIDENCE_GENERATION",
+    "note": "Review-only claim. Formal PNG bytes unchanged. Current-main visual QA contact sheet requested before hard-gate disposition."
+  }
 }
