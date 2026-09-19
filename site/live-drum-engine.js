@@ -39,7 +39,21 @@ export class LiveDrumEngine{
  _layer(v,velocity){const d=defs[v];return clamp(Math.ceil(clamp(velocity,0,1)*d.layers),1,d.layers)}
  _nextRR(v){const d=defs[v],n=((this.rr.get(v)||0)%d.rr)+1;this.rr.set(v,n);return n}
  trigger(part,velocity=.8,when=this.ctx.currentTime+.002,note={}){const v=voiceFor(part,note),layer=this._layer(v,velocity),rr=this._nextRR(v),key=v+":"+layer+":"+rr,buffer=this.buffers.get(key);if(buffer)return this._play(v,buffer,velocity,when);this._load(v,layer,rr).then(b=>{if(b&&when>=this.ctx.currentTime-.03)this._play(v,b,velocity,Math.max(when,this.ctx.currentTime+.002))});return null}
- _play(v,buffer,velocity,when){const c=this.ctx,s=c.createBufferSource(),g=c.createGain(),pan=c.createStereoPanner?c.createStereoPanner():null;const strength=.55+.45*clamp(velocity,0,1);g.gain.setValueAtTime(strength,when);s.buffer=buffer;s.playbackRate.value=1+(Math.random()-.5)*.006;if(pan){const p=v==="crashLeft"?-.28:v==="crashRight"?.28:v==="tomHigh"?-.12:v==="tomFloor"?.12:0;pan.pan.value=p;s.connect(g);g.connect(pan);pan.connect(this.input)}else{s.connect(g);g.connect(this.input)}s.start(when);this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s}
+ _play(v,buffer,velocity,when){
+  const c=this.ctx,s=c.createBufferSource(),g=c.createGain(),pan=c.createStereoPanner?c.createStereoPanner():null;
+  const isCrash=v==="crashLeft"||v==="crashRight",isRide=v==="ride"||v==="rideBell";
+  const base=.55+.45*clamp(velocity,0,1);
+  // Practice mix: keep cymbal identity/transient, but move it behind kick/snare/toms.
+  const strength=base*(isCrash?.46:isRide?.64:1);
+  g.gain.setValueAtTime(strength,when);
+  // A short, smooth cymbal tail keeps the following note audible without an artificial hard cut.
+  if(isCrash){const fadeStart=when+.42,fadeEnd=when+1.18;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
+  else if(isRide){const fadeStart=when+.55,fadeEnd=when+1.45;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
+  s.buffer=buffer;s.playbackRate.value=1+(Math.random()-.5)*.006;
+  if(pan){const p=v==="crashLeft"?-.28:v==="crashRight"?.28:v==="tomHigh"?-.12:v==="tomFloor"?.12:0;pan.pan.value=p;s.connect(g);g.connect(pan);pan.connect(this.input)}else{s.connect(g);g.connect(this.input)}
+  s.start(when);if(isCrash)s.stop(Math.min(when+1.22,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.5,when+buffer.duration));
+  this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s
+}
  stop(){for(const n of this.nodes){try{n.stop()}catch{}}this.nodes.clear()}
 }
 export {voiceFor as resolveLiveDrumVoice};
