@@ -128,12 +128,12 @@ def main() -> None:
 
     data = json.loads(LEDGER.read_text(encoding="utf-8"))
     requested = [x.strip() for x in args.actions.split(",") if x.strip()] if args.actions else None
-    if requested and len(requested) != 2:
-        raise SystemExit("--actions must contain exactly two action keys")
+    if requested and len(requested) not in {1, 2}:
+        raise SystemExit("--actions must contain one or two action keys")
     targets = select_targets(data, requested)
     action_keys = list(OrderedDict.fromkeys(t["actionKey"] for t in targets))
-    if len(action_keys) != 2 or len(targets) != 4:
-        raise SystemExit(f"expected 2 actions / 4 frames, got {len(action_keys)} / {len(targets)}")
+    if len(action_keys) not in {1, 2} or len(targets) != len(action_keys) * 2:
+        raise SystemExit(f"expected 1-2 actions / 2 frames each, got {len(action_keys)} / {len(targets)}")
 
     out = ROOT / args.out
     chars = out / "character_only"
