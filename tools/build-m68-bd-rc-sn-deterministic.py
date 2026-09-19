@@ -1,5 +1,5 @@
 from __future__ import annotations
-import hashlib, json
+import hashlib, json, os
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageChops
 
@@ -62,6 +62,7 @@ QA.mkdir(parents=True, exist_ok=True)
 
 result = {
     "schemaVersion": 1,
+    "workflowRunId": os.environ.get("GITHUB_RUN_ID"),
     "actionKey": "BD+RC+SN:RF/R/L",
     "method": "formal RC+SN:R/L exact bytes + proven deterministic BD cue only",
     "phases": {},
