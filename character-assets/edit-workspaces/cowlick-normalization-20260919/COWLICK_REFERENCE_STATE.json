@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T17:00:00+09:00",
+  "updatedAt": "2026-09-19T17:12:00+09:00",
   "status": "WORKING_REFERENCE_LOCKED_FOR_CURRENT_ANGLE_ONLY",
   "sourceContext": {
     "userSourceFile": "5232.png",
@@ -28,5 +28,7 @@
     "currentSourceAngleClassification": "NOT_YET_FORMALLY_CLASSIFIED",
     "rule": "Do not claim a direction master until root/peak/tip landing points and silhouette have been explicitly captured for that direction."
   },
-  "usageRule": "Use this record as crown-shape QA context only. Never import face, body, pose, camera, or composition from cowlick references."
+  "usageRule": "Use this record as crown-shape QA context only. Never import face, body, pose, camera, or composition from cowlick references.",
+  "globalStyleDependency": "STYLE_BASELINE_SPEC.json",
+  "styleRule": "Cowlick geometry comes from the cowlick master, but every visible cowlick stroke must use the same repeated-fine-stroke construction as the baseline. Apparent thickness must come from multiple nearby passes, never from a single thick brush."
 }
