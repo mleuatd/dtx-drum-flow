@@ -20,6 +20,8 @@ def _legacy_effectors(pkg):
     if limb in ("LF","RF"):
         p=(pkg.get("legReach") or {}).get("footTarget")
         return [{"part":part,"limb":limb,"kind":"pedal","target":target or pkg.get("pedalTarget"),"point":p}]
+    if target and pkg.get("stickTip"):
+        return [{"part":part,"limb":limb,"kind":"stick","target":target,"point":pkg.get("stickTip")}]
     return []
 
 def _validate_one_effector(e,phase,tol,rebound_min):
