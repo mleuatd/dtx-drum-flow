@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "M25-28: RC:R attempt03/02 final fixed-drum visual review; then HT:R arm-local rebuild. FT+SN attempt04 is formal PASS and must not be regenerated. HT:L remains formal. Do not start BD+HT formal work before M25-28 checkpoint.",
-  "updatedAt": "2026-09-19T09:49:00+09:00",
+  "requiredNext": "M25-28: RC:R is formal promoted and must not be regenerated. Next rebuild HT:R using arm-local right-arm/right-hand/right-stick relocation, perform fixed-drum visual QA, persist to Dropbox/formal, then derive BD+HT from formal HT:R.",
+  "updatedAt": "2026-09-19T09:54:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -225,7 +225,7 @@
       "promotionCommit": "3fe06d9cac84755ff5fb8d9e5f9db0bff91b4a9c"
     },
     "rcR": {
-      "status": "VISUAL_QA_FINAL_REVIEW",
+      "status": "FORMAL_PROMOTED",
       "generatedCommit": "ab52f5070a757e0dfa0773911e71bb887ddb36bb",
       "hitPath": "character-assets/review-candidates/m25_40/rc_r_hit_attempt01.png",
       "reboundPath": "character-assets/review-candidates/m25_40/rc_r_rebound_attempt01.png",
@@ -234,7 +234,12 @@
       "currentHitPath": "character-assets/review-candidates/m25_40/rc_r_hit_attempt03.png",
       "currentReboundPath": "character-assets/review-candidates/m25_40/rc_r_rebound_attempt02.png",
       "currentHitSha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
-      "currentReboundSha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a"
+      "currentReboundSha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
+      "formalHit": "character-assets/layers/character/rc/hit_r_refresh.png",
+      "formalRebound": "character-assets/layers/character/rc/rebound_r_refresh.png",
+      "visualQA": "PASS",
+      "promotionWorkflowRunId": 35410705834,
+      "promotionCommit": "b588a43d9b4c39c986bc2dd3f081d6a7df52215f"
     },
     "ftSnRL": {
       "status": "FORMAL_PROMOTED",
@@ -281,13 +286,14 @@
     "reason": "M29 introduces BD+HT:RF/R and HT:L, taking cumulative new actions from 3 to 5."
   },
   "resumeCheckpoint": {
-    "checkedAt": "2026-09-19T09:49:00+09:00",
-    "formalPng": "4/10",
-    "ftSnRL": "attempt04 formal PASS; exact Dropbox/GitHub bytes match",
-    "rcR": "final fixed-drum visual review pending",
+    "checkedAt": "2026-09-19T09:54:00+09:00",
+    "latestMainObserved": "b588a43d9b4c39c986bc2dd3f081d6a7df52215f",
+    "formalPng": "6/10",
+    "ftSnRL": "formal PASS; preserve",
+    "rcR": "formal promoted; preserve",
     "htR": "arm-local rebuild required",
     "htL": "formal; preserve",
-    "bdHt": "blocked until M25-28 checkpoint and HT:R formal"
+    "bdHt": "waits for formal HT:R"
   },
   "visualQA": {
     "checkedAt": "2026-09-19T08:55:00+09:00",
@@ -349,6 +355,6 @@
     "fix": "Importer now also accepts sourceGithubPath exact bytes, avoiding dependence on a Dropbox Actions secret when an exact candidate has already been staged in GitHub.",
     "note": "FT+SN exact attempt03 remains safely persisted in Dropbox. Do not regenerate it. Next import should use the new exact-source route once the staged GitHub copy is available."
   },
-  "formalPngCompleted": 4,
+  "formalPngCompleted": 6,
   "formalPngTotal": 10
 }
