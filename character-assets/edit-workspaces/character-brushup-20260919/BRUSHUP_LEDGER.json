@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:16:00+09:00",
+  "updatedAt": "2026-09-20T08:18:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -2030,7 +2030,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:18:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-06"
     },
     {
       "order": 20,
@@ -2072,7 +2075,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:18:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-06"
     },
     {
       "order": 21,
@@ -2113,7 +2119,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:18:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-06"
     },
     {
       "order": 22,
@@ -2154,7 +2163,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:18:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-06"
     },
     {
       "order": 23,
@@ -3976,30 +3988,42 @@
       "summary": "RC+SN:R/L both frames fail horizontal/rectangular hair-torso splice. LT:R both frames fail duplicated/crossing right-stick geometry. No minimal retries; formal PNGs unchanged.",
       "workflowRunId": 35475413657,
       "workflowArtifactId": 10593488275
+    },
+    {
+      "batchId": "VISUAL-INTEGRITY-BATCH-20260920-06",
+      "startedAt": "2026-09-20T08:18:00+09:00",
+      "updatedAt": "2026-09-20T08:18:00+09:00",
+      "terminalId": "CHAT-FRONT-2X4",
+      "actionKeys": [
+        "LT:L",
+        "BD+SN:RF/R"
+      ],
+      "imageCount": 4,
+      "targets": [
+        "lt_l_hit",
+        "lt_l_rebound",
+        "bd_sn_rf_r_hit",
+        "bd_sn_rf_r_rebound"
+      ],
+      "result": "IN_PROGRESS",
+      "summary": "Claimed after excluding active BACK-BATCH-01 keys."
     }
   ],
   "activeVisualIntegrityBatch": {
-    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-05",
+    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-06",
     "terminalId": "CHAT-FRONT-2X4",
-    "startedAt": "2026-09-20T08:12:00+09:00",
+    "startedAt": "2026-09-20T08:18:00+09:00",
     "actionKeys": [
-      "RC+SN:R/L",
-      "LT:R"
+      "LT:L",
+      "BD+SN:RF/R"
     ],
     "frameIds": [
-      "rc_sn_r_l_hit_refresh",
-      "rc_sn_r_l_rebound_refresh",
-      "lt_r_hit",
-      "lt_r_rebound"
+      "lt_l_hit",
+      "lt_l_rebound",
+      "bd_sn_rf_r_hit",
+      "bd_sn_rf_r_rebound"
     ],
-    "stage": "HOLD_COMPLETE",
-    "note": "Batch 05 static hard gates complete. Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY; formal PNGs unchanged; runtime QA not entered.",
-    "updatedAt": "2026-09-20T08:16:00+09:00",
-    "staticDisposition": {
-      "RC+SN:R/L": "HOLD_BOTH_STATIC_HARD_FAIL",
-      "LT:R": "HOLD_BOTH_STATIC_HARD_FAIL"
-    },
-    "visualQaRunId": 35475413657,
-    "visualQaArtifactId": 10593488275
+    "stage": "STATIC_QA_PENDING",
+    "note": "Front-queue batch; active BACK-BATCH-01 keys excluded."
   }
 }
