@@ -5,11 +5,11 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 54,
-    "noteCount": 726,
-    "groupCount": 533,
+    "measureEnd": 67,
+    "noteCount": 920,
+    "groupCount": 662,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 96.549115,
+    "lastNoteTime": 118.887245,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -711,18 +711,33 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T13:16:00+09:00",
-  "note": "Reuse-only runtime scope extended through M53 after unresolved key check=0.",
+  "updatedAt": "2026-09-19T13:19:00+09:00",
+  "note": "Runtime scope expanded contiguously to M67 after M54 public browser QA closure. M55-67 uses only existing runtimePhaseFrameMap entries; no new character PNGs.",
   "runtimeQaTarget": {
-    "measureStart": 54,
-    "measureEnd": 54,
+    "measureStart": 55,
+    "measureEnd": 67,
     "actions": [
-      "BD+HT:RF/L"
+      "BD+HH:RF/R",
+      "HH:R",
+      "HH+SN:R/L",
+      "SN:L",
+      "RC+SN:R/L",
+      "BD+RC:RF/R",
+      "FT+SN:R/L",
+      "HT:R",
+      "BD:RF",
+      "HT:L",
+      "RD:R",
+      "BD+RD:RF/R",
+      "RD+SN:R/L",
+      "SN:R",
+      "LT:R",
+      "LT:L",
+      "BD+HH+SN:RF/R/L"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_54/PROGRESS.json",
-    "blockKey": "M54",
-    "purpose": "Public PC/Xperia character runtime checkpoint after repairing prep neutral mapping.",
-    "retriggerAt": "2026-09-19T13:16:00+09:00",
-    "retryReason": "M54 initError identified as missing prep mapping; image bytes unchanged."
+    "progressPath": "character-assets/prototypes/luna_say_maybe_55_67/PROGRESS.json",
+    "blockKey": "M55-67",
+    "purpose": "Public PC/Xperia reuse-only character runtime checkpoint after contiguous scope expansion to M67.",
+    "retriggerAt": "2026-09-19T13:19:00+09:00"
   }
 }
