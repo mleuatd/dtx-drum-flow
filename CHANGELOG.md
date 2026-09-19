@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 05
+- Claimed RC+SN:R/L and LT:R while excluding the active BACK-BATCH-01 keys owned by another session.
+- Static QA moved both pairs to HOLD_VISUAL_INTEGRITY: RC+SN has structural hair/torso splice artifacts; LT:R has duplicated/crossing active-stick geometry.
+- Formal PNGs remain unchanged; runtime QA was not entered.
+- Evidence: workflow run 35475413657, artifact 10593488275.
+
 ## 2026-09-20 — Visual Integrity Batch 04
 - Claimed and statically reviewed RD:R and BD+SN:RF/L via the 2x4 batch-prep workflow.
 - RD:R hit passed; rebound failed structural rectangular splice/cut around hair-torso/right-arm-stick continuity.
