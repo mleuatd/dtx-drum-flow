@@ -1,0 +1,32 @@
+name: Measure motion repair geometry
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'character-assets/layers/character/**/*.png'
+      - 'character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json'
+      - 'tools/character_layers/measure_motion_repairs.py'
+      - '.github/workflows/measure-motion-repairs.yml'
+permissions:
+  contents: write
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Measure exact PNG geometry
+        run: python tools/character_layers/measure_motion_repairs.py
+      - name: Commit measurements
+        run: |
+          if git diff --quiet -- character-assets/prototypes/luna_say_maybe_16m/REPAIR_MEASUREMENTS_AUTO.json; then
+            echo "No measurement changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/prototypes/luna_say_maybe_16m/REPAIR_MEASUREMENTS_AUTO.json
+          git commit -m "qa: measure motion repair geometry"
+          git push
