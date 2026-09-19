@@ -5,11 +5,11 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 135,
-    "noteCount": 1946,
-    "groupCount": 1375,
+    "measureEnd": 136,
+    "noteCount": 1962,
+    "groupCount": 1384,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 236.297317,
+    "lastNoteTime": 238.131849,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -39,7 +39,8 @@
       "BD+HT:RF/L",
       "BD+RC+SN:RF/R/L",
       "BD+FT+SN:RF/R/L",
-      "BD+FT:RF/L"
+      "BD+FT:RF/L",
+      "BD+FT:RF/R"
     ]
   },
   "requiredFrames": {
@@ -405,6 +406,20 @@
       "sha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
       "actionKey": "BD+FT:RF/L",
       "phase": "rebound"
+    },
+    "bd_ft_rf_r_hit_refresh": {
+      "path": "layers/character/combo/bd_ft_rf_r_hit_refresh.png",
+      "state": "ready",
+      "sha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "hit"
+    },
+    "bd_ft_rf_r_rebound_refresh": {
+      "path": "layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -439,7 +454,8 @@
     "BD+HT:RF/L": "bd_ht_rf_l_hit_refresh",
     "BD+RC+SN:RF/R/L": "bd_rc_sn_rf_r_l_hit_refresh",
     "BD+FT+SN:RF/R/L": "bd_ft_sn_rf_r_l_hit_refresh",
-    "BD+FT:RF/L": "bd_ft_rf_l_hit_refresh"
+    "BD+FT:RF/L": "bd_ft_rf_l_hit_refresh",
+    "BD+FT:RF/R": "bd_ft_rf_r_hit_refresh"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -601,6 +617,11 @@
       "prep": "neutral",
       "hit": "bd_ft_rf_l_hit_refresh",
       "rebound": "bd_ft_rf_l_rebound_refresh"
+    },
+    "BD+FT:RF/R": {
+      "prep": "neutral",
+      "hit": "bd_ft_rf_r_hit_refresh",
+      "rebound": "bd_ft_rf_r_rebound_refresh"
     }
   },
   "motionTiming": {
@@ -774,28 +795,17 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T15:49:00+09:00",
-  "note": "Runtime scope expanded through M135 after M105-106 public QA closure. M107-135 is reuse-only.",
+  "updatedAt": "2026-09-19T15:59:00+09:00",
+  "note": "Runtime scope expanded through M136 after final new pair formal promotion.",
   "runtimeQaTarget": {
-    "measureStart": 107,
-    "measureEnd": 135,
+    "measureStart": 136,
+    "measureEnd": 136,
     "actions": [
-      "SN:R",
-      "SN:L",
-      "BD:RF",
-      "BD+RC:RF/R",
-      "HH+SN:R/L",
-      "HH:R",
-      "BD+HH:RF/R",
-      "RC+SN:R/L",
-      "BD+SN:RF/R",
-      "BD+RD:RF/R",
-      "RD+SN:R/L",
-      "RD:R"
+      "BD+FT:RF/R"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_107_135/PROGRESS.json",
-    "blockKey": "M107-135",
-    "purpose": "Public PC/Xperia reuse-only character runtime checkpoint through M135.",
-    "retriggerAt": "2026-09-19T15:49:00+09:00"
+    "progressPath": "character-assets/prototypes/luna_say_maybe_136/PROGRESS.json",
+    "blockKey": "M136",
+    "purpose": "Public PC/Xperia character runtime checkpoint for final new pair BD+FT:RF/R.",
+    "retriggerAt": "2026-09-19T15:59:00+09:00"
   }
 }
