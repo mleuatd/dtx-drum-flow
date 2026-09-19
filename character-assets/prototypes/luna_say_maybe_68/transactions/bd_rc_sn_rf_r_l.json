@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Resume-safe BD+RC+SN:RF/R/L transaction for Luna M68",
+  "status": "SOURCE_LOCKED",
+  "actionKey": "BD+RC+SN:RF/R/L",
+  "scope": {
+    "measureStart": 68,
+    "measureEnd": 68
+  },
+  "parent": {
+    "hitPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+    "hitSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
+    "reboundPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+    "reboundSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
+    "width": 1448,
+    "height": 1086
+  },
+  "method": "Preserve formal RC+SN:R/L pair exactly; add only the proven deterministic BD kick cue geometry from tools/build-m18-24-deterministic-pairs.py. No generative redraw.",
+  "immutable": [
+    "camera",
+    "head",
+    "face",
+    "hair",
+    "torso",
+    "clothes",
+    "seatAnchor",
+    "canvasRegistration",
+    "RC+SN upper-body pose"
+  ],
+  "allowedMotion": [
+    "rightFoot",
+    "BD kick cue only"
+  ],
+  "preflight": {
+    "playbookRead": true,
+    "failureRegistryRead": true,
+    "rejectedRegistryRead": true,
+    "contactPointsRead": true,
+    "targetContacts": {
+      "RC": {
+        "x": 1215,
+        "y": 145,
+        "limb": "R"
+      },
+      "SN": {
+        "x": 420,
+        "y": 535,
+        "limb": "L"
+      },
+      "BD": {
+        "x": 735,
+        "y": 650,
+        "limb": "RF"
+      }
+    },
+    "forbiddenFailures": [
+      "FAIL-RC-WRONG-SIDE",
+      "FAIL-FRONT-CHAR",
+      "FAIL-DRUM-LEAK",
+      "FAIL-STOOL-SHIFT",
+      "FAIL-CAMERA-JUMP",
+      "FAIL-REJECT-REUSE"
+    ],
+    "approvedStrategyEvidence": [
+      "M47 BD+HH+SN:RF/R/L transaction",
+      "M54 BD+HT:RF/L transaction",
+      "tools/build-m18-24-deterministic-pairs.py BD cue"
+    ]
+  },
+  "phases": {
+    "hit": {
+      "stage": "SOURCE_LOCKED",
+      "attempt": 1,
+      "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_hit_attempt01.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_hit_attempt01.png",
+      "sha256": null,
+      "qaStatus": "PENDING"
+    },
+    "rebound": {
+      "stage": "SOURCE_LOCKED",
+      "attempt": 1,
+      "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_rebound_attempt01.png",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_rebound_attempt01.png",
+      "sha256": null,
+      "qaStatus": "PENDING"
+    }
+  },
+  "qa": {
+    "static": "PENDING",
+    "compositeVisual": "PENDING",
+    "locality": "PENDING",
+    "transition": "PENDING",
+    "runtimePC": "PENDING",
+    "runtimeXperia": "PENDING",
+    "screenshots": "PENDING"
+  },
+  "blocker": null,
+  "updatedAt": "2026-09-19T13:31:00+09:00",
+  "notes": [
+    "No image-generation model will be used for attempt01; deterministic local BD cue addition preserves exact RC+SN parent outside the cue region."
+  ]
+}
