@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:56:00+09:00",
+  "updatedAt": "2026-09-19T22:05:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -453,6 +453,32 @@
       "handoffNote": "DONE. For new routine imports use tools/build-character-import-staging.mjs then commit the generated character-assets/staging/*.json; workflow handles validation/download/SHA/registration automatically. SchemaVersion 2 is exact-byte only.",
       "lastCommit": "42bc80d3d66525f21ab2566d0766f0b497f45f6e",
       "result": "Existing Dropbox->staging JSON->GitHub import path generalized and hardened. Added deterministic one-image staging builder, validator, reusable Python importer, multi-staging serial workflow processing, exact-byte SHA guards, and backward compatibility. No-op regression run 35441602584 succeeded without formal PNG rewrite."
+    },
+    {
+      "taskId": "RTP-AUTOPILOT-001",
+      "category": "runtime_pose_autopilot",
+      "description": "Build a GitHub Actions autopilot loop for SN:L/runtime-pose work: rebuild numeric constraints, run tests/source QA, invoke retry controller on hard failures, emit machine-readable status/next-action evidence, and stop safely before formal promotion. AI/pixel rendering remains optional and must only run when an explicit renderer/API is configured.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T22:05:00+09:00",
+      "startedAt": "2026-09-19T22:05:00+09:00",
+      "completedAt": null,
+      "paths": [
+        ".github/workflows/runtime-pose-autopilot.yml",
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
+        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json"
+      ],
+      "dependsOn": [
+        "RTP-SNL-003"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/**",
+        "character-assets/layers/drum/**",
+        "character-assets/edit-workspaces/**"
+      ],
+      "handoffNote": "Autopilot must never promote formal PNGs automatically. It may compute/rebuild/QA/retry-decision autonomously and emit nextAction. Pixel rendering is a pluggable stage only when an explicit renderer is configured; otherwise status must be NEEDS_RENDERER rather than looping or fabricating assets."
     }
   ]
 }
