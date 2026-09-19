@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "profileId": "luna_video_appearance_v1",
+  "status": "PROVISIONAL_KEY_VIEWS_OBSERVED",
+  "sourceVideoSha256": "33c0feabad6ea0cfa1c0752ed359f719b7c4443c540d01da633b964a036b0479",
+  "observedViewIndices": [0,2,5,7,10],
+  "pendingViewIndices": [1,3,4,6,8,9,11],
+  "appearance": {
+    "hair": "long dark-teal, lower-back/waist mass, side locks; crown/cowlick geometry handled by deterministic cowlick tool",
+    "jacket": "long gray check jacket with lapels, roughly upper-thigh hem",
+    "innerTop": "dark teal/black inner top",
+    "bottom": "dark short skirt",
+    "boots": "black ankle boots"
+  },
+  "numericRatiosMedian": {
+    "shoulderWidthHeads": 0.8771,
+    "hipWidthHeads": 0.533,
+    "hairWidthHeads": 1.4674,
+    "hairLengthHeads": 2.2758,
+    "jacketLengthHeads": 1.9583,
+    "skirtLengthHeads": 0.3071
+  },
+  "targetRuntime": {
+    "headCount": 4.0,
+    "camera": "existing DTX three-quarter-back over-shoulder camera",
+    "fixedDrumRegistration": "authoritative",
+    "instrumentContactPriority": "higher than cosmetic exactness"
+  },
+  "note": "Ratios are provisional medians from manually reviewed key views. Intermediate yaw views remain intentionally unresolved rather than guessed."
+}
