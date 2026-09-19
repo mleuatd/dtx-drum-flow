@@ -162,7 +162,7 @@
       "GitHub main is the coordination authority; Dropbox is exact-byte storage and recovery support."
     ]
   },
-  "updatedAt": "2026-09-19T17:54:00+09:00",
+  "updatedAt": "2026-09-19T19:20:00+09:00",
   "masterImageEditRule": {
     "path": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
     "mustReadBeforeAnyImageEdit": true,
@@ -171,5 +171,16 @@
     "promoteNewStableRulesFromFailures": true,
     "precedence": "HIGHEST_LEVEL_COMMON_IMAGE_EDIT_RULE",
     "note": "Read before this playbook for every character-image generation/edit. Preserve task-specific ledgers and workspace constraints unless they conflict with the master rule."
+  },
+  "lineStyleNormalization": {
+    "status": "CURRENT_MANDATORY",
+    "spec": "character-assets/prototypes/luna_say_maybe_16m/LINE_STYLE_DETERMINISTIC_TOOL_SPEC.md",
+    "normalizeTool": "tools/line_style/normalize_line_style.py",
+    "verifyTool": "tools/line_style/verify_line_style_normalization.py",
+    "propagateTool": "tools/line_style/propagate_line_style.py",
+    "profile": "tools/line_style/profiles/luna_pencil_style_v1.json",
+    "rule": "For line-style-only work, prefer deterministic raster normalization over generative image editing. Preserve geometry and build apparent thickness from repeated fine 1px-equivalent retraces.",
+    "formalOverwriteAllowed": false,
+    "candidateChainingAllowed": false
   }
 }
