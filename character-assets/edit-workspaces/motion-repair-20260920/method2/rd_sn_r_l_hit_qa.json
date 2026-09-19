@@ -1,0 +1,56 @@
+{
+  "id": "rd_sn_r_l_hit",
+  "actionKey": "RD+SN:R/L",
+  "phase": "hit",
+  "source": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
+  "sourceSha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method2/rd_sn_r_l_hit_candidate.png",
+  "candidateSha256": "de09771f6a368937490a6c5d9e0a8ed19ddba49ed10371e73f4187d96bc28058",
+  "hasActiveBDRightFoot": false,
+  "changedPixelsVsNeutral": 4163,
+  "changedRatioVsNeutral": 0.00264733,
+  "changedBBoxVsNeutral": {
+    "x": 401,
+    "y": 189,
+    "width": 653,
+    "height": 355
+  },
+  "outsideMaskChangedPixels": 0,
+  "headGuardChangedPixels": 0,
+  "torsoGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "leftLegGuardChangedPixels": null,
+  "sourceLocalPreservation": [
+    {
+      "part": "RD",
+      "limb": "R",
+      "radiusPx": 55,
+      "sourceRelevantPixels": 525,
+      "preservedPixels": 0,
+      "preserveRatio": 0.0,
+      "threshold": 0.55,
+      "pass": false
+    },
+    {
+      "part": "SN",
+      "limb": "L",
+      "radiusPx": 55,
+      "sourceRelevantPixels": 348,
+      "preservedPixels": 348,
+      "preserveRatio": 1.0,
+      "threshold": 0.55,
+      "pass": true
+    }
+  ],
+  "checks": {
+    "changedVisible": true,
+    "ratioWithinLimit": true,
+    "outsideMaskZero": true,
+    "headLocked": true,
+    "torsoLocked": true,
+    "stoolLocked": true,
+    "leftLegLocked": true,
+    "localContactSourcePreservation": false
+  },
+  "pass": false
+}
