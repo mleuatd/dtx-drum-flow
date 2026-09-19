@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 05
+- Reviewed RC+SN:R/L and LT:R from current-main full-resolution Batch Prep evidence (run 35475413657, artifact 10593488275).
+- RC+SN:R/L hit/rebound both failed static hard gates because a horizontal/rectangular splice cuts through lower hair/torso geometry and remains visible over the fixed drum.
+- LT:R hit/rebound both failed static hard gates because the right-hand active stick reads as duplicated/crossing two-stick geometry.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY. Formal PNGs were not changed. No minimal retry was attempted because these are structural failures; runtime QA was not entered.
+
 ## 2026-09-20 — Visual Integrity Batch 04
 - Reviewed RD:R and BD+SN:RF/L from current-main full-resolution Batch Prep evidence (run 35475145116, artifact 10593238245).
 - RD:R hit passed static visual review; rebound failed anatomy/linework/composite due a hard rectangular splice through hair/torso and right forearm/hand-stick geometry. Pair moved to HOLD_VISUAL_INTEGRITY; formal PNGs unchanged.
