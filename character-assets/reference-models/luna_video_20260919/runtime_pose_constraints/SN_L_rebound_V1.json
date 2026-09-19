@@ -1,9 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "authority": "tool",
   "actionKey": "SN:L",
-  "instrument": "SN",
-  "limb": "L",
+  "actionComponents": [
+    {
+      "part": "SN",
+      "limb": "L"
+    }
+  ],
+  "instruments": [
+    "SN"
+  ],
+  "limbs": [
+    "L"
+  ],
   "targetHeadCount": 4,
   "camera": "three-quarter-back / over-shoulder; face slightly screen-left; gaze right; drum rightward",
   "stoolAnchor": [
@@ -19,26 +29,25 @@
     "width": 1448,
     "height": 1086
   },
-  "contactPoint": [
-    420,
-    535
-  ],
   "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
   "appearanceProfileId": "luna_video_appearance_v1",
   "retargetProfileId": "luna_chibi_retarget_v1",
+  "minimalMotionRule": "neutral whole-body baseline; only actionKey limbs may differ by phase",
   "forbiddenMovementZones": [
     "camera",
     "stool",
     "pelvis beyond tolerance",
+    "inactive limbs",
     "wrong limb",
     "wrong instrument",
     "fixed drum pixels in character layer"
   ],
   "tolerancesPx": {
-    "stickTip": 8,
+    "effector": 8,
     "stool": 12,
     "hip": 18,
-    "transitionJoint": 120
+    "transitionJoint": 120,
+    "reboundSeparation": 16
   },
   "phase": "rebound",
   "sourceFrameSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
@@ -56,25 +65,13 @@
       650,
       312
     ],
-    "shoulder_l": [
-      694,
-      348
-    ],
     "shoulder_r": [
       875,
       370
     ],
-    "elbow_l": [
-      657,
-      474
-    ],
     "elbow_r": [
       920,
       468
-    ],
-    "wrist_l": [
-      593,
-      496
     ],
     "wrist_r": [
       975,
@@ -103,12 +100,45 @@
     "ankle_r": [
       650,
       902
+    ],
+    "shoulder_l": [
+      635,
+      342
+    ],
+    "elbow_l": [
+      657,
+      474
+    ],
+    "wrist_l": [
+      593,
+      496
     ]
   },
+  "effectors": [
+    {
+      "part": "SN",
+      "limb": "L",
+      "kind": "stick",
+      "target": [
+        420,
+        535
+      ],
+      "point": [
+        438,
+        418
+      ],
+      "rule": "preserve source rebound tip away from contact; validate continuity, do not force contact"
+    }
+  ],
+  "instrument": "SN",
+  "limb": "L",
+  "contactPoint": [
+    420,
+    535
+  ],
   "stickTip": [
     438,
     418
   ],
-  "reboundRule": "preserve source rebound tip away from contact; validate continuity, do not force contact",
-  "minimalMotionRule": "neutral whole-body baseline; only active left arm may differ for SN:L"
+  "reboundRule": "preserve source rebound tip away from contact; validate continuity, do not force contact"
 }
