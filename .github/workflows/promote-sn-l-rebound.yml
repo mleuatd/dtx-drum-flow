@@ -1,0 +1,30 @@
+name: Promote SN-L rebound repair
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/character_layers/promote_sn_l_rebound.py'
+      - '.github/workflows/promote-sn-l-rebound.yml'
+permissions:
+  contents: write
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Promote verified candidate
+        run: python tools/character_layers/promote_sn_l_rebound.py
+      - name: Character validation
+        run: python tools/character_layers/validate_assets.py
+      - name: Runtime pose tests
+        run: python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+      - name: Commit formal repair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/character/sn/rebound_l.png character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
+          git commit -m "fix: promote neutral-locked SN-L rebound repair"
+          git push
