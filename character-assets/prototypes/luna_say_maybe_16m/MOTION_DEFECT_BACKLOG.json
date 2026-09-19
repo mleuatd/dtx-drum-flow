@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19T21:40:00+09:00",
+  "authority": "GitHub main + public/local runtime QA evidence",
+  "backup": {
+    "branch": "backup/pre-motion-qa-20260919-2138",
+    "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+    "purpose": "Known-good restore point before motion-quality edits"
+  },
+  "policy": {
+    "detectBeforeEdit": true,
+    "oneDefectAtATime": true,
+    "preserveKnownGoodByDefault": true,
+    "rollbackOnRegression": true,
+    "noBulkRegeneration": true
+  },
+  "sweepCoverage": [
+    {
+      "measures": "M1-4",
+      "evidence": "existing live character QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M5-8",
+      "evidence": "existing implementation/runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M9-16",
+      "evidence": "existing runtime/reusable transition QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M17",
+      "evidence": "existing final live QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M18-24",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M25-28",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M29-40",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M41-45",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M46",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M47",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M48-53",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M54",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M55-67",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M68",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M69-104",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M105-106",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M107-135",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M136",
+      "evidence": "public runtime QA history",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    },
+    {
+      "measures": "M137-148",
+      "evidence": "public runtime QA run 35443377688 / artifact public-runtime-qa-35443377688",
+      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+    }
+  ],
+  "defects": [],
+  "defectSchema": {
+    "required": [
+      "issueId",
+      "status",
+      "severity",
+      "measures",
+      "time",
+      "actionKey",
+      "limb",
+      "part",
+      "phase",
+      "symptom",
+      "causeCategory",
+      "evidence",
+      "fixDecision",
+      "relatedAsset",
+      "relatedCode",
+      "updatedAt"
+    ],
+    "statusValues": [
+      "OPEN",
+      "ANALYZING",
+      "FIX_DECIDED",
+      "FIX_IN_PROGRESS",
+      "FIXED_PENDING_QA",
+      "VERIFIED",
+      "BLOCKED",
+      "REJECTED"
+    ],
+    "severityValues": [
+      "CRITICAL",
+      "HIGH",
+      "MEDIUM",
+      "LOW"
+    ],
+    "causeCategories": [
+      "runtime_mapping",
+      "action_key_asset_map",
+      "asset_inventory",
+      "limb_sidecar",
+      "contact_point",
+      "transition_timing",
+      "phase_definition",
+      "image_pose",
+      "appearance_consistency",
+      "excessive_neutral_delta",
+      "camera_stool_body_lock",
+      "line_style",
+      "cowlick_hair",
+      "fixed_drum_composite",
+      "combo_contact",
+      "web_frame_selection",
+      "qa_gap",
+      "unknown"
+    ]
+  }
+}
