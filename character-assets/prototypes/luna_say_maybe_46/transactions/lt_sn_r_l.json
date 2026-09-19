@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe LT+SN:R/L transaction for Luna M46",
-  "status": "CANDIDATE_SAVE_IMPORT_PENDING",
+  "status": "DONE",
   "actionKey": "LT+SN:R/L",
   "scope": {
     "measureStart": 46,
@@ -56,38 +56,47 @@
   ],
   "phases": {
     "hit": {
-      "stage": "CANDIDATE_IMPORT",
+      "stage": "DONE",
       "attempt": 1,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/lt_sn_r_l_hit_attempt01.png",
       "candidatePath": "character-assets/candidates/m46/lt_sn_r_l_hit_attempt01.png",
       "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
-      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png",
-      "formalCommit": null
+      "formalCommit": "744285c4f4cc24ec0216fab08d33894f1d4106f8"
     },
     "rebound": {
-      "stage": "CANDIDATE_IMPORT",
+      "stage": "DONE",
       "attempt": 1,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/lt_sn_r_l_rebound_attempt01.png",
       "candidatePath": "character-assets/candidates/m46/lt_sn_r_l_rebound_attempt01.png",
       "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
-      "qaStatus": "PASS_LOCAL_PENDING_REPO_IMPORT",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
-      "formalCommit": null
+      "formalCommit": "744285c4f4cc24ec0216fab08d33894f1d4106f8"
     }
   },
   "qa": {
-    "static": "PASS_LOCAL",
+    "static": "PASS",
     "compositeVisual": "PASS",
     "contact": "PASS_LT_SN",
-    "transition": "PASS_VISUAL",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING"
+    "transition": "PASS",
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS",
+    "publicRuntime": "PASS",
+    "runtimeQaRun": 35418698275,
+    "runtimeQaArtifact": 10576564303
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T12:28:00+09:00",
+  "updatedAt": "2026-09-19T12:36:00+09:00",
   "notes": [
     "Reused successful FT+SN SN-local-delta strategy; avoided fresh redraw and all rejected full-character edit strategies."
-  ]
+  ],
+  "publicQa": {
+    "status": "PASS",
+    "runId": 35418698275,
+    "artifactId": 10576564303,
+    "measureRange": "46"
+  }
 }
