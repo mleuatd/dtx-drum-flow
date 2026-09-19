@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_WITH_PENDING_VIEWS",
+  "sourceVideoSha256": "33c0feabad6ea0cfa1c0752ed359f719b7c4443c540d01da633b964a036b0479",
+  "viewCount": 12,
+  "observedViews": 5,
+  "pendingViews": 7,
+  "checks": {
+    "videoMetadata": true,
+    "keyFrontViewObserved": true,
+    "keyBackViewObserved": true,
+    "sideViewsObserved": true,
+    "normalizedCoordinatePolicyDefined": true,
+    "headUnitPolicyDefined": true,
+    "appearanceRatiosComputed": true,
+    "formalRuntimeAssetsModified": false
+  },
+  "warnings": [
+    "Seven intermediate yaw views remain unobserved and must not be treated as exact geometry.",
+    "This is a normalized multiview appearance model, not metric 3D."
+  ]
+}
