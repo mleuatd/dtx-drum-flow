@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "HT:R",
+  "status": "APPROVED_FOR_PROMOTION",
+  "visualQA": {
+    "status": "PASS_PRE_RUNTIME",
+    "checkedAt": "2026-09-19T10:24:00+09:00",
+    "evidence": [
+      "approved HH:R hit/rebound formal parents",
+      "fixed-drum composite review",
+      "HT contact authority (575,360)",
+      "local-diff-only validation"
+    ],
+    "note": "Retry-controller forced approved-limb-patch strategy. attempt05 preserves approved HH:R right arm/hand pose and changes only exposed stick shaft. hit/rebound show no duplicate stick or detached shaft; final approval remains runtime screenshot QA."
+  },
+  "dropbox": [
+    "/ChatGPT/dtx-drum-flow/ht_r_hit_attempt05.png",
+    "/ChatGPT/dtx-drum-flow/ht_r_rebound_attempt05.png"
+  ],
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "ht_r_hit_refresh",
+      "candidatePath": "character-assets/candidates/m25_28/ht_r_hit_attempt05.png",
+      "formalPath": "character-assets/layers/character/ht/hit_r_refresh.png",
+      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "ht_r_rebound_refresh",
+      "candidatePath": "character-assets/candidates/m25_28/ht_r_rebound_attempt05.png",
+      "formalPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
+      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc"
+    }
+  ]
+}
