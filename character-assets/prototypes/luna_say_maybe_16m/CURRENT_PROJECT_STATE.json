@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:24:00+09:00",
+  "updatedAt": "2026-09-19T15:29:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 68,
-    "status": "COMPLETE_LIVE_QA"
+    "measureEnd": 104,
+    "status": "RUNTIME_QA_PENDING_M69_104"
   },
   "completedMeasureBlocks": [
     {
@@ -166,7 +166,8 @@
     "m54LiveRuntimeQa": "SUCCESS browser QA run 35420373297 artifact 10576732695 (workflow ledger persistence step conflicted after evidence upload)",
     "m55_67MappingPreflight": "PASS: 194 notes / 129 groups / 17 actionKeys; all present in asset_inventory.runtimePhaseFrameMap",
     "m55_67LiveRuntimeQa": "SUCCESS run 35420829149 artifact 10576863064; 70/70 PC/Xperia records PASS; screenshot review PASS",
-    "m68LiveRuntimeQa": "SUCCESS run 35426237555 artifact 10579760232; 6/6 PC/Xperia hit/rebound/neutral PASS; screenshot review PASS"
+    "m68LiveRuntimeQa": "SUCCESS run 35426237555 artifact 10579760232; 6/6 PC/Xperia hit/rebound/neutral PASS; screenshot review PASS",
+    "m69_104MappingPreflight": "PASS: 550 notes / 389 groups / 20 actionKeys; all present in asset_inventory.runtimePhaseFrameMap"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -254,9 +255,9 @@
   "nextRecommendedBlock": {
     "blockId": "M69-104",
     "measures": "69-104",
-    "reason": "M68 complete; next contiguous block is reuse-only."
+    "reason": "Runtime scope expanded through M104 using existing formal mappings; public PC/Xperia QA pending."
   },
-  "nextRecommendedWork": "M69-104 action coverage check using authoritative full-song inventory and runtimePhaseFrameMap, then expand runtime scope and run PC/Xperia public QA. Generate no images.",
+  "nextRecommendedWork": "Inspect M69-104 public runtime QA when complete; if PASS close block and release M105-106. Generate no M69-104 images.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
