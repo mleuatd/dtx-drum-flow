@@ -4,7 +4,7 @@
     "measureStart": 105,
     "measureEnd": 106
   },
-  "status": "M105_106_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIRS",
   "analysis": {
@@ -29,8 +29,8 @@
       }
     }
   },
-  "requiredNext": "Run/inspect M105-106 public PC/Xperia runtime QA for both formal pairs; do not regenerate formal bytes.",
-  "updatedAt": "2026-09-19T06:41:53.518716+00:00",
+  "requiredNext": "M105-106 complete. Continue M107-135 reuse-only; do not regenerate formal M105-106 bytes.",
+  "updatedAt": "2026-09-19T15:46:00+09:00",
   "blocker": null,
   "runtimeQaEvidence": {
     "M105-106": {
@@ -45,7 +45,13 @@
       "actions": [
         "BD+FT+SN:RF/R/L",
         "BD+FT:RF/L"
-      ]
+      ],
+      "artifactId": 10579925003,
+      "passed": 12,
+      "failed": 0,
+      "runtimeScope": "1-106",
+      "screenshotsReviewed": true,
+      "visualReview": "PASS_NO_REGISTRATION_DRIFT_OR_WRONG_CHARACTER"
     }
   }
 }
