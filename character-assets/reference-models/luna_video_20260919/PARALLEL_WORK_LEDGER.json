@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:02:00+09:00",
+  "updatedAt": "2026-09-19T21:09:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -316,10 +316,10 @@
       "category": "renderer_source_bridge",
       "description": "Autonomously bridge canonical Dropbox source PNGs into the current working/conversation environment and determine whether they become usable exact-source image-edit targets without user upload. Verify SHA256 after download. Do not edit/promote formal PNGs.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T21:02:00+09:00",
       "startedAt": "2026-09-19T21:02:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T21:09:00+09:00",
       "paths": [
         "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
         "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**"
@@ -334,7 +334,36 @@
         "character-assets/edit-workspaces/**",
         "tools/runtime_pose/**"
       ],
-      "handoffNote": "Current terminal tests Dropbox download -> local exact-byte SHA verification -> current-conversation attachment/preview handoff. No formal image mutation. If direct image-edit target bridge succeeds, resume RTP-SNL-002; otherwise record precise boundary.",
+      "handoffNote": "DONE: exact-byte source acquisition solved. Renderer-parent handoff remains unavailable; use deterministic local processing or a true user/current-conversation image attachment only if needed.",
+      "lastCommit": "4f79a16e4069c4c8de5ab6f4ac701871f0e139a0",
+      "result": "Canonical neutral/hit/rebound/drum were materialized from Dropbox Library into /mnt/data and SHA-verified against GitHub formal bytes. image_gen did not bind tool-generated/conversation-displayed images as edit parents; test candidate edit_op=null fresh redraw was rejected. Local deterministic byte processing is available."
+    },
+    {
+      "taskId": "RTP-SNL-DET-001",
+      "category": "deterministic_candidate_fallback",
+      "description": "Create an SN:L hit candidate from exact approved neutral bytes using deterministic local raster/geometry processing only. Static body/head/legs/stool must remain byte-identical outside the active left-arm/stick edit mask. Validate contact, canvas, alpha, changed-region locality, fixed-drum composite and transition evidence. No formal overwrite.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T21:09:00+09:00",
+      "startedAt": "2026-09-19T21:09:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_candidates/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_debug/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json"
+      ],
+      "dependsOn": [
+        "RTP-BRIDGE-001",
+        "RTP-SNL-001"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/sn/hit_l.png",
+        "character-assets/layers/character/sn/rebound_l.png",
+        "character-assets/layers/character/base/neutral.png",
+        "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
+      ],
+      "handoffNote": "Candidate-only deterministic fallback. Preserve neutral everywhere outside explicitly generated left-arm/stick mask. TERM-A formal SN:L hit claim remains protected.",
       "lastCommit": null
     }
   ]
