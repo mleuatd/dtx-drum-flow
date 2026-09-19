@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "type": "runtime_character_prototype_plan",
+  "status": "READY_FOR_NUMERIC_POSE_AND_RENDER",
+  "actionKey": "SN:L",
+  "targetHeadCount": 4,
+  "northStar": "DTX Drum Flow runtime-ready character frames that visually perform the chart correctly against the fixed drum.",
+  "appearanceModel": "character-assets/reference-models/luna_video_20260919/APPEARANCE_MODEL_V1.json",
+  "retargetProfile": "character-assets/reference-models/luna_video_20260919/CHIBI_RETARGET_PROFILE_V1.json",
+  "sourceFrames": {
+    "neutral": {
+      "id": "neutral",
+      "path": "layers/character/base/neutral.png",
+      "state": "ready",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+    },
+    "hit": {
+      "id": "sn_l_hit",
+      "path": "layers/character/sn/hit_l.png",
+      "state": "ready",
+      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+    },
+    "rebound": {
+      "id": "sn_l_rebound",
+      "path": "layers/character/sn/rebound_l.png",
+      "state": "ready",
+      "sha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777"
+    }
+  },
+  "instrumentContacts": {
+    "SN": {
+      "screenSide": "center-left",
+      "relativePosition": "in front/left of seated character",
+      "expectedLimbDefault": "L",
+      "target": "stick tip to snare head",
+      "approximate": {
+        "x": 420,
+        "y": 535
+      },
+      "tolerance": "visual contact around effect point",
+      "commonWrongTarget": "HT",
+      "qa": "Recalibrated 2026-09-19 against current locked drum_base.png; use fixed-drum composite as final visual authority."
+    }
+  },
+  "transition": {
+    "normalSingle": "neutral -> hit -> rebound -> neutral",
+    "hitEndSeconds": 0.18,
+    "reboundEndSeconds": 0.28,
+    "returnToNeutralAfterNonRapidHit": true
+  },
+  "fixedDrum": {
+    "path": "character-assets/layers/drum/drum_base.png",
+    "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+    "canvas": [
+      1448,
+      1086
+    ]
+  },
+  "pipeline": [
+    "derive numeric pose from the existing formal source frame; do not use video pose as runtime motion",
+    "apply video-derived appearance constraints",
+    "retarget/validate at 4.0 heads while preserving runtime camera and stool registration",
+    "force SN:L stick/contact to the authoritative snare target",
+    "render constrained candidate",
+    "apply deterministic cowlick normalization",
+    "apply deterministic pencil-line normalization",
+    "fixed-drum composite QA",
+    "neutral -> hit -> rebound -> neutral transition QA",
+    "runtime PC/Xperia visual QA"
+  ],
+  "formalOverwriteAllowed": false
+}
