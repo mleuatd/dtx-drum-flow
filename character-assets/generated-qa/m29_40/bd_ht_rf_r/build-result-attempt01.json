@@ -1,0 +1,37 @@
+{
+  "actionKey": "BD+HT:RF/R",
+  "status": "CANDIDATE_VISUAL_QA_REQUIRED",
+  "method": "preserve formal HT:R pair exactly; add only the previously approved deterministic BD kick cue used by M17 BD+LT",
+  "source": {
+    "hit": {
+      "path": "character-assets/layers/character/ht/hit_r_refresh.png",
+      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc"
+    },
+    "rebound": {
+      "path": "character-assets/layers/character/ht/rebound_r_refresh.png",
+      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc"
+    }
+  },
+  "hit": {
+    "path": "character-assets/review-candidates/m29_40/bd_ht_rf_r_hit_attempt01.png",
+    "sha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
+    "changedPixelRatio": 0.00034593978612781456,
+    "diffBBox": [
+      448,
+      791,
+      497,
+      821
+    ]
+  },
+  "rebound": {
+    "path": "character-assets/review-candidates/m29_40/bd_ht_rf_r_rebound_attempt01.png",
+    "sha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
+    "changedPixelRatio": 7.185881586846148e-05,
+    "diffBBox": [
+      469,
+      809,
+      483,
+      821
+    ]
+  }
+}
