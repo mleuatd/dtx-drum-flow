@@ -1,3 +1,10 @@
+## 2026-09-20 09:06 JST — Visual Integrity Batch 12
+- Processed BD+FT:RF/L + BD+FT:RF/R as the final two normal-queue 2x4 targets while BD+RD runtime QA remained separate.
+- Evidence: run 35476984329 / artifact 10594531751.
+- BD+FT:RF/L -> HOLD_VISUAL_INTEGRITY: broken left-stick continuity with detached fragment.
+- BD+FT:RF/R -> HOLD_VISUAL_INTEGRITY: forked/duplicated right-stick geometry.
+- Formal PNGs unchanged; runtime QA blocked by static hard-gate failures.
+
 ## 2026-09-20 08:58 JST — Visual Integrity Batch 11
 - Reconnected and resumed existing FRONT CLAIM for BD+HT:RF/L + BD+FT+SN:RF/R/L.
 - Correct evidence required explicit FRONT override because the previous Prep run had incorrectly consumed the BACK override.
