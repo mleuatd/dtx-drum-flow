@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "profileId": "luna_3q_back_left_v1",
+  "status": "PROVISIONAL_VIDEO_CALIBRATED_TOOL_PROFILE",
+  "canvas": {"width": 1448, "height": 1086},
+  "roi": {"x": 585, "y": 20, "width": 245, "height": 165},
+  "reference": {
+    "type": "user_360_video",
+    "filename": "GAME_20260918-125902~2.mp4",
+    "sha256": "2387e59543b938e8b60f0d734230968fe0999b55283a8834c8ee81e8b3bf707c",
+    "selectedFrameIndices": [0,151,303,454,606,757,909,1060,1211]
+  },
+  "render": {
+    "baseWidth": 2,
+    "rgba": [18,18,18,220],
+    "samplesPerBezier": 72,
+    "passes": [
+      {"dx": 0, "dy": 0, "alphaScale": 1.0},
+      {"dx": 1, "dy": 0, "alphaScale": 0.62},
+      {"dx": -1, "dy": 1, "alphaScale": 0.50},
+      {"dx": 0, "dy": -1, "alphaScale": 0.42}
+    ]
+  },
+  "strands": [
+    {"id": "left_arch", "bezier": [[0.34,0.55],[0.30,0.20],[0.47,0.08],[0.57,0.50]]},
+    {"id": "right_arch", "bezier": [[0.45,0.52],[0.54,0.11],[0.72,0.12],[0.78,0.58]]}
+  ],
+  "topologyRules": {
+    "requiredStrandCount": 2,
+    "forbidFloatingTips": true,
+    "forbidV": true,
+    "forbidU": true,
+    "forbidSingleFork": true,
+    "requireNarrowNegativeSpace": true
+  }
+}
