@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-19T18:35:00+09:00",
+  "updatedAt": "2026-09-19T18:38:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -167,10 +167,26 @@
       ],
       "usageCount": 314,
       "qaState": "ready",
-      "brushupStatus": "CLAIMED",
+      "brushupStatus": "CLAIMED_RETRYING",
       "terminalId": "TERM-A",
       "claimState": "CLAIMED",
-      "claimedAt": "2026-09-19T18:31:00+09:00"
+      "claimedAt": "2026-09-19T18:31:00+09:00",
+      "attempts": [
+        {
+          "attempt": 1,
+          "terminalId": "TERM-A",
+          "sourcePath": "character-assets/layers/character/sn/hit_l.png",
+          "sourceSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+          "candidateFile": "sn_l_hit_TERM-A_try01.png",
+          "candidateSha256": "b6f3a419c1c00337444e2f80f4ef9bac907b3d192f9ea4dc029e0175fc0eaab0",
+          "status": "REJECTED",
+          "failurePattern": "FAIL-BRUSHUP-DIAGRAM-INSTEAD-OF-EDIT",
+          "failure": "Output was a QA/documentation sheet, not a transparent character layer.",
+          "prohibitedRepeat": "Do not repeat presentation/diagram generation strategy.",
+          "nextPermittedStrategy": "Explicit exact-source edit target; character-only transparent layer; no labels/panels/drum pixels.",
+          "timestamp": "2026-09-19T18:38:00+09:00"
+        }
+      ]
     },
     {
       "order": 2,
