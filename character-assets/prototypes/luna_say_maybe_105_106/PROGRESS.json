@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 105,
+    "measureEnd": 106
+  },
+  "status": "SOURCE_LOCKED",
+  "sourceOfTruth": "GitHub main",
+  "blockType": "NEW_PAIRS",
+  "analysis": {
+    "noteCount": 16,
+    "groupCount": 8,
+    "newCharacterPngRequired": 4,
+    "requiredActionKeys": [
+      "BD+FT+SN:RF/R/L",
+      "BD+FT:RF/L"
+    ],
+    "formalPairsReady": false,
+    "allMapped": false
+  },
+  "requiredNext": "Build deterministic attempt01 pairs from formal FT+SN:R/L and FT:L plus approved BD cue only; no generative redraw.",
+  "updatedAt": "2026-09-19T15:38:00+09:00",
+  "blocker": null
+}
