@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:22:00+09:00",
+  "updatedAt": "2026-09-20T08:25:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -2301,7 +2301,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
     },
     {
       "order": 24,
@@ -2340,7 +2343,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
     },
     {
       "order": 25,
@@ -2379,7 +2385,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
     },
     {
       "order": 26,
@@ -2418,7 +2427,10 @@
         "historicalEvidencePreserved": true,
         "normalizedAt": "2026-09-20T06:13:00+09:00"
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:25:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-07"
     },
     {
       "order": 27,
@@ -4105,30 +4117,42 @@
       "summary": "LT:L: duplicated/discontinuous left-stick geometry and detached segment. BD+SN:RF/R: disconnected right hand/stick plus floating artifact. No retries; formal PNGs unchanged.",
       "workflowRunId": 35475549511,
       "workflowArtifactId": 10594285311
+    },
+    {
+      "batchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
+      "startedAt": "2026-09-20T08:25:00+09:00",
+      "updatedAt": "2026-09-20T08:25:00+09:00",
+      "terminalId": "CHAT-FRONT-2X4",
+      "actionKeys": [
+        "FT:R",
+        "FT:L"
+      ],
+      "imageCount": 4,
+      "targets": [
+        "ft_r_hit",
+        "ft_r_rebound",
+        "ft_l_hit",
+        "ft_l_rebound"
+      ],
+      "result": "IN_PROGRESS",
+      "summary": "Claimed after excluding active BACK-BATCH-02 keys."
     }
   ],
   "activeVisualIntegrityBatch": {
-    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-06",
+    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-07",
     "terminalId": "CHAT-FRONT-2X4",
-    "startedAt": "2026-09-20T08:18:00+09:00",
+    "startedAt": "2026-09-20T08:25:00+09:00",
     "actionKeys": [
-      "LT:L",
-      "BD+SN:RF/R"
+      "FT:R",
+      "FT:L"
     ],
     "frameIds": [
-      "lt_l_hit",
-      "lt_l_rebound",
-      "bd_sn_rf_r_hit",
-      "bd_sn_rf_r_rebound"
+      "ft_r_hit",
+      "ft_r_rebound",
+      "ft_l_hit",
+      "ft_l_rebound"
     ],
-    "stage": "HOLD_COMPLETE",
-    "note": "Front-queue batch; active BACK-BATCH-01 keys excluded.",
-    "updatedAt": "2026-09-20T08:22:00+09:00",
-    "staticDisposition": {
-      "LT:L": "HOLD_BOTH_STATIC_HARD_FAIL",
-      "BD+SN:RF/R": "HOLD_BOTH_STATIC_HARD_FAIL"
-    },
-    "visualQaRunId": 35475549511,
-    "visualQaArtifactId": 10594285311
+    "stage": "STATIC_QA_PENDING",
+    "note": "Front-queue batch; active BACK-BATCH-02 keys excluded."
   }
 }
