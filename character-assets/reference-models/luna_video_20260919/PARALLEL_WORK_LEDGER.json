@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:17:00+09:00",
+  "updatedAt": "2026-09-19T20:22:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -25,10 +25,10 @@
       "category": "runtime_pose_prototype",
       "description": "Run and harden the SN:L tool-authority-first numeric constraint/validation pipeline for neutral/hit/rebound; record machine QA without modifying formal character PNGs.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T20:12:00+09:00",
       "startedAt": "2026-09-19T20:12:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T20:22:00+09:00",
       "paths": [
         "tools/runtime_pose/**",
         "character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/**",
@@ -44,17 +44,17 @@
         "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json",
         "formal character PNGs unless this ledger task explicitly reaches promotion after QA"
       ],
-      "handoffNote": "Numeric/runtime-pose authority only. TERM-A currently owns the formal SN:L hit brush-up path. This task may read formal assets/SHA metadata but must not overwrite them.",
-      "lastCommit": null
+      "handoffNote": "DONE: source-nearest IK, phase-aware contact QA, minimal-motion single-hand sanitization, refreshed SN:L constraints/render packages, and machine QA evidence committed. Formal PNGs untouched.",
+      "lastCommit": "3cac4e8ec8a1d8f3c602bacaa6842a3afa21213b"
     },
     {
       "taskId": "RTP-SNL-002",
       "category": "candidate_render",
       "description": "Produce constrained neutral/SN:L hit/rebound candidates from numeric packages, then deterministic cowlick/line-style postprocess and fixed-drum composite/transition QA.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "CLAIMED",
+      "status": "BLOCKED",
       "claimedAt": "2026-09-19T20:12:00+09:00",
-      "startedAt": null,
+      "startedAt": "2026-09-19T20:20:00+09:00",
       "completedAt": null,
       "paths": [
         "character-assets/reference-models/luna_video_20260919/runtime_pose_candidates/**",
@@ -69,8 +69,10 @@
         "character-assets/layers/character/sn/rebound_l.png",
         "character-assets/layers/character/base/neutral.png"
       ],
-      "handoffNote": "Candidate-only until runtime QA. AI is constrained renderer only; no free redraw. If image bytes cannot be supplied to renderer in this environment, record BLOCKED with exact reason and keep numeric artifacts complete.",
-      "lastCommit": null
+      "handoffNote": "Resume only in an environment/session where exact GitHub formal neutral/hit/rebound PNG bytes can be supplied as edit targets. Use committed AI_RENDER_SN_L_* packages; then deterministic cowlick/line-style, composite QA, transition QA, runtime QA.",
+      "lastCommit": "3cac4e8ec8a1d8f3c602bacaa6842a3afa21213b",
+      "blocker": "Pixel candidate render cannot start in this turn because the image-edit renderer requires an actual usable image target in the conversation, while the GitHub connector available here cannot hand repository PNG bytes to that renderer. Text-only/free redraw is explicitly prohibited.",
+      "currentState": "CONSTRAINT_READY_AND_QA_PASS"
     },
     {
       "taskId": "OTHER-001",
