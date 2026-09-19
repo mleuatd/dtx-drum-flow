@@ -4,12 +4,14 @@
   "purpose": "Compact pre-generation memory for character-image work. Read before the first generation/edit attempt in every character-asset session.",
   "readPolicy": {
     "when": [
+      "Before any character-image edit, normalization, retry, or local correction",
       "Before any NEW_IMAGE_REQUIRED character hit/rebound generation or edit",
       "Before retrying a rejected character candidate",
       "Before deriving rebound from an accepted hit"
     ],
-    "rule": "Use this compact playbook first. Read longer registries/specs only when the current actionKey needs more detail.",
+    "rule": "Read IMAGE_EDIT_MASTER_RULE.md first, then use this compact playbook. Read longer registries/specs/task ledgers when the current actionKey needs more detail.",
     "sourcePriority": [
+      "IMAGE_EDIT_MASTER_RULE.md",
       "approved neutral baseline / baseline lock",
       "this playbook",
       "FAILURE_PATTERN_REGISTRY.json",
@@ -160,5 +162,14 @@
       "GitHub main is the coordination authority; Dropbox is exact-byte storage and recovery support."
     ]
   },
-  "updatedAt": "2026-09-19T10:58:00+09:00"
+  "updatedAt": "2026-09-19T17:54:00+09:00",
+  "masterImageEditRule": {
+    "path": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
+    "mustReadBeforeAnyImageEdit": true,
+    "alwaysUseMasterImageEditRule": true,
+    "comparePolicy": "baseline_to_each_variant_only",
+    "promoteNewStableRulesFromFailures": true,
+    "precedence": "HIGHEST_LEVEL_COMMON_IMAGE_EDIT_RULE",
+    "note": "Read before this playbook for every character-image generation/edit. Preserve task-specific ledgers and workspace constraints unless they conflict with the master rule."
+  }
 }
