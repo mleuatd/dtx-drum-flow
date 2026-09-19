@@ -134,3 +134,24 @@ Video-derived models are immutable by profile id. A better extraction creates `v
 
 ## Acceptance gates
 Infrastructure is ready when video metadata/SHA can be extracted, representative multiview frames can be deterministically sampled, a versioned appearance profile exists, retargeting to 4.0 heads runs from numeric joints, an AI constraint package can be emitted, and no formal PNG is overwritten.
+
+
+## Tool authority first: runtime pose pipeline
+
+Runtime pose/contact geometry is now explicitly tool-first. The video-derived model remains appearance-only.
+
+The runtime sequence is:
+1. load locked fixed drum and authoritative contact points;
+2. resolve actionKey / phase / limb;
+3. lock runtime camera, stool and pelvis registration;
+4. solve arm/leg reach numerically where exact hit contact is required;
+5. emit a versioned numeric pose-constraint package;
+6. combine it with the 4-head retarget and video-derived appearance constraints;
+7. render a candidate only inside those constraints;
+8. apply deterministic cowlick and line-style normalization;
+9. validate contact, reach, registration, collision and neutral->hit->rebound continuity;
+10. run actual Web runtime QA before formal promotion.
+
+Implementation: `tools/runtime_pose/`.
+
+Important phase rule: hit is contact-authoritative. Rebound is continuity-authoritative and must separate from the hit contact rather than being numerically forced onto it.

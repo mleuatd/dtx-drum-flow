@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T19:55:00+09:00",
+  "updatedAt": "2026-09-19T20:10:00+09:00",
   "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
   "completed": [
     "Reference video metadata/SHA registered",
@@ -15,16 +15,18 @@
     "Resolved exact formal bytes for SN:L rebound via Dropbox SHA match 79484f...c777",
     "Added provisional runtime pose anchors for neutral/SN:L hit/rebound",
     "Added constrained render package binding video appearance, 4-head retarget, runtime camera, fixed drum and SN contact",
-    "Added prototype pose QA gate"
+    "Added prototype pose QA gate",
+    "Added tools/runtime_pose tool-authority pipeline (constraint builder, arm/leg reach solvers, validators, debug renderer, AI constraint generator)",
+    "Corrected rebound semantics so rebound is not forced onto the hit contact target",
+    "Prepared numeric SN:L neutral/hit/rebound constraint packages without modifying formal runtime PNGs"
   ],
-  "currentStage": "READY_TO_RENDER_VIDEO_APPEARANCE_SN_L_PROTOTYPE",
+  "currentStage": "RUNTIME_POSE_TOOLCHAIN_IMPLEMENTED_PENDING_CANDIDATE_RENDER_QA",
   "next": [
-    "Render constrained 4-head neutral candidate using video-derived appearance with existing runtime neutral pose/camera",
-    "Render constrained SN:L hit and rebound candidates from their formal motion sources",
-    "Apply cowlick deterministic normalization",
-    "Apply line-style deterministic normalization",
-    "Composite all three with locked drum and verify SN contact/registration/transition",
-    "Only after prototype QA, consider formal promotion and broader actionKey propagation"
+    "Run the SN:L constraint builder/validators in an executable environment and record machine QA output",
+    "Render constrained neutral/SN:L hit/rebound prototype candidates only from the numeric packages",
+    "Apply cowlick and line-style deterministic post-processing",
+    "Composite candidates with locked drum and run contact/registration/transition QA",
+    "Run actual Web runtime PC/Xperia QA before any formal promotion or actionKey expansion"
   ],
   "formalRuntimeAssetsModified": false,
   "doNotBulkPromoteYet": true,

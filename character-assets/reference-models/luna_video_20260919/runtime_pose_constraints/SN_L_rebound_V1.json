@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "authority": "tool",
+  "actionKey": "SN:L",
+  "instrument": "SN",
+  "limb": "L",
+  "targetHeadCount": 4,
+  "camera": "three-quarter-back / over-shoulder; face slightly screen-left; gaze right; drum rightward",
+  "stoolAnchor": [
+    790,
+    724
+  ],
+  "hipAnchor": [
+    762.5,
+    637.5
+  ],
+  "characterScaleLocked": true,
+  "canvas": {
+    "width": 1448,
+    "height": 1086
+  },
+  "contactPoint": [
+    420,
+    535
+  ],
+  "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "appearanceProfileId": "luna_video_appearance_v1",
+  "retargetProfileId": "luna_chibi_retarget_v1",
+  "forbiddenMovementZones": [
+    "camera",
+    "stool",
+    "pelvis beyond tolerance",
+    "wrong limb",
+    "wrong instrument",
+    "fixed drum pixels in character layer"
+  ],
+  "tolerancesPx": {
+    "stickTip": 8,
+    "stool": 12,
+    "hip": 18,
+    "transitionJoint": 120
+  },
+  "phase": "rebound",
+  "sourceFrameSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+  "confidence": 0.68,
+  "joints": {
+    "head_top": [
+      744,
+      61
+    ],
+    "chin": [
+      659,
+      300
+    ],
+    "neck": [
+      696,
+      317
+    ],
+    "shoulder_l": [
+      694,
+      348
+    ],
+    "shoulder_r": [
+      882,
+      386
+    ],
+    "elbow_l": [
+      657,
+      474
+    ],
+    "elbow_r": [
+      744,
+      414
+    ],
+    "wrist_l": [
+      593,
+      496
+    ],
+    "wrist_r": [
+      683,
+      421
+    ],
+    "hip_l": [
+      710,
+      598
+    ],
+    "hip_r": [
+      899,
+      645
+    ],
+    "knee_l": [
+      610,
+      630
+    ],
+    "knee_r": [
+      704,
+      704
+    ],
+    "ankle_l": [
+      506,
+      860
+    ],
+    "ankle_r": [
+      654,
+      867
+    ]
+  },
+  "stickTip": [
+    438,
+    418
+  ],
+  "reboundRule": "preserve source rebound tip away from contact; validate continuity, do not force contact"
+}

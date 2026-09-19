@@ -289,3 +289,22 @@ Mandatory model split:
 - a monocular rotating video is treated as a normalized multiview reference, not guaranteed metric 3D,
 - cowlick and line-style deterministic post-processors remain downstream authoritative tools.
 
+
+
+## 15. Runtime pose tool-authority rule
+
+For runtime character-frame production, numeric/relational facts are resolved before any AI rendering.
+
+Mandatory order:
+
+`fixed drum -> authoritative contact point -> limb/action/phase -> runtime registration -> numeric joint/reach constraint -> 4-head retarget constraint -> appearance constraint -> AI candidate -> deterministic cowlick -> deterministic line style -> fixed-drum composite QA -> transition QA -> Web runtime QA`
+
+Authority split:
+- tools own fixed-drum registration, contact targets, limb side, camera family, stool/pelvis anchors, joint topology, reachability, hit/rebound/neutral semantics, 4-head scale, collision/registration checks and PASS/FAIL;
+- AI is only a constrained renderer for appearance and local line interpolation inside those numeric constraints;
+- hit must satisfy exact stick/pedal contact within the configured tolerance;
+- rebound must move naturally away from hit contact and must not be forced back onto the hit target;
+- failed AI candidates receive numeric correction instructions, not vague aesthetic retry instructions;
+- tool/debug/candidate outputs remain non-formal until fixed-drum and runtime QA pass.
+
+Current implementation authority: `tools/runtime_pose/`.
