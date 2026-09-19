@@ -4,7 +4,7 @@
     "measureStart": 69,
     "measureEnd": 104
   },
-  "status": "RUNTIME_QA_PENDING",
+  "status": "M69_104_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -39,7 +39,40 @@
     "note": "M104 has no additional groups in FULL_SONG_ACTION_KEY_INVENTORY; contiguous runtime target remains through measure 104."
   },
   "requiredNext": "Expand contiguous runtimeScope through M104 and run public PC/Xperia runtime QA. Generate no new images.",
-  "runtimeQaEvidence": {},
-  "updatedAt": "2026-09-19T15:27:00+09:00",
+  "runtimeQaEvidence": {
+    "M69-104": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35426755584",
+      "testedCommitSha": "a221c8894d6af6a887c9009218a7f3ded290444d",
+      "artifact": "public-runtime-qa-35426755584",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35426755584",
+      "measureStart": 69,
+      "measureEnd": 104,
+      "actions": [
+        "LT+SN:R/L",
+        "LT:L",
+        "LT:R",
+        "BD:RF",
+        "RC+SN:R/L",
+        "SN:L",
+        "SN:R",
+        "BD+RC:RF/R",
+        "BD+RC+SN:RF/R/L",
+        "HT:R",
+        "HT:L",
+        "BD+HT:RF/R",
+        "BD+LT:RF/R",
+        "HH+SN:R/L",
+        "HH:R",
+        "BD+HH:RF/R",
+        "BD+SN:RF/L",
+        "FT+SN:R/L",
+        "BD+SN:RF/R",
+        "FT:L"
+      ]
+    }
+  },
+  "updatedAt": "2026-09-19T06:31:20.345176+00:00",
   "blocker": null
 }
