@@ -45,7 +45,10 @@ for p,r in [(tip,26),(hit_tip,18)]:
 
 # Restrict lower mask to upper-body/action area so legs/stool cannot be imported.
 ma=np.asarray(mask).copy()
-ma[570:,:]=0\n# Absolute static guards: never import source head/right side/pelvis-seat pixels.\nma[0:325,500:930]=0\nma[560:810,560:980]=0
+ma[570:,:]=0
+# Absolute static guards: never import source head/right side/pelvis-seat pixels.
+ma[0:325,500:930]=0
+ma[560:810,560:980]=0
 mask=Image.fromarray(ma.astype(np.uint8),"L")
 
 candidate=neutral.copy()
