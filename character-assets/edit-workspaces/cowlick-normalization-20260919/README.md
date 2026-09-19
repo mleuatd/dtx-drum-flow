@@ -31,3 +31,21 @@ Never normalize by comparing variant A -> variant B -> variant C. This prevents 
 ## Important
 
 This workspace is intentionally separated from the runtime asset folders. Candidate files and review records belong here until explicit QA/promotion.
+
+
+## Top-level style baseline
+
+The highest-level requirement is not merely pose correctness or cowlick correctness: **every variant must remain the same drawing style as the locked baseline**.
+
+The intended line construction is:
+
+- Assume one consistent fine pencil/pen width.
+- Do **not** create a thick contour by switching to a thick digital brush.
+- When a contour must appear thicker/darker, retrace it with roughly 3–4 or more nearby fine strokes.
+- Slight offsets, wobble, uneven overlap, and repeated hand motion are desirable.
+- Darker areas are made by repeated directional strokes/hatching, not by a flat digital fill.
+- Never clean the drawing into smooth vector-like single lines.
+
+This style rule applies to the baseline correction itself and to every later baseline->variant normalization pass.
+
+Authoritative detailed rules: `STYLE_BASELINE_SPEC.json`.
