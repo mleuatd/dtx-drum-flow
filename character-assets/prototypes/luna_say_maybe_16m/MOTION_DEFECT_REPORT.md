@@ -88,3 +88,29 @@ The existing order remains authoritative because it stabilizes reusable base act
 
 ## Current completion state
 The **schema rewrite is complete for all active defects**, but actual geometry/tolerance measurements are intentionally not fabricated. Therefore each active defect remains `NEEDS_MEASUREMENT` until its null ROI/anchor/bbox/contact-tolerance fields are populated. Formal PNGs are unchanged by this specification rewrite.
+
+
+## Exact raster measurement pass (2026-09-20)
+
+All 15 active repair targets were measured from the exact PNG bytes on GitHub main via `REPAIR_MEASUREMENTS_AUTO.json`.
+
+Recorded per action:
+- exact neutral/hit/rebound SHA256,
+- opaque-pixel count,
+- opaque bounding box,
+- opaque centroid,
+- neutral→hit changed pixels / ratio / diff bbox / diff centroid / alpha mismatch,
+- neutral→rebound equivalents,
+- hit→rebound equivalents,
+- bbox IoU,
+- centroid shift in pixels,
+- authoritative instrument contact centers,
+- distance from each contact center to the nearest changed pixel (diagnostic proxy, not stick-tip contact error).
+
+These values are copied into each active defect's `repairSpec.measuredGeometry`, `silhouetteMetrics`, and `validation.measurableChecks.currentObserved`.
+
+### Important distinction
+
+The exact full-frame diff bbox is **not** automatically promoted to `editableRoisPx`. A defective frame can contain whole-body drift; treating that large observed diff as an editable ROI would authorize the very corruption the repair is intended to remove.
+
+The remaining null fields are semantic measurements (joint anchors, limb-only ROI, stick-tip/foot contact error and contact-radius tolerance). They require landmark/limb segmentation or playing-surface calibration and are intentionally not guessed.
