@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Rebuild M25-28 candidates with limb-local replacement rather than stick overlays/full-image delta merge. Prefer already approved locked-baseline tom/cymbal limb parents. Workflow push race has been fixed with rebase-before-push; rerun after builder correction. Do not formalize current attempt01 images.",
-  "updatedAt": "2026-09-19T08:55:00+09:00",
+  "requiredNext": "Inspect attempt03 HT:L/RC:R composites from workflow f57be831...; promote only if old-stick removal and proportions pass. HT:R requires arm-local relocation; FT+SN requires limb-local source masks. Do not formalize attempt01/02 failures.",
+  "updatedAt": "2026-09-19T09:02:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -290,6 +290,28 @@
       "status": "FAIL",
       "reason": "Delta merge imports a different whole-body/face/camera baseline from legacy FT/SN parents; it violates the locked character baseline.",
       "requiredCorrection": "Do not merge full-image deltas from legacy-baseline assets. Restrict source extraction to limb-local masks only or derive both limbs from locked-baseline approved assets."
+    },
+    "attempt02": {
+      "checkedAt": "2026-09-19T09:02:00+09:00",
+      "workflowRunId": 35407709705,
+      "artifactId": 10572438384,
+      "artifactSha256": "5b28d069babb4c2817beed395936c59caa0ef362b0d910644a4a3e757a8d7580",
+      "htR": {
+        "status": "FAIL",
+        "reason": "Duplicate right stick was reduced, but HT hit still requires an implausibly long cross-body stick because the hand/arm remains at neutral. Needs limb-local arm relocation, not a longer stick."
+      },
+      "htL": {
+        "status": "FAIL",
+        "reason": "Correct hand grip is now used, but the neutral left stick shaft is still visibly present alongside the replacement stick. Attempt03 widens only the old-stick removal mask."
+      },
+      "rcR": {
+        "status": "HOLD",
+        "reason": "Duplicate right-stick problem is substantially improved and target contact is correct, but keep candidate non-formal until attempt03 confirms clean original-stick removal and arm/stick proportion."
+      },
+      "ftSnRL": {
+        "status": "FAIL",
+        "reason": "Still based on full-image legacy delta merge; locked-baseline violation remains. Needs limb-local masks/source redesign."
+      }
     }
   }
 }
