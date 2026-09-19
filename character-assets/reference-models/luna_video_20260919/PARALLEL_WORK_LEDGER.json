@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:27:00+09:00",
+  "updatedAt": "2026-09-19T20:31:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -203,7 +203,8 @@
         "tools/runtime_pose/**",
         "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**",
         "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
-        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json"
+        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json",
+        ".github/workflows/runtime-pose-tests.yml"
       ],
       "dependsOn": [
         "RTP-SNL-001"
