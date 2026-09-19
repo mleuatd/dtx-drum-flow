@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "type": "runtime_pose_anchor_set",
+  "status": "PROVISIONAL_MANUAL_RUNTIME_ANCHORS",
+  "actionKey": "SN:L",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "sourceFrames": {
+    "neutral": {
+      "path": "character-assets/layers/character/base/neutral.png",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+    },
+    "hit": {
+      "path": "character-assets/layers/character/sn/hit_l.png",
+      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+    },
+    "rebound": {
+      "path": "character-assets/layers/character/sn/rebound_l.png",
+      "sha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777"
+    }
+  },
+  "states": {
+    "neutral": {
+      "confidence": 0.64,
+      "joints": {
+        "head_top": [
+          720,
+          30
+        ],
+        "chin": [
+          615,
+          300
+        ],
+        "neck": [
+          650,
+          312
+        ],
+        "shoulder_l": [
+          635,
+          342
+        ],
+        "shoulder_r": [
+          875,
+          370
+        ],
+        "elbow_l": [
+          585,
+          470
+        ],
+        "elbow_r": [
+          920,
+          468
+        ],
+        "wrist_l": [
+          505,
+          490
+        ],
+        "wrist_r": [
+          975,
+          448
+        ],
+        "hip_l": [
+          650,
+          620
+        ],
+        "hip_r": [
+          875,
+          655
+        ],
+        "knee_l": [
+          535,
+          690
+        ],
+        "knee_r": [
+          682,
+          748
+        ],
+        "ankle_l": [
+          430,
+          885
+        ],
+        "ankle_r": [
+          650,
+          902
+        ]
+      },
+      "props": {
+        "stick_tip_l": [
+          432,
+          384
+        ],
+        "stick_tip_r": [
+          1025,
+          318
+        ],
+        "stool_center": [
+          790,
+          724
+        ]
+      }
+    },
+    "hit": {
+      "confidence": 0.68,
+      "joints": {
+        "head_top": [
+          742,
+          53
+        ],
+        "chin": [
+          658,
+          296
+        ],
+        "neck": [
+          694,
+          314
+        ],
+        "shoulder_l": [
+          692,
+          344
+        ],
+        "shoulder_r": [
+          875,
+          382
+        ],
+        "elbow_l": [
+          651,
+          475
+        ],
+        "elbow_r": [
+          730,
+          400
+        ],
+        "wrist_l": [
+          575,
+          516
+        ],
+        "wrist_r": [
+          664,
+          402
+        ],
+        "hip_l": [
+          703,
+          590
+        ],
+        "hip_r": [
+          895,
+          640
+        ],
+        "knee_l": [
+          606,
+          625
+        ],
+        "knee_r": [
+          698,
+          700
+        ],
+        "ankle_l": [
+          505,
+          850
+        ],
+        "ankle_r": [
+          646,
+          857
+        ]
+      },
+      "props": {
+        "stick_tip_l": [
+          420,
+          535
+        ],
+        "stick_tip_r": [
+          578,
+          286
+        ],
+        "stool_center": [
+          861,
+          694
+        ]
+      }
+    },
+    "rebound": {
+      "confidence": 0.68,
+      "joints": {
+        "head_top": [
+          744,
+          61
+        ],
+        "chin": [
+          659,
+          300
+        ],
+        "neck": [
+          696,
+          317
+        ],
+        "shoulder_l": [
+          694,
+          348
+        ],
+        "shoulder_r": [
+          882,
+          386
+        ],
+        "elbow_l": [
+          657,
+          474
+        ],
+        "elbow_r": [
+          744,
+          414
+        ],
+        "wrist_l": [
+          593,
+          496
+        ],
+        "wrist_r": [
+          683,
+          421
+        ],
+        "hip_l": [
+          710,
+          598
+        ],
+        "hip_r": [
+          899,
+          645
+        ],
+        "knee_l": [
+          610,
+          630
+        ],
+        "knee_r": [
+          704,
+          704
+        ],
+        "ankle_l": [
+          506,
+          860
+        ],
+        "ankle_r": [
+          654,
+          867
+        ]
+      },
+      "props": {
+        "stick_tip_l": [
+          438,
+          418
+        ],
+        "stick_tip_r": [
+          596,
+          292
+        ],
+        "stool_center": [
+          865,
+          700
+        ]
+      }
+    }
+  },
+  "authoritativeContact": {
+    "part": "SN",
+    "limb": "L",
+    "point": [
+      420,
+      535
+    ]
+  },
+  "transition": {
+    "sequence": [
+      "neutral",
+      "hit",
+      "rebound",
+      "neutral"
+    ],
+    "hitEndSeconds": 0.18,
+    "reboundEndSeconds": 0.28
+  },
+  "note": "Pose anchors are provisional numeric observations used for constrained prototype rendering. Exact formal source images remain motion authority. Contact point is authoritative even if provisional visual anchor differs."
+}
