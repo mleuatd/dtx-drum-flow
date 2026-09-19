@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:50:00+09:00",
+  "updatedAt": "2026-09-19T15:53:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
     "measureEnd": 135,
-    "status": "RUNTIME_QA_PENDING_M107_135"
+    "status": "COMPLETE_LIVE_QA"
   },
   "completedMeasureBlocks": [
     {
@@ -85,6 +85,12 @@
       "status": "DONE",
       "qaRun": 35427241936,
       "qaArtifact": 10579925003
+    },
+    {
+      "measures": "107-135",
+      "status": "DONE",
+      "qaRun": 35427385671,
+      "qaArtifact": 10579472206
     }
   ],
   "blockedMeasureBlocks": [],
@@ -131,7 +137,8 @@
     "m68": "COMPLETE_LIVE_QA",
     "bdRcSnRfRL": "LIVE_QA_PASSED",
     "m69_104": "COMPLETE_LIVE_QA",
-    "m105_106": "COMPLETE_LIVE_QA"
+    "m105_106": "COMPLETE_LIVE_QA",
+    "m107_135": "COMPLETE_LIVE_QA"
   },
   "approvedAssets": [
     "SN:L",
@@ -185,7 +192,8 @@
     "m69_104LiveRuntimeQa": "SUCCESS run 35426755584 artifact 10579246619; 86/86 PC/Xperia records PASS; screenshot review PASS",
     "m105_106PreRuntime": "PASS: 4 formal PNGs, Dropbox exact-byte save, deterministic locality/fixed-drum visual QA, runtime mapping complete",
     "m105_106LiveRuntimeQa": "SUCCESS run 35427241936 artifact 10579925003; 12/12 PC/Xperia PASS; screenshot review PASS",
-    "m107_135MappingPreflight": "PASS: 447 notes / 309 groups / 12 actionKeys; all mapped"
+    "m107_135MappingPreflight": "PASS: 447 notes / 309 groups / 12 actionKeys; all mapped",
+    "m107_135LiveRuntimeQa": "SUCCESS run 35427385671 artifact 10579472206; 52/52 PASS; screenshots reviewed"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -278,14 +286,19 @@
       "run": 35427241936,
       "artifact": 10579925003,
       "status": "SUCCESS"
+    },
+    "m107_135Live": {
+      "run": 35427385671,
+      "artifact": 10579472206,
+      "status": "SUCCESS"
     }
   },
   "nextRecommendedBlock": {
-    "blockId": "M107-135",
-    "measures": "107-135",
-    "reason": "Runtime scope expanded through M135 using existing formal mappings; public QA pending."
+    "blockId": "M136",
+    "measures": "136",
+    "reason": "M107-135 complete; final new pair is BD+FT:RF/R."
   },
-  "nextRecommendedWork": "Inspect M107-135 public runtime QA; if PASS close block and release M136.",
+  "nextRecommendedWork": "Source-lock M136 from formal FT:R plus approved deterministic BD cue, then formal/map/runtime QA.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
