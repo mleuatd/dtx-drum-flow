@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "LT+SN:R/L",
+  "status": "APPROVED_FOR_PROMOTION",
+  "visualQA": {
+    "status": "PASS",
+    "checkedAt": "2026-09-19T12:32:00+09:00",
+    "evidence": [
+      "Exact LT:R SHA reproduced from repository deterministic builder.",
+      "Left-SN delta reused from public-QA-passed FT+SN formal pair.",
+      "Fixed-drum LT=(885,455) and SN=(420,535) visual contact review PASS.",
+      "No full-character redraw; diff confined to approved LT right-stick and left-SN local regions."
+    ]
+  },
+  "dropbox": [
+    "/ChatGPT/dtx-drum-flow/lt_sn_r_l_hit_attempt01.png",
+    "/ChatGPT/dtx-drum-flow/lt_sn_r_l_rebound_attempt01.png"
+  ],
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "lt_sn_r_l_hit_refresh",
+      "candidatePath": "character-assets/candidates/m46/lt_sn_r_l_hit_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png",
+      "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "lt_sn_r_l_rebound_refresh",
+      "candidatePath": "character-assets/candidates/m46/lt_sn_r_l_rebound_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
+      "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453"
+    }
+  ]
+}
