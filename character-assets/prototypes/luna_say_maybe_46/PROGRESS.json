@@ -4,7 +4,7 @@
     "measureStart": 46,
     "measureEnd": 46
   },
-  "status": "CANDIDATE_SAVED_IMPORT_PENDING",
+  "status": "M46_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "actionKey": "LT+SN:R/L",
   "blockType": "NEW_PAIR",
@@ -34,5 +34,21 @@
     "runtime": "PENDING"
   },
   "requiredNext": "Import exact Dropbox bytes as GitHub review candidates. Re-run candidate/static QA from repository bytes. If PASS, promote formal pair, update manifest/mapping, extend through M46 and run PC/Xperia public runtime QA.",
-  "updatedAt": "2026-09-19T12:28:00+09:00"
+  "updatedAt": "2026-09-19T03:31:24.171136+00:00",
+  "runtimeQaEvidence": {
+    "M46": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35418698275",
+      "testedCommitSha": "9e1e5e99e8e6124ef8752d12e5028a0c25c9c781",
+      "artifact": "public-runtime-qa-35418698275",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35418698275",
+      "measureStart": 46,
+      "measureEnd": 46,
+      "actions": [
+        "LT+SN:R/L"
+      ]
+    }
+  },
+  "blocker": null
 }
