@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "updatedAt": "2026-09-20T05:08:00+09:00",
+  "updatedAt": "2026-09-20T05:20:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -366,7 +366,11 @@
             "y": 535,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 56.036,
+            "observedNearestChangedPixelNeutralToReboundPx": 76.158,
+            "observedNearestChangedPixelHitToReboundPx": 56.036
           }
         ],
         "motionConstraints": {
@@ -458,7 +462,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 373568,
+          "reboundOpaquePixelCount": 393187,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 0,
+            "y": 52,
+            "width": 1329,
+            "height": 1002
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 52,
+            "width": 1359,
+            "height": 1034
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 801.066,
+            "y": 568.203
+          },
+          "reboundOpaqueCentroid": {
+            "x": 830.535,
+            "y": 586.384
+          },
+          "observedHitNeutralBboxIoU": 0.81805203,
+          "observedReboundNeutralBboxIoU": 0.78897356,
+          "observedHitReboundBboxIoU": 0.87159035,
+          "observedHitNeutralCentroidShiftPx": 67.94,
+          "observedReboundNeutralCentroidShiftPx": 100.744,
+          "observedHitReboundCentroidShiftPx": 34.626
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -524,6 +567,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 465846,
+              "neutralToHitChangedRatio": 0.29624019,
+              "neutralToHitAlphaMismatchPixels": 331659,
+              "neutralToReboundChangedPixels": 501250,
+              "neutralToReboundChangedRatio": 0.31875426,
+              "neutralToReboundAlphaMismatchPixels": 379610,
+              "hitToReboundChangedPixels": 439096,
+              "hitToReboundChangedRatio": 0.27922937,
+              "hitToReboundAlphaMismatchPixels": 249910,
+              "hitNeutralCentroidShiftPx": 67.94,
+              "reboundNeutralCentroidShiftPx": 100.744,
+              "hitReboundCentroidShiftPx": 34.626
             }
           },
           "evidenceRequired": {
@@ -571,12 +628,10 @@
           "fixOrder class: base single-hand action; highest reuse; stabilize before SN combos"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -627,6 +682,161 @@
               "post-fix runtime screenshot"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 373568,
+            "opaqueBBox": {
+              "x": 0,
+              "y": 52,
+              "width": 1329,
+              "height": 1002
+            },
+            "opaqueCentroid": {
+              "x": 801.066,
+              "y": 568.203
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 393187,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 52,
+              "width": 1359,
+              "height": 1034
+            },
+            "opaqueCentroid": {
+              "x": 830.535,
+              "y": 586.384
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 465846,
+            "changedRatio": 0.29624019,
+            "diffBBox": {
+              "x": 0,
+              "y": 23,
+              "width": 1329,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 763.723,
+              "y": 586.78
+            },
+            "alphaMismatchPixels": 331659
+          },
+          "neutralToRebound": {
+            "changedPixels": 501250,
+            "changedRatio": 0.31875426,
+            "diffBBox": {
+              "x": 92,
+              "y": 23,
+              "width": 1324,
+              "height": 1063
+            },
+            "diffCentroid": {
+              "x": 782.437,
+              "y": 593.562
+            },
+            "alphaMismatchPixels": 379610
+          },
+          "hitToRebound": {
+            "changedPixels": 439096,
+            "changedRatio": 0.27922937,
+            "diffBBox": {
+              "x": 0,
+              "y": 53,
+              "width": 1416,
+              "height": 1033
+            },
+            "diffCentroid": {
+              "x": 813.482,
+              "y": 591.124
+            },
+            "alphaMismatchPixels": 249910
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.81805203,
+            "reboundNeutralBboxIoU": 0.78897356,
+            "hitReboundBboxIoU": 0.87159035,
+            "hitNeutralCentroidShiftPx": 67.94,
+            "reboundNeutralCentroidShiftPx": 100.744,
+            "hitReboundCentroidShiftPx": 34.626
+          },
+          "contactCenters": [
+            {
+              "instrument": "SN",
+              "x": 420,
+              "y": 535,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 56.036,
+              "nearestChangedPixelNeutralToReboundPx": 76.158,
+              "nearestChangedPixelHitToReboundPx": 56.036
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "SN",
+                "distancePx": 347.601
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "SN",
+                "distancePx": 367.138
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 0,
+            "y": 23,
+            "width": 1329,
+            "height": 1040
+          },
+          "neutralToRebound": {
+            "x": 92,
+            "y": 23,
+            "width": 1324,
+            "height": 1063
+          },
+          "hitToRebound": {
+            "x": 0,
+            "y": 53,
+            "width": 1416,
+            "height": 1033
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -916,7 +1126,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           },
           {
             "instrument": "RC",
@@ -926,7 +1140,11 @@
             "y": 145,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 17.804,
+            "observedNearestChangedPixelNeutralToReboundPx": 101.71,
+            "observedNearestChangedPixelHitToReboundPx": 17.804
           }
         ],
         "motionConstraints": {
@@ -1036,7 +1254,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 385757,
+          "reboundOpaquePixelCount": 386800,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 47,
+            "width": 1264,
+            "height": 1020
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 15,
+            "width": 1357,
+            "height": 1055
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 716.184,
+            "y": 565.485
+          },
+          "reboundOpaqueCentroid": {
+            "x": 754.388,
+            "y": 538.712
+          },
+          "observedHitNeutralBboxIoU": 0.86608803,
+          "observedReboundNeutralBboxIoU": 0.81506809,
+          "observedHitReboundBboxIoU": 0.90056474,
+          "observedHitNeutralCentroidShiftPx": 19.321,
+          "observedReboundNeutralCentroidShiftPx": 28.004,
+          "observedHitReboundCentroidShiftPx": 46.651
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -1102,6 +1359,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 458175,
+              "neutralToHitChangedRatio": 0.29136206,
+              "neutralToHitAlphaMismatchPixels": 334216,
+              "neutralToReboundChangedPixels": 403489,
+              "neutralToReboundChangedRatio": 0.25658621,
+              "neutralToReboundAlphaMismatchPixels": 214788,
+              "hitToReboundChangedPixels": 480760,
+              "hitToReboundChangedRatio": 0.30572429,
+              "hitToReboundAlphaMismatchPixels": 327166,
+              "hitNeutralCentroidShiftPx": 19.321,
+              "reboundNeutralCentroidShiftPx": 28.004,
+              "hitReboundCentroidShiftPx": 46.651
             }
           },
           "evidenceRequired": {
@@ -1149,12 +1420,10 @@
           "fixOrder class: high-reuse hand+foot combo"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -1202,6 +1471,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 385757,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 47,
+              "width": 1264,
+              "height": 1020
+            },
+            "opaqueCentroid": {
+              "x": 716.184,
+              "y": 565.485
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 386800,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 15,
+              "width": 1357,
+              "height": 1055
+            },
+            "opaqueCentroid": {
+              "x": 754.388,
+              "y": 538.712
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 458175,
+            "changedRatio": 0.29136206,
+            "diffBBox": {
+              "x": 90,
+              "y": 23,
+              "width": 1231,
+              "height": 1044
+            },
+            "diffCentroid": {
+              "x": 718.268,
+              "y": 581.731
+            },
+            "alphaMismatchPixels": 334216
+          },
+          "neutralToRebound": {
+            "changedPixels": 403489,
+            "changedRatio": 0.25658621,
+            "diffBBox": {
+              "x": 57,
+              "y": 15,
+              "width": 1357,
+              "height": 1055
+            },
+            "diffCentroid": {
+              "x": 751.158,
+              "y": 548.081
+            },
+            "alphaMismatchPixels": 214788
+          },
+          "hitToRebound": {
+            "changedPixels": 480760,
+            "changedRatio": 0.30572429,
+            "diffBBox": {
+              "x": 57,
+              "y": 15,
+              "width": 1357,
+              "height": 1055
+            },
+            "diffCentroid": {
+              "x": 729.63,
+              "y": 575.394
+            },
+            "alphaMismatchPixels": 327166
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.86608803,
+            "reboundNeutralBboxIoU": 0.81506809,
+            "hitReboundBboxIoU": 0.90056474,
+            "hitNeutralCentroidShiftPx": 19.321,
+            "reboundNeutralCentroidShiftPx": 28.004,
+            "hitReboundCentroidShiftPx": 46.651
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            },
+            {
+              "instrument": "RC",
+              "x": 1215,
+              "y": 145,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 17.804,
+              "nearestChangedPixelNeutralToReboundPx": 101.71,
+              "nearestChangedPixelHitToReboundPx": 17.804
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 70.29
+              },
+              {
+                "instrument": "RC",
+                "distancePx": 661.42
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 103.192
+              },
+              {
+                "instrument": "RC",
+                "distancePx": 614.511
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 90,
+            "y": 23,
+            "width": 1231,
+            "height": 1044
+          },
+          "neutralToRebound": {
+            "x": 57,
+            "y": 15,
+            "width": 1357,
+            "height": 1055
+          },
+          "hitToRebound": {
+            "x": 57,
+            "y": 15,
+            "width": 1357,
+            "height": 1055
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -1440,7 +1881,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           }
         ],
         "motionConstraints": {
@@ -1518,7 +1963,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 384579,
+          "reboundOpaquePixelCount": 350850,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 0,
+            "y": 50,
+            "width": 1321,
+            "height": 1020
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 22,
+            "width": 1264,
+            "height": 1064
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 798.301,
+            "y": 572.278
+          },
+          "reboundOpaqueCentroid": {
+            "x": 743.321,
+            "y": 554.849
+          },
+          "observedHitNeutralBboxIoU": 0.82497964,
+          "observedReboundNeutralBboxIoU": 0.86763586,
+          "observedHitReboundBboxIoU": 0.91892154,
+          "observedHitNeutralCentroidShiftPx": 65.98,
+          "observedReboundNeutralCentroidShiftPx": 9.859,
+          "observedHitReboundCentroidShiftPx": 57.676
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -1584,6 +2068,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 469371,
+              "neutralToHitChangedRatio": 0.29848181,
+              "neutralToHitAlphaMismatchPixels": 330397,
+              "neutralToReboundChangedPixels": 376843,
+              "neutralToReboundChangedRatio": 0.23964152,
+              "neutralToReboundAlphaMismatchPixels": 202617,
+              "hitToReboundChangedPixels": 453411,
+              "hitToReboundChangedRatio": 0.28833254,
+              "hitToReboundAlphaMismatchPixels": 309816,
+              "hitNeutralCentroidShiftPx": 65.98,
+              "reboundNeutralCentroidShiftPx": 9.859,
+              "hitReboundCentroidShiftPx": 57.676
             }
           },
           "evidenceRequired": {
@@ -1631,12 +2129,10 @@
           "fixOrder class: base foot action; many combo assets depend on consistent seated registration"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -1680,6 +2176,161 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 384579,
+            "opaqueBBox": {
+              "x": 0,
+              "y": 50,
+              "width": 1321,
+              "height": 1020
+            },
+            "opaqueCentroid": {
+              "x": 798.301,
+              "y": 572.278
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 350850,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 22,
+              "width": 1264,
+              "height": 1064
+            },
+            "opaqueCentroid": {
+              "x": 743.321,
+              "y": 554.849
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 469371,
+            "changedRatio": 0.29848181,
+            "diffBBox": {
+              "x": 0,
+              "y": 23,
+              "width": 1321,
+              "height": 1047
+            },
+            "diffCentroid": {
+              "x": 764.035,
+              "y": 589.636
+            },
+            "alphaMismatchPixels": 330397
+          },
+          "neutralToRebound": {
+            "changedPixels": 376843,
+            "changedRatio": 0.23964152,
+            "diffBBox": {
+              "x": 91,
+              "y": 22,
+              "width": 1230,
+              "height": 1064
+            },
+            "diffCentroid": {
+              "x": 729.913,
+              "y": 569.753
+            },
+            "alphaMismatchPixels": 202617
+          },
+          "hitToRebound": {
+            "changedPixels": 453411,
+            "changedRatio": 0.28833254,
+            "diffBBox": {
+              "x": 0,
+              "y": 22,
+              "width": 1321,
+              "height": 1064
+            },
+            "diffCentroid": {
+              "x": 774.203,
+              "y": 584.754
+            },
+            "alphaMismatchPixels": 309816
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.82497964,
+            "reboundNeutralBboxIoU": 0.86763586,
+            "hitReboundBboxIoU": 0.91892154,
+            "hitNeutralCentroidShiftPx": 65.98,
+            "reboundNeutralCentroidShiftPx": 9.859,
+            "hitReboundCentroidShiftPx": 57.676
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 66.984
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 80.408
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 0,
+            "y": 23,
+            "width": 1321,
+            "height": 1047
+          },
+          "neutralToRebound": {
+            "x": 91,
+            "y": 22,
+            "width": 1230,
+            "height": 1064
+          },
+          "hitToRebound": {
+            "x": 0,
+            "y": 22,
+            "width": 1321,
+            "height": 1064
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -2003,7 +2654,11 @@
             "y": 145,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 54.203,
+            "observedNearestChangedPixelNeutralToReboundPx": 67.956,
+            "observedNearestChangedPixelHitToReboundPx": 54.203
           },
           {
             "instrument": "SN",
@@ -2013,7 +2668,11 @@
             "y": 535,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 76.158,
+            "observedNearestChangedPixelNeutralToReboundPx": 76.158,
+            "observedNearestChangedPixelHitToReboundPx": 106.527
           }
         ],
         "motionConstraints": {
@@ -2137,7 +2796,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 371404,
+          "reboundOpaquePixelCount": 377690,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1274,
+            "height": 1047
+          },
+          "reboundOpaqueBBox": {
+            "x": 0,
+            "y": 24,
+            "width": 1327,
+            "height": 1062
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 753.682,
+            "y": 550.468
+          },
+          "reboundOpaqueCentroid": {
+            "x": 729.626,
+            "y": 571.115
+          },
+          "observedHitNeutralBboxIoU": 0.87480264,
+          "observedReboundNeutralBboxIoU": 0.82654659,
+          "observedHitReboundBboxIoU": 0.93899056,
+          "observedHitNeutralCentroidShiftPx": 21.085,
+          "observedReboundNeutralCentroidShiftPx": 13.965,
+          "observedHitReboundCentroidShiftPx": 31.702
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -2203,6 +2901,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 391531,
+              "neutralToHitChangedRatio": 0.24898189,
+              "neutralToHitAlphaMismatchPixels": 209852,
+              "neutralToReboundChangedPixels": 407962,
+              "neutralToReboundChangedRatio": 0.25943067,
+              "neutralToReboundAlphaMismatchPixels": 236821,
+              "hitToReboundChangedPixels": 417968,
+              "hitToReboundChangedRatio": 0.26579368,
+              "hitToReboundAlphaMismatchPixels": 238161,
+              "hitNeutralCentroidShiftPx": 21.085,
+              "reboundNeutralCentroidShiftPx": 13.965,
+              "hitReboundCentroidShiftPx": 31.702
             }
           },
           "evidenceRequired": {
@@ -2250,12 +2962,10 @@
           "fixOrder class: two-hand combo; repair after single-hand registration rules are locked"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -2300,6 +3010,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 371404,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1274,
+              "height": 1047
+            },
+            "opaqueCentroid": {
+              "x": 753.682,
+              "y": 550.468
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 377690,
+            "opaqueBBox": {
+              "x": 0,
+              "y": 24,
+              "width": 1327,
+              "height": 1062
+            },
+            "opaqueCentroid": {
+              "x": 729.626,
+              "y": 571.115
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 391531,
+            "changedRatio": 0.24898189,
+            "diffBBox": {
+              "x": 89,
+              "y": 23,
+              "width": 1242,
+              "height": 1047
+            },
+            "diffCentroid": {
+              "x": 748.154,
+              "y": 554.719
+            },
+            "alphaMismatchPixels": 209852
+          },
+          "neutralToRebound": {
+            "changedPixels": 407962,
+            "changedRatio": 0.25943067,
+            "diffBBox": {
+              "x": 0,
+              "y": 23,
+              "width": 1327,
+              "height": 1063
+            },
+            "diffCentroid": {
+              "x": 729.333,
+              "y": 580.238
+            },
+            "alphaMismatchPixels": 236821
+          },
+          "hitToRebound": {
+            "changedPixels": 417968,
+            "changedRatio": 0.26579368,
+            "diffBBox": {
+              "x": 0,
+              "y": 23,
+              "width": 1331,
+              "height": 1063
+            },
+            "diffCentroid": {
+              "x": 741.266,
+              "y": 572.002
+            },
+            "alphaMismatchPixels": 238161
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87480264,
+            "reboundNeutralBboxIoU": 0.82654659,
+            "hitReboundBboxIoU": 0.93899056,
+            "hitNeutralCentroidShiftPx": 21.085,
+            "reboundNeutralCentroidShiftPx": 13.965,
+            "hitReboundCentroidShiftPx": 31.702
+          },
+          "contactCenters": [
+            {
+              "instrument": "RC",
+              "x": 1215,
+              "y": 145,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 54.203,
+              "nearestChangedPixelNeutralToReboundPx": 67.956,
+              "nearestChangedPixelHitToReboundPx": 54.203
+            },
+            {
+              "instrument": "SN",
+              "x": 420,
+              "y": 535,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 76.158,
+              "nearestChangedPixelNeutralToReboundPx": 76.158,
+              "nearestChangedPixelHitToReboundPx": 106.527
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "RC",
+                "distancePx": 621.14
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 328.746
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "RC",
+                "distancePx": 652.154
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 312.623
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 89,
+            "y": 23,
+            "width": 1242,
+            "height": 1047
+          },
+          "neutralToRebound": {
+            "x": 0,
+            "y": 23,
+            "width": 1327,
+            "height": 1063
+          },
+          "hitToRebound": {
+            "x": 0,
+            "y": 23,
+            "width": 1331,
+            "height": 1063
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -2591,7 +3473,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           },
           {
             "instrument": "HH",
@@ -2601,7 +3487,11 @@
             "y": 390,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 169.319,
+            "observedNearestChangedPixelNeutralToReboundPx": 46.4,
+            "observedNearestChangedPixelHitToReboundPx": 46.4
           }
         ],
         "motionConstraints": {
@@ -2711,7 +3601,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 365377,
+          "reboundOpaquePixelCount": 372289,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 26,
+            "width": 1272,
+            "height": 1034
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 740.578,
+            "y": 546.477
+          },
+          "reboundOpaqueCentroid": {
+            "x": 745.342,
+            "y": 543.77
+          },
+          "observedHitNeutralBboxIoU": 0.87758362,
+          "observedReboundNeutralBboxIoU": 0.81973006,
+          "observedHitReboundBboxIoU": 0.92395818,
+          "observedHitNeutralCentroidShiftPx": 13.157,
+          "observedReboundNeutralCentroidShiftPx": 18.111,
+          "observedHitReboundCentroidShiftPx": 5.479
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -2777,6 +3706,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 396333,
+              "neutralToHitChangedRatio": 0.25203558,
+              "neutralToHitAlphaMismatchPixels": 224236,
+              "neutralToReboundChangedPixels": 403977,
+              "neutralToReboundChangedRatio": 0.25689654,
+              "neutralToReboundAlphaMismatchPixels": 225645,
+              "hitToReboundChangedPixels": 405125,
+              "hitToReboundChangedRatio": 0.25762657,
+              "hitToReboundAlphaMismatchPixels": 184010,
+              "hitNeutralCentroidShiftPx": 13.157,
+              "reboundNeutralCentroidShiftPx": 18.111,
+              "hitReboundCentroidShiftPx": 5.479
             }
           },
           "evidenceRequired": {
@@ -2824,12 +3767,10 @@
           "fixOrder class: very high-reuse combo after BD and HH base conventions are fixed"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -2875,6 +3816,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 365377,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 26,
+              "width": 1272,
+              "height": 1034
+            },
+            "opaqueCentroid": {
+              "x": 740.578,
+              "y": 546.477
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 372289,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "opaqueCentroid": {
+              "x": 745.342,
+              "y": 543.77
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 396333,
+            "changedRatio": 0.25203558,
+            "diffBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1272,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 734.844,
+              "y": 561.931
+            },
+            "alphaMismatchPixels": 224236
+          },
+          "neutralToRebound": {
+            "changedPixels": 403977,
+            "changedRatio": 0.25689654,
+            "diffBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.645,
+              "y": 553.022
+            },
+            "alphaMismatchPixels": 225645
+          },
+          "hitToRebound": {
+            "changedPixels": 405125,
+            "changedRatio": 0.25762657,
+            "diffBBox": {
+              "x": 97,
+              "y": 17,
+              "width": 1317,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.876,
+              "y": 547.824
+            },
+            "alphaMismatchPixels": 184010
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87758362,
+            "reboundNeutralBboxIoU": 0.81973006,
+            "hitReboundBboxIoU": 0.92395818,
+            "hitNeutralCentroidShiftPx": 13.157,
+            "reboundNeutralCentroidShiftPx": 18.111,
+            "hitReboundCentroidShiftPx": 5.479
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            },
+            {
+              "instrument": "HH",
+              "x": 190,
+              "y": 390,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 169.319,
+              "nearestChangedPixelNeutralToReboundPx": 46.4,
+              "nearestChangedPixelHitToReboundPx": 46.4
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 88.069
+              },
+              {
+                "instrument": "HH",
+                "distancePx": 571.328
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 96.98
+              },
+              {
+                "instrument": "HH",
+                "distancePx": 569.478
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 57,
+            "y": 23,
+            "width": 1272,
+            "height": 1040
+          },
+          "neutralToRebound": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "hitToRebound": {
+            "x": 97,
+            "y": 17,
+            "width": 1317,
+            "height": 1049
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -3166,7 +4279,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           },
           {
             "instrument": "RD",
@@ -3176,7 +4293,11 @@
             "y": 250,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 29.155,
+            "observedNearestChangedPixelNeutralToReboundPx": 29.155,
+            "observedNearestChangedPixelHitToReboundPx": 32.016
           }
         ],
         "motionConstraints": {
@@ -3286,7 +4407,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 387355,
+          "reboundOpaquePixelCount": 367305,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 19,
+            "width": 1232,
+            "height": 1067
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 19,
+            "width": 1272,
+            "height": 1067
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 737.676,
+            "y": 564.312
+          },
+          "reboundOpaqueCentroid": {
+            "x": 736.425,
+            "y": 559.884
+          },
+          "observedHitNeutralBboxIoU": 0.88766903,
+          "observedReboundNeutralBboxIoU": 0.85975491,
+          "observedHitReboundBboxIoU": 0.96855346,
+          "observedHitNeutralCentroidShiftPx": 7.493,
+          "observedReboundNeutralCentroidShiftPx": 3.239,
+          "observedHitReboundCentroidShiftPx": 4.601
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -3352,6 +4512,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 415882,
+              "neutralToHitChangedRatio": 0.26446715,
+              "neutralToHitAlphaMismatchPixels": 260098,
+              "neutralToReboundChangedPixels": 383756,
+              "neutralToReboundChangedRatio": 0.24403763,
+              "neutralToReboundAlphaMismatchPixels": 205013,
+              "hitToReboundChangedPixels": 407375,
+              "hitToReboundChangedRatio": 0.25905739,
+              "hitToReboundAlphaMismatchPixels": 221452,
+              "hitNeutralCentroidShiftPx": 7.493,
+              "reboundNeutralCentroidShiftPx": 3.239,
+              "hitReboundCentroidShiftPx": 4.601
             }
           },
           "evidenceRequired": {
@@ -3399,12 +4573,10 @@
           "fixOrder class: hand+foot combo after RD/BD base conventions"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -3450,6 +4622,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 387355,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 19,
+              "width": 1232,
+              "height": 1067
+            },
+            "opaqueCentroid": {
+              "x": 737.676,
+              "y": 564.312
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 367305,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 19,
+              "width": 1272,
+              "height": 1067
+            },
+            "opaqueCentroid": {
+              "x": 736.425,
+              "y": 559.884
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 415882,
+            "changedRatio": 0.26446715,
+            "diffBBox": {
+              "x": 91,
+              "y": 19,
+              "width": 1198,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 739.619,
+              "y": 573.847
+            },
+            "alphaMismatchPixels": 260098
+          },
+          "neutralToRebound": {
+            "changedPixels": 383756,
+            "changedRatio": 0.24403763,
+            "diffBBox": {
+              "x": 90,
+              "y": 19,
+              "width": 1239,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 734.503,
+              "y": 567.371
+            },
+            "alphaMismatchPixels": 205013
+          },
+          "hitToRebound": {
+            "changedPixels": 407375,
+            "changedRatio": 0.25905739,
+            "diffBBox": {
+              "x": 90,
+              "y": 19,
+              "width": 1239,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 741.935,
+              "y": 569.38
+            },
+            "alphaMismatchPixels": 221452
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.88766903,
+            "reboundNeutralBboxIoU": 0.85975491,
+            "hitReboundBboxIoU": 0.96855346,
+            "hitNeutralCentroidShiftPx": 7.493,
+            "reboundNeutralCentroidShiftPx": 3.239,
+            "hitReboundCentroidShiftPx": 4.601
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            },
+            {
+              "instrument": "RD",
+              "x": 965,
+              "y": 250,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 29.155,
+              "nearestChangedPixelNeutralToReboundPx": 29.155,
+              "nearestChangedPixelHitToReboundPx": 32.016
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 76.293
+              },
+              {
+                "instrument": "RD",
+                "distancePx": 394.555
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 82.63
+              },
+              {
+                "instrument": "RD",
+                "distancePx": 392.241
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 91,
+            "y": 19,
+            "width": 1198,
+            "height": 1067
+          },
+          "neutralToRebound": {
+            "x": 90,
+            "y": 19,
+            "width": 1239,
+            "height": 1067
+          },
+          "hitToRebound": {
+            "x": 90,
+            "y": 19,
+            "width": 1239,
+            "height": 1067
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -3720,7 +5064,11 @@
             "y": 390,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 169.319,
+            "observedNearestChangedPixelNeutralToReboundPx": 46.4,
+            "observedNearestChangedPixelHitToReboundPx": 46.4
           }
         ],
         "motionConstraints": {
@@ -3812,7 +5160,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 365370,
+          "reboundOpaquePixelCount": 372289,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 26,
+            "width": 1272,
+            "height": 1034
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 740.583,
+            "y": 546.472
+          },
+          "reboundOpaqueCentroid": {
+            "x": 745.342,
+            "y": 543.77
+          },
+          "observedHitNeutralBboxIoU": 0.87758362,
+          "observedReboundNeutralBboxIoU": 0.81973006,
+          "observedHitReboundBboxIoU": 0.92395818,
+          "observedHitNeutralCentroidShiftPx": 13.164,
+          "observedReboundNeutralCentroidShiftPx": 18.111,
+          "observedHitReboundCentroidShiftPx": 5.473
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -3878,6 +5265,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 396331,
+              "neutralToHitChangedRatio": 0.2520343,
+              "neutralToHitAlphaMismatchPixels": 224019,
+              "neutralToReboundChangedPixels": 403977,
+              "neutralToReboundChangedRatio": 0.25689654,
+              "neutralToReboundAlphaMismatchPixels": 225579,
+              "hitToReboundChangedPixels": 405118,
+              "hitToReboundChangedRatio": 0.25762212,
+              "hitToReboundAlphaMismatchPixels": 183745,
+              "hitNeutralCentroidShiftPx": 13.164,
+              "reboundNeutralCentroidShiftPx": 18.111,
+              "hitReboundCentroidShiftPx": 5.473
             }
           },
           "evidenceRequired": {
@@ -3925,12 +5326,10 @@
           "fixOrder class: base right-hand action; very high reuse; stabilize before HH combos"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -3978,6 +5377,161 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 365370,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 26,
+              "width": 1272,
+              "height": 1034
+            },
+            "opaqueCentroid": {
+              "x": 740.583,
+              "y": 546.472
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 372289,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "opaqueCentroid": {
+              "x": 745.342,
+              "y": 543.77
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 396331,
+            "changedRatio": 0.2520343,
+            "diffBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1272,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 734.845,
+              "y": 561.929
+            },
+            "alphaMismatchPixels": 224019
+          },
+          "neutralToRebound": {
+            "changedPixels": 403977,
+            "changedRatio": 0.25689654,
+            "diffBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.645,
+              "y": 553.022
+            },
+            "alphaMismatchPixels": 225579
+          },
+          "hitToRebound": {
+            "changedPixels": 405118,
+            "changedRatio": 0.25762212,
+            "diffBBox": {
+              "x": 97,
+              "y": 17,
+              "width": 1317,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.881,
+              "y": 547.82
+            },
+            "alphaMismatchPixels": 183745
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87758362,
+            "reboundNeutralBboxIoU": 0.81973006,
+            "hitReboundBboxIoU": 0.92395818,
+            "hitNeutralCentroidShiftPx": 13.164,
+            "reboundNeutralCentroidShiftPx": 18.111,
+            "hitReboundCentroidShiftPx": 5.473
+          },
+          "contactCenters": [
+            {
+              "instrument": "HH",
+              "x": 190,
+              "y": 390,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 169.319,
+              "nearestChangedPixelNeutralToReboundPx": 46.4,
+              "nearestChangedPixelHitToReboundPx": 46.4
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "HH",
+                "distancePx": 571.328
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "HH",
+                "distancePx": 569.478
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 57,
+            "y": 23,
+            "width": 1272,
+            "height": 1040
+          },
+          "neutralToRebound": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "hitToRebound": {
+            "x": 97,
+            "y": 17,
+            "width": 1317,
+            "height": 1049
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -4301,7 +5855,11 @@
             "y": 390,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 169.319,
+            "observedNearestChangedPixelNeutralToReboundPx": 46.4,
+            "observedNearestChangedPixelHitToReboundPx": 46.4
           },
           {
             "instrument": "SN",
@@ -4311,7 +5869,11 @@
             "y": 535,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 14.142,
+            "observedNearestChangedPixelHitToReboundPx": 0
           }
         ],
         "motionConstraints": {
@@ -4435,7 +5997,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 365718,
+          "reboundOpaquePixelCount": 372463,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 26,
+            "width": 1272,
+            "height": 1034
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 740.275,
+            "y": 546.456
+          },
+          "reboundOpaqueCentroid": {
+            "x": 745.186,
+            "y": 543.758
+          },
+          "observedHitNeutralBboxIoU": 0.87758362,
+          "observedReboundNeutralBboxIoU": 0.81973006,
+          "observedHitReboundBboxIoU": 0.92395818,
+          "observedHitNeutralCentroidShiftPx": 13.025,
+          "observedReboundNeutralCentroidShiftPx": 18.022,
+          "observedHitReboundCentroidShiftPx": 5.603
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -4501,6 +6102,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 396679,
+              "neutralToHitChangedRatio": 0.2522556,
+              "neutralToHitAlphaMismatchPixels": 224367,
+              "neutralToReboundChangedPixels": 404151,
+              "neutralToReboundChangedRatio": 0.25700719,
+              "neutralToReboundAlphaMismatchPixels": 225753,
+              "hitToReboundChangedPixels": 405627,
+              "hitToReboundChangedRatio": 0.2579458,
+              "hitToReboundAlphaMismatchPixels": 184254,
+              "hitNeutralCentroidShiftPx": 13.025,
+              "reboundNeutralCentroidShiftPx": 18.022,
+              "hitReboundCentroidShiftPx": 5.603
             }
           },
           "evidenceRequired": {
@@ -4548,12 +6163,10 @@
           "fixOrder class: high-reuse two-hand combo after HH/SN conventions are fixed"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -4598,6 +6211,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 365718,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 26,
+              "width": 1272,
+              "height": 1034
+            },
+            "opaqueCentroid": {
+              "x": 740.275,
+              "y": 546.456
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 372463,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "opaqueCentroid": {
+              "x": 745.186,
+              "y": 543.758
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 396679,
+            "changedRatio": 0.2522556,
+            "diffBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1272,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 734.567,
+              "y": 561.901
+            },
+            "alphaMismatchPixels": 224367
+          },
+          "neutralToRebound": {
+            "changedPixels": 404151,
+            "changedRatio": 0.25700719,
+            "diffBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.506,
+              "y": 553.007
+            },
+            "alphaMismatchPixels": 225753
+          },
+          "hitToRebound": {
+            "changedPixels": 405627,
+            "changedRatio": 0.2579458,
+            "diffBBox": {
+              "x": 97,
+              "y": 17,
+              "width": 1317,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.479,
+              "y": 547.792
+            },
+            "alphaMismatchPixels": 184254
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87758362,
+            "reboundNeutralBboxIoU": 0.81973006,
+            "hitReboundBboxIoU": 0.92395818,
+            "hitNeutralCentroidShiftPx": 13.025,
+            "reboundNeutralCentroidShiftPx": 18.022,
+            "hitReboundCentroidShiftPx": 5.603
+          },
+          "contactCenters": [
+            {
+              "instrument": "HH",
+              "x": 190,
+              "y": 390,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 169.319,
+              "nearestChangedPixelNeutralToReboundPx": 46.4,
+              "nearestChangedPixelHitToReboundPx": 46.4
+            },
+            {
+              "instrument": "SN",
+              "x": 420,
+              "y": 535,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 14.142,
+              "nearestChangedPixelHitToReboundPx": 0
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "HH",
+                "distancePx": 571.054
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 315.715
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "HH",
+                "distancePx": 569.34
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 316.019
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 57,
+            "y": 23,
+            "width": 1272,
+            "height": 1040
+          },
+          "neutralToRebound": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "hitToRebound": {
+            "x": 97,
+            "y": 17,
+            "width": 1317,
+            "height": 1049
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -4921,7 +6706,11 @@
             "y": 250,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 29.155,
+            "observedNearestChangedPixelNeutralToReboundPx": 29.155,
+            "observedNearestChangedPixelHitToReboundPx": 32.016
           },
           {
             "instrument": "SN",
@@ -4931,7 +6720,11 @@
             "y": 535,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 14.142,
+            "observedNearestChangedPixelHitToReboundPx": 0
           }
         ],
         "motionConstraints": {
@@ -5055,7 +6848,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 387685,
+          "reboundOpaquePixelCount": 367478,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 19,
+            "width": 1232,
+            "height": 1067
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 19,
+            "width": 1272,
+            "height": 1067
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 737.402,
+            "y": 564.27
+          },
+          "reboundOpaqueCentroid": {
+            "x": 736.272,
+            "y": 559.864
+          },
+          "observedHitNeutralBboxIoU": 0.88766903,
+          "observedReboundNeutralBboxIoU": 0.85975491,
+          "observedHitReboundBboxIoU": 0.96855346,
+          "observedHitNeutralCentroidShiftPx": 7.322,
+          "observedReboundNeutralCentroidShiftPx": 3.109,
+          "observedHitReboundCentroidShiftPx": 4.549
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -5121,6 +6953,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 416226,
+              "neutralToHitChangedRatio": 0.26468591,
+              "neutralToHitAlphaMismatchPixels": 260330,
+              "neutralToReboundChangedPixels": 383930,
+              "neutralToReboundChangedRatio": 0.24414828,
+              "neutralToReboundAlphaMismatchPixels": 205143,
+              "hitToReboundChangedPixels": 407868,
+              "hitToReboundChangedRatio": 0.2593709,
+              "hitToReboundAlphaMismatchPixels": 221824,
+              "hitNeutralCentroidShiftPx": 7.322,
+              "reboundNeutralCentroidShiftPx": 3.109,
+              "hitReboundCentroidShiftPx": 4.549
             }
           },
           "evidenceRequired": {
@@ -5168,12 +7014,10 @@
           "fixOrder class: two-hand combo after RD/SN base conventions"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -5218,6 +7062,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 387685,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 19,
+              "width": 1232,
+              "height": 1067
+            },
+            "opaqueCentroid": {
+              "x": 737.402,
+              "y": 564.27
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 367478,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 19,
+              "width": 1272,
+              "height": 1067
+            },
+            "opaqueCentroid": {
+              "x": 736.272,
+              "y": 559.864
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 416226,
+            "changedRatio": 0.26468591,
+            "diffBBox": {
+              "x": 91,
+              "y": 19,
+              "width": 1198,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 739.351,
+              "y": 573.808
+            },
+            "alphaMismatchPixels": 260330
+          },
+          "neutralToRebound": {
+            "changedPixels": 383930,
+            "changedRatio": 0.24414828,
+            "diffBBox": {
+              "x": 90,
+              "y": 19,
+              "width": 1239,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 734.357,
+              "y": 567.348
+            },
+            "alphaMismatchPixels": 205143
+          },
+          "hitToRebound": {
+            "changedPixels": 407868,
+            "changedRatio": 0.2593709,
+            "diffBBox": {
+              "x": 90,
+              "y": 19,
+              "width": 1239,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 741.539,
+              "y": 569.316
+            },
+            "alphaMismatchPixels": 221824
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.88766903,
+            "reboundNeutralBboxIoU": 0.85975491,
+            "hitReboundBboxIoU": 0.96855346,
+            "hitNeutralCentroidShiftPx": 7.322,
+            "reboundNeutralCentroidShiftPx": 3.109,
+            "hitReboundCentroidShiftPx": 4.549
+          },
+          "contactCenters": [
+            {
+              "instrument": "RD",
+              "x": 965,
+              "y": 250,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 29.155,
+              "nearestChangedPixelNeutralToReboundPx": 29.155,
+              "nearestChangedPixelHitToReboundPx": 32.016
+            },
+            {
+              "instrument": "SN",
+              "x": 420,
+              "y": 535,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 14.142,
+              "nearestChangedPixelHitToReboundPx": 0
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "RD",
+                "distancePx": 394.676
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 321.7
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "RD",
+                "distancePx": 392.308
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 316.017
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 91,
+            "y": 19,
+            "width": 1198,
+            "height": 1067
+          },
+          "neutralToRebound": {
+            "x": 90,
+            "y": 19,
+            "width": 1239,
+            "height": 1067
+          },
+          "hitToRebound": {
+            "x": 90,
+            "y": 19,
+            "width": 1239,
+            "height": 1067
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       },
       "occurrences": [
@@ -5499,7 +7515,11 @@
             "y": 250,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 29.155,
+            "observedNearestChangedPixelNeutralToReboundPx": 29.155,
+            "observedNearestChangedPixelHitToReboundPx": 32.016
           }
         ],
         "motionConstraints": {
@@ -5591,7 +7611,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 387337,
+          "reboundOpaquePixelCount": 367304,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 19,
+            "width": 1232,
+            "height": 1067
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 19,
+            "width": 1272,
+            "height": 1067
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 737.689,
+            "y": 564.301
+          },
+          "reboundOpaqueCentroid": {
+            "x": 736.426,
+            "y": 559.884
+          },
+          "observedHitNeutralBboxIoU": 0.88766903,
+          "observedReboundNeutralBboxIoU": 0.85975491,
+          "observedHitReboundBboxIoU": 0.96855346,
+          "observedHitNeutralCentroidShiftPx": 7.49,
+          "observedReboundNeutralCentroidShiftPx": 3.24,
+          "observedHitReboundCentroidShiftPx": 4.594
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -5657,6 +7716,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 415878,
+              "neutralToHitChangedRatio": 0.26446461,
+              "neutralToHitAlphaMismatchPixels": 259982,
+              "neutralToReboundChangedPixels": 383756,
+              "neutralToReboundChangedRatio": 0.24403763,
+              "neutralToReboundAlphaMismatchPixels": 204969,
+              "hitToReboundChangedPixels": 407359,
+              "hitToReboundChangedRatio": 0.25904722,
+              "hitToReboundAlphaMismatchPixels": 221315,
+              "hitNeutralCentroidShiftPx": 7.49,
+              "reboundNeutralCentroidShiftPx": 3.24,
+              "hitReboundCentroidShiftPx": 4.594
             }
           },
           "evidenceRequired": {
@@ -5703,12 +7776,10 @@
           "fixOrder class: base right-hand ride action; stabilize before RD combos"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -5754,6 +7825,161 @@
               "neighbor-event screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 387337,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 19,
+              "width": 1232,
+              "height": 1067
+            },
+            "opaqueCentroid": {
+              "x": 737.689,
+              "y": 564.301
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 367304,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 19,
+              "width": 1272,
+              "height": 1067
+            },
+            "opaqueCentroid": {
+              "x": 736.426,
+              "y": 559.884
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 415878,
+            "changedRatio": 0.26446461,
+            "diffBBox": {
+              "x": 91,
+              "y": 19,
+              "width": 1198,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 739.621,
+              "y": 573.845
+            },
+            "alphaMismatchPixels": 259982
+          },
+          "neutralToRebound": {
+            "changedPixels": 383756,
+            "changedRatio": 0.24403763,
+            "diffBBox": {
+              "x": 90,
+              "y": 19,
+              "width": 1239,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 734.503,
+              "y": 567.371
+            },
+            "alphaMismatchPixels": 204969
+          },
+          "hitToRebound": {
+            "changedPixels": 407359,
+            "changedRatio": 0.25904722,
+            "diffBBox": {
+              "x": 90,
+              "y": 19,
+              "width": 1239,
+              "height": 1067
+            },
+            "diffCentroid": {
+              "x": 741.946,
+              "y": 569.371
+            },
+            "alphaMismatchPixels": 221315
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.88766903,
+            "reboundNeutralBboxIoU": 0.85975491,
+            "hitReboundBboxIoU": 0.96855346,
+            "hitNeutralCentroidShiftPx": 7.49,
+            "reboundNeutralCentroidShiftPx": 3.24,
+            "hitReboundCentroidShiftPx": 4.594
+          },
+          "contactCenters": [
+            {
+              "instrument": "RD",
+              "x": 965,
+              "y": 250,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 29.155,
+              "nearestChangedPixelNeutralToReboundPx": 29.155,
+              "nearestChangedPixelHitToReboundPx": 32.016
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "RD",
+                "distancePx": 394.552
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "RD",
+                "distancePx": 392.241
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 91,
+            "y": 19,
+            "width": 1198,
+            "height": 1067
+          },
+          "neutralToRebound": {
+            "x": 90,
+            "y": 19,
+            "width": 1239,
+            "height": 1067
+          },
+          "hitToRebound": {
+            "x": 90,
+            "y": 19,
+            "width": 1239,
+            "height": 1067
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       }
     },
@@ -6091,7 +8317,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           },
           {
             "instrument": "RC",
@@ -6101,7 +8331,11 @@
             "y": 145,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 54.203,
+            "observedNearestChangedPixelNeutralToReboundPx": 67.956,
+            "observedNearestChangedPixelHitToReboundPx": 54.203
           },
           {
             "instrument": "SN",
@@ -6111,7 +8345,11 @@
             "y": 535,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 76.158,
+            "observedNearestChangedPixelNeutralToReboundPx": 76.158,
+            "observedNearestChangedPixelHitToReboundPx": 106.527
           }
         ],
         "motionConstraints": {
@@ -6253,7 +8491,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 371448,
+          "reboundOpaquePixelCount": 377690,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1274,
+            "height": 1047
+          },
+          "reboundOpaqueBBox": {
+            "x": 0,
+            "y": 24,
+            "width": 1327,
+            "height": 1062
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 753.647,
+            "y": 550.498
+          },
+          "reboundOpaqueCentroid": {
+            "x": 729.626,
+            "y": 571.115
+          },
+          "observedHitNeutralBboxIoU": 0.87480264,
+          "observedReboundNeutralBboxIoU": 0.82654659,
+          "observedHitReboundBboxIoU": 0.93899056,
+          "observedHitNeutralCentroidShiftPx": 21.042,
+          "observedReboundNeutralCentroidShiftPx": 13.965,
+          "observedHitReboundCentroidShiftPx": 31.655
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -6319,6 +8596,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 391544,
+              "neutralToHitChangedRatio": 0.24899016,
+              "neutralToHitAlphaMismatchPixels": 209957,
+              "neutralToReboundChangedPixels": 407962,
+              "neutralToReboundChangedRatio": 0.25943067,
+              "neutralToReboundAlphaMismatchPixels": 236887,
+              "hitToReboundChangedPixels": 417985,
+              "hitToReboundChangedRatio": 0.26580449,
+              "hitToReboundAlphaMismatchPixels": 238356,
+              "hitNeutralCentroidShiftPx": 21.042,
+              "reboundNeutralCentroidShiftPx": 13.965,
+              "hitReboundCentroidShiftPx": 31.655
             }
           },
           "evidenceRequired": {
@@ -6365,12 +8656,10 @@
           "fixOrder class: lowest-frequency three-limb combo; do after core registration rules are proven"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -6416,6 +8705,195 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 371448,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1274,
+              "height": 1047
+            },
+            "opaqueCentroid": {
+              "x": 753.647,
+              "y": 550.498
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 377690,
+            "opaqueBBox": {
+              "x": 0,
+              "y": 24,
+              "width": 1327,
+              "height": 1062
+            },
+            "opaqueCentroid": {
+              "x": 729.626,
+              "y": 571.115
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 391544,
+            "changedRatio": 0.24899016,
+            "diffBBox": {
+              "x": 89,
+              "y": 23,
+              "width": 1242,
+              "height": 1047
+            },
+            "diffCentroid": {
+              "x": 748.146,
+              "y": 554.728
+            },
+            "alphaMismatchPixels": 209957
+          },
+          "neutralToRebound": {
+            "changedPixels": 407962,
+            "changedRatio": 0.25943067,
+            "diffBBox": {
+              "x": 0,
+              "y": 23,
+              "width": 1327,
+              "height": 1063
+            },
+            "diffCentroid": {
+              "x": 729.333,
+              "y": 580.238
+            },
+            "alphaMismatchPixels": 236887
+          },
+          "hitToRebound": {
+            "changedPixels": 417985,
+            "changedRatio": 0.26580449,
+            "diffBBox": {
+              "x": 0,
+              "y": 23,
+              "width": 1331,
+              "height": 1063
+            },
+            "diffCentroid": {
+              "x": 741.255,
+              "y": 572.011
+            },
+            "alphaMismatchPixels": 238356
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87480264,
+            "reboundNeutralBboxIoU": 0.82654659,
+            "hitReboundBboxIoU": 0.93899056,
+            "hitNeutralCentroidShiftPx": 21.042,
+            "reboundNeutralCentroidShiftPx": 13.965,
+            "hitReboundCentroidShiftPx": 31.655
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            },
+            {
+              "instrument": "RC",
+              "x": 1215,
+              "y": 145,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 54.203,
+              "nearestChangedPixelNeutralToReboundPx": 67.956,
+              "nearestChangedPixelHitToReboundPx": 54.203
+            },
+            {
+              "instrument": "SN",
+              "x": 420,
+              "y": 535,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 76.158,
+              "nearestChangedPixelNeutralToReboundPx": 76.158,
+              "nearestChangedPixelHitToReboundPx": 106.527
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 96.175
+              },
+              {
+                "instrument": "RC",
+                "distancePx": 621.152
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 328.738
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 69.992
+              },
+              {
+                "instrument": "RC",
+                "distancePx": 652.154
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 312.623
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 89,
+            "y": 23,
+            "width": 1242,
+            "height": 1047
+          },
+          "neutralToRebound": {
+            "x": 0,
+            "y": 23,
+            "width": 1327,
+            "height": 1063
+          },
+          "hitToRebound": {
+            "x": 0,
+            "y": 23,
+            "width": 1331,
+            "height": 1063
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       }
     },
@@ -6679,7 +9157,11 @@
             "y": 360,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           }
         ],
         "motionConstraints": {
@@ -6771,7 +9253,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 364646,
+          "reboundOpaquePixelCount": 371551,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 26,
+            "width": 1272,
+            "height": 1034
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 741.795,
+            "y": 546.834
+          },
+          "reboundOpaqueCentroid": {
+            "x": 746.178,
+            "y": 544.458
+          },
+          "observedHitNeutralBboxIoU": 0.87758362,
+          "observedReboundNeutralBboxIoU": 0.81973006,
+          "observedHitReboundBboxIoU": 0.92395818,
+          "observedHitNeutralCentroidShiftPx": 13.521,
+          "observedReboundNeutralCentroidShiftPx": 18.136,
+          "observedHitReboundCentroidShiftPx": 4.986
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -6837,6 +9358,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 397400,
+              "neutralToHitChangedRatio": 0.2527141,
+              "neutralToHitAlphaMismatchPixels": 223361,
+              "neutralToReboundChangedPixels": 404710,
+              "neutralToReboundChangedRatio": 0.25736267,
+              "neutralToReboundAlphaMismatchPixels": 224841,
+              "hitToReboundChangedPixels": 405842,
+              "hitToReboundChangedRatio": 0.25808253,
+              "hitToReboundAlphaMismatchPixels": 181208,
+              "hitNeutralCentroidShiftPx": 13.521,
+              "reboundNeutralCentroidShiftPx": 18.136,
+              "hitReboundCentroidShiftPx": 4.986
             }
           },
           "evidenceRequired": {
@@ -6883,12 +9418,10 @@
           "fixOrder class: base right-hand tom action; stabilize before HT combos"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -6937,6 +9470,161 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 364646,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 26,
+              "width": 1272,
+              "height": 1034
+            },
+            "opaqueCentroid": {
+              "x": 741.795,
+              "y": 546.834
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 371551,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "opaqueCentroid": {
+              "x": 746.178,
+              "y": 544.458
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 397400,
+            "changedRatio": 0.2527141,
+            "diffBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1272,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 734.443,
+              "y": 561.467
+            },
+            "alphaMismatchPixels": 223361
+          },
+          "neutralToRebound": {
+            "changedPixels": 404710,
+            "changedRatio": 0.25736267,
+            "diffBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.385,
+              "y": 552.507
+            },
+            "alphaMismatchPixels": 224841
+          },
+          "hitToRebound": {
+            "changedPixels": 405842,
+            "changedRatio": 0.25808253,
+            "diffBBox": {
+              "x": 97,
+              "y": 17,
+              "width": 1317,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.736,
+              "y": 547.345
+            },
+            "alphaMismatchPixels": 181208
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87758362,
+            "reboundNeutralBboxIoU": 0.81973006,
+            "hitReboundBboxIoU": 0.92395818,
+            "hitNeutralCentroidShiftPx": 13.521,
+            "reboundNeutralCentroidShiftPx": 18.136,
+            "hitReboundCentroidShiftPx": 4.986
+          },
+          "contactCenters": [
+            {
+              "instrument": "HT",
+              "x": 575,
+              "y": 360,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "HT",
+                "distancePx": 256.926
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "HT",
+                "distancePx": 250.564
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 57,
+            "y": 23,
+            "width": 1272,
+            "height": 1040
+          },
+          "neutralToRebound": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "hitToRebound": {
+            "x": 97,
+            "y": 17,
+            "width": 1317,
+            "height": 1049
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       }
     },
@@ -7221,7 +9909,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           },
           {
             "instrument": "HT",
@@ -7231,7 +9923,11 @@
             "y": 360,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           }
         ],
         "motionConstraints": {
@@ -7341,7 +10037,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 364653,
+          "reboundOpaquePixelCount": 371551,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 26,
+            "width": 1272,
+            "height": 1034
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 741.789,
+            "y": 546.839
+          },
+          "reboundOpaqueCentroid": {
+            "x": 746.178,
+            "y": 544.458
+          },
+          "observedHitNeutralBboxIoU": 0.87758362,
+          "observedReboundNeutralBboxIoU": 0.81973006,
+          "observedHitReboundBboxIoU": 0.92395818,
+          "observedHitNeutralCentroidShiftPx": 13.513,
+          "observedReboundNeutralCentroidShiftPx": 18.136,
+          "observedHitReboundCentroidShiftPx": 4.993
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -7407,6 +10142,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 397402,
+              "neutralToHitChangedRatio": 0.25271537,
+              "neutralToHitAlphaMismatchPixels": 223578,
+              "neutralToReboundChangedPixels": 404710,
+              "neutralToReboundChangedRatio": 0.25736267,
+              "neutralToReboundAlphaMismatchPixels": 224907,
+              "hitToReboundChangedPixels": 405849,
+              "hitToReboundChangedRatio": 0.25808698,
+              "hitToReboundAlphaMismatchPixels": 181473,
+              "hitNeutralCentroidShiftPx": 13.513,
+              "reboundNeutralCentroidShiftPx": 18.136,
+              "hitReboundCentroidShiftPx": 4.993
             }
           },
           "evidenceRequired": {
@@ -7453,12 +10202,10 @@
           "fixOrder class: lower-frequency hand+foot combo after HT/BD conventions"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -7505,6 +10252,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 364653,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 26,
+              "width": 1272,
+              "height": 1034
+            },
+            "opaqueCentroid": {
+              "x": 741.789,
+              "y": 546.839
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 371551,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "opaqueCentroid": {
+              "x": 746.178,
+              "y": 544.458
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 397402,
+            "changedRatio": 0.25271537,
+            "diffBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1272,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 734.442,
+              "y": 561.469
+            },
+            "alphaMismatchPixels": 223578
+          },
+          "neutralToRebound": {
+            "changedPixels": 404710,
+            "changedRatio": 0.25736267,
+            "diffBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.385,
+              "y": 552.507
+            },
+            "alphaMismatchPixels": 224907
+          },
+          "hitToRebound": {
+            "changedPixels": 405849,
+            "changedRatio": 0.25808698,
+            "diffBBox": {
+              "x": 97,
+              "y": 17,
+              "width": 1317,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.731,
+              "y": 547.35
+            },
+            "alphaMismatchPixels": 181473
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87758362,
+            "reboundNeutralBboxIoU": 0.81973006,
+            "hitReboundBboxIoU": 0.92395818,
+            "hitNeutralCentroidShiftPx": 13.513,
+            "reboundNeutralCentroidShiftPx": 18.136,
+            "hitReboundCentroidShiftPx": 4.993
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            },
+            {
+              "instrument": "HT",
+              "x": 575,
+              "y": 360,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 88.533
+              },
+              {
+                "instrument": "HT",
+                "distancePx": 256.927
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 97.494
+              },
+              {
+                "instrument": "HT",
+                "distancePx": 250.564
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 57,
+            "y": 23,
+            "width": 1272,
+            "height": 1040
+          },
+          "neutralToRebound": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "hitToRebound": {
+            "x": 97,
+            "y": 17,
+            "width": 1317,
+            "height": 1049
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       }
     },
@@ -7789,7 +10708,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           },
           {
             "instrument": "SN",
@@ -7799,7 +10722,11 @@
             "y": 535,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 76.158,
+            "observedNearestChangedPixelNeutralToReboundPx": 76.158,
+            "observedNearestChangedPixelHitToReboundPx": 87.727
           }
         ],
         "motionConstraints": {
@@ -7909,7 +10836,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 363670,
+          "reboundOpaquePixelCount": 352688,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 87,
+            "y": 24,
+            "width": 1092,
+            "height": 1062
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 26,
+            "width": 1270,
+            "height": 1033
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 732.761,
+            "y": 572.222
+          },
+          "reboundOpaqueCentroid": {
+            "x": 732.267,
+            "y": 555.526
+          },
+          "observedHitNeutralBboxIoU": 0.95183876,
+          "observedReboundNeutralBboxIoU": 0.87820701,
+          "observedHitReboundBboxIoU": 0.83957612,
+          "observedHitNeutralCentroidShiftPx": 14.442,
+          "observedReboundNeutralCentroidShiftPx": 2.835,
+          "observedHitReboundCentroidShiftPx": 16.703
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -7975,6 +10941,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 394809,
+              "neutralToHitChangedRatio": 0.25106644,
+              "neutralToHitAlphaMismatchPixels": 226152,
+              "neutralToReboundChangedPixels": 365478,
+              "neutralToReboundChangedRatio": 0.2324143,
+              "neutralToReboundAlphaMismatchPixels": 167010,
+              "hitToReboundChangedPixels": 387318,
+              "hitToReboundChangedRatio": 0.24630277,
+              "hitToReboundAlphaMismatchPixels": 192564,
+              "hitNeutralCentroidShiftPx": 14.442,
+              "reboundNeutralCentroidShiftPx": 2.835,
+              "hitReboundCentroidShiftPx": 16.703
             }
           },
           "evidenceRequired": {
@@ -8021,12 +11001,10 @@
           "fixOrder class: hand+foot combo after BD/SN base conventions"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -8073,6 +11051,178 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 363670,
+            "opaqueBBox": {
+              "x": 87,
+              "y": 24,
+              "width": 1092,
+              "height": 1062
+            },
+            "opaqueCentroid": {
+              "x": 732.761,
+              "y": 572.222
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 352688,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 26,
+              "width": 1270,
+              "height": 1033
+            },
+            "opaqueCentroid": {
+              "x": 732.267,
+              "y": 555.526
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 394809,
+            "changedRatio": 0.25106644,
+            "diffBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1063
+            },
+            "diffCentroid": {
+              "x": 729.615,
+              "y": 582.137
+            },
+            "alphaMismatchPixels": 226152
+          },
+          "neutralToRebound": {
+            "changedPixels": 365478,
+            "changedRatio": 0.2324143,
+            "diffBBox": {
+              "x": 89,
+              "y": 23,
+              "width": 1238,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 731.008,
+              "y": 555.059
+            },
+            "alphaMismatchPixels": 167010
+          },
+          "hitToRebound": {
+            "changedPixels": 387318,
+            "changedRatio": 0.24630277,
+            "diffBBox": {
+              "x": 57,
+              "y": 24,
+              "width": 1270,
+              "height": 1062
+            },
+            "diffCentroid": {
+              "x": 727.881,
+              "y": 586.88
+            },
+            "alphaMismatchPixels": 192564
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.95183876,
+            "reboundNeutralBboxIoU": 0.87820701,
+            "hitReboundBboxIoU": 0.83957612,
+            "hitNeutralCentroidShiftPx": 14.442,
+            "reboundNeutralCentroidShiftPx": 2.835,
+            "hitReboundCentroidShiftPx": 16.703
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            },
+            {
+              "instrument": "SN",
+              "x": 420,
+              "y": 535,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 76.158,
+              "nearestChangedPixelNeutralToReboundPx": 76.158,
+              "nearestChangedPixelHitToReboundPx": 87.727
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 68.076
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 313.183
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 95.025
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 311.654
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1063
+          },
+          "neutralToRebound": {
+            "x": 89,
+            "y": 23,
+            "width": 1238,
+            "height": 1040
+          },
+          "hitToRebound": {
+            "x": 57,
+            "y": 24,
+            "width": 1270,
+            "height": 1062
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       }
     },
@@ -8410,7 +11560,11 @@
             "y": 650,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 0,
+            "observedNearestChangedPixelHitToReboundPx": 0
           },
           {
             "instrument": "HH",
@@ -8420,7 +11574,11 @@
             "y": 390,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 169.319,
+            "observedNearestChangedPixelNeutralToReboundPx": 46.4,
+            "observedNearestChangedPixelHitToReboundPx": 46.4
           },
           {
             "instrument": "SN",
@@ -8430,7 +11588,11 @@
             "y": 535,
             "tolerancePx": null,
             "toleranceState": "NEEDS_MEASUREMENT",
-            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized"
+            "source": "INSTRUMENT_CONTACT_POINTS.json approximate center; numeric radius not yet authorized",
+            "centerState": "MEASURED_FROM_AUTHORITY",
+            "observedNearestChangedPixelNeutralToHitPx": 0,
+            "observedNearestChangedPixelNeutralToReboundPx": 14.142,
+            "observedNearestChangedPixelHitToReboundPx": 0
           }
         ],
         "motionConstraints": {
@@ -8572,7 +11734,46 @@
           "staticRegionOpaquePixelTolerance": 0,
           "bboxIoUThreshold": null,
           "centroidShiftTolerancePx": 0,
-          "measurementState": "NEEDS_MEASUREMENT"
+          "measurementState": "MEASURED_RASTER",
+          "neutralOpaquePixelCount": 358512,
+          "hitOpaquePixelCount": 365725,
+          "reboundOpaquePixelCount": 372463,
+          "neutralOpaqueBBox": {
+            "x": 57,
+            "y": 23,
+            "width": 1122,
+            "height": 1040
+          },
+          "hitOpaqueBBox": {
+            "x": 57,
+            "y": 26,
+            "width": 1272,
+            "height": 1034
+          },
+          "reboundOpaqueBBox": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "neutralOpaqueCentroid": {
+            "x": 733.923,
+            "y": 557.827
+          },
+          "hitOpaqueCentroid": {
+            "x": 740.27,
+            "y": 546.461
+          },
+          "reboundOpaqueCentroid": {
+            "x": 745.186,
+            "y": 543.758
+          },
+          "observedHitNeutralBboxIoU": 0.87758362,
+          "observedReboundNeutralBboxIoU": 0.81973006,
+          "observedHitReboundBboxIoU": 0.92395818,
+          "observedHitNeutralCentroidShiftPx": 13.018,
+          "observedReboundNeutralCentroidShiftPx": 18.022,
+          "observedHitReboundCentroidShiftPx": 5.61
         },
         "runtimeTiming": {
           "hitDurationMs": 180,
@@ -8638,6 +11839,20 @@
             "neighborRegressionCount": {
               "target": 0,
               "state": "READY"
+            },
+            "currentObserved": {
+              "neutralToHitChangedPixels": 396681,
+              "neutralToHitChangedRatio": 0.25225688,
+              "neutralToHitAlphaMismatchPixels": 224584,
+              "neutralToReboundChangedPixels": 404151,
+              "neutralToReboundChangedRatio": 0.25700719,
+              "neutralToReboundAlphaMismatchPixels": 225819,
+              "hitToReboundChangedPixels": 405634,
+              "hitToReboundChangedRatio": 0.25795026,
+              "hitToReboundAlphaMismatchPixels": 184519,
+              "hitNeutralCentroidShiftPx": 13.018,
+              "reboundNeutralCentroidShiftPx": 18.022,
+              "hitReboundCentroidShiftPx": 5.61
             }
           },
           "evidenceRequired": {
@@ -8684,12 +11899,10 @@
           "fixOrder class: three-limb combo after BD/HH/SN conventions"
         ],
         "measurementTodos": [
-          "Resolve any missing SHA256 from latest manifest/main.",
-          "Measure editableRoisPx rectangles.",
-          "Measure lockedReferenceRegions rectangles.",
-          "Measure relevant anchorPointsPx.",
-          "Measure static/active limb bounding boxes and opaque-pixel metrics.",
-          "Measure contact tolerancePx and active-limb angle/length/rebound separation limits."
+          "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
+          "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
+          "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
         ],
         "legacyNarrative": {
           "targetState": {
@@ -8735,6 +11948,195 @@
               "neighbor-event regression screenshots"
             ]
           }
+        },
+        "measuredGeometry": {
+          "measurementSource": "REPAIR_MEASUREMENTS_AUTO.json / exact GitHub PNG bytes",
+          "neutral": {
+            "opaquePixelCount": 358512,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1122,
+              "height": 1040
+            },
+            "opaqueCentroid": {
+              "x": 733.923,
+              "y": 557.827
+            }
+          },
+          "hit": {
+            "opaquePixelCount": 365725,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 26,
+              "width": 1272,
+              "height": 1034
+            },
+            "opaqueCentroid": {
+              "x": 740.27,
+              "y": 546.461
+            }
+          },
+          "rebound": {
+            "opaquePixelCount": 372463,
+            "opaqueBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "opaqueCentroid": {
+              "x": 745.186,
+              "y": 543.758
+            }
+          },
+          "neutralToHit": {
+            "changedPixels": 396681,
+            "changedRatio": 0.25225688,
+            "diffBBox": {
+              "x": 57,
+              "y": 23,
+              "width": 1272,
+              "height": 1040
+            },
+            "diffCentroid": {
+              "x": 734.565,
+              "y": 561.903
+            },
+            "alphaMismatchPixels": 224584
+          },
+          "neutralToRebound": {
+            "changedPixels": 404151,
+            "changedRatio": 0.25700719,
+            "diffBBox": {
+              "x": 57,
+              "y": 17,
+              "width": 1357,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.506,
+              "y": 553.007
+            },
+            "alphaMismatchPixels": 225819
+          },
+          "hitToRebound": {
+            "changedPixels": 405634,
+            "changedRatio": 0.25795026,
+            "diffBBox": {
+              "x": 97,
+              "y": 17,
+              "width": 1317,
+              "height": 1049
+            },
+            "diffCentroid": {
+              "x": 735.474,
+              "y": 547.797
+            },
+            "alphaMismatchPixels": 184519
+          },
+          "shape": {
+            "hitNeutralBboxIoU": 0.87758362,
+            "reboundNeutralBboxIoU": 0.81973006,
+            "hitReboundBboxIoU": 0.92395818,
+            "hitNeutralCentroidShiftPx": 13.018,
+            "reboundNeutralCentroidShiftPx": 18.022,
+            "hitReboundCentroidShiftPx": 5.61
+          },
+          "contactCenters": [
+            {
+              "instrument": "BD",
+              "x": 735,
+              "y": 650,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 0,
+              "nearestChangedPixelHitToReboundPx": 0
+            },
+            {
+              "instrument": "HH",
+              "x": 190,
+              "y": 390,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 169.319,
+              "nearestChangedPixelNeutralToReboundPx": 46.4,
+              "nearestChangedPixelHitToReboundPx": 46.4
+            },
+            {
+              "instrument": "SN",
+              "x": 420,
+              "y": 535,
+              "source": "INSTRUMENT_CONTACT_POINTS.json",
+              "nearestChangedPixelNeutralToHitPx": 0,
+              "nearestChangedPixelNeutralToReboundPx": 14.142,
+              "nearestChangedPixelHitToReboundPx": 0
+            }
+          ],
+          "contactCenterToDiffCentroidPx": {
+            "hit": [
+              {
+                "instrument": "BD",
+                "distancePx": 88.098
+              },
+              {
+                "instrument": "HH",
+                "distancePx": 571.053
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 315.713
+              }
+            ],
+            "rebound": [
+              {
+                "instrument": "BD",
+                "distancePx": 96.994
+              },
+              {
+                "instrument": "HH",
+                "distancePx": 569.34
+              },
+              {
+                "instrument": "SN",
+                "distancePx": 316.019
+              }
+            ]
+          },
+          "interpretation": "These are exact raster measurements, not semantic joint estimates. Use them to bound/regress edits and detect whole-body drift."
+        },
+        "observedChangedRegionsPx": {
+          "neutralToHit": {
+            "x": 57,
+            "y": 23,
+            "width": 1272,
+            "height": 1040
+          },
+          "neutralToRebound": {
+            "x": 57,
+            "y": 17,
+            "width": 1357,
+            "height": 1049
+          },
+          "hitToRebound": {
+            "x": 97,
+            "y": 17,
+            "width": 1317,
+            "height": 1049
+          }
+        },
+        "measurementProgress": {
+          "exactSourceSha": true,
+          "exactCanvas": true,
+          "exactOpaqueBBoxes": true,
+          "exactOpaqueCentroids": true,
+          "exactPixelDiffs": true,
+          "exactAlphaDiffs": true,
+          "authoritativeContactCenters": true,
+          "semanticJointAnchors": false,
+          "semanticActiveLimbRois": false,
+          "numericContactTolerance": false,
+          "limbAngleLengthRanges": false,
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
         }
       }
     }
@@ -9142,6 +12544,13 @@
       "maxAllowedScaleDrift",
       "maxAllowedRotationDeg",
       "maxAlphaMismatchPixels"
-    ]
+    ],
+    "measurementAuthority": "character-assets/prototypes/luna_say_maybe_16m/REPAIR_MEASUREMENTS_AUTO.json",
+    "measurementSummary": {
+      "activeDefectsMeasured": 15,
+      "exactRasterMetricsComplete": true,
+      "semanticLandmarksPending": true,
+      "formalPngModified": false
+    }
   }
 }
