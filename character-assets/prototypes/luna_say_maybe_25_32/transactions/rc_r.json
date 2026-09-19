@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe RC:R transaction for Luna M25-28",
-  "status": "VISUAL_QA",
+  "status": "VISUAL_QA_FINAL_REVIEW",
   "actionKey": "RC:R",
   "scope": {
     "measureStart": 25,
@@ -31,29 +31,32 @@
   "phases": {
     "hit": {
       "stage": "VISUAL_QA",
-      "attempt": 1,
-      "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_r_hit_attempt01.png",
-      "sha256": "a58360df0afddbc81d67c1fa21f2e46f589f5981d3574f2274fab2f09cd9f9c1",
-      "qaStatus": "PENDING",
+      "attempt": 3,
+      "dropboxPath": null,
+      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
+      "qaStatus": "HOLD_FINAL_PROPORTION_REVIEW",
       "formalPath": "character-assets/layers/character/rc/hit_r_refresh.png",
       "formalCommit": null
     },
     "rebound": {
       "stage": "VISUAL_QA",
-      "attempt": 1,
-      "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_r_rebound_attempt01.png",
-      "sha256": "f6c86b9e3047c041b622e85365a3a09d9ecee000a9739949553f282f964ff1ca",
-      "qaStatus": "PENDING",
+      "attempt": 2,
+      "dropboxPath": null,
+      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
+      "qaStatus": "HOLD_FINAL_PROPORTION_REVIEW",
       "formalPath": "character-assets/layers/character/rc/rebound_r_refresh.png",
       "formalCommit": null
     }
   },
   "qa": {
-    "static": "PENDING",
-    "compositeVisual": "PENDING",
+    "static": "PASS_CANDIDATE_BINARY",
+    "compositeVisual": "HOLD",
     "runtimePC": "PENDING",
     "runtimeXperia": "PENDING",
     "screenshots": "PENDING"
   },
-  "updatedAt": "2026-09-19T08:56:00+09:00"
+  "updatedAt": "2026-09-19T09:15:00+09:00",
+  "notes": [
+    "Attempt03 removed the duplicate-stick issue substantially. Do not formalize until final arm/stick proportion review passes on fixed-drum composite."
+  ]
 }
