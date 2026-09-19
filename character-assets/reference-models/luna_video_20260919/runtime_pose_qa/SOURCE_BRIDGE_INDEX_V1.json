@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T21:24:00+09:00",
+  "authority": "GitHub main formal path + SHA256",
+  "purpose": "Reusable exact-source bridge index for renderer-parent acquisition without user file handling.",
+  "workflow": [
+    "files.list /Dropbox mount",
+    "files.materialize raw_file",
+    "local SHA256 verification against GitHub formal SHA256",
+    "re-expose exact verified file into current conversation when renderer requires a conversation image target"
+  ],
+  "files": [
+    {
+      "role": "neutral",
+      "githubPath": "character-assets/layers/character/base/neutral.png",
+      "githubBlobSha": "6115284a265f5dc55a4203413fe62ab07267e38b",
+      "githubSize": 971237,
+      "formalSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+      "dropboxVerified": {
+        "path": "/ChatGPT/dtx-drum-flow/neutral_886e3490bb926b49.png",
+        "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAANQ",
+        "sha256Verified": true
+      }
+    },
+    {
+      "role": "sn_l_hit",
+      "githubPath": "character-assets/layers/character/sn/hit_l.png",
+      "githubBlobSha": "ad4d2e4fecf65ab6b129750152d39143b4889227",
+      "githubSize": 1004223,
+      "formalSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+      "dropboxVerified": {
+        "path": "/ChatGPT/dtx-drum-flow/sn_l_hit_contactfix_20260917.png",
+        "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAAGw",
+        "sha256Verified": true
+      },
+      "staleAliases": [
+        {
+          "path": "/ChatGPT/dtx-drum-flow/sn_hit_l.png",
+          "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAACA",
+          "disposition": "DO_NOT_USE_AS_FORMAL_SOURCE",
+          "reason": "materialized SHA256 mismatch"
+        }
+      ]
+    },
+    {
+      "role": "sn_l_rebound",
+      "githubPath": "character-assets/layers/character/sn/rebound_l.png",
+      "githubBlobSha": "f8e4c1fffe3b959f862b8039a08b30fb4c2cf8cd",
+      "githubSize": 1046791,
+      "formalSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+      "dropboxVerified": {
+        "path": "/ChatGPT/dtx-drum-flow/sn_l_rebound_contactfix_20260917.png",
+        "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAAHA",
+        "sha256Verified": true
+      },
+      "staleAliases": [
+        {
+          "path": "/ChatGPT/dtx-drum-flow/sn_rebound_l.png",
+          "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAACQ",
+          "disposition": "DO_NOT_USE_AS_FORMAL_SOURCE",
+          "reason": "materialized SHA256 mismatch"
+        }
+      ]
+    },
+    {
+      "role": "fixed_drum",
+      "githubPath": "character-assets/layers/drum/drum_base.png",
+      "githubBlobSha": "c7355343320e68d4aab2cc8be7617b11212644ce",
+      "githubSize": 2041652,
+      "formalSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+      "dropboxVerified": {
+        "path": "/ChatGPT/dtx-drum-flow/drum_base_dadc9764acebc0fc.png",
+        "dropboxId": "id:Ec2HdgD6JJYAAAAAAAAANg",
+        "sha256Verified": true
+      }
+    }
+  ],
+  "knownBadMethods": [
+    "Do not trust Dropbox filename/path/preview/content_hash as GitHub formal-byte proof.",
+    "Do not rely on files.read(mode=image_file) for Dropbox-mounted PNG renderer handoff; native pixels may be unavailable.",
+    "Do not repeatedly retry Dropbox fetch content extraction for PNG; use raw materialization instead."
+  ],
+  "currentSessionExposure": {
+    "status": "SUCCESS",
+    "note": "All four exact formal files were materialized, SHA256-verified, then re-exposed into the current conversation as image attachments. Conversation attachment ids are session-local and are intentionally not stored here as durable authority."
+  }
+}
