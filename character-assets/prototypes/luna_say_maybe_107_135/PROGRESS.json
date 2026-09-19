@@ -4,7 +4,7 @@
     "measureStart": 107,
     "measureEnd": 135
   },
-  "status": "RUNTIME_QA_PENDING",
+  "status": "M107_135_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -30,7 +30,32 @@
     "mappingAuthority": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json runtimePhaseFrameMap"
   },
   "requiredNext": "Expand contiguous runtimeScope through M135 and run public PC/Xperia runtime QA. Generate no new images.",
-  "runtimeQaEvidence": {},
-  "updatedAt": "2026-09-19T15:49:00+09:00",
+  "runtimeQaEvidence": {
+    "M107-135": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35427385671",
+      "testedCommitSha": "0a13ed0d22e71c6ba238c1a1b1d1d5c366720c28",
+      "artifact": "public-runtime-qa-35427385671",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35427385671",
+      "measureStart": 107,
+      "measureEnd": 135,
+      "actions": [
+        "SN:R",
+        "SN:L",
+        "BD:RF",
+        "BD+RC:RF/R",
+        "HH+SN:R/L",
+        "HH:R",
+        "BD+HH:RF/R",
+        "RC+SN:R/L",
+        "BD+SN:RF/R",
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "RD:R"
+      ]
+    }
+  },
+  "updatedAt": "2026-09-19T06:44:43.627322+00:00",
   "blocker": null
 }
