@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "profileId": "luna_video_multiview_v1",
+  "status": "PROVISIONAL_VIDEO_OBSERVED",
+  "referenceVideo": {
+    "filename": "GAME_20260919-191516~3.mp4",
+    "sha256": "33c0feabad6ea0cfa1c0752ed359f719b7c4443c540d01da633b964a036b0479",
+    "bytes": 13219147,
+    "width": 564,
+    "height": 1320,
+    "fps": 58.87419142182295,
+    "frames": 2448,
+    "durationSec": 41.580188888888884,
+    "coverage": "approximately full 360-degree turn"
+  },
+  "viewSampling": {"count": 12, "yawDegrees": [0,32.727,65.455,98.182,130.909,163.636,196.364,229.091,261.818,294.545,327.273,360]},
+  "appearanceConstraints": {
+    "hair": {"family": "long dark teal hair", "lengthClass": "lower-back/waist region", "preserveLongBackMass": true, "preserveSideLocks": true},
+    "outerwear": {"type": "long gray check jacket", "hemClass": "upper-thigh", "sleeveClass": "long/rolled cuff impression", "preserveLapels": true},
+    "innerTop": {"type": "dark top", "preserveContrastAgainstJacket": true},
+    "bottom": {"type": "dark short skirt", "preserveShortSkirtSilhouette": true},
+    "footwear": {"type": "black short ankle boots", "preserveHeelAndAnkleMass": true},
+    "identityPolicy": "use video appearance as canonical appearance reference but do not copy source anatomical head count directly"
+  },
+  "chibiRetarget": {"targetHeadCount": 4.0, "horizontalScale": 1.08, "headScalePolicy": "head size anchors target unit; compress body below chin", "limbPolicy": "preserve joint directions then shorten segments proportionally", "handFootPolicy": "slightly enlarged readability allowed but instrument contact remains authoritative"},
+  "cameraPolicy": {"runtimeCamera": "existing DTX three-quarter-back/over-shoulder camera remains authoritative", "videoViewsPurpose": "appearance and multiview geometry reference only", "doNotImportVideoCameraIntoRuntime": true},
+  "renderConstraints": {"monochrome": true, "roughPencilMultiStroke": true, "baseFineStroke": true, "thicknessByRetrace": true, "noColor": true, "noGradient": true},
+  "forbiddenChanges": ["free camera reinterpretation","unconstrained outfit redesign","hair shortening","front-facing substitution","wrong limb","wrong instrument","single thick digital line cleanup"]
+}
