@@ -5,11 +5,11 @@
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 136,
-    "noteCount": 1962,
-    "groupCount": 1384,
+    "measureEnd": 148,
+    "noteCount": 2158,
+    "groupCount": 1527,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 238.131849,
+    "lastNoteTime": 258.851273,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -795,17 +795,35 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T15:59:00+09:00",
-  "note": "Runtime scope expanded through M136 after final new pair formal promotion.",
+  "updatedAt": "2026-09-19T16:07:00+09:00",
+  "note": "Character runtime scope expanded through full song M148. M137-148 uses only existing formal mappings; final range public QA pending.",
   "runtimeQaTarget": {
-    "measureStart": 136,
-    "measureEnd": 136,
+    "measureStart": 137,
+    "measureEnd": 148,
     "actions": [
-      "BD+FT:RF/R"
+      "BD+RC:RF/R",
+      "HH:R",
+      "SN:L",
+      "BD+HH:RF/R",
+      "HH+SN:R/L",
+      "BD:RF",
+      "SN:R",
+      "BD+SN:RF/R",
+      "LT:R",
+      "LT:L",
+      "BD+LT:RF/R",
+      "FT:R",
+      "FT:L",
+      "BD+FT:RF/R",
+      "RC+SN:R/L",
+      "BD+SN:RF/L",
+      "BD+RD:RF/R",
+      "RD+SN:R/L",
+      "RD:R"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_136/PROGRESS.json",
-    "blockKey": "M136",
-    "purpose": "Public PC/Xperia character runtime checkpoint for final new pair BD+FT:RF/R.",
-    "retriggerAt": "2026-09-19T15:59:00+09:00"
+    "progressPath": "character-assets/prototypes/luna_say_maybe_137_148/PROGRESS.json",
+    "blockKey": "M137-148",
+    "purpose": "Public PC/Xperia reuse-only final character runtime checkpoint through M148.",
+    "retriggerAt": "2026-09-19T16:07:00+09:00"
   }
 }
