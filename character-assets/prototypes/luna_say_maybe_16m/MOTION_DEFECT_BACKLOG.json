@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T08:36:00+09:00",
+  "updatedAt": "2026-09-20T08:42:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8926,7 +8926,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:20:00+09:00",
+      "updatedAt": "2026-09-20T08:42:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9890,7 +9890,13 @@
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger."
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "direction": "BACK",
+        "batch": "BACK-VISUAL-REVIEW-01",
+        "claimedAt": "2026-09-20T08:42:00+09:00",
+        "owner": "CHATGPT-BACK"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -10749,7 +10755,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:20:00+09:00",
+      "updatedAt": "2026-09-20T08:42:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -11598,7 +11604,13 @@
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
         "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger."
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "direction": "BACK",
+        "batch": "BACK-VISUAL-REVIEW-01",
+        "claimedAt": "2026-09-20T08:42:00+09:00",
+        "owner": "CHATGPT-BACK"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
