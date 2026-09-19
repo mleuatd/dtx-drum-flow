@@ -1,6 +1,6 @@
 // Sample-based acoustic drum engine for DTX Drum Flow.
 // Uses CC0 Virtuosity Drums-derived FLAC files maintained by the ferrosintesis project.
-// Luna say maybe is a timbral/reference target only; no source recording is redistributed.
+// Song-independent practice engine. One global calibration is used for every chart; no per-song mix overrides.
 
 const CORE="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit/samples/";
 const CYM="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit2/samples/";
