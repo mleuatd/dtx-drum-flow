@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 12
+- Reviewed BD+FT:RF/L and BD+FT:RF/R from explicit FRONT evidence (run 35476984329, artifact 10594531751).
+- BD+FT:RF/L hit/rebound failed because the left active stick is discontinuous and a detached diagonal outer fragment remains.
+- BD+FT:RF/R hit/rebound failed because the right hand carries forked/duplicated stick shafts.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY. Formal PNGs unchanged; runtime QA not entered.
+
 ## 2026-09-20 — Visual Integrity Batch 11
 - Reviewed BD+HT:RF/L and BD+FT+SN:RF/R/L using explicit FRONT batch evidence (run 35476815322, artifact 10594496614).
 - BD+HT:RF/L hit/rebound failed because the left active-stick geometry contains an extra short parallel fragment and rebound grip-to-tip continuity/direction is unreadable.
