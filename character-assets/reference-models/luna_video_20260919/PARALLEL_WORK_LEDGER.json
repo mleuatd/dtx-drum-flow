@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:37:00+09:00",
+  "updatedAt": "2026-09-19T21:44:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -427,10 +427,10 @@
       "category": "dropbox_import_automation",
       "description": "Harden and generalize the existing Dropbox->staging JSON->GitHub character asset import path so routine asset transfer/registration is tool-driven rather than AI/manual. Reuse existing staging schema/workflow/tool; add deterministic manifest/index generation and SHA guards. No formal image edits.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T21:35:00+09:00",
       "startedAt": "2026-09-19T21:35:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T21:44:00+09:00",
       "paths": [
         "tools/build-staging-json.mjs",
         ".github/workflows/import-character-asset-from-dropbox.yml",
@@ -445,8 +445,9 @@
         "tools/runtime_pose/**",
         "character-assets/edit-workspaces/**"
       ],
-      "handoffNote": "Automation/tooling only. Formal PNG bytes must not be changed. Preserve backward compatibility with existing staging JSON files. Add validation/dry-run where possible; no force push.",
-      "lastCommit": null
+      "handoffNote": "DONE. For new routine imports use tools/build-character-import-staging.mjs then commit the generated character-assets/staging/*.json; workflow handles validation/download/SHA/registration automatically. SchemaVersion 2 is exact-byte only.",
+      "lastCommit": "42bc80d3d66525f21ab2566d0766f0b497f45f6e",
+      "result": "Existing Dropbox->staging JSON->GitHub import path generalized and hardened. Added deterministic one-image staging builder, validator, reusable Python importer, multi-staging serial workflow processing, exact-byte SHA guards, and backward compatibility. No-op regression run 35441602584 succeeded without formal PNG rewrite."
     }
   ]
 }
