@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T20:27:30+09:00",
+  "terminalId": "RUNTIME-POSE-TERM",
+  "taskId": "RTP-QA-001",
+  "status": "PASS",
+  "workflow": {
+    "name": "Runtime Pose SN-L Source QA",
+    "runId": 35440135805,
+    "headSha": "ca64a770f74592fb4135fa2aa5ca848eb7f5029f",
+    "conclusion": "success",
+    "artifactId": 10583148418,
+    "artifactName": "runtime-pose-sn-l-source-qa",
+    "artifactDigest": "sha256:a034d8d00cb53cd3e14bb1be226bbb8eca7bbeb026a16a9020dd20663867c904"
+  },
+  "lockedSources": {
+    "neutral": {
+      "path": "character-assets/layers/character/base/neutral.png",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+    },
+    "hit": {
+      "path": "character-assets/layers/character/sn/hit_l.png",
+      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+    },
+    "rebound": {
+      "path": "character-assets/layers/character/sn/rebound_l.png",
+      "sha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777"
+    },
+    "drum": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85"
+    }
+  },
+  "passed": [
+    "locked source SHA256 verification",
+    "neutral numeric pose QA",
+    "neutral->hit numeric transition QA",
+    "hit->rebound numeric transition QA",
+    "rebound->neutral numeric transition QA",
+    "neutral fixed-drum composite smoke QA",
+    "hit fixed-drum composite smoke QA",
+    "rebound fixed-drum composite smoke QA",
+    "visible debug overlay generation for all three phases",
+    "aggregate QA report assertion"
+  ],
+  "fixesIncluded": [
+    "composite validator now accepts current canvas dict schema as well as 2-item list/tuple",
+    "composite validator uses effector tolerance with legacy stickTip fallback",
+    "debug renderer composites candidate before drawing constraint guides so QA guides remain visible"
+  ],
+  "formalAssetsModified": false,
+  "note": "This validates exact formal source bytes and constraint/composite plumbing. It does not replace the still-blocked constrained AI candidate render/promotion gate."
+}
