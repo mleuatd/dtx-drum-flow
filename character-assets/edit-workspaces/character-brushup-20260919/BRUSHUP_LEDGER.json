@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T06:13:00+09:00",
+  "updatedAt": "2026-09-20T06:55:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -190,6 +190,22 @@
           "prohibitedRepeat": "Do not repeat presentation/diagram generation strategy.",
           "nextPermittedStrategy": "Explicit exact-source edit target; character-only transparent layer; no labels/panels/drum pixels.",
           "timestamp": "2026-09-19T18:38:00+09:00"
+        },
+        {
+          "attempt": 2,
+          "terminalId": "CHAT-BATCH-2X4",
+          "sourcePath": "character-assets/layers/character/sn/hit_l.png",
+          "sourceSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+          "candidateFile": null,
+          "candidateSha256": null,
+          "status": "BLOCKED",
+          "failurePattern": "BLOCKED-GITHUB-ACTIONS-OPENAI-API-KEY",
+          "failure": "Exact-parent masked image-edit workflow stopped at credential boundary before OpenAI Images edit call; no candidate pixels were produced.",
+          "prohibitedRepeat": "Do not retry this GitHub Actions image-edit path until OPENAI_API_KEY is available to the workflow.",
+          "nextPermittedStrategy": "Use an image-edit-capable surface with the exact GitHub PNG as the source target, or configure the repository secret and rerun the same exact-parent masked workflow.",
+          "workflowRunId": 35471764688,
+          "artifactId": 10592983884,
+          "timestamp": "2026-09-20T06:55:00+09:00"
         }
       ],
       "visualIntegrityQa": {
@@ -203,7 +219,17 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "UNCLAIMED",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
+        "at": "2026-09-20T06:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "outcome": "BLOCKED_IMAGE_EDIT_CREDENTIAL"
+      }
     },
     {
       "order": 2,
@@ -355,7 +381,17 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "UNCLAIMED",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
+        "at": "2026-09-20T06:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "outcome": "PENDING_VISUAL_HARD_GATE"
+      }
     },
     {
       "order": 3,
@@ -1033,7 +1069,17 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "UNCLAIMED",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
+        "at": "2026-09-20T06:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "outcome": "PENDING_VISUAL_HARD_GATE"
+      }
     },
     {
       "order": 10,
@@ -1117,7 +1163,17 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "UNCLAIMED",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
+        "at": "2026-09-20T06:55:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "outcome": "PENDING_VISUAL_HARD_GATE"
+      }
     },
     {
       "order": 11,
@@ -3440,5 +3496,27 @@
   "visualIntegrityPolicy": {
     "rule": "Historical QA evidence remains preserved, but current qaState must be visual-integrity-pending until anatomy, linework, fixed-drum composite, and runtime-transition gates explicitly PASS.",
     "statusPromotionBlockedWhilePending": true
-  }
+  },
+  "batchRuns": [
+    {
+      "batchId": "VISUAL-INTEGRITY-BATCH-20260920-01",
+      "startedAt": "2026-09-20T06:52:00+09:00",
+      "updatedAt": "2026-09-20T06:55:00+09:00",
+      "actionKeys": [
+        "SN:L",
+        "BD+RC:RF/R"
+      ],
+      "imageCount": 4,
+      "targets": [
+        "sn_l_hit",
+        "sn_l_rebound",
+        "bd_rc_hit",
+        "bd_rc_rebound"
+      ],
+      "result": "PARTIAL_BLOCKED",
+      "summary": "SN:L hit exact-parent masked edit workflow was triggered but blocked before API edit because OPENAI_API_KEY is unavailable to GitHub Actions. SN:L rebound and BD+RC hit/rebound retain prior machine-QA evidence; new human-anatomy/linework/fixed-drum visual hard gates remain pending and no false promotion was made.",
+      "workflowRunId": 35471764688,
+      "workflowArtifactId": 10592983884
+    }
+  ]
 }
