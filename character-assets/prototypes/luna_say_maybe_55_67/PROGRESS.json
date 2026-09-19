@@ -4,7 +4,7 @@
     "measureStart": 55,
     "measureEnd": 67
   },
-  "status": "M55_67_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -34,7 +34,7 @@
     "mappingAuthority": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json runtimePhaseFrameMap",
     "stalePlanningMapNote": "ACTION_KEY_ASSET_MAP.json still labels some already-promoted M18-24/M47 actions as NEW_IMAGE_REQUIRED; do not generate replacements. Runtime inventory is authoritative for this reuse-only block."
   },
-  "requiredNext": "Expand contiguous runtimeScope through M67 and run public PC/Xperia runtime QA. Generate no new images.",
+  "requiredNext": "M55-67 complete. Continue M68 BD+RC+SN:RF/R/L source lock and deterministic approved-BD-cue derivation. Do not regenerate any M55-67 assets.",
   "runtimeQaEvidence": {
     "M55-67": {
       "status": "PASS",
@@ -63,9 +63,16 @@
         "LT:R",
         "LT:L",
         "BD+HH+SN:RF/R/L"
-      ]
+      ],
+      "artifactId": 10576863064,
+      "passed": 70,
+      "failed": 0,
+      "runtimeScope": "1-67",
+      "screenshotsReviewed": true,
+      "visualReview": "PASS_NO_REGISTRATION_DRIFT_OR_MISSING_CHARACTER",
+      "persistenceStep": "PASS_AFTER_CONFLICT_SAFE_WORKFLOW_FIX"
     }
   },
-  "updatedAt": "2026-09-19T04:17:38.764652+00:00",
+  "updatedAt": "2026-09-19T13:27:00+09:00",
   "blocker": null
 }
