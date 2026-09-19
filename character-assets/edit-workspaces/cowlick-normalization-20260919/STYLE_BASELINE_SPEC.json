@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19T17:12:00+09:00",
+  "purpose": "Top-level rendering/style baseline for the original neutral and every derived character variant. This rule outranks cowlick-only rules.",
+  "sourceOfTruth": {
+    "primary": "locked/corrected neutral baseline",
+    "preEditNeutralPath": "character-assets/layers/character/base/neutral.png",
+    "preEditNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "comparisonRule": "Always compare the baseline directly to each variant. Never inherit style from one variant to the next."
+  },
+  "drawingModel": {
+    "conceptualTool": "one consistent fine pencil/pen width",
+    "thickLineConstruction": "Do NOT switch to a digitally thicker brush. Build visually thicker/darker contours by laying 3-4 or more nearby repeated strokes with the same base stroke width.",
+    "darkAreaConstruction": "Increase density through repeated directional strokes/hatching, not solid digital fill.",
+    "contourRule": "Major silhouettes may look thick only because multiple slightly offset fine strokes overlap.",
+    "roughnessRule": "Allow small human inconsistencies, imperfect overlap, wobble, and retracing. Avoid clean vector-like single contours.",
+    "lineDensityRule": "Hair, clothing edges, boots, stool and emphasized contours should preserve the multi-stroke hand-drawn density of the baseline.",
+    "noGradient": true,
+    "monochrome": true,
+    "noSolidDigitalStrokeReplacement": true
+  },
+  "immutableStyleRequirements": [
+    "same apparent pencil/pen fineness throughout",
+    "visual thickness created by repeated fine strokes rather than one thick stroke",
+    "rough monochrome sketch character",
+    "multiple retraced contour lines where emphasis is needed",
+    "no polished vector cleanup",
+    "no smooth single-line simplification",
+    "no uniform digital inking",
+    "no solid black fill used as a substitute for line density",
+    "retain the baseline's hand-drawn wobble and uneven spacing"
+  ],
+  "variantNormalizationPriority": [
+    "1. preserve pose/action-specific motion",
+    "2. preserve camera, identity, proportions and silhouette relationship to baseline",
+    "3. normalize line-construction method to baseline repeated-fine-stroke style",
+    "4. normalize hair/cowlick to the locked crown reference for the applicable angle",
+    "5. reject any candidate that achieves similarity by redrawing the whole figure"
+  ],
+  "qa": {
+    "requiredChecks": [
+      "single-thick-digital-stroke detection",
+      "vector-cleanup detection",
+      "multi-stroke contour presence",
+      "line-density consistency versus baseline",
+      "style drift versus baseline",
+      "pose-specific delta preserved"
+    ],
+    "verdicts": [
+      "PASS",
+      "HOLD",
+      "FAIL"
+    ]
+  }
+}
