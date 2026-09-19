@@ -1,3 +1,11 @@
+## 2026-09-19 — M25-28 HT:R attempt04 rejected through pipeline retry controller
+- Re-read latest main after parallel-session updates; preserved all newer M18-24 and pipeline-first changes.
+- Found repository-generated HT:R attempt04 on main (hit SHA 824672a7..., rebound SHA 0147a2d9...) built from approved LT:R parents.
+- Reproduced the current attempt04 builder geometry against exact approved LT:R parent bytes and fixed drum for visual review. Hard failure remains: the original right-hand stick is still present while a second HT-directed shaft starts from an artificial forward anchor, so the pose has a detached/duplicate stick and is not safe to formalize.
+- A further locked-neutral direct-edit retry again returned edit_op=null and redrew the character instead of performing a local edit; the result was rejected and not persisted to project assets.
+- Ran the repository character-retry-controller for repeated LOCAL_EDIT_ARTIFACT. Decision: USE_APPROVED_LIMB_PATCH, hardStopSameStrategy=true. Persisted decision at character-assets/prototypes/luna_say_maybe_25_32/RETRY_DECISION_HT_R.json.
+- HT:R remains BLOCKED_EXTERNAL until a genuinely registered approved right-arm/right-hand/right-stick patch compatible with locked neutral exists, or a true local image-edit path becomes available. RC:R, FT+SN:R/L and HT:L remain formal. BD+HT remains source-locked and M25-28 runtime expansion remains prohibited.
+
 ## 2026-09-19 — M25-28 FT+SN and RC formalized; HT:R edit blocker isolated
 - FT+SN:R/L attempt03 exact bytes were imported, then rejected by actual fixed-drum review because the left SN stick missed the calibrated SN contact. Attempt04 changed only the left-stick shaft on the locked-baseline candidate, passed SN/FT contact and transition review, was saved to Dropbox, imported, and promoted exactly in commit 14a9b4449bf97fb99ca2b4c45247a22574c2c57f.
 - RC:R current deterministic pair was reproduced from locked neutral with SHA match, fixed-drum visual QA passed, exact bytes were saved to Dropbox, and formal promotion completed in b588a43d9b4c39c986bc2dd3f081d6a7df52215f.
