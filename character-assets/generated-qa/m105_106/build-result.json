@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "method": "formal parent exact bytes + proven deterministic BD cue only",
+  "pairs": {
+    "bd_ft_sn_rf_r_l": {
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phases": {
+        "hit": {
+          "parentPath": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
+          "parentSha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
+          "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_sn_rf_r_l_hit_attempt01.png",
+          "candidateSha256": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
+          "changedPixels": 530,
+          "changedPixelRatio": 0.00033703692398481935,
+          "diffBBox": [
+            450,
+            791,
+            497,
+            821
+          ],
+          "locality": "PASS_BD_CUE_ONLY",
+          "compositePath": "character-assets/generated-qa/m105_106/bd_ft_sn_rf_r_l_hit_fixed_drum.png"
+        },
+        "rebound": {
+          "parentPath": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
+          "parentSha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
+          "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_sn_rf_r_l_rebound_attempt01.png",
+          "candidateSha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
+          "changedPixels": 97,
+          "changedPixelRatio": 6.168411627646693e-05,
+          "diffBBox": [
+            469,
+            808,
+            483,
+            821
+          ],
+          "locality": "PASS_BD_CUE_ONLY",
+          "compositePath": "character-assets/generated-qa/m105_106/bd_ft_sn_rf_r_l_rebound_fixed_drum.png"
+        }
+      }
+    },
+    "bd_ft_rf_l": {
+      "actionKey": "BD+FT:RF/L",
+      "phases": {
+        "hit": {
+          "parentPath": "character-assets/layers/character/ft/hit_l_refresh.png",
+          "parentSha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
+          "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_rf_l_hit_attempt01.png",
+          "candidateSha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
+          "changedPixels": 530,
+          "changedPixelRatio": 0.00033703692398481935,
+          "diffBBox": [
+            450,
+            791,
+            497,
+            821
+          ],
+          "locality": "PASS_BD_CUE_ONLY",
+          "compositePath": "character-assets/generated-qa/m105_106/bd_ft_rf_l_hit_fixed_drum.png"
+        },
+        "rebound": {
+          "parentPath": "character-assets/layers/character/ft/rebound_l_refresh.png",
+          "parentSha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
+          "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_rf_l_rebound_attempt01.png",
+          "candidateSha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
+          "changedPixels": 97,
+          "changedPixelRatio": 6.168411627646693e-05,
+          "diffBBox": [
+            469,
+            808,
+            483,
+            821
+          ],
+          "locality": "PASS_BD_CUE_ONLY",
+          "compositePath": "character-assets/generated-qa/m105_106/bd_ft_rf_l_rebound_fixed_drum.png"
+        }
+      }
+    }
+  }
+}
