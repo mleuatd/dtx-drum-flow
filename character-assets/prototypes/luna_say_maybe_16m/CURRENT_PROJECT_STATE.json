@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:46:00+09:00",
+  "updatedAt": "2026-09-19T15:50:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 106,
-    "status": "COMPLETE_LIVE_QA"
+    "measureEnd": 135,
+    "status": "RUNTIME_QA_PENDING_M107_135"
   },
   "completedMeasureBlocks": [
     {
@@ -184,7 +184,8 @@
     "m69_104MappingPreflight": "PASS: 550 notes / 389 groups / 20 actionKeys; all present in asset_inventory.runtimePhaseFrameMap",
     "m69_104LiveRuntimeQa": "SUCCESS run 35426755584 artifact 10579246619; 86/86 PC/Xperia records PASS; screenshot review PASS",
     "m105_106PreRuntime": "PASS: 4 formal PNGs, Dropbox exact-byte save, deterministic locality/fixed-drum visual QA, runtime mapping complete",
-    "m105_106LiveRuntimeQa": "SUCCESS run 35427241936 artifact 10579925003; 12/12 PC/Xperia PASS; screenshot review PASS"
+    "m105_106LiveRuntimeQa": "SUCCESS run 35427241936 artifact 10579925003; 12/12 PC/Xperia PASS; screenshot review PASS",
+    "m107_135MappingPreflight": "PASS: 447 notes / 309 groups / 12 actionKeys; all mapped"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -282,9 +283,9 @@
   "nextRecommendedBlock": {
     "blockId": "M107-135",
     "measures": "107-135",
-    "reason": "M105-106 complete; next contiguous block is reuse-only."
+    "reason": "Runtime scope expanded through M135 using existing formal mappings; public QA pending."
   },
-  "nextRecommendedWork": "Verify M107-135 action coverage from authoritative inventory, expand runtime scope, and run PC/Xperia public QA. Generate no images.",
+  "nextRecommendedWork": "Inspect M107-135 public runtime QA; if PASS close block and release M136.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
