@@ -4,7 +4,7 @@
     "measureStart": 136,
     "measureEnd": 136
   },
-  "status": "RUNTIME_QA_PENDING",
+  "status": "M136_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIR",
   "actionKey": "BD+FT:RF/R",
@@ -17,6 +17,21 @@
     "reboundSha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e"
   },
   "requiredNext": "Run/inspect M136 public PC/Xperia runtime QA; do not regenerate formal bytes.",
-  "updatedAt": "2026-09-19T16:01:00+09:00",
-  "blocker": null
+  "updatedAt": "2026-09-19T06:50:43.348822+00:00",
+  "blocker": null,
+  "runtimeQaEvidence": {
+    "M136": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35427665852",
+      "testedCommitSha": "37aa65f6ac877f76be6a4efd8c6a02ec4aefff88",
+      "artifact": "public-runtime-qa-35427665852",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35427665852",
+      "measureStart": 136,
+      "measureEnd": 136,
+      "actions": [
+        "BD+FT:RF/R"
+      ]
+    }
+  }
 }
