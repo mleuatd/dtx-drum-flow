@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "BD+RC+SN:RF/R/L",
+  "status": "APPROVED_FOR_PROMOTION",
+  "visualQA": {
+    "status": "PASS",
+    "checkedAt": "2026-09-19T13:34:00+09:00",
+    "evidence": [
+      "Formal RC+SN:R/L exact parent SHA verified by deterministic builder.",
+      "Only repository-proven local BD kick cue was added.",
+      "Hit changed 545 pixels (0.0003466 ratio), bbox [448,789,497,821].",
+      "Rebound changed 126 pixels (0.0000801 ratio), bbox [469,809,483,821].",
+      "Fixed-drum hit/rebound visual review PASS; RC/SN pose, character identity, camera, stool and registration unchanged.",
+      "No wrong-side RC, drum hardware leak, fresh redraw or rejected SHA reuse."
+    ],
+    "buildRun": 35421113802,
+    "buildArtifact": 10577777737
+  },
+  "dropbox": [
+    "/ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_hit_attempt01.png",
+    "/ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_rebound_attempt01.png"
+  ],
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "bd_rc_sn_rf_r_l_hit_refresh",
+      "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_hit_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "sha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "bd_rc_sn_rf_r_l_rebound_refresh",
+      "candidatePath": "character-assets/review-candidates/m68/bd_rc_sn_rf_r_l_rebound_attempt01.png",
+      "formalPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "sha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619"
+    }
+  ]
+}
