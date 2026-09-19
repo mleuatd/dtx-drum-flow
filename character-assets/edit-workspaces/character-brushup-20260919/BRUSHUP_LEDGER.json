@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:44:00+09:00",
+  "updatedAt": "2026-09-20T08:36:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -3442,7 +3442,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:36:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
     },
     {
       "order": 38,
@@ -3480,7 +3483,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:36:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
     },
     {
       "order": 39,
@@ -3513,7 +3519,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:36:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
     },
     {
       "order": 40,
@@ -3546,7 +3555,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T08:36:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
     },
     {
       "order": 41,
@@ -4435,26 +4447,42 @@
       "summary": "SN:R hit has large whole-body/stool registration drift; rebound changes to a different whole-body/camera presentation. Formal PNGs unchanged.",
       "workflowRunId": 35476100628,
       "workflowArtifactId": 10594870183
+    },
+    {
+      "batchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
+      "startedAt": "2026-09-20T08:36:00+09:00",
+      "updatedAt": "2026-09-20T08:36:00+09:00",
+      "terminalId": "CHAT-FRONT-2X4",
+      "actionKeys": [
+        "HT:L",
+        "FT+SN:R/L"
+      ],
+      "imageCount": 4,
+      "targets": [
+        "ht_l_hit",
+        "ht_l_rebound",
+        "ft_sn_r_l_hit",
+        "ft_sn_r_l_rebound"
+      ],
+      "result": "IN_PROGRESS",
+      "summary": "Claimed after reconciling ledger against current backlog HOLD/CLAIM states."
     }
   ],
   "activeVisualIntegrityBatch": {
     "batchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
-    "terminalId": "CHAT-FRONT-FINAL",
-    "startedAt": "2026-09-20T08:40:00+09:00",
+    "terminalId": "CHAT-FRONT-2X4",
+    "startedAt": "2026-09-20T08:36:00+09:00",
     "actionKeys": [
-      "SN:R"
+      "HT:L",
+      "FT+SN:R/L"
     ],
     "frameIds": [
-      "sn_r_hit",
-      "sn_r_rebound"
+      "ht_l_hit",
+      "ht_l_rebound",
+      "ft_sn_r_l_hit",
+      "ft_sn_r_l_rebound"
     ],
-    "stage": "HOLD_COMPLETE",
-    "note": "Final odd-remainder batch completed. SN:R fails whole-body/camera continuity hard gate; formal PNGs unchanged; runtime QA not entered.",
-    "updatedAt": "2026-09-20T08:44:00+09:00",
-    "staticDisposition": {
-      "SN:R": "HOLD_BOTH_STATIC_HARD_FAIL"
-    },
-    "visualQaRunId": 35476100628,
-    "visualQaArtifactId": 10594870183
+    "stage": "STATIC_QA_PENDING",
+    "note": "Front-queue continuation after excluding all current backlog HOLD/CLAIMED keys."
   }
 }
