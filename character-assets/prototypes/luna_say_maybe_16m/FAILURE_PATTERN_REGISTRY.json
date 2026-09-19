@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T10:58:00+09:00",
+  "updatedAt": "2026-09-19T13:15:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -111,6 +111,16 @@
       "qaAction": "Re-run after load wait",
       "neverUse": false,
       "evidence": "M9-16 existing-asset QA first run"
+    },
+    {
+      "id": "FAIL-PROMOTION-PREP-MISSING",
+      "name": "promoted pair missing prep neutral mapping",
+      "severity": "HIGH",
+      "detection": "runtimePhaseFrameMap contains hit/rebound for a newly promoted action but no prep frame; character prototype initialization reports 'prototype phase frame missing for <action>.prep'",
+      "automaticAction": "Do not regenerate image bytes. Add prep:'neutral' to the action mapping and repair promotion workflow so future pairs receive prep automatically.",
+      "qaAction": "Run public runtime QA again and require initError empty plus hit/rebound frame match on PC/Xperia.",
+      "neverUse": false,
+      "evidence": "M54 BD+HT:RF/L runtime QA run 35420229339 exposed exact initError after QA harness diagnostics were fixed."
     }
   ],
   "adaptiveRetry": {
