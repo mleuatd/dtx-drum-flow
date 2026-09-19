@@ -1,5 +1,14 @@
 # Character Asset Production Pipeline
 
+## Mandatory image-failure preflight
+
+Before PLAN, EDIT, candidate generation, retry, or APPROVE on **any character image**, every chat/device MUST read the latest `character-assets/CHARACTER_FAILURE_KNOWLEDGE.json` from GitHub `main`. This is image-production-only knowledge: do not add runtime/Pages/general CI failures to it.
+
+A character-image workflow MUST NOT proceed from an old local/chat copy of that ledger. Re-fetch `main`, load all ACTIVE rules applicable to the planned edit, then choose the source and edit strategy. If another device has added a newer rule or image result, reconcile it before continuing.
+
+After any image visual FAIL, classify the lesson before the next retry. Action-specific details stay in transaction/PROGRESS; any lesson that can prevent the same visual mistake on another image MUST be added to `CHARACTER_FAILURE_KNOWLEDGE.json` in the same work cycle. The next retry must demonstrate that applicable rules were considered; do not repeat a prohibited strategy.
+
+
 This is the reusable M25-148 path. It exists to prevent chat/session/tool boundaries from becoming project blockers.
 
 ## Principle
