@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "FT+SN:R/L",
+  "status": "APPROVED_FOR_PROMOTION",
+  "visualQA": {
+    "status": "PASS",
+    "checkedAt": "2026-09-19T09:48:00+09:00",
+    "evidence": [
+      "local fixed-drum composite from exact Dropbox/GitHub candidate attempt04",
+      "contact authority character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+      "SN contact=(420,535), FT contact=(1165,535)"
+    ],
+    "note": "attempt03 was rejected at actual fixed-drum contact review because SN:L stick tip missed SN contact; attempt04 changes only the left stick shaft from the existing grip to calibrated SN contact while preserving locked baseline and FT:R motion."
+  },
+  "dropbox": [
+    "/ChatGPT/dtx-drum-flow/ft_sn_r_l_hit_attempt04.png",
+    "/ChatGPT/dtx-drum-flow/ft_sn_r_l_rebound_attempt04.png"
+  ],
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "ft_sn_r_l_hit_refresh",
+      "candidatePath": "character-assets/candidates/m25_28/ft_sn_r_l_hit_attempt04.png",
+      "formalPath": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
+      "sha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "ft_sn_r_l_rebound_refresh",
+      "candidatePath": "character-assets/candidates/m25_28/ft_sn_r_l_rebound_attempt04.png",
+      "formalPath": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
+      "sha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb"
+    }
+  ]
+}
