@@ -4,7 +4,7 @@
     "measureStart": 54,
     "measureEnd": 54
   },
-  "status": "RUNTIME_QA_RETRY_PENDING",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIR",
   "actionKey": "BD+HT:RF/L",
@@ -13,23 +13,37 @@
     "formalPairReady": true,
     "allMapped": true
   },
-  "requiredNext": "Retry M54 public PC/Xperia runtime QA. Do not regenerate M54 images; exact formal bytes already passed fixed-drum visual QA.",
+  "requiredNext": "M54 complete. Continue with M55-67 reuse-only runtime expansion; do not regenerate M54 images.",
   "runtimeQaEvidence": {
     "M54": {
-      "status": "FAIL",
+      "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35420229339",
-      "testedCommitSha": "2752075a126a8758398b90b6a6d394a6633cd503",
-      "artifact": "public-runtime-qa-35420229339",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35420229339",
+      "runId": "35420373297",
+      "testedCommitSha": "f31c930f32e4a27403a6a7d94ec4c1656d267270",
+      "acceptedDeploymentSha": "6b762a6e644f92c1b01f939d011f28d3e427505d",
+      "artifact": "public-runtime-qa-35420373297",
+      "artifactId": 10576732695,
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35420373297",
       "measureStart": 54,
       "measureEnd": 54,
       "actions": [
         "BD+HT:RF/L"
-      ]
+      ],
+      "passed": 4,
+      "failed": 0,
+      "pc": [
+        "hit PASS",
+        "rebound PASS"
+      ],
+      "xperiaPortrait": [
+        "hit PASS",
+        "rebound PASS"
+      ],
+      "screenshotsReviewed": true,
+      "note": "Browser QA passed. Workflow failure was only the generic ledger persistence rebase conflict, not a runtime/image failure."
     }
   },
-  "updatedAt": "2026-09-19T13:16:00+09:00",
+  "updatedAt": "2026-09-19T13:15:00+09:00",
   "blocker": null,
   "lastFailureClassification": {
     "type": "RUNTIME_MAPPING",
