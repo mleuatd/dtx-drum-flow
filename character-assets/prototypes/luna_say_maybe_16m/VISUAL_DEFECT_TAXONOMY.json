@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-20T06:13:00+09:00",
+  "categories": [
+    "human_anatomy_break",
+    "joint_continuity_break",
+    "seated_pose_break",
+    "limb_occlusion_order_break",
+    "seat_contact_inconsistency",
+    "drum_contact_semantics_break",
+    "stick_continuity_break",
+    "stick_hand_connection_break",
+    "line_artifact_break",
+    "waistline_artifact_break",
+    "skirt_seat_overlap_break",
+    "line_dropout_break",
+    "line_double_stroke_break",
+    "fixed_drum_composite_break"
+  ],
+  "mappingGuidance": {
+    "human_anatomy_break": "Global visible body structure is anatomically implausible or unreadable.",
+    "joint_continuity_break": "A visible joint chain becomes disconnected or implausible.",
+    "seated_pose_break": "Pelvis/legs/stool relationship does not read as a viable seated pose.",
+    "limb_occlusion_order_break": "Front/back ordering of limbs or body overlaps becomes unreadable.",
+    "seat_contact_inconsistency": "Pelvis/skirt/legs do not make coherent contact with the stool/seat.",
+    "drum_contact_semantics_break": "Intended strike/pedal action is contradicted by visible contact.",
+    "stick_continuity_break": "Stick is broken, interrupted, malformed or visually discontinuous.",
+    "stick_hand_connection_break": "Hand/grip and stick do not connect coherently.",
+    "line_artifact_break": "Unexplained line artifact damages pose or silhouette reading.",
+    "waistline_artifact_break": "Unexplained line appears around waist/pelvis area.",
+    "skirt_seat_overlap_break": "Skirt/seat/body overlap linework is physically or visually incoherent.",
+    "line_dropout_break": "Required contour/structural line is missing.",
+    "line_double_stroke_break": "Accidental duplicate line corrupts contour or silhouette.",
+    "fixed_drum_composite_break": "Frame may look acceptable alone but fails anatomy/contact/occlusion when composited with fixed drum."
+  },
+  "promotionPolicy": {
+    "verifiedRequires": [
+      "humanAnatomyQA=PASS",
+      "lineworkQA=PASS",
+      "fixedDrumCompositeQA=PASS",
+      "runtimeVisualQA=PASS"
+    ],
+    "missingMandatoryQA": "Do not use VERIFIED or APPROVED_LIVE."
+  }
+}
