@@ -6,7 +6,7 @@ const CORE="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/f
 const CYM="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit2/samples/";
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 // Song-independent practice-salience calibration measured from attack, early energy, and full RMS.\n// Low drums get a small masking allowance; cymbals get a small reduction. No chart-specific gains.
-const LOUDNESS_GAIN={kick:1.004637,snare:1.736809,sideStick:2.476898,hihatClosed:1.514431,hihatOpen:1.032811,hihatPedal:1.615342,tomHigh:1.467293,tomLow:1.132153,tomFloor:1.132153,ride:1.870844,rideBell:1.026662,crashLeft:1.009410,crashRight:1.009410};
+const LOUDNESS_GAIN={kick:1,snare:1,sideStick:1,hihatClosed:1,hihatOpen:1,hihatPedal:1,tomHigh:1,tomLow:1,tomFloor:1,ride:1,rideBell:1,crashLeft:1,crashRight:1};
 const defs={
  kick:{base:CORE,prefix:"kick",layers:4,rr:4},snare:{base:CORE,prefix:"snare",layers:6,rr:3},
  sideStick:{base:CORE,prefix:"sidestick",layers:3,rr:3},hihatClosed:{base:CORE,prefix:"hhc",layers:4,rr:4},
@@ -28,7 +28,7 @@ function voiceFor(part,note={}){
 }
 export class LiveDrumEngine{
  constructor(ctx,destination){this.ctx=ctx;this.destination=destination;this.buffers=new Map();this.loading=new Map();this.rr=new Map();this.nodes=new Set();this.ready=false;this._buildBus()}
- _buildBus(){const c=this.ctx;this.input=c.createGain();this.comp=c.createDynamicsCompressor();this.out=c.createGain();this.input.gain.value=.95;this.comp.threshold.value=-13;this.comp.knee.value=9;this.comp.ratio.value=2.3;this.comp.attack.value=.004;this.comp.release.value=.16;this.out.gain.value=.96;this.input.connect(this.comp);this.comp.connect(this.out);this.out.connect(this.destination)}
+ _buildBus(){const c=this.ctx;this.input=c.createGain();this.comp=c.createDynamicsCompressor();this.out=c.createGain();this.input.gain.value=1;this.comp.threshold.value=-12;this.comp.knee.value=6;this.comp.ratio.value=3;this.comp.attack.value=.003;this.comp.release.value=.14;this.out.gain.value=1;this.input.connect(this.comp);this.comp.connect(this.out);this.out.connect(this.destination)}
  _url(v,l,r){const d=defs[v];return d.base+d.prefix+"_vl"+l+"_rr"+r+".flac"}
  async _load(v,l,r){const key=v+":"+l+":"+r;if(this.buffers.has(key))return this.buffers.get(key);if(this.loading.has(key))return this.loading.get(key);const p=fetch(this._url(v,l,r)).then(x=>{if(!x.ok)throw Error("sample "+x.status);return x.arrayBuffer()}).then(b=>this.ctx.decodeAudioData(b)).then(b=>(this.buffers.set(key,b),b)).catch(e=>(console.warn("drum sample fallback",key,e),null));this.loading.set(key,p);const b=await p;this.loading.delete(key);return b}
  async preload(){
@@ -46,7 +46,7 @@ export class LiveDrumEngine{
   const isCrash=v==="crashLeft"||v==="crashRight",isRide=v==="ride"||v==="rideBell";
   // Narrow dynamics for practice: retain accents, but prevent one family from dominating.
   const nv=clamp(velocity,0,1);
-  const base=.70+.25*nv;
+  const base=.84+.08*nv;
   // Near-equal perceived practice mix. Keep only small instrument-family differences.
   const familyGain=LOUDNESS_GAIN[v]??1;
   const strength=base*familyGain;
