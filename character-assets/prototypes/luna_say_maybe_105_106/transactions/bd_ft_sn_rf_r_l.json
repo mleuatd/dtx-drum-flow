@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+FT+SN:RF/R/L transaction for Luna M105-106",
-  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+  "status": "DONE",
   "actionKey": "BD+FT+SN:RF/R/L",
   "scope": {
     "measureStart": 105,
@@ -90,17 +90,27 @@
     "compositeVisual": "PASS",
     "locality": "PASS_BD_CUE_ONLY",
     "transition": "PASS_VISUAL",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING"
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS_REVIEWED",
+    "publicRuntime": {
+      "status": "PASS",
+      "runId": 35427241936,
+      "artifactId": 10579925003,
+      "passed": 12,
+      "failed": 0,
+      "runtimeScope": "1-106",
+      "testedCommitSha": "0b2e6813ed75f97c5130dbe727988fd4102ce1b2"
+    }
   },
-  "updatedAt": "2026-09-19T06:39:45.960040+00:00",
+  "updatedAt": "2026-09-19T15:46:00+09:00",
   "blocker": null,
   "build": {
     "workflowRun": 35427052800,
     "artifactId": 10578359682
   },
   "notes": [
-    "Attempt01 exact bytes saved to Dropbox and promoted to formal paths after deterministic locality/fixed-drum visual QA."
+    "Attempt01 exact bytes saved to Dropbox and promoted to formal paths after deterministic locality/fixed-drum visual QA.",
+    "Public runtime QA run 35427241936 artifact 10579925003: 12/12 PASS across PC/Xperia for both M105-106 pairs; screenshots reviewed."
   ]
 }
