@@ -1,3 +1,9 @@
+## 2026-09-20 08:07 JST — Visual Integrity Batch 04
+- CLAIMED and reviewed RD:R + BD+SN:RF/L (4 frames) using latest GitHub main.
+- Batch Prep evidence: run 35475145116 / artifact 10593238245.
+- Result: RD:R HOLD_VISUAL_INTEGRITY (rebound structural rectangular splice); BD+SN:RF/L HOLD_VISUAL_INTEGRITY (seat/pelvis/lower-hair splice and broken/truncated left stick).
+- Formal PNG bytes were not modified. Runtime QA blocked by static hard-gate failures. VERIFIED remains 1/15; HOLD actionKeys now 5.
+
 # 2026-09-20 — Batch 03 visual-integrity sync
 
 Batch VISUAL-INTEGRITY-BATCH-20260920-03 reviewed SN:L and BD+RC:RF/R from latest GitHub main via Visual Integrity Batch Prep run 35474616622 / artifact 10593307774. SN:L hit passed static review, but rebound has severe duplicated/disconnected arm-stick geometry and whole-body discontinuity; the pair is HOLD_VISUAL_INTEGRITY. BD+RC:RF/R hit/rebound have severe duplicate/disconnected arm-stick geometry and blocky body/seat splice; the pair is HOLD_VISUAL_INTEGRITY. Runtime QA is blocked by static hard-gate failure. Formal PNGs remain unchanged. Normal queue should continue without retrying these HOLD items.
