@@ -710,7 +710,7 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T13:05:00+09:00",
+  "updatedAt": "2026-09-19T13:10:00+09:00",
   "note": "Reuse-only runtime scope extended through M53 after unresolved key check=0.",
   "runtimeQaTarget": {
     "measureStart": 54,
@@ -720,6 +720,8 @@
     ],
     "progressPath": "character-assets/prototypes/luna_say_maybe_54/PROGRESS.json",
     "blockKey": "M54",
-    "purpose": "Public PC/Xperia character runtime checkpoint for newly formalized BD+HT:RF/L before M55-67 reuse-only."
+    "purpose": "Public PC/Xperia character runtime checkpoint for newly formalized BD+HT:RF/L before M55-67 reuse-only.",
+    "retriggerAt": "2026-09-19T13:10:00+09:00",
+    "retryReason": "M54 QA harness transient init timeout; rerun latest main with hardened init retries"
   }
 }
