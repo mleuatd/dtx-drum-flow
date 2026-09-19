@@ -1,3 +1,9 @@
+## 2026-09-20 — Parallel-safe Batch Prep fix + Batch 08
+- Batch Prep now honors the ledger's active claimed 2x4 batch before falling back to auto-priority selection, preventing parallel sessions from preparing another session's frames.
+- Discarded one mis-selected evidence artifact without changing its formal assets or status.
+- Corrected Batch 08 evidence reviewed BD+HH:RF/R and BD+LT:RF/R; both failed structural visual-integrity gates and moved to HOLD_VISUAL_INTEGRITY.
+- Formal PNGs remain unchanged.
+
 ## 2026-09-20 — Visual Integrity Batch 07
 - Claimed and statically reviewed FT:R and FT:L as the next front-queue 2x4 batch.
 - Both pairs failed structural stick-continuity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
