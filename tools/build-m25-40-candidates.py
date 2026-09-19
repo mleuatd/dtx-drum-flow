@@ -11,6 +11,10 @@ BASE_SHA="886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
 GRIP_R=(998,414); GRIP_L=(500,480)
 CONTACT={"HT":(575,360),"RC":(1215,145),"FT":(1165,535),"SN":(420,535)}
 REBOUND={"HT:R":(650,330),"HT:L":(650,390),"RC:R":(1110,225)}
+LIMB_LOCAL_FT_SN={
+ "hit":("character-assets/candidates/m25_28/ft_sn_r_l_hit_attempt03.png","0aea2d5072ecb5745f19f1ff5e35cdecfb1a45ec6117a38823d7d31df7a3b1d6"),
+ "rebound":("character-assets/candidates/m25_28/ft_sn_r_l_rebound_attempt03.png","44f7e79110c1c7a2fb9aff757d1142a0e700a712de009a25dbf9adb9e39eb9c8")
+}
 APPROVED={
  "FT:R":{
   "hit":("character-assets/layers/character/ft/hit_r_refresh.png","bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a"),
@@ -69,14 +73,19 @@ def merge_on_neutral(images):
   out.paste(src,(0,0),mask)
  return out
 def save_ft_sn():
- fh,fhp,fhs=approved_image("FT:R","hit"); sh,shp,shs=approved_image("SN:L","hit")
- fr,frp,frs=approved_image("FT:R","rebound"); sr,srp,srs=approved_image("SN:L","rebound")
- hit=merge_on_neutral([fh,sh]); reb=merge_on_neutral([fr,sr])
- return save_outputs("FT+SN:R/L",hit,reb,{
-  "method":"merge approved FT:R and SN:L neutral deltas only",
-  "approvedParents":{"hit":[{"path":fhp,"sha256":fhs},{"path":shp,"sha256":shs}],
-                     "rebound":[{"path":frp,"sha256":frs},{"path":srp,"sha256":srs}]}
- })
+ # Prefer the already QA'd locked-baseline limb-local pair once it is imported.
+ imgs=[]; parents=[]
+ for phase in ("hit","rebound"):
+  rel,expected=LIMB_LOCAL_FT_SN[phase]; p=ROOT/rel
+  if p.exists():
+   actual=sha(p)
+   if actual!=expected: raise SystemExit(f"limb-local FT+SN SHA mismatch {phase}: {actual}")
+   imgs.append(Image.open(p).convert("RGBA")); parents.append({"path":rel,"sha256":actual})
+  else:
+   # Fallback only for development; visual QA must reject whole-image baseline drift.
+   fa,fp,fs=approved_image("FT:R",phase); sa,sp,ss=approved_image("SN:L",phase)
+   imgs.append(merge_on_neutral([fa,sa])); parents.append({"fallback":[fp,sp],"sha256":[fs,ss]})
+ return save_outputs("FT+SN:R/L",imgs[0],imgs[1],{"method":"locked-baseline limb-local pair when imported","approvedParents":parents})
 if sha(BASE)!=BASE_SHA: raise SystemExit("neutral SHA mismatch")
 actions=sys.argv[1:] or ["HT:R","HT:L","RC:R","FT+SN:R/L"]
 results=[]
