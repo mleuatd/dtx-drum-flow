@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T07:45:00+09:00",
+  "updatedAt": "2026-09-20T07:56:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -154,10 +154,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T05:31:00+09:00",
+      "updatedAt": "2026-09-20T07:56:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -659,6 +659,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T07:56:00+09:00",
+            "decision": "HOLD_VISUAL_INTEGRITY",
+            "detail": "Full-resolution batch 03 hard-gate review: hit PASS but rebound structurally FAILS (duplicate/disconnected arm-hand-stick and whole-body discontinuity). Large failure; skip minimal retry and preserve formal PNGs."
           }
         ],
         "measurementTodos": [
@@ -927,14 +932,17 @@
         }
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL_PAIR_REBOUND",
+        "linework": "FAIL_PAIR_REBOUND",
+        "fixedDrumComposite": "FAIL_PAIR_REBOUND",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Batch 03: hit static frame passed, rebound has duplicated/disconnected arm-hand-stick geometry and whole-body registration discontinuity. Pair moved to HOLD; formal PNGs unchanged.",
+        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "visualQaRunId": 35474616622,
+        "visualQaArtifactId": 10593307774
       },
       "decisionLog": [
         {
@@ -946,7 +954,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -973,10 +981,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T07:56:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "mixed",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -1531,6 +1539,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T07:56:00+09:00",
+            "decision": "HOLD_VISUAL_INTEGRITY",
+            "detail": "Full-resolution batch 03 hard-gate review: both phases structurally FAIL with disconnected/duplicate upper-right arm-hand-stick and blocky body/seat splice. Large failure; skip minimal retry and preserve formal PNGs."
           }
         ],
         "measurementTodos": [
@@ -1821,14 +1834,17 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Batch 03: hit/rebound show disconnected/duplicate arm-stick geometry plus blocky vertical body/seat splice. Pair moved to HOLD; formal PNGs unchanged.",
+        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "visualQaRunId": 35474616622,
+        "visualQaArtifactId": 10593307774
       },
       "decisionLog": [
         {
