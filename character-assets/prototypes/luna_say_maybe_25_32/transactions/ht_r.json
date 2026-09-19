@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe HT:R transaction for Luna M25-28",
-  "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
+  "status": "BLOCKED_EXTERNAL",
   "actionKey": "HT:R",
   "scope": {
     "measureStart": 25,
@@ -57,7 +57,35 @@
   },
   "notes": [
     "Older HT:R candidate SHA pair 84c1.../2f4b... was superseded by generalized-builder commit ab52f5070a757e0dfa0773911e71bb887ddb36bb.",
-    "Attempt03 widened old-stick removal but visual QA still fails: neutral arm position forces an implausibly long cross-body HT stick. Next edit must relocate the complete right arm/hand/stick local region from a compatible locked-baseline tom pose."
+    "Attempt03 widened old-stick removal but visual QA still fails: neutral arm position forces an implausibly long cross-body HT stick. Next edit must relocate the complete right arm/hand/stick local region from a compatible locked-baseline tom pose.",
+    "Approved LT:R/FT:R exact formal parents were checked but their right arm remains neutral-like; RD:R and RC+SN have moved right arms but whole-body baseline differs too much for direct patching. No unsafe whole-body merge was performed."
   ],
-  "updatedAt": "2026-09-19T09:15:00+09:00"
+  "updatedAt": "2026-09-19T09:58:00+09:00",
+  "blocker": {
+    "type": "BLOCKED_EXTERNAL",
+    "detail": "HT:R requires a local right-arm/right-hand/right-stick relocation. Two image-edit attempts returned edit_op=null and generated unrelated new images instead of editing the locked neutral. A deterministic local vector/affine prototype was also rejected by visual QA because the sleeve/hand region became anatomically and stylistically unnatural. No failed image was saved to Dropbox/GitHub or formalized.",
+    "resumeRule": "Do not reuse failed generations. Resume from locked neutral SHA 886e3490... and approved formal references; require a true edit preserving all non-right-arm pixels. Once a candidate exists, fixed-drum QA against HT=(575,360), then Dropbox exact bytes and promotion."
+  },
+  "generationAttempts": [
+    {
+      "attempt": 4,
+      "method": "image_edit",
+      "result": "FAIL",
+      "reason": "edit_op=null; unrelated full-scene drum-kit redraw; not an edit",
+      "genId": "64eedebb-657a-4a72-9fba-5733ad6735e8"
+    },
+    {
+      "attempt": 5,
+      "method": "image_edit_explicit_locked_neutral",
+      "result": "FAIL",
+      "reason": "edit_op=null; unrelated QA dashboard infographic; not an edit",
+      "genId": "964627d6-4014-49e8-921e-4d32f4f7ab7b"
+    },
+    {
+      "attempt": 6,
+      "method": "deterministic_local_forearm_hand_stick_prototype",
+      "result": "FAIL",
+      "reason": "fixed-drum composite showed unnatural rectangular sleeve/hand patch; rejected before persistence"
+    }
+  ]
 }
