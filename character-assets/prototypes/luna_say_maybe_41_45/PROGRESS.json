@@ -4,7 +4,7 @@
     "measureStart": 41,
     "measureEnd": 45
   },
-  "status": "DONE",
+  "status": "M41_45_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -30,15 +30,21 @@
   "runtimeQaEvidence": {
     "M41-45": {
       "status": "PASS",
-      "runId": 35418205815,
-      "artifactId": 10576038940,
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "testedCommitSha": "f7a5d48e1566cbed9ef3385f52cacd59dfd80834",
-      "passed": 16,
-      "failed": 0,
-      "screenshotReview": "PASS_PC_XPERIA_MANUAL_VISUAL"
+      "runId": "35418645305",
+      "testedCommitSha": "3c9c4ce420a04730b6b1c26df9773fccd54eda2f",
+      "artifact": "public-runtime-qa-35418645305",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35418645305",
+      "measureStart": 41,
+      "measureEnd": 45,
+      "actions": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD+HT:RF/R",
+        "HT:L"
+      ]
     }
   },
-  "updatedAt": "2026-09-19T12:22:00+09:00",
+  "updatedAt": "2026-09-19T03:29:43.475128+00:00",
   "blocker": null
 }
