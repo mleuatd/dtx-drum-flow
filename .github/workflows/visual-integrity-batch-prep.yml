@@ -1,0 +1,48 @@
+name: Visual Integrity Batch Prep
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
+      - "character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"
+      - "character-assets/layers/character/**"
+      - "character-assets/layers/drum/drum_base.png"
+      - "tools/character_layers/prepare_visual_integrity_batch.py"
+      - ".github/workflows/visual-integrity-batch-prep.yml"
+  workflow_dispatch:
+    inputs:
+      actions:
+        description: "Exactly two comma-separated action keys; blank = auto-select from ledger priority"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pillow
+      - name: Select batch and build QA evidence
+        env:
+          ACTIONS: ${{ inputs.actions }}
+        run: |
+          if [ -n "$ACTIONS" ]; then
+            python tools/character_layers/prepare_visual_integrity_batch.py --actions "$ACTIONS" --out visual-qa/current-batch
+          else
+            python tools/character_layers/prepare_visual_integrity_batch.py --out visual-qa/current-batch
+          fi
+      - name: Show selected batch
+        run: cat visual-qa/current-batch/batch_manifest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: visual-integrity-batch-prep-${{ github.run_id }}
+          path: visual-qa/current-batch/
+          retention-days: 30
