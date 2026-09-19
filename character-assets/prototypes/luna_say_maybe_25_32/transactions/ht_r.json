@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe HT:R transaction for Luna M25-28",
-  "status": "VISUAL_QA",
+  "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
   "actionKey": "HT:R",
   "scope": {
     "measureStart": 25,
@@ -31,32 +31,33 @@
   "phases": {
     "hit": {
       "stage": "VISUAL_QA",
-      "attempt": 1,
-      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_hit_attempt01.png",
-      "sha256": "999f9a69464260f062160c4af09cbcea6dff19b1f26482861a72f90e03b34473",
-      "qaStatus": "PENDING",
+      "attempt": 3,
+      "dropboxPath": null,
+      "sha256": "63d48afb143842b1a69aa5c79866bd065f6697b945cb9b81e5fc3644aa83bd7f",
+      "qaStatus": "FAIL_LONG_STICK_ARM_RELOCATION_REQUIRED",
       "formalPath": "character-assets/layers/character/ht/hit_r_refresh.png",
       "formalCommit": null
     },
     "rebound": {
       "stage": "VISUAL_QA",
-      "attempt": 1,
-      "dropboxPath": "/ChatGPT/dtx-drum-flow/ht_r_rebound_attempt01.png",
-      "sha256": "3eeea64ed5e2a08d63c6d7611df8db0151a22d6c05521f51b697b19852348bd2",
-      "qaStatus": "PENDING",
+      "attempt": 2,
+      "dropboxPath": null,
+      "sha256": "a82a928ff1dc4491acaccc57f41e1733bb44cebea85cc9c72a1d6200311fc246",
+      "qaStatus": "FAIL_PAIR_REBUILD_WITH_ARM_LOCAL_PARENT",
       "formalPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
       "formalCommit": null
     }
   },
   "qa": {
-    "static": "PENDING",
-    "compositeVisual": "PENDING",
+    "static": "PASS_CANDIDATE_BINARY",
+    "compositeVisual": "FAIL",
     "runtimePC": "PENDING",
     "runtimeXperia": "PENDING",
     "screenshots": "PENDING"
   },
   "notes": [
-    "Older HT:R candidate SHA pair 84c1.../2f4b... was superseded by generalized-builder commit ab52f5070a757e0dfa0773911e71bb887ddb36bb."
+    "Older HT:R candidate SHA pair 84c1.../2f4b... was superseded by generalized-builder commit ab52f5070a757e0dfa0773911e71bb887ddb36bb.",
+    "Attempt03 widened old-stick removal but visual QA still fails: neutral arm position forces an implausibly long cross-body HT stick. Next edit must relocate the complete right arm/hand/stick local region from a compatible locked-baseline tom pose."
   ],
-  "updatedAt": "2026-09-19T08:56:00+09:00"
+  "updatedAt": "2026-09-19T09:15:00+09:00"
 }
