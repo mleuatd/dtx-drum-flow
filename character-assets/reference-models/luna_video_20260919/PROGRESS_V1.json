@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T22:11:00+09:00",
+  "updatedAt": "2026-09-19T22:27:00+09:00",
   "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
   "completed": [
     "Reference video metadata/SHA registered",
@@ -45,15 +45,18 @@
     "Runtime Pose Tests run 35441840031 passed after neutral-shoulder policy regression test",
     "Runtime Pose SN-L Source QA run 35441840064 passed after refinement",
     "Recorded renderer target-binding failure after exact-source bridge; unrelated dashboard output rejected and not staged",
-    "Replaced tool-only autopilot direction with explicit hybrid AI + deterministic tool workflow"
+    "Replaced tool-only autopilot direction with explicit hybrid AI + deterministic tool workflow",
+    "Added candidate-only explicit-target SN:L hit AI image-edit tool with exact neutral SHA/canvas guards, local alpha mask, deterministic outside-mask restoration and machine QA",
+    "Added render-sn-l-ai-candidate GitHub Actions workflow using exact formal neutral as first image plus explicit mask and refreshed SN:L numeric constraints",
+    "Explicit-target workflow run 35442741368 passed exact-parent/mask preparation and saved artifact 10584585655; no image API request was made because OPENAI_API_KEY was unavailable to the workflow",
+    "Re-verified native Library bridge bytes for neutral (886e3490...) and formal SN:L hit (9941584d...) against GitHub formal SHA256 values"
   ],
   "currentStage": "SN_L_NUMERIC_PASS_HYBRID_RENDER_PATH_REQUIRED",
   "next": [
-    "Do not retry generic image generation in this session",
-    "Preserve refreshed neutral-shoulder SN:L numeric constraints and source bridge evidence",
-    "Resume pixel candidate rendering only in an environment/tool path with explicit exact-source edit-target binding, or after a proven deterministic local-edit method is available",
-    "Continue non-image work that does not depend on the blocked renderer",
-    "After a valid candidate exists, run deterministic cowlick/line-style, fixed-drum composite, transition and Web runtime QA before promotion"
+    "Keep generic chat image generation prohibited for SN:L because previous renderer target-binding failure is unresolved",
+    "Resume SN:L hit candidate generation through .github/workflows/render-sn-l-ai-candidate.yml only when an authenticated image-edit API route is available; the exact parent, mask and QA pipeline are already prepared",
+    "Do not modify TERM-A protected formal SN:L hit; candidate-only paths remain safe for retry",
+    "After a valid candidate exists, run local/canvas/alpha/contact QA, then deterministic cowlick/line style, fixed-drum composite, transition QA, Dropbox staging/import and Web runtime QA before promotion"
   ],
   "formalRuntimeAssetsModified": false,
   "doNotBulkPromoteYet": true,
@@ -63,5 +66,12 @@
     "CHIBI_RETARGET_PROFILE_V1.json",
     "QA_REFERENCE_MODEL_V1.json",
     "RUNTIME_PROTOTYPE_SN_L_V1.json"
+  ],
+  "nextSteps": [
+    "Do not retry generic image generation in this session",
+    "Preserve refreshed neutral-shoulder SN:L numeric constraints and source bridge evidence",
+    "Resume pixel candidate rendering only in an environment/tool path with explicit exact-source edit-target binding, or after a proven deterministic local-edit method is available",
+    "Continue non-image work that does not depend on the blocked renderer",
+    "After a valid candidate exists, run deterministic cowlick/line-style, fixed-drum composite, transition and Web runtime QA before promotion"
   ]
 }
