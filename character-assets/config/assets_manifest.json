@@ -854,14 +854,17 @@
       "x": 0,
       "y": 0,
       "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M46 LT+SN:R/L formal hit pair; exact LT:R formal base plus proven SN:L local delta.",
       "part": "LT+SN",
       "phase": "hit",
       "hand": "R/L",
       "notes": [
-        "Dropbox exact bytes saved; fixed-drum LT/SN contact QA PASS; public runtime QA pending."
-      ]
+        "Dropbox exact bytes saved; fixed-drum LT/SN contact QA PASS; public runtime QA pending.",
+        "Public PC/Xperia Runtime Character QA PASS run 35418698275 artifact 10576564303; screenshot review PASS."
+      ],
+      "liveQaRun": 35418698275,
+      "liveQaArtifact": 10576564303
     },
     {
       "path": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
@@ -870,14 +873,17 @@
       "x": 0,
       "y": 0,
       "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
-      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "purpose": "Luna M46 LT+SN:R/L formal rebound pair; exact LT:R formal base plus proven SN:L local delta.",
       "part": "LT+SN",
       "phase": "rebound",
       "hand": "R/L",
       "notes": [
-        "Dropbox exact bytes saved; fixed-drum LT/SN contact QA PASS; public runtime QA pending."
-      ]
+        "Dropbox exact bytes saved; fixed-drum LT/SN contact QA PASS; public runtime QA pending.",
+        "Public PC/Xperia Runtime Character QA PASS run 35418698275 artifact 10576564303; screenshot review PASS."
+      ],
+      "liveQaRun": 35418698275,
+      "liveQaArtifact": 10576564303
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
