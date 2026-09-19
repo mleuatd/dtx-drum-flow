@@ -1,7 +1,7 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r20";
-import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r20";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-audio-final-r21";
+import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-audio-final-r21";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
@@ -14,7 +14,7 @@ const DEV_MIXER=[
  ["kick","BD/LB"],["snare","SN"],["sideStick","SideStick"],["hihatClosed","HH Closed"],["hihatOpen","HH Open"],["hihatPedal","LP HH"],
  ["tomHigh","HT"],["tomLow","LT"],["tomFloor","FT"],["ride","RD"],["rideBell","Ride Bell"],["crashLeft","LC"],["crashRight","RC"]
 ];
-const DEV_MIXER_DEFAULT={kick:2.5,snare:1,sideStick:.2,hihatClosed:.2,hihatOpen:.2,hihatPedal:1,tomHigh:1,tomLow:1,tomFloor:1.05,ride:.2,rideBell:.25,crashLeft:.2,crashRight:.2};
+const DEV_MIXER_DEFAULT={kick:2.5,snare:1,sideStick:.8,hihatClosed:.2,hihatOpen:.15,hihatPedal:1,tomHigh:1,tomLow:1,tomFloor:1.05,ride:.15,rideBell:.15,crashLeft:.15,crashRight:.15};
 const devMixerValues={...DEV_MIXER_DEFAULT};
 function devMixerText(){
  if(!liveDrumEngine)return "MIX:engine-loading";
