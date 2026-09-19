@@ -1,0 +1,5 @@
+opencv-python-headless>=4.9,<5
+numpy>=1.26,<3
+Pillow>=10.2,<12
+pytest>=8,<9
+# Optional AI landmark provider adapter may use MediaPipe or another pose model.
