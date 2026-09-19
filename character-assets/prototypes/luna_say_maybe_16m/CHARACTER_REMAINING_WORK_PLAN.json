@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T16:01:00+09:00",
+  "updatedAt": "2026-09-19T16:04:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -10,8 +10,8 @@
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
     "formalAndMappedThroughMeasure": 136,
-    "lastLiveQaConfirmedThroughMeasure": 135,
-    "note": "M136 final new pair formalized, Dropbox-saved and mapped; runtimeScope 1-136; public QA pending."
+    "lastLiveQaConfirmedThroughMeasure": 136,
+    "note": "M136 final new pair public QA passed: run 35427665852 / artifact 10579347692, 4/4 PASS. All new character pairs are now created; remaining M137-148 is reuse-only plus final full-song QA."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -225,35 +225,37 @@
       "order": 12,
       "measures": "136",
       "type": "NEW_PAIR",
-      "status": "RUNNING",
+      "status": "DONE",
       "actionKey": "BD+FT:RF/R",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
       "preferredDerivation": "formal FT:R + approved local BD kick cue",
-      "note": "Final new pair deterministic formal/mapped; public PC/Xperia QA pending.",
-      "startedAt": "2026-09-19T16:01:00+09:00"
+      "note": "Final deterministic new pair Dropbox-saved/formal/mapped; public QA 4/4 PASS.",
+      "startedAt": "2026-09-19T16:01:00+09:00",
+      "completedAt": "2026-09-19T16:04:00+09:00",
+      "qaRun": 35427665852,
+      "qaArtifact": 10579347692
     },
     {
       "id": "CHAR-013",
       "order": 13,
       "measures": "137-148",
       "type": "REUSE_ONLY_FINAL_EXPANSION",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "READY",
       "work": [
         "Reuse existing formal mappings",
         "Expand to M148 after contiguous gates",
         "Run final PC/Xperia/public QA",
         "Close full-song character implementation"
-      ]
+      ],
+      "note": "Released after M136 DONE. Reuse-only final expansion through M148, then final full-song PC/Xperia QA."
     }
   ],
   "summary": {
-    "remainingNewActionPairs": 1,
-    "remainingNewPngFiles": 2,
-    "newActionOrder": [
-      "M136 BD+FT:RF/R"
-    ]
+    "remainingNewActionPairs": 0,
+    "remainingNewPngFiles": 0,
+    "newActionOrder": []
   }
 }
