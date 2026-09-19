@@ -4,7 +4,7 @@
     "measureStart": 54,
     "measureEnd": 54
   },
-  "status": "M54_PUBLIC_RUNTIME_QA_FAILED",
+  "status": "RUNTIME_QA_RETRY_PENDING",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIR",
   "actionKey": "BD+HT:RF/L",
@@ -13,7 +13,7 @@
     "formalPairReady": true,
     "allMapped": true
   },
-  "requiredNext": "Run public PC/Xperia runtime QA for M54 BD+HT:RF/L. If PASS, mark DONE and continue M55-67 reuse-only. Do not regenerate the M54 pair.",
+  "requiredNext": "Retry M54 public PC/Xperia runtime QA on latest main with hardened initialization wait. Do not regenerate M54 images unless runtime snapshots show an actual character mismatch.",
   "runtimeQaEvidence": {
     "M54": {
       "status": "FAIL",
@@ -29,10 +29,12 @@
       ]
     }
   },
-  "updatedAt": "2026-09-19T03:54:34.999196+00:00",
-  "blocker": {
-    "type": "RUNTIME_QA",
-    "workflowRunId": "35419734903",
-    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
+  "updatedAt": "2026-09-19T13:08:00+09:00",
+  "blocker": null,
+  "lastFailureClassification": {
+    "type": "QA_HARNESS_TRANSIENT",
+    "runId": 35419734903,
+    "detail": "Public app initialization wait timed out before runtime snapshots were produced. No runtime-qa.json/artifact existed; not evidence of a character asset failure.",
+    "repair": "tools/runtime-character-qa.mjs now retries public app initialization up to 3 times and accepts descendant Pages deployments."
   }
 }
