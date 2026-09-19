@@ -49,3 +49,11 @@ The intended line construction is:
 This style rule applies to the baseline correction itself and to every later baseline->variant normalization pass.
 
 Authoritative detailed rules: `STYLE_BASELINE_SPEC.json`.
+
+## Highest-level common image-edit rule
+
+Before any image generation/edit in this workspace, read:
+
+`character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md`
+
+This master rule is the highest-level common edit policy. This workspace adds cowlick/style-specific constraints but does not weaken the master protections. Required order starts with the master rule, then the playbook/failure/reject registries, then this workspace state/specs and the target transaction/PROGRESS.
