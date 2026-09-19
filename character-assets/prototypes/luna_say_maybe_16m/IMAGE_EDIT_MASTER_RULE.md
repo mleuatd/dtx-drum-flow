@@ -221,3 +221,28 @@ If another terminal advances the same file, re-fetch the newest file and re-appl
 Every character-image edit workspace must reference this file as its highest-level common rule.
 
 Workspace-specific style, geometry, action, transaction, and QA rules may add constraints, but they may not silently weaken these master protections. If a workspace appears to conflict with this file, preserve both records and resolve the conflict explicitly before editing.
+## 12. Deterministic cowlick-tool rule
+
+For crown/cowlick normalization, do not default to free-form generative image editing.
+
+Mandatory preferred path:
+
+`formal PNG -> tools/cowlick/apply_cowlick.py -> profile JSON -> candidate -> outside-ROI pixel QA -> visual review -> promotion`
+
+Authoritative implementation specification:
+
+`character-assets/prototypes/luna_say_maybe_16m/COWLICK_DETERMINISTIC_TOOL_SPEC.md`
+
+Current profile:
+
+`tools/cowlick/profiles/luna_3q_back_left_v1.json`
+
+Rules:
+- generative-AI full-frame redraw is prohibited for this operation,
+- the source SHA must be known before execution,
+- the formal source must never be overwritten directly,
+- outside-ROI changed pixels must be exactly zero,
+- the profile is versioned data; geometry changes require a new/reviewed profile revision,
+- the user-provided 360-degree reference video is calibration provenance, not a per-run free-form reference,
+- candidate success does not equal formal promotion; visual review remains required.
+
