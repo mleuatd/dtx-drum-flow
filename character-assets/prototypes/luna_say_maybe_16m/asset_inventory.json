@@ -1,15 +1,15 @@
 {
   "version": 12,
-  "scope": "Luna Say Maybe measures 1-8 parapara complete",
-  "imageSetState": "m1-8-complete",
+  "scope": "Luna Say Maybe measures 1-28 runtime mapped; M25-28 public QA pending",
+  "imageSetState": "m1-28-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 24,
-    "noteCount": 272,
-    "groupCount": 215,
+    "measureEnd": 28,
+    "noteCount": 329,
+    "groupCount": 256,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 44.750554,
+    "lastNoteTime": 51.549115,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -28,7 +28,10 @@
       "RD+SN:R/L",
       "BD+RD:RF/R",
       "BD+HH:RF/R",
-      "HH+SN:R/L"
+      "HH+SN:R/L",
+      "HT:R",
+      "RC:R",
+      "FT+SN:R/L"
     ]
   },
   "requiredFrames": {
@@ -619,6 +622,6 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T08:28:00+09:00",
-  "note": "Runtime inventory expanded through M24 after deterministic source-SHA-locked M18-24 pair generation; includes already-approved M17 assets present on main. M25-40 mapping-only exact alias BD+RC:RF/R prepared without expanding runtime scope before missing M25 assets are formal."
+  "updatedAt": "2026-09-19T10:34:00+09:00",
+  "note": "Runtime inventory expanded through M28 only after M25-28 HT:R, RC:R and FT+SN:R/L formal pairs passed PRE_RUNTIME gates. HT:R uses retry-controller-approved HH:R limb-patch strategy. M29+ remains excluded until M25-28 public PC/Xperia checkpoint passes."
 }
