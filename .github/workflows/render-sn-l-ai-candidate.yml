@@ -1,0 +1,110 @@
+name: Render SN-L explicit-target AI candidate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/render-sn-l-ai-candidate.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-sn-l-ai-candidate
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE: character-assets/layers/character/base/neutral.png
+      CONSTRAINTS: character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/AI_RENDER_SN_L_hit_V1.json
+      OUTDIR: character-assets/reference-models/luna_video_20260919/runtime_pose_candidates/sn_l_hit_ai
+      QADIR: character-assets/reference-models/luna_video_20260919/runtime_pose_qa/sn_l_hit_ai
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Prepare exact-parent mask and prompt
+        run: |
+          mkdir -p "$OUTDIR" "$QADIR" /tmp/sn_l_ai
+          python tools/image_edit/sn_l_hit_explicit_edit.py prepare             --source "$SOURCE"             --constraints "$CONSTRAINTS"             --mask /tmp/sn_l_ai/mask.png             --prompt /tmp/sn_l_ai/prompt.txt
+
+      - name: Check API credential boundary
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            printf '{"status":"BLOCKED","reason":"OPENAI_API_KEY secret unavailable to workflow","actionKey":"SN:L","phase":"hit"}\n'               > "$QADIR/API_AUTH_STATUS.json"
+            echo "::error::OPENAI_API_KEY is not available to this workflow"
+            exit 2
+          fi
+
+      - name: Call OpenAI Images edit API with exact parent and mask
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          PROMPT="$(cat /tmp/sn_l_ai/prompt.txt)"
+          http_code=$(curl -sS -o /tmp/sn_l_ai/response.json -w '%{http_code}'             -X POST "https://api.openai.com/v1/images/edits"             -H "Authorization: Bearer $OPENAI_API_KEY"             -F "model=gpt-image-2"             -F "image[]=@$SOURCE;type=image/png"             -F "mask=@/tmp/sn_l_ai/mask.png;type=image/png"             -F "prompt=$PROMPT"             -F "size=1448x1086"             -F "quality=medium"             -F "output_format=png")
+          echo "http_code=$http_code"
+          if [ "$http_code" -lt 200 ] || [ "$http_code" -ge 300 ]; then
+            python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("/tmp/sn_l_ai/response.json")
+          raw=p.read_text(errors="replace") if p.exists() else ""
+          pathlib.Path("character-assets/reference-models/luna_video_20260919/runtime_pose_qa/sn_l_hit_ai/API_AUTH_STATUS.json").write_text(
+              json.dumps({"status":"BLOCKED","reason":"OpenAI image edit API returned non-2xx","response":raw[:4000]},indent=2)+"\n"
+          )
+          PY
+            exit 3
+          fi
+          python - <<'PY'
+          import base64, json, pathlib
+          data=json.loads(pathlib.Path("/tmp/sn_l_ai/response.json").read_text())
+          b64=data["data"][0]["b64_json"]
+          pathlib.Path("/tmp/sn_l_ai/api_output.png").write_bytes(base64.b64decode(b64))
+          PY
+
+      - name: Enforce local edit and run machine QA
+        run: |
+          python tools/image_edit/sn_l_hit_explicit_edit.py finalize             --source "$SOURCE"             --mask /tmp/sn_l_ai/mask.png             --api-output /tmp/sn_l_ai/api_output.png             --output "$OUTDIR/candidate.png"
+          python tools/image_edit/sn_l_hit_explicit_edit.py qa             --source "$SOURCE"             --mask /tmp/sn_l_ai/mask.png             --candidate "$OUTDIR/candidate.png"             --constraints "$CONSTRAINTS"             --qa "$QADIR/QA.json"
+          cp /tmp/sn_l_ai/mask.png "$QADIR/edit_mask.png"
+          cp /tmp/sn_l_ai/prompt.txt "$QADIR/prompt.txt"
+
+      - name: Commit candidate evidence only
+        if: success()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUTDIR/candidate.png" "$QADIR/QA.json" "$QADIR/edit_mask.png" "$QADIR/prompt.txt"
+          if git diff --cached --quiet; then
+            echo "No candidate changes"
+            exit 0
+          fi
+          git commit -m "image-edit: add SN:L explicit-target hit candidate"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload diagnostic artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sn-l-explicit-target-ai-edit
+          path: |
+            /tmp/sn_l_ai/
+            character-assets/reference-models/luna_video_20260919/runtime_pose_candidates/sn_l_hit_ai/
+            character-assets/reference-models/luna_video_20260919/runtime_pose_qa/sn_l_hit_ai/
+          if-no-files-found: ignore
