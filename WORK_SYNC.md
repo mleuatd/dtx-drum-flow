@@ -1,3 +1,10 @@
+## 2026-09-20 08:36 JST — Visual Integrity Batch 08 + parallel prep fix
+- Detected a parallel-selection defect: Batch Prep auto-priority ignored the active ledger CLAIM and emitted evidence for other-session keys.
+- Wrong evidence was discarded without touching those actionKeys.
+- Updated prepare_visual_integrity_batch.py to prefer activeVisualIntegrityBatch when its frames are CLAIMED.
+- Corrected run 35475852782 / artifact 10594059870 selected BD+HH:RF/R + BD+LT:RF/R.
+- Both pairs failed structural static hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs unchanged.
+
 ## 2026-09-20 08:29 JST — Visual Integrity Batch 07
 - Front batch processed FT:R + FT:L while BACK-BATCH-02 remained reserved by another session.
 - Evidence: run 35475676709 / artifact 10594034740.
