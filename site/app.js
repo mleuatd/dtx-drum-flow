@@ -1,7 +1,7 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r11";
-import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r11";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r12";
+import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r12";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
@@ -26,9 +26,9 @@ async function ensureAudio(){
   audioCtx??=new (window.AudioContext||window.webkitAudioContext)({latencyHint:"interactive"});
   if(!drumBus){
     const input=audioCtx.createGain(),comp=audioCtx.createDynamicsCompressor(),out=audioCtx.createGain();
-    input.gain.value=.92;
+    input.gain.value=1;
     comp.threshold.value=-18;comp.knee.value=18;comp.ratio.value=4;comp.attack.value=.002;comp.release.value=.12;
-    out.gain.value=.9;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
+    out.gain.value=1;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
   }
   liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);
   if(!liveDrumEngine.ready)liveDrumEngine.preload().catch(err=>console.warn("Acoustic drum preload failed",err));
@@ -44,7 +44,7 @@ function filteredNoise(t,dur,gain,type,freq,q=.7,attack=.001,target=null){const 
 function metalPartials(t,dur,gain,freqs,target=null){for(const [i,f] of freqs.entries())tone(f,t+i*.0007,dur*(1-i*.055),gain/(1+i*.38),i%2?"sine":"triangle",f*(.82+i*.018),.001,target,(Math.random()-.5)*10)}
 const DRUM_ROOM={};
 function ensureDrumRoom(){if(DRUM_ROOM.close)return DRUM_ROOM;const input=audioCtx.createGain(),close=audioCtx.createGain(),room=audioCtx.createGain(),delayA=audioCtx.createDelay(.25),delayB=audioCtx.createDelay(.25),roomFilter=audioCtx.createBiquadFilter();close.gain.value=.82;room.gain.value=.24;delayA.delayTime.value=.017;delayB.delayTime.value=.043;roomFilter.type="lowpass";roomFilter.frequency.value=7600;input.connect(close);close.connect(drumBus);input.connect(delayA);input.connect(delayB);delayA.connect(roomFilter);delayB.connect(roomFilter);roomFilter.connect(room);room.connect(drumBus);Object.assign(DRUM_ROOM,{input,close,room});return DRUM_ROOM}
-function humanizedVelocity(v){const n=Number(v);const x=Number.isFinite(n)?(n>1?n/127:n):.8;return Math.max(.72,Math.min(.92,.80+(x-.5)*.16))}
+function humanizedVelocity(v){const n=Number(v);const x=Number.isFinite(n)?(n>1?n/127:n):.8;return Math.max(.78,Math.min(.88,.83+(x-.5)*.10))}
 function drumAt(part,vel=.8,when=null,note=null){
   if(!$("drumSound").checked||!audioCtx||!liveDrumEngine)return;
   const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002);
