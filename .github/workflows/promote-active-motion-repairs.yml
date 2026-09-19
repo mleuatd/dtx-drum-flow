@@ -1,0 +1,38 @@
+name: Promote active motion repair passes
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/promote-active-motion-repairs.yml'
+permissions:
+  contents: write
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check pillow numpy
+      - name: Promote only guarded PASS candidates
+        run: python tools/character_layers/promote_active_motion_repairs.py
+      - name: Character asset validation
+        run: python tools/character_layers/validate_assets.py
+      - name: Runtime pose unit regression
+        run: python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+      - name: Commit promoted repairs and metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/character/
+          git add character-assets/config/assets_manifest.json
+          git add character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+          git add character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json
+          git add character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json
+          git add character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
+          git add character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_PROMOTION_RESULT.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "fix: promote guarded motion repair candidates"
+          git push
