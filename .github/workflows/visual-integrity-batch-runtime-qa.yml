@@ -31,6 +31,43 @@ jobs:
         id: browser_qa
         continue-on-error: true
         run: node tools/runtime-character-qa.mjs
+      - name: Run explicit neutral-hit-rebound-neutral QA
+        run: |
+          node --input-type=module <<'JS'
+          import { chromium } from "playwright";
+          import fs from "node:fs/promises";
+          import path from "node:path";
+          const url=process.env.PUBLIC_URL;
+          const points=[
+            {label:"neutral_before",time:0,phase:"neutral",key:"neutral",frame:"layers/character/base/neutral.png"},
+            {label:"bd_hit",time:131.41723,phase:"hit",key:"BD:RF",frame:"layers/character/bd/hit_rf.png"},
+            {label:"bd_rebound",time:131.5643073312,phase:"rebound",key:"BD:RF",frame:"layers/character/bd/rebound_rf.png"},
+            {label:"neutral_after",time:0,phase:"neutral",key:"neutral",frame:"layers/character/base/neutral.png"}
+          ];
+          await fs.mkdir("qa-artifacts/explicit-sequence",{recursive:true});
+          const browser=await chromium.launch({headless:true}); const records=[]; let failed=0;
+          for(const vp of [{name:"pc",width:1280,height:900},{name:"xperia-portrait",width:384,height:864}]){
+            const context=await browser.newContext({viewport:{width:vp.width,height:vp.height}});
+            const page=await context.newPage();
+            await page.goto(url+"?qa=1&explicit=1",{waitUntil:"networkidle",timeout:120000});
+            await page.waitForFunction(()=>window.__DTX_APP_READY__===true,null,{timeout:45000});
+            await page.waitForFunction(()=>window.__DTX_CHARACTER_QA__?.snapshot().ready===true,null,{timeout:45000});
+            for(const p of points){
+              await page.evaluate(time=>{const el=document.getElementById("timeline");el.value=String(time);el.dispatchEvent(new Event("input",{bubbles:true}))},p.time);
+              await page.waitForTimeout(160);
+              const a=await page.evaluate(()=>window.__DTX_CHARACTER_QA__.snapshot());
+              const ok=a.animationKey===p.key&&a.phase===p.phase&&a.frame===p.frame&&a.character.complete&&a.drum.complete&&!a.assetWarning&&!a.initError;
+              if(!ok) failed++;
+              const shot=path.join("qa-artifacts","explicit-sequence",vp.name+"_"+p.label+".png");
+              await page.locator(".stage").screenshot({path:shot});
+              records.push({viewport:vp.name,...p,actualKey:a.animationKey,actualPhase:a.phase,actualFrame:a.frame,status:ok?"PASS":"FAIL",screenshotPath:shot});
+            }
+            await context.close();
+          }
+          await browser.close();
+          await fs.writeFile("qa-artifacts/explicit-sequence.json",JSON.stringify({sequence:"neutral->hit->rebound->neutral",failed,passed:records.length-failed,records},null,2));
+          if(failed) process.exit(1);
+          JS
       - name: Upload transition evidence
         if: always()
         uses: actions/upload-artifact@v4

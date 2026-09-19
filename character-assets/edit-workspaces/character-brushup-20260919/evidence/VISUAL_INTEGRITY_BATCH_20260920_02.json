@@ -70,8 +70,21 @@
       "note": "M142 HH:R and M143 BD:RF hit/rebound verified on PC and Xperia; neutral omitted because next event overlap."
     },
     "followup": {
+      "runId": 35473236874,
+      "artifactId": 10593861539,
+      "commitSha": "bef90c4d6b6c2fa3229fe8c2d9b7be10c9360fb3",
+      "passed": 4,
+      "failed": 0,
+      "selectedMeasure": 75,
+      "note": "BD:RF hit/rebound PASS on PC and Xperia. Natural neutral omitted because every BD:RF occurrence overlaps a subsequent event."
+    },
+    "explicitSequence": {
       "state": "REQUESTED",
-      "scope": "M1-148 / BD:RF only; runtime tool selects occurrence with largest next-event gap to capture neutral if available."
+      "sequence": "neutral -> M75 hit -> M75 rebound -> neutral",
+      "viewports": [
+        "pc",
+        "xperia-portrait"
+      ]
     }
   }
 }
