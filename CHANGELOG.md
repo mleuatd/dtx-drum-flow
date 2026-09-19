@@ -1,3 +1,10 @@
+## 2026-09-20 — Visual Integrity Batch 04
+- Claimed and statically reviewed RD:R and BD+SN:RF/L via the 2x4 batch-prep workflow.
+- RD:R hit passed; rebound failed structural rectangular splice/cut around hair-torso/right-arm-stick continuity.
+- BD+SN:RF/L hit/rebound failed structural splice/stick-continuity hard gates.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY; formal PNGs unchanged and runtime QA was not entered.
+- Evidence: workflow run 35475145116, artifact 10593238245.
+
 ## 2026-09-20 — Visual-integrity batch 03
 
 - Processed SN:L and BD+RC:RF/R as the next 2-action / 4-frame batch using current-main evidence (workflow 35474616622, artifact 10593307774).
