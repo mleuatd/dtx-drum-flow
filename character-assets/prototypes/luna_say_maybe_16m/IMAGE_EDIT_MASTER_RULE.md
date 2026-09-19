@@ -246,3 +246,28 @@ Rules:
 - the user-provided 360-degree reference video is calibration provenance, not a per-run free-form reference,
 - candidate success does not equal formal promotion; visual review remains required.
 
+## 13. Deterministic line-style normalization rule
+
+For global character line-style normalization, free-form image generation is prohibited.
+
+Mandatory preferred path:
+
+`formal PNG -> tools/line_style/normalize_line_style.py -> tools/line_style/verify_line_style_normalization.py -> candidate + QA -> visual review -> promotion`
+
+Authoritative specification:
+
+`character-assets/prototypes/luna_say_maybe_16m/LINE_STYLE_DETERMINISTIC_TOOL_SPEC.md`
+
+Current profile:
+
+`tools/line_style/profiles/luna_pencil_style_v1.json`
+
+Rules:
+- semantic content, pose, identity, camera, silhouette, stool and registration must remain unchanged,
+- base line width is fixed to one fine stroke,
+- apparent thickness/darkness must come from repeated fine retraces with small deterministic offsets,
+- thick digital brush replacement, vector cleanup and new solid fill are forbidden,
+- each formal source is processed independently; candidate chaining is forbidden,
+- known formal SHA must be verified before processing,
+- tool PASS does not authorize formal overwrite; visual review is a separate gate.
+
