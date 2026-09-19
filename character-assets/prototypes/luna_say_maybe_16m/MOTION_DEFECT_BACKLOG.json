@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T08:43:00+09:00",
+  "updatedAt": "2026-09-20T08:56:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -6254,7 +6254,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:34:00+09:00",
+      "updatedAt": "2026-09-20T08:56:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "FIXED_PENDING_QA",
@@ -7145,14 +7145,22 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
+        "reviewedAt": "2026-09-20T08:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476580606,
+          "artifactId": 10594790972
+        },
+        "failReasons": [
+          "large rectangular hair/torso splice and floating line fragments"
+        ]
       },
       "claim": null,
       "decisionLog": [
@@ -7160,8 +7168,27 @@
           "at": "2026-09-20T08:34:00+09:00",
           "decision": "BACK_BATCH_03_HOLD",
           "detail": "Auto hit/rebound automated QA both PASS; mandatory anatomy/linework/fixed-drum visual PASS evidence remains absent."
+        },
+        {
+          "at": "2026-09-20T08:56:00+09:00",
+          "decision": "BACK_VISUAL_INTEGRITY_HOLD",
+          "detail": "Artifact 10594790972 / run 35476580606: large rectangular hair/torso splice and floating line fragments. Formal PNGs unchanged; runtime QA blocked by static hard fail."
         }
-      ]
+      ],
+      "hold": {
+        "issueId": "MOTION-008",
+        "actionKey": "HH+SN:R/L",
+        "phase": "hit->rebound",
+        "confirmedImages": "workflow artifact character-only + fixed-drum composite + transition strip",
+        "defect": "large rectangular hair/torso splice and floating line fragments",
+        "defectLocation": "mid torso/hair rectangle and left floating fragments",
+        "cause": "structural splice/transplant artifact in current formal pair",
+        "attemptedRepair": "none in this review; existing artifact reused",
+        "repairResult": "not attempted because defect is structural/non-light",
+        "nextRepair": "Rebuild measured two-arm/stick ROI only, preserving torso/hair/seat outside necessary occlusion.",
+        "prohibitedRepair": "whole-torso rectangular transplant; full redraw",
+        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+      }
     },
     {
       "issueId": "MOTION-009",
@@ -8940,7 +8967,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:42:00+09:00",
+      "updatedAt": "2026-09-20T08:56:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9895,29 +9922,50 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger."
+        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger.",
+        "reviewedAt": "2026-09-20T08:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476568863,
+          "artifactId": 10593149790
+        },
+        "failReasons": [
+          "extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body"
+        ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "direction": "BACK",
-        "batch": "BACK-VISUAL-REVIEW-01",
-        "claimedAt": "2026-09-20T08:42:00+09:00",
-        "owner": "CHATGPT-BACK"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
           "decision": "BACK_BATCH_01_HOLD_AFTER_AUTOMATED_QA",
           "detail": "Automated candidate QA passed for hit/rebound; mandatory visual-integrity human/linework/fixed-drum gate remains without PASS evidence. Release claim and continue queue."
+        },
+        {
+          "at": "2026-09-20T08:56:00+09:00",
+          "decision": "BACK_VISUAL_INTEGRITY_HOLD",
+          "detail": "Artifact 10593149790 / run 35476568863: extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body. Formal PNGs unchanged; runtime QA blocked by static hard fail."
         }
-      ]
+      ],
+      "hold": {
+        "issueId": "MOTION-011",
+        "actionKey": "BD+RC+SN:RF/R/L",
+        "phase": "hit->rebound",
+        "confirmedImages": "workflow artifact character-only + fixed-drum composite + transition strip",
+        "defect": "extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body",
+        "defectLocation": "right hand/stick corridor above/right torso",
+        "cause": "structural splice/transplant artifact in current formal pair",
+        "attemptedRepair": "none in this review; existing artifact reused",
+        "repairResult": "not attempted because defect is structural/non-light",
+        "nextRepair": "Rebuild only measured active right-arm/stick ROI from a clean parent; preserve head/hair/torso/seat/legs/left arm outside approved occlusion.",
+        "prohibitedRepair": "full redraw; whole-torso rectangular transplant",
+        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+      }
     },
     {
       "issueId": "MOTION-012",
@@ -9949,7 +9997,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:36:00+09:00",
+      "updatedAt": "2026-09-20T08:56:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -10721,14 +10769,22 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
+        "reviewedAt": "2026-09-20T08:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476577082,
+          "artifactId": 10594860319
+        },
+        "failReasons": [
+          "large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments"
+        ]
       },
       "claim": null,
       "decisionLog": [
@@ -10736,8 +10792,27 @@
           "at": "2026-09-20T08:36:00+09:00",
           "decision": "BACK_BATCH_04_HOLD",
           "detail": "Auto hit/rebound automated QA both PASS with semantic-mask/static-region/contact checks; mandatory visual-integrity PASS evidence remains absent."
+        },
+        {
+          "at": "2026-09-20T08:56:00+09:00",
+          "decision": "BACK_VISUAL_INTEGRITY_HOLD",
+          "detail": "Artifact 10594860319 / run 35476577082: large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments. Formal PNGs unchanged; runtime QA blocked by static hard fail."
         }
-      ]
+      ],
+      "hold": {
+        "issueId": "MOTION-012",
+        "actionKey": "HT:R",
+        "phase": "hit->rebound",
+        "confirmedImages": "workflow artifact character-only + fixed-drum composite + transition strip",
+        "defect": "large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments",
+        "defectLocation": "mid torso/hair rectangle and right arm/stick",
+        "cause": "structural splice/transplant artifact in current formal pair",
+        "attemptedRepair": "none in this review; existing artifact reused",
+        "repairResult": "not attempted because defect is structural/non-light",
+        "nextRepair": "Reconstruct only measured right-arm/stick ROI from clean parent and remove residual splice lines.",
+        "prohibitedRepair": "oversized rectangular transplant; full redraw",
+        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+      }
     },
     {
       "issueId": "MOTION-013",
@@ -10769,7 +10844,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:42:00+09:00",
+      "updatedAt": "2026-09-20T08:56:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -11609,29 +11684,50 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method3/METHOD3_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger."
+        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger.",
+        "reviewedAt": "2026-09-20T08:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476568863,
+          "artifactId": 10593149790
+        },
+        "failReasons": [
+          "rectangular shoulder/hair/torso and seat splice plus detached stick fragments"
+        ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "direction": "BACK",
-        "batch": "BACK-VISUAL-REVIEW-01",
-        "claimedAt": "2026-09-20T08:42:00+09:00",
-        "owner": "CHATGPT-BACK"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
           "decision": "BACK_BATCH_01_HOLD_AFTER_AUTOMATED_QA",
           "detail": "Automated candidate QA passed for hit/rebound; mandatory visual-integrity human/linework/fixed-drum gate remains without PASS evidence. Release claim and continue queue."
+        },
+        {
+          "at": "2026-09-20T08:56:00+09:00",
+          "decision": "BACK_VISUAL_INTEGRITY_HOLD",
+          "detail": "Artifact 10593149790 / run 35476568863: rectangular shoulder/hair/torso and seat splice plus detached stick fragments. Formal PNGs unchanged; runtime QA blocked by static hard fail."
         }
-      ]
+      ],
+      "hold": {
+        "issueId": "MOTION-013",
+        "actionKey": "BD+HT:RF/R",
+        "phase": "hit->rebound",
+        "confirmedImages": "workflow artifact character-only + fixed-drum composite + transition strip",
+        "defect": "rectangular shoulder/hair/torso and seat splice plus detached stick fragments",
+        "defectLocation": "upper torso/hair boundary, active stick, seat",
+        "cause": "structural splice/transplant artifact in current formal pair",
+        "attemptedRepair": "none in this review; existing artifact reused",
+        "repairResult": "not attempted because defect is structural/non-light",
+        "nextRepair": "Replace only measured active arm/stick ROI and explicitly repair splice boundary; preserve all locked body/seat regions.",
+        "prohibitedRepair": "repeat rectangular transplant; full redraw",
+        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+      }
     },
     {
       "issueId": "MOTION-014",
@@ -12549,7 +12645,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:27:00+09:00",
+      "updatedAt": "2026-09-20T08:56:00+09:00",
       "occurrences": [
         {
           "measure": "M67",
@@ -13504,14 +13600,22 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
+        "reviewedAt": "2026-09-20T08:56:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476577082,
+          "artifactId": 10594860319
+        },
+        "failReasons": [
+          "duplicated left hand/arm-stick geometry, floating fragments, and seat splice"
+        ]
       },
       "claim": null,
       "decisionLog": [
@@ -13519,8 +13623,27 @@
           "at": "2026-09-20T08:27:00+09:00",
           "decision": "BACK_BATCH_02_HOLD",
           "detail": "Method2 automated QA passes for hit and rebound (locked head/torso/stool/left-leg, outside-mask zero, local contacts preserved), but mandatory anatomy/linework/fixed-drum visual PASS evidence is absent. Hold without blocking queue."
+        },
+        {
+          "at": "2026-09-20T08:56:00+09:00",
+          "decision": "BACK_VISUAL_INTEGRITY_HOLD",
+          "detail": "Artifact 10594860319 / run 35476577082: duplicated left hand/arm-stick geometry, floating fragments, and seat splice. Formal PNGs unchanged; runtime QA blocked by static hard fail."
         }
-      ]
+      ],
+      "hold": {
+        "issueId": "MOTION-015",
+        "actionKey": "BD+HH+SN:RF/R/L",
+        "phase": "hit->rebound",
+        "confirmedImages": "workflow artifact character-only + fixed-drum composite + transition strip",
+        "defect": "duplicated left hand/arm-stick geometry, floating fragments, and seat splice",
+        "defectLocation": "left hand/stick and seat overlap",
+        "cause": "structural splice/transplant artifact in current formal pair",
+        "attemptedRepair": "none in this review; existing artifact reused",
+        "repairResult": "not attempted because defect is structural/non-light",
+        "nextRepair": "Cause-specific active-limb candidate with measured bilateral hand/stick ROI; no seat/body pixels except approved occlusion.",
+        "prohibitedRepair": "full redraw; seat/torso transplant",
+        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+      }
     }
   ],
   "defectSchema": {
