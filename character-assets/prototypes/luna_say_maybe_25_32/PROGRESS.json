@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "M25-28: FT+SN exact attempt03 import is complete; perform actual fixed-drum composite visual QA and promote only if PASS. In parallel-safe order, finish RC:R attempt03 final visual review, then rebuild HT:R with arm-local relocation. HT:L remains formal. Do not regenerate imported FT+SN.",
-  "updatedAt": "2026-09-19T09:50:00+09:00",
+  "requiredNext": "M25-28: RC:R attempt03/02 final fixed-drum visual review; then HT:R arm-local rebuild. FT+SN attempt04 is formal PASS and must not be regenerated. HT:L remains formal. Do not start BD+HT formal work before M25-28 checkpoint.",
+  "updatedAt": "2026-09-19T09:49:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -237,24 +237,29 @@
       "currentReboundSha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a"
     },
     "ftSnRL": {
-      "status": "GITHUB_EXACT_CANDIDATE_IMPORTED_COMPOSITE_VISUAL_QA_PENDING",
+      "status": "FORMAL_PROMOTED",
       "builder": "tools/build-m25-40-candidates.py",
       "builderCommit": "9e58069af46c44c1d94c7a63723899907367ef6f",
-      "method": "locked-baseline limb-local composition using FT:R base plus RC+SN left-SN local region; legacy whole-body delta merge abandoned",
+      "method": "attempt04 locked-baseline minimal left-stick contact correction; attempt03 superseded after fixed-drum SN contact FAIL",
       "plannedHit": "character-assets/review-candidates/m25_40/ft_sn_r_l_hit_attempt01.png",
       "plannedRebound": "character-assets/review-candidates/m25_40/ft_sn_r_l_rebound_attempt01.png",
       "qaEvidence": "character-assets/generated-qa/m25_40/ft_sn_r_l/",
       "note": "Builder logic is committed and parent SHAs match current formal assets. Push retrigger was issued, but no FT+SN output commit/file is present on main yet; do not claim generated.",
       "retriggerCommit": "63b37235c1bdb8f5628a970249b87fbcf9406827",
-      "currentHitDropbox": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_hit_attempt03.png",
-      "currentReboundDropbox": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_rebound_attempt03.png",
-      "currentHitSha256": "0aea2d5072ecb5745f19f1ff5e35cdecfb1a45ec6117a38823d7d31df7a3b1d6",
-      "currentReboundSha256": "44f7e79110c1c7a2fb9aff757d1142a0e700a712de009a25dbf9adb9e39eb9c8",
+      "currentHitDropbox": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_hit_attempt04.png",
+      "currentReboundDropbox": "/ChatGPT/dtx-drum-flow/ft_sn_r_l_rebound_attempt04.png",
+      "currentHitSha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
+      "currentReboundSha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
       "stagingPath": "character-assets/candidate-staging/m25_28_ft_sn_attempt03.json",
-      "githubCandidateHit": "character-assets/candidates/m25_28/ft_sn_r_l_hit_attempt03.png",
-      "githubCandidateRebound": "character-assets/candidates/m25_28/ft_sn_r_l_rebound_attempt03.png",
+      "githubCandidateHit": "character-assets/candidates/m25_28/ft_sn_r_l_hit_attempt04.png",
+      "githubCandidateRebound": "character-assets/candidates/m25_28/ft_sn_r_l_rebound_attempt04.png",
       "importWorkflowRunId": 35410174272,
-      "importCommit": "f9b2d126bc65498c2bf675fe364a22c0bd8a2b33"
+      "importCommit": "ede4714bcfd4048172f73d64e049a4a915ff9e46",
+      "formalHit": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
+      "formalRebound": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
+      "visualQA": "PASS",
+      "contactQA": "PASS_SN_FT",
+      "promotionCommit": "14a9b4449bf97fb99ca2b4c45247a22574c2c57f"
     }
   },
   "workChunk": {
@@ -276,14 +281,13 @@
     "reason": "M29 introduces BD+HT:RF/R and HT:L, taking cumulative new actions from 3 to 5."
   },
   "resumeCheckpoint": {
-    "checkedAt": "2026-09-19T09:50:00+09:00",
-    "latestMainObserved": "f9b2d126bc65498c2bf675fe364a22c0bd8a2b33",
-    "formalPng": "2/10",
-    "htL": "formal promoted; preserve",
-    "ftSnRL": "exact attempt03 imported to GitHub candidates; fixed-drum visual QA pending",
-    "rcR": "attempt03 hit + attempt02 rebound; final visual review pending",
-    "htR": "visual FAIL; arm-local rebuild required",
-    "bdHt": "waits for formal HT:R"
+    "checkedAt": "2026-09-19T09:49:00+09:00",
+    "formalPng": "4/10",
+    "ftSnRL": "attempt04 formal PASS; exact Dropbox/GitHub bytes match",
+    "rcR": "final fixed-drum visual review pending",
+    "htR": "arm-local rebuild required",
+    "htL": "formal; preserve",
+    "bdHt": "blocked until M25-28 checkpoint and HT:R formal"
   },
   "visualQA": {
     "checkedAt": "2026-09-19T08:55:00+09:00",
@@ -345,6 +349,6 @@
     "fix": "Importer now also accepts sourceGithubPath exact bytes, avoiding dependence on a Dropbox Actions secret when an exact candidate has already been staged in GitHub.",
     "note": "FT+SN exact attempt03 remains safely persisted in Dropbox. Do not regenerate it. Next import should use the new exact-source route once the staged GitHub copy is available."
   },
-  "formalPngCompleted": 2,
+  "formalPngCompleted": 4,
   "formalPngTotal": 10
 }
