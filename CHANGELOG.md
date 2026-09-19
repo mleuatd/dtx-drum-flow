@@ -1,3 +1,8 @@
+## 2026-09-20 — Visual Integrity Batch 07
+- Claimed and statically reviewed FT:R and FT:L as the next front-queue 2x4 batch.
+- Both pairs failed structural stick-continuity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
+- Evidence: workflow run 35475676709, artifact 10594034740.
+
 ## 2026-09-20 — Visual Integrity Batch 06
 - Claimed and statically reviewed LT:L and BD+SN:RF/R as the next front-queue 2x4 batch.
 - Both pairs failed structural visual-integrity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
