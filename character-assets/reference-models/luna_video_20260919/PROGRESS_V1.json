@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:22:00+09:00",
+  "updatedAt": "2026-09-19T20:26:00+09:00",
   "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
   "completed": [
     "Reference video metadata/SHA registered",
@@ -23,15 +23,19 @@
     "Made runtime contact QA phase-aware so neutral/rebound are not forced onto hit contact",
     "Added single-hand minimal-motion sanitization: inactive body/core stay on neutral while SN:L left arm moves",
     "SN:L neutral->hit->rebound->neutral numeric transition QA now passes within configured 120 px joint tolerance",
-    "Generated per-phase constrained AI render packages and machine QA evidence"
+    "Generated per-phase constrained AI render packages and machine QA evidence",
+    "Generalized tools/runtime_pose to combo actionKeys with explicit part-to-limb pairing and multi-effector constraints",
+    "Added combo-aware contact/transition validation while preserving legacy single-action behavior",
+    "Added runtime-pose GitHub Actions regression suite; run 35440027946 passed"
   ],
   "currentStage": "SN_L_CONSTRAINT_QA_PASS_PIXEL_RENDER_BLOCKED",
   "next": [
     "Supply exact formal neutral/SN:L hit/rebound PNG bytes to a renderer-capable session/environment as edit targets",
-    "Render candidates strictly from AI_RENDER_SN_L_neutral/hit/rebound_V1.json constraints; no free redraw",
+    "Render SN:L candidates strictly from committed numeric constraints; no free redraw",
     "Apply cowlick and line-style deterministic post-processing",
     "Composite with locked drum and run contact/registration/transition QA",
-    "Run actual Web runtime PC/Xperia QA before formal promotion or broader actionKey propagation"
+    "Use generalized combo pipeline for subsequent actionKeys only after SN:L pixel prototype passes",
+    "Run actual Web runtime PC/Xperia QA before formal promotion"
   ],
   "formalRuntimeAssetsModified": false,
   "doNotBulkPromoteYet": true,
