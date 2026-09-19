@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:40:00+09:00",
+  "updatedAt": "2026-09-20T08:44:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -476,26 +476,50 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "ready",
-      "brushupStatus": "PENDING",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "PENDING",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:44:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476100628,
+          "artifactId": 10594870183,
+          "evidence": "single-action final batch: full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strip"
+        },
+        "failReasons": [
+          "hit moves head/body/stool registration far beyond a local right-hand snare strike",
+          "whole seated silhouette changes substantially relative to approved neutral",
+          "pair cannot proceed because rebound is a different whole-body/camera presentation",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-FINAL",
       "reviewClaimedAt": "2026-09-20T08:40:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
+      "reviewCompletedAt": "2026-09-20T08:44:00+09:00",
+      "holdReason": "SN:R pair held because motion is not a local right-hand snare action: hit has large whole-body/stool registration drift and rebound changes to a different whole-body/camera presentation. Formal PNGs preserved; no minimal retry because failure is structural.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
+        "at": "2026-09-20T08:44:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 4,
@@ -549,26 +573,50 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "ready",
-      "brushupStatus": "PENDING",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "PENDING",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:44:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476100628,
+          "artifactId": 10594870183,
+          "evidence": "single-action final batch: full-resolution current-main character-only, fixed-drum composites, and neutral-hit-rebound-neutral transition strip"
+        },
+        "failReasons": [
+          "rebound changes to a different whole-body pose and camera presentation",
+          "head, torso, legs and stool registration all change instead of only the active right arm",
+          "neutral-hit-rebound-neutral transition reads as a scene/pose jump rather than follow-through",
+          "failure exceeds light/local threshold; minimal retry intentionally skipped"
+        ]
       },
-      "reviewClaimState": "CLAIMED",
+      "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-FINAL",
       "reviewClaimedAt": "2026-09-20T08:40:00+09:00",
-      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
+      "reviewCompletedAt": "2026-09-20T08:44:00+09:00",
+      "holdReason": "SN:R pair held because motion is not a local right-hand snare action: hit has large whole-body/stool registration drift and rebound changes to a different whole-body/camera presentation. Formal PNGs preserved; no minimal retry because failure is structural.",
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
+        "at": "2026-09-20T08:44:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 5,
@@ -4373,7 +4421,7 @@
     {
       "batchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
       "startedAt": "2026-09-20T08:40:00+09:00",
-      "updatedAt": "2026-09-20T08:40:00+09:00",
+      "updatedAt": "2026-09-20T08:44:00+09:00",
       "terminalId": "CHAT-FRONT-FINAL",
       "actionKeys": [
         "SN:R"
@@ -4383,8 +4431,10 @@
         "sn_r_hit",
         "sn_r_rebound"
       ],
-      "result": "IN_PROGRESS",
-      "summary": "Final single-action closure batch for the 15-action milestone."
+      "result": "HOLD_STATIC_HARD_FAIL",
+      "summary": "SN:R hit has large whole-body/stool registration drift; rebound changes to a different whole-body/camera presentation. Formal PNGs unchanged.",
+      "workflowRunId": 35476100628,
+      "workflowArtifactId": 10594870183
     }
   ],
   "activeVisualIntegrityBatch": {
@@ -4398,7 +4448,13 @@
       "sn_r_hit",
       "sn_r_rebound"
     ],
-    "stage": "STATIC_QA_PENDING",
-    "note": "Final odd remainder of the 15-action milestone; single action / two frames."
+    "stage": "HOLD_COMPLETE",
+    "note": "Final odd-remainder batch completed. SN:R fails whole-body/camera continuity hard gate; formal PNGs unchanged; runtime QA not entered.",
+    "updatedAt": "2026-09-20T08:44:00+09:00",
+    "staticDisposition": {
+      "SN:R": "HOLD_BOTH_STATIC_HARD_FAIL"
+    },
+    "visualQaRunId": 35476100628,
+    "visualQaArtifactId": 10594870183
   }
 }
