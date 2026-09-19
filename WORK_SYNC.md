@@ -1,3 +1,10 @@
+## 2026-09-20 08:29 JST — Visual Integrity Batch 07
+- Front batch processed FT:R + FT:L while BACK-BATCH-02 remained reserved by another session.
+- Evidence: run 35475676709 / artifact 10594034740.
+- FT:R -> HOLD_VISUAL_INTEGRITY: duplicated/two-branch right-stick geometry.
+- FT:L -> HOLD_VISUAL_INTEGRITY: broken left-stick with detached fragment.
+- Formal PNGs unchanged; runtime QA blocked by static hard-gate failures.
+
 ## 2026-09-20 08:22 JST — Visual Integrity Batch 06
 - Parallel-safe front batch processed LT:L + BD+SN:RF/R while BACK-BATCH-01 remained reserved by another session.
 - Evidence: run 35475549511 / artifact 10594285311.
