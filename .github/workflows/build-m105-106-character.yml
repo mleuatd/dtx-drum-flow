@@ -30,6 +30,17 @@ jobs:
         run: python -m pip install --disable-pip-version-check pillow
       - name: Build deterministic candidate pairs
         run: python tools/build-m105-106-deterministic-pairs.py
+      - name: Record build run metadata
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path("character-assets/generated-qa/m105_106/workflow-run.json")
+          p.parent.mkdir(parents=True,exist_ok=True)
+          run=os.environ["GITHUB_RUN_ID"]
+          data={"runId":int(run),"artifactName":f"m105-106-character-candidates-{run}","headSha":os.environ["GITHUB_SHA"]}
+          p.write_text(json.dumps(data,indent=2)+"\n",encoding="utf-8")
+          PY
       - name: Upload candidate evidence
         uses: actions/upload-artifact@v4
         with:
