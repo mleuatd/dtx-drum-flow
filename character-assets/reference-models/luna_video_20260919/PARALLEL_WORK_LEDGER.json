@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:51:00+09:00",
+  "updatedAt": "2026-09-19T21:56:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -52,7 +52,7 @@
       "category": "candidate_render",
       "description": "Produce constrained neutral/SN:L hit/rebound candidates from numeric packages, then deterministic cowlick/line-style postprocess and fixed-drum composite/transition QA.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "claimedAt": "2026-09-19T20:12:00+09:00",
       "startedAt": "2026-09-19T20:20:00+09:00",
       "completedAt": null,
@@ -69,10 +69,10 @@
         "character-assets/layers/character/sn/rebound_l.png",
         "character-assets/layers/character/base/neutral.png"
       ],
-      "handoffNote": "Exact formal neutral/hit/rebound/drum bytes are now SHA-verified and re-exposed into this conversation. Resume constrained candidate render using neutral as mandatory parent, formal hit/rebound only as secondary evidence, AI_RENDER_SN_L_* numeric constraints, then deterministic cowlick/line-style and QA. Do not overwrite formal PNGs.",
+      "handoffNote": "Do not retry generic image generation. Numeric constraints are refreshed and QA-passed. Resume only where the exact neutral PNG can be explicitly bound as the edit target, or with a proven deterministic local-edit method. Formal PNGs untouched.",
       "lastCommit": "3cac4e8ec8a1d8f3c602bacaa6842a3afa21213b",
-      "blocker": null,
-      "currentState": "EXACT_SOURCE_ATTACHED_RENDERER_RETRY_READY",
+      "blocker": "Current image renderer still fails to bind the exact formal neutral PNG as an edit parent even after the verified Dropbox->raw materialize->conversation bridge. Latest retry generated an unrelated project-status dashboard instead of a 1448x1086 transparent character layer. Generic renderer retry is now prohibited in this session until explicit edit-target binding is available.",
+      "currentState": "NUMERIC_REFINEMENT_PASS_RENDERER_TARGET_BINDING_BLOCKED",
       "supportingQa": {
         "runId": 35440135805,
         "artifactId": 10583148418,
