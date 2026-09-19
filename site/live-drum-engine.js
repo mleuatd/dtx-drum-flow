@@ -5,7 +5,8 @@
 const CORE="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit/samples/";
 const CYM="https://raw.githubusercontent.com/0x4D44/ferrosintesis/main/crates/ferrosintesis-samples-drumkit2/samples/";
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-// Song-independent practice-salience calibration measured from attack, early energy, and full RMS.\n// Low drums get a small masking allowance; cymbals get a small reduction. No chart-specific gains.
+// Song-independent practice-salience calibration measured from attack, early energy, and full RMS.
+// Low drums get a small masking allowance; cymbals get a small reduction. No chart-specific gains.
 const LOUDNESS_GAIN={kick:.895383,snare:1.697274,sideStick:2.420516,hihatClosed:1.585803,hihatOpen:1.094009,hihatPedal:1.691471,tomHigh:1.353683,tomLow:1.032535,tomFloor:1.032535,ride:2.027859,rideBell:1.087495,crashLeft:1.119613,crashRight:1.119613};
 const defs={
  kick:{base:CORE,prefix:"kick",layers:4,rr:4},snare:{base:CORE,prefix:"snare",layers:6,rr:3},
@@ -59,6 +60,9 @@ export class LiveDrumEngine{
   s.start(when);if(isCrash)s.stop(Math.min(when+1.47,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.67,when+buffer.duration));
   this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s
 }
- setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}\n getUserGains(){return {...this.userGain}}\n getBaseGains(){return {...LOUDNESS_GAIN}}\n stop(){for(const n of this.nodes){try{n.stop()}catch{}}this.nodes.clear()}
+ setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}
+ getUserGains(){return {...this.userGain}}
+ getBaseGains(){return {...LOUDNESS_GAIN}}
+ stop(){for(const n of this.nodes){try{n.stop()}catch{}}this.nodes.clear()}
 }
 export {voiceFor as resolveLiveDrumVoice};
