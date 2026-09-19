@@ -31,19 +31,21 @@
   "phases": {
     "hit": {
       "stage": "VISUAL_QA",
-      "attempt": 3,
+      "attempt": 4,
+      "candidatePath": "character-assets/review-candidates/m25_40/ht_r_hit_attempt04.png",
       "dropboxPath": null,
-      "sha256": "63d48afb143842b1a69aa5c79866bd065f6697b945cb9b81e5fc3644aa83bd7f",
-      "qaStatus": "FAIL_LONG_STICK_ARM_RELOCATION_REQUIRED",
+      "sha256": "824672a7a271e230a0e0f19f99bc4f4cca420ea6052625e17a489d4543fbce21",
+      "qaStatus": "FAIL_DUPLICATE_STICK_DETACHED_HT_SHAFT",
       "formalPath": "character-assets/layers/character/ht/hit_r_refresh.png",
       "formalCommit": null
     },
     "rebound": {
       "stage": "VISUAL_QA",
-      "attempt": 2,
+      "attempt": 4,
+      "candidatePath": "character-assets/review-candidates/m25_40/ht_r_rebound_attempt04.png",
       "dropboxPath": null,
-      "sha256": "a82a928ff1dc4491acaccc57f41e1733bb44cebea85cc9c72a1d6200311fc246",
-      "qaStatus": "FAIL_PAIR_REBUILD_WITH_ARM_LOCAL_PARENT",
+      "sha256": "0147a2d95f88b099fa62d6a61ef3d49716a9e4a925c98cac500e28bef667d5af",
+      "qaStatus": "FAIL_PAIR_WITH_HIT",
       "formalPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
       "formalCommit": null
     }
@@ -60,11 +62,11 @@
     "Attempt03 widened old-stick removal but visual QA still fails: neutral arm position forces an implausibly long cross-body HT stick. Next edit must relocate the complete right arm/hand/stick local region from a compatible locked-baseline tom pose.",
     "Approved LT:R/FT:R exact formal parents were checked but their right arm remains neutral-like; RD:R and RC+SN have moved right arms but whole-body baseline differs too much for direct patching. No unsafe whole-body merge was performed."
   ],
-  "updatedAt": "2026-09-19T09:58:00+09:00",
+  "updatedAt": "2026-09-19T10:10:00+09:00",
   "blocker": {
     "type": "BLOCKED_EXTERNAL",
-    "detail": "HT:R requires a local right-arm/right-hand/right-stick relocation. Two image-edit attempts returned edit_op=null and generated unrelated new images instead of editing the locked neutral. A deterministic local vector/affine prototype was also rejected by visual QA because the sleeve/hand region became anatomically and stylistically unnatural. No failed image was saved to Dropbox/GitHub or formalized.",
-    "resumeRule": "Do not reuse failed generations. Resume from locked neutral SHA 886e3490... and approved formal references; require a true edit preserving all non-right-arm pixels. Once a candidate exists, fixed-drum QA against HT=(575,360), then Dropbox exact bytes and promotion."
+    "detail": "Latest main contains HT:R attempt04 built from approved LT:R parent, but fixed-drum visual QA still shows the original right-hand stick plus a second HT-directed shaft from an artificial forward anchor. A further direct-edit retry in this session again returned edit_op=null and redrew the character, so the repository retry-controller was run. It requires USE_APPROVED_LIMB_PATCH and hard-stops the same strategy.",
+    "resumeRule": "Do not reuse attempts 01-04 or image edit_op=null outputs. Resume only when a truly registered approved right-arm/right-hand/right-stick patch compatible with the locked neutral is available, or when the image editor can perform a genuine local edit. Then run PRE_RUNTIME QA and fixed-drum review before Dropbox/formal promotion."
   },
   "generationAttempts": [
     {
@@ -86,6 +88,22 @@
       "method": "deterministic_local_forearm_hand_stick_prototype",
       "result": "FAIL",
       "reason": "fixed-drum composite showed unnatural rectangular sleeve/hand patch; rejected before persistence"
+    },
+    {
+      "attempt": 7,
+      "method": "repository_attempt04_LT_R_parent_retarget",
+      "result": "FAIL",
+      "reason": "Fixed-drum QA: original right-hand stick remains while detached/second HT shaft is added; duplicate-stick hard failure.",
+      "candidateHitSha256": "824672a7a271e230a0e0f19f99bc4f4cca420ea6052625e17a489d4543fbce21",
+      "candidateReboundSha256": "0147a2d95f88b099fa62d6a61ef3d49716a9e4a925c98cac500e28bef667d5af"
+    },
+    {
+      "attempt": 8,
+      "method": "direct_edit_locked_neutral_after_latest_main",
+      "result": "FAIL",
+      "reason": "edit_op=null and full-character redraw rather than local edit",
+      "genId": "0cbcc113-06e1-45db-a7a3-9140007fb7d2"
     }
-  ]
+  ],
+  "retryDecisionPath": "character-assets/prototypes/luna_say_maybe_25_32/RETRY_DECISION_HT_R.json"
 }
