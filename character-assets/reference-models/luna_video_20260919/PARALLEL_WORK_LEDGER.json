@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:09:00+09:00",
+  "updatedAt": "2026-09-19T21:16:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -343,7 +343,7 @@
       "category": "deterministic_candidate_fallback",
       "description": "Create an SN:L hit candidate from exact approved neutral bytes using deterministic local raster/geometry processing only. Static body/head/legs/stool must remain byte-identical outside the active left-arm/stick edit mask. Validate contact, canvas, alpha, changed-region locality, fixed-drum composite and transition evidence. No formal overwrite.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "claimedAt": "2026-09-19T21:09:00+09:00",
       "startedAt": "2026-09-19T21:09:00+09:00",
       "completedAt": null,
@@ -364,6 +364,36 @@
         "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
       ],
       "handoffNote": "Candidate-only deterministic fallback. Preserve neutral everywhere outside explicitly generated left-arm/stick mask. TERM-A formal SN:L hit claim remains protected.",
+      "lastCommit": "59db7b6e8f801af03f5897734ee42b317886f733",
+      "blocker": "Two local raster/segment-warp attempts failed visual QA (missing region; duplicate/malformed hand/stick). Do not continue same patch strategy until numeric hit pose is tightened to neutral shoulder/body continuity.",
+      "currentState": "REJECTED_TRY01_TRY02_AWAIT_NUMERIC_REFINEMENT"
+    },
+    {
+      "taskId": "RTP-SNL-003",
+      "category": "runtime_pose_numeric_refinement",
+      "description": "Refine SN:L hit numeric pose after visual continuity FAIL: prefer approved-neutral shoulder and neutral limb lengths when exact SN contact remains reachable; regenerate hit constraint/AI package and machine QA, preserving formal PNGs.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T21:16:00+09:00",
+      "startedAt": "2026-09-19T21:16:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/AI_RENDER_SN_L_hit_V1.json",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/SN_L_MACHINE_QA_V1.json",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
+        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json"
+      ],
+      "dependsOn": [
+        "RTP-SNL-001",
+        "OTHER-006"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/**",
+        "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
+      ],
+      "handoffNote": "Numeric/tool refinement only. Formal SN:L hit remains protected by TERM-A. Prefer neutral shoulder/body if exact contact is reachable; fall back to phase shoulder only when necessary.",
       "lastCommit": null
     }
   ]
