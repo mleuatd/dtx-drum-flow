@@ -42,14 +42,39 @@ jobs:
     timeout-minutes: 20
     env:
       PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
-      MEASURE_START: ${{ inputs.measure_start || '18' }}
-      MEASURE_END: ${{ inputs.measure_end || '24' }}
-      QA_ACTIONS: ${{ inputs.actions || 'BD+RD:RF/R,RD+SN:R/L,BD+HH:RF/R,HH+SN:R/L' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - name: Resolve runtime QA target
+        env:
+          INPUT_MEASURE_START: ${{ inputs.measure_start }}
+          INPUT_MEASURE_END: ${{ inputs.measure_end }}
+          INPUT_ACTIONS: ${{ inputs.actions }}
+        run: |
+          python - <<'PY'
+          import json, os
+          inv=json.load(open("character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",encoding="utf-8"))
+          target=inv.get("runtimeQaTarget") or {}
+          if os.environ.get("GITHUB_EVENT_NAME")=="workflow_dispatch":
+              start=os.environ.get("INPUT_MEASURE_START") or "18"
+              end=os.environ.get("INPUT_MEASURE_END") or "24"
+              actions=os.environ.get("INPUT_ACTIONS") or "BD+RD:RF/R,RD+SN:R/L,BD+HH:RF/R,HH+SN:R/L"
+              progress=""
+              block=f"M{start}-{end}"
+          else:
+              start=str(target.get("measureStart",18))
+              end=str(target.get("measureEnd",24))
+              a=target.get("actions") or ["BD+RD:RF/R","RD+SN:R/L","BD+HH:RF/R","HH+SN:R/L"]
+              actions=",".join(a) if isinstance(a,list) else str(a)
+              progress=str(target.get("progressPath",""))
+              block=str(target.get("blockKey",f"M{start}-{end}"))
+          with open(os.environ["GITHUB_ENV"],"a",encoding="utf-8") as g:
+              g.write(f"MEASURE_START={start}\nMEASURE_END={end}\nQA_ACTIONS={actions}\n")
+              g.write(f"RUNTIME_QA_PROGRESS_PATH={progress}\nRUNTIME_QA_BLOCK_KEY={block}\n")
+          print(json.dumps({"measureStart":start,"measureEnd":end,"actions":actions,"progressPath":progress,"blockKey":block},ensure_ascii=False))
+          PY
       - name: Install Playwright Chromium
         run: |
           npm install --no-save playwright@1.55.0
@@ -92,6 +117,47 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add character-assets/prototypes/luna_say_maybe_18_24/PROGRESS.json
           git diff --cached --quiet || git commit -m "qa: record M18-24 public runtime result"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Persist generic runtime QA state
+        if: always() && env.RUNTIME_QA_PROGRESS_PATH != ''
+        env:
+          QA_OUTCOME: ${{ steps.browser_qa.outcome }}
+        run: |
+          python - <<'PY'
+          import json, os
+          p=os.environ["RUNTIME_QA_PROGRESS_PATH"]
+          with open(p,encoding="utf-8") as f: d=json.load(f)
+          ok=os.environ.get("QA_OUTCOME")=="success"
+          run=os.environ.get("GITHUB_RUN_ID","")
+          sha=os.environ.get("GITHUB_SHA","")
+          block=os.environ.get("RUNTIME_QA_BLOCK_KEY") or f"M{os.environ.get('MEASURE_START')}-{os.environ.get('MEASURE_END')}"
+          q=d.setdefault("runtimeQaEvidence",{})
+          q[block]={
+            "status":"PASS" if ok else "FAIL",
+            "workflow":".github/workflows/runtime-character-qa.yml",
+            "runId":run,
+            "testedCommitSha":sha,
+            "artifact":f"public-runtime-qa-{run}",
+            "runUrl":f"https://github.com/mleuatd/dtx-drum-flow/actions/runs/{run}",
+            "measureStart":int(os.environ["MEASURE_START"]),
+            "measureEnd":int(os.environ["MEASURE_END"]),
+            "actions":[x for x in os.environ.get("QA_ACTIONS","").split(",") if x]
+          }
+          if ok:
+              d["status"]=f"{block.replace('-','_')}_PUBLIC_RUNTIME_QA_PASSED"
+              d["blocker"]=None
+          else:
+              d["status"]=f"{block.replace('-','_')}_PUBLIC_RUNTIME_QA_FAILED"
+              d["blocker"]={"type":"RUNTIME_QA","workflowRunId":run,"requiredNext":"Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."}
+          from datetime import datetime, timezone
+          d["updatedAt"]=datetime.now(timezone.utc).isoformat()
+          with open(p,"w",encoding="utf-8") as f: json.dump(d,f,ensure_ascii=False,indent=2); f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RUNTIME_QA_PROGRESS_PATH"
+          git diff --cached --quiet || git commit -m "qa: record $RUNTIME_QA_BLOCK_KEY public runtime result"
           git pull --rebase origin main
           git push origin HEAD:main
       - name: Enforce browser QA result
