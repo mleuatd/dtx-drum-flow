@@ -75,7 +75,14 @@ def save_ht_r_arm_local():
   d.line([(850,430),(900,470)],fill=255,width=34); alpha=ImageChops.subtract(alpha,cut); out.putalpha(alpha)
   # LT:R approved hand is already forward; use a forward grip anchor to avoid
   # the cross-body neutral-stick geometry that failed attempts 01-03.
-  out=local_stick(out,(760,410),target)
+  # Draw directly from the approved forward hand anchor. Do not call the
+  # neutral-stick eraser because this anchor is intentionally not GRIP_R/L.
+  ss=4; layer=Image.new("RGBA",(out.width*ss,out.height*ss),(0,0,0,0)); dd=ImageDraw.Draw(layer)
+  grip=(760,410); p0=(grip[0]*ss,grip[1]*ss); p1=(target[0]*ss,target[1]*ss)
+  dd.line([p0,p1],fill=(15,15,15,255),width=11*ss); dd.line([p0,p1],fill=(248,248,248,255),width=5*ss)
+  rr=6*ss; dd.ellipse((p1[0]-rr,p1[1]-rr,p1[0]+rr,p1[1]+rr),fill=(15,15,15,255))
+  rr=3*ss; dd.ellipse((p1[0]-rr,p1[1]-rr,p1[0]+rr,p1[1]+rr),fill=(248,248,248,255))
+  out=Image.alpha_composite(out,layer.resize(out.size,Image.Resampling.LANCZOS))
   imgs.append(out); parents.append({"path":rel,"sha256":actual})
  key="ht_r"; OUT.mkdir(parents=True,exist_ok=True)
  hp=OUT/"ht_r_hit_attempt04.png"; rp=OUT/"ht_r_rebound_attempt04.png"; imgs[0].save(hp); imgs[1].save(rp)
