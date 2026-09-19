@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 3,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "schemaVersion": 4,
+  "updatedAt": "2026-09-20T06:13:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -18,7 +18,14 @@
     "repairSpecMustSeparateLocksFromEditableRegions": true,
     "measureBeforeImageEdit": true,
     "candidateBeforeFormal": true,
-    "reqaRequiredBeforePromotion": true
+    "reqaRequiredBeforePromotion": true,
+    "pixelLocalityIsNecessaryNotSufficient": true,
+    "humanAnatomyQaRequired": true,
+    "lineworkQaRequired": true,
+    "fixedDrumCompositeQaRequired": true,
+    "verifiedRequiresAllVisualIntegrityGates": true,
+    "visualIntegrityRules": "character-assets/prototypes/luna_say_maybe_16m/VISUAL_INTEGRITY_QA_RULES.md",
+    "defectTaxonomy": "character-assets/prototypes/luna_say_maybe_16m/VISUAL_DEFECT_TAXONOMY.json"
   },
   "sweepCoverage": [
     {
@@ -120,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -525,7 +532,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -533,7 +548,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -589,7 +616,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -625,13 +654,33 @@
           "Visual evidence shows motion outside the active left arm, so repair must first quantify and eliminate locked-region displacement.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M107; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: base single-hand action; highest reuse; stabilize before SN combos"
+          "fixOrder class: base single-hand action; highest reuse; stabilize before SN combos",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -837,7 +886,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -869,11 +925,21 @@
           "pelvis_seat": 0,
           "legs_stool": 0
         }
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-002",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -1331,7 +1397,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -1339,7 +1413,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -1395,7 +1481,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -1431,13 +1519,33 @@
           "Because this is a simultaneous hand+foot action, repair must preserve both action semantics and cannot be reduced to arm-only editing without checking BD foot motion.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M127; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: high-reuse hand+foot combo"
+          "fixOrder class: high-reuse hand+foot combo",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -1657,7 +1765,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -1697,11 +1812,21 @@
         ],
         "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-003",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_HUMAN_ANATOMY_QA",
       "severity": "HIGH",
       "measures": "M143,M109",
       "time": "~249.15-249.22s",
@@ -2062,7 +2187,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -2070,7 +2203,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -2126,7 +2271,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -2162,13 +2309,33 @@
           "Large full-frame hit/rebound difference (15.66%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M109; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: base foot action; many combo assets depend on consistent seated registration"
+          "fixOrder class: base foot action; many combo assets depend on consistent seated registration",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -2367,7 +2534,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -2407,11 +2581,30 @@
         ],
         "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
+        "priority": "HIGHEST",
+        "focus": [
+          "pelvis-to-thigh continuity",
+          "knee/ankle bend",
+          "foot/boot connection",
+          "seat/pelvis/leg overlap",
+          "right-foot bass-pedal semantics",
+          "fixed-drum composite"
+        ]
       }
     },
     {
       "issueId": "MOTION-004",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M141,M135",
       "time": "~245.81-245.95s",
@@ -2917,7 +3110,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -2925,7 +3126,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -2981,7 +3194,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -3017,13 +3232,33 @@
           "Large full-frame hit/rebound difference (15.41%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M135; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: two-hand combo; repair after single-hand registration rules are locked"
+          "fixOrder class: two-hand combo; repair after single-hand registration rules are locked",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -3240,7 +3475,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -3280,11 +3522,21 @@
         ],
         "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-005",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M137,M109",
       "time": "~238.68-238.83s",
@@ -3744,7 +3996,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -3752,7 +4012,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -3808,7 +4080,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -3844,13 +4118,33 @@
           "Large full-frame hit/rebound difference (14.49%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M109; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: very high-reuse combo after BD and HH base conventions are fixed"
+          "fixOrder class: very high-reuse combo after BD and HH base conventions are fixed",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -4068,7 +4362,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -4108,11 +4409,21 @@
         ],
         "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-006",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4572,7 +4883,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -4580,7 +4899,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -4636,7 +4967,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -4672,13 +5005,33 @@
           "Large full-frame hit/rebound difference (14.35%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M130; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: hand+foot combo after RD/BD base conventions"
+          "fixOrder class: hand+foot combo after RD/BD base conventions",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -4896,7 +5249,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -4936,11 +5296,21 @@
         ],
         "method": "method4: RD-specific right-side release from neutral head landmarks",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-007",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M142,M115",
       "time": "~248.40-248.54s",
@@ -5347,7 +5717,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -5355,7 +5733,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -5411,7 +5801,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -5447,13 +5839,33 @@
           "Large full-frame hit/rebound difference (14.28%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M115; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: base right-hand action; very high reuse; stabilize before HH combos"
+          "fixOrder class: base right-hand action; very high reuse; stabilize before HH combos",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -5656,7 +6068,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -5696,11 +6115,21 @@
         ],
         "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-008",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M140,M113",
       "time": "~243.86-244.01s",
@@ -6206,7 +6635,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -6214,7 +6651,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -6270,7 +6719,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -6306,13 +6757,33 @@
           "Large full-frame hit/rebound difference (14.17%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M113; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: high-reuse two-hand combo after HH/SN conventions are fixed"
+          "fixOrder class: high-reuse two-hand combo after HH/SN conventions are fixed",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -6529,7 +7000,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -6569,6 +7047,16 @@
         ],
         "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
@@ -7079,7 +7567,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -7087,7 +7583,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -7143,7 +7651,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -7179,13 +7689,33 @@
           "Large full-frame hit/rebound difference (13.73%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
           "The same action asset pair recurs with a similar large hit/rebound visual delta at M130; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: two-hand combo after RD/SN base conventions"
+          "fixOrder class: two-hand combo after RD/SN base conventions",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -7402,7 +7932,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "occurrences": [
         {
@@ -7434,6 +7971,16 @@
         ],
         "method": "method4: RD-specific right-side release from neutral head landmarks",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "IN_FIX",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
@@ -7856,7 +8403,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -7864,7 +8419,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -7920,7 +8487,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -7955,13 +8524,33 @@
           "Runtime selection is correct; visual delta needs static-region measurement before image repair.",
           "Action-level recipe is preferred because the same formal RD:R pair may be reused at multiple measures.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: base right-hand ride action; stabilize before RD combos"
+          "fixOrder class: base right-hand ride action; stabilize before RD combos",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -8162,7 +8751,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -8177,11 +8773,21 @@
         ],
         "method": "method4: RD-specific right-side release from neutral head landmarks",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "IN_FIX",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-011",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:06.7-2:06.8",
@@ -8750,7 +9356,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -8758,7 +9372,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -8814,7 +9440,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -8849,13 +9477,33 @@
           "Visual review confirms action-level hit/rebound discontinuity candidate.",
           "Repair instructions are scoped to active limbs; all unrelated regions must be preserved unless measured reachability proves a minimal exception.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: lowest-frequency three-limb combo; do after core registration rules are proven"
+          "fixOrder class: lowest-frequency three-limb combo; do after core registration rules are proven",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -9090,7 +9738,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -9113,11 +9768,21 @@
         ],
         "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-012",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M76",
       "time": "~2:14.3-2:14.4",
@@ -9534,7 +10199,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -9542,7 +10215,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -9598,7 +10283,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -9633,13 +10320,33 @@
           "Visual review confirms action-level hit/rebound discontinuity candidate.",
           "Repair instructions are scoped to active limbs; all unrelated regions must be preserved unless measured reachability proves a minimal exception.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: base right-hand tom action; stabilize before HT combos"
+          "fixOrder class: base right-hand tom action; stabilize before HT combos",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -9843,7 +10550,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -9866,11 +10580,21 @@
         ],
         "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-013",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:07.1-2:07.2",
@@ -10340,7 +11064,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -10348,7 +11080,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -10404,7 +11148,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -10439,13 +11185,33 @@
           "Visual review confirms action-level hit/rebound discontinuity candidate.",
           "Repair instructions are scoped to active limbs; all unrelated regions must be preserved unless measured reachability proves a minimal exception.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: lower-frequency hand+foot combo after HT/BD conventions"
+          "fixOrder class: lower-frequency hand+foot combo after HT/BD conventions",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -10664,7 +11430,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -10687,11 +11460,21 @@
         ],
         "method": "method3: instrument-side forearm/stick corridor + neutral core lock",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method3/METHOD3_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-014",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M95",
       "time": "~2:46.4",
@@ -11161,7 +11944,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -11169,7 +11960,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -11225,7 +12028,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -11260,13 +12065,33 @@
           "Visual review confirms action-level hit/rebound discontinuity candidate.",
           "Repair instructions are scoped to active limbs; all unrelated regions must be preserved unless measured reachability proves a minimal exception.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: hand+foot combo after BD/SN base conventions"
+          "fixOrder class: hand+foot combo after BD/SN base conventions",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -11485,7 +12310,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -11508,11 +12340,21 @@
         ],
         "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     },
     {
       "issueId": "MOTION-015",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "NEEDS_VISUAL_REVIEW",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -12081,7 +12923,15 @@
             "bboxShiftPx == 0 for locked body regions",
             "alphaMismatchPixels == 0 outside measured editable ROI",
             "all instrument contacts pass their measured tolerance",
-            "neighborRegressionCount == 0"
+            "neighborRegressionCount == 0",
+            "human anatomy continuity preserved",
+            "seated pose remains readable",
+            "active limb reads as intended instrument motion",
+            "stick silhouette is continuous from grip to tip",
+            "waist / pelvis / skirt / seat linework is coherent",
+            "no unexplained artifact line remains",
+            "fixed drum composite shows no anatomical or contact contradiction",
+            "runtime event remains visually coherent before/after repair"
           ],
           "hardFail": [
             "formal PNG overwritten before candidate QA",
@@ -12089,7 +12939,19 @@
             "camera or stool registration changes",
             "inactive limb/body region shifts",
             "wrong instrument/limb contact",
-            "neighbor regression count > 0"
+            "neighbor regression count > 0",
+            "limb appears disconnected from torso or pelvis",
+            "pelvis-to-thigh continuity unreadable",
+            "knee or ankle bend direction anatomically implausible",
+            "foot / ankle / boot connection unreadable",
+            "front/back leg depth order unreadable",
+            "seated pose becomes unreadable",
+            "stick is visually broken or interrupted",
+            "stick does not connect continuously from hand to tip",
+            "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+            "line dropout or double-stroke corrupts silhouette",
+            "fixed drum composite contradicts strike/pedal semantics",
+            "unrelated upper-body or lower-body corruption remains"
           ],
           "measurableChecks": {
             "outsideRoiChangedPixels": {
@@ -12145,7 +13007,9 @@
             "fixedDrumComposite": true,
             "runtimeQaEventRepeat": true,
             "xperiaEvidence": true,
-            "pcEvidence": true
+            "pcEvidence": true,
+            "humanAnatomyReview": true,
+            "lineworkReview": true
           }
         },
         "editProcedure": [
@@ -12180,13 +13044,33 @@
           "Visual review confirms action-level hit/rebound discontinuity candidate.",
           "Repair instructions are scoped to active limbs; all unrelated regions must be preserved unless measured reachability proves a minimal exception.",
           "Numeric RepairSpec V1 conversion: zero-drift constraints are explicit; unknown geometry/tolerances remain NEEDS_MEASUREMENT rather than guessed.",
-          "fixOrder class: three-limb combo after BD/HH/SN conventions"
+          "fixOrder class: three-limb combo after BD/HH/SN conventions",
+          {
+            "at": "2026-09-20T06:13:00+09:00",
+            "decision": "VISUAL_INTEGRITY_GATE_ADDED",
+            "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          }
         ],
         "measurementTodos": [
           "Measure semantic active-limb ROI rectangles (upper arm / forearm-hand / stick or foot) without authorizing the observed whole-body diff bbox.",
           "Measure semantic joint/stick/foot anchor coordinates from the authoritative frame pair.",
           "Calibrate numeric contact tolerancePx from fixed-drum playing-surface geometry; current contact centers are measured/authoritative but radius is not.",
-          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction."
+          "Measure active-limb angle/length/rebound-separation ranges after semantic landmark extraction.",
+          "hip",
+          "pelvis",
+          "knee",
+          "ankle",
+          "foot",
+          "toe",
+          "boot_connection",
+          "seat_edge_overlap",
+          "seat_contact",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hand",
+          "stick_grip_continuity",
+          "stick_tip_contact"
         ],
         "legacyNarrative": {
           "targetState": {
@@ -12421,7 +13305,14 @@
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
           "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
-        }
+        },
+        "visualIntegrityRequirements": {
+          "humanAnatomyQaRequired": true,
+          "lineworkQaRequired": true,
+          "fixedDrumCompositeQaRequired": true,
+          "promotionBlockedUntilAllPass": true
+        },
+        "updatedAt": "2026-09-20T06:13:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -12444,6 +13335,16 @@
         ],
         "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+      },
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "ruleVersion": "2026-09-20-visual-integrity-v1",
+        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
+        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
       }
     }
   ],
@@ -12502,6 +13403,29 @@
       "web_frame_selection",
       "qa_gap",
       "unknown"
+    ],
+    "allowedCauseCategories": [
+      "human_anatomy_break",
+      "joint_continuity_break",
+      "seated_pose_break",
+      "limb_occlusion_order_break",
+      "seat_contact_inconsistency",
+      "drum_contact_semantics_break",
+      "stick_continuity_break",
+      "stick_hand_connection_break",
+      "line_artifact_break",
+      "waistline_artifact_break",
+      "skirt_seat_overlap_break",
+      "line_dropout_break",
+      "line_double_stroke_break",
+      "fixed_drum_composite_break"
+    ],
+    "mandatoryVisualIntegrityFields": [
+      "visualIntegrityQa.humanAnatomy",
+      "visualIntegrityQa.linework",
+      "visualIntegrityQa.fixedDrumComposite",
+      "visualIntegrityQa.runtimeTransition",
+      "visualIntegrityQa.promotionBlocked"
     ]
   },
   "repairSpecSchema": {
@@ -12858,5 +13782,23 @@
       "semanticLandmarksPending": true,
       "formalPngModified": false
     }
+  },
+  "visualIntegrityReviewPolicy": {
+    "introducedAt": "2026-09-20T06:13:00+09:00",
+    "reason": "Previous motion QA did not reliably hard-fail anatomical discontinuity, broken sticks, stray waist/seat lines, or fixed-drum semantic contradictions.",
+    "statuses": [
+      "NEEDS_VISUAL_REVIEW",
+      "NEEDS_HUMAN_ANATOMY_QA",
+      "NEEDS_LINEWORK_QA",
+      "NEEDS_FIXED_DRUM_COMPOSITE_QA"
+    ],
+    "rule": "Any pre-existing FIXED/VERIFIED-like disposition without explicit PASS on all mandatory axes is promotion-blocked and must be re-reviewed."
+  },
+  "statusReview": {
+    "reviewedAt": "2026-09-20T06:13:00+09:00",
+    "policy": "Preserve existing candidates/evidence; downgrade promotion eligibility, not evidence.",
+    "bdRf": "Downgraded to NEEDS_HUMAN_ANATOMY_QA due explicit leg/pedal/seat concern.",
+    "otherPreviouslyFixed": "Downgraded to NEEDS_VISUAL_REVIEW until anatomy + linework + fixed-drum composite gates pass.",
+    "inFix": "Remain IN_FIX but promotion is blocked by visualIntegrityQa."
   }
 }
