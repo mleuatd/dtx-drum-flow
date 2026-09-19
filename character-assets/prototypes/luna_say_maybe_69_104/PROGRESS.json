@@ -4,7 +4,7 @@
     "measureStart": 69,
     "measureEnd": 104
   },
-  "status": "M69_104_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -38,7 +38,7 @@
     "mappingAuthority": "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json runtimePhaseFrameMap",
     "note": "M104 has no additional groups in FULL_SONG_ACTION_KEY_INVENTORY; contiguous runtime target remains through measure 104."
   },
-  "requiredNext": "Expand contiguous runtimeScope through M104 and run public PC/Xperia runtime QA. Generate no new images.",
+  "requiredNext": "M69-104 complete. Continue M105-106 new pairs. Do not generate any M69-104 assets.",
   "runtimeQaEvidence": {
     "M69-104": {
       "status": "PASS",
@@ -70,9 +70,15 @@
         "FT+SN:R/L",
         "BD+SN:RF/R",
         "FT:L"
-      ]
+      ],
+      "artifactId": 10579246619,
+      "passed": 86,
+      "failed": 0,
+      "runtimeScope": "1-104",
+      "screenshotsReviewed": true,
+      "visualReview": "PASS_NO_REGISTRATION_DRIFT_OR_WRONG_CHARACTER"
     }
   },
-  "updatedAt": "2026-09-19T06:31:20.345176+00:00",
+  "updatedAt": "2026-09-19T15:34:00+09:00",
   "blocker": null
 }
