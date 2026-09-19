@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_FOR_PROTOTYPE_RENDER",
+  "actionKey": "SN:L",
+  "sourceShaMatch": {
+    "neutral": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "hit": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+    "rebound": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777"
+  },
+  "checks": {
+    "allThreeFormalSourcesResolved": true,
+    "fixedDrumResolved": true,
+    "snareContactResolved": true,
+    "targetHeadCountResolved": true,
+    "appearanceModelResolved": true,
+    "cowlickToolResolved": true,
+    "lineStyleToolResolved": true,
+    "formalAssetsModified": false
+  },
+  "contact": {
+    "part": "SN",
+    "limb": "L",
+    "point": [
+      420,
+      535
+    ]
+  },
+  "transition": "neutral -> hit -> rebound -> neutral",
+  "warning": "Runtime pose anchors are provisional manual observations used only to constrain prototype rendering; formal source images remain motion authority.",
+  "nextGate": "Render video-appearance 4-head neutral/SN:L hit/rebound prototype candidates, then fixed-drum composite QA."
+}
