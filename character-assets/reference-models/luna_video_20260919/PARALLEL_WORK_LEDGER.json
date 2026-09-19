@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:30:00+09:00",
+  "updatedAt": "2026-09-19T20:45:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -263,9 +263,9 @@
       "taskId": "OTHER-006",
       "category": "visual_debug_review",
       "description": "Visually review SN:L exact-byte debug overlays from GitHub Actions artifact 10583148418 (runtime-pose-sn-l-source-qa) against approved camera, fixed drum registration, SN:L contact, neutral/hit/rebound continuity, and obvious geometry anomalies. Record findings only; do not edit runtime-pose tool files or formal PNGs.",
-      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
-      "status": "AVAILABLE",
-      "claimedAt": null,
+      "owner": "TERM-B",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T20:45:00+09:00",
       "startedAt": null,
       "completedAt": null,
       "paths": [
