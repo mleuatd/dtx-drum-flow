@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T18:38:00+09:00",
+  "updatedAt": "2026-09-19T21:08:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -40,7 +40,8 @@
       "automaticAction": "Do not auto-reject solely from edit_op=null. Treat it as a redraw-risk signal; reject only when visual continuity/locality QA confirms identity/camera/body/stool redraw.",
       "qaAction": "Run identity/camera/stool/body-scale comparison and changed-region locality check. If those pass and only intended limb motion changed, continue QA despite null metadata. If they fail, invoke character-retry-controller and change strategy.",
       "neverUse": false,
-      "evidence": "latest RC+SN failed regeneration"
+      "evidence": "latest RC+SN failed regeneration",
+      "latestEvidence": "2026-09-19 RTP-BRIDGE-001: exact formal PNGs materialized from Dropbox/Library, but image_gen still returned edit_op=null fresh redraw (SHA e34a1f46...) rather than direct parent edit."
     },
     {
       "id": "FAIL-DRUM-LEAK",
