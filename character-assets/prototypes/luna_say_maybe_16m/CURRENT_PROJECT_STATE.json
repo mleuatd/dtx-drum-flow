@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:34:00+09:00",
+  "updatedAt": "2026-09-19T15:42:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 104,
-    "status": "COMPLETE_LIVE_QA"
+    "measureEnd": 106,
+    "status": "RUNTIME_QA_PENDING_M105_106"
   },
   "completedMeasureBlocks": [
     {
@@ -175,7 +175,8 @@
     "m55_67LiveRuntimeQa": "SUCCESS run 35420829149 artifact 10576863064; 70/70 PC/Xperia records PASS; screenshot review PASS",
     "m68LiveRuntimeQa": "SUCCESS run 35426237555 artifact 10579760232; 6/6 PC/Xperia hit/rebound/neutral PASS; screenshot review PASS",
     "m69_104MappingPreflight": "PASS: 550 notes / 389 groups / 20 actionKeys; all present in asset_inventory.runtimePhaseFrameMap",
-    "m69_104LiveRuntimeQa": "SUCCESS run 35426755584 artifact 10579246619; 86/86 PC/Xperia records PASS; screenshot review PASS"
+    "m69_104LiveRuntimeQa": "SUCCESS run 35426755584 artifact 10579246619; 86/86 PC/Xperia records PASS; screenshot review PASS",
+    "m105_106PreRuntime": "PASS: 4 formal PNGs, Dropbox exact-byte save, deterministic locality/fixed-drum visual QA, runtime mapping complete"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -268,9 +269,9 @@
   "nextRecommendedBlock": {
     "blockId": "M105-106",
     "measures": "105-106",
-    "reason": "M69-104 complete; next block contains BD+FT+SN:RF/R/L and BD+FT:RF/L new pairs."
+    "reason": "Formal pairs mapped and runtimeScope expanded through M106; public QA pending."
   },
-  "nextRecommendedWork": "Source-lock M105-106 from formal FT+SN:R/L and FT:L parents and add only approved deterministic BD cue.",
+  "nextRecommendedWork": "Inspect M105-106 public runtime QA; if PASS close block and release M107-135 reuse-only.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
