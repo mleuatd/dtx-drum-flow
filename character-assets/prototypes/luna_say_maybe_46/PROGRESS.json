@@ -4,7 +4,7 @@
     "measureStart": 46,
     "measureEnd": 46
   },
-  "status": "DONE",
+  "status": "M46_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "actionKey": "LT+SN:R/L",
   "blockType": "NEW_PAIR",
@@ -35,7 +35,7 @@
     "screenshotReview": "PASS_PC_XPERIA"
   },
   "requiredNext": "M46 complete. Continue M47 BD+HH+SN:RF/R/L source lock using formal HH+SN:R/L plus approved local BD kick cue. Do not regenerate LT+SN:R/L.",
-  "updatedAt": "2026-09-19T12:36:00+09:00",
+  "updatedAt": "2026-09-19T03:35:21.020297+00:00",
   "runtimeQaEvidence": {
     "status": "PASS",
     "runId": 35418698275,
@@ -49,7 +49,20 @@
       "pc-1280x900",
       "xperia-portrait-384x864"
     ],
-    "screenshotReview": "PASS_MANUAL_VISUAL"
+    "screenshotReview": "PASS_MANUAL_VISUAL",
+    "M46": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35418884085",
+      "testedCommitSha": "cb2bc0b645b70020637d4cca94215cede2215b0f",
+      "artifact": "public-runtime-qa-35418884085",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35418884085",
+      "measureStart": 46,
+      "measureEnd": 46,
+      "actions": [
+        "LT+SN:R/L"
+      ]
+    }
   },
   "blocker": null
 }
