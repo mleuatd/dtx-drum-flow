@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "HT:R only: retry-controller decision is USE_APPROVED_LIMB_PATCH with hardStopSameStrategy=true. Do not repeat long-stick, LT:R forward-anchor retarget, raster cleanup, or edit_op=null generation. Resume only with a genuinely registered approved right-arm/hand/stick patch compatible with locked neutral or a true local image edit. RC:R, FT+SN:R/L and HT:L remain formal; runtime scope must not expand to M25-28 until HT:R passes.",
-  "updatedAt": "2026-09-19T10:10:00+09:00",
+  "requiredNext": "HT:R remains the only asset-path blocker. attempt04 has fixed-drum visual QA FAIL (duplicate stick / detached HT shaft), and retry-controller hard-stops all previously failed strategies. Repository search found no registered approved right-arm/hand/stick limb patch. Do not regenerate with old methods. Independent work that can proceed safely: keep formal 6/10 assets untouched; keep runtime scope below M25; validate latest main/Pages; prepare only generic infrastructure. Resume HT:R only when a genuinely new approved limb patch or true local-edit-capable source path becomes available.",
+  "updatedAt": "2026-09-19T10:18:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -337,15 +337,17 @@
     "reason": "M29 introduces BD+HT:RF/R and HT:L, taking cumulative new actions from 3 to 5."
   },
   "resumeCheckpoint": {
-    "checkedAt": "2026-09-19T10:10:00+09:00",
-    "latestMainObserved": "6ea685c368618853de212b4491c40d12c70356e8",
+    "checkedAt": "2026-09-19T10:18:00+09:00",
+    "latestMainObserved": "ef646897fdcebe480059c70b7ce98d3d7f534139",
     "formalPng": "6/10",
-    "ftSnRL": "FORMAL PASS attempt04; preserve",
-    "rcR": "FORMAL PASS; preserve",
-    "htL": "FORMAL PASS; preserve",
-    "htR": "attempt04 exists on main but fixed-drum QA FAIL; retry-controller requires approved limb patch; same strategy hard-stop",
-    "bdHt": "SOURCE_LOCK; do not start",
-    "runtimeScope": "must remain below M25 until HT:R formal/checkpoint"
+    "htR": "attempt04 hard FAIL confirmed; no registered approved limb patch found in repository; old strategies hard-stopped",
+    "htL": "formal PASS; preserve",
+    "rcR": "formal PASS; preserve",
+    "ftSnRL": "formal PASS; preserve",
+    "bdHt": "source-locked behind HT:R",
+    "runtimeScope": "remain below M25",
+    "latestValidateRun": 35411789712,
+    "latestValidateResult": "success"
   },
   "visualQA": {
     "checkedAt": "2026-09-19T08:55:00+09:00",
