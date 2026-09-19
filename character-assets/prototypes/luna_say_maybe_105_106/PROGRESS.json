@@ -4,7 +4,7 @@
     "measureStart": 105,
     "measureEnd": 106
   },
-  "status": "RUNTIME_QA_PENDING",
+  "status": "M105_106_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIRS",
   "analysis": {
@@ -30,6 +30,22 @@
     }
   },
   "requiredNext": "Run/inspect M105-106 public PC/Xperia runtime QA for both formal pairs; do not regenerate formal bytes.",
-  "updatedAt": "2026-09-19T15:42:00+09:00",
-  "blocker": null
+  "updatedAt": "2026-09-19T06:41:53.518716+00:00",
+  "blocker": null,
+  "runtimeQaEvidence": {
+    "M105-106": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35427241936",
+      "testedCommitSha": "0b2e6813ed75f97c5130dbe727988fd4102ce1b2",
+      "artifact": "public-runtime-qa-35427241936",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35427241936",
+      "measureStart": 105,
+      "measureEnd": 106,
+      "actions": [
+        "BD+FT+SN:RF/R/L",
+        "BD+FT:RF/L"
+      ]
+    }
+  }
 }
