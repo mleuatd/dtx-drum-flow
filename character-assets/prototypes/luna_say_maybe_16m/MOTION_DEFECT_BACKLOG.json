@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-19T22:25:00+09:00",
+  "updatedAt": "2026-09-19T22:42:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -24,97 +24,97 @@
     {
       "measures": "M1-4",
       "evidence": "existing live character QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M5-8",
       "evidence": "existing implementation/runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M9-16",
       "evidence": "existing runtime/reusable transition QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M17",
       "evidence": "existing final live QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M18-24",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M25-28",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M29-40",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M41-45",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M46",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M47",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M48-53",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M54",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M55-67",
       "evidence": "public runtime QA history",
-      "status": "REVIEW_IN_PROGRESS_NEW_ACTION_LEVEL_DEFECTS_RECORDED"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M68",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M69-104",
       "evidence": "public runtime QA history",
-      "status": "REVIEW_IN_PROGRESS_NEW_ACTION_LEVEL_DEFECTS_RECORDED"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M105-106",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M107-135",
       "evidence": "public runtime QA run 35427385671 / artifact public-runtime-qa-35427385671; action-level recurrence triage recorded",
-      "status": "REVIEW_IN_PROGRESS_ACTION_LEVEL_RECURRENCES_RECORDED"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M136",
       "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     },
     {
       "measures": "M137-148",
       "evidence": "public runtime QA run 35443377688 / artifact public-runtime-qa-35443377688",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "status": "REVIEW_COMPLETE"
     }
   ],
   "defects": [
@@ -2242,5 +2242,230 @@
       ]
     ],
     "caution": "Difference ratio is a triage signal, not final proof. Every issue remains NEEDS_MEASUREMENT until locked-region and contact-specific checks are recorded."
-  }
+  },
+  "fullSweep": {
+    "status": "COMPLETE_DEFECT_DISCOVERY_REPAIR_SPECS_REGISTERED",
+    "completedAt": "2026-09-19T22:42:00+09:00",
+    "measures": "M1-M148",
+    "evidenceBasis": [
+      "M1-4 final live runtime QA run 35304314820",
+      "M5-8 final live runtime QA run 35327283366",
+      "M9-16 reusable runtime QA run 35331851179",
+      "M17 final live QA run 35404442282",
+      "M18-24 public runtime QA run 35411200830",
+      "M25-28 public runtime QA run 35417567001",
+      "M29-40 public runtime QA run 35417779611",
+      "M41-45 public runtime QA final artifact run 35418645305",
+      "M46 public runtime QA final artifact run 35418884085",
+      "M47 public runtime QA run 35419097186",
+      "M48-53 public runtime QA final artifact run 35419511546",
+      "M54 passed public runtime QA run 35420373297",
+      "M55-67 public runtime QA run 35420829149",
+      "M68 public runtime QA run 35421257952",
+      "M69-104 public runtime QA run 35426755584",
+      "M105-106 public runtime QA run 35427241936",
+      "M107-135 public runtime QA run 35427385671",
+      "M136 public runtime QA run 35427665852",
+      "M137-148 latest public runtime QA run 35443377688"
+    ],
+    "method": [
+      "Review runtime QA records for correct expected/actual actionKey, phase and frame.",
+      "Review representative PC and Xperia screenshots, especially hit/rebound pairs.",
+      "Use full-frame changed-pixel ratio only as a triage signal, never as sole defect proof.",
+      "Merge repeated occurrences that use the same action asset pair into one action-level defect.",
+      "Exclude overlapped/mislabeled screenshots when runtime QA marks actual action/phase as a different event.",
+      "For each active defect, require a reproducible repairSpec before any formal edit."
+    ],
+    "normalizedActionFamiliesReviewed": 30,
+    "activeRepairTargets": 15,
+    "noCurrentRepairRequired": 15,
+    "falsePositiveOrAlreadyMitigatedNotes": [
+      "M17 FT:L rebound screenshot overlaps the following BD+RC hit; runtime QA marked the overlap/skip, so the apparent large pixel delta is not an FT:L asset defect.",
+      "SN:R has a known source rebound discontinuity, but runtime intentionally holds the approved hit frame during the very short rebound phase while phase metadata remains rebound; final current Web QA passes, so it is not an active repair target."
+    ]
+  },
+  "acceptedActionFamilies": [
+    {
+      "actionKey": "FT+SN:R/L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "hit/rebound change localized and current runtime QA/contact evidence acceptable"
+    },
+    {
+      "actionKey": "LT+SN:R/L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "localized change; no broad registration jump identified"
+    },
+    {
+      "actionKey": "RC:R",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "localized single-hand change; current QA acceptable"
+    },
+    {
+      "actionKey": "BD+FT:RF/R",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "current M136/M141 evidence does not show broad whole-body discontinuity"
+    },
+    {
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "current QA does not show broad static-region jump"
+    },
+    {
+      "actionKey": "LT:R",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "localized tom motion; current QA acceptable"
+    },
+    {
+      "actionKey": "SN:R",
+      "disposition": "NO_CURRENT_REPAIR_RUNTIME_MITIGATED",
+      "reason": "discontinuous rebound source is intentionally not used; runtime frame-hold behavior passed final QA"
+    },
+    {
+      "actionKey": "LT:L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "localized tom motion; current QA acceptable"
+    },
+    {
+      "actionKey": "BD+FT:RF/L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "current QA/contact evidence acceptable"
+    },
+    {
+      "actionKey": "FT:R",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "localized floor-tom motion; current QA acceptable"
+    },
+    {
+      "actionKey": "HT:L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "localized high-tom motion; current QA acceptable"
+    },
+    {
+      "actionKey": "BD+LT:RF/R",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "current QA shows stable registration"
+    },
+    {
+      "actionKey": "BD+SN:RF/R",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "current QA shows localized intended motion"
+    },
+    {
+      "actionKey": "BD+HT:RF/L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "M54 passed final PC/Xperia runtime QA; low hit/rebound static-region delta"
+    },
+    {
+      "actionKey": "FT:L",
+      "disposition": "NO_CURRENT_REPAIR",
+      "reason": "valid non-overlapped evidence is localized; M17 apparent large delta was an overlapped next-event screenshot and is excluded"
+    }
+  ],
+  "fixOrder": [
+    {
+      "priority": 1,
+      "issueId": "MOTION-001",
+      "actionKey": "SN:L",
+      "occurrenceCount": 314,
+      "rationale": "base single-hand action; highest reuse; stabilize before SN combos"
+    },
+    {
+      "priority": 2,
+      "issueId": "MOTION-007",
+      "actionKey": "HH:R",
+      "occurrenceCount": 248,
+      "rationale": "base right-hand action; very high reuse; stabilize before HH combos"
+    },
+    {
+      "priority": 3,
+      "issueId": "MOTION-003",
+      "actionKey": "BD:RF",
+      "occurrenceCount": 129,
+      "rationale": "base foot action; many combo assets depend on consistent seated registration"
+    },
+    {
+      "priority": 4,
+      "issueId": "MOTION-010",
+      "actionKey": "RD:R",
+      "occurrenceCount": 53,
+      "rationale": "base right-hand ride action; stabilize before RD combos"
+    },
+    {
+      "priority": 5,
+      "issueId": "MOTION-012",
+      "actionKey": "HT:R",
+      "occurrenceCount": 16,
+      "rationale": "base right-hand tom action; stabilize before HT combos"
+    },
+    {
+      "priority": 6,
+      "issueId": "MOTION-005",
+      "actionKey": "BD+HH:RF/R",
+      "occurrenceCount": 224,
+      "rationale": "very high-reuse combo after BD and HH base conventions are fixed"
+    },
+    {
+      "priority": 7,
+      "issueId": "MOTION-008",
+      "actionKey": "HH+SN:R/L",
+      "occurrenceCount": 143,
+      "rationale": "high-reuse two-hand combo after HH/SN conventions are fixed"
+    },
+    {
+      "priority": 8,
+      "issueId": "MOTION-002",
+      "actionKey": "BD+RC:RF/R",
+      "occurrenceCount": 63,
+      "rationale": "high-reuse hand+foot combo"
+    },
+    {
+      "priority": 9,
+      "issueId": "MOTION-004",
+      "actionKey": "RC+SN:R/L",
+      "occurrenceCount": 34,
+      "rationale": "two-hand combo; repair after single-hand registration rules are locked"
+    },
+    {
+      "priority": 10,
+      "issueId": "MOTION-006",
+      "actionKey": "BD+RD:RF/R",
+      "occurrenceCount": 29,
+      "rationale": "hand+foot combo after RD/BD base conventions"
+    },
+    {
+      "priority": 11,
+      "issueId": "MOTION-009",
+      "actionKey": "RD+SN:R/L",
+      "occurrenceCount": 23,
+      "rationale": "two-hand combo after RD/SN base conventions"
+    },
+    {
+      "priority": 12,
+      "issueId": "MOTION-014",
+      "actionKey": "BD+SN:RF/L",
+      "occurrenceCount": 22,
+      "rationale": "hand+foot combo after BD/SN base conventions"
+    },
+    {
+      "priority": 13,
+      "issueId": "MOTION-015",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "occurrenceCount": 14,
+      "rationale": "three-limb combo after BD/HH/SN conventions"
+    },
+    {
+      "priority": 14,
+      "issueId": "MOTION-013",
+      "actionKey": "BD+HT:RF/R",
+      "occurrenceCount": 6,
+      "rationale": "lower-frequency hand+foot combo after HT/BD conventions"
+    },
+    {
+      "priority": 15,
+      "issueId": "MOTION-011",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "occurrenceCount": 3,
+      "rationale": "lowest-frequency three-limb combo; do after core registration rules are proven"
+    }
+  ]
 }
