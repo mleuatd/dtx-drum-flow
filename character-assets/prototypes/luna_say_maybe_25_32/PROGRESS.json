@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "M25-28 only: HT:R rebuild from a compatible locked-baseline tom-side arm/hand/stick region; RC:R attempt03 fixed-drum proportion review; FT+SN attempt03 candidate import then composite QA. Promote only PASS pairs. HT:L is already formalized by a parallel session; preserve it but do not derive/promote BD+HT until M25-28 checkpoint is complete.",
-  "updatedAt": "2026-09-19T09:16:00+09:00",
+  "requiredNext": "Continue M25-28: import exact FT+SN attempt03 via the fixed importer/sourceGithubPath route and perform fixed-drum composite QA; perform RC:R attempt03 final proportion visual review; rebuild HT:R with arm-local relocation. HT:L remains formal and must not be regenerated.",
+  "updatedAt": "2026-09-19T09:36:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -179,7 +179,9 @@
       "HT:R",
       "HT:L",
       "RC:R"
-    ]
+    ],
+    "candidateImporterFixCommit": "9e4a715ee8f825c6470d696ff93da5e11b23cd26",
+    "ftSnBuilderPreferenceCommit": "0d55a3cc602420849e2e9e1ccdbb129472948e60"
   },
   "production": {
     "htR": {
@@ -327,5 +329,15 @@
         "reason": "Still based on full-image legacy delta merge; locked-baseline violation remains. Needs limb-local masks/source redesign."
       }
     }
+  },
+  "importFailureAnalysis": {
+    "checkedAt": "2026-09-19T09:36:00+09:00",
+    "failedRuns": [
+      35408282787,
+      35409439866
+    ],
+    "rootCause": "Generic Dropbox candidate importer had neither DROPBOX_ACCESS_TOKEN nor per-asset downloadUrl.",
+    "fix": "Importer now also accepts sourceGithubPath exact bytes, avoiding dependence on a Dropbox Actions secret when an exact candidate has already been staged in GitHub.",
+    "note": "FT+SN exact attempt03 remains safely persisted in Dropbox. Do not regenerate it. Next import should use the new exact-source route once the staged GitHub copy is available."
   }
 }
