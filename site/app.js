@@ -1,6 +1,7 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
 import {LiveDrumEngine} from "./live-drum-engine.js";
+import {applyDrumVoice} from "./drum-note-sound-map.js";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
@@ -46,7 +47,8 @@ function humanizedVelocity(v){return Math.max(.16,Math.min(1,v*(.94+Math.random(
 function drumAt(part,vel=.8,when=null,note=null){
   if(!$("drumSound").checked||!audioCtx||!liveDrumEngine)return;
   const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002);
-  liveDrumEngine.trigger(part,vel,t,note||{});
+  const mapped=applyDrumVoice(note||{},part);
+  liveDrumEngine.trigger(mapped.part,vel,t,mapped.note);
   setTimeout(()=>flash(part),Math.max(0,(t-audioCtx.currentTime)*1000));
 }
 function stopOriginal(){if(originalSource){try{originalSource.stop()}catch{}originalSource=null}}
