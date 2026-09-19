@@ -1,3 +1,10 @@
+## 2026-09-20 08:40 JST — Visual Integrity Batch 09
+- Reconciled against parallel-session HOLD/CLAIM state and continued with HT:L + FT+SN:R/L.
+- Evidence: run 35476194165 / artifact 10593174478.
+- HT:L -> HOLD_VISUAL_INTEGRITY: broken left-stick continuity plus extra short fragment.
+- FT+SN:R/L -> HOLD_VISUAL_INTEGRITY: detached/truncated left stick and forked/duplicated right stick.
+- Formal PNGs unchanged; runtime QA blocked by static hard-gate failures.
+
 ## 2026-09-20 08:36 JST — Visual Integrity Batch 08 + parallel prep fix
 - Detected a parallel-selection defect: Batch Prep auto-priority ignored the active ledger CLAIM and emitted evidence for other-session keys.
 - Wrong evidence was discarded without touching those actionKeys.
