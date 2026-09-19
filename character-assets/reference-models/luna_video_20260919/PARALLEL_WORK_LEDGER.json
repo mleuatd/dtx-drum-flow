@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:14:00+09:00",
+  "updatedAt": "2026-09-19T20:17:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -77,10 +77,10 @@
       "category": "formal_inventory",
       "description": "Inventory existing formal character variants; reconcile actionKey/phase/limb/path/SHA against asset_inventory and runtime mapping.",
       "owner": "TERM-B",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T20:14:00+09:00",
       "startedAt": "2026-09-19T20:14:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T20:17:00+09:00",
       "paths": [
         "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
         "site/character-prototype.js",
@@ -92,16 +92,17 @@
         "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
       ],
       "handoffNote": "DONE when every formal actionKey/phase has path+SHA+limb+runtime mapping disposition and discrepancies are listed. Refresh main immediately before any write.",
-      "lastCommit": null
+      "lastCommit": "7521770983a3d8a58af5d013b13c71c01badfb74",
+      "result": "Reconciled formal inventory/runtime metadata; found 3 stale ACTION_KEY_ASSET_MAP entries (BD+HT:RF/R, LT+SN:R/L, BD+HT:RF/L). Evidence: FORMAL_INVENTORY_RECONCILIATION_TERM_B_2026-09-19.md. No formal PNG modified."
     },
     {
       "taskId": "OTHER-002",
       "category": "qa_evidence_cleanup",
       "description": "Organize existing formal/candidate/rejected QA evidence and identify stale candidates/NEVER_USE duplicates without modifying runtime-pose files.",
-      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
-      "status": "AVAILABLE",
-      "claimedAt": null,
-      "startedAt": null,
+      "owner": "TERM-B",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T20:17:00+09:00",
+      "startedAt": "2026-09-19T20:17:00+09:00",
       "completedAt": null,
       "paths": [
         "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json",
