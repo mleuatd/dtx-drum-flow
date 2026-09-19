@@ -162,7 +162,7 @@
       "GitHub main is the coordination authority; Dropbox is exact-byte storage and recovery support."
     ]
   },
-  "updatedAt": "2026-09-19T19:38:00+09:00",
+  "updatedAt": "2026-09-19T21:27:00+09:00",
   "masterImageEditRule": {
     "path": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
     "mustReadBeforeAnyImageEdit": true,
@@ -192,5 +192,24 @@
     "constraintPackageTool": "tools/reference_model/build_render_constraint_package.py",
     "targetHeadCount": 4,
     "rule": "Video controls appearance/multiview geometry; existing DTX data controls motion/contact. AI may assist only under numeric/semantic constraints."
+  },
+  "sourceBridgeRecovery": {
+    "status": "CURRENT_MANDATORY",
+    "authority": "GitHub formal path + SHA256",
+    "index": "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/SOURCE_BRIDGE_INDEX_V1.json",
+    "workflow": [
+      "Resolve formal GitHub path+SHA256.",
+      "Browse Library /Dropbox mount and locate candidate external file_id.",
+      "Materialize raw_file to working container.",
+      "Compute SHA256 and require exact equality with GitHub formal SHA256.",
+      "If alias mismatches, reject alias and search alternate candidates using GitHub blob size/path metadata.",
+      "Only after exact-byte verification, re-expose the raw file into the current conversation when the renderer requires a conversation image target."
+    ],
+    "neverDo": [
+      "Do not trust Dropbox filename/path/preview/content_hash as formal proof.",
+      "Do not loop on files.read(mode=image_file) when Dropbox native pixels are unavailable.",
+      "Do not ask the user to re-upload before exhausting this bridge.",
+      "Do not transform/recompress bytes before SHA verification."
+    ]
   }
 }
