@@ -4,7 +4,7 @@
     "measureStart": 33,
     "measureEnd": 40
   },
-  "status": "WAITING_FOR_BLOCK_A_ASSETS",
+  "status": "RUNTIME_SCOPE_CONFIGURED_FINAL_PUBLIC_QA_PENDING",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -36,12 +36,12 @@
   },
   "dependency": "No M33-40-only character PNG is required by current chart/limb analysis. Complete Block A formal assets and QA first; then extend runtime scope and verify Block B.",
   "definitionOfDone": {
-    "staticQA": "PENDING",
-    "runtimeMapping": "PENDING",
-    "publicRuntimeBrowserQA": "PENDING",
-    "screenshotReview": "PENDING",
+    "staticQA": "PASS_ASSET_REUSE_AND_MAPPING",
+    "runtimeMapping": "PASS_CONFIGURED_THROUGH_M40",
+    "publicRuntimeBrowserQA": "PENDING_FINAL_M29_40_RESULT",
+    "screenshotReview": "PENDING_FINAL_M29_40_RESULT",
     "done": false
   },
-  "requiredNext": "After M25-32 reaches runtime-ready state, reuse formal assets/mappings and perform M33-40 static/public runtime QA.",
-  "updatedAt": "2026-09-19T07:00:00+09:00"
+  "requiredNext": "No M33-40-specific PNG generation. Use current formal mappings only. Re-read latest main for M29-40/M40 public runtime QA result; inspect PC/Xperia screenshots and close this reuse-only block if PASS.",
+  "updatedAt": "2026-09-19T10:59:00+09:00"
 }
