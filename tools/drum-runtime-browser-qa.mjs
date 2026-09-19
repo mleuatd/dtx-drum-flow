@@ -13,8 +13,10 @@ const result=await page.evaluate(async()=>{
  const rows=[];
  for(const [part,gmNote] of tests){
    const before=engine.nodes.size; const node=engine.trigger(part,.82,ctx.currentTime+.03,{gmNote});
-   await new Promise(r=>setTimeout(r,500));
-   rows.push({part,gmNote,before,after:engine.nodes.size,bufferCount:engine.buffers.size,nodeReturned:!!node});
+   await new Promise(r=>setTimeout(r,80));
+   const activeSoon=engine.nodes.size;
+   await new Promise(r=>setTimeout(r,420));
+   rows.push({part,gmNote,before,activeSoon,after:engine.nodes.size,bufferCount:engine.buffers.size,nodeReturned:!!node});
  }
  await new Promise(r=>setTimeout(r,300));
  return {state:ctx.state,rows,buffers:engine.buffers.size,ready:engine.ready};
