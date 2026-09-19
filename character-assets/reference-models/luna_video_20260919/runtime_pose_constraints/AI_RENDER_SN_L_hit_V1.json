@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "mode": "CONSTRAINED_RENDER_ONLY",
   "actionKey": "SN:L",
   "phase": "hit",
@@ -17,25 +17,13 @@
       650,
       312
     ],
-    "shoulder_l": [
-      692,
-      344
-    ],
     "shoulder_r": [
       875,
       370
     ],
-    "elbow_l": [
-      631.336,
-      467.134
-    ],
     "elbow_r": [
       920,
       468
-    ],
-    "wrist_l": [
-      547.799,
-      445.259
     ],
     "wrist_r": [
       975,
@@ -64,17 +52,84 @@
     "ankle_r": [
       650,
       902
+    ],
+    "shoulder_l": [
+      635,
+      342
+    ],
+    "elbow_l": [
+      594.573,
+      473.338
+    ],
+    "wrist_l": [
+      515.776,
+      449.024
     ]
   },
-  "exactContactPoint": [
-    420,
-    535
+  "actionComponents": [
+    {
+      "part": "SN",
+      "limb": "L"
+    }
   ],
-  "stickTipTarget": [
-    420,
-    535
+  "effectors": [
+    {
+      "part": "SN",
+      "limb": "L",
+      "kind": "stick",
+      "target": [
+        420,
+        535
+      ],
+      "point": [
+        420,
+        535
+      ],
+      "solve": {
+        "shoulder": [
+          635,
+          342
+        ],
+        "elbow": [
+          594.573,
+          473.338
+        ],
+        "wrist": [
+          515.776,
+          449.024
+        ],
+        "stickTip": [
+          420,
+          535
+        ],
+        "target": [
+          420,
+          535
+        ],
+        "tipErrorPx": 0,
+        "reachable": true,
+        "selectedBend": -1,
+        "sourcePreservationScore": 20.731,
+        "anchorPolicy": "neutral_shoulder_and_lengths",
+        "lengths": {
+          "upperArm": 137.41906709041507,
+          "forearm": 82.46211251235322,
+          "stick": 128.70508925446578,
+          "wristOffset": 0
+        }
+      }
+    }
   ],
-  "pedalTarget": null,
+  "exactContactPoints": [
+    {
+      "part": "SN",
+      "limb": "L",
+      "target": [
+        420,
+        535
+      ]
+    }
+  ],
   "stoolAnchor": [
     790,
     724
@@ -130,10 +185,12 @@
     },
     "note": "Ratios are provisional medians from manually reviewed key views. Intermediate yaw views remain intentionally unresolved rather than guessed."
   },
+  "minimalMotionRule": "neutral whole-body baseline; only actionKey limbs may differ by phase",
   "forbiddenChanges": [
     "camera",
     "stool",
     "hip anchor",
+    "inactive limbs",
     "limb side",
     "instrument",
     "head count",
@@ -143,6 +200,5 @@
     "drum pixels in character layer"
   ],
   "retryPolicy": "Only numeric correction instructions from validators; no vague free-form correction.",
-  "minimalMotionRule": "neutral whole-body baseline; only active left arm may differ for SN:L",
   "formalOverwriteAllowed": false
 }
