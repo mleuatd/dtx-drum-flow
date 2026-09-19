@@ -1,3 +1,8 @@
+## 2026-09-20 — Visual Integrity Batch 09
+- Claimed and reviewed HT:L and FT+SN:R/L after reconciling parallel-session HOLD/CLAIM state.
+- Both pairs failed structural stick-continuity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
+- Evidence: workflow run 35476194165, artifact 10593174478.
+
 ## 2026-09-20 — Parallel-safe Batch Prep fix + Batch 08
 - Batch Prep now honors the ledger's active claimed 2x4 batch before falling back to auto-priority selection, preventing parallel sessions from preparing another session's frames.
 - Discarded one mis-selected evidence artifact without changing its formal assets or status.
