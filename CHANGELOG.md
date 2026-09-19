@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 11
+- Completed FRONT review of BD+HT:RF/L and BD+FT+SN:RF/R/L after reconnect.
+- Both pairs moved to HOLD_VISUAL_INTEGRITY for structural stick-continuity failures; formal PNGs remain unchanged.
+- Added independent FRONT/BACK batch override support to prevent parallel Prep evidence from selecting the wrong queue.
+- Evidence: workflow run 35476815322, artifact 10594496614.
+
 ## 2026-09-20 — Visual Integrity Batch 10
 - Claimed and statically reviewed RC:R and LT+SN:R/L as the next front-queue 2x4 batch.
 - Both pairs failed structural stick-continuity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
