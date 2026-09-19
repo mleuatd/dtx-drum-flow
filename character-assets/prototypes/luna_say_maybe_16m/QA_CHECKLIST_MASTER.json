@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "statusValues": [
     "PASS",
     "WARN",
@@ -65,13 +65,45 @@
       "previous completed blocks pass",
       "existing runtime mappings unchanged unless intended",
       "live runtimeScope changes only for approved contiguous block"
+    ],
+    "humanAnatomy": [
+      "pelvis-to-thigh continuity readable",
+      "hip/pelvis/knee/ankle/foot/toe chain anatomically coherent",
+      "knee and ankle bend directions plausible",
+      "foot-to-boot connection readable",
+      "front/back leg depth order readable",
+      "seated pose structurally coherent",
+      "shoulder/elbow/wrist/hand chain coherent",
+      "active limb moves in a plausible strike/pedal direction"
+    ],
+    "linework": [
+      "stick silhouette continuous from grip to tip",
+      "hand and stick visibly connected",
+      "stick direction/length/tip plausible",
+      "waist/pelvis/skirt/seat linework coherent",
+      "no unexplained short/isolated/crossing line",
+      "no line dropout",
+      "no accidental double stroke",
+      "no layer-derived stray line",
+      "no extra line corrupts silhouette"
+    ],
+    "fixedDrumComposite": [
+      "stick tip reaches intended strike zone",
+      "active foot reads as engaging intended pedal",
+      "character/drum front-back order coherent",
+      "stool/seat/legs/drum overlap coherent",
+      "pose reads as executable drum performance",
+      "single-layer naturalness remains natural after fixed-drum composite"
     ]
   },
   "rules": [
-    "Any PRE_RUNTIME hard-gate FAIL prevents formal save.",
-    "PRE_RUNTIME non-blocking warnings are recorded but do not stop block assembly.",
-    "Detailed contact/naturalness/transition decisions are made in POST_RUNTIME visual QA using actual app screenshots.",
-    "Only assets visibly failing POST_RUNTIME QA are returned for targeted repair.",
+    "Any PRE_RUNTIME hard-gate FAIL prevents formal save or status promotion.",
+    "Changed-pixel, ROI, alpha, bbox, centroid, registration and SHA checks are necessary but never sufficient for PASS.",
+    "Human anatomy continuity, linework continuity, and fixed-drum composite semantics are mandatory visual gates.",
+    "A frame that is locally pixel-correct but anatomically implausible, line-broken, or semantically contradictory is FAIL.",
+    "PRE_RUNTIME warnings may be non-blocking only when they do not overlap human anatomy, linework integrity, contact semantics, or composite coherence.",
+    "POST_RUNTIME visual QA must inspect actual app screenshots before/at/after the event and verify transition coherence.",
+    "VERIFIED / APPROVED_LIVE are forbidden while any mandatory visual-integrity gate is missing or failed.",
     "NOT_APPLICABLE requires a reason."
   ],
   "phasePolicy": "character-assets/prototypes/luna_say_maybe_16m/M17_QA_PHASE_POLICY.json",
@@ -83,22 +115,78 @@
     "not REJECTED/NEVER_USE",
     "no obvious wrong limb/action",
     "no obvious identity/camera/full-character corruption",
-    "no obvious drum/background hardware contamination"
+    "no obvious drum/background hardware contamination",
+    "human anatomy continuity preserved",
+    "seated pose readable",
+    "pelvis-to-thigh continuity readable",
+    "knee/ankle bend direction anatomically plausible",
+    "foot/ankle/boot connection readable",
+    "front/back leg depth order readable",
+    "active arm shoulder/elbow/wrist/hand chain coherent",
+    "stick silhouette continuous from hand/grip to tip",
+    "no unexplained waist/pelvis/skirt/seat artifact line",
+    "no silhouette-corrupting line dropout/double stroke/isolated line",
+    "fixed-drum composite does not contradict strike/pedal semantics"
   ],
   "preRuntimeNonBlocking": [
-    "exact instrument contact precision",
-    "minor stick/cymbal/tom offset",
-    "diff/centroid/edit metadata warnings",
-    "minor registration concerns",
-    "hit/rebound naturalness",
-    "neutral recovery"
+    "minor non-semantic diff/centroid/edit metadata warnings after all mandatory gates pass",
+    "minor cosmetic registration concern that does not alter anatomy/contact/seat semantics"
   ],
   "postRuntimeVisualGate": [
     "actual app screenshot at target time",
     "PC + Xperia-class portrait",
     "correct visible instrument contact",
+    "human anatomy continuity before/hit/rebound/after",
+    "seated pose remains readable through transition",
+    "active limb reads as intended instrument motion",
+    "stick remains continuous from grip to tip",
+    "waist/pelvis/skirt/seat linework remains coherent",
+    "fixed drum composite has no anatomical/contact contradiction",
     "hit/rebound/neutral naturalness",
+    "runtime event visually coherent before/after repair",
     "no disappearance/jump",
+    "no unrelated upper-body or lower-body corruption",
     "no M1-16 regression"
+  ],
+  "updatedAt": "2026-09-20T06:13:00+09:00",
+  "authority": {
+    "visualIntegrityRules": "character-assets/prototypes/luna_say_maybe_16m/VISUAL_INTEGRITY_QA_RULES.md",
+    "defectTaxonomy": "character-assets/prototypes/luna_say_maybe_16m/VISUAL_DEFECT_TAXONOMY.json",
+    "principle": "Pixel/ROI checks are necessary but never sufficient; anatomy, linework, and fixed-drum composite semantics are mandatory gates."
+  },
+  "reviewStatusValues": [
+    "NEEDS_VISUAL_REVIEW",
+    "NEEDS_HUMAN_ANATOMY_QA",
+    "NEEDS_LINEWORK_QA",
+    "NEEDS_FIXED_DRUM_COMPOSITE_QA",
+    "FIXED_PENDING_RUNTIME_QA",
+    "VERIFIED",
+    "APPROVED_LIVE"
+  ],
+  "hardFail": [
+    "limb appears disconnected from torso or pelvis",
+    "pelvis-to-thigh continuity unreadable",
+    "knee or ankle bend direction anatomically implausible",
+    "foot / ankle / boot connection unreadable",
+    "front/back leg depth order unreadable",
+    "seated pose becomes unreadable",
+    "shoulder / elbow / wrist / hand continuity unreadable",
+    "active limb motion direction is implausible for intended strike/pedal",
+    "stick is visually broken or interrupted",
+    "stick does not connect continuously from hand to tip",
+    "unexplained artifact line appears around waist / pelvis / skirt / seat area",
+    "line dropout or double-stroke corrupts silhouette",
+    "fixed drum composite contradicts strike/pedal semantics",
+    "unrelated upper-body or lower-body corruption remains"
+  ],
+  "hardPass": [
+    "human anatomy continuity preserved",
+    "seated pose remains readable",
+    "active limb reads as intended instrument motion",
+    "stick silhouette is continuous from grip to tip",
+    "waist / pelvis / skirt / seat linework is coherent",
+    "no unexplained artifact line remains",
+    "fixed drum composite shows no anatomical or contact contradiction",
+    "runtime event remains visually coherent before/after repair"
   ]
 }
