@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T12:58:00+09:00",
+  "updatedAt": "2026-09-19T13:15:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 53,
+    "measureEnd": 54,
     "status": "COMPLETE_LIVE_QA"
   },
   "completedMeasureBlocks": [
@@ -55,6 +55,12 @@
       "status": "DONE",
       "qaRun": 35419276196,
       "qaArtifact": 10577016308
+    },
+    {
+      "measures": "54",
+      "status": "DONE",
+      "qaRun": 35420373297,
+      "qaArtifact": 10576732695
     }
   ],
   "blockedMeasureBlocks": [],
@@ -94,7 +100,9 @@
     "ftSnRL": "LIVE_QA_PASSED",
     "htL": "LIVE_QA_PASSED",
     "bdHtRfR": "LIVE_QA_PASSED",
-    "m29_40": "COMPLETE_LIVE_QA"
+    "m29_40": "COMPLETE_LIVE_QA",
+    "m54": "COMPLETE_LIVE_QA",
+    "bdHtRfL": "LIVE_QA_PASSED"
   },
   "approvedAssets": [
     "SN:L",
@@ -139,7 +147,8 @@
     "m25_28LiveRuntimeQa": "SUCCESS run 35413032881 artifact 10575360428",
     "m29_40LiveRuntimeQa": "SUCCESS run 35417779611 artifact 10576243090",
     "m41_45LiveRuntimeQa": "SUCCESS run 35418205815 artifact 10576038940",
-    "m48_53LiveRuntimeQa": "SUCCESS run 35419276196 artifact 10577016308"
+    "m48_53LiveRuntimeQa": "SUCCESS run 35419276196 artifact 10577016308",
+    "m54LiveRuntimeQa": "SUCCESS browser QA run 35420373297 artifact 10576732695 (workflow ledger persistence step conflicted after evidence upload)"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -207,14 +216,19 @@
       "run": 35419276196,
       "artifact": 10577016308,
       "status": "SUCCESS"
+    },
+    "m54Live": {
+      "run": 35420373297,
+      "artifact": 10576732695,
+      "status": "SUCCESS_BROWSER_QA"
     }
   },
   "nextRecommendedBlock": {
-    "blockId": "M54",
-    "measures": "54",
-    "reason": "M48-53 reuse-only checkpoint complete; next new pair is BD+HT:RF/L."
+    "blockId": "M55-67",
+    "measures": "55-67",
+    "reason": "M54 is complete with public PC/Xperia runtime QA; next block is reuse-only."
   },
-  "nextRecommendedWork": "M54 BD+HT:RF/L source lock, candidate, QA, formal, mapping, runtime checkpoint.",
+  "nextRecommendedWork": "M55-67 reuse-only action coverage check, contiguous runtime scope expansion, PC/Xperia runtime QA, and checkpoint.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
