@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "profileId": "luna_chibi_retarget_v1",
+  "status": "PROVISIONAL",
+  "targetHeadCount": 4.0,
+  "sourceAppearanceProfile": "character-assets/reference-models/luna_video_20260919/APPEARANCE_MODEL_V1.json",
+  "rules": {
+    "head": "retain as one unit",
+    "bodyBelowChin": "compress to total four heads",
+    "jointOrder": "preserve",
+    "leftRight": "preserve",
+    "arms": "preserve direction then adjust length to required instrument contact",
+    "legs": "compress while preserving seated readability",
+    "handsFeet": "may enlarge slightly for runtime readability",
+    "instrumentContact": "higher priority than cosmetic exactness",
+    "camera": "existing DTX runtime camera remains authoritative"
+  },
+  "appearanceRatios": {
+    "shoulderWidthHeads": 0.8771,
+    "hipWidthHeads": 0.533,
+    "hairWidthHeads": 1.4674,
+    "hairLengthHeads": 2.2758,
+    "jacketLengthHeads": 1.9583,
+    "skirtLengthHeads": 0.3071
+  },
+  "runtimeCanvas": [1448,1086]
+}
