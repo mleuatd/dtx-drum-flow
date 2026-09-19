@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:36:00+09:00",
+  "updatedAt": "2026-09-19T20:55:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -289,10 +289,10 @@
       "taskId": "OTHER-007",
       "category": "dropbox_source_bridge",
       "description": "Resolve and verify canonical Dropbox bridge files for runtime-pose source images (neutral, SN:L hit, SN:L rebound, fixed drum) using formal GitHub SHA256 as authority. Record Dropbox file IDs/paths/preview links/download-link availability and byte-verification disposition. Do not edit or promote images.",
-      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
-      "status": "AVAILABLE",
-      "claimedAt": null,
-      "startedAt": null,
+      "owner": "TERM-B",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T20:55:00+09:00",
+      "startedAt": "2026-09-19T20:55:00+09:00",
       "completedAt": null,
       "paths": [
         "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
