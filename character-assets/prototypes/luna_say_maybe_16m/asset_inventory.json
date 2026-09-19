@@ -330,6 +330,20 @@
       "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
       "actionKey": "LT+SN:R/L",
       "phase": "rebound"
+    },
+    "bd_hh_sn_rf_r_l_hit_refresh": {
+      "path": "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "state": "ready",
+      "sha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit"
+    },
+    "bd_hh_sn_rf_r_l_rebound_refresh": {
+      "path": "layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "state": "ready",
+      "sha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -359,7 +373,8 @@
     "RC:R": "rc_r_hit_refresh",
     "HT:R": "ht_r_hit_refresh",
     "BD+HT:RF/R": "bd_ht_rf_r_hit_refresh",
-    "LT+SN:R/L": "lt_sn_r_l_hit_refresh"
+    "LT+SN:R/L": "lt_sn_r_l_hit_refresh",
+    "BD+HH+SN:RF/R/L": "bd_hh_sn_rf_r_l_hit_refresh"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -496,6 +511,10 @@
       "hit": "lt_sn_r_l_hit_refresh",
       "rebound": "lt_sn_r_l_rebound_refresh",
       "prep": "neutral"
+    },
+    "BD+HH+SN:RF/R/L": {
+      "hit": "bd_hh_sn_rf_r_l_hit_refresh",
+      "rebound": "bd_hh_sn_rf_r_l_rebound_refresh"
     }
   },
   "motionTiming": {
