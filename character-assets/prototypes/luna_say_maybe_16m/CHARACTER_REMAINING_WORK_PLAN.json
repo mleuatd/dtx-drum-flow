@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19T12:10:00+09:00",
+  "sourceOfTruth": "GitHub main",
+  "coordination": {
+    "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
+    "otherTerminalWorkstream": "DRUM_AUDIO_SOUND_TUNING",
+    "rule": "Do not modify drum-audio implementation unless required to prevent a character-runtime regression. Re-read latest main before every write because audio terminal may update main concurrently."
+  },
+  "currentKnownState": {
+    "latestMainAtPlanning": "c9513abd9405564baf1a413ea0fb367041b18b58",
+    "formalAndMappedThroughMeasure": 40,
+    "lastLiveQaConfirmedThroughMeasure": 28,
+    "note": "asset_inventory runtimeScope is M1-40; M29-40 final public PC/Xperia QA closure remains the first character task."
+  },
+  "imageLearning": {
+    "mandatoryPreflight": [
+      "CHARACTER_GENERATION_PLAYBOOK.json",
+      "FAILURE_PATTERN_REGISTRY.json",
+      "REJECTED_ASSET_REGISTRY.json",
+      "action transaction/history",
+      "INSTRUMENT_CONTACT_POINTS.json"
+    ],
+    "rule": "Every new image failure must be written back with failure mode, evidence, forbidden repeat strategy, and next permitted strategy before another image attempt. Successful recovery strategy must also be recorded for reuse by other terminals."
+  },
+  "executionPolicy": {
+    "priority": "STRICT_MEASURE_ORDER",
+    "frequencyDoesNotReorder": true,
+    "chunkRule": "Complete each earliest unfinished measure/chunk before later measures. Reuse-only ranges may be checkpointed without generating images.",
+    "runtimeRule": "Expand contiguous runtime scope only after required assets/mappings for the range are ready and block/public QA gates pass."
+  },
+  "tasks": [
+    {
+      "id": "CHAR-001",
+      "order": 1,
+      "measures": "29-40",
+      "type": "PUBLIC_RUNTIME_QA_CLOSE",
+      "status": "PENDING",
+      "work": [
+        "Read latest M29-40 transactions and runtime QA result",
+        "Confirm validate/deploy/public runtime QA for current M1-40 mapping",
+        "Inspect PC/Xperia screenshots and hit/rebound/neutral transitions for HT:L and BD+HT:RF/R",
+        "If PASS, mark M29-40 and M33-40 DONE and sync CURRENT_PROJECT_STATE",
+        "If FAIL, repair only the failing mapped character asset/transition"
+      ],
+      "newImagePairs": []
+    },
+    {
+      "id": "CHAR-002",
+      "order": 2,
+      "measures": "41-45",
+      "type": "REUSE_ONLY_RUNTIME_EXPANSION",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "work": [
+        "Verify chart action keys are already formal/mapped",
+        "Expand contiguous scope through M45",
+        "Run block/public PC/Xperia QA",
+        "Record checkpoint"
+      ],
+      "newImagePairs": []
+    },
+    {
+      "id": "CHAR-003",
+      "order": 3,
+      "measures": "46",
+      "type": "NEW_PAIR",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "actionKey": "LT+SN:R/L",
+      "newImagePairs": [
+        "hit",
+        "rebound"
+      ],
+      "preferredDerivation": "formal LT:R + approved SN:L limb-local combination; preserve locked baseline and use shared failure-learning rules"
+    },
+    {
+      "id": "CHAR-004",
+      "order": 4,
+      "measures": "47",
+      "type": "NEW_PAIR",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "newImagePairs": [
+        "hit",
+        "rebound"
+      ],
+      "preferredDerivation": "formal HH+SN:R/L + approved local BD kick cue"
+    },
+    {
+      "id": "CHAR-005",
+      "order": 5,
+      "measures": "48-53",
+      "type": "REUSE_ONLY_RUNTIME_EXPANSION",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "newImagePairs": []
+    },
+    {
+      "id": "CHAR-006",
+      "order": 6,
+      "measures": "54",
+      "type": "NEW_PAIR",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "actionKey": "BD+HT:RF/L",
+      "newImagePairs": [
+        "hit",
+        "rebound"
+      ],
+      "preferredDerivation": "formal HT:L + approved local BD kick cue"
+    },
+    {
+      "id": "CHAR-007",
+      "order": 7,
+      "measures": "55-67",
+      "type": "REUSE_ONLY_RUNTIME_EXPANSION",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "newImagePairs": []
+    },
+    {
+      "id": "CHAR-008",
+      "order": 8,
+      "measures": "68",
+      "type": "NEW_PAIR",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "newImagePairs": [
+        "hit",
+        "rebound"
+      ],
+      "preferredDerivation": "formal RC+SN:R/L + approved local BD kick cue"
+    },
+    {
+      "id": "CHAR-009",
+      "order": 9,
+      "measures": "69-104",
+      "type": "REUSE_ONLY_RUNTIME_EXPANSION",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "newImagePairs": []
+    },
+    {
+      "id": "CHAR-010",
+      "order": 10,
+      "measures": "105-106",
+      "type": "NEW_PAIRS",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "actions": [
+        {
+          "actionKey": "BD+FT+SN:RF/R/L",
+          "phases": [
+            "hit",
+            "rebound"
+          ],
+          "preferredDerivation": "formal FT+SN:R/L + approved local BD kick cue"
+        },
+        {
+          "actionKey": "BD+FT:RF/L",
+          "phases": [
+            "hit",
+            "rebound"
+          ],
+          "preferredDerivation": "formal FT:L + approved local BD kick cue"
+        }
+      ]
+    },
+    {
+      "id": "CHAR-011",
+      "order": 11,
+      "measures": "107-135",
+      "type": "REUSE_ONLY_RUNTIME_EXPANSION",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "newImagePairs": []
+    },
+    {
+      "id": "CHAR-012",
+      "order": 12,
+      "measures": "136",
+      "type": "NEW_PAIR",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "actionKey": "BD+FT:RF/R",
+      "newImagePairs": [
+        "hit",
+        "rebound"
+      ],
+      "preferredDerivation": "formal FT:R + approved local BD kick cue"
+    },
+    {
+      "id": "CHAR-013",
+      "order": 13,
+      "measures": "137-148",
+      "type": "REUSE_ONLY_FINAL_EXPANSION",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "work": [
+        "Reuse existing formal mappings",
+        "Expand to M148 after contiguous gates",
+        "Run final PC/Xperia/public QA",
+        "Close full-song character implementation"
+      ]
+    }
+  ],
+  "summary": {
+    "remainingNewActionPairs": 7,
+    "remainingNewPngFiles": 14,
+    "newActionOrder": [
+      "M46 LT+SN:R/L",
+      "M47 BD+HH+SN:RF/R/L",
+      "M54 BD+HT:RF/L",
+      "M68 BD+RC+SN:RF/R/L",
+      "M105 BD+FT+SN:RF/R/L",
+      "M105 BD+FT:RF/L",
+      "M136 BD+FT:RF/R"
+    ]
+  }
+}
