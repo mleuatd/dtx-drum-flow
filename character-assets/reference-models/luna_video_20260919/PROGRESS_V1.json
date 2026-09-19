@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:51:00+09:00",
+  "updatedAt": "2026-09-19T21:56:00+09:00",
   "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
   "completed": [
     "Reference video metadata/SHA registered",
@@ -43,16 +43,16 @@
     "Locked SN:L rebound shoulder to neutral to remove shoulder teleport",
     "Refreshed SN:L hit/rebound schemaVersion 2 numeric and AI render constraint packages",
     "Runtime Pose Tests run 35441840031 passed after neutral-shoulder policy regression test",
-    "Runtime Pose SN-L Source QA run 35441840064 passed after refinement"
+    "Runtime Pose SN-L Source QA run 35441840064 passed after refinement",
+    "Recorded renderer target-binding failure after exact-source bridge; unrelated dashboard output rejected and not staged"
   ],
-  "currentStage": "SN_L_NUMERIC_REFINEMENT_PASS_RENDER_CANDIDATE_NEXT",
+  "currentStage": "SN_L_NUMERIC_PASS_RENDERER_TARGET_BINDING_BLOCKED",
   "next": [
-    "Use exact approved neutral PNG as mandatory parent for SN:L hit candidate; modify only active left arm/stick to refreshed numeric constraint",
-    "Use accepted hit plus neutral parent for SN:L rebound continuity; keep shoulder/body registration neutral",
-    "Apply deterministic cowlick and line-style post-processing",
-    "Composite candidates with locked drum and rerun contact/registration/transition QA",
-    "Run actual Web runtime PC/Xperia QA before formal promotion",
-    "After SN:L proof passes, expand through generalized combo actionKey pipeline"
+    "Do not retry generic image generation in this session",
+    "Preserve refreshed neutral-shoulder SN:L numeric constraints and source bridge evidence",
+    "Resume pixel candidate rendering only in an environment/tool path with explicit exact-source edit-target binding, or after a proven deterministic local-edit method is available",
+    "Continue non-image work that does not depend on the blocked renderer",
+    "After a valid candidate exists, run deterministic cowlick/line-style, fixed-drum composite, transition and Web runtime QA before promotion"
   ],
   "formalRuntimeAssetsModified": false,
   "doNotBulkPromoteYet": true,
