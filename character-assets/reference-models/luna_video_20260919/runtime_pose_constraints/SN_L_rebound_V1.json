@@ -45,69 +45,70 @@
   "confidence": 0.68,
   "joints": {
     "head_top": [
-      744,
-      61
+      720,
+      30
     ],
     "chin": [
-      659,
+      615,
       300
     ],
     "neck": [
-      696,
-      317
+      650,
+      312
     ],
     "shoulder_l": [
       694,
       348
     ],
     "shoulder_r": [
-      882,
-      386
+      875,
+      370
     ],
     "elbow_l": [
       657,
       474
     ],
     "elbow_r": [
-      744,
-      414
+      920,
+      468
     ],
     "wrist_l": [
       593,
       496
     ],
     "wrist_r": [
-      683,
-      421
+      975,
+      448
     ],
     "hip_l": [
-      710,
-      598
+      650,
+      620
     ],
     "hip_r": [
-      899,
-      645
+      875,
+      655
     ],
     "knee_l": [
-      610,
-      630
+      535,
+      690
     ],
     "knee_r": [
-      704,
-      704
+      682,
+      748
     ],
     "ankle_l": [
-      506,
-      860
+      430,
+      885
     ],
     "ankle_r": [
-      654,
-      867
+      650,
+      902
     ]
   },
   "stickTip": [
     438,
     418
   ],
-  "reboundRule": "preserve source rebound tip away from contact; validate continuity, do not force contact"
+  "reboundRule": "preserve source rebound tip away from contact; validate continuity, do not force contact",
+  "minimalMotionRule": "neutral whole-body baseline; only active left arm may differ for SN:L"
 }
