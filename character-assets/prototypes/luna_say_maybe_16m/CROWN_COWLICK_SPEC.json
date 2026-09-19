@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19T16:59:00+09:00",
+  "purpose": "Locked crown-cowlick local-edit specification for the character base. Edit only the crown patch; preserve all pixels outside the edit rectangle exactly.",
+  "currentConversationSource": {
+    "fileName": "5232.png",
+    "width": 1448,
+    "height": 1086,
+    "sha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da"
+  },
+  "editPolicy": {
+    "method": "local patch only; never redraw/recompose the full image",
+    "editRect": {
+      "x0": 560,
+      "y0": 0,
+      "x1": 760,
+      "y1": 150
+    },
+    "outsideDiffPixelsRequired": 0,
+    "forbiddenAdditions": [
+      "drums",
+      "cymbals",
+      "toms",
+      "snare",
+      "hi-hat",
+      "bass drum",
+      "stands",
+      "any object absent from source"
+    ],
+    "immutableOutsideRect": true
+  },
+  "cowlickDesign": {
+    "strands": 2,
+    "description": [
+      "one short inverted-V / he-shaped strand",
+      "one mirrored he-shaped strand",
+      "roots close together near the crown",
+      "upper strand keeps the approved size",
+      "lower strand sits slightly lower",
+      "triangular negative space between strands is slightly narrower but not closed",
+      "no solid fill; use many rough directional strokes to increase density",
+      "match the source image's rough multi-line monochrome style"
+    ],
+    "fiveDirectionReferenceRule": "Five-direction references define cowlick shape and stroke density only. Never import pose, face, head angle, body, composition, or objects from those references."
+  },
+  "latestCandidate": {
+    "localFileName": "5232_cowlick_added_only.png",
+    "sha256": "5fe786c954cf4e3c1ca6c87522a968fe91d05b8346c9814cb1e9cc845166a970",
+    "changedPixelsInsideRect": 2681,
+    "changedPixelsOutsideRect": 0,
+    "status": "CANDIDATE_FOR_USER_REVIEW_NOT_FORMAL"
+  }
+}
