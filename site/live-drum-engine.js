@@ -64,10 +64,10 @@ export class LiveDrumEngine{
 }
  _kickBody(when,strength){
   const c=this.ctx,o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter();
-  o.type="sine";o.frequency.setValueAtTime(105,when);o.frequency.exponentialRampToValueAtTime(48,when+.16);
-  f.type="lowpass";f.frequency.value=220;f.Q.value=.9;
-  g.gain.setValueAtTime(.0001,when);g.gain.exponentialRampToValueAtTime(Math.max(.0002,1.70*strength),when+.006);g.gain.exponentialRampToValueAtTime(.0001,when+.32);
-  o.connect(f);f.connect(g);g.connect(this.input);o.start(when);o.stop(when+.33);this.nodes.add(o);o.addEventListener("ended",()=>this.nodes.delete(o),{once:true});
+  o.type="sine";o.frequency.setValueAtTime(115,when);o.frequency.exponentialRampToValueAtTime(46,when+.19);
+  f.type="lowpass";f.frequency.value=260;f.Q.value=1.05;
+  g.gain.setValueAtTime(.0001,when);g.gain.exponentialRampToValueAtTime(Math.max(.0002,3.40*strength),when+.006);g.gain.exponentialRampToValueAtTime(.0001,when+.40);
+  o.connect(f);f.connect(g);g.connect(this.input);o.start(when);o.stop(when+.41);this.nodes.add(o);o.addEventListener("ended",()=>this.nodes.delete(o),{once:true});
  }
  triggerVoice(voice,velocity=.84,when=this.ctx.currentTime+.002){const part={kick:"BD",snare:"SN",sideStick:"SN",hihatClosed:"HH",hihatOpen:"HH",hihatPedal:"LP",tomHigh:"HT",tomLow:"LT",tomFloor:"FT",ride:"RD",rideBell:"RD",crashLeft:"LC",crashRight:"RC"}[voice]||"SN";return this.trigger(part,velocity,when,{soundKey:voice})}
  setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}
