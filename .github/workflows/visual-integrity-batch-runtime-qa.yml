@@ -17,8 +17,8 @@ jobs:
       PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
       MEASURE_START: "1"
       MEASURE_END: "148"
-      QA_ACTIONS: "BD:RF"
-      RUNTIME_QA_BLOCK_KEY: "VISUAL-INTEGRITY-BATCH-20260920-02-BD-NEUTRAL"
+      QA_ACTIONS: "BD+RD:RF/R"
+      RUNTIME_QA_BLOCK_KEY: "VISUAL-INTEGRITY-BD-RD-RUNTIME"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -37,12 +37,33 @@ jobs:
           import { chromium } from "playwright";
           import fs from "node:fs/promises";
           import path from "node:path";
+
           const url=process.env.PUBLIC_URL;
+          const target=process.env.QA_ACTIONS.split(",").filter(Boolean)[0];
+          const chart=JSON.parse(await fs.readFile("site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json","utf8"));
+          const limbs=JSON.parse(await fs.readFile("site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json","utf8"));
+          const inv=JSON.parse(await fs.readFile("character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json","utf8"));
+          const limbMap=new Map((limbs.assignments||[]).map(x=>[`${Number(x.time).toFixed(6)}|${x.part}`,x.limb]));
+          const notes=(chart.notes||[]).map(n=>({...n,limb:limbMap.get(`${Number(n.time).toFixed(6)}|${n.part}`)||n.limb}));
+          const groups=[]; for(const n of notes){const g=groups.at(-1);if(g&&Math.abs(n.time-g[0].time)<=.008)g.push(n);else groups.push([n]);}
+          const exactKey=g=>{const a=[...g].sort((x,y)=>x.part.localeCompare(y.part));return a.length>1?a.map(n=>n.part).join("+")+":"+a.map(n=>n.limb).join("/"):a[0].part+":"+a[0].limb};
+          const keyFor=g=>{const exact=exactKey(g);if(inv.runtimeFrameMap?.[exact])return exact;const parts=[...new Set(g.map(n=>n.part))].sort();const wildcard=parts.join("+")+":*";return inv.runtimeFrameMap?.[wildcard]?wildcard:exact};
+          const candidates=groups.map((g,i)=>({g,key:keyFor(g),time:Number(g[0].time),measure:g[0].measure,next:Number(groups[i+1]?.[0]?.time??Infinity)})).filter(x=>x.key===target);
+          if(!candidates.length) throw new Error("target action missing: "+target);
+          const ev=[...candidates].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0];
+          const hitEnd=Number(inv.motionTiming?.hitEndSeconds??.09), reboundEnd=Number(inv.motionTiming?.reboundEndSeconds??.17);
+          const gap=ev.next-ev.time;
+          if(Number.isFinite(gap)&&gap<reboundEnd+.03) throw new Error(`no clean neutral recovery gap for ${target}: ${gap}`);
+          const hitFrameId=inv.runtimePhaseFrameMap?.[target]?.hit||inv.runtimeFrameMap?.[target];
+          const reboundFrameId=inv.runtimePhaseFrameMap?.[target]?.rebound||inv.runtimeFrameMap?.[target];
+          const hitFrame=inv.requiredFrames?.[hitFrameId]?.path;
+          const reboundFrame=inv.requiredFrames?.[reboundFrameId]?.path;
+          const neutralFrame=inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";
           const points=[
-            {label:"neutral_before",time:0,phase:"neutral",key:"neutral",frame:"layers/character/base/neutral.png"},
-            {label:"bd_hit",time:131.41723,phase:"hit",key:"BD:RF",frame:"layers/character/bd/hit_rf.png"},
-            {label:"bd_rebound",time:131.5643073312,phase:"rebound",key:"BD:RF",frame:"layers/character/bd/rebound_rf.png"},
-            {label:"neutral_after",time:0,phase:"neutral",key:"neutral",frame:"layers/character/base/neutral.png"}
+            {label:"neutral_before",time:0,phase:"neutral",key:"neutral",frame:neutralFrame},
+            {label:"hit",time:ev.time+.012,phase:"hit",key:target,frame:hitFrame},
+            {label:"rebound",time:ev.time+hitEnd+(reboundEnd-hitEnd)*.48,phase:"rebound",key:target,frame:reboundFrame},
+            {label:"neutral_after",time:ev.time+reboundEnd+.012,phase:"neutral",key:"neutral",frame:neutralFrame}
           ];
           await fs.mkdir("qa-artifacts/explicit-sequence",{recursive:true});
           const browser=await chromium.launch({headless:true}); const records=[]; let failed=0;
@@ -60,12 +81,12 @@ jobs:
               if(!ok) failed++;
               const shot=path.join("qa-artifacts","explicit-sequence",vp.name+"_"+p.label+".png");
               await page.locator(".stage").screenshot({path:shot});
-              records.push({viewport:vp.name,...p,actualKey:a.animationKey,actualPhase:a.phase,actualFrame:a.frame,status:ok?"PASS":"FAIL",screenshotPath:shot});
+              records.push({viewport:vp.name,target,measure:ev.measure,eventTime:ev.time,...p,actualKey:a.animationKey,actualPhase:a.phase,actualFrame:a.frame,status:ok?"PASS":"FAIL",screenshotPath:shot});
             }
             await context.close();
           }
           await browser.close();
-          await fs.writeFile("qa-artifacts/explicit-sequence.json",JSON.stringify({sequence:"neutral->hit->rebound->neutral",failed,passed:records.length-failed,records},null,2));
+          await fs.writeFile("qa-artifacts/explicit-sequence.json",JSON.stringify({target,measure:ev.measure,eventTime:ev.time,sequence:"neutral->hit->rebound->neutral",failed,passed:records.length-failed,records},null,2));
           if(failed) process.exit(1);
           JS
       - name: Upload transition evidence
