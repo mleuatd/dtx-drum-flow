@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "BD+HH+SN:RF/R/L",
+  "attempt": 1,
+  "sourceVerification": {
+    "hhHitSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
+    "hhReboundSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
+    "hhSnHitReproducedSha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
+    "hhSnReboundReproducedSha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
+    "bdCueAuthority": "tools/build-m18-24-deterministic-pairs.py"
+  },
+  "hit": {
+    "sha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
+    "width": 1448,
+    "height": 1086,
+    "changedFromHhSnPixelRatio": 0.00034593978612781456,
+    "diffBBox": [
+      448,
+      791,
+      497,
+      821
+    ]
+  },
+  "rebound": {
+    "sha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
+    "width": 1448,
+    "height": 1086,
+    "changedFromHhSnPixelRatio": 0.00007185881586846148,
+    "diffBBox": [
+      469,
+      809,
+      483,
+      821
+    ]
+  },
+  "method": "Exact formal HH+SN:R/L base; add only approved BD cue geometry from tools/build-m18-24-deterministic-pairs.py. No character redraw.",
+  "localVisualQa": "PASS_FIXED_DRUM"
+}
