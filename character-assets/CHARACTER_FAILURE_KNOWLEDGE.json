@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Cross-session, cross-device, cross-action mistake-prevention knowledge for Luna Say Maybe character asset production. Read before every character image edit/generation and before visual approval.",
+  "sourceOfTruth": "GitHub main",
+  "updatedAt": "2026-09-19T10:30:00+09:00",
+  "coordination": {
+    "rule": "Always refetch latest main before action start, image edit/generation, promotion, runtime edit, and commit. Treat another device's newer evidence as authoritative and never overwrite it with stale state.",
+    "challengeRule": "Do not trust another session's PASS/FAIL merely because it is recorded. Reconcile evidence, SHA/path, composite visual QA, transaction and current main. Preserve valid work; flag contradictions.",
+    "sharing": "Record reusable lessons here; action-specific defects remain in transaction/PROGRESS/CHARACTER_QA_ISSUES."
+  },
+  "mandatoryPreflight": [
+    "Read WORK_SYNC.md, CHARACTER_QA_ISSUES.json, CHARACTER_ASSET_PIPELINE.md, LAYER_RULES.md, BASELINE_LOCK, current PROGRESS and target transaction.",
+    "Refetch latest main and recent commits to detect work from other devices.",
+    "If target action is already newer/formal/approved on main, do not regenerate it.",
+    "Select an APPROVED/formal parent and lock its path/SHA before editing.",
+    "Load all applicable ACTIVE global failure rules below before choosing an edit strategy."
+  ],
+  "globalFailureRules": [
+    {
+      "id": "GF-001",
+      "status": "ACTIVE",
+      "category": "identity-camera-registration",
+      "lesson": "Never solve a limb motion by redrawing the whole person or changing camera/head/body/stool registration.",
+      "appliesTo": "ALL_CHARACTER_ASSETS",
+      "prevent": "Preserve face, hair, torso, clothes, scale, camera and seated anchor unless the motion strictly requires a local change.",
+      "origin": [
+        "BASELINE_LOCK",
+        "CHAR-QA-0004"
+      ]
+    },
+    {
+      "id": "GF-002",
+      "status": "ACTIVE",
+      "category": "stick-arm-integrity",
+      "lesson": "A distant target must not be reached by merely extending a long stick from an unchanged arm.",
+      "appliesTo": "ARM_AND_STICK_MOTIONS",
+      "prevent": "Move/patch the required arm+hand+stick as one local kinematic unit from an approved compatible parent.",
+      "origin": [
+        "HT:R attempts 01-04"
+      ]
+    },
+    {
+      "id": "GF-003",
+      "status": "ACTIVE",
+      "category": "duplicate-geometry",
+      "lesson": "Never leave the old stick/hand geometry visible when adding a relocated stick/hand.",
+      "appliesTo": "ARM_AND_STICK_MOTIONS",
+      "prevent": "Explicitly inspect for exactly two sticks total and one coherent hand-to-stick connection per hand in the fixed-drum composite.",
+      "origin": [
+        "HT:R attempt04",
+        "HT:R attempts 07-08"
+      ]
+    },
+    {
+      "id": "GF-004",
+      "status": "ACTIVE",
+      "category": "detached-contact",
+      "lesson": "A stick that visually detaches from the hand is a hard visual FAIL even if file/SHA/static checks pass.",
+      "appliesTo": "ARM_AND_STICK_MOTIONS",
+      "prevent": "Composite visual QA must trace shoulder→arm→hand→grip→stick→target contact before approval.",
+      "origin": [
+        "HT:R attempt04"
+      ]
+    },
+    {
+      "id": "GF-005",
+      "status": "ACTIVE",
+      "category": "strategy-repetition",
+      "lesson": "Do not repeat the same failed image strategy after the same failure recurs.",
+      "appliesTo": "ALL_GENERATION",
+      "prevent": "After repeated same-class failure, hard-stop that strategy and change parent/mask/local-edit method/tool design; record retry decision.",
+      "origin": [
+        "RETRY_DECISION_HT_R.json"
+      ]
+    },
+    {
+      "id": "GF-006",
+      "status": "ACTIVE",
+      "category": "phase-gating",
+      "lesson": "Do not generate/advance rebound before hit is visually accepted.",
+      "appliesTo": "HIT_REBOUND_PAIRS",
+      "prevent": "Hit visual QA gates rebound and pair promotion.",
+      "origin": [
+        "RETRY_DECISION_HT_R.json"
+      ]
+    },
+    {
+      "id": "GF-007",
+      "status": "ACTIVE",
+      "category": "visual-qa",
+      "lesson": "Existence, SHA, workflow success and static checks do not prove a pose is visually correct.",
+      "appliesTo": "ALL_CHARACTER_ASSETS",
+      "prevent": "Inspect actual character image plus locked-drum composite before formal promotion.",
+      "origin": [
+        "CHARACTER_ASSET_PIPELINE.md",
+        "CHARACTER_QA_ISSUES.json"
+      ]
+    },
+    {
+      "id": "GF-008",
+      "status": "ACTIVE",
+      "category": "rejected-bytes",
+      "lesson": "Rejected/NEVER_USE candidate bytes must never re-enter runtime or become a new parent.",
+      "appliesTo": "ALL_CHARACTER_ASSETS",
+      "prevent": "Check transaction/QA ledger before source selection and keep rejected candidates review/history-only.",
+      "origin": [
+        "RETRY_DECISION_HT_R.json",
+        "WORK_SYNC.md"
+      ]
+    },
+    {
+      "id": "GF-009",
+      "status": "ACTIVE",
+      "category": "fixed-drum-separation",
+      "lesson": "Character PNGs must not contain or move the drum kit.",
+      "appliesTo": "ALL_CHARACTER_ASSETS",
+      "prevent": "Use locked drum only as separate composite QA layer; character edits remain person/stool-only.",
+      "origin": [
+        "LAYER_RULES.md",
+        "BASELINE_LOCK"
+      ]
+    },
+    {
+      "id": "GF-010",
+      "status": "ACTIVE",
+      "category": "transition-continuity",
+      "lesson": "A rebound that changes silhouette/camera/body registration too much is not a valid rebound.",
+      "appliesTo": "REBOUND",
+      "prevent": "Derive rebound closely from accepted hit and inspect hit→rebound→next state continuity.",
+      "origin": [
+        "CHAR-QA-0004"
+      ]
+    }
+  ],
+  "promotionGate": [
+    "All applicable globalFailureRules checked and none violated.",
+    "Target-specific transaction QA passed.",
+    "Fixed-drum composite visually inspected.",
+    "Candidate SHA/path matches the inspected bytes.",
+    "Latest main rechecked immediately before promotion."
+  ],
+  "learningRule": "After every FAIL, classify whether the lesson is action-specific or reusable. If reusable, append/update a globalFailureRule in this file in the same work cycle. Never delete historical lessons; supersede with status/reason.",
+  "nextSessions": "This file is mandatory read-first input for every new character image generation/edit, regardless of measure or action."
+}
