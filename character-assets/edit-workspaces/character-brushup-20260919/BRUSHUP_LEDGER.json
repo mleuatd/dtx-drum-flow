@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T09:06:00+09:00",
+  "updatedAt": "2026-09-20T09:12:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -2606,8 +2606,8 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-passed",
+      "brushupStatus": "VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2615,17 +2615,51 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05479521,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:43:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476033283,
+          "artifactId": 10594885001,
+          "evidence": "full-resolution transition/composite evidence; static anatomy, linework, and fixed-drum gates PASS"
+        },
+        "runtimeReviewedAt": "2026-09-20T09:12:00+09:00",
+        "runtimeEvidence": {
+          "workflowRunId": 35477061624,
+          "artifactId": 10594916218,
+          "testedCommitSha": "c7ab72c58a70e68fd6db30c2a25686916796f4b7",
+          "result": "PASS",
+          "failed": 0,
+          "passed": 14,
+          "viewports": [
+            "pc",
+            "xperia-portrait"
+          ],
+          "selectedMeasure": 130,
+          "selectedTime": 227.232568,
+          "note": "runtime-qa.json PASS on real chart occurrence. Synthetic explicit-sequence subcheck is excluded because timeline movement cannot synthesize arbitrary action keys and instead selected unrelated real chart events."
+        }
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewCompletedAt": "2026-09-20T09:12:00+09:00",
+      "holdReason": null,
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BD-RD-RUNTIME-CLOSE",
+        "at": "2026-09-20T09:12:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "outcome": "VERIFIED"
+      }
     },
     {
       "order": 28,
@@ -2651,8 +2685,8 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-passed",
+      "brushupStatus": "VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2660,17 +2694,51 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05763904,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:43:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476033283,
+          "artifactId": 10594885001,
+          "evidence": "full-resolution transition/composite evidence; static anatomy, linework, and fixed-drum gates PASS"
+        },
+        "runtimeReviewedAt": "2026-09-20T09:12:00+09:00",
+        "runtimeEvidence": {
+          "workflowRunId": 35477061624,
+          "artifactId": 10594916218,
+          "testedCommitSha": "c7ab72c58a70e68fd6db30c2a25686916796f4b7",
+          "result": "PASS",
+          "failed": 0,
+          "passed": 14,
+          "viewports": [
+            "pc",
+            "xperia-portrait"
+          ],
+          "selectedMeasure": 130,
+          "selectedTime": 227.232568,
+          "note": "runtime-qa.json PASS on real chart occurrence. Synthetic explicit-sequence subcheck is excluded because timeline movement cannot synthesize arbitrary action keys and instead selected unrelated real chart events."
+        }
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewCompletedAt": "2026-09-20T09:12:00+09:00",
+      "holdReason": null,
+      "lastBatchReview": {
+        "batchId": "VISUAL-INTEGRITY-BD-RD-RUNTIME-CLOSE",
+        "at": "2026-09-20T09:12:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "outcome": "VERIFIED"
+      }
     },
     {
       "order": 29,
