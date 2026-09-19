@@ -4,7 +4,7 @@
     "measureStart": 25,
     "measureEnd": 32
   },
-  "status": "M25_28_FORMAL_COMPLETE_RUNTIME_QA_PENDING",
+  "status": "M25_28_PUBLIC_RUNTIME_QA_FAILED",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -155,7 +155,7 @@
     "done": false
   },
   "requiredNext": "M25-28 assets are all formal. Sync runtime scope to M1-28 (329 notes / 256 groups / lastTime 51.549115), run validation and public PC/Xperia runtime QA for M25-28, persist screenshots/evidence, then checkpoint M25-28. Do not start BD+HT until that checkpoint passes.",
-  "updatedAt": "2026-09-19T10:32:00+09:00",
+  "updatedAt": "2026-09-19T01:30:29.538453+00:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -167,7 +167,11 @@
     "verification": "For this <4 MiB file, Dropbox content_hash equals SHA256(binary SHA256(file)); SHA256(bytes.fromhex(GitHub inventory SHA256)) exactly matches Dropbox content_hash.",
     "verifiedAt": "2026-09-19T07:30:00+09:00"
   },
-  "blocker": null,
+  "blocker": {
+    "type": "RUNTIME_QA",
+    "workflowRunId": "35412666604",
+    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
+  },
   "infrastructurePreparation": {
     "status": "READY",
     "pipeline": "character-assets/CHARACTER_ASSET_PIPELINE.md",
@@ -403,5 +407,22 @@
     "note": "FT+SN exact attempt03 remains safely persisted in Dropbox. Do not regenerate it. Next import should use the new exact-source route once the staged GitHub copy is available."
   },
   "formalPngCompleted": 8,
-  "formalPngTotal": 10
+  "formalPngTotal": 10,
+  "runtimeQaEvidence": {
+    "M25-28": {
+      "status": "FAIL",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35412666604",
+      "testedCommitSha": "eb418ed9e5f9e408a05d27f6baf2d4bdb65240de",
+      "artifact": "public-runtime-qa-35412666604",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35412666604",
+      "measureStart": 25,
+      "measureEnd": 28,
+      "actions": [
+        "HT:R",
+        "RC:R",
+        "FT+SN:R/L"
+      ]
+    }
+  }
 }
