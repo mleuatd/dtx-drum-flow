@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:42:00+09:00",
+  "updatedAt": "2026-09-19T15:46:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
     "measureEnd": 106,
-    "status": "RUNTIME_QA_PENDING_M105_106"
+    "status": "COMPLETE_LIVE_QA"
   },
   "completedMeasureBlocks": [
     {
@@ -79,6 +79,12 @@
       "status": "DONE",
       "qaRun": 35426755584,
       "qaArtifact": 10579246619
+    },
+    {
+      "measures": "105-106",
+      "status": "DONE",
+      "qaRun": 35427241936,
+      "qaArtifact": 10579925003
     }
   ],
   "blockedMeasureBlocks": [],
@@ -124,7 +130,8 @@
     "m55_67": "COMPLETE_LIVE_QA",
     "m68": "COMPLETE_LIVE_QA",
     "bdRcSnRfRL": "LIVE_QA_PASSED",
-    "m69_104": "COMPLETE_LIVE_QA"
+    "m69_104": "COMPLETE_LIVE_QA",
+    "m105_106": "COMPLETE_LIVE_QA"
   },
   "approvedAssets": [
     "SN:L",
@@ -176,7 +183,8 @@
     "m68LiveRuntimeQa": "SUCCESS run 35426237555 artifact 10579760232; 6/6 PC/Xperia hit/rebound/neutral PASS; screenshot review PASS",
     "m69_104MappingPreflight": "PASS: 550 notes / 389 groups / 20 actionKeys; all present in asset_inventory.runtimePhaseFrameMap",
     "m69_104LiveRuntimeQa": "SUCCESS run 35426755584 artifact 10579246619; 86/86 PC/Xperia records PASS; screenshot review PASS",
-    "m105_106PreRuntime": "PASS: 4 formal PNGs, Dropbox exact-byte save, deterministic locality/fixed-drum visual QA, runtime mapping complete"
+    "m105_106PreRuntime": "PASS: 4 formal PNGs, Dropbox exact-byte save, deterministic locality/fixed-drum visual QA, runtime mapping complete",
+    "m105_106LiveRuntimeQa": "SUCCESS run 35427241936 artifact 10579925003; 12/12 PC/Xperia PASS; screenshot review PASS"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -264,14 +272,19 @@
       "run": 35426755584,
       "artifact": 10579246619,
       "status": "SUCCESS"
+    },
+    "m105_106Live": {
+      "run": 35427241936,
+      "artifact": 10579925003,
+      "status": "SUCCESS"
     }
   },
   "nextRecommendedBlock": {
-    "blockId": "M105-106",
-    "measures": "105-106",
-    "reason": "Formal pairs mapped and runtimeScope expanded through M106; public QA pending."
+    "blockId": "M107-135",
+    "measures": "107-135",
+    "reason": "M105-106 complete; next contiguous block is reuse-only."
   },
-  "nextRecommendedWork": "Inspect M105-106 public runtime QA; if PASS close block and release M107-135 reuse-only.",
+  "nextRecommendedWork": "Verify M107-135 action coverage from authoritative inventory, expand runtime scope, and run PC/Xperia public QA. Generate no images.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
