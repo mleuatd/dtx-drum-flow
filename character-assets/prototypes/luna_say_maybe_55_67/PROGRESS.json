@@ -4,7 +4,7 @@
     "measureStart": 55,
     "measureEnd": 67
   },
-  "status": "DONE",
+  "status": "M55_67_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -39,10 +39,10 @@
     "M55-67": {
       "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35420829149",
-      "testedCommitSha": "8c8866a3871f88f4ccfff1b33b9be5eb0472ea46",
-      "artifact": "public-runtime-qa-35420829149",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35420829149",
+      "runId": "35420954442",
+      "testedCommitSha": "6680492169e1dcb6138afb5f19ca5283fc710330",
+      "artifact": "public-runtime-qa-35420954442",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35420954442",
       "measureStart": 55,
       "measureEnd": 67,
       "actions": [
@@ -63,16 +63,9 @@
         "LT:R",
         "LT:L",
         "BD+HH+SN:RF/R/L"
-      ],
-      "artifactId": 10576863064,
-      "passed": 70,
-      "failed": 0,
-      "runtimeScope": "1-67",
-      "screenshotsReviewed": true,
-      "visualReview": "PASS_NO_REGISTRATION_DRIFT_OR_MISSING_CHARACTER",
-      "persistenceStep": "PASS_AFTER_CONFLICT_SAFE_WORKFLOW_FIX"
+      ]
     }
   },
-  "updatedAt": "2026-09-19T13:27:00+09:00",
+  "updatedAt": "2026-09-19T04:20:22.373802+00:00",
   "blocker": null
 }
