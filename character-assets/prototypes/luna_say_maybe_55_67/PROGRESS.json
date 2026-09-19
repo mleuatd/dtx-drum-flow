@@ -4,7 +4,7 @@
     "measureStart": 55,
     "measureEnd": 67
   },
-  "status": "RUNTIME_QA_PENDING",
+  "status": "M55_67_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -35,7 +35,37 @@
     "stalePlanningMapNote": "ACTION_KEY_ASSET_MAP.json still labels some already-promoted M18-24/M47 actions as NEW_IMAGE_REQUIRED; do not generate replacements. Runtime inventory is authoritative for this reuse-only block."
   },
   "requiredNext": "Expand contiguous runtimeScope through M67 and run public PC/Xperia runtime QA. Generate no new images.",
-  "runtimeQaEvidence": {},
-  "updatedAt": "2026-09-19T13:18:00+09:00",
+  "runtimeQaEvidence": {
+    "M55-67": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35420829149",
+      "testedCommitSha": "8c8866a3871f88f4ccfff1b33b9be5eb0472ea46",
+      "artifact": "public-runtime-qa-35420829149",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35420829149",
+      "measureStart": 55,
+      "measureEnd": 67,
+      "actions": [
+        "BD+HH:RF/R",
+        "HH:R",
+        "HH+SN:R/L",
+        "SN:L",
+        "RC+SN:R/L",
+        "BD+RC:RF/R",
+        "FT+SN:R/L",
+        "HT:R",
+        "BD:RF",
+        "HT:L",
+        "RD:R",
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "SN:R",
+        "LT:R",
+        "LT:L",
+        "BD+HH+SN:RF/R/L"
+      ]
+    }
+  },
+  "updatedAt": "2026-09-19T04:17:38.764652+00:00",
   "blocker": null
 }
