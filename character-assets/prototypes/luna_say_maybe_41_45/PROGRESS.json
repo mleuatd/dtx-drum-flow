@@ -4,7 +4,7 @@
     "measureStart": 41,
     "measureEnd": 45
   },
-  "status": "RUNTIME_QA_PENDING",
+  "status": "M41_45_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -27,6 +27,24 @@
     "runtimeScopeAlreadyIncludesRange": true
   },
   "requiredNext": "Run public PC/Xperia runtime QA for M41-45. If PASS, mark block DONE and advance to M46 LT+SN:R/L source lock. Do not generate any M41-45 images.",
-  "runtimeQaEvidence": {},
-  "updatedAt": "2026-09-19T12:18:00+09:00"
+  "runtimeQaEvidence": {
+    "M41-45": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35418205815",
+      "testedCommitSha": "f7a5d48e1566cbed9ef3385f52cacd59dfd80834",
+      "artifact": "public-runtime-qa-35418205815",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35418205815",
+      "measureStart": 41,
+      "measureEnd": 45,
+      "actions": [
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD+HT:RF/R",
+        "HT:L"
+      ]
+    }
+  },
+  "updatedAt": "2026-09-19T03:20:17.418641+00:00",
+  "blocker": null
 }
