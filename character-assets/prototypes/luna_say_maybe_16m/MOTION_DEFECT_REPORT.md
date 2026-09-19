@@ -1,104 +1,63 @@
 # MOTION_DEFECT_REPORT
 
-Status: **IN PROGRESS**
+Status: **NUMERIC REPAIR SPEC V1 READY / MEASUREMENTS PENDING**
 
-## Restore point
+## Restore points
+- Image/runtime restore: `backup/pre-motion-qa-20260919-2138` @ `a4e3854449e292264192afa63469edf0fb5048af`
+- RepairSpec rewrite restore: `backup/pre-repairspec-v1-20260920-0508`
 
-Before this motion-quality sweep, the current known-good `main` was preserved as:
+## What changed
+All current active defects now use **RepairSpec V1**, a machine-readable repair contract. The previous narrative intent is retained under `legacyNarrative`, but repair execution is governed by numeric fields.
 
-- branch: `backup/pre-motion-qa-20260919-2138`
-- commit: `a4e3854449e292264192afa63469edf0fb5048af`
+A repair may not begin merely because the intended limb or visual symptom is known. It must first have source identity, pixel ROI, locked regions, relevant anchors, contact targets/tolerance, motion constraints, bbox/silhouette metrics, runtime timing, validation targets and rollback authority.
 
-Any later fix that makes the runtime worse should be reverted or reconciled against this restore point.
+## Numeric field meanings
+- `editableRoisPx`: the only source-pixel rectangles allowed to change.
+- `exceptionRoisPx`: explicit narrowly-scoped exceptions; empty by default.
+- `lockedReferenceRegions`: body/camera/stool regions that must retain registration.
+- `anchorPointsPx`: relevant joint, stick, foot, seat and head reference points.
+- `contactTargetsPx`: instrument target center + limb + role + measured tolerance.
+- `motionConstraints`: global zero-drift and registration limits.
+- `limbSpecificConstraints`: joint/contact/rebound angle and length limits for active limbs.
+- `staticBodyBoundingBoxes` / `activeLimbBoundingBoxes`: source-pixel boxes used for diff and registration checks.
+- `silhouetteMetrics`: alpha/centroid/IoU checks.
+- `runtimeTiming`: current authoritative phase timing converted to milliseconds.
+- `validation.measurableChecks`: machine-checkable PASS/FAIL targets.
 
-## Strategy
+## Unmeasured coordinates
+Unknown values are never guessed. They are represented as `null` with `NEEDS_MEASUREMENT` / `pending_measurement`. A defect remains non-executable until all numbers required for that repair are measured.
 
-Do not start by redrawing character assets. The order is:
+## ROI outside-change rule
+Default: `forbidOutsideEditableRoi = true`, `outsideRoiChangedPixelsAllowed = 0`. Camera, stool, inactive body/limb registration, scale and rotation also have a default allowed shift/drift of zero. If a physical overlap truly requires collateral pixels, an explicit measured `exceptionRoisPx` entry is required before editing.
 
-1. Review the existing whole-song runtime QA evidence from M1 through M148.
-2. Record only reproducible visual defects in `MOTION_DEFECT_BACKLOG.json`.
-3. Classify the cause before changing code, metadata, timing, contact points, or images.
-4. Decide the minimum fix.
-5. Apply one fix at a time.
-6. Re-run the same runtime QA evidence path.
-7. Keep only fixes that improve the target defect without introducing regression.
+## Contact error
+`INSTRUMENT_CONTACT_POINTS.json` supplies current contact centers (HH 190,390; SN 420,535; BD 735,650; HT 575,360; LT 885,455; FT 1165,535; RC 1215,145; RD 965,250). Its tolerance descriptions are currently non-numeric; therefore every `tolerancePx` stays `null` / `NEEDS_MEASUREMENT` until measured from fixed-drum composite evidence. No radius may be invented.
 
-## Existing QA foundation
+## Inactive-region shift
+Inactive region, camera anchor, stool and locked-body bbox shift target: **0 px**. Nonzero movement is a hard FAIL unless the region was first reclassified into an explicit active/exception ROI.
 
-The repository already contains live/public runtime QA history covering the song in measure blocks, including M1-4, M5-8, M9-16, M17, M18-24, M25-28, M29-40, M41-45, M46, M47, M48-53, M54, M55-67, M68, M69-104, M105-106, M107-135, M136, and M137-148.
+## Runtime timing authority
+Current `POSE_TRANSITION_RULES.json` maps to:
+- prep: 0 ms
+- hit: 180 ms
+- rebound: 100 ms (180→280 ms)
+- neutral recovery window: 280 ms
+- rapid-repeat maximum gap: 90 ms
 
-The latest recorded M137-148 public runtime result points to run `35443377688` and artifact `public-runtime-qa-35443377688`.
+## Candidate → formal promotion
+1. Source path/SHA verified.
+2. Required ROI/anchors/bboxes/tolerances measured.
+3. Candidate created without modifying formal PNG.
+4. Pixel diff satisfies zero-change constraints.
+5. Fixed-drum composite contact check passes.
+6. Same runtime QA event passes.
+7. Neighbor regression count is 0.
+8. PC evidence passes.
+9. Xperia-class portrait evidence passes.
+10. Only then promote candidate to formal.
 
-This means the next step is not to rebuild the screenshot system from scratch. The next step is to collect/review those existing artifacts consistently and convert visual findings into defect records.
-
-## Hard rules
-
-- Do not bulk-regenerate character PNGs.
-- Do not touch another terminal's active CLAIM.
-- Do not modify a formal PNG until a specific defect has a decided image-level fix.
-- Prefer metadata/runtime/timing/contact fixes when the image itself is not the root cause.
-- If an image edit is necessary, use the existing image-edit master rules and preserve locked body/camera/stool regions.
-- Regressions roll back.
-
-
-## Reproducible repair recipe rule
-
-Every defect record must now include a `repairSpec` **before any repair begins**.
-
-A repairSpec is not a vague note such as "make the motion natural" or "fix the arm." It must be sufficiently explicit that a later AI/terminal can execute the same intent without guessing.
-
-Each repairSpec must state:
-
-- exact source authority: formal path + SHA256 before image work,
-- what is absolutely locked,
-- what is allowed to change,
-- the desired target state,
-- numeric/contact/timing requirements where available,
-- ordered edit steps,
-- PASS/FAIL validation,
-- forbidden strategies,
-- rollback point,
-- the evidence/reason for choosing that repair.
-
-If any of those are unknown, mark the repairSpec `NEEDS_MEASUREMENT` and gather the missing measurement before editing.
-
-### Language rule
-
-Avoid ambiguous wording such as:
-
-- "make it look better",
-- "move it naturally",
-- "fix the body",
-- "match the original",
-- "adjust as needed".
-
-Replace it with explicit scope, for example:
-
-> Preserve camera, head, torso, right arm, both legs and stool. Only the left upper arm, elbow, forearm, hand and left stick may change. At hit, the stick tip must reach the authoritative SN contact. At rebound, the same arm must move away from contact while shoulder/body/stool remain registered to neutral. No formal overwrite until the same runtime screenshot event passes again.
-
-The backlog is therefore both:
-
-1. a defect list, and
-2. the future executable repair instruction set.
-
-When a visual problem is added, add its reproducible repair recipe at the same time. Do not accumulate a large list of defects with unspecified future fixes.
-
-
-## Full M1-M148 sweep completion
-
-The current defect-discovery pass is now complete across M1-M148 using the existing final/live/public runtime QA evidence for each measure block.
-
-### Result
-
-- normalized action families reviewed: **30**
-- active repair targets: **15**
-- action families with no current repair required: **15**
-- every active target has a `repairSpec`
-- current formal PNGs remain unchanged by this sweep
-- rollback authority remains `backup/pre-motion-qa-20260919-2138` at `a4e3854449e292264192afa63469edf0fb5048af`
-
-### Repair order
-
+## Fix order
+The existing order remains authoritative because it stabilizes reusable base actions before dependent combos:
 1. SN:L
 2. HH:R
 3. BD:RF
@@ -115,11 +74,17 @@ The current defect-discovery pass is now complete across M1-M148 using the exist
 14. BD+HT:RF/R
 15. BD+RC+SN:RF/R/L
 
-This order prioritizes reusable base actions first, then high-frequency combos, then lower-frequency multi-limb combos. Do not skip directly to a lower-priority combo when an upstream base registration rule is still unresolved unless the higher-priority issue is technically blocked.
+## Repair execution flow
+1. Select defect.
+2. Read RepairSpec.
+3. Verify source SHA.
+4. Verify/measure ROI, anchors and contacts.
+5. Create candidate.
+6. Fixed-drum composite QA.
+7. Runtime QA.
+8. Neighbor regression QA.
+9. PASS → promote.
+10. FAIL → rollback and update measurements/spec.
 
-### Important exclusions
-
-- The apparently large M17 FT:L hit/rebound screenshot difference was an overlapped next-event capture (the rebound screenshot was already showing the following BD+RC hit). It is not an FT:L asset defect.
-- SN:R has a historically discontinuous rebound PNG, but the runtime deliberately holds the approved SN:R hit image during the short rebound phase while retaining `phase=rebound`; final Web QA passed. Treat this as an existing mitigation, not an active defect.
-
-The backlog is now the executable repair authority: process `fixOrder` from top to bottom, fill missing measurements/SHA/contact coordinates, create candidate-only repairs, re-run the same Web QA event, and promote only after regression-free PASS.
+## Current completion state
+The **schema rewrite is complete for all active defects**, but actual geometry/tolerance measurements are intentionally not fabricated. Therefore each active defect remains `NEEDS_MEASUREMENT` until its null ROI/anchor/bbox/contact-tolerance fields are populated. Formal PNGs are unchanged by this specification rewrite.
