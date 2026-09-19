@@ -4,7 +4,7 @@
     "measureStart": 25,
     "measureEnd": 32
   },
-  "status": "BLOCKED_EXTERNAL_HT_R_EDIT",
+  "status": "BLOCKED_EXTERNAL_HT_R_APPROVED_LIMB_PATCH_REQUIRED",
   "sourceOfTruth": "GitHub main",
   "analysis": {
     "combinedRange": "M25-40",
@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "Retry HT:R only when a true local image edit can preserve the locked neutral and modify only right arm/hand/stick. Do not reuse edit_op=null generations or local prototypes attempt06/07/08. After HT:R PASS/formal, complete M25-28 runtime/block/public QA; only then start BD+HT.",
-  "updatedAt": "2026-09-19T10:02:00+09:00",
+  "requiredNext": "HT:R only: retry-controller decision is USE_APPROVED_LIMB_PATCH with hardStopSameStrategy=true. Do not repeat long-stick, LT:R forward-anchor retarget, raster cleanup, or edit_op=null generation. Resume only with a genuinely registered approved right-arm/hand/stick patch compatible with locked neutral or a true local image edit. RC:R, FT+SN:R/L and HT:L remain formal; runtime scope must not expand to M25-28 until HT:R passes.",
+  "updatedAt": "2026-09-19T10:10:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -170,9 +170,17 @@
   "blocker": {
     "type": "BLOCKED_EXTERNAL",
     "actionKey": "HT:R",
-    "detail": "Required local right-arm/right-hand/right-stick edit could not be produced safely in this session. Two image-edit attempts returned edit_op=null and unrelated new images; deterministic local prototypes attempt06/07/08 failed visual QA. No failed candidate was persisted or formalized.",
-    "safeState": "RC:R and FT+SN:R/L are formal PASS and runtime-mapped in inventory; HT:L remains formal. runtimeScope remains M1-24; M25-28 was not exposed with a neutral fallback.",
-    "resumeFrom": "character-assets/prototypes/luna_say_maybe_25_32/transactions/ht_r.json"
+    "retryDecision": "USE_APPROVED_LIMB_PATCH",
+    "retryDecisionPath": "character-assets/prototypes/luna_say_maybe_25_32/RETRY_DECISION_HT_R.json",
+    "hardStopSameStrategy": true,
+    "latestCandidate": {
+      "hit": "character-assets/review-candidates/m25_40/ht_r_hit_attempt04.png",
+      "hitSha256": "824672a7a271e230a0e0f19f99bc4f4cca420ea6052625e17a489d4543fbce21",
+      "rebound": "character-assets/review-candidates/m25_40/ht_r_rebound_attempt04.png",
+      "reboundSha256": "0147a2d95f88b099fa62d6a61ef3d49716a9e4a925c98cac500e28bef667d5af",
+      "visualQA": "FAIL_DUPLICATE_STICK_DETACHED_HT_SHAFT"
+    },
+    "safeState": "RC:R and FT+SN:R/L formal PASS; HT:L formal PASS; HT:R not formal; BD+HT still source-locked; no M25-28 runtime expansion."
   },
   "infrastructurePreparation": {
     "status": "READY",
@@ -191,7 +199,7 @@
   },
   "production": {
     "htR": {
-      "status": "BLOCKED_EXTERNAL_EDIT_REQUIRED",
+      "status": "BLOCKED_EXTERNAL_APPROVED_LIMB_PATCH_REQUIRED",
       "builder": "tools/build-m25-40-candidates.py",
       "workflow": ".github/workflows/build-m25-40-character-candidates.yml",
       "method": "same baseline-preserving deterministic local right-stick edit pattern that passed M17 LT:R live QA",
@@ -242,7 +250,13 @@
           "result": "FAIL",
           "reason": "broader removal left visible old-stick/hand artifacts; visual QA fail"
         }
-      ]
+      ],
+      "attempt04HitPath": "character-assets/review-candidates/m25_40/ht_r_hit_attempt04.png",
+      "attempt04ReboundPath": "character-assets/review-candidates/m25_40/ht_r_rebound_attempt04.png",
+      "attempt04HitSha256": "824672a7a271e230a0e0f19f99bc4f4cca420ea6052625e17a489d4543fbce21",
+      "attempt04ReboundSha256": "0147a2d95f88b099fa62d6a61ef3d49716a9e4a925c98cac500e28bef667d5af",
+      "attempt04VisualQA": "FAIL_DUPLICATE_STICK_DETACHED_HT_SHAFT",
+      "retryDecision": "USE_APPROVED_LIMB_PATCH"
     },
     "htL": {
       "status": "FORMAL_PROMOTED",
@@ -323,15 +337,15 @@
     "reason": "M29 introduces BD+HT:RF/R and HT:L, taking cumulative new actions from 3 to 5."
   },
   "resumeCheckpoint": {
-    "checkedAt": "2026-09-19T10:02:00+09:00",
-    "latestMainObserved": "f5f8d246690cf7b43ed20352f14af80c84ba621a",
+    "checkedAt": "2026-09-19T10:10:00+09:00",
+    "latestMainObserved": "6ea685c368618853de212b4491c40d12c70356e8",
     "formalPng": "6/10",
-    "ftSnRL": "FORMAL PASS attempt04; Dropbox exact bytes saved; inventory mapping ready",
-    "rcR": "FORMAL PASS attempt03/02; Dropbox exact bytes saved; inventory mapping ready",
+    "ftSnRL": "FORMAL PASS attempt04; preserve",
+    "rcR": "FORMAL PASS; preserve",
     "htL": "FORMAL PASS; preserve",
-    "htR": "BLOCKED_EXTERNAL true local arm edit required; no accepted candidate",
-    "bdHt": "SOURCE_LOCK; do not start until HT:R formal + M25-28 checkpoint",
-    "runtimeScope": "M1-24 unchanged"
+    "htR": "attempt04 exists on main but fixed-drum QA FAIL; retry-controller requires approved limb patch; same strategy hard-stop",
+    "bdHt": "SOURCE_LOCK; do not start",
+    "runtimeScope": "must remain below M25 until HT:R formal/checkpoint"
   },
   "visualQA": {
     "checkedAt": "2026-09-19T08:55:00+09:00",
