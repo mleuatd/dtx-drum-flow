@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T08:42:00+09:00",
+  "updatedAt": "2026-09-20T08:43:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4488,7 +4488,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4517,7 +4517,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:34:00+09:00",
+      "updatedAt": "2026-09-20T08:43:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "FIXED_PENDING_QA",
@@ -5363,14 +5363,16 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_POST_REPAIR_RUNTIME_QA",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Full transition strip reviewed at full composition: seated anatomy remains coherent across neutral→hit→rebound→neutral; right arm/stick and RF motion remain connected; no stray waist/seat line, stick break, duplicate limb, or fixed-drum contradiction observed. Static visual gates PASS. Promotion remains blocked until post-repair public runtime transition QA passes.",
+        "reviewedAt": "2026-09-20T08:43:00+09:00",
+        "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/bd_rd_rf_r_neutral_hit_rebound_neutral.png"
       },
       "claim": null,
       "decisionLog": [
@@ -5378,6 +5380,11 @@
           "at": "2026-09-20T08:34:00+09:00",
           "decision": "BACK_BATCH_03_HOLD",
           "detail": "Method4 hit/rebound automated QA both PASS; mandatory anatomy/linework/fixed-drum visual PASS evidence remains absent."
+        },
+        {
+          "at": "2026-09-20T08:43:00+09:00",
+          "decision": "BACK_VISUAL_REVIEW_PASS_RUNTIME_PENDING",
+          "detail": "Actual artifact image reviewed (run 35476033283 / artifact 10594885001). Anatomy, linework, and fixed-drum composite PASS for hit/rebound. Keep promotion blocked pending post-repair runtime transition QA."
         }
       ]
     },
@@ -7187,7 +7194,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:27:00+09:00",
+      "updatedAt": "2026-09-20T08:43:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -8070,14 +8077,16 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_MANUAL_VISUAL_GATE",
-        "linework": "PENDING_MANUAL_VISUAL_GATE",
-        "fixedDrumComposite": "PENDING_MANUAL_VISUAL_GATE",
-        "runtimeTransition": "BLOCKED_BY_VISUAL_GATE",
+        "humanAnatomy": "FAIL_REBOUND_RIGHT_HAND_STICK",
+        "linework": "FAIL_REBOUND_STICK_CONTINUITY",
+        "fixedDrumComposite": "FAIL_RD_REBOUND_SEMANTICS",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "IN_FIX",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Actual transition strip reviewed. Rebound right-hand/RD area collapses into a rounded disconnected-looking hand/stick shape; the stick is not continuously readable from grip to tip and RD rebound semantics are unclear. HOLD for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
+        "reviewedAt": "2026-09-20T08:43:00+09:00",
+        "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png"
       },
       "claim": null,
       "decisionLog": [
@@ -8085,6 +8094,11 @@
           "at": "2026-09-20T08:27:00+09:00",
           "decision": "BACK_BATCH_02_HOLD",
           "detail": "RD+SN hit required method4 after method2/method3 failed RD local-contact preservation; method4 hit passes and was promoted. Rebound has no corresponding method4 candidate/PASS evidence in the repair workspace, and mandatory visual gates remain pending. Hold with exact failure history for later continuation."
+        },
+        {
+          "at": "2026-09-20T08:43:00+09:00",
+          "decision": "BACK_VISUAL_REVIEW_HOLD_CONCRETE",
+          "detail": "Actual artifact image reviewed (run 35476033283 / artifact 10594885001). Rebound fails stick-hand continuity and RD rebound readability. Next permitted repair: local right-hand/stick ROI only, using current method4 hit as reference; do not redraw whole character or alter left SN arm/static seated base."
         }
       ]
     },
