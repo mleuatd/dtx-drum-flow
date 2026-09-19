@@ -1,14 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T06:13:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
     "TERM_B": "BACK",
     "claimBeforeEdit": true,
-    "noForcePush": true
+    "noForcePush": true,
+    "visualIntegrityGateRequired": true,
+    "verifiedRequiresHumanAnatomyQa": true,
+    "verifiedRequiresLineworkQa": true,
+    "verifiedRequiresFixedDrumCompositeQa": true,
+    "rulesFile": "character-assets/prototypes/luna_say_maybe_16m/VISUAL_INTEGRITY_QA_RULES.md"
   },
   "baseline": {
     "path": "character-assets/layers/character/base/neutral.png",
@@ -166,7 +171,7 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "ready",
+      "qaState": "visual-integrity-pending",
       "brushupStatus": "CLAIMED_RETRYING",
       "terminalId": "TERM-A",
       "claimState": "CLAIMED",
@@ -186,7 +191,19 @@
           "nextPermittedStrategy": "Explicit exact-source edit target; character-only transparent layer; no labels/panels/drum pixels.",
           "timestamp": "2026-09-19T18:38:00+09:00"
         }
-      ]
+      ],
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "CLAIMED_RETRYING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 2,
@@ -318,15 +335,27 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:24:00+09:00",
       "repairIssueId": "MOTION-001",
       "repairMode": "deterministic_neutral_locked_active_limb_composite",
       "completedAt": "2026-09-20T05:31:00+09:00",
-      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json"
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json",
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 3,
@@ -384,7 +413,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 4,
@@ -442,7 +483,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 5,
@@ -549,14 +602,26 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_r_hit_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06023486
+      "motionRepairChangedRatioVsNeutral": 0.06023486,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 6,
@@ -663,14 +728,26 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_r_rebound_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06409425
+      "motionRepairChangedRatioVsNeutral": 0.06409425,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 7,
@@ -745,14 +822,33 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rf_hit_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04917814
+      "motionRepairChangedRatioVsNeutral": 0.04917814,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true,
+        "priority": "HIGHEST",
+        "focus": [
+          "pelvis-thigh-knee-ankle-foot-boot continuity",
+          "seat overlap",
+          "RF bass-pedal semantics",
+          "fixed-drum composite"
+        ]
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 8,
@@ -827,14 +923,33 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_HUMAN_ANATOMY_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rf_rebound_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04466439
+      "motionRepairChangedRatioVsNeutral": 0.04466439,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true,
+        "priority": "HIGHEST",
+        "focus": [
+          "pelvis-thigh-knee-ankle-foot-boot continuity",
+          "seat overlap",
+          "RF bass-pedal semantics",
+          "fixed-drum composite"
+        ]
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 9,
@@ -899,14 +1014,26 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_hit_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.05741583
+      "motionRepairChangedRatioVsNeutral": 0.05741583,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 10,
@@ -971,14 +1098,26 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_rebound_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.05115394
+      "motionRepairChangedRatioVsNeutral": 0.05115394,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 11,
@@ -1009,14 +1148,26 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_hit_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.01122969
+      "motionRepairChangedRatioVsNeutral": 0.01122969,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 12,
@@ -1047,14 +1198,26 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_r_rebound_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.04430319
+      "motionRepairChangedRatioVsNeutral": 0.04430319,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 13,
@@ -1082,14 +1245,26 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_sn_rf_l_hit_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04645068
+      "motionRepairChangedRatioVsNeutral": 0.04645068,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 14,
@@ -1117,14 +1292,26 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_sn_rf_l_rebound_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04643796
+      "motionRepairChangedRatioVsNeutral": 0.04643796,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 15,
@@ -1157,14 +1344,26 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rc_sn_r_l_hit_refresh_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.07070907
+      "motionRepairChangedRatioVsNeutral": 0.07070907,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 16,
@@ -1197,14 +1396,26 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rc_sn_r_l_rebound_refresh_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06827796
+      "motionRepairChangedRatioVsNeutral": 0.06827796,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 17,
@@ -1241,7 +1452,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 18,
@@ -1278,7 +1501,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 19,
@@ -1307,7 +1542,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 20,
@@ -1336,7 +1583,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 21,
@@ -1364,7 +1623,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 22,
@@ -1392,7 +1663,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 23,
@@ -1418,7 +1701,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 24,
@@ -1444,7 +1739,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 25,
@@ -1470,7 +1777,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 26,
@@ -1496,7 +1815,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 27,
@@ -1522,14 +1853,26 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rd_rf_r_hit_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.05479521
+      "motionRepairChangedRatioVsNeutral": 0.05479521,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 28,
@@ -1555,14 +1898,26 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rd_rf_r_rebound_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.05763904
+      "motionRepairChangedRatioVsNeutral": 0.05763904,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 29,
@@ -1588,14 +1943,26 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_hit_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.02130264
+      "motionRepairChangedRatioVsNeutral": 0.02130264,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 30,
@@ -1621,14 +1988,26 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_sn_r_l_rebound_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06521792
+      "motionRepairChangedRatioVsNeutral": 0.06521792,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 31,
@@ -1731,14 +2110,26 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_hh_rf_r_hit_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04620331
+      "motionRepairChangedRatioVsNeutral": 0.04620331,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 32,
@@ -1841,14 +2232,26 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_hh_rf_r_rebound_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04703764
+      "motionRepairChangedRatioVsNeutral": 0.04703764,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 33,
@@ -1941,14 +2344,26 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_hit_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06537817
+      "motionRepairChangedRatioVsNeutral": 0.06537817,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 34,
@@ -2041,14 +2456,26 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_rebound_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06830085
+      "motionRepairChangedRatioVsNeutral": 0.06830085,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 35,
@@ -2069,7 +2496,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 36,
@@ -2090,7 +2529,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "live-qa-passed",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 37,
@@ -2116,7 +2567,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 38,
@@ -2142,7 +2605,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 39,
@@ -2163,7 +2638,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 40,
@@ -2184,7 +2671,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 41,
@@ -2205,7 +2704,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 42,
@@ -2226,7 +2737,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 43,
@@ -2250,14 +2773,26 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_hit_refresh_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06021196
+      "motionRepairChangedRatioVsNeutral": 0.06021196,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 44,
@@ -2281,14 +2816,26 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T05:45:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_qa.json",
-      "motionRepairChangedRatioVsNeutral": 0.06724904
+      "motionRepairChangedRatioVsNeutral": 0.06724904,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 45,
@@ -2306,14 +2853,26 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method3/bd_ht_rf_r_hit_refresh_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04646149
+      "motionRepairChangedRatioVsNeutral": 0.04646149,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 46,
@@ -2331,14 +2890,26 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method3/bd_ht_rf_r_rebound_refresh_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.05648167
+      "motionRepairChangedRatioVsNeutral": 0.05648167,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 47,
@@ -2359,7 +2930,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 48,
@@ -2380,7 +2963,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 49,
@@ -2402,14 +2997,26 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_hh_sn_rf_r_l_hit_refresh_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04679917
+      "motionRepairChangedRatioVsNeutral": 0.04679917,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 50,
@@ -2431,14 +3038,26 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_hh_sn_rf_r_l_rebound_refresh_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.04756736
+      "motionRepairChangedRatioVsNeutral": 0.04756736,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 51,
@@ -2457,7 +3076,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 52,
@@ -2476,7 +3107,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 53,
@@ -2493,14 +3136,26 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_sn_rf_r_l_hit_refresh_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.05093073
+      "motionRepairChangedRatioVsNeutral": 0.05093073,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 54,
@@ -2517,14 +3172,26 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "ready",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "visual-integrity-pending",
+      "brushupStatus": "NEEDS_VISUAL_REVIEW",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_sn_rf_r_l_rebound_refresh_qa.json",
       "completedAt": "2026-09-20T05:45:00+09:00",
-      "motionRepairChangedRatioVsNeutral": 0.05143692
+      "motionRepairChangedRatioVsNeutral": 0.05143692,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 55,
@@ -2544,7 +3211,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 56,
@@ -2564,7 +3243,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 57,
@@ -2585,7 +3276,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 58,
@@ -2606,7 +3309,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 59,
@@ -2626,7 +3341,19 @@
       "brushupStatus": "PENDING",
       "terminalId": null,
       "claimState": "UNCLAIMED",
-      "claimedAt": null
+      "claimedAt": null,
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "PENDING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
     },
     {
       "order": 60,
@@ -2642,7 +3369,7 @@
         141
       ],
       "usageCount": 4,
-      "qaState": "ready",
+      "qaState": "visual-integrity-pending",
       "brushupStatus": "CLAIMED_RETRYING",
       "terminalId": "TERM-B",
       "claimState": "CLAIMED",
@@ -2662,7 +3389,40 @@
           "nextPermittedStrategy": "Materialize exact GitHub source PNG plus approved neutral into an image-edit-capable conversation target; edit character-only pixels locally with no labels/panels/drum pixels.",
           "timestamp": "2026-09-19T18:45:00+09:00"
         }
-      ]
+      ],
+      "visualIntegrityQa": {
+        "humanAnatomy": "PENDING_REVIEW",
+        "linework": "PENDING_REVIEW",
+        "fixedDrumComposite": "PENDING_REVIEW",
+        "runtimeTransition": "PENDING_REVIEW",
+        "promotionBlocked": true,
+        "introducedAt": "2026-09-20T06:13:00+09:00",
+        "priorBrushupStatus": "CLAIMED_RETRYING",
+        "priorQaState": "ready",
+        "historicalEvidencePreserved": true
+      },
+      "reviewClaimState": "UNCLAIMED"
+    }
+  ],
+  "statusPolicy": {
+    "introducedAt": "2026-09-20T06:13:00+09:00",
+    "preserveHistoricalEvidence": true,
+    "statuses": [
+      "PENDING",
+      "CLAIMED_RETRYING",
+      "NEEDS_VISUAL_REVIEW",
+      "NEEDS_HUMAN_ANATOMY_QA",
+      "NEEDS_LINEWORK_QA",
+      "NEEDS_FIXED_DRUM_COMPOSITE_QA",
+      "MOTION_REPAIR_VERIFIED"
+    ],
+    "promotionRule": "MOTION_REPAIR_VERIFIED is allowed only after anatomy, linework, fixed-drum composite, and runtime transition QA all PASS."
+  },
+  "decisionLog": [
+    {
+      "at": "2026-09-20T06:13:00+09:00",
+      "decision": "REOPEN_VERIFIED_TARGETS_FOR_VISUAL_INTEGRITY_QA",
+      "detail": "Historical candidate and QA evidence retained. Previously verified targets are not promotion-eligible until anatomy, linework, fixed-drum composite, and runtime-transition checks pass. BD:RF receives highest-priority anatomy review."
     }
   ]
 }
