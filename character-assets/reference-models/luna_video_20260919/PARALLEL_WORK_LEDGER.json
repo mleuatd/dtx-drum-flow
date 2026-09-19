@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:55:00+09:00",
+  "updatedAt": "2026-09-19T20:59:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -290,10 +290,10 @@
       "category": "dropbox_source_bridge",
       "description": "Resolve and verify canonical Dropbox bridge files for runtime-pose source images (neutral, SN:L hit, SN:L rebound, fixed drum) using formal GitHub SHA256 as authority. Record Dropbox file IDs/paths/preview links/download-link availability and byte-verification disposition. Do not edit or promote images.",
       "owner": "TERM-B",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "claimedAt": "2026-09-19T20:55:00+09:00",
       "startedAt": "2026-09-19T20:55:00+09:00",
-      "completedAt": null,
+      "completedAt": "2026-09-19T20:59:00+09:00",
       "paths": [
         "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
         "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**"
@@ -308,7 +308,8 @@
         "character-assets/edit-workspaces/**"
       ],
       "handoffNote": "CLAIM first. Use GitHub formal SHA256 as sole identity authority, not filename similarity. Dropbox is a transport/bridge only. Record exact matches and whether preview/download/fetch can expose bytes to downstream tools. No image edits or formal overwrite.",
-      "lastCommit": null
+      "lastCommit": "13ed0f7af1a56f99e98f3155c1ec164d53a8b186",
+      "result": "Resolved canonical Dropbox bridge IDs/paths for neutral, SN:L hit/rebound, fixed drum; confirmed preview/download availability and recorded byte-verification disposition. No images edited/promoted."
     }
   ]
 }
