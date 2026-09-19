@@ -64,9 +64,22 @@ jobs:
             report.append(f"{label}\talpha_bbox={bbox}\tdiff_bbox={db}")
           out=Path("visual-qa")
           out.mkdir(exist_ok=True)
+          full_composites=out/"full_composites"
+          character_only=out/"character_only"
+          full_composites.mkdir(exist_ok=True)
+          character_only.mkdir(exist_ok=True)
           sheet.save(out/"luna_character_contact_sheet.jpg",quality=92)
           drum.save(out/"drum_base.png")
           neutral.save(out/"neutral.png")
+          import re
+          for label,p in frames:
+            ch=Image.open(root/p).convert("RGBA")
+            slug=re.sub(r"[^A-Za-z0-9]+","_",label).strip("_").lower()
+            comp=Image.alpha_composite(drum,ch)
+            bg=Image.new("RGBA",comp.size,(250,250,250,255))
+            Image.alpha_composite(bg,comp).save(full_composites/f"{slug}.png")
+            char_bg=Image.new("RGBA",ch.size,(250,250,250,255))
+            Image.alpha_composite(char_bg,ch).save(character_only/f"{slug}.png")
           (out/"metrics.txt").write_text("\n".join(report),encoding="utf-8")
           print("\n".join(report))
           PY
