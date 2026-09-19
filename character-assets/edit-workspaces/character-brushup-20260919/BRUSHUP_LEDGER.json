@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T09:12:00+09:00",
+  "updatedAt": "2026-09-20T09:14:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -2764,8 +2764,8 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2773,17 +2773,38 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.02130264,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:43:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476033283,
+          "artifactId": 10594885001,
+          "evidence": "transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png"
+        },
+        "failReasons": [
+          "Pair promotion blocked because RD+SN:R/L rebound fails right-hand/stick continuity and RD rebound semantics."
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewCompletedAt": "2026-09-20T09:14:00+09:00",
+      "holdReason": "Synchronized from MOTION_DEFECT_BACKLOG: rebound right-hand/RD stick continuity is broken and RD rebound semantics are unreadable. Hold for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-01-SYNC",
+        "at": "2026-09-20T09:14:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 30,
@@ -2809,8 +2830,8 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "visual-integrity-pending",
-      "brushupStatus": "NEEDS_VISUAL_REVIEW",
+      "qaState": "visual-integrity-hard-fail-hold",
+      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2818,17 +2839,41 @@
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/rd_sn_r_l_rebound_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.06521792,
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "promotionBlocked": true,
         "introducedAt": "2026-09-20T06:13:00+09:00",
         "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
         "priorQaState": "ready",
-        "historicalEvidencePreserved": true
+        "historicalEvidencePreserved": true,
+        "reviewedAt": "2026-09-20T08:43:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35476033283,
+          "artifactId": 10594885001,
+          "evidence": "transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png"
+        },
+        "failReasons": [
+          "rebound right-hand/RD area reads as rounded/disconnected hand-stick shape",
+          "stick is not continuously readable from grip to tip",
+          "RD rebound semantics are unclear",
+          "next permitted repair is local right-hand/stick ROI only"
+        ]
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "COMPLETED",
+      "reviewCompletedAt": "2026-09-20T09:14:00+09:00",
+      "holdReason": "Synchronized from MOTION_DEFECT_BACKLOG: rebound right-hand/RD stick continuity is broken and RD rebound semantics are unreadable. Hold for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
+      "lastBatchReview": {
+        "batchId": "BACK-VISUAL-REVIEW-01-SYNC",
+        "at": "2026-09-20T09:14:00+09:00",
+        "machineEvidenceChecked": true,
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
+        "outcome": "HOLD_VISUAL_INTEGRITY"
+      }
     },
     {
       "order": 31,
