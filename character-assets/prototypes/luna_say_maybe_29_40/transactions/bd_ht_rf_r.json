@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+HT:RF/R transaction for Luna M29-40",
-  "status": "SOURCE_LOCK",
+  "status": "FORMAL_PROMOTED_RUNTIME_M40_QA_RUNNING",
   "actionKey": "BD+HT:RF/R",
   "scope": {
     "measureStart": 29,
@@ -9,7 +9,8 @@
   },
   "parent": {
     "githubPath": "character-assets/layers/character/ht/hit_r_refresh.png",
-    "sha256": "PENDING_HT_R_FORMAL_APPROVAL",
+    "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+    "reboundSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
     "width": 1448,
     "height": 1086
   },
@@ -30,30 +31,39 @@
   ],
   "phases": {
     "hit": {
-      "stage": "SOURCE_LOCK",
-      "attempt": 0,
+      "stage": "FORMAL",
+      "attempt": 1,
       "dropboxPath": null,
-      "sha256": null,
-      "qaStatus": "WAITING_UPSTREAM_HT_R_APPROVAL",
+      "sha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
+      "qaStatus": "VISUAL_QA_PASS",
       "formalPath": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
-      "formalCommit": null
+      "formalCommit": "3c8ec86298fc7ab465b92fd384998f18d67906c6"
     },
     "rebound": {
-      "stage": "SOURCE_LOCK",
-      "attempt": 0,
+      "stage": "FORMAL",
+      "attempt": 1,
       "dropboxPath": null,
-      "sha256": null,
-      "qaStatus": "WAITING_UPSTREAM_HT_R_APPROVAL",
+      "sha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
+      "qaStatus": "VISUAL_QA_PASS",
       "formalPath": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
-      "formalCommit": null
+      "formalCommit": "3c8ec86298fc7ab465b92fd384998f18d67906c6"
     }
   },
   "qa": {
-    "static": "PENDING",
-    "compositeVisual": "PENDING",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING"
+    "static": "RUNNING_M40",
+    "compositeVisual": "PASS_ACTUAL_ARTIFACT_INSPECTED",
+    "runtimePC": "RUNNING",
+    "runtimeXperia": "RUNNING",
+    "screenshots": "RUNNING",
+    "sourceBuildRun": 35412919595,
+    "sourceArtifact": 10573729312
   },
-  "updatedAt": "2026-09-19T08:42:00+09:00"
+  "updatedAt": "2026-09-19T10:44:00+09:00",
+  "dropbox": {
+    "status": "BLOCKED_EXTERNAL_SECRET_MISSING",
+    "mirrorRun": 35413331029,
+    "reason": "GitHub Actions DROPBOX_ACCESS_TOKEN secret is absent; exact formal bytes remain safe in GitHub main. Do not regenerate."
+  },
+  "lastCompletedStep": "BD+HT visual QA PASS, formal promotion, inventory mapping, runtimeScope expanded through M40, manifest synchronized",
+  "requiredNext": "Wait for M40 validate/deploy/runtime QA on commit 09af34163513f421e7a2b1af460800c55488a4cb. If runtime QA passes, inspect PC/Xperia screenshots and frame transitions, then record M29-40 live QA. Dropbox mirror remains independent and must use connector/external authorized token without regenerating bytes."
 }
