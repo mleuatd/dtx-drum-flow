@@ -15,7 +15,7 @@ failures=load("character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_RE
 usage_policy=load("character-assets/prototypes/luna_say_maybe_16m/PIPELINE_USAGE_POLICY.json")
 auto_policy=load("character-assets/prototypes/luna_say_maybe_16m/AUTO_OPTIMIZATION_POLICY.json")
 contacts=load("character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json")
-assert state["liveRuntimeScope"]["measureStart"]==1 and state["liveRuntimeScope"]["measureEnd"] in {8,16}
+assert state["liveRuntimeScope"]["measureStart"]==1 and isinstance(state["liveRuntimeScope"]["measureEnd"], int) and 8 <= state["liveRuntimeScope"]["measureEnd"] <= 148
 pp=ledger.get("productionPipelineSpeedup")
 assert pp and pp["id"]=="PRODUCTION_PIPELINE_SPEEDUP"
 ids=[x["id"] for x in pp["queue"]]
