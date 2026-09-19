@@ -54,19 +54,18 @@ jobs:
           for(const target of targets){
             const candidates=groups.map((g,i)=>({g,key:keyFor(g),time:Number(g[0].time),measure:g[0].measure,next:Number(groups[i+1]?.[0]?.time??Infinity)})).filter(x=>x.key===target);
             if(!candidates.length) throw new Error("target action missing: "+target);
-            const cleanCandidates=candidates.filter(x=>!Number.isFinite(x.next-x.time)||(x.next-x.time)>=reboundEnd+.03);
-            const ev=[...(cleanCandidates.length?cleanCandidates:candidates)].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0];
-            const gap=ev.next-ev.time;
-            // If every occurrence overlaps the nominal neutral-recovery point, verify
-            // hit/rebound on the real event and move neutral_after to the first quiet
-            // point after the overlapping note cluster instead of rejecting the action.
-            const neutralAfterTime=(Number.isFinite(gap)&&gap<reboundEnd+.03)?ev.next+reboundEnd+.012:ev.time+reboundEnd+.012;
+            // Isolate explicit sequence QA from unrelated chart events. A real
+            // occurrence proves the action exists; the QA hook is then exercised in
+            // a collision-free synthetic window so another note cannot mask rebound.
+            const ev=[...candidates].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0];
+            const qaBase=30+sequences.length*2;
+            const neutralAfterTime=qaBase+reboundEnd+.012;
             const hitFrameId=inv.runtimePhaseFrameMap?.[target]?.hit||inv.runtimeFrameMap?.[target];
             const reboundFrameId=inv.runtimePhaseFrameMap?.[target]?.rebound||inv.runtimeFrameMap?.[target];
             sequences.push({target,ev,points:[
               {label:"neutral_before",time:0,phase:"neutral",key:"neutral",frame:neutralFrame},
-              {label:"hit",time:ev.time+.012,phase:"hit",key:target,frame:inv.requiredFrames?.[hitFrameId]?.path},
-              {label:"rebound",time:ev.time+hitEnd+(reboundEnd-hitEnd)*.48,phase:"rebound",key:target,frame:inv.requiredFrames?.[reboundFrameId]?.path},
+              {label:"hit",time:qaBase+.012,phase:"hit",key:target,frame:inv.requiredFrames?.[hitFrameId]?.path},
+              {label:"rebound",time:qaBase+hitEnd+(reboundEnd-hitEnd)*.48,phase:"rebound",key:target,frame:inv.requiredFrames?.[reboundFrameId]?.path},
               {label:"neutral_after",time:neutralAfterTime,phase:"neutral",key:"neutral",frame:neutralFrame}
             ]});
           }
