@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T13:22:00+09:00",
+  "updatedAt": "2026-09-19T13:27:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -10,8 +10,8 @@
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
     "formalAndMappedThroughMeasure": 67,
-    "lastLiveQaConfirmedThroughMeasure": 54,
-    "note": "M55-67 reuse-only mappings verified and runtimeScope expanded to 1-67; public QA pending."
+    "lastLiveQaConfirmedThroughMeasure": 67,
+    "note": "M55-67 reuse-only public PC/Xperia QA passed: run 35420829149 / artifact 10576863064, 70/70 PASS. Next character task is M68 BD+RC+SN:RF/R/L."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -133,25 +133,29 @@
       "order": 7,
       "measures": "55-67",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "RUNNING",
+      "status": "DONE",
       "newImagePairs": [],
-      "note": "194 notes / 129 groups; all 17 actionKeys already exist in runtimePhaseFrameMap. Public PC/Xperia QA pending.",
+      "note": "194 notes / 129 groups / 17 existing actionKeys; public QA 70/70 PASS on PC/Xperia, screenshots reviewed.",
       "startedAt": "2026-09-19T13:22:00+09:00",
       "runtimeScopeTarget": "1-67",
-      "actionCoverageVerified": true
+      "actionCoverageVerified": true,
+      "completedAt": "2026-09-19T13:27:00+09:00",
+      "qaRun": 35420829149,
+      "qaArtifact": 10576863064
     },
     {
       "id": "CHAR-008",
       "order": 8,
       "measures": "68",
       "type": "NEW_PAIR",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "READY",
       "actionKey": "BD+RC+SN:RF/R/L",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
-      "preferredDerivation": "formal RC+SN:R/L + approved local BD kick cue"
+      "preferredDerivation": "formal RC+SN:R/L + approved local BD kick cue",
+      "note": "Released after M55-67 DONE. Must derive from formal RC+SN:R/L plus proven local BD kick cue; no fresh redraw."
     },
     {
       "id": "CHAR-009",
