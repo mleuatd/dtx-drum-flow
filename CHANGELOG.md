@@ -1,3 +1,11 @@
+## 2026-09-19 — M55-67 reuse-only character closure
+- Expanded Luna Say Maybe character runtime contiguously through M67 with no new character PNG generation: 194 notes / 129 groups / 17 existing action keys.
+- Public Runtime Character QA run `35420829149`, artifact `10576863064`: 70/70 records PASS across PC and Xperia portrait; runtimeScope `1-67`; no asset/init/console/page/request errors.
+- Reviewed PC/Xperia contact sheets; no visible character disappearance, wrong-person redraw, or fixed-drum registration drift.
+- Verified the conflict-safe generic runtime-QA persistence change in the same run: browser QA, artifact upload, and `Persist generic runtime QA state` all completed successfully.
+- Synchronized stale promoted-combo entries in `ACTION_KEY_ASSET_MAP.json` to the already-live runtime inventory so later sessions do not regenerate M18-24/M47 assets.
+- M55-67 is DONE; M68 `BD+RC+SN:RF/R/L` is released as the next new pair.
+
 ## 2026-09-19 — M54 character runtime QA closure
 - Closed Luna Say Maybe M54 `BD+HT:RF/L` without regenerating image bytes. Formal hit/rebound SHA-256 remain `cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7` / `13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5`.
 - Public runtime QA run `35420373297`, artifact `10576732695`: 4/4 PASS (PC hit/rebound + Xperia portrait hit/rebound), runtimeScope 1-54, expected/actual action+frame matched, 1448x1086 character/drum loads OK, no init/console/page/request errors.
