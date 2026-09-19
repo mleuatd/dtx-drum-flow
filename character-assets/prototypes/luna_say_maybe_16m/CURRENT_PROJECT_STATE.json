@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T13:27:00+09:00",
+  "updatedAt": "2026-09-19T15:24:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 67,
+    "measureEnd": 68,
     "status": "COMPLETE_LIVE_QA"
   },
   "completedMeasureBlocks": [
@@ -67,6 +67,12 @@
       "status": "DONE",
       "qaRun": 35420829149,
       "qaArtifact": 10576863064
+    },
+    {
+      "measures": "68",
+      "status": "DONE",
+      "qaRun": 35426237555,
+      "qaArtifact": 10579760232
     }
   ],
   "blockedMeasureBlocks": [],
@@ -109,7 +115,9 @@
     "m29_40": "COMPLETE_LIVE_QA",
     "m54": "COMPLETE_LIVE_QA",
     "bdHtRfL": "LIVE_QA_PASSED",
-    "m55_67": "COMPLETE_LIVE_QA"
+    "m55_67": "COMPLETE_LIVE_QA",
+    "m68": "COMPLETE_LIVE_QA",
+    "bdRcSnRfRL": "LIVE_QA_PASSED"
   },
   "approvedAssets": [
     "SN:L",
@@ -157,7 +165,8 @@
     "m48_53LiveRuntimeQa": "SUCCESS run 35419276196 artifact 10577016308",
     "m54LiveRuntimeQa": "SUCCESS browser QA run 35420373297 artifact 10576732695 (workflow ledger persistence step conflicted after evidence upload)",
     "m55_67MappingPreflight": "PASS: 194 notes / 129 groups / 17 actionKeys; all present in asset_inventory.runtimePhaseFrameMap",
-    "m55_67LiveRuntimeQa": "SUCCESS run 35420829149 artifact 10576863064; 70/70 PC/Xperia records PASS; screenshot review PASS"
+    "m55_67LiveRuntimeQa": "SUCCESS run 35420829149 artifact 10576863064; 70/70 PC/Xperia records PASS; screenshot review PASS",
+    "m68LiveRuntimeQa": "SUCCESS run 35426237555 artifact 10579760232; 6/6 PC/Xperia hit/rebound/neutral PASS; screenshot review PASS"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -235,14 +244,19 @@
       "run": 35420829149,
       "artifact": 10576863064,
       "status": "SUCCESS"
+    },
+    "m68Live": {
+      "run": 35426237555,
+      "artifact": 10579760232,
+      "status": "SUCCESS"
     }
   },
   "nextRecommendedBlock": {
-    "blockId": "M68",
-    "measures": "68",
-    "reason": "M55-67 reuse-only runtime QA is complete. Next new pair is BD+RC+SN:RF/R/L."
+    "blockId": "M69-104",
+    "measures": "69-104",
+    "reason": "M68 complete; next contiguous block is reuse-only."
   },
-  "nextRecommendedWork": "M68 source lock: formal RC+SN:R/L plus approved local BD kick cue. Read playbook/failure/rejected registries and transaction before any candidate work.",
+  "nextRecommendedWork": "M69-104 action coverage check using authoritative full-song inventory and runtimePhaseFrameMap, then expand runtime scope and run PC/Xperia public QA. Generate no images.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
