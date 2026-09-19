@@ -1,3 +1,9 @@
+## 2026-09-20 — BD+RD:RF/R final runtime close
+- Static anatomy, linework, and fixed-drum composite gates had already PASSed from run 35476033283 / artifact 10594885001.
+- Public runtime QA run 35477061624 / artifact 10594916218 tested real chart occurrences on PC and Xperia-class portrait with failed=0 / passed=14 and included BD+RD:RF/R at M130.
+- Synthetic explicit-sequence failures were rejected as invalid methodology because timeline seeking to invented times cannot inject arbitrary action keys; it selected unrelated real chart events instead.
+- BD+RD:RF/R is now VERIFIED.
+
 ## 2026-09-20 — Visual Integrity Batch 12
 - Reviewed BD+FT:RF/L and BD+FT:RF/R from explicit FRONT evidence (run 35476984329, artifact 10594531751).
 - BD+FT:RF/L hit/rebound failed because the left active stick is discontinuous and a detached diagonal outer fragment remains.
