@@ -36,7 +36,10 @@ jobs:
           ACTIONS: ${{ inputs.actions }}
         shell: bash
         run: |
-          if [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ]; then
+          # Back-queue override is only authoritative on a commit that actually
+          # changes the override file. Ordinary ledger CLAIM commits must use
+          # activeVisualIntegrityBatch from BRUSHUP_LEDGER instead.
+          if [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ] && git show --pretty="" --name-only HEAD | grep -Fxq ".github/back-visual-actions.txt"; then
             ACTIONS="$(tr -d '\r\n' < .github/back-visual-actions.txt)"
           fi
           if [ -n "$ACTIONS" ]; then
