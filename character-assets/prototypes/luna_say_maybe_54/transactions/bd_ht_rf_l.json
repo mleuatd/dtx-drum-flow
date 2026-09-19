@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+HT:RF/L transaction for Luna M54",
-  "status": "VISUAL_QA_PASSED_PROMOTION_PENDING",
+  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
   "actionKey": "BD+HT:RF/L",
   "scope": {
     "measureStart": 54,
@@ -33,24 +33,24 @@
   ],
   "phases": {
     "hit": {
-      "stage": "APPROVE",
+      "stage": "FORMAL",
       "attempt": 1,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ht_rf_l_hit_attempt01.png",
       "candidatePath": "character-assets/review-candidates/m54/bd_ht_rf_l_hit_attempt01.png",
       "sha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7",
       "qaStatus": "VISUAL_QA_PASS",
       "formalPath": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
-      "formalCommit": null
+      "formalCommit": "aa96460192aae74b10b36b9f7bfa0c3c16daa7b7"
     },
     "rebound": {
-      "stage": "APPROVE",
+      "stage": "FORMAL",
       "attempt": 1,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ht_rf_l_rebound_attempt01.png",
       "candidatePath": "character-assets/review-candidates/m54/bd_ht_rf_l_rebound_attempt01.png",
       "sha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5",
       "qaStatus": "VISUAL_QA_PASS",
       "formalPath": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
-      "formalCommit": null
+      "formalCommit": "aa96460192aae74b10b36b9f7bfa0c3c16daa7b7"
     }
   },
   "qa": {
@@ -68,7 +68,7 @@
     "buildCommit": "ae83188e54e1586e38fec579ab035a952416801d"
   },
   "blocker": null,
-  "updatedAt": "2026-09-19T13:00:00+09:00",
+  "updatedAt": "2026-09-19T13:03:00+09:00",
   "notes": [
     "Reused the proven BD kick cue strategy instead of generating a new body/leg pose.",
     "Fixed-drum hit/rebound composites manually reviewed; no camera/body/stick changes outside formal HT:L."
