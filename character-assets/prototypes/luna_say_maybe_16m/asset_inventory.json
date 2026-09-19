@@ -1,15 +1,15 @@
 {
   "version": 12,
-  "scope": "Luna Say Maybe measures 1-28 runtime mapped; M25-28 public QA pending",
-  "imageSetState": "m1-28-runtime-qa-pending",
+  "scope": "Luna Say Maybe measures 1-40 runtime mapped; public runtime QA pending",
+  "imageSetState": "m1-40-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
     "measureStart": 1,
-    "measureEnd": 28,
-    "noteCount": 329,
-    "groupCount": 256,
+    "measureEnd": 40,
+    "noteCount": 502,
+    "groupCount": 378,
     "firstNoteTime": 4.714583,
-    "lastNoteTime": 51.549115,
+    "lastNoteTime": 72.376453,
     "expectedKeys": [
       "SN:L",
       "SN:R",
@@ -31,7 +31,9 @@
       "HH+SN:R/L",
       "HT:R",
       "RC:R",
-      "FT+SN:R/L"
+      "FT+SN:R/L",
+      "BD+HT:RF/R",
+      "HT:L"
     ]
   },
   "requiredFrames": {
@@ -471,7 +473,8 @@
     },
     "BD+HT:RF/R": {
       "hit": "bd_ht_rf_r_hit_refresh",
-      "rebound": "bd_ht_rf_r_rebound_refresh"
+      "rebound": "bd_ht_rf_r_rebound_refresh",
+      "prep": "neutral"
     }
   },
   "motionTiming": {
@@ -645,8 +648,8 @@
     }
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
-  "updatedAt": "2026-09-19T10:45:00+09:00",
-  "note": "M25-28 runtime scope active for public QA. Added required prep=neutral phase mappings for HT:R, RC:R and FT+SN:R/L (plus formal HT:L for next block) after QA exposed prototype initialization warning from missing prep phase.",
+  "updatedAt": "2026-09-19T10:42:00+09:00",
+  "note": "Runtime scope expanded deterministically from FINAL chart + full limb assignments through M40; 502 notes / 378 groups; all 23 runtime keys resolved. BD+HT prep explicitly maps to neutral.",
   "runtimeQaTarget": {
     "measureStart": 25,
     "measureEnd": 28,
