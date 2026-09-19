@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T07:56:00+09:00",
+  "updatedAt": "2026-09-20T08:07:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8046,7 +8046,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8074,7 +8074,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T08:07:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -8089,7 +8089,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -8590,6 +8590,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T08:07:00+09:00",
+            "decision": "HOLD_VISUAL_INTEGRITY",
+            "detail": "Batch 04 full-resolution QA: RD:R rebound contains hard rectangular splice/cut through hair-torso and right arm/stick region. Treat as structural repair; do not use light minimal-retry path. Preserve formal PNG until candidate passes all static gates."
           }
         ],
         "measurementTodos": [
@@ -8819,7 +8824,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T06:13:00+09:00"
+        "updatedAt": "2026-09-20T08:07:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -8836,14 +8841,15 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "IN_FIX",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Batch 04: hit is visually acceptable, but rebound has a structural rectangular splice/cut across hair-torso and right forearm/hand-stick geometry. Formal PNGs preserved; no minimal retry because defect exceeds light/local threshold.",
+        "workflowRunId": 35475145116,
+        "artifactId": 10593238245
       }
     },
     {
@@ -11535,7 +11541,7 @@
     },
     {
       "issueId": "MOTION-014",
-      "status": "NEEDS_VISUAL_REVIEW",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M95",
       "time": "~2:46.4",
@@ -11563,7 +11569,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T08:07:00+09:00",
       "occurrences": [
         {
           "measure": "M95",
@@ -11577,7 +11583,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -12131,6 +12137,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T08:07:00+09:00",
+            "decision": "HOLD_VISUAL_INTEGRITY",
+            "detail": "Batch 04 full-resolution QA: hit has blocky seat/pelvis/lower-hair splice and left-stick truncation; rebound has a hard rectangular left-stick dropout. Structural candidate repair required; preserve formal PNG until candidate passes anatomy/linework/composite QA."
           }
         ],
         "measurementTodos": [
@@ -12378,7 +12389,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T06:13:00+09:00"
+        "updatedAt": "2026-09-20T08:07:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -12403,14 +12414,15 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PENDING_REVIEW",
-        "linework": "PENDING_REVIEW",
-        "fixedDrumComposite": "PENDING_REVIEW",
-        "runtimeTransition": "PENDING_REVIEW",
+        "humanAnatomy": "FAIL",
+        "linework": "FAIL",
+        "fixedDrumComposite": "FAIL",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates."
+        "note": "Batch 04: hit has a large rectangular splice across lower hair/skirt/seat plus truncated left stick; rebound has a hard rectangular missing stick segment near the left hand. Formal PNGs preserved; no minimal retry because defects exceed light/local threshold.",
+        "workflowRunId": 35475145116,
+        "artifactId": 10593238245
       }
     },
     {
