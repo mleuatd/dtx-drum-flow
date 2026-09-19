@@ -124,6 +124,16 @@ jobs:
         env:
           QA_OUTCOME: ${{ steps.browser_qa.outcome }}
         run: |
+          # A newer main push may cancel this QA job via concurrency. Cancellation is
+          # not a character failure and must never overwrite the ledger with FAIL.
+          if [ "$QA_OUTCOME" = "cancelled" ] || [ "$QA_OUTCOME" = "skipped" ]; then
+            echo "QA outcome is $QA_OUTCOME; preserving current progress state."
+            exit 0
+          fi
+          # Another terminal/run may have updated the same progress file after this
+          # checkout. Rebase the single ledger file from latest main before writing.
+          git fetch origin main
+          git checkout origin/main -- "$RUNTIME_QA_PROGRESS_PATH" || true
           python - <<'PY'
           import json, os
           p=os.environ["RUNTIME_QA_PROGRESS_PATH"]
