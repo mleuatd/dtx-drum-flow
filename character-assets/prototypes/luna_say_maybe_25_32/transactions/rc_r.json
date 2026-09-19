@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe RC:R transaction for Luna M25-28",
-  "status": "FORMAL",
+  "status": "DONE",
   "actionKey": "RC:R",
   "scope": {
     "measureStart": 25,
@@ -30,23 +30,23 @@
   ],
   "phases": {
     "hit": {
-      "stage": "FORMAL",
+      "stage": "DONE",
       "attempt": 3,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_r_hit_attempt03.png",
       "candidatePath": "character-assets/review-candidates/m25_40/rc_r_hit_attempt03.png",
       "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
-      "qaStatus": "PASS",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/rc/hit_r_refresh.png",
       "formalSha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
       "formalCommit": "b588a43d9b4c39c986bc2dd3f081d6a7df52215f"
     },
     "rebound": {
-      "stage": "FORMAL",
+      "stage": "DONE",
       "attempt": 2,
       "dropboxPath": "/ChatGPT/dtx-drum-flow/rc_r_rebound_attempt02.png",
       "candidatePath": "character-assets/review-candidates/m25_40/rc_r_rebound_attempt02.png",
       "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
-      "qaStatus": "PASS",
+      "qaStatus": "LIVE_QA_PASSED",
       "formalPath": "character-assets/layers/character/rc/rebound_r_refresh.png",
       "formalSha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
       "formalCommit": "b588a43d9b4c39c986bc2dd3f081d6a7df52215f"
@@ -55,15 +55,31 @@
   "qa": {
     "static": "PASS",
     "compositeVisual": "PASS",
-    "runtimePC": "PENDING",
-    "runtimeXperia": "PENDING",
-    "screenshots": "PENDING",
+    "runtimePC": "PASS",
+    "runtimeXperia": "PASS",
+    "screenshots": "PASS",
     "contact": "PASS_RC",
-    "transition": "PASS"
+    "transition": "PASS",
+    "publicRuntime": "PASS",
+    "runtimeQaRun": 35413032881,
+    "runtimeQaArtifact": 10575360428
   },
-  "updatedAt": "2026-09-19T09:55:00+09:00",
+  "updatedAt": "2026-09-19T10:47:00+09:00",
   "notes": [
     "Attempt03 removed the duplicate-stick issue substantially. Do not formalize until final arm/stick proportion review passes on fixed-drum composite.",
     "Final fixed-drum visual review PASS after exact deterministic reproduction matched GitHub candidate SHA. Exact bytes saved to Dropbox and promoted in b588a43d9b4c39c986bc2dd3f081d6a7df52215f."
-  ]
+  ],
+  "runtimeEvidence": {
+    "status": "PASS",
+    "runId": 35413032881,
+    "artifactId": 10575360428,
+    "artifactDigest": "sha256:b0ef325b0ee75fb3b1de37cd241396f69c6531dd698909e046fc5d426d1dacf5",
+    "testedCommitSha": "88917f7ec0612c31655ada22f1ba7e62dd7b262d",
+    "viewport": [
+      "pc-1280x900",
+      "xperia-portrait-384x864"
+    ],
+    "result": "12/12 total records PASS across HT:R, RC:R, FT+SN:R/L; no assetWarning/initError/frame mismatch",
+    "screenshotVisualReview": "PASS"
+  }
 }
