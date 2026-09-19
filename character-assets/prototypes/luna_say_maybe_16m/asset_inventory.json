@@ -282,6 +282,20 @@
       "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
       "actionKey": "RC:R",
       "phase": "rebound"
+    },
+    "ht_r_hit_refresh": {
+      "path": "layers/character/ht/hit_r_refresh.png",
+      "state": "ready",
+      "sha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
+      "actionKey": "HT:R",
+      "phase": "hit"
+    },
+    "ht_r_rebound_refresh": {
+      "path": "layers/character/ht/rebound_r_refresh.png",
+      "state": "ready",
+      "sha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+      "actionKey": "HT:R",
+      "phase": "rebound"
     }
   },
   "runtimeFrameMap": {
@@ -308,7 +322,8 @@
     "BD+RC:RF/R": "bd_rc_hit",
     "HT:L": "ht_l_hit_refresh",
     "FT+SN:R/L": "ft_sn_r_l_hit_refresh",
-    "RC:R": "rc_r_hit_refresh"
+    "RC:R": "rc_r_hit_refresh",
+    "HT:R": "ht_r_hit_refresh"
   },
   "runtimePhaseFrameMap": {
     "SN:L": {
@@ -427,6 +442,10 @@
     "RC:R": {
       "hit": "rc_r_hit_refresh",
       "rebound": "rc_r_rebound_refresh"
+    },
+    "HT:R": {
+      "hit": "ht_r_hit_refresh",
+      "rebound": "ht_r_rebound_refresh"
     }
   },
   "motionTiming": {
