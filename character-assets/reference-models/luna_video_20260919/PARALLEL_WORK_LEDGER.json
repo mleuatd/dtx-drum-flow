@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:35:00+09:00",
+  "updatedAt": "2026-09-19T21:37:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -400,10 +400,10 @@
       "taskId": "OTHER-008",
       "category": "formal_dropbox_bridge_index_expansion",
       "description": "Build a comprehensive SHA-verified Dropbox bridge index for all formal character assets in BRUSHUP_LEDGER/asset_inventory. Use GitHub formal path+SHA256 as authority; use Dropbox file IDs/paths only after byte verification. Record stale/misleading aliases separately. No image edits or formal promotion.",
-      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
-      "status": "AVAILABLE",
-      "claimedAt": null,
-      "startedAt": null,
+      "owner": "TERM-B",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T21:37:00+09:00",
+      "startedAt": "2026-09-19T21:37:00+09:00",
       "completedAt": null,
       "paths": [
         "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json",
