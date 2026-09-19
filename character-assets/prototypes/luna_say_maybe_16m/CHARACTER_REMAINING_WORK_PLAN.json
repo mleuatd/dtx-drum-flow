@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T13:27:00+09:00",
+  "updatedAt": "2026-09-19T15:24:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -9,9 +9,9 @@
   },
   "currentKnownState": {
     "latestMainAtPlanning": "refreshed-before-write",
-    "formalAndMappedThroughMeasure": 67,
-    "lastLiveQaConfirmedThroughMeasure": 67,
-    "note": "M55-67 reuse-only public PC/Xperia QA passed: run 35420829149 / artifact 10576863064, 70/70 PASS. Next character task is M68 BD+RC+SN:RF/R/L."
+    "formalAndMappedThroughMeasure": 68,
+    "lastLiveQaConfirmedThroughMeasure": 68,
+    "note": "M68 public PC/Xperia runtime QA passed: run 35426237555 / artifact 10579760232, 6/6 PASS. Next character task is M69-104 reuse-only."
   },
   "imageLearning": {
     "mandatoryPreflight": [
@@ -148,22 +148,26 @@
       "order": 8,
       "measures": "68",
       "type": "NEW_PAIR",
-      "status": "READY",
+      "status": "DONE",
       "actionKey": "BD+RC+SN:RF/R/L",
       "newImagePairs": [
         "hit",
         "rebound"
       ],
       "preferredDerivation": "formal RC+SN:R/L + approved local BD kick cue",
-      "note": "Released after M55-67 DONE. Must derive from formal RC+SN:R/L plus proven local BD kick cue; no fresh redraw."
+      "note": "Deterministic BD cue derivation; public QA 6/6 PASS including neutral recovery.",
+      "completedAt": "2026-09-19T15:24:00+09:00",
+      "qaRun": 35426237555,
+      "qaArtifact": 10579760232
     },
     {
       "id": "CHAR-009",
       "order": 9,
       "measures": "69-104",
       "type": "REUSE_ONLY_RUNTIME_EXPANSION",
-      "status": "BLOCKED_BY_PREVIOUS",
-      "newImagePairs": []
+      "status": "READY",
+      "newImagePairs": [],
+      "note": "Released after M68 DONE. Reuse-only; generate no images."
     },
     {
       "id": "CHAR-010",
@@ -226,10 +230,9 @@
     }
   ],
   "summary": {
-    "remainingNewActionPairs": 4,
-    "remainingNewPngFiles": 8,
+    "remainingNewActionPairs": 3,
+    "remainingNewPngFiles": 6,
     "newActionOrder": [
-      "M68 BD+RC+SN:RF/R/L",
       "M105 BD+FT+SN:RF/R/L",
       "M105 BD+FT:RF/L",
       "M136 BD+FT:RF/R"
