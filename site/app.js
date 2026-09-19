@@ -14,7 +14,8 @@ const DEV_MIXER=[
  ["kick","BD/LB"],["snare","SN"],["sideStick","SideStick"],["hihatClosed","HH Closed"],["hihatOpen","HH Open"],["hihatPedal","LP HH"],
  ["tomHigh","HT"],["tomLow","LT"],["tomFloor","FT"],["ride","RD"],["rideBell","Ride Bell"],["crashLeft","LC"],["crashRight","RC"]
 ];
-const DEV_MIXER_DEFAULT={kick:2.5,snare:1,sideStick:.2,hihatClosed:.2,hihatOpen:.2,hihatPedal:1,tomHigh:1,tomLow:1,tomFloor:1.05,ride:.2,rideBell:.25,crashLeft:.2,crashRight:.2};\nconst devMixerValues={...DEV_MIXER_DEFAULT};
+const DEV_MIXER_DEFAULT={kick:2.5,snare:1,sideStick:.2,hihatClosed:.2,hihatOpen:.2,hihatPedal:1,tomHigh:1,tomLow:1,tomFloor:1.05,ride:.2,rideBell:.25,crashLeft:.2,crashRight:.2};
+const devMixerValues={...DEV_MIXER_DEFAULT};
 function devMixerText(){
  if(!liveDrumEngine)return "MIX:engine-loading";
  const base=liveDrumEngine.getBaseGains();
