@@ -103,7 +103,7 @@ jobs:
           node tools/build-qa-sampling-and-risk.mjs 1 8 /tmp/sampling.json
           node tools/luna-production-path.mjs 1 8 /tmp/fast.json
           grep -q 'FAST_PATH' /tmp/fast.json
-          node tools/luna-production-path.mjs 9 16 /tmp/full.json
+          node tools/luna-production-path.mjs 29 32 /tmp/full.json
           grep -q 'FULL_PATH' /tmp/full.json
           node tools/build-next-chat-handoff.mjs /tmp/next-chat.md
           node tools/production-pipeline-dispatcher.mjs 'choose-next-asset' /tmp/route.json
