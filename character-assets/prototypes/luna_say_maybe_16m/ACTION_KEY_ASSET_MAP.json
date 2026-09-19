@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T10:29:00+09:00",
+  "updatedAt": "2026-09-19T10:48:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -434,10 +434,10 @@
       "prepAsset": "character-assets/layers/character/base/neutral.png",
       "hitAsset": "character-assets/layers/character/ht/hit_r_refresh.png",
       "reboundAsset": "character-assets/layers/character/ht/rebound_r_refresh.png",
-      "classification": "FORMAL_QA_PASSED_RUNTIME_PENDING",
-      "manifestStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "classification": "LIVE_QA_PASSED",
+      "manifestStatus": "LIVE_QA_PASSED",
       "runtimeMapped": true,
-      "qaStatus": "PRE_RUNTIME_QA_PASSED",
+      "qaStatus": "LIVE_QA_PASSED",
       "sharedAsset": "character-assets/layers/character/ht/hit_r_refresh.png",
       "missing": false,
       "blocked": false,
@@ -451,7 +451,9 @@
       "hitSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
       "reboundSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
       "method": "retry-controller USE_APPROVED_LIMB_PATCH: approved HH:R arm/hand pose with stick-only retarget to HT",
-      "promotionCommit": "1069bf73ff59d69c69ee0493a91de30db3f0088e"
+      "promotionCommit": "1069bf73ff59d69c69ee0493a91de30db3f0088e",
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "actionKey": "RC:R",
@@ -459,10 +461,10 @@
       "prepAsset": "character-assets/layers/character/base/neutral.png",
       "hitAsset": "character-assets/layers/character/rc/hit_r_refresh.png",
       "reboundAsset": "character-assets/layers/character/rc/rebound_r_refresh.png",
-      "classification": "FORMAL_QA_PASSED_RUNTIME_PENDING",
-      "manifestStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "classification": "LIVE_QA_PASSED",
+      "manifestStatus": "LIVE_QA_PASSED",
       "runtimeMapped": true,
-      "qaStatus": "PRE_RUNTIME_QA_PASSED",
+      "qaStatus": "LIVE_QA_PASSED",
       "sharedAsset": "character-assets/layers/character/rc/hit_r_refresh.png",
       "missing": false,
       "blocked": false,
@@ -476,7 +478,9 @@
       "hitSha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
       "reboundSha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
       "method": "locked-neutral deterministic right-stick correction; fixed-drum visual QA PASS",
-      "promotionCommit": "b588a43d9b4c39c986bc2dd3f081d6a7df52215f"
+      "promotionCommit": "b588a43d9b4c39c986bc2dd3f081d6a7df52215f",
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "actionKey": "FT+SN:R/L",
@@ -484,10 +488,10 @@
       "prepAsset": "character-assets/layers/character/base/neutral.png",
       "hitAsset": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
       "reboundAsset": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
-      "classification": "FORMAL_QA_PASSED_RUNTIME_PENDING",
-      "manifestStatus": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "classification": "LIVE_QA_PASSED",
+      "manifestStatus": "LIVE_QA_PASSED",
       "runtimeMapped": true,
-      "qaStatus": "PRE_RUNTIME_QA_PASSED",
+      "qaStatus": "LIVE_QA_PASSED",
       "sharedAsset": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
       "missing": false,
       "blocked": false,
@@ -501,7 +505,9 @@
       "hitSha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
       "reboundSha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
       "method": "attempt04 locked-baseline local SN-stick correction over FT:R motion; fixed-drum QA PASS",
-      "promotionCommit": "14a9b4449bf97fb99ca2b4c45247a22574c2c57f"
+      "promotionCommit": "14a9b4449bf97fb99ca2b4c45247a22574c2c57f",
+      "liveQaRun": 35413032881,
+      "liveQaArtifact": 10575360428
     },
     {
       "actionKey": "BD+HT:RF/R",
