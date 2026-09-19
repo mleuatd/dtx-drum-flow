@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:08:00+09:00",
+  "updatedAt": "2026-09-19T21:15:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -211,6 +211,32 @@
       "githubPath": null,
       "dropboxPath": null,
       "rejectionReason": "Exact formal sources were materialized locally, but image_gen did not bind them as edit parents and returned edit_op=null / unrelated full-character redraw at 1230x1278. Fails direct-edit, canvas, identity/camera/body/stool continuity gates. NEVER_USE.",
+      "date": "2026-09-19",
+      "replacementAsset": null,
+      "status": "NEVER_USE"
+    },
+    {
+      "asset": "SN:L deterministic fallback try01",
+      "type": "IMAGE",
+      "actionKey": "SN:L",
+      "phase": "hit",
+      "sha256": "e74f0d79a64d3c2f54fd62a0cd0fedef2abb8e6e1c1de3e11c9a54b27ed08d68",
+      "githubPath": null,
+      "dropboxPath": null,
+      "rejectionReason": "Local neutral/hit patch composite created a transparent/missing active-arm region and did not establish valid SN contact. Candidate only; never promote.",
+      "date": "2026-09-19",
+      "replacementAsset": null,
+      "status": "NEVER_USE"
+    },
+    {
+      "asset": "SN:L deterministic fallback try02",
+      "type": "IMAGE",
+      "actionKey": "SN:L",
+      "phase": "hit",
+      "sha256": "c94f349d2c16403f20e32a91c910eae8f1a4fc94f20a2b3b9af10d50db08e7a3",
+      "githubPath": null,
+      "dropboxPath": null,
+      "rejectionReason": "Segment-warp fallback preserved global baseline better but produced duplicate/malformed hand/stick geometry and invalid local continuity. Candidate only; never promote.",
       "date": "2026-09-19",
       "replacementAsset": null,
       "status": "NEVER_USE"
