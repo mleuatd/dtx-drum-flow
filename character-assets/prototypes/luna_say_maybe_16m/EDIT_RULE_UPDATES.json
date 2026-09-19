@@ -22,7 +22,22 @@
       ],
       "sourceInstructionDate": "2026-09-19",
       "masterRulePath": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md"
+    },
+    {
+      "id": "EDIT-RULE-20260919-002",
+      "title": "Deterministic line-style normalization tool introduced",
+      "recordedAt": "2026-09-19T19:20:00+09:00",
+      "reason": "Convert existing formal character art to the common fine-pencil repeated-stroke construction without generative redraw or semantic geometry changes.",
+      "addedRules": [
+        "line-style-only normalization must use deterministic processing before generative editing",
+        "base line width remains one fine stroke; apparent thickness comes from repeated offset retraces",
+        "formal source SHA guard is mandatory when known",
+        "centerline and tolerant silhouette geometry QA are mandatory",
+        "each formal source is normalized independently; candidate chaining is forbidden",
+        "tool PASS does not equal formal promotion"
+      ],
+      "spec": "character-assets/prototypes/luna_say_maybe_16m/LINE_STYLE_DETERMINISTIC_TOOL_SPEC.md"
     }
   ],
-  "updatedAt": "2026-09-19T17:55:00+09:00"
+  "updatedAt": "2026-09-19T19:20:00+09:00"
 }
