@@ -1,3 +1,9 @@
+## 2026-09-20 — Visual Integrity Batch 09
+- Reviewed HT:L and FT+SN:R/L from current-main Batch Prep evidence (run 35476194165, artifact 10593174478).
+- HT:L hit/rebound failed because the left active stick is discontinuous and an extra short detached stick-like fragment remains near the hand.
+- FT+SN:R/L hit/rebound failed because the left stick is detached/truncated while the right stick is forked/duplicated.
+- Both actionKey pairs moved to HOLD_VISUAL_INTEGRITY. Formal PNGs unchanged; runtime QA not entered.
+
 ## 2026-09-20 — Visual Integrity Batch 08
 - Parallel prep initially mis-selected other-session keys because auto-priority ignored the ledger's active claimed batch. No QA/promotion was performed on those wrong keys.
 - Fixed tools/character_layers/prepare_visual_integrity_batch.py so push-triggered prep honors activeVisualIntegrityBatch when its two actionKeys are still CLAIMED.
