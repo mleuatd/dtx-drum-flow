@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-19T20:12:00+09:00",
+  "coordinationAuthority": "GitHub main",
+  "terminalPolicy": {
+    "claimBeforeWork": true,
+    "refreshMainBeforeWrite": true,
+    "forcePush": false,
+    "sameFileConcurrentEdit": false
+  },
+  "knownConcurrentWork": [
+    {
+      "ledger": "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json",
+      "owner": "TERM-A",
+      "task": "SN:L hit formal brush-up retry",
+      "protectedPaths": [
+        "character-assets/layers/character/sn/hit_l.png"
+      ],
+      "note": "RUNTIME-POSE-TERM must not modify this formal file while TERM-A claim remains active."
+    }
+  ],
+  "tasks": [
+    {
+      "taskId": "RTP-SNL-001",
+      "category": "runtime_pose_prototype",
+      "description": "Run and harden the SN:L tool-authority-first numeric constraint/validation pipeline for neutral/hit/rebound; record machine QA without modifying formal character PNGs.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T20:12:00+09:00",
+      "startedAt": "2026-09-19T20:12:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_debug/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_candidates/**",
+        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json"
+      ],
+      "dependsOn": [],
+      "doNotTouch": [
+        "character-assets/layers/character/sn/hit_l.png",
+        "character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json",
+        "formal character PNGs unless this ledger task explicitly reaches promotion after QA"
+      ],
+      "handoffNote": "Numeric/runtime-pose authority only. TERM-A currently owns the formal SN:L hit brush-up path. This task may read formal assets/SHA metadata but must not overwrite them.",
+      "lastCommit": null
+    },
+    {
+      "taskId": "RTP-SNL-002",
+      "category": "candidate_render",
+      "description": "Produce constrained neutral/SN:L hit/rebound candidates from numeric packages, then deterministic cowlick/line-style postprocess and fixed-drum composite/transition QA.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "CLAIMED",
+      "claimedAt": "2026-09-19T20:12:00+09:00",
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_candidates/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_debug/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**"
+      ],
+      "dependsOn": [
+        "RTP-SNL-001"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/sn/hit_l.png",
+        "character-assets/layers/character/sn/rebound_l.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "handoffNote": "Candidate-only until runtime QA. AI is constrained renderer only; no free redraw. If image bytes cannot be supplied to renderer in this environment, record BLOCKED with exact reason and keep numeric artifacts complete.",
+      "lastCommit": null
+    },
+    {
+      "taskId": "OTHER-001",
+      "category": "formal_inventory",
+      "description": "Inventory existing formal character variants; reconcile actionKey/phase/limb/path/SHA against asset_inventory and runtime mapping.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
+        "site/character-prototype.js",
+        "character-assets/layers/character/**"
+      ],
+      "dependsOn": [],
+      "doNotTouch": [
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
+      ],
+      "handoffNote": "DONE when every formal actionKey/phase has path+SHA+limb+runtime mapping disposition and discrepancies are listed. Refresh main immediately before any write.",
+      "lastCommit": null
+    },
+    {
+      "taskId": "OTHER-002",
+      "category": "qa_evidence_cleanup",
+      "description": "Organize existing formal/candidate/rejected QA evidence and identify stale candidates/NEVER_USE duplicates without modifying runtime-pose files.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json",
+        "character-assets/prototypes/luna_say_maybe_16m/REJECTED_ASSET_REGISTRY.json",
+        "character-assets/edit-workspaces/**"
+      ],
+      "dependsOn": [],
+      "doNotTouch": [
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
+      ],
+      "handoffNote": "DONE when stale/duplicate/NEVER_USE entries are enumerated with evidence and no active CLAIM history is deleted. Refresh main immediately before any write.",
+      "lastCommit": null
+    },
+    {
+      "taskId": "OTHER-003",
+      "category": "runtime_web_qa",
+      "description": "Review existing GitHub Pages runtime behavior/checklist and prepare screenshot QA checklist for contact, registration, hit/rebound continuity and neutral recovery.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "site/**",
+        "qa/**",
+        "character-assets/prototypes/luna_say_maybe_16m/QA_CHECKLIST_MASTER.json"
+      ],
+      "dependsOn": [],
+      "doNotTouch": [
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
+      ],
+      "handoffNote": "DONE when checklist and current observed runtime issues are recorded with URLs/screenshot evidence. Refresh main immediately before any write.",
+      "lastCommit": null
+    },
+    {
+      "taskId": "OTHER-004",
+      "category": "post_snl_expansion_planning",
+      "description": "Prepare prioritized actionKey expansion order after SN:L proof, including combo actions and dependency/contact-point readiness.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "character-assets/prototypes/luna_say_maybe_16m/NEXT_ASSET_QUEUE.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+        "site/charts/luna_say_maybe/**"
+      ],
+      "dependsOn": [
+        "RTP-SNL-002"
+      ],
+      "doNotTouch": [
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
+      ],
+      "handoffNote": "Planning only until SN:L candidate/composite QA passes. Refresh main immediately before write.",
+      "lastCommit": null
+    }
+  ]
+}
