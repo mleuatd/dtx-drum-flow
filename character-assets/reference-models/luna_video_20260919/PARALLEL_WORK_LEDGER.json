@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T22:26:00+09:00",
+  "updatedAt": "2026-09-19T22:31:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -544,6 +544,31 @@
         "apiCall": "NOT_RUN_AUTH_BLOCKED"
       },
       "result": "Candidate not generated. Exact GitHub neutral is hard-bound by SHA256 886e3490...; local edit mask/prompt preparation passed. Native Library bridge copies were separately SHA256-verified for neutral 886e3490... and formal SN:L hit 9941584d..., confirming source-byte availability but not renderer binding."
+    },
+    {
+      "taskId": "OTHER-009",
+      "category": "ci_metadata_consistency_cleanup",
+      "description": "Reconcile existing full-song planning classification progression and active-runtime manifest status failures currently reported by validate/Character asset validation. Metadata/runtime disposition only; do not regenerate or modify formal PNG bytes.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "tools/validate_luna_full_song_planning.py",
+        "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json",
+        "character-assets/config/assets_manifest.json",
+        "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
+        "site/character-prototype.js"
+      ],
+      "dependsOn": [],
+      "doNotTouch": [
+        "character-assets/layers/character/**",
+        "tools/image_edit/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_*",
+        "character-assets/edit-workspaces/**"
+      ],
+      "handoffNote": "Current evidence: validate run 35442741324 fails BD+HT:RF/R NEW_IMAGE_REQUIRED->FORMAL_REGISTERED progression; Character asset validation run 35442869222 reports 12 active-runtime entries with FORMAL_QA_PASSED_RUNTIME_PENDING. Refresh main, CLAIM before write, reconcile metadata/runtime state from existing formal evidence only; no PNG changes."
     }
   ]
 }
