@@ -50,7 +50,7 @@ export class LiveDrumEngine{
   const base=.84+.08*nv;
   // Near-equal perceived practice mix. Keep only small instrument-family differences.
   const familyGain=(LOUDNESS_GAIN[v]??1)*(this.userGain[v]??1);
-  const strength=base*familyGain;
+  const strength=base*familyGain;\n  // Kick reinforcement: retain the acoustic sample but add short sub/low-mid body so BD remains identifiable in a dense practice mix.\n  if(v==="kick")this._kickBody(when,strength);
   g.gain.setValueAtTime(strength,when);
   // Preserve audible cymbal presence, while shortening only the masking tail.
   if(isCrash){const fadeStart=when+.58,fadeEnd=when+1.42;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
@@ -60,6 +60,13 @@ export class LiveDrumEngine{
   s.start(when);if(isCrash)s.stop(Math.min(when+1.47,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.67,when+buffer.duration));
   this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s
 }
+ _kickBody(when,strength){
+  const c=this.ctx,o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter();
+  o.type="sine";o.frequency.setValueAtTime(92,when);o.frequency.exponentialRampToValueAtTime(52,when+.12);
+  f.type="lowpass";f.frequency.value=180;f.Q.value=.7;
+  g.gain.setValueAtTime(.0001,when);g.gain.exponentialRampToValueAtTime(Math.max(.0002,.34*strength),when+.006);g.gain.exponentialRampToValueAtTime(.0001,when+.24);
+  o.connect(f);f.connect(g);g.connect(this.input);o.start(when);o.stop(when+.25);this.nodes.add(o);o.addEventListener("ended",()=>this.nodes.delete(o),{once:true});
+ }
  triggerVoice(voice,velocity=.84,when=this.ctx.currentTime+.002){const part={kick:"BD",snare:"SN",sideStick:"SN",hihatClosed:"HH",hihatOpen:"HH",hihatPedal:"LP",tomHigh:"HT",tomLow:"LT",tomFloor:"FT",ride:"RD",rideBell:"RD",crashLeft:"LC",crashRight:"RC"}[voice]||"SN";return this.trigger(part,velocity,when,{soundKey:voice})}
  setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}
  getUserGains(){return {...this.userGain}}
