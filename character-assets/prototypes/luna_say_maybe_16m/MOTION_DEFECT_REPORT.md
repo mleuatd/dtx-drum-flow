@@ -1,3 +1,11 @@
+## 2026-09-20 — Visual Integrity Batch 08
+- Parallel prep initially mis-selected other-session keys because auto-priority ignored the ledger's active claimed batch. No QA/promotion was performed on those wrong keys.
+- Fixed tools/character_layers/prepare_visual_integrity_batch.py so push-triggered prep honors activeVisualIntegrityBatch when its two actionKeys are still CLAIMED.
+- Corrected Prep run 35475852782 / artifact 10594059870 selected BD+HH:RF/R and BD+LT:RF/R exactly.
+- BD+HH:RF/R failed static hard gates: duplicated/disconnected left arm-hand-stick geometry plus blocky seat/lower-body splice.
+- BD+LT:RF/R failed static hard gates: duplicated/crossing right-hand active-stick geometry.
+- Both pairs moved to HOLD_VISUAL_INTEGRITY; formal PNGs unchanged; runtime QA not entered.
+
 ## 2026-09-20 — Visual Integrity Batch 07
 - Reviewed FT:R and FT:L from current-main Batch Prep evidence (run 35475676709, artifact 10594034740).
 - FT:R hit/rebound failed because the right-hand active stick is duplicated into two divergent shafts.
