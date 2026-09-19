@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T15:53:00+09:00",
+  "updatedAt": "2026-09-19T16:01:00+09:00",
   "repository": "mleuatd/dtx-drum-flow",
   "branch": "main",
   "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
   "liveRuntimeScope": {
     "measureStart": 1,
-    "measureEnd": 135,
-    "status": "COMPLETE_LIVE_QA"
+    "measureEnd": 136,
+    "status": "RUNTIME_QA_PENDING_M136"
   },
   "completedMeasureBlocks": [
     {
@@ -193,7 +193,8 @@
     "m105_106PreRuntime": "PASS: 4 formal PNGs, Dropbox exact-byte save, deterministic locality/fixed-drum visual QA, runtime mapping complete",
     "m105_106LiveRuntimeQa": "SUCCESS run 35427241936 artifact 10579925003; 12/12 PC/Xperia PASS; screenshot review PASS",
     "m107_135MappingPreflight": "PASS: 447 notes / 309 groups / 12 actionKeys; all mapped",
-    "m107_135LiveRuntimeQa": "SUCCESS run 35427385671 artifact 10579472206; 52/52 PASS; screenshots reviewed"
+    "m107_135LiveRuntimeQa": "SUCCESS run 35427385671 artifact 10579472206; 52/52 PASS; screenshots reviewed",
+    "m136PreRuntime": "PASS: deterministic candidate, Dropbox exact-byte save, fixed-drum visual QA, formal registration and mapping complete"
   },
   "latestRelevantCommits": {
     "planningQueue": "c97001fb26d6150e5e4fe6acfd6fced42da1a2f3",
@@ -296,9 +297,9 @@
   "nextRecommendedBlock": {
     "blockId": "M136",
     "measures": "136",
-    "reason": "M107-135 complete; final new pair is BD+FT:RF/R."
+    "reason": "Final new pair mapped and runtimeScope expanded through M136; public QA pending."
   },
-  "nextRecommendedWork": "Source-lock M136 from formal FT:R plus approved deterministic BD cue, then formal/map/runtime QA.",
+  "nextRecommendedWork": "Inspect M136 public runtime QA; if PASS close final new pair and release M137-148 reuse-only.",
   "authoritativeFiles": [
     "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json",
     "character-assets/prototypes/luna_say_maybe_16m/M5_PLUS_PROGRESS_LEDGER.json",
