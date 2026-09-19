@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T01:09:07.884Z",
+  "actionKey": "HT:R",
+  "phase": "hit",
+  "failureId": "LOCAL_EDIT_ARTIFACT",
+  "repeatCount": 2,
+  "decision": "USE_APPROVED_LIMB_PATCH",
+  "hardStopSameStrategy": true,
+  "rules": [
+    "A candidate can fail one strategy once; the same failure on the next attempt forces a strategy change.",
+    "edit_op=null is evidence, not an automatic rejection by itself; visual continuity + locality decide whether it is a redraw.",
+    "Binary validity failures remain hard failures.",
+    "Rejected/NEVER_USE bytes remain forbidden.",
+    "Never advance hit -> rebound until hit passes."
+  ],
+  "guidance": [
+    "Do not repeat the same raster transform.",
+    "Use smaller feathered mask or a registered approved limb source."
+  ],
+  "nextPromptMode": "USE_APPROVED_LIMB_PATCH"
+}
