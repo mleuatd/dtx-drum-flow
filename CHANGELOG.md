@@ -1,3 +1,8 @@
+## 2026-09-20 — Verify BD+RD:RF/R
+- Closed BD+RD:RF/R after static visual PASS plus real public runtime QA PASS across PC and Xperia-class portrait.
+- Recorded synthetic explicit-sequence failures as invalid test methodology because arbitrary action keys cannot be synthesized by timeline seek alone.
+- Runtime evidence: run 35477061624 / artifact 10594916218.
+
 ## 2026-09-20 — Visual Integrity Batch 12
 - Claimed and statically reviewed BD+FT:RF/L and BD+FT:RF/R.
 - Both pairs failed structural stick-continuity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
