@@ -27,9 +27,9 @@ def erase_original_stick(im,grip):
  # before drawing a replacement; keep a safety margin around the hand itself.
  out=im.copy(); alpha=out.getchannel("A"); cut=Image.new("L",out.size,0); d=ImageDraw.Draw(cut)
  if grip==GRIP_R:
-  d.line([(1004,386),(1026,316)],fill=255,width=16)
+  d.line([(1004,386),(1026,316)],fill=255,width=30)
  else:
-  d.line([(487,451),(430,386)],fill=255,width=16)
+  d.line([(487,451),(430,386)],fill=255,width=30)
  alpha=ImageChops.subtract(alpha,cut)
  out.putalpha(alpha)
  return out
@@ -42,7 +42,7 @@ def local_stick(src,grip,target):
  return Image.alpha_composite(im,layer.resize(im.size,Image.Resampling.LANCZOS))
 def save_outputs(action,hit,reb,extra=None):
  key=action.lower().replace("+","_").replace(":","_").replace("/","_")
- hp=OUT/f"{key}_hit_attempt02.png"; rp=OUT/f"{key}_rebound_attempt02.png"
+ hp=OUT/f"{key}_hit_attempt03.png"; rp=OUT/f"{key}_rebound_attempt02.png"
  OUT.mkdir(parents=True,exist_ok=True); hp.parent.mkdir(parents=True,exist_ok=True); hit.save(hp); reb.save(rp)
  q=QA/key; q.mkdir(parents=True,exist_ok=True); drum=Image.open(DRUM).convert("RGBA")
  Image.alpha_composite(drum,hit).save(q/"hit_composite.png"); Image.alpha_composite(drum,reb).save(q/"rebound_composite.png")
