@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:36:00+09:00",
+  "updatedAt": "2026-09-20T08:40:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -492,7 +492,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-FINAL",
+      "reviewClaimedAt": "2026-09-20T08:40:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
     },
     {
       "order": 4,
@@ -562,7 +565,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-FINAL",
+      "reviewClaimedAt": "2026-09-20T08:40:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-09"
     },
     {
       "order": 5,
@@ -4363,30 +4369,36 @@
       "summary": "Corrected evidence after batch-prep parallel selection fix. BD+HH:RF/R duplicated/disconnected left limb/stick + seat splice; BD+LT:RF/R duplicated/crossing right stick. Formal PNGs unchanged.",
       "workflowRunId": 35475852782,
       "workflowArtifactId": 10594059870
+    },
+    {
+      "batchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
+      "startedAt": "2026-09-20T08:40:00+09:00",
+      "updatedAt": "2026-09-20T08:40:00+09:00",
+      "terminalId": "CHAT-FRONT-FINAL",
+      "actionKeys": [
+        "SN:R"
+      ],
+      "imageCount": 2,
+      "targets": [
+        "sn_r_hit",
+        "sn_r_rebound"
+      ],
+      "result": "IN_PROGRESS",
+      "summary": "Final single-action closure batch for the 15-action milestone."
     }
   ],
   "activeVisualIntegrityBatch": {
-    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-08",
-    "terminalId": "CHAT-FRONT-2X4",
-    "startedAt": "2026-09-20T08:32:00+09:00",
+    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-09",
+    "terminalId": "CHAT-FRONT-FINAL",
+    "startedAt": "2026-09-20T08:40:00+09:00",
     "actionKeys": [
-      "BD+HH:RF/R",
-      "BD+LT:RF/R"
+      "SN:R"
     ],
     "frameIds": [
-      "bd_hh_rf_r_hit",
-      "bd_hh_rf_r_rebound",
-      "bd_lt_rf_r_hit",
-      "bd_lt_rf_r_rebound"
+      "sn_r_hit",
+      "sn_r_rebound"
     ],
-    "stage": "HOLD_COMPLETE",
-    "note": "Corrected Prep honored active claimed batch after tool fix. Both actionKey pairs fail static hard gates; formal PNGs unchanged.",
-    "updatedAt": "2026-09-20T08:36:00+09:00",
-    "staticDisposition": {
-      "BD+HH:RF/R": "HOLD_BOTH_STATIC_HARD_FAIL",
-      "BD+LT:RF/R": "HOLD_BOTH_STATIC_HARD_FAIL"
-    },
-    "visualQaRunId": 35475852782,
-    "visualQaArtifactId": 10594059870
+    "stage": "STATIC_QA_PENDING",
+    "note": "Final odd remainder of the 15-action milestone; single action / two frames."
   }
 }
