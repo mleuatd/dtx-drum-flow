@@ -33,45 +33,24 @@ async function ensureAudio(){
 }
 function trackNode(node){scheduledNodes.push(node);node.addEventListener?.("ended",()=>{scheduledNodes=scheduledNodes.filter(x=>x!==node)},{once:true})}
 function stopScheduled(){for(const n of scheduledNodes){try{n.stop()}catch{}}scheduledNodes=[]}
-function noiseBuffer(seconds=.25){const len=Math.max(1,Math.round(audioCtx.sampleRate*seconds)),b=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;return b}
+function noiseBuffer(seconds=.25){const len=Math.max(1,Math.round(audioCtx.sampleRate*seconds)),b=audioCtx.createBuffer(1,len,audioCtx.sampleRate),d=b.getChannelData(0);let prev=0;for(let i=0;i<len;i++){const white=Math.random()*2-1;prev=prev*.72+white*.28;d[i]=white*.72+prev*.28}return b}
 function gainEnv(t,peak,attack,decay,target=null){const g=audioCtx.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,peak),t+attack);g.gain.exponentialRampToValueAtTime(.0001,t+decay);g.connect(target||drumBus||audioCtx.destination);return g}
-function tone(freq,t,dur,gain,type="sine",endFreq=null,attack=.002){const o=audioCtx.createOscillator(),g=gainEnv(t,gain,attack,dur);o.type=type;o.frequency.setValueAtTime(freq,t);if(endFreq)o.frequency.exponentialRampToValueAtTime(Math.max(20,endFreq),t+dur*.72);o.connect(g);o.start(t);o.stop(t+dur+.025);trackNode(o)}
-function filteredNoise(t,dur,gain,type,freq,q=.7,attack=.001){const s=audioCtx.createBufferSource(),f=audioCtx.createBiquadFilter(),g=gainEnv(t,gain,attack,dur);s.buffer=noiseBuffer(dur+.04);f.type=type;f.frequency.value=freq;f.Q.value=q;s.connect(f);f.connect(g);s.start(t);s.stop(t+dur+.04);trackNode(s)}
-function metalPartials(t,dur,gain,freqs){for(const [i,f] of freqs.entries())tone(f,t+i*.0007,dur*(1-i*.06),gain/(1+i*.42),"triangle",f*.86,.001)}
+function tone(freq,t,dur,gain,type="sine",endFreq=null,attack=.002,target=null,detune=0){const o=audioCtx.createOscillator(),g=gainEnv(t,gain,attack,dur,target);o.type=type;o.frequency.setValueAtTime(freq,t);o.detune.value=detune;if(endFreq)o.frequency.exponentialRampToValueAtTime(Math.max(20,endFreq),t+dur*.72);o.connect(g);o.start(t);o.stop(t+dur+.025);trackNode(o)}
+function filteredNoise(t,dur,gain,type,freq,q=.7,attack=.001,target=null){const s=audioCtx.createBufferSource(),f=audioCtx.createBiquadFilter(),g=gainEnv(t,gain,attack,dur,target);s.buffer=noiseBuffer(dur+.04);f.type=type;f.frequency.value=freq;f.Q.value=q;s.connect(f);f.connect(g);s.start(t);s.stop(t+dur+.04);trackNode(s)}
+function metalPartials(t,dur,gain,freqs,target=null){for(const [i,f] of freqs.entries())tone(f,t+i*.0007,dur*(1-i*.055),gain/(1+i*.38),i%2?"sine":"triangle",f*(.82+i*.018),.001,target,(Math.random()-.5)*10)}
+const DRUM_ROOM={};
+function ensureDrumRoom(){if(DRUM_ROOM.close)return DRUM_ROOM;const input=audioCtx.createGain(),close=audioCtx.createGain(),room=audioCtx.createGain(),delayA=audioCtx.createDelay(.25),delayB=audioCtx.createDelay(.25),roomFilter=audioCtx.createBiquadFilter();close.gain.value=.82;room.gain.value=.24;delayA.delayTime.value=.017;delayB.delayTime.value=.043;roomFilter.type="lowpass";roomFilter.frequency.value=7600;input.connect(close);close.connect(drumBus);input.connect(delayA);input.connect(delayB);delayA.connect(roomFilter);delayB.connect(roomFilter);roomFilter.connect(room);room.connect(drumBus);Object.assign(DRUM_ROOM,{input,close,room});return DRUM_ROOM}
+function humanizedVelocity(v){return Math.max(.16,Math.min(1,v*(.94+Math.random()*.10)))}
 function drumAt(part,vel=.8,when=null,note=null){
   if(!$("drumSound").checked||!audioCtx)return;
-  const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002),v=Math.max(.18,Math.min(1,vel||.8)),gm=Number(note?.gmNote);
-  if(part==="SN"&&gm===37){
-    /* Luna 2番Aメロ等のサイドスティック/クロススティック。通常SNへ戻さず、木質の「カッ」を独立音色で鳴らす。 */
-    tone(1180,t,.052,.20*v,"triangle",860);tone(2140,t+.001,.031,.09*v,"sine",1750);filteredNoise(t,.038,.07*v,"bandpass",2850,4.2);
-  }else if(part==="BD"||part==="LB"){
-    /* 低域の胴鳴り + 急なピッチ落下 + ビーターのクリック。筐体で輪郭が見える強いキック。 */
-    tone(145,t,.18,.46*v,"sine",48,.001);tone(72,t+.004,.24,.24*v,"sine",43,.004);filteredNoise(t,.032,.095*v,"bandpass",3600,1.6);filteredNoise(t,.018,.035*v,"highpass",7200,.6);
-  }else if(part==="SN"){
-    /* シェルの胴鳴りとスナッピーを別レイヤー化。 */
-    tone(205,t,.16,.18*v,"triangle",128);tone(330,t,.09,.055*v,"sine",245);filteredNoise(t,.19,.34*v,"bandpass",2100,.75);filteredNoise(t,.085,.13*v,"highpass",6100,.45);
-  }else if(part==="HH"||part==="LP"){
-    const open=gm===46;
-    if(open){
-      filteredNoise(t,.62,.19*v,"highpass",6900,.38);filteredNoise(t+.006,.44,.095*v,"bandpass",9800,1.1);
-      metalPartials(t,.32,.026*v,[5600,7350,9100]);
-    }else{
-      filteredNoise(t,.082,.18*v,"highpass",7600,.42);filteredNoise(t,.052,.08*v,"bandpass",10400,1.35);
-      metalPartials(t,.055,.018*v,[6200,8100]);
-    }
-  }else if(part==="HT"||part==="LT"||part==="FT"){
-    const f=part==="HT"?188:part==="LT"?142:part==="FT"?102:88;
-    const dur=part==="HT"?.27:part==="LT"?.32:.39;
-    tone(f*1.22,t,dur*.74,.22*v,"sine",f*.82);tone(f,t+.002,dur,.27*v,"sine",f*.68,.003);
-    filteredNoise(t,.065,.07*v,"bandpass",part==="HT"?1900:part==="LT"?1450:980,1.25);
-  }else if(part==="RD"){
-    /* ライドはベル/ピングの芯を残しつつ、クラッシュより短く制御された余韻。 */
-    tone(2450,t,.5,.07*v,"triangle",2210);tone(4250,t,.38,.038*v,"sine",3900);filteredNoise(t,.48,.105*v,"highpass",5600,.55);
-  }else{
-    /* LC/RC: 強いクラッシュアタック + 広帯域の金属的な余韻。 */
-    filteredNoise(t,.95,.20*v,"highpass",3900,.35);filteredNoise(t+.004,.58,.085*v,"bandpass",7200,.8);
-    metalPartials(t,.62,.032*v,part==="LC"?[3650,4970,6820]:[3920,5340,7480]);
-  }
+  const t=Math.max(audioCtx.currentTime+.002,when??audioCtx.currentTime+.002),v=humanizedVelocity(Math.max(.18,Math.min(1,vel||.8))),gm=Number(note?.gmNote),bus=ensureDrumRoom().input;
+  if(part==="SN"&&gm===37){tone(1120,t,.060,.19*v,"triangle",780,.001,bus);tone(2070,t+.001,.035,.075*v,"sine",1650,.001,bus);filteredNoise(t,.043,.075*v,"bandpass",2950,3.8,.001,bus)}
+  else if(part==="BD"||part==="LB"){tone(118,t,.105,.46*v,"sine",48,.001,bus);tone(63,t+.003,.28,.31*v,"sine",42,.003,bus);filteredNoise(t,.026,.105*v,"bandpass",2850,1.4,.001,bus);filteredNoise(t,.013,.038*v,"highpass",6500,.55,.001,bus)}
+  else if(part==="SN"){tone(196,t,.18,.18*v,"triangle",126,.001,bus);tone(318,t+.001,.10,.050*v,"sine",238,.001,bus);filteredNoise(t,.23,.31*v,"bandpass",1900,.72,.001,bus);filteredNoise(t,.12,.15*v,"highpass",5450,.42,.001,bus)}
+  else if(part==="HH"||part==="LP"){const open=gm===46;if(open){filteredNoise(t,.78,.16*v,"highpass",6500,.32,.001,bus);filteredNoise(t+.004,.56,.10*v,"bandpass",9600,.9,.001,bus);metalPartials(t,.48,.021*v,[5480,6940,8230,10120],bus)}else{filteredNoise(t,.105,.155*v,"highpass",7200,.36,.001,bus);filteredNoise(t,.066,.075*v,"bandpass",10100,1.15,.001,bus);metalPartials(t,.072,.015*v,[6040,7740,9340],bus)}}
+  else if(part==="HT"||part==="LT"||part==="FT"){const f=part==="HT"?174:part==="LT"?132:96,dur=part==="HT"?.34:part==="LT"?.41:.52;tone(f*1.28,t,dur*.58,.16*v,"triangle",f*.92,.001,bus);tone(f,t+.001,dur,.31*v,"sine",f*.64,.002,bus);tone(f*2.02,t+.002,dur*.48,.055*v,"sine",f*1.52,.002,bus);filteredNoise(t,.074,.078*v,"bandpass",part==="HT"?1850:part==="LT"?1380:920,1.05,.001,bus)}
+  else if(part==="RD"){tone(2360,t,.72,.052*v,"triangle",2140,.001,bus);tone(4010,t+.001,.58,.030*v,"sine",3660,.001,bus);tone(6420,t+.002,.41,.014*v,"sine",5900,.001,bus);filteredNoise(t,.72,.085*v,"highpass",5200,.48,.001,bus)}
+  else{const left=part==="LC";filteredNoise(t,1.75,.16*v,"highpass",3300,.28,.001,bus);filteredNoise(t+.004,1.12,.075*v,"bandpass",6500,.65,.001,bus);metalPartials(t,1.35,.026*v,left?[3260,4310,5720,7460,9820]:[3510,4680,6140,8030,10400],bus)}
   setTimeout(()=>flash(part),Math.max(0,(t-audioCtx.currentTime)*1000));
 }
 function stopOriginal(){if(originalSource){try{originalSource.stop()}catch{}originalSource=null}}
