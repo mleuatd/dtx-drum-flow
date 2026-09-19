@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:28:00+09:00",
+  "updatedAt": "2026-09-19T20:30:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -69,10 +69,16 @@
         "character-assets/layers/character/sn/rebound_l.png",
         "character-assets/layers/character/base/neutral.png"
       ],
-      "handoffNote": "Resume only in an environment/session where exact GitHub formal neutral/hit/rebound PNG bytes can be supplied as edit targets. Use committed AI_RENDER_SN_L_* packages; then deterministic cowlick/line-style, composite QA, transition QA, runtime QA.",
+      "handoffNote": "Resume only in an environment/session where exact GitHub formal neutral/hit/rebound PNG bytes can be supplied as edit targets. Use committed AI_RENDER_SN_L_* packages; then deterministic cowlick/line-style, composite QA, transition QA, runtime QA. Supporting exact-byte source QA: run 35440135805 / artifact 10583148418.",
       "lastCommit": "3cac4e8ec8a1d8f3c602bacaa6842a3afa21213b",
       "blocker": "Pixel candidate render cannot start in this turn because the image-edit renderer requires an actual usable image target in the conversation, while the GitHub connector available here cannot hand repository PNG bytes to that renderer. Text-only/free redraw is explicitly prohibited.",
-      "currentState": "CONSTRAINT_READY_AND_QA_PASS"
+      "currentState": "CONSTRAINT_READY_AND_QA_PASS",
+      "supportingQa": {
+        "runId": 35440135805,
+        "artifactId": 10583148418,
+        "artifactName": "runtime-pose-sn-l-source-qa",
+        "status": "SOURCE_AND_CONSTRAINT_QA_PASS"
+      }
     },
     {
       "taskId": "OTHER-001",
