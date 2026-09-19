@@ -7,6 +7,17 @@ from solve_leg_reach import solve as solve_leg
 def midpoint(a,b):
     return [round((a[0]+b[0])/2,3),round((a[1]+b[1])/2,3)]
 
+def solve_arm_nearest_source(shoulder,target,upper,fore,stick,source_elbow,source_wrist):
+    candidates=[]
+    for bend in (1,-1):
+        q=solve_arm(shoulder,target,upper,fore,stick,0,bend)
+        score=dist(q["elbow"],source_elbow)+0.25*dist(q["wrist"],source_wrist)
+        candidates.append((score,bend,q))
+    score,bend,q=min(candidates,key=lambda x:x[0])
+    q["selectedBend"]=bend
+    q["sourcePreservationScore"]=round(score,3)
+    return q
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--action-key",required=True)
@@ -47,7 +58,7 @@ def main():
             upper=dist(shoulder,elbow); fore=dist(elbow,wrist)
             existing_tip=state["props"].get("stick_tip_"+side)
             stick=dist(wrist,existing_tip) if existing_tip else 150
-            solved=solve_arm(shoulder,target,upper,fore,stick,0,1 if side=="l" else -1)
+            solved=solve_arm_nearest_source(shoulder,target,upper,fore,stick,elbow,wrist)
             joints["elbow_"+side]=solved["elbow"]; joints["wrist_"+side]=solved["wrist"]
             out["stickTip"]=solved["stickTip"]; out["reach"]=solved
         elif a.phase=="rebound":
