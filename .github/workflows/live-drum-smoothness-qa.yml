@@ -1,0 +1,20 @@
+name: Live Drum Smoothness QA
+on:
+  push:
+    branches: [main]
+    paths: ['site/live-drum-engine.js','site/app.js','tools/live-drum-engine-smoothness-qa.mjs','.github/workflows/live-drum-smoothness-qa.yml']
+  workflow_dispatch:
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: node tools/live-drum-engine-smoothness-qa.mjs
+      - run: node tools/drum-overlap-smoothness-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-drum-smoothness-qa
+          path: qa/audio-smoothness/
