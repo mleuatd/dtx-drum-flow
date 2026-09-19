@@ -4,7 +4,7 @@
     "measureStart": 48,
     "measureEnd": 53
   },
-  "status": "M48_53_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "DONE",
   "sourceOfTruth": "GitHub main",
   "blockType": "REUSE_ONLY",
   "analysis": {
@@ -13,27 +13,19 @@
     "newCharacterPngRequired": 0,
     "allMapped": true
   },
-  "requiredNext": "Run public PC/Xperia runtime QA for M48-53. If PASS, mark DONE and continue M54 BD+HT:RF/L source lock. Do not generate M48-53 images.",
+  "requiredNext": "M48-53 complete. Continue M54 BD+HT:RF/L source lock and deterministic local BD-cue derivation. Do not generate M48-53 images.",
   "runtimeQaEvidence": {
     "M48-53": {
       "status": "PASS",
+      "runId": 35419276196,
+      "artifactId": 10577016308,
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35419276196",
       "testedCommitSha": "0b2c167308aa45401404667bf33b686a7ad32f81",
-      "artifact": "public-runtime-qa-35419276196",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35419276196",
-      "measureStart": 48,
-      "measureEnd": 53,
-      "actions": [
-        "BD+HH+SN:RF/R/L",
-        "RC+SN:R/L",
-        "HT:R",
-        "HT:L",
-        "FT:R",
-        "FT:L"
-      ]
+      "passed": 24,
+      "failed": 0,
+      "screenshotReview": "PASS_PC_XPERIA_MANUAL_VISUAL"
     }
   },
-  "updatedAt": "2026-09-19T03:42:49.558338+00:00",
+  "updatedAt": "2026-09-19T12:58:00+09:00",
   "blocker": null
 }
