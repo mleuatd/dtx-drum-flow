@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T21:42:00+09:00",
+  "taskId": "IMPORT-AUTO-001",
+  "status": "PASS",
+  "objective": "Harden existing Dropbox -> staging JSON -> GitHub character asset import so routine transfer/registration is deterministic and tool-driven.",
+  "implemented": [
+    "Added tools/build-character-import-staging.mjs: actionKey + phase + Dropbox path + SHA256 -> one-image staging JSON with GitHub/runtime fields derived from ACTION_KEY_ASSET_MAP.",
+    "Added tools/validate-character-import-staging.mjs with GitHub-path/runtime-key/SHA/project-root guards and backward compatibility for existing staging JSON.",
+    "Added tools/import_character_asset_from_dropbox.py for exact-byte Dropbox download, SHA256 verification, PNG/alpha/canvas checks, formal placement and metadata updates.",
+    "Generalized import-character-asset-from-dropbox.yml to validate and process all staging JSON files changed in one push serially.",
+    "SchemaVersion 2 import records forbid silent normalization/re-encoding: source SHA256 must equal final SHA256."
+  ],
+  "regression": {
+    "triggerCommit": "f3a8fc431da63d72a1db173d6fd100afe0b24d58",
+    "workflowRunId": 35441602584,
+    "workflowName": "Import staged character asset from Dropbox",
+    "conclusion": "success",
+    "fixture": "character-assets/staging/sn_l_hit.json",
+    "behavior": "Existing status=IMPORTED asset validated and safely skipped; no formal PNG rewrite."
+  },
+  "unrelatedExistingValidationIssue": {
+    "workflowRunId": 35441585237,
+    "workflowName": "Character asset validation",
+    "conclusion": "failure",
+    "disposition": "NOT_CAUSED_BY_IMPORT_AUTOMATION",
+    "reason": "Existing active runtime contains 12 assets with manifest status FORMAL_QA_PASSED_RUNTIME_PENDING."
+  },
+  "formalPngModifiedByRegressionTest": false
+}
