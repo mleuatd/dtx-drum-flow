@@ -50,7 +50,9 @@ export class LiveDrumEngine{
   const base=.84+.08*nv;
   // Near-equal perceived practice mix. Keep only small instrument-family differences.
   const familyGain=(LOUDNESS_GAIN[v]??1)*(this.userGain[v]??1);
-  const strength=base*familyGain;\n  // Kick reinforcement: retain the acoustic sample but add short sub/low-mid body so BD remains identifiable in a dense practice mix.\n  if(v==="kick")this._kickBody(when,strength);
+  const strength=base*familyGain;
+  // Kick reinforcement: retain the acoustic sample but add short sub/low-mid body so BD remains identifiable in a dense practice mix.
+  if(v==="kick")this._kickBody(when,strength);
   g.gain.setValueAtTime(strength,when);
   // Preserve audible cymbal presence, while shortening only the masking tail.
   if(isCrash){const fadeStart=when+.58,fadeEnd=when+1.42;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
