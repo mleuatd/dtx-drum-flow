@@ -186,3 +186,9 @@ See Git history for earlier character-pose experiments and full-song / 1-16 / 1-
 - 2026-09-18: M9-16 RC+SN:R/L hit retry rejected and deny-listed (`49a78e87...`): image generation returned `edit_op=null` and a fresh front-facing redraw instead of an approved-neutral-derived edit. Runtime scope remains 1-8; rebound/formal mapping/deploy remain blocked.
 
 - 2026-09-18: User-approved `RC+SN:R/L` hit formally saved to Dropbox and GitHub as `combo/rc_sn_hit_refresh.png` (SHA-256 `f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82`). Exact-key hit mapping is preloaded outside live scope; M9-16 remains blocked only on rebound and downstream QA.
+
+## 2026-09-20 — Numeric RepairSpec V1
+- Rewrote all active motion-defect repair specs as machine-readable numeric contracts.
+- Added explicit zero-drift constraints, ROI/lock/anchor/contact/bbox/timing/validation fields and NEEDS_MEASUREMENT handling.
+- Added REPAIR_SPEC_SCHEMA_V1.json and REPAIR_MEASUREMENT_RULES.md.
+- Formal character PNGs were not modified.
