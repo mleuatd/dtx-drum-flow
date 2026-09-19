@@ -18,10 +18,10 @@
     "M54": {
       "status": "FAIL",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35419918838",
-      "testedCommitSha": "67aa11f8d176da5dce51493be35e1fe6d21a86ed",
-      "artifact": "public-runtime-qa-35419918838",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35419918838",
+      "runId": "35420041131",
+      "testedCommitSha": "85999e3bd547a2e8aac46f25619c0967b7784d07",
+      "artifact": "public-runtime-qa-35420041131",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35420041131",
       "measureStart": 54,
       "measureEnd": 54,
       "actions": [
@@ -29,10 +29,10 @@
       ]
     }
   },
-  "updatedAt": "2026-09-19T03:58:14.992413+00:00",
+  "updatedAt": "2026-09-19T04:01:49.796784+00:00",
   "blocker": {
     "type": "RUNTIME_QA",
-    "workflowRunId": "35419918838",
+    "workflowRunId": "35420041131",
     "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
   },
   "lastFailureClassification": {
