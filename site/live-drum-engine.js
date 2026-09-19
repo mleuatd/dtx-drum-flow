@@ -29,7 +29,13 @@ export class LiveDrumEngine{
  _buildBus(){const c=this.ctx;this.input=c.createGain();this.comp=c.createDynamicsCompressor();this.out=c.createGain();this.input.gain.value=.95;this.comp.threshold.value=-13;this.comp.knee.value=9;this.comp.ratio.value=2.3;this.comp.attack.value=.004;this.comp.release.value=.16;this.out.gain.value=.96;this.input.connect(this.comp);this.comp.connect(this.out);this.out.connect(this.destination)}
  _url(v,l,r){const d=defs[v];return d.base+d.prefix+"_vl"+l+"_rr"+r+".flac"}
  async _load(v,l,r){const key=v+":"+l+":"+r;if(this.buffers.has(key))return this.buffers.get(key);if(this.loading.has(key))return this.loading.get(key);const p=fetch(this._url(v,l,r)).then(x=>{if(!x.ok)throw Error("sample "+x.status);return x.arrayBuffer()}).then(b=>this.ctx.decodeAudioData(b)).then(b=>(this.buffers.set(key,b),b)).catch(e=>(console.warn("drum sample fallback",key,e),null));this.loading.set(key,p);const b=await p;this.loading.delete(key);return b}
- async preload(){const jobs=[];for(const [v,d] of Object.entries(defs))for(let l=1;l<=d.layers;l++)for(let r=1;r<=d.rr;r++)jobs.push(this._load(v,l,r));await Promise.allSettled(jobs);this.ready=true;return this}
+ async preload(){
+  // Decoding 100+ FLAC files at once can starve the WebAudio render thread on phones
+  // and present as clicks/pops. Keep network/decode pressure deliberately bounded.
+  const jobs=[];for(const [v,d] of Object.entries(defs))for(let l=1;l<=d.layers;l++)for(let r=1;r<=d.rr;r++)jobs.push([v,l,r]);
+  const workers=Array.from({length:3},async()=>{while(jobs.length){const [v,l,r]=jobs.shift();await this._load(v,l,r)}});
+  await Promise.allSettled(workers);this.ready=true;return this
+}
  _layer(v,velocity){const d=defs[v];return clamp(Math.ceil(clamp(velocity,0,1)*d.layers),1,d.layers)}
  _nextRR(v){const d=defs[v],n=((this.rr.get(v)||0)%d.rr)+1;this.rr.set(v,n);return n}
  trigger(part,velocity=.8,when=this.ctx.currentTime+.002,note={}){const v=voiceFor(part,note),layer=this._layer(v,velocity),rr=this._nextRR(v),key=v+":"+layer+":"+rr,buffer=this.buffers.get(key);if(buffer)return this._play(v,buffer,velocity,when);this._load(v,layer,rr).then(b=>{if(b&&when>=this.ctx.currentTime-.03)this._play(v,b,velocity,Math.max(when,this.ctx.currentTime+.002))});return null}
