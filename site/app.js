@@ -1,7 +1,7 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r13";
-import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r13";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-acoustic-r14";
+import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-acoustic-r14";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
@@ -10,6 +10,32 @@ const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯"
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
 let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,drumBus=null,liveDrumEngine=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
 const partEls=new Map();
+const DEV_MIXER=[
+ ["kick","BD/LB"],["snare","SN"],["sideStick","SideStick"],["hihatClosed","HH Closed"],["hihatOpen","HH Open"],["hihatPedal","LP HH"],
+ ["tomHigh","HT"],["tomLow","LT"],["tomFloor","FT"],["ride","RD"],["rideBell","Ride Bell"],["crashLeft","LC"],["crashRight","RC"]
+];
+const devMixerValues=Object.fromEntries(DEV_MIXER.map(([v])=>[v,1]));
+function devMixerText(){
+ if(!liveDrumEngine)return "MIX:engine-loading";
+ const base=liveDrumEngine.getBaseGains();
+ return DEV_MIXER.map(([v,l])=>l+":"+devMixerValues[v].toFixed(2)+" (final "+(base[v]*devMixerValues[v]).toFixed(3)+")").join("\n");
+}
+function refreshDevMixerHud(){const hud=$("devAudioReadout");if(hud)hud.textContent=devMixerText()}
+function initDevAudioMixer(){
+ const root=$("devAudioMixer");if(!root)return;
+ root.innerHTML="";
+ for(const [voice,label] of DEV_MIXER){
+  const row=document.createElement("div");row.className="dev-audio-row";
+  const lab=document.createElement("label");lab.htmlFor="mix-"+voice;lab.textContent=label;
+  const input=document.createElement("input");input.type="range";input.id="mix-"+voice;input.min=".10";input.max="2.50";input.step=".05";input.value="1";input.setAttribute("aria-label",label+" 音量");
+  const out=document.createElement("output");out.textContent="1.00×";
+  input.addEventListener("input",()=>{const n=Number(input.value);devMixerValues[voice]=n;out.textContent=n.toFixed(2)+"×";liveDrumEngine?.setUserGain(voice,n);refreshDevMixerHud()});
+  row.append(lab,input,out);root.append(row);
+ }
+ $("devAudioReset")?.addEventListener("click",()=>{for(const [voice] of DEV_MIXER){const input=$("mix-"+voice);if(input){input.value="1";input.dispatchEvent(new Event("input"))}}});
+ refreshDevMixerHud();
+}
+
 const clampTime=v=>Math.max(0,Math.min(chart.duration,Number(v)||0));
 function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60).toFixed(1).padStart(4,"0");return `${m}:${sec}`}
 function setStatus(s){$("status").textContent=s}
@@ -30,7 +56,7 @@ async function ensureAudio(){
     comp.threshold.value=-18;comp.knee.value=18;comp.ratio.value=4;comp.attack.value=.002;comp.release.value=.12;
     out.gain.value=1;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
   }
-  liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);
+  liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);for(const [v,n] of Object.entries(devMixerValues))liveDrumEngine.setUserGain(v,n);refreshDevMixerHud();
   if(!liveDrumEngine.ready)liveDrumEngine.preload().catch(err=>console.warn("Acoustic drum preload failed",err));
   if(audioCtx.state==="suspended")await audioCtx.resume();
   return audioCtx
@@ -116,4 +142,4 @@ function measureSeconds(){return 240/(chart.bpm||120)}
 addEventListener("keydown",e=>{if(e.target.matches("input,select"))return;if(e.code==="Space"){e.preventDefault();toggle()}if(e.code==="ArrowLeft")seek(chartTimeFromClock()-5);if(e.code==="ArrowRight")seek(chartTimeFromClock()+5)});
 const dropZone=$("dropZone");for(const ev of ["dragenter","dragover"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.add("dragover")})}for(const ev of ["dragleave","drop"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.remove("dragover")})}
 dropZone.addEventListener("drop",async e=>{const files=[...(e.dataTransfer?.files||[])];for(const f of files){const ext=f.name.split(".").pop().toLowerCase();try{if(["mid","midi","dtx","gda","json"].includes(ext)){setStatus("譜面を解析しています…");setChart(await parseChart(f));setStatus(`${f.name} を読み込みました。`)}else if(f.type.startsWith("audio/")){pausePlayback();setStatus("元音源を解析しています…");audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);$("alignAudio").disabled=false;setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。`)}}catch(err){setStatus(`${f.name}: ${err.message}`)}}});
-window.__DTX_APP_READY__=true;addEventListener("resize",resize);makeParts();syncSoundToggleUi();setChart(chart);resize();initCharacterPrototype();requestAnimationFrame(loop);loadSelectedSong();
+initDevAudioMixer();window.__DTX_APP_READY__=true;addEventListener("resize",resize);makeParts();syncSoundToggleUi();setChart(chart);resize();initCharacterPrototype();requestAnimationFrame(loop);loadSelectedSong();
