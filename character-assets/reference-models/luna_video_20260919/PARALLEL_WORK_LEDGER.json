@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:26:00+09:00",
+  "updatedAt": "2026-09-19T20:29:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -217,6 +217,36 @@
       "handoffNote": "DONE. tools/runtime_pose/** may be claimed by another terminal only after refreshing main and checking this ledger. Formal PNGs were not modified.",
       "lastCommit": "662ebfe256e62b800fec863efef0d98bc6286b72",
       "result": "Combo action-key generalization complete. Runtime Pose Tests run 35440027946 passed. Supports explicit part-to-limb pairing, multi-effector contact validation, active-limb transition accounting, AI constraint/debug multi-effector output, and legacy single-action compatibility."
+    },
+    {
+      "taskId": "RTP-QA-001",
+      "category": "runtime_pose_composite_qa",
+      "description": "Harden fixed-drum composite QA for current constraint schema, including dict/list canvas normalization and multi-effector contact validation. Add exact-byte SN:L formal-source CI smoke/debug artifact workflow without modifying formal PNGs.",
+      "owner": "RUNTIME-POSE-TERM",
+      "status": "IN_PROGRESS",
+      "claimedAt": "2026-09-19T20:29:00+09:00",
+      "startedAt": "2026-09-19T20:29:00+09:00",
+      "completedAt": null,
+      "paths": [
+        "tools/runtime_pose/validate_fixed_drum_composite.py",
+        "tools/runtime_pose/tests/**",
+        ".github/workflows/runtime-pose-sn-l-source-qa.yml",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_qa/**",
+        "character-assets/reference-models/luna_video_20260919/PARALLEL_WORK_LEDGER.json",
+        "character-assets/reference-models/luna_video_20260919/PROGRESS_V1.json"
+      ],
+      "dependsOn": [
+        "RTP-SNL-001",
+        "RTP-GEN-001"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/**",
+        "character-assets/layers/drum/drum_base.png",
+        "character-assets/edit-workspaces/**",
+        "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json"
+      ],
+      "handoffNote": "This task may read exact formal PNG bytes only in GitHub Actions. It must not overwrite formal assets. Other terminals should not edit the listed validator/workflow paths until DONE/BLOCKED.",
+      "lastCommit": null
     }
   ]
 }
