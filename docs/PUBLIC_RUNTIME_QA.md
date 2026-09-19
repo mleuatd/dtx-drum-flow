@@ -17,3 +17,8 @@ The runner accepts `MEASURE_START`, `MEASURE_END`, and comma-separated `QA_ACTIO
 
 ## Evidence / anti-loop
 The artifact `public-runtime-qa-<run id>` contains `runtime-qa.json` and screenshots for PC and Xperia-like portrait viewports. On failure, inspect the failed job/log and JSON before retrying. Do not rerun an unchanged failing commit repeatedly; record the failed step/error and make a corrective commit first.
+
+## 2026-09-20 — Generic explicit transition QA
+- Visual Integrity Batch Runtime QA now resolves the requested actionKey from chart + limb/inventory authority instead of hard-coding BD:RF timestamps.
+- It checks PC and Xperia-class portrait for neutral -> hit -> rebound -> neutral using a clean-gap occurrence and exact runtime frame mapping.
+- Current verification target: BD+RD:RF/R.
