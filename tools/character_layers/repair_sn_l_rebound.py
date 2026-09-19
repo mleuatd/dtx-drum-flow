@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+import json, hashlib, math
+from pathlib import Path
+import numpy as np
+from PIL import Image, ImageDraw
+
+ROOT=Path(__file__).resolve().parents[2]
+BASE=ROOT/"character-assets/reference-models/luna_video_20260919"
+PROTO=ROOT/"character-assets/prototypes/luna_say_maybe_16m"
+OUTDIR=ROOT/"character-assets/edit-workspaces/motion-repair-20260920"
+OUTDIR.mkdir(parents=True,exist_ok=True)
+
+neutral_path=ROOT/"character-assets/layers/character/base/neutral.png"
+source_path=ROOT/"character-assets/layers/character/sn/rebound_l.png"
+constraint_path=BASE/"runtime_pose_constraints/SN_L_rebound_V1.json"
+hit_constraint_path=BASE/"runtime_pose_constraints/SN_L_hit_V1.json"
+drum_path=ROOT/"character-assets/layers/drum/drum_base.png"
+
+neutral=Image.open(neutral_path).convert("RGBA")
+source=Image.open(source_path).convert("RGBA")
+drum=Image.open(drum_path).convert("RGBA")
+c=json.loads(constraint_path.read_text())
+hit=json.loads(hit_constraint_path.read_text())
+W,H=neutral.size
+assert neutral.size==source.size==(1448,1086)
+
+# Active-left-limb semantic corridor from tool-authority joints/effectors.
+j=c["joints"]
+shoulder=tuple(map(round,j["shoulder_l"]))
+elbow=tuple(map(round,j["elbow_l"]))
+wrist=tuple(map(round,j["wrist_l"]))
+tip=tuple(map(round,c["stickTip"]))
+hit_tip=tuple(map(round,hit["stickTip"]))
+
+mask=Image.new("L",(W,H),0)
+d=ImageDraw.Draw(mask)
+# Wide enough to preserve actual drawn arm/clothing/stick, but deliberately local.
+d.line([shoulder,elbow,wrist],fill=255,width=150,joint="curve")
+for p,r in [(shoulder,85),(elbow,85),(wrist,75)]:
+    d.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+# Stick corridor follows wrist->source rebound stick tip.
+d.line([wrist,tip],fill=255,width=38)
+for p,r in [(tip,26),(hit_tip,18)]:
+    d.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+
+# Restrict lower mask to upper-body/action area so legs/stool cannot be imported.
+ma=np.asarray(mask).copy()
+ma[720:,:]=0
+mask=Image.fromarray(ma.astype(np.uint8),"L")
+
+candidate=neutral.copy()
+candidate.paste(source,(0,0),mask)
+candidate_path=OUTDIR/"sn_l_rebound_candidate_v1.png"
+candidate.save(candidate_path)
+
+# Exact raster diagnostics.
+n=np.asarray(neutral); s=np.asarray(source); q=np.asarray(candidate); mm=np.asarray(mask)>0
+diff_nq=np.any(n!=q,axis=2)
+diff_sq=np.any(s!=q,axis=2)
+outside_changed=int(np.count_nonzero(diff_nq & ~mm))
+inside_changed=int(np.count_nonzero(diff_nq & mm))
+changed=int(np.count_nonzero(diff_nq))
+ys,xs=np.nonzero(diff_nq)
+bbox=None if xs.size==0 else {"x":int(xs.min()),"y":int(ys.min()),"width":int(xs.max()-xs.min()+1),"height":int(ys.max()-ys.min()+1)}
+# Compare inactive lower body/seat directly to neutral.
+inactive_lower_changed=int(np.count_nonzero(np.any(n[720:,:,:]!=q[720:,:,:],axis=2)))
+# head/core guard boxes chosen from approved-neutral geometry/tool landmarks.
+guards={
+ "head":[500,0,430,325],
+ "right_arm":[820,320,340,250],
+ "pelvis_seat":[560,560,420,250],
+ "legs_stool":[300,700,850,386]
+}
+guard_changed={}
+for name,(x,y,w,h) in guards.items():
+ guard_changed[name]=int(np.count_nonzero(np.any(n[y:y+h,x:x+w,:]!=q[y:y+h,x:x+w,:],axis=2)))
+
+# Constraint semantics.
+def dist(a,b): return math.hypot(a[0]-b[0],a[1]-b[1])
+rebound_sep=dist(c["stickTip"],c["contactPoint"])
+
+# Composite debug: drum under candidate, preserving source canvas.
+comp=Image.alpha_composite(drum,candidate)
+comp.save(OUTDIR/"sn_l_rebound_candidate_v1_fixed_drum.png")
+
+report={
+ "schemaVersion":1,
+ "issueId":"MOTION-001",
+ "actionKey":"SN:L",
+ "phase":"rebound",
+ "candidate":str(candidate_path.relative_to(ROOT)),
+ "method":"approved neutral base + source rebound pixels only inside semantic left-arm/stick corridor",
+ "source":{"neutralSha256":hashlib.sha256(neutral_path.read_bytes()).hexdigest(),"reboundSha256":hashlib.sha256(source_path.read_bytes()).hexdigest(),"constraint":str(constraint_path.relative_to(ROOT))},
+ "semanticMask":{"shoulder":shoulder,"elbow":elbow,"wrist":wrist,"stickTip":tip,"maskPixelCount":int(mm.sum()),"lowerCutoffY":720},
+ "constraintChecks":{"reboundSeparationPx":round(rebound_sep,3),"minimumSeparationPx":c["tolerancesPx"]["reboundSeparation"],"reboundPass":rebound_sep>=c["tolerancesPx"]["reboundSeparation"],"stoolAnchor":c["stoolAnchor"],"hipAnchor":c["hipAnchor"]},
+ "rasterChecks":{"changedPixelsVsNeutral":changed,"changedRatioVsNeutral":round(changed/(W*H),8),"changedBBoxVsNeutral":bbox,"outsideMaskChangedPixels":outside_changed,"inactiveLowerBodyChangedPixels":inactive_lower_changed,"guardChangedPixels":guard_changed,"sourcePixelsRejectedOutsideMask":int(np.count_nonzero(diff_sq & ~mm))},
+ "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
+}
+report["pass"]=all(report["hardPass"].values())
+(OUTDIR/"sn_l_rebound_candidate_v1_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+print(json.dumps(report,ensure_ascii=False))
+if not report["pass"]: raise SystemExit(2)
