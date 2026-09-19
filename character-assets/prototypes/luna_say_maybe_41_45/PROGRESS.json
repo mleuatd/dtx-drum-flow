@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "range": {
+    "measureStart": 41,
+    "measureEnd": 45
+  },
+  "status": "RUNTIME_QA_PENDING",
+  "sourceOfTruth": "GitHub main",
+  "blockType": "REUSE_ONLY",
+  "analysis": {
+    "noteCount": 80,
+    "groupCount": 57,
+    "newCharacterPngRequired": 0,
+    "actionKeys": [
+      "BD+HH:RF/R",
+      "HH+SN:R/L",
+      "HH:R",
+      "SN:L",
+      "SN:R",
+      "BD+RC:RF/R",
+      "BD+HT:RF/R",
+      "BD:RF",
+      "HT:R",
+      "HT:L"
+    ],
+    "allMapped": true,
+    "runtimeScopeAlreadyIncludesRange": true
+  },
+  "requiredNext": "Run public PC/Xperia runtime QA for M41-45. If PASS, mark block DONE and advance to M46 LT+SN:R/L source lock. Do not generate any M41-45 images.",
+  "runtimeQaEvidence": {},
+  "updatedAt": "2026-09-19T12:18:00+09:00"
+}
