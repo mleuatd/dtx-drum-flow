@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:35:00+09:00",
+  "updatedAt": "2026-09-19T18:38:00+09:00",
   "rules": [
     "Match by SHA256 when known; otherwise exact path/name plus documented issue.",
     "NEVER_USE entries may not be runtime mapped or promoted as approved.",
@@ -186,6 +186,19 @@
       "dropboxPath": null,
       "rejectionReason": "edit_op=null; generated a fresh front-facing character with materially changed identity/camera/body/stool instead of an approved-neutral-derived edit. Fails FAIL-EDIT-NULL and FAIL-FRONT-CHAR. Never register or reuse.",
       "date": "2026-09-18",
+      "replacementAsset": null,
+      "status": "NEVER_USE"
+    },
+    {
+      "asset": "sn_l_hit_TERM-A_try01.png",
+      "type": "IMAGE",
+      "actionKey": "SN:L",
+      "phase": "hit",
+      "sha256": "b6f3a419c1c00337444e2f80f4ef9bac907b3d192f9ea4dc029e0175fc0eaab0",
+      "githubPath": null,
+      "dropboxPath": null,
+      "rejectionReason": "Generated a documentation/comparison sheet rather than a character-only edit. Fails claimed-target scope, transparent-layer requirement, registration, and fixed-drum layer separation.",
+      "date": "2026-09-19",
       "replacementAsset": null,
       "status": "NEVER_USE"
     }
