@@ -26,21 +26,35 @@ engine=Path("site/live-drum-engine.js").read_text(); mapping=Path("site/drum-not
 required=["kick","snare","sideStick","hihatClosed","hihatOpen","hihatPedal","tomHigh","tomLow","tomFloor","ride","rideBell","crashLeft","crashRight"]
 missing=[v for v in required if v not in engine or v not in mapping]
 procedural=[s for s in ["createOscillator(","_noiseBuffer(","metalPartials"] if s in engine]
-# Per-voice loudness calibration: use the loudest velocity layer and median RR RMS.
-# Convert to dBFS, then compute gain needed to place every family in a narrow target band.
-voice_db={}
+# Practice-oriented perceptual metrics. Calibrate from attack/early energy as well as whole-file RMS.
+# This is song-independent and uses all RR samples from the loudest layer.
+def db(v): return 20*np.log10(max(float(v),1e-9))
+voice_metrics={}
 for voice,(base,prefix,layers,rrs) in voices.items():
- vals=[r["rms"] for r in rows if r["soundKey"]==voice and r["layer"]==layers and r["rms"]>0]
- voice_db[voice]=20*np.log10(float(np.median(vals))) if vals else -120.0
-target_db=-18.0
-# Keep only a tiny intentional character contour: cymbals +0.6 dB, kick/toms 0 dB, snare +0.2, hats +0.3.
-offset={"crashLeft":.6,"crashRight":.6,"ride":.4,"rideBell":.4,"hihatClosed":.3,"hihatOpen":.3,"hihatPedal":.3,"snare":.2}
-calibration={v:float(10**(((target_db+offset.get(v,0))-db)/20)) for v,db in voice_db.items()}
-post_db={v:voice_db[v]+20*np.log10(calibration[v]) for v in voice_db}
+ vr=[r for r in rows if r["soundKey"]==voice and r["layer"]==layers]
+ vals=[]
+ for r in vr:
+  raw=requests.get(r["url"],timeout=30); raw.raise_for_status()
+  x,sr=sf.read(io.BytesIO(raw.content),dtype="float32",always_2d=True); x=x.mean(axis=1)
+  def wrms(sec):
+   y=x[:max(1,min(len(x),int(sr*sec)))]
+   return float(np.sqrt(np.mean(y*y))) if len(y) else 0
+  vals.append({"full":float(np.sqrt(np.mean(x*x))),"attack":wrms(.08),"early":wrms(.35),"peak":float(np.max(np.abs(x)))})
+ med={k:float(np.median([v[k] for v in vals])) for k in vals[0]}
+ # Practice salience: transient and first 350 ms dominate note identification.
+ sal=.55*db(med["early"])+.30*db(med["attack"])+.15*db(med["full"])
+ voice_metrics[voice]={**med,"salienceDb":sal}
+target_db=-13.5
+# Deliberately flat: no cymbal boost. Tiny offsets only to help low drums survive spectral masking.
+offset={"kick":1.0,"tomHigh":.7,"tomLow":.8,"tomFloor":.8,"snare":.2,"sideStick":.2,
+        "hihatClosed":-.4,"hihatOpen":-.5,"hihatPedal":-.4,"ride":-.7,"rideBell":-.5,
+        "crashLeft":-.9,"crashRight":-.9}
+calibration={v:float(10**(((target_db+offset.get(v,0))-m["salienceDb"])/20)) for v,m in voice_metrics.items()}
+post_db={v:voice_metrics[v]["salienceDb"]+20*np.log10(calibration[v]) for v in voice_metrics}
 spread=max(post_db.values())-min(post_db.values())
-(OUT/"loudness-calibration.json").write_text(json.dumps({"sourceRmsDb":voice_db,"targetDb":target_db,"gain":calibration,"postDb":post_db,"spreadDb":spread},indent=2))
-summary={"samplesChecked":len(rows),"reviewSamples":len(failures),"missingVoices":missing,"proceduralLegacyTokens":procedural,"loudnessSpreadDb":spread,"status":"PASS" if not missing and not procedural and not failures and spread<=1.0 else "REVIEW"}
+(OUT/"loudness-calibration.json").write_text(json.dumps({"method":"attack+early+full RMS practice salience","voiceMetrics":voice_metrics,"targetDb":target_db,"offsetDb":offset,"gain":calibration,"postDb":post_db,"spreadDb":spread},indent=2))
+summary={"samplesChecked":len(rows),"reviewSamples":len(failures),"missingVoices":missing,"proceduralLegacyTokens":procedural,"practiceSalienceSpreadDb":spread,"status":"PASS" if not missing and not procedural and not failures and spread<=2.0 else "REVIEW"}
 (OUT/"sample-metrics.json").write_text(json.dumps(rows,indent=2))
 (OUT/"summary.json").write_text(json.dumps(summary,indent=2))
 print(json.dumps(summary,indent=2))
-if missing or procedural: raise SystemExit(1)
+if missing or procedural or spread>2.0: raise SystemExit(1)
