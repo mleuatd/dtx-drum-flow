@@ -1,0 +1,48 @@
+name: integrate-drum-note-sound-map
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/drum-note-sound-map.js"
+      - "tools/integrate-drum-note-sound-map.py"
+      - ".github/workflows/integrate-drum-note-sound-map.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Integrate note sound map
+        run: python tools/integrate-drum-note-sound-map.py
+      - name: Syntax check
+        run: |
+          node --check site/drum-note-sound-map.js
+          node --check site/live-drum-engine.js
+          node --check site/app.js
+      - name: Mapping smoke test
+        run: |
+          node --input-type=module - <<'NODE'
+          import {resolveDrumVoice} from './site/drum-note-sound-map.js';
+          const cases=[
+            [{part:'SN',gmNote:37},'sideStick'],
+            [{part:'HH',gmNote:46},'hihatOpen'],
+            [{part:'LT'},'tomLow'],
+            [{part:'UNKNOWN'},'snare']
+          ];
+          for(const [note,expected] of cases){const got=resolveDrumVoice(note,note.part).voice;if(got!==expected)throw new Error(`${JSON.stringify(note)} => ${got}, expected ${expected}`)}
+          NODE
+      - name: Commit integration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/app.js
+          git diff --cached --quiet && exit 0
+          git commit -m "audio: route published notes through sound map"
+          git pull --rebase origin main
+          git push origin HEAD:main
