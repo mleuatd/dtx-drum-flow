@@ -10,6 +10,7 @@ on:
       - "character-assets/layers/drum/drum_base.png"
       - "tools/character_layers/prepare_visual_integrity_batch.py"
       - ".github/workflows/visual-integrity-batch-prep.yml"
+      - ".github/back-visual-actions.txt"
   workflow_dispatch:
     inputs:
       actions:
