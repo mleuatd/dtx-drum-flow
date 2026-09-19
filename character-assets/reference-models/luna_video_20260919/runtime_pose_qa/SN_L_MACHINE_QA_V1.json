@@ -1,15 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-19T20:16:00+09:00",
+  "generatedAt": "2026-09-19T20:20:00+09:00",
   "terminalId": "RUNTIME-POSE-TERM",
   "actionKey": "SN:L",
   "authority": "GitHub main + tools/runtime_pose",
-  "sourceCommit": "a8fd46ab553123f68c14014145283a915e588f21",
+  "sourceCommit": "50a961f065de70e6663a9f3db26e007f59d4b544",
+  "status": "CONSTRAINT_QA_PASS_CANDIDATE_RENDER_BLOCKED",
   "toolChecks": {
-    "unitIntent": [
-      "source-nearest IK branch selected for hit contact",
-      "contact QA is phase-aware: neutral=no contact requirement, hit=exact contact, rebound=separation"
-    ],
     "contact": {
       "neutral": {
         "pass": true,
@@ -48,99 +45,107 @@
     },
     "transitions": {
       "neutral_to_hit": {
-        "pass": false,
-        "maxJointShiftPx": 314.384,
+        "pass": true,
+        "maxJointShiftPx": 61.915,
         "activeLimbMaxJointShiftPx": 61.915,
-        "inactiveLimbMaxJointShiftPx": 314.384,
-        "coreMaxJointShiftPx": 60.902,
+        "inactiveLimbMaxJointShiftPx": 0,
+        "coreMaxJointShiftPx": 0,
         "stoolShiftPx": 0,
         "hipShiftPx": 0,
         "jointShifts": {
-          "head_top": 31.828,
-          "chin": 43.186,
-          "neck": 44.045,
+          "head_top": 0,
+          "chin": 0,
+          "neck": 0,
           "shoulder_l": 57.035,
-          "shoulder_r": 12,
+          "shoulder_r": 0,
           "elbow_l": 46.425,
-          "elbow_r": 201.802,
+          "elbow_r": 0,
           "wrist_l": 61.915,
-          "wrist_r": 314.384,
-          "hip_l": 60.902,
-          "hip_r": 25,
-          "knee_l": 96.26,
-          "knee_r": 50.596,
-          "ankle_l": 82.765,
-          "ankle_r": 45.177
+          "wrist_r": 0,
+          "hip_l": 0,
+          "hip_r": 0,
+          "knee_l": 0,
+          "knee_r": 0,
+          "ankle_l": 0,
+          "ankle_r": 0
         }
       },
       "hit_to_rebound": {
         "pass": true,
         "maxJointShiftPx": 67.954,
         "activeLimbMaxJointShiftPx": 67.954,
-        "inactiveLimbMaxJointShiftPx": 26.87,
-        "coreMaxJointShiftPx": 10.63,
+        "inactiveLimbMaxJointShiftPx": 0,
+        "coreMaxJointShiftPx": 0,
         "stoolShiftPx": 0,
         "hipShiftPx": 0,
         "jointShifts": {
-          "head_top": 8.246,
-          "chin": 4.123,
-          "neck": 3.606,
+          "head_top": 0,
+          "chin": 0,
+          "neck": 0,
           "shoulder_l": 4.472,
-          "shoulder_r": 8.062,
+          "shoulder_r": 0,
           "elbow_l": 26.567,
-          "elbow_r": 19.799,
+          "elbow_r": 0,
           "wrist_l": 67.954,
-          "wrist_r": 26.87,
-          "hip_l": 10.63,
-          "hip_r": 6.403,
-          "knee_l": 6.403,
-          "knee_r": 7.211,
-          "ankle_l": 10.05,
-          "ankle_r": 12.806
+          "wrist_r": 0,
+          "hip_l": 0,
+          "hip_r": 0,
+          "knee_l": 0,
+          "knee_r": 0,
+          "ankle_l": 0,
+          "ankle_r": 0
         }
       },
       "rebound_to_neutral": {
-        "pass": false,
-        "maxJointShiftPx": 293.246,
+        "pass": true,
+        "maxJointShiftPx": 88.204,
         "activeLimbMaxJointShiftPx": 88.204,
-        "inactiveLimbMaxJointShiftPx": 293.246,
-        "coreMaxJointShiftPx": 63.906,
+        "inactiveLimbMaxJointShiftPx": 0,
+        "coreMaxJointShiftPx": 0,
         "stoolShiftPx": 0,
         "hipShiftPx": 0,
         "jointShifts": {
-          "head_top": 39.205,
-          "chin": 44,
-          "neck": 46.271,
+          "head_top": 0,
+          "chin": 0,
+          "neck": 0,
           "shoulder_l": 59.304,
-          "shoulder_r": 17.464,
+          "shoulder_r": 0,
           "elbow_l": 72.111,
-          "elbow_r": 184.098,
+          "elbow_r": 0,
           "wrist_l": 88.204,
-          "wrist_r": 293.246,
-          "hip_l": 63.906,
-          "hip_r": 26,
-          "knee_l": 96.047,
-          "knee_r": 49.193,
-          "ankle_l": 80.006,
-          "ankle_r": 35.228
+          "wrist_r": 0,
+          "hip_l": 0,
+          "hip_r": 0,
+          "knee_l": 0,
+          "knee_r": 0,
+          "ankle_l": 0,
+          "ankle_r": 0
         }
       }
     }
   },
   "findings": [
     "SN:L hit exact contact passes at 0 px error.",
-    "IK branch selection now preserves the source elbow family instead of choosing the mirrored elbow branch.",
-    "Neutral and rebound are no longer incorrectly required to touch the snare.",
-    "Full-frame transition QA still flags large inactive right-arm motion in the provisional anchor set (about 293-314 px on return/entry), so candidate rendering must not blindly copy all provisional source joints."
+    "IK chooses the source-nearest elbow branch; selected bend is -1 with source preservation score 40.127 instead of the mirrored branch.",
+    "Neutral and rebound use phase-aware contact semantics and pass without being forced onto the snare.",
+    "Single-hand minimal-motion sanitization locks inactive body/core to neutral. All neutral->hit->rebound->neutral transition maxima are now <=120 px.",
+    "Formal runtime PNGs remain unchanged."
   ],
   "candidatePolicy": {
-    "status": "BLOCKED_PENDING_RENDER_INPUT_AND_TRANSITION_SANITIZATION",
+    "status": "BLOCKED_AT_PIXEL_RENDER_INPUT",
+    "blocker": "This chat's image-editing tool requires a usable image target present in the conversation. GitHub connector can read repository metadata/text but cannot provide repository PNG bytes as an image-edit target to the image renderer in this turn. Free generation from text is prohibited by the project rules.",
+    "completedBeforeBlock": [
+      "numeric constraints ready",
+      "source-nearest IK ready",
+      "minimal-motion transition sanitization ready",
+      "phase-aware contact/registration/transition QA ready",
+      "neutral/hit/rebound AI render constraint packages ready"
+    ],
     "nextPermittedStrategy": [
-      "Use numeric constraints as authority.",
-      "Lock inactive limb/core/stool/camera to neutral or otherwise sanitize only the validator-identified discontinuities before rendering.",
-      "Render candidate from actual formal source image bytes; do not free-draw from text.",
-      "Apply deterministic cowlick and line-style tools after render.",
-      "Then run fixed-drum composite and runtime QA."
+      "Use the exact formal GitHub neutral/hit/rebound PNG bytes as edit targets in an environment that can pass those bytes to the renderer.",
+      "Render only inside the committed numeric constraints.",
+      "Apply deterministic cowlick and line-style postprocess.",
+      "Run fixed-drum composite QA and Web runtime QA before promotion."
     ],
     "formalAssetsModified": false
   }
