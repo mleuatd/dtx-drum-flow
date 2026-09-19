@@ -1,4 +1,12 @@
 ## 2026-09-20 — Visual Integrity QA Gate for character motion repair
+
+## 2026-09-20 — Visual-integrity 2x4 batch 01
+
+- Processed two action pairs / four frames: `SN:L` hit+rebound and `BD+RC:RF/R` hit+rebound.
+- Triggered exact-parent masked `SN:L hit` edit workflow run 35471764688. It stopped at the credential boundary because GitHub Actions has no `OPENAI_API_KEY`; no candidate image bytes were produced.
+- Rechecked existing `SN:L rebound` repair evidence and method2 `BD+RC` hit/rebound machine QA. BD+RC hit/rebound remain machine-QA PASS with zero outside-mask changes and locked-region guards unchanged.
+- No frame was promoted under the 2026-09-20 visual-integrity policy because human-anatomy, linework, fixed-drum-composite, and runtime-transition visual hard gates are still pending.
+- Historical candidates/evidence were preserved; no force push and no formal PNG overwrite occurred.
 - Promoted human anatomy, linework integrity, and fixed-drum composite semantics to mandatory character-pose QA gates; changed-pixel/ROI/SHA/bbox/centroid checks remain necessary but are no longer sufficient for PASS.
 - Updated `QA_CHECKLIST_MASTER.json` to schemaVersion 2 with explicit hardPass/hardFail criteria for pelvis/leg/joint continuity, seated-pose readability, stick continuity/hand connection, waist/pelvis/skirt/seat artifacts, and fixed-drum strike/pedal semantics.
 - Added `VISUAL_INTEGRITY_QA_RULES.md` and `VISUAL_DEFECT_TAXONOMY.json` with first-class defect categories including human_anatomy_break, joint_continuity_break, stick_continuity_break, waistline_artifact_break, line_dropout_break, line_double_stroke_break, and fixed_drum_composite_break.
