@@ -130,11 +130,21 @@ jobs:
             echo "QA outcome is $QA_OUTCOME; preserving current progress state."
             exit 0
           fi
-          # Another terminal/run may have updated the same progress file after this
-          # checkout. Rebase the single ledger file from latest main before writing.
-          git fetch origin main
-          git checkout origin/main -- "$RUNTIME_QA_PROGRESS_PATH" || true
-          python - <<'PY'
+
+          # Persist onto the latest main. Do not commit on an old checkout and then
+          # rebase the same ledger file: parallel character/audio terminals can update
+          # main between browser QA and persistence, producing a false workflow FAIL.
+          # Instead, re-read origin/main, reapply the small ledger mutation, and retry
+          # a rejected push from the new head.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          for attempt in 1 2 3 4 5; do
+            echo "Ledger persistence attempt $attempt"
+            git fetch origin main
+            git reset --hard origin/main
+
+            python - <<'PY'
           import json, os
           p=os.environ["RUNTIME_QA_PROGRESS_PATH"]
           with open(p,encoding="utf-8") as f: d=json.load(f)
@@ -164,12 +174,23 @@ jobs:
           d["updatedAt"]=datetime.now(timezone.utc).isoformat()
           with open(p,"w",encoding="utf-8") as f: json.dump(d,f,ensure_ascii=False,indent=2); f.write("\n")
           PY
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$RUNTIME_QA_PROGRESS_PATH"
-          git diff --cached --quiet || git commit -m "qa: record $RUNTIME_QA_BLOCK_KEY public runtime result"
-          git pull --rebase origin main
-          git push origin HEAD:main
+
+            git add "$RUNTIME_QA_PROGRESS_PATH"
+            if git diff --cached --quiet; then
+              echo "No ledger delta to persist."
+              exit 0
+            fi
+            git commit -m "qa: record $RUNTIME_QA_BLOCK_KEY public runtime result"
+            if git push origin HEAD:main; then
+              echo "Runtime QA ledger persisted successfully."
+              exit 0
+            fi
+            echo "main advanced during persistence; retrying from latest origin/main."
+            sleep $((attempt * 2))
+          done
+
+          echo "Failed to persist runtime QA ledger after 5 latest-main retries." >&2
+          exit 1
       - name: Enforce browser QA result
         if: steps.browser_qa.outcome != 'success'
         run: exit 1
