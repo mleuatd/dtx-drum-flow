@@ -4,7 +4,7 @@
     "measureStart": 29,
     "measureEnd": 40
   },
-  "status": "FORMAL_COMPLETE_RUNTIME_M40_QA_RUNNING",
+  "status": "M29_40_PUBLIC_RUNTIME_QA_PASSED",
   "sourceOfTruth": "GitHub main",
   "chunkPolicy": "This block starts at M29 because cumulative new action pairs exceeded the 4-action threshold there; no additional new action pairs were identified through M40.",
   "newActions": [
@@ -51,5 +51,24 @@
     "qaState": "RUNNING/PENDING FINAL RESULT"
   },
   "requiredNext": "Do not generate more M29-40 character PNGs. Re-read latest main for M40 validate/deploy/runtime QA result. If PASS, inspect PC/Xperia screenshots and frame transitions, mark HT:L and BD+HT live-QA passed, close M29-40. If FAIL, repair only the failing mapped asset/transition. After M29-40 closes, choose the next contiguous post-M40 block from the latest queue/plan, coordinating with other terminals.",
-  "updatedAt": "2026-09-19T10:59:00+09:00"
+  "updatedAt": "2026-09-19T03:12:13.104058+00:00",
+  "runtimeQaEvidence": {
+    "M29-40": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35417779611",
+      "testedCommitSha": "7bb37c8a6550ff5ca21c95e25aba5a9b61bdd7aa",
+      "artifact": "public-runtime-qa-35417779611",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35417779611",
+      "measureStart": 29,
+      "measureEnd": 40,
+      "actions": [
+        "HT:L",
+        "BD+HT:RF/R",
+        "HT:R",
+        "RC:R"
+      ]
+    }
+  },
+  "blocker": null
 }
