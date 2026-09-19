@@ -31,6 +31,7 @@ async function ensureAudio(){
     out.gain.value=.9;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
   }
   liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);
+  if(!liveDrumEngine.ready)liveDrumEngine.preload().catch(err=>console.warn("Acoustic drum preload failed",err));
   if(audioCtx.state==="suspended")await audioCtx.resume();
   return audioCtx
 }
