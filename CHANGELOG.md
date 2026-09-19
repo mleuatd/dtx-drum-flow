@@ -1,3 +1,8 @@
+## 2026-09-20 — Visual Integrity Batch 12
+- Claimed and statically reviewed BD+FT:RF/L and BD+FT:RF/R.
+- Both pairs failed structural stick-continuity hard gates and moved to HOLD_VISUAL_INTEGRITY; formal PNGs remain unchanged.
+- Evidence: workflow run 35476984329, artifact 10594531751.
+
 ## 2026-09-20 — Visual Integrity Batch 11
 - Completed FRONT review of BD+HT:RF/L and BD+FT+SN:RF/R/L after reconnect.
 - Both pairs moved to HOLD_VISUAL_INTEGRITY for structural stick-continuity failures; formal PNGs remain unchanged.
