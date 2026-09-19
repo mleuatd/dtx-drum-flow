@@ -52,7 +52,7 @@ export class LiveDrumEngine{
   const familyGain=(LOUDNESS_GAIN[v]??1)*(this.userGain[v]??1);
   const strength=base*familyGain;
   // Kick reinforcement: retain the acoustic sample but add short sub/low-mid body so BD remains identifiable in a dense practice mix.
-  if(v==="kick")this._kickBody(when,strength);
+  // Keep kick fully acoustic. Synthetic reinforcement was removed after it made the BD sound unlike a live drum.
   g.gain.setValueAtTime(.0001,when);g.gain.linearRampToValueAtTime(strength,when+.002);
   // Preserve audible cymbal presence, while shortening only the masking tail.
   if(isCrash){const fadeStart=when+.58,fadeEnd=when+1.42;g.gain.setValueAtTime(strength,fadeStart);g.gain.exponentialRampToValueAtTime(.0008,fadeEnd)}
@@ -62,13 +62,6 @@ export class LiveDrumEngine{
   s.start(when);if(isCrash)s.stop(Math.min(when+1.47,when+buffer.duration));else if(isRide)s.stop(Math.min(when+1.67,when+buffer.duration));
   this.nodes.add(s);s.addEventListener("ended",()=>this.nodes.delete(s),{once:true});return s
 }
- _kickBody(when,strength){
-  const c=this.ctx,o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter();
-  o.type="sine";o.frequency.setValueAtTime(115,when);o.frequency.exponentialRampToValueAtTime(46,when+.19);
-  f.type="lowpass";f.frequency.value=260;f.Q.value=1.05;
-  g.gain.setValueAtTime(.0001,when);g.gain.linearRampToValueAtTime(Math.max(.0002,3.40*strength),when+.008);g.gain.exponentialRampToValueAtTime(.0001,when+.40);
-  o.connect(f);f.connect(g);g.connect(this.input);o.start(when);o.stop(when+.41);this.nodes.add(o);o.addEventListener("ended",()=>this.nodes.delete(o),{once:true});
- }
  triggerVoice(voice,velocity=.84,when=this.ctx.currentTime+.002){const part={kick:"BD",snare:"SN",sideStick:"SN",hihatClosed:"HH",hihatOpen:"HH",hihatPedal:"LP",tomHigh:"HT",tomLow:"LT",tomFloor:"FT",ride:"RD",rideBell:"RD",crashLeft:"LC",crashRight:"RC"}[voice]||"SN";return this.trigger(part,velocity,when,{soundKey:voice})}
  setUserGain(voice,value){if(defs[voice])this.userGain[voice]=clamp(Number(value)||1,.1,3)}
  getUserGains(){return {...this.userGain}}
