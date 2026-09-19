@@ -326,6 +326,40 @@
       "neverUse": true,
       "evidence": "TERM-A SN:L hit try01, SHA256 b6f3a419c1c00337444e2f80f4ef9bac907b3d192f9ea4dc029e0175fc0eaab0",
       "updatedAt": "2026-09-19T18:38:00+09:00"
+    },
+    {
+      "id": "FAIL-DROPBOX-ALIAS-NOT-FORMAL-BY-NAME",
+      "name": "Dropbox alias looked canonical but bytes did not match GitHub formal SHA256",
+      "severity": "CRITICAL",
+      "actionKey": "SN:L",
+      "phase": null,
+      "problem": "Dropbox files named sn_hit_l.png / sn_rebound_l.png were initially treated as likely canonical bridges, but materialized bytes did not match the formal GitHub SHA256.",
+      "cause": "Filename/path similarity was used before exact byte verification. Dropbox content_hash is not SHA256 and cannot prove GitHub byte identity.",
+      "prohibitedStrategy": "Do not treat a Dropbox filename, path, size alone, preview, or Dropbox content_hash as formal identity proof. In particular, never assume plain aliases such as sn_hit_l.png or sn_rebound_l.png are current formal bytes.",
+      "nextPermittedStrategy": "Use GitHub formal path+SHA256 as authority. Materialize Dropbox raw bytes and compute SHA256. When the obvious alias mismatches, use GitHub blob size/SHA metadata plus Dropbox inventory to locate alternate candidates, then SHA256-verify.",
+      "detection": "Computed SHA256 of materialized Dropbox object differs from formal GitHub SHA256.",
+      "automaticAction": "REJECT the bridge alias for formal-source use; record it as stale/misleading and continue searching.",
+      "qaAction": "Require exact SHA256 equality before renderer-parent use.",
+      "neverUse": false,
+      "evidence": "2026-09-19 RTP-BRIDGE: plain sn_hit_l.png and sn_rebound_l.png mismatched formal SHA; contactfix aliases matched exact formal SHA.",
+      "updatedAt": "2026-09-19T21:22:00+09:00"
+    },
+    {
+      "id": "FAIL-DROPBOX-FILES-IMAGE-READ-NO-NATIVE-PIXELS",
+      "name": "Files image_file read on Dropbox mount did not expose native image pixels",
+      "severity": "HIGH",
+      "actionKey": null,
+      "phase": null,
+      "problem": "files.read(mode=image_file) on Dropbox-mounted PNG returned 'Native image pixels were unavailable', so it cannot be relied on as a renderer-parent bridge.",
+      "cause": "Dropbox external file provider exposes metadata/raw materialization but not native pixels through files.read image_file in this environment.",
+      "prohibitedStrategy": "Do not repeatedly retry files.read(mode=image_file) on Dropbox-mounted PNGs expecting it to make the image editable.",
+      "nextPermittedStrategy": "Use files.list on /Dropbox to obtain the external file_id, then files.materialize(raw_file) to /mnt/data, SHA256-verify, and re-expose the exact file as a current-conversation attachment if renderer input is required.",
+      "detection": "files.read image_file warning includes 'Native image pixels were unavailable'.",
+      "automaticAction": "Switch immediately to raw materialization bridge.",
+      "qaAction": "After materialization compute SHA256 and compare to GitHub formal authority.",
+      "neverUse": false,
+      "evidence": "2026-09-19 RTP-BRIDGE-001 exact neutral/hit/rebound Dropbox image_file reads returned native-pixels-unavailable warnings.",
+      "updatedAt": "2026-09-19T21:22:00+09:00"
     }
   ],
   "adaptiveRetry": {
