@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:22:00+09:00",
+  "updatedAt": "2026-09-19T20:25:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -163,6 +163,31 @@
         "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
       ],
       "handoffNote": "Planning only until SN:L candidate/composite QA passes. Refresh main immediately before write.",
+      "lastCommit": null
+    },
+    {
+      "taskId": "OTHER-005",
+      "category": "metadata_reconciliation",
+      "description": "Reconcile the three stale ACTION_KEY_ASSET_MAP entries identified by TERM-B (BD+HT:RF/R, LT+SN:R/L, BD+HT:RF/L) against asset_inventory/runtime evidence. Do not regenerate or alter the six existing formal PNGs.",
+      "owner": "AVAILABLE_FOR_OTHER_TERMINAL",
+      "status": "AVAILABLE",
+      "claimedAt": null,
+      "startedAt": null,
+      "completedAt": null,
+      "paths": [
+        "character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json",
+        "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json",
+        "character-assets/prototypes/luna_say_maybe_16m/FORMAL_INVENTORY_RECONCILIATION_TERM_B_2026-09-19.md"
+      ],
+      "dependsOn": [
+        "OTHER-001"
+      ],
+      "doNotTouch": [
+        "character-assets/layers/character/**",
+        "tools/runtime_pose/**",
+        "character-assets/reference-models/luna_video_20260919/runtime_pose_*"
+      ],
+      "handoffNote": "CLAIM first, refresh main immediately before write, then change metadata only. DONE when the three entries no longer falsely report NEW_IMAGE_REQUIRED/ABSENT/runtimeMapped=false and evidence is recorded. Formal PNG bytes must remain unchanged.",
       "lastCommit": null
     }
   ]
