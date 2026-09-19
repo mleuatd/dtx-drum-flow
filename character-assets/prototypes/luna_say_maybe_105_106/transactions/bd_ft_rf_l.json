@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Resume-safe BD+FT:RF/L transaction for Luna M105-106",
-  "status": "SOURCE_LOCKED",
+  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
   "actionKey": "BD+FT:RF/L",
   "scope": {
     "measureStart": 105,
@@ -67,31 +67,40 @@
   },
   "phases": {
     "hit": {
-      "stage": "SOURCE_LOCKED",
+      "stage": "FORMAL",
       "attempt": 1,
       "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_rf_l_hit_attempt01.png",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ft_rf_l_hit_attempt01.png",
-      "sha256": null,
-      "qaStatus": "PENDING"
+      "sha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_ft_rf_l_hit_refresh.png"
     },
     "rebound": {
-      "stage": "SOURCE_LOCKED",
+      "stage": "FORMAL",
       "attempt": 1,
       "candidatePath": "character-assets/review-candidates/m105_106/bd_ft_rf_l_rebound_attempt01.png",
       "dropboxPath": "/ChatGPT/dtx-drum-flow/bd_ft_rf_l_rebound_attempt01.png",
-      "sha256": null,
-      "qaStatus": "PENDING"
+      "sha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
+      "qaStatus": "VISUAL_QA_PASS",
+      "formalPath": "character-assets/layers/character/combo/bd_ft_rf_l_rebound_refresh.png"
     }
   },
   "qa": {
-    "static": "PENDING",
-    "compositeVisual": "PENDING",
-    "locality": "PENDING",
-    "transition": "PENDING",
+    "static": "PASS",
+    "compositeVisual": "PASS",
+    "locality": "PASS_BD_CUE_ONLY",
+    "transition": "PASS_VISUAL",
     "runtimePC": "PENDING",
     "runtimeXperia": "PENDING",
     "screenshots": "PENDING"
   },
-  "updatedAt": "2026-09-19T15:38:00+09:00",
-  "blocker": null
+  "updatedAt": "2026-09-19T06:39:45.960040+00:00",
+  "blocker": null,
+  "build": {
+    "workflowRun": 35427052800,
+    "artifactId": 10578359682
+  },
+  "notes": [
+    "Attempt01 exact bytes saved to Dropbox and promoted to formal paths after deterministic locality/fixed-drum visual QA."
+  ]
 }

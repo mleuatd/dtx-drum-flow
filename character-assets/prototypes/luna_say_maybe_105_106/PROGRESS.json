@@ -4,7 +4,7 @@
     "measureStart": 105,
     "measureEnd": 106
   },
-  "status": "SOURCE_LOCKED",
+  "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
   "sourceOfTruth": "GitHub main",
   "blockType": "NEW_PAIRS",
   "analysis": {
@@ -15,10 +15,21 @@
       "BD+FT+SN:RF/R/L",
       "BD+FT:RF/L"
     ],
-    "formalPairsReady": false,
-    "allMapped": false
+    "formalPairsReady": true,
+    "allMapped": false,
+    "dropboxSaved": true,
+    "shas": {
+      "BD+FT+SN:RF/R/L": {
+        "hit": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
+        "rebound": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b"
+      },
+      "BD+FT:RF/L": {
+        "hit": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
+        "rebound": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7"
+      }
+    }
   },
-  "requiredNext": "Build deterministic attempt01 pairs from formal FT+SN:R/L and FT:L plus approved BD cue only; no generative redraw.",
-  "updatedAt": "2026-09-19T15:38:00+09:00",
+  "requiredNext": "Register formal M105-106 frames/mappings, expand contiguous runtimeScope through M106, then run PC/Xperia public runtime QA.",
+  "updatedAt": "2026-09-19T06:39:45.960040+00:00",
   "blocker": null
 }

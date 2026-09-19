@@ -994,6 +994,78 @@
         "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_rc_sn_rf_r_l_rebound_attempt01.png",
         "Build run 35421113802 artifact 10577777737."
       ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M105-106 BD+FT+SN:RF/R/L formal hit; exact formal parent plus approved local BD cue.",
+      "part": "BD+FT+SN",
+      "phase": "hit",
+      "hand": "RF/R/L",
+      "notes": [
+        "Deterministic BD cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ft_sn_rf_r_l_hit_attempt01.png",
+        "Build run 35427052800 artifact 10578359682."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M105-106 BD+FT+SN:RF/R/L formal rebound; exact formal parent plus approved local BD cue.",
+      "part": "BD+FT+SN",
+      "phase": "rebound",
+      "hand": "RF/R/L",
+      "notes": [
+        "Deterministic BD cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ft_sn_rf_r_l_rebound_attempt01.png",
+        "Build run 35427052800 artifact 10578359682."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ft_rf_l_hit_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M105-106 BD+FT:RF/L formal hit; exact formal parent plus approved local BD cue.",
+      "part": "BD+FT",
+      "phase": "hit",
+      "hand": "RF/L",
+      "notes": [
+        "Deterministic BD cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ft_rf_l_hit_attempt01.png",
+        "Build run 35427052800 artifact 10578359682."
+      ]
+    },
+    {
+      "path": "character-assets/layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
+      "status": "FORMAL_QA_PASSED_RUNTIME_PENDING",
+      "purpose": "Luna M105-106 BD+FT:RF/L formal rebound; exact formal parent plus approved local BD cue.",
+      "part": "BD+FT",
+      "phase": "rebound",
+      "hand": "RF/L",
+      "notes": [
+        "Deterministic BD cue composition; fixed-drum visual QA PASS.",
+        "Dropbox exact bytes saved /ChatGPT/dtx-drum-flow/bd_ft_rf_l_rebound_attempt01.png",
+        "Build run 35427052800 artifact 10578359682."
+      ]
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",
@@ -1001,5 +1073,5 @@
   "authoritativeImageCount": 56,
   "note": "Approved fixed neutral/home pose, fixed 11-lane drum, M1-8 approved variants, and M9-16 RD/BD+SN/RC+SN live-QA-passed variants. Runtime scope is inventory-driven through measure 16.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-  "updatedAt": "2026-09-19T13:36:00+09:00"
+  "updatedAt": "2026-09-19T06:39:45.960040+00:00"
 }
