@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:12:00+09:00",
+  "updatedAt": "2026-09-20T09:16:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -7201,7 +7201,7 @@
     },
     {
       "issueId": "MOTION-009",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -7230,7 +7230,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:43:00+09:00",
+      "updatedAt": "2026-09-20T09:16:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -8079,7 +8079,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T06:13:00+09:00"
+        "updatedAt": "2026-09-20T09:16:00+09:00"
       },
       "occurrences": [
         {
@@ -8124,7 +8124,12 @@
         "reviewedAt": "2026-09-20T08:43:00+09:00",
         "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png"
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "HOLD-REPAIR-FRONT-01",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T09:16:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
@@ -8135,6 +8140,11 @@
           "at": "2026-09-20T08:43:00+09:00",
           "decision": "BACK_VISUAL_REVIEW_HOLD_CONCRETE",
           "detail": "Actual artifact image reviewed (run 35476033283 / artifact 10594885001). Rebound fails stick-hand continuity and RD rebound readability. Next permitted repair: local right-hand/stick ROI only, using current method4 hit as reference; do not redraw whole character or alter left SN arm/static seated base."
+        },
+        {
+          "at": "2026-09-20T09:16:00+09:00",
+          "decision": "HOLD_REPAIR_CLAIMED",
+          "detail": "Claimed for local rebound right-hand/stick repair only. Preserve current method4 hit, head/torso/stool/legs, and left SN arm. Do not perform whole-character redraw."
         }
       ]
     },
