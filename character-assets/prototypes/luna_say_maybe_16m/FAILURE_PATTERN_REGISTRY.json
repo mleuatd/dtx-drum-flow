@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:08:00+09:00",
+  "updatedAt": "2026-09-19T21:56:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -360,6 +360,23 @@
       "neverUse": false,
       "evidence": "2026-09-19 RTP-BRIDGE-001 exact neutral/hit/rebound Dropbox image_file reads returned native-pixels-unavailable warnings.",
       "updatedAt": "2026-09-19T21:22:00+09:00"
+    },
+    {
+      "id": "FAIL-RENDERER-CONTEXT-IGNORES-EDIT-TARGET",
+      "name": "renderer ignored intended exact-source edit target and generated project-status dashboard",
+      "severity": "CRITICAL",
+      "actionKey": "SN:L",
+      "phase": "hit",
+      "problem": "After exact formal neutral/hit/rebound/drum images were materialized, SHA-verified and re-exposed in the current conversation, the image renderer still produced an unrelated project-status dashboard instead of editing the neutral character layer.",
+      "cause": "Current image renderer invocation did not bind the intended exact source image as an edit parent; conversation context was interpreted as a general project-status image-generation request.",
+      "prohibitedStrategy": "Do not retry generic image_gen in this session for SN:L candidate rendering unless the tool can explicitly bind the exact source image as the edit target and preserve character-layer semantics.",
+      "nextPermittedStrategy": "Keep numeric refinement and source bridge evidence; use a renderer/environment with explicit edit-target binding, or a proven deterministic local-edit tool after geometry is validated. Continue non-image QA/tooling in the meantime.",
+      "detection": "Generated image is not a 1448x1086 transparent character-only layer derived from the exact neutral source, or edit metadata indicates a fresh generation rather than target-bound edit.",
+      "automaticAction": "REJECT output; do not save to Dropbox staging, do not register, do not use as parent.",
+      "qaAction": "Require explicit target-bound edit evidence plus transparent character-only 1448x1086 output before candidate QA.",
+      "neverUse": true,
+      "evidence": "2026-09-19 current session renderer retry after exact-source bridge and neutral-shoulder numeric refinement produced unrelated status-dashboard image instead of SN:L character edit.",
+      "updatedAt": "2026-09-19T21:56:00+09:00"
     }
   ],
   "adaptiveRetry": {
