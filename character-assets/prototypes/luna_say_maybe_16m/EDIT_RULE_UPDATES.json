@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "CURRENT_APPEND_ONLY",
+  "purpose": "Chronological history of reusable character image-edit rule changes. Append new rule changes; do not erase prior entries.",
+  "masterRule": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md",
+  "updates": [
+    {
+      "id": "EDIT-RULE-20260919-001",
+      "title": "Master image edit rule introduced",
+      "recordedAt": "2026-09-19T17:55:00+09:00",
+      "reason": "Prevent rule interpretation from drifting between image edits and allow lessons from failures to be promoted into permanent reusable rules.",
+      "addedRules": [
+        "baseline -> each variant one-to-one comparison",
+        "apparent thick lines must be constructed from multiple repeated fine strokes",
+        "single thick digital brush stroke is forbidden as a substitute",
+        "prefer local patch editing for local corrections",
+        "verify zero changed pixels outside the allowed edit region when technically possible",
+        "cowlick free reinterpretation is forbidden",
+        "cowlick strand tips must land on the hair",
+        "reference-image scope must explicitly state what is and is not imported",
+        "new failure -> FAILURE_PATTERN_REGISTRY -> validated reusable recovery -> CHARACTER_GENERATION_PLAYBOOK promotion"
+      ],
+      "sourceInstructionDate": "2026-09-19",
+      "masterRulePath": "character-assets/prototypes/luna_say_maybe_16m/IMAGE_EDIT_MASTER_RULE.md"
+    }
+  ],
+  "updatedAt": "2026-09-19T17:55:00+09:00"
+}
