@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:58:00+09:00",
+  "updatedAt": "2026-09-20T09:02:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -4765,7 +4765,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T09:02:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-12"
     },
     {
       "order": 58,
@@ -4798,7 +4801,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T09:02:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-12"
     },
     {
       "order": 59,
@@ -4830,7 +4836,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T09:02:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-12"
     },
     {
       "order": 60,
@@ -4878,7 +4887,10 @@
         "priorQaState": "ready",
         "historicalEvidencePreserved": true
       },
-      "reviewClaimState": "UNCLAIMED"
+      "reviewClaimState": "CLAIMED",
+      "reviewTerminalId": "CHAT-FRONT-2X4",
+      "reviewClaimedAt": "2026-09-20T09:02:00+09:00",
+      "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-12"
     }
   ],
   "statusPolicy": {
@@ -5154,30 +5166,42 @@
       "workflowRunId": 35476580606,
       "workflowArtifactId": 10594790972,
       "summary": "Artifact reused. HH+SN large torso/hair rectangular splice and floating fragments. Runtime QA blocked by static hard fail."
+    },
+    {
+      "batchId": "VISUAL-INTEGRITY-BATCH-20260920-12",
+      "startedAt": "2026-09-20T09:02:00+09:00",
+      "updatedAt": "2026-09-20T09:02:00+09:00",
+      "terminalId": "CHAT-FRONT-2X4",
+      "actionKeys": [
+        "BD+FT:RF/L",
+        "BD+FT:RF/R"
+      ],
+      "imageCount": 4,
+      "targets": [
+        "bd_ft_rf_l_hit",
+        "bd_ft_rf_l_rebound",
+        "bd_ft_rf_r_hit",
+        "bd_ft_rf_r_rebound"
+      ],
+      "result": "IN_PROGRESS",
+      "summary": "Claimed as next normal-queue 2x4 batch."
     }
   ],
   "activeVisualIntegrityBatch": {
-    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-11",
+    "batchId": "VISUAL-INTEGRITY-BATCH-20260920-12",
     "terminalId": "CHAT-FRONT-2X4",
-    "startedAt": "2026-09-20T08:54:00+09:00",
+    "startedAt": "2026-09-20T09:02:00+09:00",
     "actionKeys": [
-      "BD+HT:RF/L",
-      "BD+FT+SN:RF/R/L"
+      "BD+FT:RF/L",
+      "BD+FT:RF/R"
     ],
     "frameIds": [
-      "bd_ht_rf_l_hit_refresh",
-      "bd_ht_rf_l_rebound_refresh",
-      "bd_ft_sn_rf_r_l_hit_refresh",
-      "bd_ft_sn_rf_r_l_rebound_refresh"
+      "bd_ft_rf_l_hit",
+      "bd_ft_rf_l_rebound",
+      "bd_ft_rf_r_hit",
+      "bd_ft_rf_r_rebound"
     ],
-    "stage": "HOLD_COMPLETE",
-    "note": "Batch 11 completed using explicit FRONT override evidence. Both pairs failed structural stick-continuity hard gates; formal PNGs unchanged; runtime QA not entered.",
-    "updatedAt": "2026-09-20T08:58:00+09:00",
-    "staticDisposition": {
-      "BD+HT:RF/L": "HOLD_BOTH_STATIC_HARD_FAIL",
-      "BD+FT+SN:RF/R/L": "HOLD_BOTH_STATIC_HARD_FAIL"
-    },
-    "visualQaRunId": 35476815322,
-    "visualQaArtifactId": 10594496614
+    "stage": "STATIC_QA_PENDING",
+    "note": "Final two normal-queue pairs; BD+RD kept separate as runtime-pending."
   }
 }
