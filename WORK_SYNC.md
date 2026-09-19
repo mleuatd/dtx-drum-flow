@@ -1,3 +1,10 @@
+## 2026-09-20 08:16 JST — Visual Integrity Batch 05
+- Parallel-safe front batch claimed after detecting BACK-BATCH-01 claims on BD+RC+SN:RF/R/L and BD+HT:RF/R.
+- Reviewed RC+SN:R/L + LT:R (4 frames) via Batch Prep run 35475413657 / artifact 10593488275.
+- RC+SN:R/L -> HOLD_VISUAL_INTEGRITY: horizontal/rectangular hair-torso splice in hit/rebound.
+- LT:R -> HOLD_VISUAL_INTEGRITY: duplicated/crossing right-stick geometry in hit/rebound.
+- Formal PNGs unchanged; runtime QA blocked by static hard-gate failures.
+
 ## 2026-09-20 08:07 JST — Visual Integrity Batch 04
 - CLAIMED and reviewed RD:R + BD+SN:RF/L (4 frames) using latest GitHub main.
 - Batch Prep evidence: run 35475145116 / artifact 10593238245.
