@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "RC:R",
+  "status": "APPROVED_FOR_PROMOTION",
+  "visualQA": {
+    "status": "PASS",
+    "checkedAt": "2026-09-19T09:50:00+09:00",
+    "evidence": [
+      "Exact candidate reproduced from current main builder and locked neutral with SHA match",
+      "fixed-drum composite visual review"
+    ],
+    "note": "No duplicate stick; right-hand stick reaches calibrated RC playing surface; rebound is shorter/lower and returns naturally toward neutral."
+  },
+  "dropbox": [
+    "/ChatGPT/dtx-drum-flow/rc_r_hit_attempt03.png",
+    "/ChatGPT/dtx-drum-flow/rc_r_rebound_attempt02.png"
+  ],
+  "assets": [
+    {
+      "phase": "hit",
+      "assetKey": "rc_r_hit_refresh",
+      "candidatePath": "character-assets/review-candidates/m25_40/rc_r_hit_attempt03.png",
+      "formalPath": "character-assets/layers/character/rc/hit_r_refresh.png",
+      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5"
+    },
+    {
+      "phase": "rebound",
+      "assetKey": "rc_r_rebound_refresh",
+      "candidatePath": "character-assets/review-candidates/m25_40/rc_r_rebound_attempt02.png",
+      "formalPath": "character-assets/layers/character/rc/rebound_r_refresh.png",
+      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a"
+    }
+  ]
+}
