@@ -49,5 +49,18 @@
     "debug renderer composites candidate before drawing constraint guides so QA guides remain visible"
   ],
   "formalAssetsModified": false,
-  "note": "This validates exact formal source bytes and constraint/composite plumbing. It does not replace the still-blocked constrained AI candidate render/promotion gate."
+  "note": "This validates exact formal source bytes and constraint/composite plumbing. It does not replace the still-blocked constrained AI candidate render/promotion gate.",
+  "visualReview": {
+    "reviewedAt": "2026-09-19T20:48:00+09:00",
+    "reviewer": "TERM-B",
+    "artifactId": 10583148418,
+    "status": "FAIL_VISUAL_CONTINUITY",
+    "findings": [
+      "All three debug overlays render fixed-drum registration and the SN contact guide visibly.",
+      "Hit/rebound show the intended left-hand approach to the snare contact region.",
+      "Neutral, hit, and rebound exact formal sources are not visually continuous: character torso/head orientation, seated body registration, leg placement, and silhouette shift materially between phases.",
+      "Because this task is evidence-only, no formal PNG or runtime-pose tool file was modified."
+    ],
+    "disposition": "Do not treat numeric/composite PASS as visual animation approval. Keep constrained render/promotion gate blocked until a source-nearest candidate pair passes continuity review."
+  }
 }
