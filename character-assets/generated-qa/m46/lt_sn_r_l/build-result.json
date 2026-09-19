@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "LT+SN:R/L",
+  "attempt": 1,
+  "sourceVerification": {
+    "neutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "ltHitReproducedSha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+    "ltReboundReproducedSha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+    "ftHitSha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+    "ftReboundSha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+    "ftSnHitSha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
+    "ftSnReboundSha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb"
+  },
+  "hit": {
+    "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
+    "width": 1448,
+    "height": 1086,
+    "changedFromLtPixelRatio": 0.02697885188689804,
+    "diffBBox": [
+      419,
+      296,
+      692,
+      615
+    ]
+  },
+  "rebound": {
+    "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
+    "width": 1448,
+    "height": 1086,
+    "changedFromLtPixelRatio": 0.029743826501022558,
+    "diffBBox": [
+      432,
+      296,
+      692,
+      615
+    ]
+  },
+  "contact": {
+    "LT": {
+      "x": 885,
+      "y": 455
+    },
+    "SN": {
+      "x": 420,
+      "y": 535
+    }
+  },
+  "method": "Exact formal LT:R base; compute proven left-SN delta as formal FT+SN minus formal FT:R within local region and transfer only that delta. No full-character redraw, no generative edit.",
+  "localVisualQa": "PASS_FIXED_DRUM"
+}
