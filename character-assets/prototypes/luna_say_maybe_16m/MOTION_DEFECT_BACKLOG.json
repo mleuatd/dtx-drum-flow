@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-19T21:50:00+09:00",
+  "updatedAt": "2026-09-19T22:02:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -347,6 +347,808 @@
           "Because this is a simultaneous hand+foot action, repair must preserve both action semantics and cannot be reduced to arm-only editing without checking BD foot motion."
         ]
       }
+    },
+    {
+      "issueId": "MOTION-003",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M143",
+      "time": "~249.15-249.22s",
+      "actionKey": "BD:RF",
+      "limb": "RF",
+      "part": "BD",
+      "phase": "hit->rebound",
+      "symptom": "Visual review plus screenshot-difference ranking indicates a large hit->rebound change for BD:RF. Whole-character/static-region continuity must be measured before any repair. Full-frame changed-pixel ratio at >25 RGB threshold: 15.66%.",
+      "causeCategory": "camera_stool_body_lock",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m143_BD_RF_hit.png",
+        "pc/m143_BD_RF_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 15.66% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "relatedAsset": [
+        "character-assets/layers/character/bd/hit_rf.png",
+        "character-assets/layers/character/bd/rebound_rf.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/bd/hit_rf.png",
+          "rebound": "character-assets/layers/character/bd/rebound_rf.png",
+          "shaPolicy": "Resolve and record exact SHA256 for neutral/hit/rebound from latest main before any image operation.",
+          "runtimeAuthority": "Keep current BD:RF runtime selection unless later evidence proves mapping wrong."
+        },
+        "preserveExactly": [
+          "camera/view direction",
+          "head and hair registration",
+          "torso and both shoulders",
+          "both arms and both sticks",
+          "stool",
+          "left leg/left foot",
+          "canvas/body scale"
+        ],
+        "allowedChanges": [
+          "right ankle/right foot/pedal-driving lower-leg region only, plus minimal occlusion pixels physically required by that motion"
+        ],
+        "targetState": {
+          "visibleResult": "BD-only motion must read as a localized right-foot/pedal action. Upper body, arms, sticks, head and stool must remain visually stable across hit/rebound.",
+          "numericRequirements": [
+            "Resolve authoritative instrument contact point(s) for every active part before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound before deciding exact repair geometry.",
+            "Use current limb sidecar/actionKey semantics; do not swap active side.",
+            "Any non-active body movement must be justified by measured reachability and kept minimal."
+          ]
+        },
+        "editProcedure": [
+          "Refresh latest main and active CLAIMs; stop before image edit if a protected formal path conflicts.",
+          "Record exact source path+SHA256 for neutral/hit/rebound.",
+          "Measure locked-region registration against neutral and hit->rebound; attach metrics to this issue.",
+          "Resolve all active instrument contact coordinates and current limb assignments.",
+          "Define explicit editable ROI(s) only around the active limb(s)/stick(s)/foot plus necessary occlusion pixels.",
+          "Create candidate assets only; never overwrite formal bytes during the first repair attempt.",
+          "Preserve/restore locked regions from neutral or the better-registered approved source as specified by measured evidence.",
+          "Validate fixed-drum composite/contact and phase semantics.",
+          "Re-run the same measure/action screenshots on PC and Xperia-class viewport.",
+          "Promote only if the defect improves and neighboring-event regression checks pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "expected actionKey/phase/frame remain correct",
+            "camera and stool registration stable",
+            "inactive anatomy does not jump",
+            "all active instrument contacts/semantics remain valid",
+            "rebound visibly releases from hit rather than becoming a different whole-body drawing",
+            "no disappearance, background contamination, or wrong-limb motion",
+            "neighboring events do not regress"
+          ],
+          "pixelRule": "Target outside-defined-ROI changed pixels = 0 where technically enforceable. Any exception must identify exact region and reason.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before screenshots",
+            "candidate composite",
+            "after screenshots on same event",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "changing neutral to match a defective variant",
+          "changing runtime mapping merely to hide image continuity",
+          "moving stool/camera for aesthetic balance",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If the target defect is not visibly improved, or any new contact/registration/neighbor-event regression appears, discard the candidate/fix and reconcile against the protected baseline before retry."
+        },
+        "decisionLog": [
+          "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
+          "Large full-frame hit/rebound difference (15.66%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+        ]
+      }
+    },
+    {
+      "issueId": "MOTION-004",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M141",
+      "time": "~245.81-245.95s",
+      "actionKey": "RC+SN:R/L",
+      "limb": "R/L",
+      "part": "RC+SN",
+      "phase": "hit->rebound",
+      "symptom": "Visual review plus screenshot-difference ranking indicates a large hit->rebound change for RC+SN:R/L. Whole-character/static-region continuity must be measured before any repair. Full-frame changed-pixel ratio at >25 RGB threshold: 15.41%.",
+      "causeCategory": "combo_contact",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m141_RC_SN_R_L_hit.png",
+        "pc/m141_RC_SN_R_L_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 15.41% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "relatedAsset": [
+        "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+        "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+          "rebound": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+          "shaPolicy": "Resolve and record exact SHA256 for neutral/hit/rebound from latest main before any image operation.",
+          "runtimeAuthority": "Keep current RC+SN:R/L runtime selection unless later evidence proves mapping wrong."
+        },
+        "preserveExactly": [
+          "camera",
+          "stool",
+          "pelvis/seat registration",
+          "both legs/feet",
+          "head global registration except unavoidable active-arm occlusion",
+          "torso scale/position"
+        ],
+        "allowedChanges": [
+          "right shoulder/arm/hand/stick for RC",
+          "left shoulder/arm/hand/stick for SN",
+          "minimal local hair/clothing occlusion caused by those two arms"
+        ],
+        "targetState": {
+          "visibleResult": "RC and SN must strike simultaneously with right and left hands respectively, then rebound as the same seated character without whole-body/camera/stool jump.",
+          "numericRequirements": [
+            "Resolve authoritative instrument contact point(s) for every active part before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound before deciding exact repair geometry.",
+            "Use current limb sidecar/actionKey semantics; do not swap active side.",
+            "Any non-active body movement must be justified by measured reachability and kept minimal."
+          ]
+        },
+        "editProcedure": [
+          "Refresh latest main and active CLAIMs; stop before image edit if a protected formal path conflicts.",
+          "Record exact source path+SHA256 for neutral/hit/rebound.",
+          "Measure locked-region registration against neutral and hit->rebound; attach metrics to this issue.",
+          "Resolve all active instrument contact coordinates and current limb assignments.",
+          "Define explicit editable ROI(s) only around the active limb(s)/stick(s)/foot plus necessary occlusion pixels.",
+          "Create candidate assets only; never overwrite formal bytes during the first repair attempt.",
+          "Preserve/restore locked regions from neutral or the better-registered approved source as specified by measured evidence.",
+          "Validate fixed-drum composite/contact and phase semantics.",
+          "Re-run the same measure/action screenshots on PC and Xperia-class viewport.",
+          "Promote only if the defect improves and neighboring-event regression checks pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "expected actionKey/phase/frame remain correct",
+            "camera and stool registration stable",
+            "inactive anatomy does not jump",
+            "all active instrument contacts/semantics remain valid",
+            "rebound visibly releases from hit rather than becoming a different whole-body drawing",
+            "no disappearance, background contamination, or wrong-limb motion",
+            "neighboring events do not regress"
+          ],
+          "pixelRule": "Target outside-defined-ROI changed pixels = 0 where technically enforceable. Any exception must identify exact region and reason.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before screenshots",
+            "candidate composite",
+            "after screenshots on same event",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "changing neutral to match a defective variant",
+          "changing runtime mapping merely to hide image continuity",
+          "moving stool/camera for aesthetic balance",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If the target defect is not visibly improved, or any new contact/registration/neighbor-event regression appears, discard the candidate/fix and reconcile against the protected baseline before retry."
+        },
+        "decisionLog": [
+          "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
+          "Large full-frame hit/rebound difference (15.41%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+        ]
+      }
+    },
+    {
+      "issueId": "MOTION-005",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M137",
+      "time": "~238.68-238.83s",
+      "actionKey": "BD+HH:RF/R",
+      "limb": "RF/R",
+      "part": "BD+HH",
+      "phase": "hit->rebound",
+      "symptom": "Visual review plus screenshot-difference ranking indicates a large hit->rebound change for BD+HH:RF/R. Whole-character/static-region continuity must be measured before any repair. Full-frame changed-pixel ratio at >25 RGB threshold: 14.49%.",
+      "causeCategory": "combo_contact",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m137_BD_HH_RF_R_hit.png",
+        "pc/m137_BD_HH_RF_R_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 14.49% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "relatedAsset": [
+        "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+        "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+          "rebound": "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
+          "shaPolicy": "Resolve and record exact SHA256 for neutral/hit/rebound from latest main before any image operation.",
+          "runtimeAuthority": "Keep current BD+HH:RF/R runtime selection unless later evidence proves mapping wrong."
+        },
+        "preserveExactly": [
+          "camera",
+          "stool",
+          "pelvis",
+          "head/torso registration",
+          "left arm/left hand/left stick",
+          "left leg/left foot",
+          "overall body scale"
+        ],
+        "allowedChanges": [
+          "right arm/right hand/right stick for HH",
+          "right foot/ankle for BD",
+          "only minimum necessary right-side shoulder/leg compensation"
+        ],
+        "targetState": {
+          "visibleResult": "HH right-hand hit and BD right-foot action must remain simultaneous while the rest of the seated body stays registered. Rebound may release the right hand/foot but must not redraw the whole character.",
+          "numericRequirements": [
+            "Resolve authoritative instrument contact point(s) for every active part before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound before deciding exact repair geometry.",
+            "Use current limb sidecar/actionKey semantics; do not swap active side.",
+            "Any non-active body movement must be justified by measured reachability and kept minimal."
+          ]
+        },
+        "editProcedure": [
+          "Refresh latest main and active CLAIMs; stop before image edit if a protected formal path conflicts.",
+          "Record exact source path+SHA256 for neutral/hit/rebound.",
+          "Measure locked-region registration against neutral and hit->rebound; attach metrics to this issue.",
+          "Resolve all active instrument contact coordinates and current limb assignments.",
+          "Define explicit editable ROI(s) only around the active limb(s)/stick(s)/foot plus necessary occlusion pixels.",
+          "Create candidate assets only; never overwrite formal bytes during the first repair attempt.",
+          "Preserve/restore locked regions from neutral or the better-registered approved source as specified by measured evidence.",
+          "Validate fixed-drum composite/contact and phase semantics.",
+          "Re-run the same measure/action screenshots on PC and Xperia-class viewport.",
+          "Promote only if the defect improves and neighboring-event regression checks pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "expected actionKey/phase/frame remain correct",
+            "camera and stool registration stable",
+            "inactive anatomy does not jump",
+            "all active instrument contacts/semantics remain valid",
+            "rebound visibly releases from hit rather than becoming a different whole-body drawing",
+            "no disappearance, background contamination, or wrong-limb motion",
+            "neighboring events do not regress"
+          ],
+          "pixelRule": "Target outside-defined-ROI changed pixels = 0 where technically enforceable. Any exception must identify exact region and reason.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before screenshots",
+            "candidate composite",
+            "after screenshots on same event",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "changing neutral to match a defective variant",
+          "changing runtime mapping merely to hide image continuity",
+          "moving stool/camera for aesthetic balance",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If the target defect is not visibly improved, or any new contact/registration/neighbor-event regression appears, discard the candidate/fix and reconcile against the protected baseline before retry."
+        },
+        "decisionLog": [
+          "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
+          "Large full-frame hit/rebound difference (14.49%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+        ]
+      }
+    },
+    {
+      "issueId": "MOTION-006",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M146",
+      "time": "~254.01-254.15s",
+      "actionKey": "BD+RD:RF/R",
+      "limb": "RF/R",
+      "part": "BD+RD",
+      "phase": "hit->rebound",
+      "symptom": "Visual review plus screenshot-difference ranking indicates a large hit->rebound change for BD+RD:RF/R. Whole-character/static-region continuity must be measured before any repair. Full-frame changed-pixel ratio at >25 RGB threshold: 14.35%.",
+      "causeCategory": "combo_contact",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m146_BD_RD_RF_R_hit.png",
+        "pc/m146_BD_RD_RF_R_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 14.35% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "relatedAsset": [
+        "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+        "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+          "rebound": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+          "shaPolicy": "Resolve and record exact SHA256 for neutral/hit/rebound from latest main before any image operation.",
+          "runtimeAuthority": "Keep current BD+RD:RF/R runtime selection unless later evidence proves mapping wrong."
+        },
+        "preserveExactly": [
+          "camera",
+          "stool",
+          "pelvis",
+          "head/torso registration",
+          "left arm/left stick",
+          "left leg",
+          "overall scale"
+        ],
+        "allowedChanges": [
+          "right arm/right hand/right stick for RD",
+          "right foot/ankle for BD",
+          "minimal right-shoulder compensation only if reachability proves necessary"
+        ],
+        "targetState": {
+          "visibleResult": "RD right-hand strike and BD right-foot action must be simultaneous; rebound must withdraw the same active limbs without changing camera, stool, inactive side or character identity.",
+          "numericRequirements": [
+            "Resolve authoritative instrument contact point(s) for every active part before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound before deciding exact repair geometry.",
+            "Use current limb sidecar/actionKey semantics; do not swap active side.",
+            "Any non-active body movement must be justified by measured reachability and kept minimal."
+          ]
+        },
+        "editProcedure": [
+          "Refresh latest main and active CLAIMs; stop before image edit if a protected formal path conflicts.",
+          "Record exact source path+SHA256 for neutral/hit/rebound.",
+          "Measure locked-region registration against neutral and hit->rebound; attach metrics to this issue.",
+          "Resolve all active instrument contact coordinates and current limb assignments.",
+          "Define explicit editable ROI(s) only around the active limb(s)/stick(s)/foot plus necessary occlusion pixels.",
+          "Create candidate assets only; never overwrite formal bytes during the first repair attempt.",
+          "Preserve/restore locked regions from neutral or the better-registered approved source as specified by measured evidence.",
+          "Validate fixed-drum composite/contact and phase semantics.",
+          "Re-run the same measure/action screenshots on PC and Xperia-class viewport.",
+          "Promote only if the defect improves and neighboring-event regression checks pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "expected actionKey/phase/frame remain correct",
+            "camera and stool registration stable",
+            "inactive anatomy does not jump",
+            "all active instrument contacts/semantics remain valid",
+            "rebound visibly releases from hit rather than becoming a different whole-body drawing",
+            "no disappearance, background contamination, or wrong-limb motion",
+            "neighboring events do not regress"
+          ],
+          "pixelRule": "Target outside-defined-ROI changed pixels = 0 where technically enforceable. Any exception must identify exact region and reason.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before screenshots",
+            "candidate composite",
+            "after screenshots on same event",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "changing neutral to match a defective variant",
+          "changing runtime mapping merely to hide image continuity",
+          "moving stool/camera for aesthetic balance",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If the target defect is not visibly improved, or any new contact/registration/neighbor-event regression appears, discard the candidate/fix and reconcile against the protected baseline before retry."
+        },
+        "decisionLog": [
+          "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
+          "Large full-frame hit/rebound difference (14.35%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+        ]
+      }
+    },
+    {
+      "issueId": "MOTION-007",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M142",
+      "time": "~248.40-248.54s",
+      "actionKey": "HH:R",
+      "limb": "R",
+      "part": "HH",
+      "phase": "hit->rebound",
+      "symptom": "Visual review plus screenshot-difference ranking indicates a large hit->rebound change for HH:R. Whole-character/static-region continuity must be measured before any repair. Full-frame changed-pixel ratio at >25 RGB threshold: 14.28%.",
+      "causeCategory": "excessive_neutral_delta",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m142_HH_R_hit.png",
+        "pc/m142_HH_R_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 14.28% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "relatedAsset": [
+        "character-assets/layers/character/hh/hit_r.png",
+        "character-assets/layers/character/hh/rebound_r.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/hh/hit_r.png",
+          "rebound": "character-assets/layers/character/hh/rebound_r.png",
+          "shaPolicy": "Resolve and record exact SHA256 for neutral/hit/rebound from latest main before any image operation.",
+          "runtimeAuthority": "Keep current HH:R runtime selection unless later evidence proves mapping wrong."
+        },
+        "preserveExactly": [
+          "camera",
+          "head/torso/pelvis registration",
+          "left arm/left stick",
+          "both legs/feet",
+          "stool",
+          "body scale"
+        ],
+        "allowedChanges": [
+          "right upper arm",
+          "right elbow",
+          "right forearm",
+          "right hand",
+          "right stick",
+          "minimal occlusion at right-arm crossings"
+        ],
+        "targetState": {
+          "visibleResult": "HH:R must look like a localized right-arm/stick hit and rebound. All inactive anatomy and stool remain neutral-registered.",
+          "numericRequirements": [
+            "Resolve authoritative instrument contact point(s) for every active part before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound before deciding exact repair geometry.",
+            "Use current limb sidecar/actionKey semantics; do not swap active side.",
+            "Any non-active body movement must be justified by measured reachability and kept minimal."
+          ]
+        },
+        "editProcedure": [
+          "Refresh latest main and active CLAIMs; stop before image edit if a protected formal path conflicts.",
+          "Record exact source path+SHA256 for neutral/hit/rebound.",
+          "Measure locked-region registration against neutral and hit->rebound; attach metrics to this issue.",
+          "Resolve all active instrument contact coordinates and current limb assignments.",
+          "Define explicit editable ROI(s) only around the active limb(s)/stick(s)/foot plus necessary occlusion pixels.",
+          "Create candidate assets only; never overwrite formal bytes during the first repair attempt.",
+          "Preserve/restore locked regions from neutral or the better-registered approved source as specified by measured evidence.",
+          "Validate fixed-drum composite/contact and phase semantics.",
+          "Re-run the same measure/action screenshots on PC and Xperia-class viewport.",
+          "Promote only if the defect improves and neighboring-event regression checks pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "expected actionKey/phase/frame remain correct",
+            "camera and stool registration stable",
+            "inactive anatomy does not jump",
+            "all active instrument contacts/semantics remain valid",
+            "rebound visibly releases from hit rather than becoming a different whole-body drawing",
+            "no disappearance, background contamination, or wrong-limb motion",
+            "neighboring events do not regress"
+          ],
+          "pixelRule": "Target outside-defined-ROI changed pixels = 0 where technically enforceable. Any exception must identify exact region and reason.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before screenshots",
+            "candidate composite",
+            "after screenshots on same event",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "changing neutral to match a defective variant",
+          "changing runtime mapping merely to hide image continuity",
+          "moving stool/camera for aesthetic balance",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If the target defect is not visibly improved, or any new contact/registration/neighbor-event regression appears, discard the candidate/fix and reconcile against the protected baseline before retry."
+        },
+        "decisionLog": [
+          "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
+          "Large full-frame hit/rebound difference (14.28%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+        ]
+      }
+    },
+    {
+      "issueId": "MOTION-008",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M140",
+      "time": "~243.86-244.01s",
+      "actionKey": "HH+SN:R/L",
+      "limb": "R/L",
+      "part": "HH+SN",
+      "phase": "hit->rebound",
+      "symptom": "Visual review plus screenshot-difference ranking indicates a large hit->rebound change for HH+SN:R/L. Whole-character/static-region continuity must be measured before any repair. Full-frame changed-pixel ratio at >25 RGB threshold: 14.17%.",
+      "causeCategory": "combo_contact",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m140_HH_SN_R_L_hit.png",
+        "pc/m140_HH_SN_R_L_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 14.17% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "relatedAsset": [
+        "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
+        "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
+          "rebound": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
+          "shaPolicy": "Resolve and record exact SHA256 for neutral/hit/rebound from latest main before any image operation.",
+          "runtimeAuthority": "Keep current HH+SN:R/L runtime selection unless later evidence proves mapping wrong."
+        },
+        "preserveExactly": [
+          "camera",
+          "stool",
+          "pelvis",
+          "both legs",
+          "torso global registration",
+          "head global registration except active-arm occlusion"
+        ],
+        "allowedChanges": [
+          "right arm/hand/stick for HH",
+          "left arm/hand/stick for SN",
+          "minimal shoulder and occlusion pixels needed for those actions"
+        ],
+        "targetState": {
+          "visibleResult": "HH right-hand and SN left-hand simultaneous strike/rebound must preserve the same seated base; no full-character swap between phases.",
+          "numericRequirements": [
+            "Resolve authoritative instrument contact point(s) for every active part before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound before deciding exact repair geometry.",
+            "Use current limb sidecar/actionKey semantics; do not swap active side.",
+            "Any non-active body movement must be justified by measured reachability and kept minimal."
+          ]
+        },
+        "editProcedure": [
+          "Refresh latest main and active CLAIMs; stop before image edit if a protected formal path conflicts.",
+          "Record exact source path+SHA256 for neutral/hit/rebound.",
+          "Measure locked-region registration against neutral and hit->rebound; attach metrics to this issue.",
+          "Resolve all active instrument contact coordinates and current limb assignments.",
+          "Define explicit editable ROI(s) only around the active limb(s)/stick(s)/foot plus necessary occlusion pixels.",
+          "Create candidate assets only; never overwrite formal bytes during the first repair attempt.",
+          "Preserve/restore locked regions from neutral or the better-registered approved source as specified by measured evidence.",
+          "Validate fixed-drum composite/contact and phase semantics.",
+          "Re-run the same measure/action screenshots on PC and Xperia-class viewport.",
+          "Promote only if the defect improves and neighboring-event regression checks pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "expected actionKey/phase/frame remain correct",
+            "camera and stool registration stable",
+            "inactive anatomy does not jump",
+            "all active instrument contacts/semantics remain valid",
+            "rebound visibly releases from hit rather than becoming a different whole-body drawing",
+            "no disappearance, background contamination, or wrong-limb motion",
+            "neighboring events do not regress"
+          ],
+          "pixelRule": "Target outside-defined-ROI changed pixels = 0 where technically enforceable. Any exception must identify exact region and reason.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before screenshots",
+            "candidate composite",
+            "after screenshots on same event",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "changing neutral to match a defective variant",
+          "changing runtime mapping merely to hide image continuity",
+          "moving stool/camera for aesthetic balance",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If the target defect is not visibly improved, or any new contact/registration/neighbor-event regression appears, discard the candidate/fix and reconcile against the protected baseline before retry."
+        },
+        "decisionLog": [
+          "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
+          "Large full-frame hit/rebound difference (14.17%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+        ]
+      }
+    },
+    {
+      "issueId": "MOTION-009",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M147",
+      "time": "~255.95-256.10s",
+      "actionKey": "RD+SN:R/L",
+      "limb": "R/L",
+      "part": "RD+SN",
+      "phase": "hit->rebound",
+      "symptom": "Visual review plus screenshot-difference ranking indicates a large hit->rebound change for RD+SN:R/L. Whole-character/static-region continuity must be measured before any repair. Full-frame changed-pixel ratio at >25 RGB threshold: 13.73%.",
+      "causeCategory": "combo_contact",
+      "evidence": [
+        "public runtime QA run 35443377688",
+        "pc/m147_RD_SN_R_L_hit.png",
+        "pc/m147_RD_SN_R_L_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 13.73% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "relatedAsset": [
+        "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
+        "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
+          "rebound": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
+          "shaPolicy": "Resolve and record exact SHA256 for neutral/hit/rebound from latest main before any image operation.",
+          "runtimeAuthority": "Keep current RD+SN:R/L runtime selection unless later evidence proves mapping wrong."
+        },
+        "preserveExactly": [
+          "camera",
+          "stool",
+          "pelvis",
+          "both legs",
+          "torso global registration",
+          "head global registration except active-arm occlusion"
+        ],
+        "allowedChanges": [
+          "right arm/hand/stick for RD",
+          "left arm/hand/stick for SN",
+          "minimal shoulder/occlusion pixels required by the two active arms"
+        ],
+        "targetState": {
+          "visibleResult": "RD right-hand and SN left-hand must read as one simultaneous two-hand action, with rebound preserving body/stool/camera registration.",
+          "numericRequirements": [
+            "Resolve authoritative instrument contact point(s) for every active part before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound before deciding exact repair geometry.",
+            "Use current limb sidecar/actionKey semantics; do not swap active side.",
+            "Any non-active body movement must be justified by measured reachability and kept minimal."
+          ]
+        },
+        "editProcedure": [
+          "Refresh latest main and active CLAIMs; stop before image edit if a protected formal path conflicts.",
+          "Record exact source path+SHA256 for neutral/hit/rebound.",
+          "Measure locked-region registration against neutral and hit->rebound; attach metrics to this issue.",
+          "Resolve all active instrument contact coordinates and current limb assignments.",
+          "Define explicit editable ROI(s) only around the active limb(s)/stick(s)/foot plus necessary occlusion pixels.",
+          "Create candidate assets only; never overwrite formal bytes during the first repair attempt.",
+          "Preserve/restore locked regions from neutral or the better-registered approved source as specified by measured evidence.",
+          "Validate fixed-drum composite/contact and phase semantics.",
+          "Re-run the same measure/action screenshots on PC and Xperia-class viewport.",
+          "Promote only if the defect improves and neighboring-event regression checks pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "expected actionKey/phase/frame remain correct",
+            "camera and stool registration stable",
+            "inactive anatomy does not jump",
+            "all active instrument contacts/semantics remain valid",
+            "rebound visibly releases from hit rather than becoming a different whole-body drawing",
+            "no disappearance, background contamination, or wrong-limb motion",
+            "neighboring events do not regress"
+          ],
+          "pixelRule": "Target outside-defined-ROI changed pixels = 0 where technically enforceable. Any exception must identify exact region and reason.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before screenshots",
+            "candidate composite",
+            "after screenshots on same event",
+            "neighbor-event regression screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character free redraw",
+          "generic unbound image generation",
+          "changing neutral to match a defective variant",
+          "changing runtime mapping merely to hide image continuity",
+          "moving stool/camera for aesthetic balance",
+          "formal overwrite before candidate QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "If the target defect is not visibly improved, or any new contact/registration/neighbor-event regression appears, discard the candidate/fix and reconcile against the protected baseline before retry."
+        },
+        "decisionLog": [
+          "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
+          "Large full-frame hit/rebound difference (13.73%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+        ]
+      }
     }
   ],
   "defectSchema": {
@@ -455,5 +1257,48 @@
       "rollback": "Exact backup branch/commit and issue-local restore rule.",
       "decisionLog": "Why this repair was chosen over alternatives; update whenever evidence changes."
     }
+  },
+  "triageMetrics": {
+    "source": "public runtime QA run 35443377688 PC screenshots",
+    "method": "Pair each hit/rebound screenshot; compute fraction of pixels whose max RGB difference exceeds 25. Used only to prioritize visual review because UI contact markers also change between phases.",
+    "highChangePairs": [
+      [
+        "M143 BD+RC:RF/R",
+        0.1769
+      ],
+      [
+        "M143 SN:L",
+        0.1641
+      ],
+      [
+        "M143 BD:RF",
+        0.1566
+      ],
+      [
+        "M141 RC+SN:R/L",
+        0.1541
+      ],
+      [
+        "M137 BD+HH:RF/R",
+        0.1449
+      ],
+      [
+        "M146 BD+RD:RF/R",
+        0.1435
+      ],
+      [
+        "M142 HH:R",
+        0.1428
+      ],
+      [
+        "M140 HH+SN:R/L",
+        0.1417
+      ],
+      [
+        "M147 RD+SN:R/L",
+        0.1373
+      ]
+    ],
+    "caution": "Difference ratio is a triage signal, not final proof. Every issue remains NEEDS_MEASUREMENT until locked-region and contact-specific checks are recorded."
   }
 }
