@@ -155,7 +155,7 @@
     "done": false
   },
   "requiredNext": "M25-28 assets are all formal. Sync runtime scope to M1-28 (329 notes / 256 groups / lastTime 51.549115), run validation and public PC/Xperia runtime QA for M25-28, persist screenshots/evidence, then checkpoint M25-28. Do not start BD+HT until that checkpoint passes.",
-  "updatedAt": "2026-09-19T01:30:29.538453+00:00",
+  "updatedAt": "2026-09-19T01:32:13.301969+00:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -169,7 +169,7 @@
   },
   "blocker": {
     "type": "RUNTIME_QA",
-    "workflowRunId": "35412666604",
+    "workflowRunId": "35412876077",
     "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
   },
   "infrastructurePreparation": {
@@ -412,10 +412,10 @@
     "M25-28": {
       "status": "FAIL",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35412666604",
-      "testedCommitSha": "eb418ed9e5f9e408a05d27f6baf2d4bdb65240de",
-      "artifact": "public-runtime-qa-35412666604",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35412666604",
+      "runId": "35412876077",
+      "testedCommitSha": "6d507c36b7c00f32342f167e92c680005035b191",
+      "artifact": "public-runtime-qa-35412876077",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35412876077",
       "measureStart": 25,
       "measureEnd": 28,
       "actions": [
