@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-19T22:02:00+09:00",
+  "updatedAt": "2026-09-19T22:12:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -103,8 +103,8 @@
     },
     {
       "measures": "M107-135",
-      "evidence": "public runtime QA history",
-      "status": "EVIDENCE_EXISTS_REVIEW_PENDING"
+      "evidence": "public runtime QA run 35427385671 / artifact public-runtime-qa-35427385671; action-level recurrence triage recorded",
+      "status": "REVIEW_IN_PROGRESS_ACTION_LEVEL_RECURRENCES_RECORDED"
     },
     {
       "measures": "M136",
@@ -122,7 +122,7 @@
       "issueId": "MOTION-001",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M143",
+      "measures": "M143,M107",
       "time": "~249.89-250.05s",
       "actionKey": "SN:L",
       "limb": "L",
@@ -134,7 +134,8 @@
         "public runtime QA run 35443377688",
         "pc/m143_SN_L_hit.png",
         "pc/m143_SN_L_rebound.png",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M107, changed-pixel ratio 14.08% (triage metric)"
       ],
       "fixDecision": "Do not change runtime mapping first. Compare both formal frames to approved neutral and quantify locked-region displacement; repair only if image-level delta is the root cause. Respect active SN:L formal-image CLAIMs before any PNG edit.",
       "relatedAsset": [
@@ -146,7 +147,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-19T21:43:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -231,15 +232,33 @@
         },
         "decisionLog": [
           "Runtime QA already reports correct actionKey/phase/frame and no runtime errors, so mapping change is not the first repair.",
-          "Visual evidence shows motion outside the active left arm, so repair must first quantify and eliminate locked-region displacement."
+          "Visual evidence shows motion outside the active left arm, so repair must first quantify and eliminate locked-region displacement.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M107; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M143",
+          "time": "~249.89-250.05s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M107",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1408,
+          "screenshots": [
+            "pc/m107_SN_L_hit.png",
+            "pc/m107_SN_L_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-002",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M143",
+      "measures": "M143,M127",
       "time": "~250.11-250.27s",
       "actionKey": "BD+RC:RF/R",
       "limb": "RF/R",
@@ -251,7 +270,8 @@
         "public runtime QA run 35443377688",
         "pc/m143_BD_RC_RF_R_hit.png",
         "pc/m143_BD_RC_RF_R_rebound.png",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M127, changed-pixel ratio 16.74% (triage metric)"
       ],
       "fixDecision": "Treat as visual asset-continuity defect unless locked-region diff proves otherwise. Preserve fixed drum/runtime mapping; compare hit/rebound against neutral and choose the smallest image-level repair or frame-hold strategy that removes whole-body teleport.",
       "relatedAsset": [
@@ -263,7 +283,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-19T21:43:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "mixed",
@@ -344,15 +364,33 @@
         },
         "decisionLog": [
           "Runtime selection is reported correct, so current evidence points first to asset continuity/registration.",
-          "Because this is a simultaneous hand+foot action, repair must preserve both action semantics and cannot be reduced to arm-only editing without checking BD foot motion."
+          "Because this is a simultaneous hand+foot action, repair must preserve both action semantics and cannot be reduced to arm-only editing without checking BD foot motion.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M127; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M143",
+          "time": "~250.11-250.27s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M127",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1674,
+          "screenshots": [
+            "pc/m127_BD_RC_RF_R_hit.png",
+            "pc/m127_BD_RC_RF_R_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-003",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M143",
+      "measures": "M143,M109",
       "time": "~249.15-249.22s",
       "actionKey": "BD:RF",
       "limb": "RF",
@@ -365,7 +403,8 @@
         "pc/m143_BD_RF_hit.png",
         "pc/m143_BD_RF_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 15.66% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M109, changed-pixel ratio 17.15% (triage metric)"
       ],
       "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
       "relatedAsset": [
@@ -378,7 +417,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -457,15 +496,33 @@
         },
         "decisionLog": [
           "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
-          "Large full-frame hit/rebound difference (15.66%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+          "Large full-frame hit/rebound difference (15.66%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M109; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M143",
+          "time": "~249.15-249.22s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M109",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1715,
+          "screenshots": [
+            "pc/m109_BD_RF_hit.png",
+            "pc/m109_BD_RF_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-004",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M141",
+      "measures": "M141,M135",
       "time": "~245.81-245.95s",
       "actionKey": "RC+SN:R/L",
       "limb": "R/L",
@@ -478,7 +535,8 @@
         "pc/m141_RC_SN_R_L_hit.png",
         "pc/m141_RC_SN_R_L_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 15.41% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M135, changed-pixel ratio 13.36% (triage metric)"
       ],
       "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
       "relatedAsset": [
@@ -491,7 +549,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -571,15 +629,33 @@
         },
         "decisionLog": [
           "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
-          "Large full-frame hit/rebound difference (15.41%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+          "Large full-frame hit/rebound difference (15.41%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M135; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M141",
+          "time": "~245.81-245.95s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M135",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1336,
+          "screenshots": [
+            "pc/m135_RC_SN_R_L_hit.png",
+            "pc/m135_RC_SN_R_L_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-005",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M137",
+      "measures": "M137,M109",
       "time": "~238.68-238.83s",
       "actionKey": "BD+HH:RF/R",
       "limb": "RF/R",
@@ -592,7 +668,8 @@
         "pc/m137_BD_HH_RF_R_hit.png",
         "pc/m137_BD_HH_RF_R_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 14.49% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M109, changed-pixel ratio 14.25% (triage metric)"
       ],
       "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
       "relatedAsset": [
@@ -605,7 +682,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -686,15 +763,33 @@
         },
         "decisionLog": [
           "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
-          "Large full-frame hit/rebound difference (14.49%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+          "Large full-frame hit/rebound difference (14.49%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M109; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M137",
+          "time": "~238.68-238.83s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M109",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1425,
+          "screenshots": [
+            "pc/m109_BD_HH_RF_R_hit.png",
+            "pc/m109_BD_HH_RF_R_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-006",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M146",
+      "measures": "M146,M130",
       "time": "~254.01-254.15s",
       "actionKey": "BD+RD:RF/R",
       "limb": "RF/R",
@@ -707,7 +802,8 @@
         "pc/m146_BD_RD_RF_R_hit.png",
         "pc/m146_BD_RD_RF_R_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 14.35% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M130, changed-pixel ratio 14.41% (triage metric)"
       ],
       "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
       "relatedAsset": [
@@ -720,7 +816,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -801,15 +897,33 @@
         },
         "decisionLog": [
           "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
-          "Large full-frame hit/rebound difference (14.35%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+          "Large full-frame hit/rebound difference (14.35%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M130; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M146",
+          "time": "~254.01-254.15s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M130",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1441,
+          "screenshots": [
+            "pc/m130_BD_RD_RF_R_hit.png",
+            "pc/m130_BD_RD_RF_R_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-007",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M142",
+      "measures": "M142,M115",
       "time": "~248.40-248.54s",
       "actionKey": "HH:R",
       "limb": "R",
@@ -822,7 +936,8 @@
         "pc/m142_HH_R_hit.png",
         "pc/m142_HH_R_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 14.28% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M115, changed-pixel ratio 13.99% (triage metric)"
       ],
       "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
       "relatedAsset": [
@@ -835,7 +950,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -918,15 +1033,33 @@
         },
         "decisionLog": [
           "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
-          "Large full-frame hit/rebound difference (14.28%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+          "Large full-frame hit/rebound difference (14.28%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M115; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M142",
+          "time": "~248.40-248.54s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M115",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1399,
+          "screenshots": [
+            "pc/m115_HH_R_hit.png",
+            "pc/m115_HH_R_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-008",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M140",
+      "measures": "M140,M113",
       "time": "~243.86-244.01s",
       "actionKey": "HH+SN:R/L",
       "limb": "R/L",
@@ -939,7 +1072,8 @@
         "pc/m140_HH_SN_R_L_hit.png",
         "pc/m140_HH_SN_R_L_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 14.17% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M113, changed-pixel ratio 14.35% (triage metric)"
       ],
       "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
       "relatedAsset": [
@@ -952,7 +1086,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -1032,15 +1166,33 @@
         },
         "decisionLog": [
           "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
-          "Large full-frame hit/rebound difference (14.17%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+          "Large full-frame hit/rebound difference (14.17%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M113; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
         ]
-      }
+      },
+      "occurrences": [
+        {
+          "measure": "M140",
+          "time": "~243.86-244.01s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M113",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1435,
+          "screenshots": [
+            "pc/m113_HH_SN_R_L_hit.png",
+            "pc/m113_HH_SN_R_L_rebound.png"
+          ]
+        }
+      ]
     },
     {
       "issueId": "MOTION-009",
       "status": "ANALYZING",
       "severity": "HIGH",
-      "measures": "M147",
+      "measures": "M147,M130",
       "time": "~255.95-256.10s",
       "actionKey": "RD+SN:R/L",
       "limb": "R/L",
@@ -1053,7 +1205,8 @@
         "pc/m147_RD_SN_R_L_hit.png",
         "pc/m147_RD_SN_R_L_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 13.73% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Independent recurrence in public runtime QA run 35427385671: M130, changed-pixel ratio 14.41% (triage metric)"
       ],
       "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
       "relatedAsset": [
@@ -1066,7 +1219,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-19T22:02:00+09:00",
+      "updatedAt": "2026-09-19T22:12:00+09:00",
       "repairSpec": {
         "state": "NEEDS_MEASUREMENT",
         "repairType": "local_image_edit",
@@ -1146,7 +1299,151 @@
         },
         "decisionLog": [
           "Runtime QA confirms correct actionKey/phase/frame and zero runtime errors, so mapping is not the first suspect.",
-          "Large full-frame hit/rebound difference (13.73%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault."
+          "Large full-frame hit/rebound difference (13.73%) triggered visual continuity triage; locked-region measurement is required before declaring the exact image fault.",
+          "The same action asset pair recurs with a similar large hit/rebound visual delta at M130; this increases confidence that the repair should be action-asset-level, not a one-off measure-specific workaround."
+        ]
+      },
+      "occurrences": [
+        {
+          "measure": "M147",
+          "time": "~255.95-256.10s",
+          "evidenceRun": "35443377688"
+        },
+        {
+          "measure": "M130",
+          "time": "~current QA selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1441,
+          "screenshots": [
+            "pc/m130_RD_SN_R_L_hit.png",
+            "pc/m130_RD_SN_R_L_rebound.png"
+          ]
+        }
+      ]
+    },
+    {
+      "issueId": "MOTION-010",
+      "status": "ANALYZING",
+      "severity": "HIGH",
+      "measures": "M130",
+      "time": "~selected event",
+      "actionKey": "RD:R",
+      "limb": "R",
+      "part": "RD",
+      "phase": "hit->rebound",
+      "symptom": "RD:R shows a comparatively large hit/rebound visual delta in M107-135 QA. Because runtime selection is correct, measure static-region displacement before deciding repair.",
+      "causeCategory": "excessive_neutral_delta",
+      "evidence": [
+        "public runtime QA run 35427385671",
+        "pc/m130_RD_R_hit.png",
+        "pc/m130_RD_R_rebound.png",
+        "full-frame hit/rebound changed-pixel ratio 13.02% (threshold >25 RGB; triage only)",
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+      ],
+      "fixDecision": "Treat as action-level continuity issue pending locked-region measurement. Do not change mapping first.",
+      "relatedAsset": [
+        "character-assets/layers/character/rd/hit_r_refresh.png",
+        "character-assets/layers/character/rd/rebound_r_refresh.png",
+        "character-assets/layers/character/base/neutral.png"
+      ],
+      "relatedCode": [
+        "site/character-prototype.js",
+        "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+        "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
+      ],
+      "updatedAt": "2026-09-19T22:12:00+09:00",
+      "occurrences": [
+        {
+          "measure": "M130",
+          "time": "~selected event",
+          "evidenceRun": "35427385671",
+          "fullFrameChangedPixelRatio": 0.1302,
+          "screenshots": [
+            "pc/m130_RD_R_hit.png",
+            "pc/m130_RD_R_rebound.png"
+          ]
+        }
+      ],
+      "repairSpec": {
+        "state": "NEEDS_MEASUREMENT",
+        "repairType": "local_image_edit",
+        "sourceAuthority": {
+          "baseline": "character-assets/layers/character/base/neutral.png",
+          "hit": "character-assets/layers/character/rd/hit_r_refresh.png",
+          "rebound": "character-assets/layers/character/rd/rebound_r_refresh.png",
+          "shaPolicy": "Resolve exact latest-main SHA256 for neutral/hit/rebound before edit.",
+          "runtimeAuthority": "RD:R uses right arm/right hand/right stick; current mapping and fixed RD contact stay authoritative unless separate evidence disproves them."
+        },
+        "preserveExactly": [
+          "camera",
+          "head/torso/pelvis registration",
+          "left arm/left hand/left stick",
+          "both legs/feet",
+          "stool",
+          "overall body scale"
+        ],
+        "allowedChanges": [
+          "right upper arm",
+          "right elbow",
+          "right forearm",
+          "right hand/grip",
+          "right stick",
+          "minimal local occlusion pixels caused by right-arm motion"
+        ],
+        "targetState": {
+          "visibleResult": "RD:R must be a localized right-arm/stick hit and rebound by the same seated character. Static body/stool/camera stay neutral-registered.",
+          "numericRequirements": [
+            "Resolve RD contact point before editing.",
+            "Measure locked-region displacement neutral->hit and hit->rebound.",
+            "Hit contact must satisfy current contact tolerance; rebound must move away naturally."
+          ]
+        },
+        "editProcedure": [
+          "Refresh main/CLAIMs.",
+          "Record exact source SHAs.",
+          "Measure locked-region displacement.",
+          "Resolve RD contact coordinate and active-limb numeric constraints.",
+          "Define right-arm/right-stick editable ROI and forbidden static-body mask.",
+          "Generate/edit candidate only.",
+          "Restore/preserve locked regions exactly where technically possible.",
+          "Validate fixed-drum contact and rebound separation.",
+          "Re-run same M130 screenshot event on PC and Xperia.",
+          "Promote only after target and neighbor regression QA pass."
+        ],
+        "validation": {
+          "hardPass": [
+            "correct RD:R mapping remains",
+            "stool/camera stable",
+            "inactive left arm/legs/body stable",
+            "RD hit contact valid",
+            "rebound moves away",
+            "neutral recovery natural",
+            "no neighbor regression"
+          ],
+          "pixelRule": "Outside explicit right-arm/stick ROI changed pixels should be 0 where enforceable; exceptions require exact justification.",
+          "evidenceRequired": [
+            "source SHAs",
+            "locked-region metrics",
+            "before/after screenshots",
+            "fixed-drum composite",
+            "neighbor-event screenshots"
+          ]
+        },
+        "forbidden": [
+          "full-character redraw",
+          "generic unbound generation",
+          "changing neutral to fit variant",
+          "mapping change used to hide visual discontinuity",
+          "formal overwrite before QA"
+        ],
+        "rollback": {
+          "branch": "backup/pre-motion-qa-20260919-2138",
+          "commitSha": "a4e3854449e292264192afa63469edf0fb5048af",
+          "rule": "Discard fix on any target/contact/neighbor regression and reconcile to protected baseline."
+        },
+        "decisionLog": [
+          "Runtime selection is correct; visual delta needs static-region measurement before image repair.",
+          "Action-level recipe is preferred because the same formal RD:R pair may be reused at multiple measures."
         ]
       }
     }
