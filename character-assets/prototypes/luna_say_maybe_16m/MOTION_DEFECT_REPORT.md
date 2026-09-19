@@ -114,3 +114,75 @@ These values are copied into each active defect's `repairSpec.measuredGeometry`,
 The exact full-frame diff bbox is **not** automatically promoted to `editableRoisPx`. A defective frame can contain whole-body drift; treating that large observed diff as an editable ROI would authorize the very corruption the repair is intended to remove.
 
 The remaining null fields are semantic measurements (joint anchors, limb-only ROI, stick-tip/foot contact error and contact-radius tolerance). They require landmark/limb segmentation or playing-surface calibration and are intentionally not guessed.
+
+
+## Visual Integrity QA Gate (2026-09-20)
+
+The motion-repair system now treats **human anatomy**, **linework integrity**, and **fixed-drum composite semantics** as mandatory promotion gates.
+
+Changed-pixel count, ROI containment, SHA identity, alpha, bbox, centroid, camera registration and other numeric checks remain required, but they are no longer sufficient for PASS by themselves.
+
+A candidate is a hard FAIL if any of the following remains visible:
+- pelvis -> thigh -> knee -> shin -> ankle -> foot/boot continuity is unreadable or anatomically implausible,
+- shoulder -> elbow -> wrist -> hand continuity is unreadable,
+- seated posture or front/back limb order is physically incoherent,
+- a drum stick is broken, interrupted, disconnected from the hand, malformed, or points/ends unnaturally,
+- unexplained line artifacts remain around waist / pelvis / skirt / seat,
+- line dropout, double stroke, isolated line, or layer-derived stray line corrupts the silhouette,
+- the fixed-drum composite contradicts strike, pedal, seat-contact, or front/back semantics,
+- a frame looks acceptable alone but becomes anatomically or semantically wrong when composited with the approved fixed drum.
+
+The formal rules are:
+- `QA_CHECKLIST_MASTER.json` schemaVersion 2
+- `VISUAL_INTEGRITY_QA_RULES.md`
+- `VISUAL_DEFECT_TAXONOMY.json`
+- `MOTION_DEFECT_BACKLOG.json` schemaVersion 4
+
+### Promotion policy
+
+Existing candidate files, QA evidence, runtime screenshots and historical repair evidence are preserved. Their existence does **not** grandfather an asset into VERIFIED / APPROVED_LIVE.
+
+Promotion now requires explicit PASS for:
+1. human anatomy QA,
+2. linework QA,
+3. fixed-drum composite QA,
+4. runtime-transition visual coherence,
+5. existing numeric / ROI / regression checks.
+
+Until all mandatory axes pass, the target remains in a pending review state.
+
+### Current reclassification
+
+| Issue | Action | Current status |
+|---|---|---|
+| MOTION-001 | SN:L | NEEDS_VISUAL_REVIEW |
+| MOTION-002 | BD+RC:RF/R | NEEDS_VISUAL_REVIEW |
+| MOTION-003 | BD:RF | NEEDS_HUMAN_ANATOMY_QA |
+| MOTION-004 | RC+SN:R/L | NEEDS_VISUAL_REVIEW |
+| MOTION-005 | BD+HH:RF/R | NEEDS_VISUAL_REVIEW |
+| MOTION-006 | BD+RD:RF/R | NEEDS_VISUAL_REVIEW |
+| MOTION-007 | HH:R | NEEDS_VISUAL_REVIEW |
+| MOTION-008 | HH+SN:R/L | NEEDS_VISUAL_REVIEW |
+| MOTION-009 | RD+SN:R/L | IN_FIX |
+| MOTION-010 | RD:R | IN_FIX |
+| MOTION-011 | BD+RC+SN:RF/R/L | NEEDS_VISUAL_REVIEW |
+| MOTION-012 | HT:R | NEEDS_VISUAL_REVIEW |
+| MOTION-013 | BD+HT:RF/R | NEEDS_VISUAL_REVIEW |
+| MOTION-014 | BD+SN:RF/L | NEEDS_VISUAL_REVIEW |
+| MOTION-015 | BD+HH+SN:RF/R/L | NEEDS_VISUAL_REVIEW |
+
+### BD:RF priority review
+
+`BD:RF` is the highest-priority anatomy review target. Both hit and rebound remain blocked from VERIFIED / APPROVED_LIVE until review confirms:
+- pelvis-to-thigh continuity,
+- knee/ankle bend direction,
+- foot/boot connection,
+- seat/pelvis/leg overlap,
+- right-foot bass-pedal semantics,
+- fixed-drum composite coherence.
+
+### RepairSpec impact
+
+All 15 repair specs now include mandatory visual-integrity requirements and measurement TODOs for relevant landmarks such as hip, pelvis, knee, ankle, foot, toe, boot connection, seat edge/contact, shoulder, elbow, wrist, hand, stick grip continuity and stick-tip contact.
+
+A low changed-pixel ratio, zero outside-ROI changes, or stable bbox/centroid can support a PASS, but can never override an anatomy, linework, or composite FAIL.
