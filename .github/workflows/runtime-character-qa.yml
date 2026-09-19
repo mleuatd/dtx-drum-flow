@@ -34,7 +34,7 @@ permissions:
 concurrency:
   group: public-runtime-qa-${{ github.ref }}
   # Do not cancel a run while it waits for its own Pages build; that loses evidence.
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   qa:
