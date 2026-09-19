@@ -1,3 +1,10 @@
+## 2026-09-20 — Visual-integrity batch 03
+
+- Processed SN:L and BD+RC:RF/R as the next 2-action / 4-frame batch using current-main evidence (workflow 35474616622, artifact 10593307774).
+- SN:L hit passed static anatomy/linework/composite review; rebound failed for duplicated/disconnected arm-hand-stick geometry and whole-body registration discontinuity. Pair moved to HOLD_VISUAL_INTEGRITY.
+- BD+RC:RF/R hit/rebound failed for disconnected/duplicate arm-stick geometry and blocky vertical body/seat splice. Pair moved to HOLD_VISUAL_INTEGRITY.
+- Both failures are structural rather than light/local; no minimal retry was attempted. Formal PNGs were preserved and runtime QA was correctly skipped.
+
 ## 2026-09-20 — Visual-integrity batch 02 closure + prep automation
 
 - Closed the 2-action/4-frame batch for BD:RF and HH:R.
