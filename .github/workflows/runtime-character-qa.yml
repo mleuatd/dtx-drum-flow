@@ -32,7 +32,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: public-runtime-qa-${{ github.ref }}
+  group: public-runtime-qa-v2-${{ github.ref }}
   # Do not cancel a run while it waits for its own Pages build; that loses evidence.
   cancel-in-progress: true
 
