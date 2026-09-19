@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T05:45:00+09:00",
+  "updatedAt": "2026-09-19T10:58:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -117,5 +117,17 @@
     "sameFailureSameStrategyMaxAttempts": 1,
     "onRepeat": "Invoke tools/character-retry-controller.mjs and force a different strategy.",
     "policy": "FAIL is not a terminal boolean. Every failure must produce a next strategy or a specific external blocker."
+  },
+  "sharedLearningPolicy": {
+    "status": "MANDATORY",
+    "purpose": "Make image-generation failures and recoveries reusable across parallel terminals/sessions.",
+    "rules": [
+      "Refresh GitHub main before every image-generation batch and before every registry write.",
+      "When a new reusable failure mode is observed, add or update a pattern with detection, severity, automaticAction, qaAction and evidence.",
+      "When exact candidate bytes/path must never be reused, also register them in REJECTED_ASSET_REGISTRY.json.",
+      "When a failure is action-specific rather than reusable, record it in that action transaction instead of polluting the global registry.",
+      "When a successful workaround resolves a recurring failure, append the proven recovery strategy to the relevant pattern evidence/guidance.",
+      "Parallel terminals must never delete or rewrite another terminal's failure history; reconcile by appending/superseding."
+    ]
   }
 }
