@@ -65,8 +65,8 @@
       382
     ],
     "elbow_l": [
-      555.584,
-      359.257
+      631.336,
+      467.134
     ],
     "elbow_r": [
       730,
@@ -110,12 +110,34 @@
     535
   ],
   "reach": {
-    "reachable": true,
+    "shoulder": [
+      692,
+      344
+    ],
+    "elbow": [
+      631.336,
+      467.134
+    ],
+    "wrist": [
+      547.799,
+      445.259
+    ],
+    "stickTip": [
+      420,
+      535
+    ],
+    "target": [
+      420,
+      535
+    ],
     "tipErrorPx": 0,
+    "reachable": true,
+    "selectedBend": -1,
+    "sourcePreservationScore": 40.127,
     "lengths": {
-      "upperArm": 137.266,
-      "forearm": 86.354,
-      "stick": 156.16,
+      "upperArm": 137.26616480400406,
+      "forearm": 86.35392289873113,
+      "stick": 156.16017418023074,
       "wristOffset": 0
     }
   }
