@@ -1,3 +1,11 @@
+## 2026-09-20 — Visual-integrity batch 03: SN:L + BD+RC:RF/R
+
+- Batch prep workflow: 35474616622; artifact: 10593307774; exact current-main formal bytes.
+- SN:L hit: anatomy / linework / fixed-drum composite static review PASS.
+- SN:L rebound: FAIL — duplicated/disconnected arm-hand-stick geometry, three-stick silhouette, and whole-body/head/stool registration discontinuity. Pair is HOLD_VISUAL_INTEGRITY; runtime QA blocked.
+- BD+RC:RF/R hit/rebound: FAIL — disconnected/duplicate upper-right arm-hand-stick plus blocky vertical splice through body/seat/lower-body continuity. Pair is HOLD_VISUAL_INTEGRITY; runtime QA blocked.
+- These are large structural failures, not light/local defects, so no minimal retry was consumed in this batch. Formal PNGs were not modified.
+
 ## 2026-09-20 — Visual Integrity Batch 02 closure
 
 - BD:RF hit/rebound: human anatomy, linework, fixed-drum composite, and public runtime neutral -> hit -> rebound -> neutral QA all PASS. Runtime workflow 35473367417; artifact 10593426362. Status promoted to VERIFIED.
