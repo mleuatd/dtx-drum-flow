@@ -17,16 +17,16 @@
     "dropboxSaved": true
   },
   "requiredNext": "Expand contiguous runtimeScope through M68 and run public PC/Xperia runtime QA for BD+RC+SN:RF/R/L. Do not regenerate formal bytes.",
-  "updatedAt": "2026-09-19T04:27:04.852820+00:00",
+  "updatedAt": "2026-09-19T06:19:12.822497+00:00",
   "blocker": null,
   "runtimeQaEvidence": {
     "M68": {
       "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35421257952",
-      "testedCommitSha": "3c243d60b6f379707a376a16da62f07df816695c",
-      "artifact": "public-runtime-qa-35421257952",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35421257952",
+      "runId": "35426237555",
+      "testedCommitSha": "4369481cb505434542b1483aba4dd67218513069",
+      "artifact": "public-runtime-qa-35426237555",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35426237555",
       "measureStart": 68,
       "measureEnd": 68,
       "actions": [
