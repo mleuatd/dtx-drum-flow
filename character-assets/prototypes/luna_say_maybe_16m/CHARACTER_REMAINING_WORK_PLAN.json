@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T12:10:00+09:00",
+  "updatedAt": "2026-09-19T12:13:00+09:00",
   "sourceOfTruth": "GitHub main",
   "coordination": {
     "thisWorkstream": "CHARACTER_ASSETS_AND_CHARACTER_RUNTIME_ONLY",
@@ -8,7 +8,7 @@
     "rule": "Do not modify drum-audio implementation unless required to prevent a character-runtime regression. Re-read latest main before every write because audio terminal may update main concurrently."
   },
   "currentKnownState": {
-    "latestMainAtPlanning": "c9513abd9405564baf1a413ea0fb367041b18b58",
+    "latestMainAtPlanning": "2ae4a3816d2dd9f55a42648b9642062e9a153791",
     "formalAndMappedThroughMeasure": 40,
     "lastLiveQaConfirmedThroughMeasure": 28,
     "note": "asset_inventory runtimeScope is M1-40; M29-40 final public PC/Xperia QA closure remains the first character task."
@@ -35,7 +35,7 @@
       "order": 1,
       "measures": "29-40",
       "type": "PUBLIC_RUNTIME_QA_CLOSE",
-      "status": "PENDING",
+      "status": "RUNNING",
       "work": [
         "Read latest M29-40 transactions and runtime QA result",
         "Confirm validate/deploy/public runtime QA for current M1-40 mapping",
@@ -43,7 +43,10 @@
         "If PASS, mark M29-40 and M33-40 DONE and sync CURRENT_PROJECT_STATE",
         "If FAIL, repair only the failing mapped character asset/transition"
       ],
-      "newImagePairs": []
+      "newImagePairs": [],
+      "runtimeQaRun": 35417779611,
+      "runtimeQaHeadSha": "7bb37c8a6550ff5ca21c95e25aba5a9b61bdd7aa",
+      "note": "Runtime Character QA target switched from stale M25-28 to M29-40. Wait for a non-cancelled successful run that includes this target; audio-terminal pushes may cancel intermediate runs."
     },
     {
       "id": "CHAR-002",
