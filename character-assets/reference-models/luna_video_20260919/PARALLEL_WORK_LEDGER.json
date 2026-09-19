@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T22:12:00+09:00",
+  "updatedAt": "2026-09-19T22:26:00+09:00",
   "coordinationAuthority": "GitHub main",
   "terminalPolicy": {
     "claimBeforeWork": true,
@@ -510,7 +510,7 @@
       "category": "explicit_target_ai_edit_pipeline",
       "description": "Build and exercise the minimal candidate-only SN:L hit image-edit pipeline using exact GitHub neutral bytes as mandatory first image, an explicit local alpha mask, refreshed AI_RENDER_SN_L_hit_V1 numeric constraints, and automated candidate QA. Never overwrite formal PNGs.",
       "owner": "RUNTIME-POSE-TERM",
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "claimedAt": "2026-09-19T22:12:00+09:00",
       "startedAt": "2026-09-19T22:12:00+09:00",
       "completedAt": null,
@@ -532,7 +532,18 @@
         "character-assets/layers/character/base/neutral.png",
         "character-assets/edit-workspaces/character-brushup-20260919/**"
       ],
-      "handoffNote": "Candidate-only. Exact formal neutral is mandatory first image. Mask is guidance, so enforce outside-mask pixel QA after render. Do not promote automatically. If API secret/auth is unavailable, record the technical blocker and keep the runnable workflow/tool committed."
+      "handoffNote": "Candidate-only. Exact formal neutral is mandatory first image. Mask is guidance, so enforce outside-mask pixel QA after render. Do not promote automatically. If API secret/auth is unavailable, record the technical blocker and keep the runnable workflow/tool committed.",
+      "blocker": "Explicit-target pipeline is implemented and exact-parent/mask preparation passed, but GitHub Actions does not expose OPENAI_API_KEY under the tested secret name. Run 35442741368 stopped at the credential boundary before any image API call. Generic chat renderer retry remains prohibited because target binding is not explicit.",
+      "currentState": "PIPELINE_READY_EXACT_PARENT_AND_MASK_PASS_API_AUTH_BLOCKED",
+      "lastCommit": "83605475b0668742df99611828f1b91302cad1f6",
+      "supportingQa": {
+        "runId": 35442741368,
+        "artifactId": 10584585655,
+        "artifactName": "sn-l-explicit-target-ai-edit",
+        "preparation": "PASS",
+        "apiCall": "NOT_RUN_AUTH_BLOCKED"
+      },
+      "result": "Candidate not generated. Exact GitHub neutral is hard-bound by SHA256 886e3490...; local edit mask/prompt preparation passed. Native Library bridge copies were separately SHA256-verified for neutral 886e3490... and formal SN:L hit 9941584d..., confirming source-byte availability but not renderer binding."
     }
   ]
 }
