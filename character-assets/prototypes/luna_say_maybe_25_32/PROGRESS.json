@@ -154,8 +154,8 @@
     "screenshotReview": "PENDING",
     "done": false
   },
-  "requiredNext": "M25-28: RC:R is formal promoted and must not be regenerated. Next rebuild HT:R using arm-local right-arm/right-hand/right-stick relocation, perform fixed-drum visual QA, persist to Dropbox/formal, then derive BD+HT from formal HT:R.",
-  "updatedAt": "2026-09-19T09:54:00+09:00",
+  "requiredNext": "Run/verify M25-40 candidate workflow for HT:R attempt04, inspect fixed-drum hit/rebound composites visually, then persist PASS pair to Dropbox and formal promotion. If visual FAIL, modify arm-local geometry rather than returning to neutral long-stick method.",
+  "updatedAt": "2026-09-19T10:02:00+09:00",
   "sourceNeutralVerification": {
     "status": "PASS",
     "githubPath": "character-assets/layers/character/base/neutral.png",
@@ -185,7 +185,7 @@
   },
   "production": {
     "htR": {
-      "status": "VISUAL_QA_FAIL_REBUILD_REQUIRED",
+      "status": "ARM_LOCAL_BUILDER_ATTEMPT04_COMMITTED",
       "builder": "tools/build-m25-40-candidates.py",
       "workflow": ".github/workflows/build-m25-40-character-candidates.yml",
       "method": "same baseline-preserving deterministic local right-stick edit pattern that passed M17 LT:R live QA",
@@ -205,7 +205,9 @@
       "currentHitPath": "character-assets/review-candidates/m25_40/ht_r_hit_attempt03.png",
       "currentReboundPath": "character-assets/review-candidates/m25_40/ht_r_rebound_attempt02.png",
       "currentHitSha256": "63d48afb143842b1a69aa5c79866bd065f6697b945cb9b81e5fc3644aa83bd7f",
-      "currentReboundSha256": "a82a928ff1dc4491acaccc57f41e1733bb44cebea85cc9c72a1d6200311fc246"
+      "currentReboundSha256": "a82a928ff1dc4491acaccc57f41e1733bb44cebea85cc9c72a1d6200311fc246",
+      "attempt04BuilderCommit": "10db7d1d381769b0cfe9e3cfc957df29ef0726dd",
+      "attempt04Method": "Use live-QA-passed LT:R as arm/hand/stick parent; preserve relocated right arm and retarget exposed shaft from forward grip to HT. Supersedes neutral-arm long-stick attempts."
     },
     "htL": {
       "status": "FORMAL_PROMOTED",
@@ -286,13 +288,12 @@
     "reason": "M29 introduces BD+HT:RF/R and HT:L, taking cumulative new actions from 3 to 5."
   },
   "resumeCheckpoint": {
-    "checkedAt": "2026-09-19T09:54:00+09:00",
-    "latestMainObserved": "b588a43d9b4c39c986bc2dd3f081d6a7df52215f",
+    "checkedAt": "2026-09-19T10:02:00+09:00",
     "formalPng": "6/10",
-    "ftSnRL": "formal PASS; preserve",
-    "rcR": "formal promoted; preserve",
-    "htR": "arm-local rebuild required",
+    "htR": "attempt04 arm-local builder committed; workflow output pending",
     "htL": "formal; preserve",
+    "rcR": "formal; preserve",
+    "ftSnRL": "formal; preserve",
     "bdHt": "waits for formal HT:R"
   },
   "visualQA": {
