@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:10:00+09:00",
+  "updatedAt": "2026-09-19T20:22:00+09:00",
   "northStar": "Web runtime character frames synchronized to Luna Say Maybe notes and fixed drum.",
   "completed": [
     "Reference video metadata/SHA registered",
@@ -18,15 +18,20 @@
     "Added prototype pose QA gate",
     "Added tools/runtime_pose tool-authority pipeline (constraint builder, arm/leg reach solvers, validators, debug renderer, AI constraint generator)",
     "Corrected rebound semantics so rebound is not forced onto the hit contact target",
-    "Prepared numeric SN:L neutral/hit/rebound constraint packages without modifying formal runtime PNGs"
+    "Prepared numeric SN:L neutral/hit/rebound constraint packages without modifying formal runtime PNGs",
+    "Fixed SN:L hit IK to select the source-nearest elbow branch while preserving exact snare contact",
+    "Made runtime contact QA phase-aware so neutral/rebound are not forced onto hit contact",
+    "Added single-hand minimal-motion sanitization: inactive body/core stay on neutral while SN:L left arm moves",
+    "SN:L neutral->hit->rebound->neutral numeric transition QA now passes within configured 120 px joint tolerance",
+    "Generated per-phase constrained AI render packages and machine QA evidence"
   ],
-  "currentStage": "RUNTIME_POSE_TOOLCHAIN_IMPLEMENTED_PENDING_CANDIDATE_RENDER_QA",
+  "currentStage": "SN_L_CONSTRAINT_QA_PASS_PIXEL_RENDER_BLOCKED",
   "next": [
-    "Run the SN:L constraint builder/validators in an executable environment and record machine QA output",
-    "Render constrained neutral/SN:L hit/rebound prototype candidates only from the numeric packages",
+    "Supply exact formal neutral/SN:L hit/rebound PNG bytes to a renderer-capable session/environment as edit targets",
+    "Render candidates strictly from AI_RENDER_SN_L_neutral/hit/rebound_V1.json constraints; no free redraw",
     "Apply cowlick and line-style deterministic post-processing",
-    "Composite candidates with locked drum and run contact/registration/transition QA",
-    "Run actual Web runtime PC/Xperia QA before any formal promotion or actionKey expansion"
+    "Composite with locked drum and run contact/registration/transition QA",
+    "Run actual Web runtime PC/Xperia QA before formal promotion or broader actionKey propagation"
   ],
   "formalRuntimeAssetsModified": false,
   "doNotBulkPromoteYet": true,
