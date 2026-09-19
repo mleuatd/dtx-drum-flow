@@ -1,0 +1,20 @@
+name: Drum Cold Load Repro
+on:
+  push:
+    branches: [main]
+    paths: ['site/live-drum-engine.js','tools/drum-cold-load-repro.mjs','.github/workflows/drum-cold-load-repro.yml']
+  workflow_dispatch:
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: npm install playwright
+      - run: npx playwright install --with-deps chromium
+      - run: python3 -m http.server 4173 -d site >/tmp/http.log 2>&1 &
+      - run: node tools/drum-cold-load-repro.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: drum-cold-load-repro, path: qa/runtime-audio/}
