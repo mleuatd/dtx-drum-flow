@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T07:50:24+00:00",
+  "updatedAt": "2026-09-20T16:53:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -10487,7 +10487,7 @@
     },
     {
       "issueId": "MOTION-012",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M76",
       "time": "~2:14.3-2:14.4",
@@ -10502,7 +10502,14 @@
         "pc/m76_HT_R_hit.png",
         "pc/m76_HT_R_rebound.png",
         "full-frame changed-pixel ratio 12.86% (triage metric only)",
-        "visual review: hit/rebound show broader body-registration change than the action semantics require"
+        "visual review: hit/rebound show broader body-registration change than the action semantics require",
+        "machine QA run 35497624702 artifact 10601452114",
+        "guarded promotion run 35497918609; asset validation PASS; runtime pose regression PASS",
+        "formal promotion commit 57d9428ed2ef61c1fa4f8002fa1e6b82a922e4cd",
+        "public runtime QA run 35497983722 artifact 10600647764",
+        "xperia-portrait/m76_HT_R_hit.png",
+        "xperia-portrait/m76_HT_R_rebound.png",
+        "runtime-qa.json actualActionKey HT:R and hit/rebound formal frame match, 4/4 PASS"
       ],
       "fixDecision": "Before editing, quantify locked-region displacement against neutral and hit/rebound. Preserve current mapping/contact semantics unless separate evidence proves them wrong. Repair at action-asset level, not per-measure workaround.",
       "relatedAsset": [
@@ -10515,7 +10522,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T07:50:24+00:00",
+      "updatedAt": "2026-09-20T16:53:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -10529,7 +10536,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -11295,7 +11302,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "reviewedAt": "2026-09-20T16:45:00+09:00",
@@ -11305,14 +11312,10 @@
           "rebound": "7e0d05e8339adb5ff4275195cf38e279d334dffb25282fc483b756a5bb2e691a"
         },
         "machineQaRunId": 35497624702,
-        "machineQaArtifactId": 10601452114
+        "machineQaArtifactId": 10601452114,
+        "publicRuntime": "PASS"
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "BACK-ACTIONS-35497624702",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T07:43:49.147888+00:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:36:00+09:00",
@@ -11338,6 +11341,11 @@
           "at": "2026-09-20T16:45:00+09:00",
           "decision": "PASS2_HT_LATEST_VISUAL_INTEGRITY_PASS",
           "detail": "Run 35497624702 / artifact 10601452114. Exact latest candidate SHA pair approved after full-resolution candidate and fixed-drum review; stale prior approval superseded. Guarded promotion authorized."
+        },
+        {
+          "at": "2026-09-20T16:53:00+09:00",
+          "decision": "PASS2_HT_VERIFIED",
+          "detail": "Latest exact-SHA pair promoted. Asset validation and 13 runtime-pose unit tests PASS. Public Pages M76 run 35497983722 artifact 10600647764 PASS on PC and Xperia portrait for hit/rebound with actualActionKey=HT:R and exact formal frame paths. CLAIM released."
         }
       ],
       "hold": {
@@ -11353,6 +11361,38 @@
         "nextRepair": "Pair-level structural reconstruction of the right HT arm/hand/stick corridor across hit and rebound. Remove rectangular splice at its cause; do not mask with neutral rectangular transplant. Preserve head/hair/torso outside explicitly measured overlap.",
         "prohibitedRepair": "oversized rectangular transplant; full redraw",
         "restartCondition": "Verifiably target-bound or deterministic ROI editor available for exact candidate PNG bytes. Existing auto candidate is prohibited from promotion."
+      },
+      "latestVisualIntegrityQa": {
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "hitReboundTransition": "PASS",
+        "machineQa": "PASS",
+        "assetValidation": "PASS",
+        "runtimePoseRegression": "PASS",
+        "publicRuntime": "PASS",
+        "pc": "PASS",
+        "xperiaPortrait": "PASS"
+      },
+      "publicRuntimeQa": {
+        "status": "PASS",
+        "runId": 35497983722,
+        "artifactId": 10600647764,
+        "deploymentCommitSha": "5c6a9f184d5c2bf57540242395358728e167c50b",
+        "measure": 76,
+        "actionKey": "HT:R",
+        "passed": 4,
+        "failed": 0,
+        "viewports": [
+          "pc 1280x900",
+          "xperia-portrait 384x864"
+        ],
+        "formalSha256": {
+          "hit": "295d66bf3545a19e13ffe3c9e02e8d18e72ec1e88abb64be334891fe863ed74e",
+          "rebound": "7e0d05e8339adb5ff4275195cf38e279d334dffb25282fc483b756a5bb2e691a"
+        },
+        "actualActionKeyMatched": true,
+        "actualFramesMatched": true
       }
     },
     {
