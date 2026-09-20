@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T04:50:17.074004+00:00",
+  "updatedAt": "2026-09-20T13:51:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -11324,7 +11324,7 @@
     },
     {
       "issueId": "MOTION-013",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "VISUAL_INTEGRITY_PASS_PENDING_PROMOTION",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:07.1-2:07.2",
@@ -11352,7 +11352,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T11:06:00+09:00",
+      "updatedAt": "2026-09-20T13:51:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -11366,7 +11366,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "VISUAL_INTEGRITY_PASS_PENDING_PROMOTION",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -12197,22 +12197,19 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method3/METHOD3_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_FORMAL_PROMOTION_RUNTIME_QA",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger.",
-        "reviewedAt": "2026-09-20T08:56:00+09:00",
-        "reviewEvidence": {
-          "workflowRunId": 35476568863,
-          "artifactId": 10593149790
+        "reviewedAt": "2026-09-20T13:51:00+09:00",
+        "note": "Deterministic bounded repair reviewed after hair/torso lock and local rebound stick bridge. Rectangular splice removed; active arm/stick continuity readable; fixed-drum semantics coherent. Machine guards PASS for both phases.",
+        "candidateSha256": {
+          "hit": "f8ffc411a882e16b2b5b07c9af0c4b95c8c31c64be7187e778d4eb91b17cb024",
+          "rebound": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a"
         },
-        "failReasons": [
-          "rectangular shoulder/hair/torso and seat splice plus detached stick fragments"
-        ]
+        "machineQaRunId": 35490115009
       },
       "claim": {
         "state": "CLAIMED",
@@ -12235,6 +12232,11 @@
           "at": "2026-09-20T11:06:00+09:00",
           "decision": "PASS2_BACK_RESTART_CONDITION_STILL_UNMET",
           "detail": "Target-bound editor/deterministic exact-ROI compositor still required; method3 candidate remains prohibited from promotion. Claim released."
+        },
+        {
+          "at": "2026-09-20T13:51:00+09:00",
+          "decision": "PASS2_VISUAL_INTEGRITY_PASS",
+          "detail": "Exact auto candidates hit f8ffc411... and rebound 2919aebb... machine PASS; direct image review confirms prior rectangular splice and rebound stick dropout are repaired. Approved for exact formal promotion only."
         }
       ],
       "hold": {
