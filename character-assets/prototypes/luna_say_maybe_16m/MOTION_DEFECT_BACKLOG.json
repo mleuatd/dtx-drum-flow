@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T13:05:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4763,10 +4763,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T13:05:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "STATIC_VISUAL_PASS_PROMOTION_AUTHORIZED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -5326,6 +5326,11 @@
             "at": "2026-09-20T13:02:00+09:00",
             "decision": "REBUILD_FROM_VERIFIED_ROOTS",
             "detail": "Existing BD+RD Method4 combo has a visible waist/seat rectangular splice. Do not refine that combo parent. Rebuild from neutral common body + VERIFIED M010 RD:R + VERIFIED M003 BD:RF."
+          },
+          {
+            "at": "2026-09-20T13:05:00+09:00",
+            "decision": "M006_VERIFIED_ROOT_PAIR_VISUAL_PASS",
+            "detail": "Run 35488049381 artifact 10598631500 pairMachinePass=true; exact hit SHA 7da76d13... and rebound SHA 38bd82c3... visually PASS with old seat splice removed."
           }
         ],
         "measurementTodos": [
@@ -5617,17 +5622,21 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PASS",
+        "runtimeTransition": "PENDING",
         "promotionBlocked": false,
-        "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Static visual gates PASS. Public runtime QA on real chart occurrences PASS with failed=0/passed=14 across PC and Xperia-class portrait. Synthetic explicit-sequence subcheck is non-authoritative because timeline seek cannot inject arbitrary action keys and selected unrelated real chart events.",
-        "reviewedAt": "2026-09-20T08:43:00+09:00",
-        "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/bd_rd_rf_r_neutral_hit_rebound_neutral.png",
-        "runtimeReviewedAt": "2026-09-20T09:12:00+09:00",
-        "runtimeQaRunId": 35477061624,
-        "runtimeQaArtifactId": 10594916218,
-        "runtimeQaCommitSha": "c7ab72c58a70e68fd6db30c2a25686916796f4b7"
+        "reviewedAt": "2026-09-20T13:05:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35488049381,
+          "artifactId": 10598631500,
+          "candidateHitSha256": "7da76d13cbedff3390cb6b95babac5fd8e42ebe2ef3abbe9cfcdf39a3d586ab4",
+          "candidateReboundSha256": "38bd82c3f3df41cdb04433db55749107ae542bfcaee3c2c4a3fa83db3d363110"
+        },
+        "passReasons": [
+          "Exact fixed-drum hit/rebound pair inspected.",
+          "Previous waist/seat rectangular splice is removed.",
+          "Static head/torso/pelvis/stool remain neutral-registered.",
+          "Motion is isolated to VERIFIED RD:R and VERIFIED BD:RF donor regions."
+        ]
       },
       "claim": {
         "state": "CLAIMED",
