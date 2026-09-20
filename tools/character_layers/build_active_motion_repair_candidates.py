@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, hashlib, math, re
+import json, hashlib, math, re, os
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
@@ -21,7 +21,8 @@ ledger=json.loads(ledger_path.read_text())
 
 entries={e["actionKey"]:e for e in amap.get("entries",[])}
 legacy_targets=[t for t in ledger.get("targets",[]) if ((t.get("terminalId")=="CHAT-MOTION-REPAIR" and t.get("claimState")=="CLAIMED") or (t.get("terminalId")=="CHAT-PASS2-BACK" and t.get("claimState")=="PASS2_CLAIMED"))]
-hold_claimed_keys={d.get("actionKey") for d in backlog.get("defects",[]) if (d.get("claim") or {}).get("state")=="CLAIMED"}
+claim_owner=os.environ.get("CLAIM_OWNER","").strip()
+hold_claimed_keys={d.get("actionKey") for d in backlog.get("defects",[]) if (d.get("claim") or {}).get("state")=="CLAIMED" and (not claim_owner or (d.get("claim") or {}).get("owner")==claim_owner)}
 targets=[]
 seen=set()
 for t in ledger.get("targets",[]):
