@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T12:55:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8456,7 +8456,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8484,7 +8484,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T12:55:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -8499,7 +8499,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "FIXED_PENDING_RUNTIME_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -9020,6 +9020,11 @@
             "at": "2026-09-20T12:51:00+09:00",
             "decision": "ROOT_FIRST",
             "detail": "Process root action RD:R before dependent BD+RD:RF/R. Reuse proven Method4 exact-parent bounded repair and require exact visual+runtime completion before releasing claim."
+          },
+          {
+            "at": "2026-09-20T12:55:00+09:00",
+            "decision": "M010_METHOD4_EXACT_VISUAL_PASS",
+            "detail": "Run 35487498512 artifact 10598596203 exact Method4 RD:R pair machine PASS and full-resolution fixed-drum visual PASS. Formal SHA already matches candidate; proceed directly to public runtime QA."
           }
         ],
         "measurementTodos": [
@@ -9274,16 +9279,23 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_PAIR_RIGHT_ARM_DUPLICATION",
-        "linework": "FAIL_PAIR_RIGHT_HAND_STICK_CONTINUITY",
-        "fixedDrumComposite": "FAIL_PAIR_RD_SEMANTICS",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
-        "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "Fresh method4 rebuild machine PASS for both phases, but full-resolution character and fixed-drum review still shows a detached/duplicated rear right arm/hand behind the intended RD hand. Candidate SHAs equal current formal SHAs, so no visual improvement occurred; runtime QA remains blocked.",
-        "workflowRunId": 35481841819,
-        "artifactId": 10596300390,
-        "reviewedAt": "2026-09-20T10:44:00+09:00"
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING",
+        "promotionBlocked": false,
+        "reviewedAt": "2026-09-20T12:55:00+09:00",
+        "reviewEvidence": {
+          "workflowRunId": 35487498512,
+          "artifactId": 10598596203,
+          "candidateHitSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
+          "candidateReboundSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2"
+        },
+        "passReasons": [
+          "Exact fixed-drum hit/rebound pair inspected.",
+          "Only the intended RD right-arm/stick motion changes; static body remains registered.",
+          "No disconnected limb, body splice, stool drift, or duplicated full limb is visible."
+        ]
       },
       "claim": {
         "state": "CLAIMED",
