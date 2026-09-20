@@ -5,7 +5,6 @@ on:
     branches: [main]
     paths:
       - "character-assets/generation-trials/mesh-warp-*-v1/*_mesh_config.json"
-      - ".github/workflows/visual-repair-frame-trial.yml"
 
 permissions:
   contents: write
@@ -18,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -29,19 +28,8 @@ jobs:
         id: cfg
         shell: bash
         run: |
-          CONFIG="$(python - <<'PY'
-          import json, os
-          e=json.load(open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8"))
-          paths=[]
-          for c in e.get("commits") or []:
-              paths += c.get("added") or []
-              paths += c.get("modified") or []
-          configs=[p for p in paths if p.startswith("character-assets/generation-trials/mesh-warp-") and p.endswith("_mesh_config.json")]
-          if len(configs) != 1:
-              raise SystemExit(f"expected exactly one frame config change, got {configs}")
-          print(configs[0])
-          PY
-          )"
+          CONFIG="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^character-assets/generation-trials/mesh-warp-.*-v1/.*_mesh_config.json$' | head -n 1)"
+          test -n "$CONFIG"
           echo "config=$CONFIG" >> "$GITHUB_OUTPUT"
           echo "outdir=$(dirname "$CONFIG")" >> "$GITHUB_OUTPUT"
       - name: Warm SHA input cache
