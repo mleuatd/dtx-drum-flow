@@ -32,7 +32,7 @@ def guard(m,r):
  x1,y1,x2,y2=r;return int(np.count_nonzero(m[y1:y2,x1:x2]))
 
 HEAD=(500,0,930,315)
-PELVIS=(560,590,980,825)
+PELVIS=(560,590,980,700)
 STOOL=(770,800,845,1086)
 LEFT_BODY=(0,600,600,1086)
 # Right-hand HH strike/rebound corridor from right shoulder to HH playing surface.
