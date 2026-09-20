@@ -79,7 +79,7 @@
       "source": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
       "sourceSha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ht_rf_r_rebound_refresh_candidate.png",
-      "candidateSha256": "4e36844dca7deb317a2eae68ca1713e5720e0f6f84eb005bdd2a943177a0f71c",
+      "candidateSha256": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a",
       "components": [
         {
           "part": "BD",
@@ -98,20 +98,20 @@
           ]
         }
       ],
-      "maskPixelCount": 91109,
-      "changedPixelsVsNeutral": 76047,
-      "changedRatioVsNeutral": 0.04835971,
+      "maskPixelCount": 91349,
+      "changedPixelsVsNeutral": 76230,
+      "changedRatioVsNeutral": 0.04847608,
       "changedBBoxVsNeutral": {
         "x": 462,
-        "y": 269,
+        "y": 262,
         "width": 443,
-        "height": 735
+        "height": 742
       },
-      "headGuardChangedPixels": 0,
+      "headGuardChangedPixels": 147,
       "pelvisGuardChangedPixels": 0,
       "stoolGuardChangedPixels": 0,
       "inactiveLowerChangedPixels": null,
-      "outsideMaskChangedPixels": 0,
+      "outsideMaskChangedPixels": 62,
       "sourceLocalPreservation": [
         {
           "part": "BD",
@@ -126,23 +126,23 @@
           "limb": "R",
           "radiusPx": 180,
           "sourceRelevantPixels": 20149,
-          "preservedPixels": 20149,
-          "preserveRatio": 1.0
+          "preservedPixels": 20117,
+          "preserveRatio": 0.9984
         }
       ],
       "checks": {
         "changedVisible": true,
         "changedRatioWithinLimit": true,
-        "outsideSemanticMaskZero": true,
-        "headLocked": true,
+        "outsideSemanticMaskZero": false,
+        "headLocked": false,
         "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
         "localSourcePreservation": true
       },
-      "pass": true
+      "pass": false
     }
   ],
-  "passCount": 2,
-  "failCount": 0
+  "passCount": 1,
+  "failCount": 1
 }
