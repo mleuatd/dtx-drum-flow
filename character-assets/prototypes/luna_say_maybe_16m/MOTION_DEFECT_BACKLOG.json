@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T13:02:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4734,7 +4734,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "IN_FIX",
+      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4763,7 +4763,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T13:02:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -9379,7 +9379,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T13:05:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
