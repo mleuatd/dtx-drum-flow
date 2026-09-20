@@ -1,25 +1,18 @@
 {
   "schemaVersion": 1,
   "promoted": [],
-  "failedCandidates": [
-    {
-      "id": "bd_rd_rf_r_hit",
-      "actionKey": "BD+RD:RF/R",
-      "phase": "hit",
-      "checks": null,
-      "changedRatioVsNeutral": null
-    },
-    {
-      "id": "bd_rd_rf_r_rebound",
-      "actionKey": "BD+RD:RF/R",
-      "phase": "rebound",
-      "checks": null,
-      "changedRatioVsNeutral": null
-    }
-  ],
+  "failedCandidates": [],
   "skipped": [
     {
       "id": "rd_r_hit",
+      "reason": "already_completed"
+    },
+    {
+      "id": "bd_rd_rf_r_hit",
+      "reason": "already_completed"
+    },
+    {
+      "id": "bd_rd_rf_r_rebound",
       "reason": "already_completed"
     },
     {
