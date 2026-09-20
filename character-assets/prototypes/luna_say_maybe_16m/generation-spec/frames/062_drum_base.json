@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "index": 62,
+  "sourceFilename": "062_drum_base.png",
+  "phase": "base",
+  "auditStatus": "PASS",
+  "auditActionKey": "DRUM_BASE",
+  "runtimeActionKey": "DRUM_BASE",
+  "referenceClassification": "PRIMARY_POSITIVE_REFERENCE",
+  "doNotLearnGeometryFromThisFrame": false,
+  "allowedReferenceFields": [
+    "drum_geometry",
+    "instrument_spacing",
+    "z_order"
+  ],
+  "defects": [],
+  "defectRegions": [],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../DRUM_GEOMETRY.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "frameType": "DRUM_BASE",
+    "characterCount": 0,
+    "drumGeometryIsPrimary": true
+  }
+}
