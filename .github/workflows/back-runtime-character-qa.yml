@@ -1,0 +1,58 @@
+name: BACK Runtime Character QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/back-runtime-qa.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: back-runtime-character-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Resolve exact BACK runtime QA target
+        run: |
+          python - <<'PY'
+          import json, os
+          cfg=json.load(open(".github/back-runtime-qa.json",encoding="utf-8"))
+          start=str(cfg["measureStart"])
+          end=str(cfg["measureEnd"])
+          a=cfg["actions"]
+          actions=",".join(a) if isinstance(a,list) else str(a)
+          with open(os.environ["GITHUB_ENV"],"a",encoding="utf-8") as g:
+              g.write(f"MEASURE_START={start}\nMEASURE_END={end}\nQA_ACTIONS={actions}\n")
+          print(json.dumps({"measureStart":start,"measureEnd":end,"actions":actions,"blockKey":cfg.get("blockKey","")},ensure_ascii=False))
+          PY
+      - name: Cache Playwright browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-1.55.0-linux
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run exact public runtime QA
+        run: node tools/runtime-character-qa.mjs
+      - name: Upload exact runtime QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: back-public-runtime-qa-${{ github.run_id }}
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 30
