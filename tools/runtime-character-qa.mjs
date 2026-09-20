@@ -14,14 +14,14 @@ const chart=await readJson("site/charts/luna_say_maybe/Luna_say_maybe_FINAL_note
 const limbs=await readJson("site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json");
 const inv=await readJson("character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json");
 const limbMap=new Map((limbs.assignments||[]).map(x=>[`${Number(x.time).toFixed(6)}|${x.part}`,x.limb]));
-const notes=(chart.notes||[]).filter(n=>n.measure>=M0&&n.measure<=M1).map(n=>({...n,limb:limbMap.get(`${Number(n.time).toFixed(6)}|${n.part}`)||n.limb}));
-const groups=[]; for(const n of notes){const g=groups.at(-1);if(g&&Math.abs(n.time-g[0].time)<=.008)g.push(n);else groups.push([n]);}
+const allNotes=(chart.notes||[]).map(n=>({...n,limb:limbMap.get(`${Number(n.time).toFixed(6)}|${n.part}`)||n.limb}));
+const groups=[]; for(const n of allNotes){const g=groups.at(-1);if(g&&Math.abs(n.time-g[0].time)<=.008)g.push(n);else groups.push([n]);}
 const exactKey=g=>{const a=[...g].sort((x,y)=>x.part.localeCompare(y.part));return a.length>1?a.map(n=>n.part).join("+")+":"+a.map(n=>n.limb).join("/"):a[0].part+":"+a[0].limb};
 const keyFor=g=>{const exact=exactKey(g);if(inv.runtimeFrameMap?.[exact])return exact;const parts=[...new Set(g.map(n=>n.part))].sort();const wildcard=parts.join("+")+":*";return inv.runtimeFrameMap?.[wildcard]?wildcard:exact};
 const candidates=groups.map((g,i)=>({g,i,key:keyFor(g),time:Number(g[0].time),measure:g[0].measure,next:groups[i+1]?.[0]?.time??Infinity}));
 const wanted=[...new Set(TARGETS)];
 const selected=[];
-for(const key of wanted){const list=candidates.filter(x=>x.key===key);if(!list.length)continue;selected.push([...list].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0]);}
+for(const key of wanted){const list=candidates.filter(x=>x.key===key&&x.measure>=M0&&x.measure<=M1);if(!list.length)continue;selected.push([...list].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0]);}
 for(const t of TARGETS)if(!selected.some(x=>x.key===t))throw new Error(`required action missing in measure range ${M0}-${M1}: ${t}`);
 const timing=inv.motionTiming||{}, baseHit=Number(timing.hitEndSeconds??.09), baseRebound=Number(timing.reboundEndSeconds??.17);
 function phaseTimes(ev){
