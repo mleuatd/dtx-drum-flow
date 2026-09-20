@@ -81,6 +81,51 @@ for f in fails:
     if not t or not (legacy_claim or hold_repair_claim):
         out["targets"].append({"id":tid,"actionKey":key,"phase":phase,"pass":False,"skip":"claim_changed"}); continue
     srcp=ROOT/t["formalGitHubPath"]; src=Image.open(srcp).convert("RGBA"); S=np.asarray(src)
+
+    # MOTION-009 authority reconstruction:
+    # keep the known-good left SN motion from the current combo source, but use
+    # the VERIFIED/APPROVED_LIVE RD:R formal asset for the complete right
+    # shoulder/arm/hand/stick motion. This avoids synthesizing an RD strike from
+    # fragmented pixels in the defective combo pair.
+    if key=="RD+SN:R/L":
+        rd_rel=("character-assets/layers/character/rd/hit_r_refresh.png"
+                if phase=="hit" else
+                "character-assets/layers/character/rd/rebound_r_refresh.png")
+        rd=Image.open(ROOT/rd_rel).convert("RGBA")
+        combo_src=src
+        rebuilt=neutral.copy()
+
+        # Preserve only the left SN active corridor from the combo.
+        sn=cp("SN") or (420,535)
+        sh_l=LAND["shoulder_L"]
+        lm=Image.new("L",(W,H),0); ld=ImageDraw.Draw(lm)
+        ld.line([sh_l,(535,455),sn],fill=255,width=150 if phase=="hit" else 165,joint="curve")
+        ld.ellipse([sn[0]-115,sn[1]-115,sn[0]+115,sn[1]+115],fill=255)
+        L=np.asarray(lm)>0
+        L[HEAD_CORE[1]:HEAD_CORE[3],HEAD_CORE[0]:HEAD_CORE[2]]=False
+        L[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
+        L[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+        L[620:,:]=False
+        rebuilt.paste(combo_src,(0,0),Image.fromarray((L.astype(np.uint8)*255),"L"))
+
+        # Transplant the complete approved RD right-arm/stick corridor.
+        rdpt=cp("RD") or (965,250)
+        sh_r=LAND["shoulder_R"]
+        rm=Image.new("L",(W,H),0); rdw=ImageDraw.Draw(rm)
+        grip=(930,335) if phase=="hit" else (915,350)
+        rdw.line([sh_r,grip,rdpt],fill=255,width=150 if phase=="hit" else 135,joint="curve")
+        for p,r in [(sh_r,62),(grip,70),(rdpt,100 if phase=="hit" else 115)]:
+            rdw.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+        R=np.asarray(rm)>0
+        R[HEAD_CORE[1]:HEAD_CORE[3],HEAD_CORE[0]:HEAD_CORE[2]]=False
+        R[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
+        R[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+        R[620:,:]=False
+        rebuilt.paste(rd,(0,0),Image.fromarray((R.astype(np.uint8)*255),"L"))
+
+        src=rebuilt
+        S=np.asarray(src)
+
     comps=parse(key); has_bd=any(p=="BD" and l=="RF" for p,l in comps)
     geom=Image.new("L",(W,H),0); d=ImageDraw.Draw(geom)
     for part,limb in comps:
