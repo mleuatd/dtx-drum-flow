@@ -13,6 +13,7 @@ OUTDIR.mkdir(parents=True,exist_ok=True)
 neutral_path=ROOT/"character-assets/layers/character/base/neutral.png"
 source_path=ROOT/"character-assets/layers/character/sn/rebound_l.png"
 constraint_path=BASE/"runtime_pose_constraints/SN_L_rebound_V1.json"
+neutral_constraint_path=BASE/"runtime_pose_constraints/SN_L_neutral_V1.json"
 hit_constraint_path=BASE/"runtime_pose_constraints/SN_L_hit_V1.json"
 drum_path=ROOT/"character-assets/layers/drum/drum_base.png"
 
@@ -20,6 +21,7 @@ neutral=Image.open(neutral_path).convert("RGBA")
 source=Image.open(source_path).convert("RGBA")
 drum=Image.open(drum_path).convert("RGBA")
 c=json.loads(constraint_path.read_text())
+neutral_pose=json.loads(neutral_constraint_path.read_text())
 hit=json.loads(hit_constraint_path.read_text())
 W,H=neutral.size
 assert neutral.size==source.size==(1448,1086)
@@ -42,6 +44,21 @@ for p,r in [(shoulder,85),(elbow,85),(wrist,75)]:
 d.line([wrist,tip],fill=255,width=38)
 for p,r in [(tip,26),(hit_tip,18)]:
     d.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+
+# Also cover the approved-neutral LEFT arm/hand/stick pose. The candidate base
+# is neutral, so any neutral pixels from the old left-arm pose must be inside
+# the replace mask; otherwise they remain beside the rebound limb and create
+# a false third hand/stick. Source transparency is allowed to erase them.
+nj=neutral_pose["joints"]
+n_shoulder=tuple(map(round,nj["shoulder_l"]))
+n_elbow=tuple(map(round,nj["elbow_l"]))
+n_wrist=tuple(map(round,nj["wrist_l"]))
+n_tip=tuple(map(round,neutral_pose["stickTip"]))
+d.line([n_shoulder,n_elbow,n_wrist],fill=255,width=165,joint="curve")
+for p,r in [(n_shoulder,88),(n_elbow,92),(n_wrist,86)]:
+    d.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+d.line([n_wrist,n_tip],fill=255,width=46)
+d.ellipse([n_tip[0]-30,n_tip[1]-30,n_tip[0]+30,n_tip[1]+30],fill=255)
 
 # Restrict lower mask to upper-body/action area so legs/stool cannot be imported.
 ma=np.asarray(mask).copy()
@@ -72,7 +89,7 @@ for x in range(455,546):
         allowed[y0:y1,x]=True
 candidate=Image.fromarray(qa,"RGBA")
 mask=Image.fromarray((allowed.astype(np.uint8)*255),"L")
-candidate_path=OUTDIR/"sn_l_rebound_candidate_v5.png"
+candidate_path=OUTDIR/"sn_l_rebound_candidate_v6.png"
 candidate.save(candidate_path)
 
 # Exact raster diagnostics.
@@ -103,10 +120,10 @@ rebound_sep=dist(c["stickTip"],c["contactPoint"])
 
 # Composite debug: drum under candidate, preserving source canvas.
 comp=Image.alpha_composite(drum,candidate)
-comp.save(OUTDIR/"sn_l_rebound_candidate_v5_fixed_drum.png")
+comp.save(OUTDIR/"sn_l_rebound_candidate_v6_fixed_drum.png")
 
 report={
- "schemaVersion":5,
+ "schemaVersion":6,
  "issueId":"MOTION-001",
  "actionKey":"SN:L",
  "phase":"rebound",
@@ -119,6 +136,6 @@ report={
  "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"headGuardChangedPixels":guard_changed["head"]==0,"rightArmGuardChangedPixels":guard_changed["right_arm"]==0,"pelvisSeatGuardChangedPixels":guard_changed["pelvis_seat"]==0,"legsStoolGuardChangedPixels":guard_changed["legs_stool"]==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
 }
 report["pass"]=all(report["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v5_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+(OUTDIR/"sn_l_rebound_candidate_v6_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(report,ensure_ascii=False))
 if not report["pass"]: raise SystemExit(2)
