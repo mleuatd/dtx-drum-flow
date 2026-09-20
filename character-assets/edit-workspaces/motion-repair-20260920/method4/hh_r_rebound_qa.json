@@ -1,0 +1,44 @@
+{
+  "id": "hh_r_rebound",
+  "actionKey": "HH:R",
+  "phase": "rebound",
+  "source": "character-assets/layers/character/hh/rebound_r.png",
+  "sourceSha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/hh_r_rebound_candidate.png",
+  "candidateSha256": "bbfae80c4268037f6126ac39bbb93423984ebad5c71a863f0d52be7a33ef18a1",
+  "changedPixelsVsNeutral": 15140,
+  "changedRatioVsNeutral": 0.00962781,
+  "changedBBoxVsNeutral": {
+    "x": 162,
+    "y": 315,
+    "width": 712,
+    "height": 165
+  },
+  "headCoreGuardChangedPixels": 0,
+  "torsoCoreGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "leftLegGuardChangedPixels": null,
+  "sourceLocalPreservation": [
+    {
+      "part": "HH",
+      "limb": "R",
+      "radiusPx": 65,
+      "sourceRelevantPixels": 2,
+      "preservedPixels": 2,
+      "preserveRatio": 1.0,
+      "threshold": 0.4,
+      "pass": true
+    }
+  ],
+  "checks": {
+    "changedVisible": true,
+    "ratioWithinLimit": true,
+    "outsideMaskZero": true,
+    "headCoreLocked": true,
+    "torsoCoreLocked": true,
+    "stoolLocked": true,
+    "leftLegLocked": true,
+    "localContactSourcePreservation": true
+  },
+  "pass": true
+}
