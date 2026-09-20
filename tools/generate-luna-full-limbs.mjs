@@ -3,6 +3,8 @@ import fs from "node:fs";
 const chart=JSON.parse(fs.readFileSync("site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json","utf8"));
 const prefix=JSON.parse(fs.readFileSync("site/charts/luna_say_maybe/Luna_say_maybe_1_16_limbs.json","utf8"));
 const rules=JSON.parse(fs.readFileSync("character-assets/prototypes/luna_say_maybe_16m/hand_rules.json","utf8"));
+const observedOverridePath="site/charts/luna_say_maybe/Luna_say_maybe_limb_observed_overrides.json";
+const observedOverrides=fs.existsSync(observedOverridePath)?JSON.parse(fs.readFileSync(observedOverridePath,"utf8")):{overrides:[]};
 const notes=chart.notes.map((n,i)=>({...n,_i:i})).sort((a,b)=>a.time-b.time||a._i-b._i);
 const EPS=.008, RAPID=.13, TOM_RESTART=.36;
 const handParts=new Set(["LC","HH","SN","HT","LT","FT","RC","RD"]);
@@ -149,6 +151,34 @@ for(const a of prefix.assignments){
 // Use authoritative prefix exactly, predicted v2 rules after M16.
 const finalAssign=new Map(predicted);
 for(const a of prefix.assignments)finalAssign.set(Number(a.time).toFixed(6)+"|"+a.part,a.limb);
+
+// External performance material is allowed to override LIMB ONLY.
+// The fixed FINAL chart remains the sole source for note time/part/instrument placement.
+const observedAudit={applied:[],invalid:[]};
+const validLimbs=new Set(["L","R","LF","RF"]);
+for(const o of observedOverrides.overrides||[]){
+  const k=Number(o.time).toFixed(6)+"|"+o.part;
+  const sourceNote=notes.find(n=>key(n)===k);
+  if(!sourceNote){
+    observedAudit.invalid.push({...o,reason:"NO_EXACT_FIXED_CHART_NOTE"});
+    continue;
+  }
+  if(!validLimbs.has(o.limb)){
+    observedAudit.invalid.push({...o,reason:"INVALID_LIMB"});
+    continue;
+  }
+  // Hand/foot class must still match the fixed note's instrument class.
+  if(handParts.has(sourceNote.part)&&!["L","R"].includes(o.limb)){
+    observedAudit.invalid.push({...o,reason:"HAND_PART_REQUIRES_HAND_LIMB"});
+    continue;
+  }
+  if(footParts.has(sourceNote.part)&&!["LF","RF"].includes(o.limb)){
+    observedAudit.invalid.push({...o,reason:"FOOT_PART_REQUIRES_FOOT_LIMB"});
+    continue;
+  }
+  finalAssign.set(k,o.limb);
+  observedAudit.applied.push({time:sourceNote.time,measure:sourceNote.measure,part:sourceNote.part,limb:o.limb,referenceId:o.referenceId||"",evidence:o.evidence||"OBSERVED_PERFORMANCE"});
+}
 const validation=validate(finalAssign,1,148);
 const assignments=notes.map(n=>({time:n.time,measure:n.measure,beatIndex:n.beatIndex,part:n.part,limb:finalAssign.get(key(n))}));
 const countByLimb={};for(const a of assignments)countByLimb[a.limb]=(countByLimb[a.limb]||0)+1;
@@ -157,8 +187,10 @@ const candidate={
   generatedAt:new Date().toISOString(),
   scope:{measureStart:1,measureEnd:148,noteCount:assignments.length},
   handedness:"right-handed",
-  method:"Authoritative M1-16 prefix + researched/project v2 deterministic limb rules for M17-148.",
+  method:"Fixed FINAL chart + authoritative M1-16 prefix + observed performance limb overrides + deterministic sticking inference for remaining notes.",
   rulesSource:"character-assets/prototypes/luna_say_maybe_16m/hand_rules.json",
+  observedOverridesSource:observedOverridePath,
+  observedOverrideCount:observedAudit.applied.length,
   assignments
 };
 const report={
@@ -168,11 +200,12 @@ const report={
   rapidSnPhrases:{count:rapidSnDecisions.length,decisions:rapidSnDecisions},
   rapidHhPhrases:{count:rapidHhDecisions.length},
   simultaneousResolution:{fixCount:groupResolution.fixes.length,fixes:groupResolution.fixes,unresolved:groupResolution.unresolved},
+  observedPerformanceOverrides:{applied:observedAudit.applied.length,invalid:observedAudit.invalid.length,appliedDetails:observedAudit.applied,invalidDetails:observedAudit.invalid},
   validation:{missing:validation.missing.length,sameLimb:validation.sameLimb.length,rapidSameHand:validation.rapidRepeat.length,missingDetails:validation.missing,sameLimbDetails:validation.sameLimb,rapidSameHandDetails:validation.rapidRepeat},
-  promotable:prefixMismatches.length===0&&groupResolution.unresolved.length===0&&validation.missing.length===0&&validation.sameLimb.length===0&&validation.rapidRepeat.length===0
+  promotable:prefixMismatches.length===0&&observedAudit.invalid.length===0&&groupResolution.unresolved.length===0&&validation.missing.length===0&&validation.sameLimb.length===0&&validation.rapidRepeat.length===0
 };
 fs.mkdirSync("limb-artifacts",{recursive:true});
 fs.writeFileSync("limb-artifacts/Luna_say_maybe_full_limbs_CANDIDATE.json",JSON.stringify(candidate,null,2)+"\n");
 fs.writeFileSync("limb-artifacts/Luna_say_maybe_full_limbs_VALIDATION.json",JSON.stringify(report,null,2)+"\n");
-console.log(JSON.stringify({promotable:report.promotable,counts:report.counts,prefixMismatches:report.prefixRegression.mismatches,rapidSnPhrases:report.rapidSnPhrases.count,simultaneousFixes:report.simultaneousResolution.fixCount,unresolvedGroups:report.simultaneousResolution.unresolved.length,validation:report.validation},null,2));
+console.log(JSON.stringify({promotable:report.promotable,counts:report.counts,prefixMismatches:report.prefixRegression.mismatches,observedPerformanceOverrides:report.observedPerformanceOverrides,rapidSnPhrases:report.rapidSnPhrases.count,simultaneousFixes:report.simultaneousResolution.fixCount,unresolvedGroups:report.simultaneousResolution.unresolved.length,validation:report.validation},null,2));
 if(!report.promotable)process.exitCode=1;
