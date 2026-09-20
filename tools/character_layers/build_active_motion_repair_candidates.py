@@ -120,7 +120,7 @@ for t in targets:
         # visibly carries two sticks. Preserve only a compact grip disk so the
         # newly drawn HT stick remains connected to the hand.
         old_hh=Image.new("L",(W,H),0); ohd=ImageDraw.Draw(old_hh)
-        ohd.line([(405,390),(500,470)],fill=255,width=34)
+        ohd.line([(426,380),(500,454)],fill=255,width=38)
         O=np.asarray(old_hh)>0
         yy,xx=np.ogrid[:H,:W]
         grip_keep=(xx-grip[0])**2+(yy-grip[1])**2<=24**2
