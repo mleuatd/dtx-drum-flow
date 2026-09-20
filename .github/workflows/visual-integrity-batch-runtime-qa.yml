@@ -63,7 +63,7 @@ jobs:
             const hitFrameId=inv.runtimePhaseFrameMap?.[target]?.hit||inv.runtimeFrameMap?.[target];
             const reboundFrameId=inv.runtimePhaseFrameMap?.[target]?.rebound||inv.runtimeFrameMap?.[target];
             sequences.push({target,ev,points:[
-              {label:"neutral_before",time:Math.max(0,qaBase-.35),phase:"neutral",key:"neutral",frame:neutralFrame},
+              {label:"neutral_before",time:Math.max(0,qaBase-.60),phase:"neutral",key:"neutral",frame:neutralFrame},
               {label:"hit",time:qaBase+.012,phase:"hit",key:target,frame:inv.requiredFrames?.[hitFrameId]?.path},
               {label:"rebound",time:qaBase+hitEnd+(reboundEnd-hitEnd)*.48,phase:"rebound",key:target,frame:inv.requiredFrames?.[reboundFrameId]?.path},
               {label:"neutral_after",time:neutralAfterTime,phase:"neutral",key:"neutral",frame:neutralFrame}
