@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "chart": "Luna_say_maybe_FINAL_notes.json",
+  "chartGitBlobSha": "c842c44264d7f32c4bf4b05d97b8df243827a81d",
+  "policy": {
+    "chartImmutable": true,
+    "purpose": "Per-note limb/sticking overrides only. Never add, remove, move, retime, or reclassify chart notes.",
+    "acceptance": "Only add an override when the external performance passage materially matches the fixed chart passage and the striking limb is visually identifiable.",
+    "rejection": "If the external performance differs from the fixed chart, ignore that external passage instead of changing the chart."
+  },
+  "references": [
+    {
+      "id": "songsterr-fixed-hit-reference",
+      "type": "DRUM_CHART",
+      "url": "https://www.songsterr.com/a/wsa/luna-say-maybe-drum-tab-s1089457",
+      "usage": "Hit placement context only; never used as per-note R/L authority."
+    },
+    {
+      "id": "performance-cover-reference",
+      "type": "PERFORMANCE_REFERENCE",
+      "url": "https://www.nicozon.net/watch/sm43866113",
+      "usage": "R/L observation only where the visible performance passage matches the fixed project chart."
+    }
+  ],
+  "overrides": []
+}
