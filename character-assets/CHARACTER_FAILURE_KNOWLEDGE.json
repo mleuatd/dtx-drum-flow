@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "purpose": "Cross-session, cross-device, cross-action mistake-prevention knowledge for Luna Say Maybe character asset production. Read before every character image edit/generation and before visual approval.",
   "sourceOfTruth": "GitHub main",
-  "updatedAt": "2026-09-19T10:30:00+09:00",
+  "updatedAt": "2026-09-20T09:05:00+09:00",
   "coordination": {
     "rule": "Always refetch latest main before action start, image edit/generation, promotion, runtime edit, and commit. Treat another device's newer evidence as authoritative and never overwrite it with stale state.",
     "challengeRule": "Do not trust another session's PASS/FAIL merely because it is recorded. Reconcile evidence, SHA/path, composite visual QA, transaction and current main. Preserve valid work; flag contradictions.",
@@ -129,6 +129,28 @@
       "prevent": "Derive rebound closely from accepted hit and inspect hit→rebound→next state continuity.",
       "origin": [
         "CHAR-QA-0004"
+      ]
+    },
+    {
+      "id": "GF-011",
+      "status": "ACTIVE",
+      "category": "pass2-foot-roi-preservation",
+      "lesson": "A generic arm/foot semantic corridor can preserve arm contacts while discarding most BD/RF pedal-contact evidence in multi-limb repairs.",
+      "appliesTo": "BD_PLUS_MULTI_LIMB_REPAIRS",
+      "prevent": "Use a dedicated RF leg/pedal ROI and keep pelvis/stool locked; never lower local-source-preservation thresholds to force PASS.",
+      "origin": [
+        "PASS2 BD+FT+SN:RF/R/L 2026-09-20"
+      ]
+    },
+    {
+      "id": "GF-012",
+      "status": "ACTIVE",
+      "category": "pass2-near-noop-repair",
+      "lesson": "A neutral-diff corridor may produce a near-no-op candidate when the defect is a broken/detached stick whose relevant pixels fall outside the inferred corridor.",
+      "appliesTo": "BROKEN_STICK_REPAIRS",
+      "prevent": "If changedVisible fails or changed pixels are negligible, switch to an explicit hand→stick→tip ROI derived from the recorded defect; do not accept the near-no-op.",
+      "origin": [
+        "PASS2 BD+FT:RF/L 2026-09-20"
       ]
     }
   ],
