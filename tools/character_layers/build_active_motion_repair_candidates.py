@@ -78,6 +78,50 @@ for t in targets:
     src=Image.open(src_path).convert("RGBA"); S=np.asarray(src)
     if S.shape!=N.shape:
         summary["targets"].append({"id":t["id"],"actionKey":key,"phase":phase,"pass":False,"reasons":["canvas_mismatch"],"source":rel}); continue
+    formal_source_sha=hashlib.sha256(src_path.read_bytes()).hexdigest()
+
+    # MOTION-014: the formal BD+SN pair contains known rectangular splice/
+    # stick-dropout corruption. Rebuild the candidate source deterministically
+    # from two already-approved live authorities instead of reusing that corrupt
+    # combo drawing: SN:L for the left arm/stick and BD:RF for the right foot.
+    if key=="BD+SN:RF/L":
+        sn_rel=("character-assets/layers/character/sn/hit_l.png"
+                if phase=="hit" else
+                "character-assets/layers/character/sn/rebound_l.png")
+        bd_rel=("character-assets/layers/character/bd/hit_rf.png"
+                if phase=="hit" else
+                "character-assets/layers/character/bd/rebound_rf.png")
+        sn=Image.open(ROOT/sn_rel).convert("RGBA")
+        bd=Image.open(ROOT/bd_rel).convert("RGBA")
+        combo=neutral.copy()
+
+        # Tight left-arm/snare corridor.
+        sn_mask=Image.new("L",(W,H),0); sd=ImageDraw.Draw(sn_mask)
+        sh=LANDMARKS["shoulder_L"]; end=pt_for("SN")
+        width=150 if phase=="hit" else 175
+        sd.line([sh,end],fill=255,width=width)
+        sr=62; er=115 if phase=="hit" else 145
+        sd.ellipse([sh[0]-sr,sh[1]-sr,sh[0]+sr,sh[1]+sr],fill=255)
+        sd.ellipse([end[0]-er,end[1]-er,end[0]+er,end[1]+er],fill=255)
+        sm=np.asarray(sn_mask)>0
+        sm[HEAD[1]:HEAD[3],HEAD[0]:HEAD[2]]=False
+        sm[PELVIS[1]:PELVIS[3],PELVIS[0]:PELVIS[2]]=False
+        sm[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+        combo.paste(sn,(0,0),Image.fromarray((sm.astype(np.uint8)*255),"L"))
+
+        # Tight right-foot/bass-drum corridor.
+        foot_mask=Image.new("L",(W,H),0); fd=ImageDraw.Draw(foot_mask)
+        hip=LANDMARKS["hip_RF"]; knee=LANDMARKS["knee_RF"]; ankle=LANDMARKS["ankle_RF"]; bend=pt_for("BD") or ankle
+        fd.line([hip,knee,ankle,bend],fill=255,width=135,joint="curve")
+        for p,r in [(knee,65),(ankle,75),(bend,90)]:
+            fd.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+        fm=np.asarray(foot_mask)>0
+        fm[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+        combo.paste(bd,(0,0),Image.fromarray((fm.astype(np.uint8)*255),"L"))
+
+        src=combo
+        S=np.asarray(src)
+
     components=parse_action(key)
     geom=Image.new("L",(W,H),0); gd=ImageDraw.Draw(geom)
     has_foot=False
@@ -235,7 +279,7 @@ for t in targets:
     comp.save(WORK/(stem+"_fixed_drum.png"))
     rec={
       "id":t["id"],"actionKey":key,"phase":phase,"source":rel,
-      "sourceSha256":hashlib.sha256(src_path.read_bytes()).hexdigest(),
+      "sourceSha256":formal_source_sha,
       "candidate":str(cp.relative_to(ROOT)),
       "candidateSha256":hashlib.sha256(cp.read_bytes()).hexdigest(),
       "components":[{"part":p,"limb":l,"contact":pt_for(p)} for p,l in components],
