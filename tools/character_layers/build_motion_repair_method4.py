@@ -225,44 +225,27 @@ for f in fails:
                 local[205:442,850:1115]=True # rebound: one upper right RD corridor
         M &= local
         if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound"):
+            # The source for MOTION-009 is now rebuilt from the VERIFIED RD:R
+            # authority plus the existing left-SN corridor. Do NOT run the old
+            # duplicate-fragment rejection here: that filter was designed for
+            # the defective combo source and was deleting the valid approved
+            # RD forearm/hand/stick. Retain the complete authority-supported
+            # active corridors while the global head/torso/stool guards remain.
             src_ink=(S[:,:,:3].min(axis=2)<225)&(S[:,:,3]>0)
-            reject=np.zeros((H,W),dtype=bool)
-            reject[360:535,900:1125]=True
-            M &= ~reject
             rdpt=cp("RD") or (965,250); sh=LAND["shoulder_R"]
             route=Image.new("L",(W,H),0); rr=ImageDraw.Draw(route)
             grip=(930,335) if phase=="hit" else (915,350)
-            rr.line([sh,grip,rdpt],fill=255,width=42 if phase=="hit" else 34,joint="curve")
-            rr.ellipse([grip[0]-30,grip[1]-30,grip[0]+30,grip[1]+30],fill=255)
+            rr.line([sh,grip,rdpt],fill=255,width=155 if phase=="hit" else 145,joint="curve")
+            rr.ellipse([grip[0]-72,grip[1]-72,grip[0]+72,grip[1]+72],fill=255)
+            rr.ellipse([rdpt[0]-108,rdpt[1]-108,rdpt[0]+108,rdpt[1]+108],fill=255)
             R=np.asarray(route)>0
             R[HEAD_CORE[1]:HEAD_CORE[3],HEAD_CORE[0]:HEAD_CORE[2]]=False
             R[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
+            R[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
             R[620:,:]=False
-            M |= (R & src_ink)
-            # MOTION-009 method12: after the narrow RD route is built, reject
-            # detached/forked right-side source fragments. Keep only changed-ink
-            # components that either touch the RD contact neighborhood or are
-            # large and intersect the shoulder->grip->RD route. This directly
-            # targets the known duplicated arm/hand/stick failure without
-            # reopening locked head/torso/left-SN regions.
-            raw=(M & interest & src_ink).astype(np.uint8)
-            seen=np.zeros((H,W),dtype=bool); keep=np.zeros((H,W),dtype=bool)
-            for yy in range(H):
-                for xx in range(W):
-                    if not raw[yy,xx] or seen[yy,xx]: continue
-                    stack=[(xx,yy)]; seen[yy,xx]=True; pts=[]
-                    while stack:
-                        px,py=stack.pop(); pts.append((px,py))
-                        for nx,ny in ((px-1,py),(px+1,py),(px,py-1),(px,py+1)):
-                            if 0<=nx<W and 0<=ny<H and raw[ny,nx] and not seen[ny,nx]:
-                                seen[ny,nx]=True; stack.append((nx,ny))
-                    touches_rd=any((px-rdpt[0])**2+(py-rdpt[1])**2<=72**2 for px,py in pts)
-                    touches_route=any(R[py,px] for px,py in pts)
-                    left_sn=any(px<700 for px,py in pts)
-                    if left_sn or touches_rd or (len(pts)>=24 and touches_route):
-                        for px,py in pts: keep[py,px]=True
-            keep=np.asarray(Image.fromarray((keep.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(3)))>0
-            M &= keep
+            # Source already contains only the approved right RD corridor and
+            # bounded left SN corridor, so retain all source-supported linework.
+            M |= (R & interest)
         if "bd_rc_sn" in tid and phase=="rebound":
             # M011 exact visual repair: remove only the rectangular splice on
             # the right edge of the stool/seat. Do not touch either leg/skirt.
