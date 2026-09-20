@@ -9369,7 +9369,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T13:05:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -10332,7 +10332,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING",
+        "runtimeTransition": "RETESTING_PRE_NEUTRAL_ONLY",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-exact-fullres-v2",
         "reviewedAt": "2026-09-20T12:49:00+09:00",
@@ -10377,6 +10377,11 @@
           "at": "2026-09-20T12:49:00+09:00",
           "decision": "EXACT_CANDIDATE_VISUAL_PASS",
           "detail": "Run 35487259210 artifact 10597971085. Exact hit 9f6dfe72... and rebound 59655e19... both machine PASS and full-resolution visual PASS. Ready for exact-candidate promotion; keep CLAIM until VERIFIED."
+        },
+        {
+          "at": "2026-09-20T13:05:00+09:00",
+          "decision": "RUNTIME_QA_DIAGNOSED",
+          "detail": "Run 35487858884: target hit/rebound/neutral-after PASS on both PC and Xperia portrait (6/6 target/return checks). Only neutral-before sampled inside the immediately preceding BD+HH event window; QA pre-neutral sample moved farther back without changing production assets."
         }
       ],
       "hold": {
