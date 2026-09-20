@@ -287,7 +287,7 @@ for t in targets:
         # contains no intended anatomy or HT stick. It removes anti-aliased
         # fragments from the old resting/HH stick without touching the hand.
         cleanup=Image.new("L",(W,H),0); cud=ImageDraw.Draw(cleanup)
-        cud.polygon([(398,350),(500,350),(500,425),(488,438),(480,466),(398,466)],fill=255)
+        cud.polygon([(390,340),(508,340),(508,435),(494,445),(484,466),(390,466)],fill=255)
         ht_air_cleanup=np.asarray(cleanup)>0
         M |= ht_air_cleanup
 
@@ -348,7 +348,7 @@ for t in targets:
     legacy_rest_stick_pixels = None
     if key=="HT:R":
         legacy_probe=Image.new("L",(W,H),0); lpd=ImageDraw.Draw(legacy_probe)
-        lpd.polygon([(398,350),(500,350),(500,425),(488,438),(480,466),(398,466)],fill=255)
+        lpd.polygon([(390,340),(508,340),(508,435),(494,445),(484,466),(390,466)],fill=255)
         LP=np.asarray(legacy_probe)>0
         legacy_rest_stick_pixels=int(np.count_nonzero((Q[:,:,3]>0) & LP))
     checks={
