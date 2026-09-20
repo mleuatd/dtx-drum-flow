@@ -45,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/
+          git add --sparse character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/
           git diff --cached --quiet || git commit -m "qa: persist MOTION-004 verified-donor candidates"
           git pull --rebase origin main
           git push origin HEAD:main
