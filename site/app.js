@@ -121,7 +121,7 @@ function pausePlayback(update=true){if(update&&playing)time=chartTimeFromClock()
 function toggle(){playing?pausePlayback():startPlayback()}
 function seek(v){const was=playing;if(was)pausePlayback();time=clampTime(v);resetNextNote(time);resetMetronome(time);updateTime();draw();if(was)startPlayback()}
 function restartPlaybackAtClock(){if(!playing)return;const t=chartTimeFromClock();pausePlayback(false);time=clampTime(t);startPlayback()}
-function loop(){if(playing){time=chartTimeFromClock();if(time>=chart.duration){pausePlayback(false);time=chart.duration;updateTime();draw()}else{updateTime();draw()}}updateCharacterPrototype(time,chart?.name||"");requestAnimationFrame(loop)}
+function loop(){if(playing){time=chartTimeFromClock();if(time>=chart.duration){pausePlayback(false);time=chart.duration;updateTime();draw()}else{updateTime();draw()}}updateCharacterPrototype(time,chart?.name||"",playing?playSpeed:currentSpeed());requestAnimationFrame(loop)}
 
 $("chartFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{setStatus("譜面を解析しています…");setChart(await parseChart(f));setStatus(`${f.name} を読み込みました。`)}catch(err){setStatus(err.message)}});
 $("audioFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{pausePlayback();setStatus("元音源を解析しています…");audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);$("alignAudio").disabled=false;setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。同じWeb Audio時計で同期再生します。`)}catch(err){setStatus("元音源の読み込みに失敗しました: "+err.message)}});
