@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 56,
+  "sourceFilename": "056_bd_ft_sn_rf_r_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+FT+SN:RF/R/L",
+  "runtimeActionKey": "BD+FT+SN:RF/R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手に2本、右手にも2本のスティックが見えて計4本となり、左脚すね付近にも短い不要線がある。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "right_hand",
+    "stick",
+    "left_leg",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_FT_SN_RF_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+FT+SN:RF/R/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "right_hand",
+      "stick",
+      "left_leg",
+      "artifact"
+    ]
+  }
+}
