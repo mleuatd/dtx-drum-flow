@@ -139,6 +139,19 @@ for t in targets:
         src=rebuilt
         S=np.asarray(src)
 
+    # MOTION-008: reconstruct HH+SN from a VERIFIED superset authority.
+    # BD+HH+SN contains the exact HH:R + SN:L upper-body action pair and is
+    # already public-runtime VERIFIED. The generic semantic corridors below
+    # select only HH/SN upper-body changes, so the donor's BD/RF lower-body
+    # motion cannot enter this candidate.
+    if key=="HH+SN:R/L":
+        donor_rel=("character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png"
+                   if phase=="hit" else
+                   "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png")
+        donor=Image.open(ROOT/donor_rel).convert("RGBA")
+        src=donor
+        S=np.asarray(src)
+
     # MOTION-014: the formal BD+SN pair contains known rectangular splice/
     # stick-dropout corruption. Rebuild the candidate source deterministically
     # from two already-approved live authorities instead of reusing that corrupt
