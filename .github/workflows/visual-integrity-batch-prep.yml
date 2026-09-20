@@ -11,6 +11,7 @@ on:
       - "tools/character_layers/prepare_visual_integrity_batch.py"
       - ".github/workflows/visual-integrity-batch-prep.yml"
       - ".github/back-visual-actions.txt"
+      - ".github/back-visual-force.txt"
       - ".github/front-visual-actions.txt"
   workflow_dispatch:
     inputs:
@@ -54,7 +55,11 @@ jobs:
           print("\n".join(dict.fromkeys(paths)))
           PY
           )"
-          if [ -z "$ACTIONS" ] && [ -f .github/front-visual-actions.txt ] && grep -Fxq ".github/front-visual-actions.txt" <<< "$CHANGED"; then
+          # BACK force marker is an explicit one-shot authority for recovery work.
+          # It avoids ambiguous auto-priority selection when multiple terminals are active.
+          if [ -z "$ACTIONS" ] && [ -f .github/back-visual-force.txt ] && [ -s .github/back-visual-force.txt ]; then
+            ACTIONS="$(tr -d '\r\n' < .github/back-visual-force.txt)"
+          elif [ -z "$ACTIONS" ] && [ -f .github/front-visual-actions.txt ] && grep -Fxq ".github/front-visual-actions.txt" <<< "$CHANGED"; then
             ACTIONS="$(tr -d '\r\n' < .github/front-visual-actions.txt)"
           elif [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ] && grep -Fxq ".github/back-visual-actions.txt" <<< "$CHANGED"; then
             ACTIONS="$(tr -d '\r\n' < .github/back-visual-actions.txt)"
