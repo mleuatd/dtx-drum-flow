@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 14,
+  "issueId": "MOTION-001",
+  "actionKey": "SN:L",
+  "phase": "rebound",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14.png",
+  "method": "formal hit static parent + exact clean rebound source blob; narrow left forearm/hand/stick semantic replacement only",
+  "source": {
+    "cleanReboundBlob": "f8e4c1fffe3b959f862b8039a08b30fb4c2cf8cd",
+    "cleanReboundSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
+    "hitSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+  },
+  "changedRoi": {
+    "changedPixelsVsHit": 16698,
+    "changedBBoxVsHit": [
+      405,
+      414,
+      715,
+      565
+    ],
+    "outsideAllowedChangedPixels": 0,
+    "floatingCleanupPixels": 2839
+  },
+  "guardChangedPixelsVsHit": {
+    "head": 0,
+    "upper_hand_shoulder": 0,
+    "pelvis_seat": 0,
+    "legs_stool": 0
+  },
+  "hardPass": {
+    "canvas": true,
+    "alpha": true,
+    "outsideAllowedChangedPixels": true,
+    "headExactToHit": true,
+    "upperHandShoulderExactToHit": true,
+    "pelvisSeatExactToHit": true,
+    "legsStoolExactToHit": true,
+    "sourceBoundDonor": true
+  },
+  "pass": true
+}
