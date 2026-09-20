@@ -2,7 +2,7 @@
 
 ## 状態
 
-`REVIEW_REQUIRED`。runtime未反映。他画像への横展開禁止。008のユーザー承認前に010／014／028／032その他へ適用しない。
+`REVIEW_REQUIRED`。runtime未反映。2026-09-21以降、他画像は candidate / QA / review / GitHub保存まで1件ずつ横展開可。ただし008を含む各画像のユーザー承認前にruntimeへ反映しない。
 
 ## 目的
 
@@ -72,7 +72,7 @@ python3 tools/character_layers/run_visual_repair_trial.py \
 - 010／014／028／032その他の対象外frameを含めない。
 - force pushしない。
 - main先頭が作業開始時から変わった場合は、そのままref更新せず最新mainに追従して差分を再構成する。
-- 008ユーザー承認まで正式runtimeを上書きしない。
+- 008ユーザー承認まで正式runtimeを上書きしない。他frameのtrial生成は1件ずつ可。
 
 詳細: `character-assets/prototypes/luna_say_maybe_16m/MESH_WARP_SPEED_STANDARD.md`
 
