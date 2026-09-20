@@ -1,0 +1,809 @@
+{
+  "schemaVersion": "1.0",
+  "canvas": {
+    "width": 1448,
+    "height": 1086,
+    "origin": "top-left",
+    "xPositive": "right",
+    "yPositive": "down"
+  },
+  "coordinatePolicy": {
+    "angles": "degrees clockwise from +x in screen coordinates",
+    "normalization": "x/1448,y/1086",
+    "strikeVsRenderCenter": "strikeTarget is motion/contact target; renderCenter is approximate visible instrument center"
+  },
+  "instruments": {
+    "LC": {
+      "renderCenter": {
+        "px": [
+          408,
+          158
+        ],
+        "norm": [
+          0.281768,
+          0.145488
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "MEASURED_DRUM_BASE_APPROX",
+        "confidence": "MEDIUM"
+      },
+      "renderRadiiPx": [
+        188,
+        73
+      ],
+      "renderRadiiNorm": [
+        0.129834,
+        0.067219
+      ],
+      "strikeTarget": {
+        "px": [
+          408,
+          158
+        ],
+        "norm": [
+          0.281768,
+          0.145488
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "MEASURED_DRUM_BASE_APPROX",
+        "confidence": "MEDIUM"
+      },
+      "strikeToleranceEllipsePx": [
+        85,
+        45
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.058702,
+        0.041436
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": -140,
+        "R": -155
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "HH": {
+      "renderCenter": {
+        "px": [
+          278,
+          425
+        ],
+        "norm": [
+          0.191989,
+          0.391344
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        138,
+        38
+      ],
+      "renderRadiiNorm": [
+        0.095304,
+        0.034991
+      ],
+      "strikeTarget": {
+        "px": [
+          190,
+          390
+        ],
+        "norm": [
+          0.131215,
+          0.359116
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        55,
+        25
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.037983,
+        0.02302
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": 165,
+        "R": 155
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "SN": {
+      "renderCenter": {
+        "px": [
+          490,
+          570
+        ],
+        "norm": [
+          0.338398,
+          0.524862
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        160,
+        82
+      ],
+      "renderRadiiNorm": [
+        0.110497,
+        0.075506
+      ],
+      "strikeTarget": {
+        "px": [
+          420,
+          535
+        ],
+        "norm": [
+          0.290055,
+          0.492634
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        55,
+        35
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.037983,
+        0.032228
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": 170,
+        "R": 155
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "HT": {
+      "renderCenter": {
+        "px": [
+          565,
+          408
+        ],
+        "norm": [
+          0.390193,
+          0.375691
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        120,
+        78
+      ],
+      "renderRadiiNorm": [
+        0.082873,
+        0.071823
+      ],
+      "strikeTarget": {
+        "px": [
+          575,
+          360
+        ],
+        "norm": [
+          0.397099,
+          0.331492
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        45,
+        32
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.031077,
+        0.029466
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": -175,
+        "R": 170
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "LT": {
+      "renderCenter": {
+        "px": [
+          840,
+          455
+        ],
+        "norm": [
+          0.58011,
+          0.418969
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        138,
+        88
+      ],
+      "renderRadiiNorm": [
+        0.095304,
+        0.081031
+      ],
+      "strikeTarget": {
+        "px": [
+          885,
+          455
+        ],
+        "norm": [
+          0.611188,
+          0.418969
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        50,
+        35
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.03453,
+        0.032228
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": 15,
+        "R": 25
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "FT": {
+      "renderCenter": {
+        "px": [
+          1115,
+          575
+        ],
+        "norm": [
+          0.770028,
+          0.529466
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        175,
+        90
+      ],
+      "renderRadiiNorm": [
+        0.120856,
+        0.082873
+      ],
+      "strikeTarget": {
+        "px": [
+          1165,
+          535
+        ],
+        "norm": [
+          0.804558,
+          0.492634
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        60,
+        40
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.041436,
+        0.036832
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": 20,
+        "R": 25
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "RC": {
+      "renderCenter": {
+        "px": [
+          1180,
+          165
+        ],
+        "norm": [
+          0.814917,
+          0.151934
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        185,
+        72
+      ],
+      "renderRadiiNorm": [
+        0.127762,
+        0.066298
+      ],
+      "strikeTarget": {
+        "px": [
+          1215,
+          145
+        ],
+        "norm": [
+          0.839088,
+          0.133517
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        80,
+        42
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.055249,
+        0.038674
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": -25,
+        "R": -35
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "RD": {
+      "renderCenter": {
+        "px": [
+          815,
+          270
+        ],
+        "norm": [
+          0.562845,
+          0.248619
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        175,
+        62
+      ],
+      "renderRadiiNorm": [
+        0.120856,
+        0.05709
+      ],
+      "strikeTarget": {
+        "px": [
+          965,
+          250
+        ],
+        "norm": [
+          0.666436,
+          0.230203
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        70,
+        38
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.048343,
+        0.034991
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "L": -20,
+        "R": -28
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "LP": {
+      "renderCenter": {
+        "px": [
+          330,
+          900
+        ],
+        "norm": [
+          0.227901,
+          0.828729
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "MEASURED_DRUM_BASE_APPROX",
+        "confidence": "MEDIUM"
+      },
+      "renderRadiiPx": [
+        62,
+        34
+      ],
+      "renderRadiiNorm": [
+        0.042818,
+        0.031308
+      ],
+      "strikeTarget": {
+        "px": [
+          330,
+          900
+        ],
+        "norm": [
+          0.227901,
+          0.828729
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "MEASURED_DRUM_BASE_APPROX",
+        "confidence": "MEDIUM"
+      },
+      "strikeToleranceEllipsePx": [
+        40,
+        30
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.027624,
+        0.027624
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "LF": 90
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "LB": {
+      "renderCenter": {
+        "px": [
+          690,
+          900
+        ],
+        "norm": [
+          0.476519,
+          0.828729
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "MEASURED_DRUM_BASE_APPROX",
+        "confidence": "MEDIUM"
+      },
+      "renderRadiiPx": [
+        58,
+        38
+      ],
+      "renderRadiiNorm": [
+        0.040055,
+        0.034991
+      ],
+      "strikeTarget": {
+        "px": [
+          690,
+          900
+        ],
+        "norm": [
+          0.476519,
+          0.828729
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "MEASURED_DRUM_BASE_APPROX",
+        "confidence": "MEDIUM"
+      },
+      "strikeToleranceEllipsePx": [
+        45,
+        35
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.031077,
+        0.032228
+      ],
+      "pedalTarget": null,
+      "pedalToleranceEllipsePx": null,
+      "approachAngleDeg": {
+        "LF": 90
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    },
+    "BD": {
+      "renderCenter": {
+        "px": [
+          745,
+          745
+        ],
+        "norm": [
+          0.514503,
+          0.686004
+        ],
+        "tolerancePx": 12,
+        "toleranceNorm": [
+          0.008287,
+          0.01105
+        ],
+        "source": "IMPLEMENTATION_LOCK+MEASURED_PEDAL_APPROX",
+        "confidence": "HIGH"
+      },
+      "renderRadiiPx": [
+        183,
+        192
+      ],
+      "renderRadiiNorm": [
+        0.126381,
+        0.176796
+      ],
+      "strikeTarget": {
+        "px": [
+          735,
+          650
+        ],
+        "norm": [
+          0.507597,
+          0.598527
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK+MEASURED_PEDAL_APPROX",
+        "confidence": "HIGH"
+      },
+      "strikeToleranceEllipsePx": [
+        75,
+        55
+      ],
+      "strikeToleranceEllipseNorm": [
+        0.051796,
+        0.050645
+      ],
+      "pedalTarget": {
+        "px": [
+          700,
+          900
+        ],
+        "norm": [
+          0.483425,
+          0.828729
+        ],
+        "tolerancePx": 0,
+        "toleranceNorm": [
+          0,
+          0
+        ],
+        "source": "IMPLEMENTATION_LOCK+MEASURED_PEDAL_APPROX",
+        "confidence": "MEDIUM"
+      },
+      "pedalToleranceEllipsePx": [
+        45,
+        35
+      ],
+      "approachAngleDeg": {
+        "RF": 90
+      },
+      "hitTipRule": "tip must lie inside strike tolerance ellipse",
+      "reboundRule": {
+        "distanceFromHitPx": {
+          "min": 45,
+          "max": 105,
+          "preferred": 70
+        },
+        "angleDeltaDeg": {
+          "max": 12
+        }
+      }
+    }
+  },
+  "hardConstraints": [
+    "DRUM_BASE_LAYER_FIXED",
+    "NO_HORIZONTAL_FLIP",
+    "NO_DRUM_REDRAW_IN_CHARACTER_FRAME",
+    "DRUM_GEOMETRY_MUST_NOT_SHIFT_BETWEEN_FRAMES"
+  ],
+  "zOrder": [
+    "background",
+    "drum_far",
+    "character_back_hair",
+    "character_torso",
+    "character_limbs",
+    "sticks",
+    "character_front_hair",
+    "drum_near",
+    "effects"
+  ]
+}
