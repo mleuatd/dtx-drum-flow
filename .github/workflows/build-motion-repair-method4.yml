@@ -33,7 +33,9 @@ jobs:
           import json, pathlib, sys
           p=pathlib.Path("character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json")
           d=json.loads(p.read_text())
-          active=[x for x in d.get("targets",[]) if x.get("actionKey")=="BD+HH+SN:RF/R/L" and not x.get("skip")]
+          active=[x for x in d.get("targets",[]) if not x.get("skip")]
+          # The shared pipeline must complete the currently claimed pair, not a
+          # historical hard-coded action key. A repair unit is hit+rebound.
           ok=len(active)>=2 and all(x.get("pass") for x in active)
           print(json.dumps({"active":len(active),"machinePass":ok,"shas":[x.get("candidateSha256") for x in active]}))
           sys.exit(0 if ok else 2)
