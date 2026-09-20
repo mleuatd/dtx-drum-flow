@@ -1,0 +1,31 @@
+name: Extract BD RC repair sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/extract-bd-rc-repair-sources.yml'
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch protected repair baseline
+        run: |
+          git fetch origin refs/heads/backup/pre-motion-qa-20260919-2138:refs/remotes/origin/backup/pre-motion-qa-20260919-2138
+          mkdir -p qa-artifacts/bd-rc-sources
+          git show origin/backup/pre-motion-qa-20260919-2138:character-assets/layers/character/combo/bd_rc_hit.png > qa-artifacts/bd-rc-sources/bd_rc_original_hit.png
+          git show origin/backup/pre-motion-qa-20260919-2138:character-assets/layers/character/combo/bd_rc_rebound.png > qa-artifacts/bd-rc-sources/bd_rc_original_rebound.png
+          cp character-assets/layers/character/bd/hit_rf.png qa-artifacts/bd-rc-sources/bd_rf_verified_hit.png
+          cp character-assets/layers/character/bd/rebound_rf.png qa-artifacts/bd-rc-sources/bd_rf_verified_rebound.png
+          cp character-assets/layers/character/base/neutral.png qa-artifacts/bd-rc-sources/neutral.png
+          cp character-assets/layers/drum/drum_base.png qa-artifacts/bd-rc-sources/drum_base.png
+          sha256sum qa-artifacts/bd-rc-sources/* > qa-artifacts/bd-rc-sources/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bd-rc-repair-sources-${{ github.run_id }}
+          path: qa-artifacts/bd-rc-sources/
+          retention-days: 30
