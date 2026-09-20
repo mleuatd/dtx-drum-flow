@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:25:00+09:00",
+  "updatedAt": "2026-09-20T10:31:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -154,7 +154,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T09:56:00+09:00",
+      "updatedAt": "2026-09-20T10:31:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -679,6 +679,11 @@
             "at": "2026-09-20T09:31:00+09:00",
             "decision": "SN_L_V7_MACHINE_PASS_HUMAN_HARD_FAIL",
             "detail": "Run 35478927630 / artifact 10595407657. Restoring the duplicated upper-left source region from neutral removed that hand but introduced a large rectangular plaid/jacket patch across the left shoulder/chest area. Human anatomy/linework/composite FAIL. Stop local mask retries; next repair must reconstruct a single coherent left arm/hand/stick without broad rectangular neutral restoration."
+          },
+          {
+            "at": "2026-09-20T10:31:00+09:00",
+            "decision": "V9_PARENT_SELECTION",
+            "detail": "Parent chain: formal hit static base + v8 rebound active-left-arm pixels. Goal: retain v8 left-arm cleanup while locking inactive right arm, head, torso, stool, legs to hit. Rollback anchor remains formal PNGs; rollback candidate is v8."
           }
         ],
         "measurementTodos": [
@@ -913,7 +918,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T09:56:00+09:00"
+        "updatedAt": "2026-09-20T10:31:00+09:00"
       },
       "occurrences": [
         {
@@ -947,15 +952,15 @@
         }
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_REBOUND_DUPLICATE_LIMB_OR_PATCH",
-        "linework": "FAIL_RECTANGULAR_RESTORE_PATCH",
-        "fixedDrumComposite": "FAIL_REBOUND_VISUAL_INTEGRITY",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
+        "humanAnatomy": "FAIL_PAIR_INACTIVE_RIGHT_ARM_DRIFT",
+        "linework": "V8_REBOUND_LOCAL_PASS_PAIR_PENDING",
+        "fixedDrumComposite": "V8_REBOUND_LOCAL_PASS_PAIR_PENDING",
+        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
-        "note": "SN:L hit remains static PASS. Rebound local-mask attempts v2-v7 exposed both neutral-pose residue and duplicated source-hand geometry. v7 machine PASS but human hard FAIL due large rectangular plaid restore patch. Formal PNGs remain unchanged. Next repair must be a pair-aware left-arm reconstruction, not more rectangular mask patching.",
-        "reviewedAt": "2026-09-20T09:31:00+09:00",
+        "note": "v8 difference-limited rebound removes the v7 rectangular patch and machine QA passes. Pair review shows inactive right arm/hand/stick changes between formal hit and v8 rebound because rebound is neutral-based. Next candidate must preserve v8 left-SN-arm improvement while using hit as the locked static base for inactive body/right arm.",
+        "reviewedAt": "2026-09-20T10:31:00+09:00",
         "visualQaRunId": 35474616622,
         "visualQaArtifactId": 10593307774,
         "repairEvidence": [
@@ -1011,6 +1016,11 @@
           "at": "2026-09-20T09:56:00+09:00",
           "decision": "HOLD_REPAIR_RECLAIMED_DIFFERENCE_LIMITED",
           "detail": "FRONT reclaims MOTION-001 only for a new difference-limited reconstruction method. v7 broad neutral restoration is prohibited; next candidate may restore only pixels inside the diagnosed unwanted-hand ROI that actually differ between source and neutral, preserving clothing/hair linework."
+        },
+        {
+          "at": "2026-09-20T10:31:00+09:00",
+          "decision": "SN_L_V8_PAIR_DIAGNOSIS",
+          "detail": "Run 35480036552 / artifact 10595900861: v8 machine QA PASS and rectangular plaid patch resolved. Full-resolution pair review against formal hit finds inactive right-arm/hand/stick drift because v8 uses approved neutral as base. Next v9 will use formal hit as static parent/base and transplant only v8 left SN active-arm/stick region. Formal PNG unchanged."
         }
       ],
       "claim": {
