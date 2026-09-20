@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:50:00+09:00",
+  "updatedAt": "2026-09-20T10:47:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -154,10 +154,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T10:43:00+09:00",
+      "updatedAt": "2026-09-20T10:47:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -699,6 +699,11 @@
             "at": "2026-09-20T10:43:00+09:00",
             "decision": "V12_VISIBLE_PIXEL_HAND_STICK_PLAN",
             "detail": "Avoid transparent forearm transplant. Formal hit remains static/arm parent. Clear old hit active hand/stick ROI only; overlay v8 rebound visible hand/stick pixels plus limited forearm ink. Preserve inactive right arm and upper sleeve exactly."
+          },
+          {
+            "at": "2026-09-20T10:47:00+09:00",
+            "decision": "MASK_REPAIR_LOOP_EXHAUSTED",
+            "detail": "v8-v12 bounded iterations tested difference-limited neutral cleanup, hit-parent active-arm transplant, y-clamped forearm transplant, and visible hand/stick-only overlay. Machine QA repeatedly passed, but human full-resolution QA still found sleeve cutouts, alpha gaps, or white/black fragments. Root cause is source-level left-arm/hand/stick structural inconsistency; further mask compositing is not an improving direction."
           }
         ],
         "measurementTodos": [
@@ -933,7 +938,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T10:43:00+09:00"
+        "updatedAt": "2026-09-20T10:47:00+09:00"
       },
       "occurrences": [
         {
@@ -967,15 +972,15 @@
         }
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_V11_ELBOW_CUTOUT",
-        "linework": "FAIL_V11_LOCAL_ALPHA_GAP",
-        "fixedDrumComposite": "FAIL_V11_ELBOW_CUTOUT",
+        "humanAnatomy": "HOLD_SOURCE_LEVEL_LEFT_ARM_RECONSTRUCTION_REQUIRED",
+        "linework": "HOLD_MASK_COMPOSITING_EXHAUSTED",
+        "fixedDrumComposite": "HOLD_SOURCE_LEVEL_REPAIR_REQUIRED",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
-        "note": "v11 machine QA/regression PASS. Full-resolution human QA shows remaining white/alpha cutout at inner elbow. Transparent transplant remains the failure mechanism. v12 will stop pasting transparent v8 forearm pixels: retain formal-hit arm, erase only old hit hand/stick, then overlay visible v8 rebound hand/stick pixels.",
-        "reviewedAt": "2026-09-20T10:43:00+09:00",
+        "note": "v12 run 35480878680 / artifact 10595772406 machine/regression PASS but human QA hard FAIL: white triangular fragments and broken hand/stick continuity after old-pose erase. Bounded mask-repair loop exhausted. Formal PNGs unchanged. Next permitted approach must reconstruct one coherent left arm/hand/stick from a verifiably bound exact source/candidate, not continue rectangular/alpha mask patching.",
+        "reviewedAt": "2026-09-20T10:47:00+09:00",
         "visualQaRunId": 35474616622,
         "visualQaArtifactId": 10593307774,
         "repairEvidence": [
@@ -1051,14 +1056,19 @@
           "at": "2026-09-20T10:43:00+09:00",
           "decision": "SN_L_V11_MACHINE_PASS_HUMAN_FAIL",
           "detail": "Run 35480755248 / artifact 10596041694: v11 deterministic QA/regression/artifact PASS; human pair crop still shows inner-elbow alpha cutout. Reject v11. Next v12 preserves formal-hit arm/sleeve, removes only old active hand+stick geometry, and overlays only visible v8 rebound hand+stick pixels."
+        },
+        {
+          "at": "2026-09-20T10:47:00+09:00",
+          "decision": "SN_L_V12_MACHINE_PASS_HUMAN_HARD_FAIL",
+          "detail": "Run 35480878680 / artifact 10595772406: v12 deterministic QA and regression PASS, but full-resolution human QA shows white triangular fragments and broken hand/stick continuity. v12 rejected; formal unchanged."
+        },
+        {
+          "at": "2026-09-20T10:47:00+09:00",
+          "decision": "HOLD_REPAIR_FRONT_05_RELEASED",
+          "detail": "FRONT releases MOTION-001 after bounded headless artifact loop. Mask/compositing strategy is exhausted without stable visual PASS. Preserve v8-v12 evidence and formal rollback anchor. Next repair requires exact-source-bound reconstruction of one coherent left arm/hand/stick."
         }
       ],
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-FRONT-05",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T09:56:00+09:00"
-      }
+      "claim": null
     },
     {
       "issueId": "MOTION-002",
