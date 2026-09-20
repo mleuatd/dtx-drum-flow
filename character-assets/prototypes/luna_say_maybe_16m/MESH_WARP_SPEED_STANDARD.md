@@ -131,9 +131,9 @@ CI回帰も同じ制約を持ち、runtimeと対象外frameの差分を検出し
 
 品質回帰はファイル圧縮SHAの一致ではなく、同一warp設定の changedPixels、changedBBox、outsideAllowedChangedPixels、pedalDistance、原寸視覚QAで確認する。
 
-## 横展開禁止
+## 横展開ゲート
 
-008のユーザー最終承認までは010／014／028／032その他へ適用しない。承認後にのみ各frame固有のJSONを作成し、共通ツールは変更せず横展開する。
+2026-09-21のユーザー指示により、008のruntime最終承認前でも、他frameについて **candidate生成・machine QA・review生成・GitHub保存まで** の横展開は許可する。runtime上書きは引き続き禁止する。各frameは専用JSONだけを作り、共通Pythonは原則変更しない。1件ずつ安定させ、`visualQaRequired=true` / `userApprovalStatus=PENDING` を維持する。
 
 
 ## 008実回帰結果（2026-09-21）
@@ -169,3 +169,32 @@ CI回帰も同じ制約を持ち、runtimeと対象外frameの差分を検出し
 - local + GitHub: 14.337201 s
 
 GitHub登録時間は `fb5ba94a4241127fe1f64d457a001ed01d6477e3` の証跡コミットを blob → tree → commit → ref update の安全なfast-forwardで登録した実測。force pushは使用していない。
+
+
+## v4 全身自然さ・高速横展開ルール（2026-09-21）
+
+全身自然さは重い自動画像解析ではなく、frame JSONの任意メタデータと原寸視覚QA項目として扱う。
+
+任意フィールド:
+- pelvisLeft / pelvisRight
+- waistCenter / torsoCenter
+- shoulderLeft / shoulderRight
+- torsoFlowNotes
+- postureIntent
+- naturalnessFocusRegions
+- visualQaChecklist
+
+必須視覚確認:
+- 腰と脚の連続性
+- 骨盤と体幹の向き
+- 体幹と肩の向き
+- 上半身と下半身の一体感
+- 踏み込みに対する重心
+- ドラム演奏としての勢い・流れ
+- ジャケット・柄・輪郭と身体方向の整合
+
+これらは候補生成アルゴリズムへ自動スコアリングや反復最適化を追加しない。共通実行コード、008 config、warp、QA画素計算は今回変更していないため、008の既存実測値を性能基準として維持する。今後 executable path を変更する場合のみ、008回帰を再実行して candidateToReviewCompleteSeconds と totalLocalPipelineSeconds の増加が5%以内または絶対0.10秒以内か確認する。
+
+標準テンプレート: `character-assets/config/mesh_warp_frame_template_v1.json`
+
+normal sourceは「局所部位だけ近い画像」より「腰・骨盤・体幹・肩を含む全身の流れが近い正常画像」を優先する。同一action兄弟phaseがFAILなら、それを正常土台として自動採用しない。
