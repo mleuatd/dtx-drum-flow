@@ -194,6 +194,30 @@ for f in fails:
             R[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
             R[620:,:]=False
             M |= (R & src_ink)
+            # MOTION-009 method12: after the narrow RD route is built, reject
+            # detached/forked right-side source fragments. Keep only changed-ink
+            # components that either touch the RD contact neighborhood or are
+            # large and intersect the shoulder->grip->RD route. This directly
+            # targets the known duplicated arm/hand/stick failure without
+            # reopening locked head/torso/left-SN regions.
+            raw=(M & interest & src_ink).astype(np.uint8)
+            seen=np.zeros((H,W),dtype=bool); keep=np.zeros((H,W),dtype=bool)
+            for yy in range(H):
+                for xx in range(W):
+                    if not raw[yy,xx] or seen[yy,xx]: continue
+                    stack=[(xx,yy)]; seen[yy,xx]=True; pts=[]
+                    while stack:
+                        px,py=stack.pop(); pts.append((px,py))
+                        for nx,ny in ((px-1,py),(px+1,py),(px,py-1),(px,py+1)):
+                            if 0<=nx<W and 0<=ny<H and raw[ny,nx] and not seen[ny,nx]:
+                                seen[ny,nx]=True; stack.append((nx,ny))
+                    touches_rd=any((px-rdpt[0])**2+(py-rdpt[1])**2<=72**2 for px,py in pts)
+                    touches_route=any(R[py,px] for px,py in pts)
+                    left_sn=any(px<700 for px,py in pts)
+                    if left_sn or touches_rd or (len(pts)>=24 and touches_route):
+                        for px,py in pts: keep[py,px]=True
+            keep=np.asarray(Image.fromarray((keep.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(3)))>0
+            M &= keep
         if "bd_rc_sn" in tid and phase=="rebound":
             # M011 exact visual repair: remove only the rectangular splice on
             # the right edge of the stool/seat. Do not touch either leg/skirt.
