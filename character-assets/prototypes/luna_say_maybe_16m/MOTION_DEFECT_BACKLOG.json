@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:35:00+09:00",
+  "updatedAt": "2026-09-20T09:38:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12762,7 +12762,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:35:00+09:00",
+      "updatedAt": "2026-09-20T09:38:00+09:00",
       "occurrences": [
         {
           "measure": "M67",
@@ -13734,12 +13734,7 @@
           "duplicated left hand/arm-stick geometry, floating fragments, and seat splice"
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-03",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T09:35:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
@@ -13755,6 +13750,11 @@
           "at": "2026-09-20T09:31:00+09:00",
           "decision": "PASS2_BACK_ATTEMPT1_REJECTED",
           "detail": "Artifact 10594860319 re-opened at full resolution. Hit visibly contains duplicated left hand/arm-stick and floating marks; rebound contains left-side dropout/floating fragments. Target-bound edit attempt returned edit_op=null unrelated dashboard output; rejected before candidate QA. Formal assets unchanged."
+        },
+        {
+          "at": "2026-09-20T09:38:00+09:00",
+          "decision": "PASS2_BACK_TARGET_BINDING_BLOCK_CONFIRMED",
+          "detail": "Second source-retrieval/edit attempt again returned edit_op=null unrelated dashboard output. Per max-2 rule, no further local/image_gen retry. Formal PNGs unchanged; release claim and continue BACK queue."
         }
       ],
       "hold": {
@@ -13765,11 +13765,11 @@
         "defect": "duplicated left hand/arm-stick geometry, floating fragments, and seat splice",
         "defectLocation": "left hand/stick and seat overlap",
         "cause": "structural splice/transplant artifact in current formal pair",
-        "attemptedRepair": "PASS2 attempt 1: target-bound image edit requested from exact artifact character-only hit/rebound evidence; editor returned edit_op=null and an unrelated dashboard image, so candidate was rejected immediately and never promoted.",
-        "repairResult": "FAIL_NO_TARGET_BINDING; formal PNGs unchanged. Existing full-resolution evidence reconfirmed hit duplicated left hand/arm-stick + floating fragments/seat splice, rebound left-side dropout/floating fragments.",
-        "nextRepair": "Use an editor that is verifiably bound to the exact character-only PNG bytes. Repair hit and rebound as one pair: bilateral hand→grip→stick→tip corridors plus RF foot corridor; preserve head/torso/hair/skirt/stool/seat outside explicitly measured occlusion ROI. Reject any edit_op=null/fresh redraw or unrelated output before machine QA.",
+        "attemptedRepair": "PASS2 attempts 1-2: exact artifact character-only hit/rebound sources were retrieved and inspected. Two target-edit invocations were attempted after source retrieval; both returned edit_op=null with unrelated dashboard-style fresh generations rather than edits of the supplied PNG.",
+        "repairResult": "FAIL_TARGET_BINDING_CONFIRMED_AFTER_TWO_ATTEMPTS. Formal assets unchanged; no generated output promoted. Existing hit/rebound visual defects remain.",
+        "nextRepair": "Do not retry image_gen in this session for MOTION-015. Resume only with an editor/runtime that exposes verifiable source-image binding (non-null edit operation/parent identity) to the exact PNG bytes; then repair pair-level hand→grip→stick→tip corridors and RF foot corridor with protected non-ROI regions.",
         "prohibitedRepair": "full redraw; seat/torso transplant",
-        "restartCondition": "Exact source PNG is bound as the edit parent and candidate can be proven against source SHA; then run full-resolution anatomy/linework, fixed-drum composite and transition gates."
+        "restartCondition": "A verifiably target-bound image editing path is available. Otherwise skip MOTION-015 and continue another unclaimed BACK HOLD."
       }
     }
   ],
