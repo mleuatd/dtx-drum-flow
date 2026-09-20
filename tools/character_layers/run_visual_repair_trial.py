@@ -96,12 +96,18 @@ def output_names(cfg: dict) -> dict[str, str]:
 def validate_config(cfg: dict) -> None:
     required = [
         "schemaVersion", "frameId", "actionKey", "phase", "inputPng",
-        "normalSourcePng", "fixedDrumPng", "roi", "deformationPolygon",
+        "fixedDrumPng", "roi", "deformationPolygon",
         "fixedRects", "sourcePoints", "targetPoints", "landmarks",
-        "pedalTolerancePx", "normalSourceSha256", "brokenSourceSha256",
+        "pedalTolerancePx", "brokenSourceSha256",
         "fixedDrumSha256", "runtimeWritable", "userApprovalStatus",
         "visualQaRequired",
     ]
+    transplant_mode = "basePng" in cfg or "warpSourcePng" in cfg
+    required += (
+        ["basePng", "warpSourcePng", "baseSha256", "warpSourceSha256"]
+        if transplant_mode
+        else ["normalSourcePng", "normalSourceSha256"]
+    )
     missing = [k for k in required if k not in cfg]
     if missing:
         raise ValueError("missing config fields: " + ", ".join(missing))
@@ -188,7 +194,9 @@ def main() -> int:
     names = output_names(cfg)
     config_validation_seconds = time.perf_counter() - stage
 
-    source = repo_path(args.source or cfg["normalSourcePng"])
+    transplant_mode = "basePng" in cfg or "warpSourcePng" in cfg
+    source = repo_path(args.source or (cfg["warpSourcePng"] if transplant_mode else cfg["normalSourcePng"]))
+    base = repo_path(cfg["basePng"]) if transplant_mode else source
     broken = repo_path(args.broken_source or cfg["inputPng"])
     drum = repo_path(args.fixed_drum or cfg["fixedDrumPng"])
     out_dir = repo_path(args.output_dir or cfg.get("outputDir") or cfg_path.parent)
@@ -197,15 +205,21 @@ def main() -> int:
 
     stage = time.perf_counter()
     source_c, source_sha, source_hit = cache_input(source, cache_dir)
+    if transplant_mode and base.resolve() != source.resolve():
+        base_c, base_sha, base_hit = cache_input(base, cache_dir)
+    else:
+        base_c, base_sha, base_hit = source_c, source_sha, source_hit
     broken_c, broken_sha, broken_hit = cache_input(broken, cache_dir)
     drum_c, drum_sha, drum_hit = cache_input(drum, cache_dir)
     cache_seconds = time.perf_counter() - stage
 
     expected = {
-        "normalSourceSha256": source_sha,
+        ("warpSourceSha256" if transplant_mode else "normalSourceSha256"): source_sha,
         "brokenSourceSha256": broken_sha,
         "fixedDrumSha256": drum_sha,
     }
+    if transplant_mode:
+        expected["baseSha256"] = base_sha
     for key, actual in expected.items():
         wanted = cfg.get(key)
         if wanted not in (None, "", "AUTO") and wanted != actual:
@@ -220,12 +234,18 @@ def main() -> int:
 
     stage = time.perf_counter()
     source_rgba = load_rgba(source_c)
+    base_rgba = load_rgba(base_c)
     broken_rgba = load_rgba(broken_c)
     drum_rgba = load_rgba(drum_c)
     timings["loadSeconds"] = round(time.perf_counter() - stage, 6)
 
     stage = time.perf_counter()
-    candidate, allowed = warp_rgba(source_rgba, cfg)
+    warped, allowed = warp_rgba(source_rgba, cfg)
+    if transplant_mode:
+        candidate = base_rgba.copy()
+        candidate[allowed] = warped[allowed]
+    else:
+        candidate = warped
     timings["warpSeconds"] = round(time.perf_counter() - stage, 6)
 
     candidate_path = out_dir / names["candidate"]
@@ -234,9 +254,9 @@ def main() -> int:
     timings["candidateSaveSeconds"] = round(time.perf_counter() - stage, 6)
 
     stage = time.perf_counter()
-    diff = np.any(candidate != source_rgba, axis=2)
+    diff = np.any(candidate != base_rgba, axis=2)
     outside = diff & ~allowed
-    fmask = fixed_mask(source_rgba.shape[:2], cfg["fixedRects"])
+    fmask = fixed_mask(base_rgba.shape[:2], cfg["fixedRects"])
     fixed_changed = diff & fmask
     ys, xs = np.nonzero(diff)
     bbox = None if not xs.size else {
@@ -253,7 +273,13 @@ def main() -> int:
         "canvas1448x1086": candidate.shape[:2] == (1086, 1448),
         "rgba": candidate.shape[2] == 4,
         "alphaChannelPresent": candidate.shape[2] == 4,
-        "sourceShaMatchesConfig": cfg.get("normalSourceSha256") in (None, "", "AUTO", source_sha),
+        "sourceShaMatchesConfig": cfg.get(
+            "warpSourceSha256" if transplant_mode else "normalSourceSha256"
+        ) in (None, "", "AUTO", source_sha),
+        "baseShaMatchesConfig": (
+            cfg.get("baseSha256") in (None, "", "AUTO", base_sha)
+            if transplant_mode else True
+        ),
         "brokenSourceShaMatchesConfig": cfg.get("brokenSourceSha256") in (None, "", "AUTO", broken_sha),
         "fixedDrumShaMatchesConfig": cfg.get("fixedDrumSha256") in (None, "", "AUTO", drum_sha),
         "candidateDiffersFromSource": int(np.count_nonzero(diff)) > 0,
@@ -270,6 +296,9 @@ def main() -> int:
         "actionKey": cfg["actionKey"],
         "phase": cfg["phase"],
         "source": path_label(source), "sourceSha256": source_sha,
+        "warpSource": path_label(source) if transplant_mode else None,
+        "warpSourceSha256": source_sha if transplant_mode else None,
+        "base": path_label(base), "baseSha256": base_sha,
         "brokenSource": path_label(broken), "brokenSourceSha256": broken_sha,
         "fixedDrum": path_label(drum), "fixedDrumSha256": drum_sha,
         "config": path_label(cfg_path), "configSha256": config_sha,
@@ -354,7 +383,15 @@ def main() -> int:
         "startMainSha": start_main_sha,
         "endMainShaCheck": end_main_sha,
         "inputs": {
-            "normalSource": {"path": path_label(source), "sha256": source_sha, "cacheHit": source_hit},
+            "normalSource": (
+                None if transplant_mode else
+                {"path": path_label(source), "sha256": source_sha, "cacheHit": source_hit}
+            ),
+            "warpSource": (
+                {"path": path_label(source), "sha256": source_sha, "cacheHit": source_hit}
+                if transplant_mode else None
+            ),
+            "base": {"path": path_label(base), "sha256": base_sha, "cacheHit": base_hit},
             "brokenSource": {"path": path_label(broken), "sha256": broken_sha, "cacheHit": broken_hit},
             "fixedDrum": {"path": path_label(drum), "sha256": drum_sha, "cacheHit": drum_hit},
             "config": {"path": path_label(cfg_path), "sha256": config_sha},
@@ -417,6 +454,8 @@ def main() -> int:
         "timings": timings,
         "candidateSha256": candidate_sha,
         "sourceSha256": source_sha,
+        "warpSourceSha256": source_sha if transplant_mode else None,
+        "baseSha256": base_sha,
         "brokenSourceSha256": broken_sha,
         "fixedDrumSha256": drum_sha,
         "configSha256": config_sha,
