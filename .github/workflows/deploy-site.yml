@@ -13,6 +13,7 @@ on:
       - ".github/workflows/visual-integrity-batch-runtime-qa.yml"
       - "tools/runtime-character-qa.mjs"
       - "docs/PUBLIC_RUNTIME_QA.md"
+      - ".github/back-runtime-qa.json"
   workflow_dispatch:
 
 permissions:
