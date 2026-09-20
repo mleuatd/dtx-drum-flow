@@ -1,0 +1,38 @@
+name: FRONT rebuild MOTION-004 v3 from clean donors
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/front-m004-rebuild-v3.yml"
+      - "tools/character_layers/build_front_m004_v3.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: front-m004-v3
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install --disable-pip-version-check pillow numpy
+      - name: Verify FRONT claim
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"))
+          x=next(v for v in d["defects"] if v["issueId"]=="MOTION-004")
+          c=x.get("claim") or {}
+          assert c.get("owner")=="CHATGPT-FRONT" and c.get("batch")=="FRONT-M004-FASTPIPE", c
+          PY
+      - run: python tools/character_layers/build_front_m004_v3.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: front-m004-v3-${{ github.run_id }}
+          path: character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/
+          retention-days: 30
