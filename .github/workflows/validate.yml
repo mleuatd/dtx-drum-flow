@@ -2,6 +2,13 @@ name: validate
 
 on:
   push:
+    paths-ignore:
+      - "character-assets/edit-workspaces/**"
+      - "character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"
+      - "character-assets/prototypes/luna_say_maybe_16m/HOLD_REPAIR_PLAYBOOK.json"
+      - "WORK_SYNC.md"
+      - ".github/*trigger*.txt"
+      - ".github/*promote*.txt"
   pull_request:
 
 jobs:
