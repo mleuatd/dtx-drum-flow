@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T07:43:49.147888+00:00",
+  "updatedAt": "2026-09-20T16:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -10515,7 +10515,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T16:01:00+09:00",
+      "updatedAt": "2026-09-20T16:45:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -11298,14 +11298,14 @@
         "runtimeTransition": "PENDING_RUNTIME_QA",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "reviewedAt": "2026-09-20T16:01:00+09:00",
-        "note": "Deterministic HT reconstruction now uses one stable right forearm/hand pose with a single phase-specific HT stick. Full-resolution and cropped review confirm no rectangular torso/hair splice, no duplicated forearm/hand, and continuous grip-to-stick linework.",
+        "reviewedAt": "2026-09-20T16:45:00+09:00",
+        "note": "Latest BACK candidate pair reviewed at full resolution and in fixed-drum composite. Active HT:R stick is continuous and directed to HT; inactive stick remains coherent; prior rectangular splice and floating legacy-HH fragments are absent.",
         "candidateSha256": {
-          "hit": "a4d933677c8a8f8d944eb6db5d934364220677d82b55b10fa175d1dad6902781",
-          "rebound": "d2427bc90a2399e8f8d2283d8e69f66a3662779fe4420e6fef8d8bc0794021be"
+          "hit": "295d66bf3545a19e13ffe3c9e02e8d18e72ec1e88abb64be334891fe863ed74e",
+          "rebound": "7e0d05e8339adb5ff4275195cf38e279d334dffb25282fc483b756a5bb2e691a"
         },
-        "machineQaRunId": 35495667621,
-        "machineQaArtifactId": 10600179286
+        "machineQaRunId": 35497624702,
+        "machineQaArtifactId": 10601452114
       },
       "claim": {
         "state": "CLAIMED",
@@ -11333,6 +11333,11 @@
           "at": "2026-09-20T16:01:00+09:00",
           "decision": "PASS2_HT_VISUAL_INTEGRITY_PASS",
           "detail": "Run 35495667621 candidate pair machine QA PASS. Full-resolution + hand/stick crop review PASS: one continuous HT stick, coherent right forearm/hand, no structural splice. Authorized for guarded formal promotion."
+        },
+        {
+          "at": "2026-09-20T16:45:00+09:00",
+          "decision": "PASS2_HT_LATEST_VISUAL_INTEGRITY_PASS",
+          "detail": "Run 35497624702 / artifact 10601452114. Exact latest candidate SHA pair approved after full-resolution candidate and fixed-drum review; stale prior approval superseded. Guarded promotion authorized."
         }
       ],
       "hold": {
