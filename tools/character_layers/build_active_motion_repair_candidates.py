@@ -245,27 +245,43 @@ for t in targets:
     D=np.asarray(dil)>0
     M=G & D
 
-    # BD+HT rebound source has a short rectangular dropout in the active
-    # right-hand stick immediately before the grip. Reserve a tiny deterministic
-    # bridge ROI and redraw only that missing stick segment; all other pixels
-    # remain governed by the semantic transplant mask.
+    # Small deterministic stick bridges. These are line-only ROIs; never use
+    # rectangular image transplants.
     stick_bridge = None
-    if key=="BD+HT:RF/R" and phase=="rebound":
+    stick_lines = None
+    if key=="HT:R":
+        if phase=="hit":
+            line1=((490,452),(575,360))
+            line2=((494,450),(579,358))
+        else:
+            # Clearly readable rebound: same approved grip, released above the
+            # HT head while staying outside the locked head core.
+            line1=((503,342),(592,322))
+            line2=((507,344),(596,324))
         bridge=Image.new("L",(W,H),0)
         bd=ImageDraw.Draw(bridge)
-        bd.line([(489,263),(514,307)],fill=255,width=15)
-        bd.line([(494,260),(519,307)],fill=255,width=15)
+        bd.line(line1,fill=255,width=12)
+        bd.line(line2,fill=255,width=10)
         stick_bridge=np.asarray(bridge)>0
+        stick_lines=(line1,line2)
+        M |= stick_bridge
+    elif key=="BD+HT:RF/R" and phase=="rebound":
+        bridge=Image.new("L",(W,H),0)
+        bd=ImageDraw.Draw(bridge)
+        line1=((489,263),(514,307)); line2=((494,260),(519,307))
+        bd.line(line1,fill=255,width=15)
+        bd.line(line2,fill=255,width=15)
+        stick_bridge=np.asarray(bridge)>0
+        stick_lines=(line1,line2)
         M |= stick_bridge
 
     mask=Image.fromarray((M.astype(np.uint8)*255),"L")
     cand=neutral.copy(); cand.paste(src,(0,0),mask)
-    if stick_bridge is not None:
+    if stick_bridge is not None and stick_lines is not None:
         cd=ImageDraw.Draw(cand)
-        # Two imperfect parallel strokes preserve the existing rough pencil-like
-        # stick silhouette instead of introducing a solid rectangular patch.
-        cd.line([(491,264),(511,306)],fill=(20,20,20,255),width=3)
-        cd.line([(496,262),(516,304)],fill=(35,35,35,255),width=2)
+        # Two imperfect parallel strokes preserve the rough pencil-like stick.
+        cd.line(stick_lines[0],fill=(20,20,20,255),width=3)
+        cd.line(stick_lines[1],fill=(55,55,55,255),width=2)
     Q=np.asarray(cand)
     ndiff=np.any(Q!=N,axis=2)
     changed=int(ndiff.sum()); ratio=changed/(W*H)
