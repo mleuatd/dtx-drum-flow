@@ -1,8 +1,8 @@
-# 008成功方式 高速化・標準化 v1
+# 008成功方式 高速化・標準化 v2
 
 ## 目的
 
-008で成立した topology-preserving mesh warp を、品質を落とさず再利用できる標準工程にする。高速化対象は準備、候補生成、QA、固定ドラム確認画像生成、GitHub登録までであり、原寸視覚QAやユーザー確認は省略しない。
+008で成立した topology-preserving mesh warp を、品質を落とさず高速に再利用できる標準工程にする。高速化対象は入力準備、候補生成、QA、確認画像生成、GitHub登録であり、原寸視覚QAやユーザー確認は省略しない。
 
 ## 基準
 
@@ -11,33 +11,115 @@
 - 成功候補: `character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.png`
 - 設定: `character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json`
 - 標準プロファイル: `character-assets/config/mesh_warp_fast_lossless_v1.json`
+- 共通変形本体: `tools/character_layers/build_mesh_warp_pose.py`
+- 標準ラッパー: `tools/character_layers/run_visual_repair_trial.py`
 
-## 品質を落とさない高速化
+## 品質不変条件
 
-PNGは引き続き可逆。従来の `optimize=True` を標準経路から外し、`compress_level=1` を使う。これはPNGの圧縮時間とファイルサイズのトレードオフだけを変更し、デコード後のRGBA画素値は変更しない。
+- formal candidateは1448×1086 RGBA lossless PNG。
+- warp interpolation order、ROI、制御点、変形場は008成功設定を維持する。
+- 身体輪郭、衣服、柄、ブーツ、alphaを同じ変形場で処理する。
+- 顔、髪、腕、左脚、椅子、固定ドラムは変形しない。
+- 許可領域外変更0、固定領域変更0を機械QAで要求する。
+- `visualQaRequired=true` を常に維持する。
+- machine PASSだけでruntimeへ昇格しない。
 
-固定ドラム確認画像では、候補PNGを一度保存してから再度読み込む処理を廃止する。変形直後のRGBA配列をそのまま合成へ渡す。これにより候補の再読込を削減する。
+PNGの `compress_level=1` は可逆圧縮の計算量だけを下げる。デコード後RGBA画素値は圧縮レベルに依存しない。固定ドラム確認画像は変形直後のRGBA配列から直接合成し、候補PNGの再読込を行わない。
 
-候補、QA、固定ドラム確認画像、timingを1プロセスで生成する。ツールや画像の再取得を候補ごとに繰り返さない。
+## 入力キャッシュ
 
-## 標準コマンド
+ラッパーは各入力をSHA-256で識別し、既定では `.cache/visual-repair/` にキャッシュする。
+
+対象:
+- 正常土台PNG
+- 修復前PNG
+- 固定ドラムPNG
+- frame config
+
+同じSHAのファイルは再コピーしない。SHAが変わった時だけ新しいcache entryを作る。キャッシュ本体はGitHubへ保存しない。
+
+`008_run_manifest.json` に元パス、SHA-256、cache hit/missを記録する。
+
+## 設定テンプレート
+
+008 JSONは既存 `sourcePoints` / `targetPoints` 等との互換性を維持しつつ、次を自己記述する。
+
+- actionKey / phase / frameId
+- inputPng / normalSourcePng / fixedDrumPng
+- outputDir
+- ROI
+- deformationPolygon / fixedRects
+- hip / knee / ankle / toe / pedalEndpoint / pedalTarget
+- sourcePoints / targetPoints
+- pedalTolerancePx
+- normalSourceSha256 / brokenSourceSha256 / fixedDrumSha256
+- runtimeWritable
+- userApprovalStatus
+- visualQaRequired
+- expectedRegression
+
+同型修復ではツール本体を書き換えずJSON座標だけ変更する。ただし008のユーザー承認前は他frameへ横展開しない。
+
+## 標準1コマンド
 
 ```bash
-python3 tools/character_layers/build_mesh_warp_pose.py \
-  --config character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json \
+python3 tools/character_layers/run_visual_repair_trial.py \
+  --frame-config character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json \
   --source character-assets/layers/character/bd/rebound_rf.png \
-  --output character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png \
-  --fixed-drum character-assets/layers/drums/drum_base.png \
-  --preview-output character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_fixed_drum_v1.png \
-  --qa-output character-assets/generation-trials/mesh-warp-008-v1/008_qa.json \
-  --timing-output character-assets/generation-trials/mesh-warp-008-v1/008_timing.json \
-  --png-compress-level 1
+  --broken-source character-assets/layers/character/bd/hit_rf.png \
+  --fixed-drum character-assets/layers/drum/drum_base.png \
+  --output-dir character-assets/generation-trials/mesh-warp-008-v1
 ```
 
-## 既存008実測（変更前ベースライン）
+処理順:
+1. input SHA確認・cache判定
+2. config検証
+3. 1448×1086 RGBA candidate生成
+4. machine QA
+5. fixed drum合成
+6. formal candidateとは別の軽量review生成
+7. before/after review生成
+8. timing記録
+9. run manifest生成
+10. commit manifest生成
 
-既存の `008_timing.json` から:
+## 機械QA
 
+最低限:
+- canvas 1448×1086
+- RGBA / alpha channel
+- candidate != source
+- outside allowed changed pixels = 0
+- fixed region changed pixels = 0
+- changed bbox
+- pedal endpoint distance <= tolerance
+- input/config/output SHA-256
+- expected 008 regression values
+- runtimeWritable=false
+- userApprovalStatus != APPROVED
+
+FAIL時は候補をGitHub登録候補へ含めない。機械QAは原寸視覚QAを置き換えない。
+
+## 正式候補と確認用の分離
+
+- formal: `008_bd_rf_hit_mesh_v1.png`
+- review: `008_bd_rf_hit_mesh_v1_review.webp`
+- fixed drum review: `008_bd_rf_hit_fixed_drum_v1_review.webp`
+- before/after review: `008_before_after_review.webp`
+
+WebPは確認用のみ。正式候補はPNG RGBA原寸を維持する。
+
+## GitHub登録
+
+`008_commit_manifest.json` で登録対象と安全条件を記録する。ラッパーの `--git-commit --start-main-sha <sha>` は、origin/mainの先頭一致、runtime path不在、010／014／028／032不在を確認してからコミットする。
+
+CI回帰も同じ制約を持ち、runtimeと対象外frameの差分を検出した場合は失敗させる。force pushは禁止。
+
+最終main登録直前にもmain先頭を再確認する。途中更新があれば古い親へrefを強制更新せず、最新main上で安全に差分を再構成する。
+
+## ベースラインと再計測
+
+旧008:
 - load: 0.042191 s
 - warp: 0.056988 s
 - candidate save: 0.437810 s
@@ -45,22 +127,10 @@ python3 tools/character_layers/build_mesh_warp_pose.py \
 - fixed drum composite/save: 1.190685 s
 - total: 1.770454 s
 
-変形計算そのものは約0.057秒で、全体の約96%はそれ以外、特にPNG書き出し側にあった。したがって今回の高速化は変形アルゴリズムや補間品質を触らず、可逆PNG保存と再読込のオーバーヘッドを削る。
+高速化後は `008_timing.json` に工程別実測を保存する。特に `candidateToReviewCompleteSeconds` を、候補生成からQA・固定ドラムreview・比較review完成までの実測として扱う。
 
-## 再計測ルール
+品質回帰はファイル圧縮SHAの一致ではなく、同一warp設定の changedPixels、changedBBox、outsideAllowedChangedPixels、pedalDistance、原寸視覚QAで確認する。
 
-変更後の実測は同じ008設定・同じsource・同じfixed drumで行い、`008_timing.json` を更新する。比較時は必ずQAの以下が一致することを確認する。
+## 横展開禁止
 
-- canvas 1448x1086
-- outsideAllowedChangedPixels = 0
-- changedPixels
-- changedBBox
-- pedalDistancePx
-- machinePass = true
-- 原寸視覚QAの見た目
-
-PNGファイルのSHAは圧縮方式変更により変わり得るため、品質同一性はデコード後RGBA画素比較で確認する。
-
-## 横展開
-
-008の標準化確認後のみ、010 -> 014 -> 028 -> 032 の順に同方式へ展開する。各画像ごとにROI・ランドマークJSONだけを差し替え、ツール本体は共通化する。
+008のユーザー最終承認までは010／014／028／032その他へ適用しない。承認後にのみ各frame固有のJSONを作成し、共通ツールは変更せず横展開する。
