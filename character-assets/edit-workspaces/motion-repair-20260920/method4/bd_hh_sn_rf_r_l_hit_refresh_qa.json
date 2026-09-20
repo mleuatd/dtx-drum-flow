@@ -5,13 +5,13 @@
   "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
   "sourceSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
   "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_hit_refresh_candidate.png",
-  "candidateSha256": "cb07ee867dfca1e1f002c5934449b223b02ceba147631fddc26b99dda0160a88",
-  "changedPixelsVsNeutral": 57276,
-  "changedRatioVsNeutral": 0.03642288,
+  "candidateSha256": "2a37a6946ecc0a4ee7578b15a230df6688015e4a72391f71f21c9e56460b4362",
+  "changedPixelsVsNeutral": 57438,
+  "changedRatioVsNeutral": 0.0365259,
   "changedBBoxVsNeutral": {
-    "x": 411,
+    "x": 401,
     "y": 411,
-    "width": 499,
+    "width": 509,
     "height": 583
   },
   "headCoreGuardChangedPixels": 0,
@@ -44,10 +44,10 @@
       "limb": "L",
       "radiusPx": 48,
       "sourceRelevantPixels": 348,
-      "preservedPixels": 186,
-      "preserveRatio": 0.5345,
+      "preservedPixels": 348,
+      "preserveRatio": 1.0,
       "threshold": 0.6,
-      "pass": false
+      "pass": true
     }
   ],
   "checks": {
@@ -58,7 +58,7 @@
     "torsoCoreLocked": true,
     "stoolLocked": true,
     "leftLegLocked": true,
-    "localContactSourcePreservation": false
+    "localContactSourcePreservation": true
   },
-  "pass": false
+  "pass": true
 }
