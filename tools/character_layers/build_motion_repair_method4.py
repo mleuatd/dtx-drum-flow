@@ -175,6 +175,21 @@ for f in fails:
         else:
             local[205:442,850:1115]=True # rebound: one upper right RD corridor
         M &= local
+        if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound"):
+            src_ink=(S[:,:,:3].min(axis=2)<225)&(S[:,:,3]>0)
+            reject=np.zeros((H,W),dtype=bool)
+            reject[360:535,900:1125]=True
+            M &= ~reject
+            rdpt=cp("RD") or (965,250); sh=LAND["shoulder_R"]
+            route=Image.new("L",(W,H),0); rr=ImageDraw.Draw(route)
+            grip=(930,335) if phase=="hit" else (915,350)
+            rr.line([sh,grip,rdpt],fill=255,width=42 if phase=="hit" else 34,joint="curve")
+            rr.ellipse([grip[0]-30,grip[1]-30,grip[0]+30,grip[1]+30],fill=255)
+            R=np.asarray(route)>0
+            R[HEAD_CORE[1]:HEAD_CORE[3],HEAD_CORE[0]:HEAD_CORE[2]]=False
+            R[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
+            R[620:,:]=False
+            M |= (R & src_ink)
         if "bd_rc_sn" in tid and phase=="rebound":
             # M011 exact visual repair: remove only the rectangular splice on
             # the right edge of the stool/seat. Do not touch either leg/skirt.
