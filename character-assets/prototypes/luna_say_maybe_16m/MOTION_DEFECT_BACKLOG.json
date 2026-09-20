@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:42:00+09:00",
+  "updatedAt": "2026-09-20T10:39:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -154,7 +154,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T10:35:00+09:00",
+      "updatedAt": "2026-09-20T10:39:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -689,6 +689,11 @@
             "at": "2026-09-20T10:35:00+09:00",
             "decision": "V10_NARROW_ACTIVE_FOREARM_PLAN",
             "detail": "Parent chain: formal hit static base + v8 rebound forearm/hand/stick only. Exclude shoulder/upper sleeve from replace ROI to prevent v9 alpha cutout. Parent v8 retained; v9 preserved as rejected evidence."
+          },
+          {
+            "at": "2026-09-20T10:39:00+09:00",
+            "decision": "V11_FOREARM_Y_CLAMP_PLAN",
+            "detail": "Rollback parent remains v8 active-motion pixels + formal hit static base. Upper sleeve/inactive arm must remain untouched. Arm/hand replacement allowed only y>=430; stick corridor separately allowed above cutoff."
           }
         ],
         "measurementTodos": [
@@ -923,7 +928,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T10:35:00+09:00"
+        "updatedAt": "2026-09-20T10:39:00+09:00"
       },
       "occurrences": [
         {
@@ -957,15 +962,15 @@
         }
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_V9_SLEEVE_CUTOUT",
-        "linework": "FAIL_V9_ALPHA_CUTOUT",
-        "fixedDrumComposite": "FAIL_V9_SLEEVE_CUTOUT",
+        "humanAnatomy": "FAIL_V10_UPPER_SLEEVE_CUTOUT",
+        "linework": "FAIL_V10_UPPER_SLEEVE_ALPHA_GAP",
+        "fixedDrumComposite": "FAIL_V10_UPPER_SLEEVE_CUTOUT",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
-        "note": "v9 machine QA passes after static-guard tightening, but full-resolution human QA finds large white triangular/cutout artifacts through the sleeve/upper-arm region. v9 rejected. Roll back to v8 as active-motion parent; v10 will replace only elbow->wrist->stick delta onto formal hit, excluding shoulder/upper sleeve.",
-        "reviewedAt": "2026-09-20T10:35:00+09:00",
+        "note": "v10 machine QA/regression PASS, but human full-resolution QA still shows a white/alpha cutout in the upper sleeve because the forearm mask radius extends above the active forearm into the inactive sleeve. v10 rejected; v11 will clamp arm-body replacement to y>=430 and keep stick in a separate corridor.",
+        "reviewedAt": "2026-09-20T10:39:00+09:00",
         "visualQaRunId": 35474616622,
         "visualQaArtifactId": 10593307774,
         "repairEvidence": [
@@ -1031,6 +1036,11 @@
           "at": "2026-09-20T10:35:00+09:00",
           "decision": "SN_L_V9_MACHINE_PASS_HUMAN_HARD_FAIL_ROLLBACK",
           "detail": "Run 35480471618 / artifact 10596001517: v9 deterministic QA and regression tests PASS, but full-resolution pair crop shows large alpha/white cutouts in sleeve/upper-arm region. Reject v9. Rollback candidate=v8. Next v10 narrows transplant to elbow->wrist->stick only; shoulder/upper sleeve remain formal-hit pixels."
+        },
+        {
+          "at": "2026-09-20T10:39:00+09:00",
+          "decision": "SN_L_V10_MACHINE_PASS_HUMAN_FAIL",
+          "detail": "Run 35480590208 / artifact 10595043986: v10 generation, deterministic QA, regression tests, and artifact upload PASS. Human crop shows upper-sleeve white/alpha cutout. Candidate rejected; formal unchanged. Next v11 keeps hit static base, clamps forearm/hand replace region to y>=430, and uses a separate stick corridor above that cutoff."
         }
       ],
       "claim": {
