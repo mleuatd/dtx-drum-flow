@@ -62,3 +62,17 @@
 - 再生成の実測は1.77秒（候補保存、機械QA、固定ドラム合成を含む）。座標調整はJSONだけで行う。
 - 高速化は入力PNGのローカルキャッシュ、設定駆動、ROI限定、固定ドラムの再利用、機械QAの同時実行で行う。補間品質や原寸目視工程は省略しない。
 - 候補は `generation-trials/mesh-warp-008-v1/` に隔離し、ユーザー承認までruntimeへ反映しない。
+
+
+## 008高速再生成標準（2026-09-21）
+
+008成功方式の再生成は `tools/character_layers/run_visual_repair_trial.py` を標準入口とする。
+
+- 入力PNGはSHA-256で固定し、同一セッションでは `.cache/visual-repair/` を再利用する。キャッシュ自体はGit管理しない。
+- 1コマンドで config検証 -> mesh warp -> machine QA -> fixed drum合成 -> formal/review分離 -> before/after -> timing -> manifest を生成する。
+- formal candidateは1448×1086 RGBA lossless PNG、reviewは別ファイルのlossless WebPとする。
+- machine QA FAIL時は候補を登録候補一覧に入れない。
+- `visualQaRequired=true` を維持し、機械PASSだけではVERIFIEDまたはruntime昇格にしない。
+- runtime pathと010／014／028／032その他のframeは安全チェックで登録対象から除外する。
+- 008のユーザー承認状態は `PENDING` のままとし、承認前のruntime上書きと横展開を禁止する。
+- 仕様更新時はGitHub最新版blob SHAを取得した上で、その最新版に今回分だけ追記する。
