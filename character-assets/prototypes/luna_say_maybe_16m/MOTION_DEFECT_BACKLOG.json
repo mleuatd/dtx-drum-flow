@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T17:44:00+09:00",
+  "updatedAt": "2026-09-20T17:48:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -157,7 +157,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T17:43:00+09:00",
+      "updatedAt": "2026-09-20T17:48:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "MOTION_REPAIR_VERIFIED",
@@ -966,7 +966,7 @@
         }
       ],
       "reboundRepair": {
-        "status": "MOTION_REPAIR_VERIFIED",
+        "status": "VERIFIED_PROMOTED",
         "oldSha256": "c3f480bdd5861d5703af400089682fe94427ef07ccd14cf1ff514e45e73d9d9c",
         "newSha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
         "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14.png",
@@ -986,8 +986,8 @@
         "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "v14 exact-source-bound candidate passed full-resolution static anatomy/linework/fixed-drum composite review and deterministic QA. Formal promoted atomically with SHA authorities; runtime verification pending.",
-        "reviewedAt": "2026-09-20T17:43:00+09:00",
+        "note": "MOTION-001 v14 exact-source-bound SN:L rebound VERIFIED. Static anatomy/linework/fixed-drum composite PASS; SN-L Source QA run 35500150545 PASS; targeted M107 BACK public runtime QA run 35500268024 PASS 4/4 on PC and Xperia portrait.",
+        "reviewedAt": "2026-09-20T17:48:00+09:00",
         "localCandidate": {
           "version": "v16",
           "sha256": "05b1f5b5509d1735002cbf9d8e81143c9128bee8e056e3da85726a7b5c60df2f",
@@ -1081,6 +1081,11 @@
           "at": "2026-09-20T17:43:00+09:00",
           "decision": "MOTION_001_VERIFIED",
           "detail": "Formal source-bound v14 SHA256 93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202; static anatomy/linework/fixed-drum PASS; targeted M107 SN:L browser runtime QA run 35500268024 PASS. CLAIM released."
+        },
+        {
+          "at": "2026-09-20T17:48:00+09:00",
+          "decision": "SN_L_V14_VERIFIED_FINAL",
+          "detail": "Corrected ledger hit SHA to authoritative 9941584d... and normalized MOTION-001 final status to VERIFIED after M107 SN:L PC/Xperia runtime PASS. Formal image unchanged."
         }
       ],
       "claim": null
