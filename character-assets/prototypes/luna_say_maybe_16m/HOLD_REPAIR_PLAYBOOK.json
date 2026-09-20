@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-20T09:16:00+09:00",
+  "authority": "Latest GitHub main plus MOTION_DEFECT_BACKLOG.json. This file defines shared HOLD-repair execution for all terminals.",
+  "objective": "Convert HOLD_VISUAL_INTEGRITY pairs to VERIFIED accurately without cross-terminal collision or premature formal promotion.",
+  "coordination": {
+    "queue": "HOLD_VISUAL_INTEGRITY / IN_FIX only",
+    "frontTerminal": "Claim lowest available MOTION issue number first.",
+    "backTerminal": "Claim highest available MOTION issue number first.",
+    "claimAuthority": "MOTION_DEFECT_BACKLOG.defects[].claim",
+    "claimRequiredBeforeEdit": true,
+    "skipIfClaimedByOtherTerminal": true,
+    "forbidChangingOtherTerminalClaimOrDisposition": true,
+    "claimShape": {
+      "state": "CLAIMED",
+      "batch": "unique batch id",
+      "owner": "terminal id",
+      "claimedAt": "ISO8601"
+    },
+    "releaseRule": "Clear claim only after VERIFIED or a new evidence-backed HOLD diagnosis has been committed."
+  },
+  "repairUnit": {
+    "scope": "One actionKey pair = hit + rebound. A phase that looks fixed cannot be promoted if the other phase still fails pair-level integrity.",
+    "candidateFirst": true,
+    "formalOverwriteBeforeQa": false,
+    "maxLocalAttemptsBeforeRediagnosis": 2,
+    "rediagnosisRule": "If local repair passes machine QA but pair still fails human visual QA, stop local retries and rewrite root cause at pair level before moving on."
+  },
+  "mandatoryStaticGates": [
+    "human anatomy continuity",
+    "single coherent active arm/hand/stick per active limb",
+    "stick continuity from grip to tip",
+    "no rectangular splice/dropout/floating fragment/double stroke",
+    "waist/pelvis/seat continuity",
+    "fixed drum composite contact and strike semantics",
+    "hit and rebound must both pass as one pair"
+  ],
+  "evidencePolicy": {
+    "machineQa": "Necessary but never sufficient.",
+    "humanFullResolutionQa": true,
+    "fixedDrumCompositeQa": true,
+    "transitionStripQa": true,
+    "recordWorkflowRunId": true,
+    "recordArtifactId": true,
+    "preserveFailedCandidateLearning": true
+  },
+  "promotion": {
+    "staticPairPassRequired": true,
+    "runtimeQaAfterStaticPass": true,
+    "runtimePcAndXperiaRequired": true,
+    "verifiedOnlyAfterRuntimePass": true,
+    "onStaticFail": "HOLD_VISUAL_INTEGRITY with exact visible reason and next permitted repair scope.",
+    "onRuntimeFail": "HOLD with exact runtime reason; do not disguise as static pass."
+  },
+  "prohibited": [
+    "whole-character redraw for a local defect",
+    "editing locked head/torso/stool/legs unless explicitly diagnosed as active defect",
+    "formal PNG promotion from machine QA alone",
+    "overwriting or cancelling another terminal's active claim",
+    "treating HOLD as complete/VERIFIED",
+    "inventing coordinates/tolerances without evidence"
+  ],
+  "currentLearning": [
+    "RD+SN:R/L: two rebound-local method4 attempts improved rebound but pair still fails because hit has duplicated/disconnected right RD arm/hand. Next repair must address right RD arm/hand/stick consistently across BOTH phases.",
+    "RD:R: method4 rebound removes original splice, but hit has duplicated/disconnected right RD arm/hand. Next repair must be pair-level, not rebound-only.",
+    "Synthetic runtime timeline seek cannot create arbitrary action keys; use real chart occurrences for authoritative runtime PASS."
+  ],
+  "parallelExecution": {
+    "frontSuggestedNext": "SN:L",
+    "backSuggestedNext": "BD+HH+SN:RF/R/L",
+    "note": "These are suggestions only; always re-read latest main and claims immediately before claiming."
+  }
+}
