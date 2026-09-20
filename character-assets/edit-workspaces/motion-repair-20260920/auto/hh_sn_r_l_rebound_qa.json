@@ -5,7 +5,7 @@
   "source": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
   "sourceSha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
   "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_rebound_candidate.png",
-  "candidateSha256": "d6ebc2d67bcda58a30295822f12a81ffb63431c0971798be9f8443b372191ce4",
+  "candidateSha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31",
   "components": [
     {
       "part": "HH",
@@ -25,13 +25,13 @@
     }
   ],
   "maskPixelCount": 2188,
-  "changedPixelsVsNeutral": 261,
-  "changedRatioVsNeutral": 0.00016597,
+  "changedPixelsVsNeutral": 91,
+  "changedRatioVsNeutral": 5.787e-05,
   "changedBBoxVsNeutral": {
     "x": 162,
     "y": 424,
     "width": 338,
-    "height": 104
+    "height": 43
   },
   "headGuardChangedPixels": 0,
   "pelvisGuardChangedPixels": 0,
@@ -52,21 +52,21 @@
       "limb": "L",
       "radiusPx": 180,
       "sourceRelevantPixels": 256,
-      "preservedPixels": 256,
-      "preserveRatio": 1.0
+      "preservedPixels": 86,
+      "preserveRatio": 0.3359
     }
   ],
   "legacyRestStickProbePixels": null,
   "checks": {
-    "changedVisible": true,
+    "changedVisible": false,
     "changedRatioWithinLimit": true,
     "outsideSemanticMaskZero": true,
     "headLocked": true,
     "pelvisLocked": true,
     "stoolLocked": true,
     "inactiveLowerLocked": true,
-    "localSourcePreservation": true,
+    "localSourcePreservation": false,
     "legacyRestStickCleared": true
   },
-  "pass": true
+  "pass": false
 }

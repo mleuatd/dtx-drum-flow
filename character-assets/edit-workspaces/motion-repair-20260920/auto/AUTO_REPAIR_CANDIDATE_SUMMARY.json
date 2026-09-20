@@ -9,7 +9,7 @@
       "source": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
       "sourceSha256": "786a85f1ecbd7411e0f0cd7f4b5a237c44fbfde10b070aacaecb82d302d1cdec",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_hit_candidate.png",
-      "candidateSha256": "9731842d1efbd60663c719a5ef2ac3b1a18bcd11ebd60170bed9e3b1b24314b5",
+      "candidateSha256": "32d69bc519c796774511a37eabff2c8e1708fc1f12ab29157b78a16d2c45e825",
       "components": [
         {
           "part": "HH",
@@ -29,13 +29,13 @@
         }
       ],
       "maskPixelCount": 3302,
-      "changedPixelsVsNeutral": 827,
-      "changedRatioVsNeutral": 0.0005259,
+      "changedPixelsVsNeutral": 479,
+      "changedRatioVsNeutral": 0.00030461,
       "changedBBoxVsNeutral": {
-        "x": 401,
+        "x": 458,
         "y": 453,
-        "width": 99,
-        "height": 91
+        "width": 42,
+        "height": 33
       },
       "headGuardChangedPixels": 0,
       "pelvisGuardChangedPixels": 0,
@@ -48,8 +48,8 @@
           "limb": "L",
           "radiusPx": 125,
           "sourceRelevantPixels": 827,
-          "preservedPixels": 827,
-          "preserveRatio": 1.0
+          "preservedPixels": 479,
+          "preserveRatio": 0.5792
         }
       ],
       "legacyRestStickProbePixels": null,
@@ -61,10 +61,10 @@
         "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
-        "localSourcePreservation": true,
+        "localSourcePreservation": false,
         "legacyRestStickCleared": true
       },
-      "pass": true
+      "pass": false
     },
     {
       "id": "hh_sn_r_l_rebound",
@@ -73,7 +73,7 @@
       "source": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
       "sourceSha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_rebound_candidate.png",
-      "candidateSha256": "d6ebc2d67bcda58a30295822f12a81ffb63431c0971798be9f8443b372191ce4",
+      "candidateSha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31",
       "components": [
         {
           "part": "HH",
@@ -93,13 +93,13 @@
         }
       ],
       "maskPixelCount": 2188,
-      "changedPixelsVsNeutral": 261,
-      "changedRatioVsNeutral": 0.00016597,
+      "changedPixelsVsNeutral": 91,
+      "changedRatioVsNeutral": 5.787e-05,
       "changedBBoxVsNeutral": {
         "x": 162,
         "y": 424,
         "width": 338,
-        "height": 104
+        "height": 43
       },
       "headGuardChangedPixels": 0,
       "pelvisGuardChangedPixels": 0,
@@ -120,25 +120,25 @@
           "limb": "L",
           "radiusPx": 180,
           "sourceRelevantPixels": 256,
-          "preservedPixels": 256,
-          "preserveRatio": 1.0
+          "preservedPixels": 86,
+          "preserveRatio": 0.3359
         }
       ],
       "legacyRestStickProbePixels": null,
       "checks": {
-        "changedVisible": true,
+        "changedVisible": false,
         "changedRatioWithinLimit": true,
         "outsideSemanticMaskZero": true,
         "headLocked": true,
         "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
-        "localSourcePreservation": true,
+        "localSourcePreservation": false,
         "legacyRestStickCleared": true
       },
-      "pass": true
+      "pass": false
     }
   ],
-  "passCount": 2,
-  "failCount": 0
+  "passCount": 0,
+  "failCount": 2
 }
