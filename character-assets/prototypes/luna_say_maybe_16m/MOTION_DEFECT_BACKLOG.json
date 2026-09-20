@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T10:44:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8336,7 +8336,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8364,7 +8364,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T10:44:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -8379,7 +8379,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -9155,10 +9155,10 @@
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "Method4 rebound candidate removes the original rebound splice and machine QA passes, but hit has duplicated/disconnected right RD arm/hand geometry. Pair remains HOLD; formal PNGs unchanged.",
-        "workflowRunId": 35475145116,
-        "artifactId": 10593238245,
-        "reviewedAt": "2026-09-20T09:29:00+09:00"
+        "note": "Fresh method4 rebuild machine PASS for both phases, but full-resolution character and fixed-drum review still shows a detached/duplicated rear right arm/hand behind the intended RD hand. Candidate SHAs equal current formal SHAs, so no visual improvement occurred; runtime QA remains blocked.",
+        "workflowRunId": 35481841819,
+        "artifactId": 10596300390,
+        "reviewedAt": "2026-09-20T10:44:00+09:00"
       },
       "claim": null,
       "decisionLog": [
@@ -9171,6 +9171,11 @@
           "at": "2026-09-20T09:29:00+09:00",
           "decision": "HOLD_REPAIR_PASS_2_CLOSED",
           "detail": "Released CHATGPT-FRONT claim. Rebound local repair succeeded mechanically/visually, but pair-level hit defect prevents promotion. Formal PNGs unchanged."
+        },
+        {
+          "at": "2026-09-20T10:44:00+09:00",
+          "decision": "PASS2_BACK_METHOD4_REBUILD_VISUAL_FAIL",
+          "detail": "Run 35481841819 artifact 10596300390: machine PASS, but full-resolution pair/fixed-drum inspection still shows duplicate rear right arm/hand. Candidate == formal hashes, so repeated method4 cannot repair this defect."
         }
       ],
       "hold": {
@@ -9181,11 +9186,11 @@
         "defect": "pair-level duplicated/disconnected right RD arm/hand/stick geometry",
         "defectLocation": "right shoulder/upper-arm behind hair through right hand/grip/stick corridor",
         "cause": "hit source/candidate contains an extra rear/right arm-like limb while foreground right hand/stick remains, so rebound-only splice removal cannot make the pair anatomically coherent",
-        "attemptedRepair": "method4 rebound-local repair already machine-passed; PASS2 BACK reopened full-resolution hit/rebound candidates and confirmed pair defect visually",
-        "repairResult": "FAIL_PAIR. Rebound splice is improved, but hit visibly contains two competing right-side arm/hand structures; pair cannot promote. Formal assets unchanged.",
-        "nextRepair": "Reconstruct one coherent right RD shoulder→arm→hand→grip→stick→tip corridor consistently across BOTH hit and rebound. Preserve left hand/stick, head/hair except necessary occlusion edge, torso core, skirt, stool and legs.",
-        "prohibitedRepair": "rebound-only retry; broad rectangular neutral transplant; whole-character redraw; formal overwrite before pair static PASS",
-        "restartCondition": "A deterministic or verifiably source-bound ROI editor can edit exact hit+rebound PNG bytes as a pair."
+        "attemptedRepair": "PASS2 BACK fresh method4 rebuild run 35481841819 artifact 10596300390; both phases machine PASS and exact artifact reviewed full-resolution.",
+        "repairResult": "STATIC_VISUAL_FAIL_UNCHANGED. Candidate hashes equal current formal hashes; duplicated/disconnected rear right arm/hand remains visible in hit and rebound.",
+        "nextRepair": "Method4 is exhausted for RD:R. Require a different exact-source-bound semantic edit that removes the rear duplicate arm/hand while preserving the intended hand→grip→stick→RD-tip corridor and all locked regions.",
+        "prohibitedRepair": "repeat method4 unchanged; full redraw; broad torso transplant",
+        "restartCondition": "A different verifiably target-bound semantic ROI editor/path is available."
       }
     },
     {
