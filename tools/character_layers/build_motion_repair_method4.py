@@ -345,6 +345,20 @@ for f in fails:
                 rd.line([(500,455),sn],fill=255,width=24,joint="curve")
                 R=np.asarray(route)>0
                 M |= (R & src_ink & stick_zone) | contact_keep
+    # Final authority mask for MOTION-009. The rebuilt source contains only
+    # two trusted motions: bounded left SN from the combo and VERIFIED RD:R on
+    # the right. Preserve those complete active regions rather than re-running
+    # narrow topology filters that can detach the approved RD forearm/hand.
+    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound"):
+        authority=np.zeros((H,W),dtype=bool)
+        authority[285:625,335:720]=True   # complete left SN arm/hand/stick
+        authority[220:565,820:1135]=True # complete approved right RD arm/hand/stick
+        authority[HEAD_CORE[1]:HEAD_CORE[3],HEAD_CORE[0]:HEAD_CORE[2]]=False
+        authority[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
+        authority[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+        authority[620:,:]=False
+        M=interest & authority
+
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
