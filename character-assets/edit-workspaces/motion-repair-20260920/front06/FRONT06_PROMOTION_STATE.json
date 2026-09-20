@@ -20,19 +20,23 @@
     ],
     "source": "real Luna say maybe chart occurrence only"
   },
-  "status": "FRONT06_MOTION_002_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "VERIFIED",
   "runtimeQaEvidence": {
     "FRONT06-MOTION-002": {
       "status": "PASS",
-      "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35484837477",
-      "testedCommitSha": "69cd98f9b42c21b057b62626a5918f0b972d3886",
-      "artifact": "public-runtime-qa-35484837477",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35484837477",
+      "workflow": ".github/workflows/front06-promote.yml",
+      "runId": 35484762334,
+      "artifact": "front06-public-runtime-35484762334",
+      "artifactId": 10596248930,
+      "testedAt": "2026-09-20T11:46:00+09:00",
       "measureStart": 128,
       "measureEnd": 128,
       "actions": [
         "BD+RC:RF/R"
+      ],
+      "viewports": [
+        "pc 1280x900",
+        "xperia-portrait 384x864"
       ]
     }
   },
@@ -41,5 +45,22 @@
     "rebound": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b"
   },
   "blocker": null,
-  "updatedAt": "2026-09-20T02:47:12.984667+00:00"
+  "updatedAt": "2026-09-20T02:47:12.984667+00:00",
+  "verifiedByPublicRuntime": {
+    "status": "PASS",
+    "workflow": ".github/workflows/front06-promote.yml",
+    "runId": 35484762334,
+    "artifact": "front06-public-runtime-35484762334",
+    "artifactId": 10596248930,
+    "testedAt": "2026-09-20T11:46:00+09:00",
+    "measureStart": 128,
+    "measureEnd": 128,
+    "actions": [
+      "BD+RC:RF/R"
+    ],
+    "viewports": [
+      "pc 1280x900",
+      "xperia-portrait 384x864"
+    ]
+  }
 }
