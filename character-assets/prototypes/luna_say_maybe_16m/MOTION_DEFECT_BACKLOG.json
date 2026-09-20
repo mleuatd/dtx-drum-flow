@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T19:42:00+09:00",
+  "updatedAt": "2026-09-20T19:44:30+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -6643,7 +6643,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T19:42:00+09:00",
+      "updatedAt": "2026-09-20T19:44:30+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "FIXED_PENDING_QA",
@@ -7584,6 +7584,11 @@
             "hit": "32d69bc519c796774511a37eabff2c8e1708fc1f12ab29157b78a16d2c45e825",
             "rebound": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31"
           }
+        },
+        {
+          "at": "2026-09-20T19:44:30+09:00",
+          "state": "PROMOTION_RETRY",
+          "note": "First guarded promotion selected both MOTION-008 candidates, but repository-wide validation stopped on pre-existing MOTION-004 RC+SN manifest/action-map SHA drift. Metadata was synchronized to the already-promoted VERIFIED v6 formal SHAs; retrying MOTION-008 promotion without changing any RC+SN image pixels."
         }
       ],
       "hold": {
