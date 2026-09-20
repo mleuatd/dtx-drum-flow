@@ -165,10 +165,10 @@ for f in fails:
             local[205:442,850:1115]=True # rebound: one upper right RD corridor
         M &= local
         if "bd_rc_sn" in tid and phase=="rebound":
-            # Remove the observed seat/pelvis rectangular splice only after the
-            # active-limb mask has been applied. Preserve the proven RF corridor.
+            # M011 exact visual repair: remove only the rectangular splice on
+            # the right edge of the stool/seat. Do not touch either leg/skirt.
             reject=np.zeros((H,W),dtype=bool)
-            reject[610:760,760:930]=True
+            reject[675:765,760:905]=True
             M &= ~reject
     # MOTION-015 method5: topology-aware fragment rejection.  Method4's
     # rectangular local corridor passed pixel QA but leaked disconnected white
