@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "index": 9,
+  "sourceFilename": "009_bd_rf_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "PASS",
+  "auditActionKey": "BD:RF",
+  "runtimeActionKey": "BD:RF",
+  "referenceClassification": "SECONDARY_POSITIVE_REFERENCE",
+  "doNotLearnGeometryFromThisFrame": false,
+  "allowedReferenceFields": [
+    "all non-defective visual properties within declared scope"
+  ],
+  "defects": [],
+  "defectRegions": [],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_RF.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD:RF hit/rebound",
+    "negativeAttention": []
+  }
+}
