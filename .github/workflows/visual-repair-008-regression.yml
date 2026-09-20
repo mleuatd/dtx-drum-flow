@@ -1,0 +1,51 @@
+name: Visual repair 008 regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tools/character_layers/run_visual_repair_trial.py"
+      - "tools/character_layers/build_mesh_warp_pose.py"
+      - "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json"
+      - ".github/workflows/visual-repair-008-regression.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: tools/character_layers/requirements.txt
+      - run: pip install --disable-pip-version-check -r tools/character_layers/requirements.txt
+      - name: Run 008 one-command regression
+        run: |
+          python tools/character_layers/run_visual_repair_trial.py \
+            --frame-config character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json \
+            --source character-assets/layers/character/bd/rebound_rf.png \
+            --broken-source character-assets/layers/character/bd/hit_rf.png \
+            --fixed-drum character-assets/layers/drum/drum_base.png \
+            --output-dir /tmp/mesh-warp-008-regression
+      - name: Assert regression safety
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('/tmp/mesh-warp-008-regression')
+          qa=json.loads((p/'008_qa.json').read_text())
+          run=json.loads((p/'008_run_manifest.json').read_text())
+          cm=json.loads((p/'008_commit_manifest.json').read_text())
+          assert qa['machinePass'] is True
+          assert qa['outsideAllowedChangedPixels'] == 0
+          assert qa['fixedRegionChangedPixels'] == 0
+          assert qa['canvas'] == [1448,1086] and qa['mode'] == 'RGBA'
+          assert qa['visualQaRequired'] is True
+          assert run['runtimeModified'] is False and run['otherFramesTouched'] is False
+          assert not cm['safety']['runtimePathsIncluded']
+          assert not cm['safety']['otherFramePathsIncluded']
+          PY

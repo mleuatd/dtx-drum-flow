@@ -8,7 +8,7 @@ optionally creates a guarded git commit after PASS.
 """
 from __future__ import annotations
 
-import argparse, hashlib, json, shutil, subprocess, sys, time
+import argparse, hashlib, json, shutil, subprocess, sys, time\nfrom datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -61,7 +61,7 @@ def cache_input(path: Path, cache_dir: Path) -> tuple[Path, str, bool]:
 
 def validate_config(cfg: dict) -> None:
     required = [
-        "actionKey","phase","roi","sourcePoints","targetPoints","deformationPolygon",
+        "schemaVersion","frameId","actionKey","phase","roi","sourcePoints","targetPoints","deformationPolygon",
         "fixedRects","pedalTarget","pedalTolerancePx","inputPng","normalSourcePng",
         "fixedDrumPng","normalSourceSha256","fixedDrumSha256","runtimeWritable",
         "userApprovalStatus","landmarks"
@@ -71,7 +71,7 @@ def validate_config(cfg: dict) -> None:
         raise ValueError("missing config fields: " + ", ".join(missing))
     if cfg["actionKey"] != "BD:RF" or cfg["phase"] != "hit":
         raise ValueError("008 regression accepts only BD:RF hit")
-    if cfg.get("runtimeWritable") is not False:
+    if cfg.get("visualQaRequired") is not True:\n        raise ValueError("visualQaRequired must remain true")\n    if cfg.get("runtimeWritable") is not False:
         raise ValueError("runtimeWritable must remain false before user approval")
     if len(cfg["sourcePoints"]) != len(cfg["targetPoints"]):
         raise ValueError("sourcePoints/targetPoints length mismatch")
@@ -157,7 +157,7 @@ def main() -> int:
     if expected_broken not in (None,"","AUTO") and broken_sha != expected_broken:
         raise RuntimeError(f"broken source SHA mismatch: {broken_sha} != {expected_broken}")
 
-    timings = {"cacheAndHashSeconds": round(cache_seconds,6)}
+    timings = {"configValidationSeconds": round(config_validation_seconds,6), "cacheAndHashSeconds": round(cache_seconds,6)}
     stage = time.perf_counter()
     source_rgba = load_rgba(source_c)
     broken_rgba = load_rgba(broken_c)
@@ -168,7 +168,7 @@ def main() -> int:
     candidate, allowed = warp_rgba(source_rgba, cfg)
     timings["warpSeconds"] = round(time.perf_counter()-stage,6)
 
-    candidate_path = out_dir / GENERATED_NAMES["candidate"]
+    candidate_path = out_dir / names["candidate"]
     stage = time.perf_counter()
     save_rgba(candidate, candidate_path, args.png_compress_level)
     timings["saveCandidateSeconds"] = round(time.perf_counter()-stage,6)
@@ -232,17 +232,17 @@ def main() -> int:
 
     stage = time.perf_counter()
     composite = alpha_composite_rgba(drum_rgba, candidate)
-    composite_review = out_dir / GENERATED_NAMES["compositeReview"]
+    composite_review = out_dir / names["compositeReview"]
     save_webp(composite, composite_review)
     timings["compositeReviewSeconds"] = round(time.perf_counter()-stage,6)
 
     stage = time.perf_counter()
-    review_path = out_dir / GENERATED_NAMES["review"]
+    review_path = out_dir / names["review"]
     save_webp(candidate, review_path)
     gap = np.zeros((8, candidate.shape[1], 4), dtype=np.uint8)
     gap[:,:,3] = 255
     before_after = np.concatenate([broken_rgba, gap, candidate], axis=0)
-    before_after_path = out_dir / GENERATED_NAMES["beforeAfterReview"]
+    before_after_path = out_dir / names["beforeAfterReview"]
     save_webp(before_after, before_after_path)
     timings["reviewImagesSeconds"] = round(time.perf_counter()-stage,6)
 
@@ -251,17 +251,17 @@ def main() -> int:
         timings["compositeReviewSeconds"] + timings["reviewImagesSeconds"], 6)
     timings["totalSeconds"] = round(time.perf_counter()-total_start,6)
 
-    qa_path = out_dir / GENERATED_NAMES["qa"]
-    timing_path = out_dir / GENERATED_NAMES["timing"]
-    manifest_path = out_dir / GENERATED_NAMES["runManifest"]
-    commit_manifest_path = out_dir / GENERATED_NAMES["commitManifest"]
-    regression_path = out_dir / GENERATED_NAMES["regression"]
+    qa_path = out_dir / names["qa"]
+    timing_path = out_dir / names["timing"]
+    manifest_path = out_dir / names["runManifest"]
+    commit_manifest_path = out_dir / names["commitManifest"]
+    regression_path = out_dir / names["regression"]
     qa_path.write_text(json.dumps(qa,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     timing_path.write_text(json.dumps({"schemaVersion":3,"stages":timings},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 
     generated = [candidate_path,review_path,composite_review,before_after_path,qa_path,timing_path]
     manifest = {
-        "schemaVersion":2,"frame":"008","actionKey":"BD:RF","phase":"hit",
+        "schemaVersion":3,"runId":run_id,"frame":str(cfg["frameId"]).split("_",1)[0],"frameId":cfg["frameId"],"actionKey":cfg["actionKey"],"phase":cfg["phase"],\n        "startMainSha":start_main_sha,"endMainShaCheck":(run_git("rev-parse","HEAD") if (ROOT/".git").exists() else None),
         "inputs":{
             "normalSource":{"path":rel(source),"sha256":source_sha,"cacheHit":source_hit},
             "brokenSource":{"path":rel(broken),"sha256":broken_sha,"cacheHit":broken_hit},
@@ -290,7 +290,7 @@ def main() -> int:
     commit_manifest_path.write_text(json.dumps(commit_manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 
     regression = {
-        "schemaVersion":1,"frame":"008","machinePass":qa["machinePass"],
+        "schemaVersion":2,"frame":str(cfg["frameId"]).split("_",1)[0],"frameId":cfg["frameId"],"machinePass":qa["machinePass"],
         "visualQaRequired":True,"userApprovalStatus":cfg.get("userApprovalStatus"),
         "runtimeModified":False,"otherFramesTouched":False,
         "outsideAllowedChangedPixels":qa["outsideAllowedChangedPixels"],

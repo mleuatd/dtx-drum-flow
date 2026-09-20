@@ -153,3 +153,7 @@ CI回帰も同じ制約を持ち、runtimeと対象外frameの差分を検出し
 - CI regression invocation total: 2.645649 s
 
 初回実行のためcacheHitはfalseだが、候補から確認成果物完成まで2秒弱で性能目標「数秒以内」を満たした。runtimeと他frameは未変更。ユーザー原寸目視は未完了なので `visualQaRequired=true` / `userApprovalStatus=PENDING` を維持する。
+
+## v3 汎用化補足
+
+標準ラッパーは008固有の actionKey / phase / 出力ファイル名をコードへ固定しない。frame固有値は設定JSONに集約し、共通Pythonは同じまま再利用する。008では既存成果物名との互換性を `outputNames` で維持する。run manifestには runId / startMainSha / endMainShaCheck / userApproved を記録し、commit manifestは eligible / excluded を分離する。

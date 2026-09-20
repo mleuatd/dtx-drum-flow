@@ -94,3 +94,7 @@ python3 tools/character_layers/run_visual_repair_trial.py \
 - otherFramesTouched: false
 - userApprovalStatus: PENDING
 - visualQaRequired: true
+
+## 汎用ラッパー補足
+
+共通ラッパーは actionKey / phase / 出力名をPythonへ固定しない。各画像固有値はJSONの `frameId`、`actionKey`、`phase`、`outputNames` と座標群へ置き、008は互換維持のため既存ファイル名を `outputNames` で明示する。今回の実回帰対象は008のみで、他frame用JSONは作成しない。

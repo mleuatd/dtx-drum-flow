@@ -1,10 +1,10 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "frameId": "008_bd_rf_hit",
   "actionKey": "BD:RF",
   "phase": "hit",
   "method": "thin_plate_spline_inverse_map",
-  "smoothing": 0.0,
+  "smoothing": 0,
   "inputPng": "character-assets/layers/character/bd/hit_rf.png",
   "normalSourcePng": "character-assets/layers/character/bd/rebound_rf.png",
   "fixedDrumPng": "character-assets/layers/drum/drum_base.png",
@@ -256,5 +256,16 @@
       "height": 326
     },
     "pedalDistancePx": 11.18
+  },
+  "outputNames": {
+    "candidate": "008_bd_rf_hit_mesh_v1.png",
+    "review": "008_bd_rf_hit_mesh_v1_review.webp",
+    "compositeReview": "008_bd_rf_hit_fixed_drum_v1_review.webp",
+    "beforeAfterReview": "008_before_after_review.webp",
+    "qa": "008_qa.json",
+    "timing": "008_timing.json",
+    "runManifest": "008_run_manifest.json",
+    "commitManifest": "008_commit_manifest.json",
+    "regression": "008_regression_run.json"
   }
 }
