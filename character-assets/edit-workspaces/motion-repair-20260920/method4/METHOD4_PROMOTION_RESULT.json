@@ -1,25 +1,20 @@
 {
   "schemaVersion": 1,
   "promoted": [],
-  "failedCandidates": [
-    {
-      "id": "bd_rd_rf_r_hit",
-      "actionKey": "BD+RD:RF/R",
-      "phase": "hit",
-      "checks": null,
-      "changedRatioVsNeutral": null
-    },
-    {
-      "id": "bd_rd_rf_r_rebound",
-      "actionKey": "BD+RD:RF/R",
-      "phase": "rebound",
-      "checks": null,
-      "changedRatioVsNeutral": null
-    }
-  ],
+  "failedCandidates": [],
   "skipped": [
     {
       "id": "rd_r_hit",
+      "reason": "source_sha_changed",
+      "expected": "0ee5d80562e2b51de3567596c1b114d33b2f7c7255dedb621b922ffde9093ebf",
+      "current": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02"
+    },
+    {
+      "id": "bd_rd_rf_r_hit",
+      "reason": "already_completed"
+    },
+    {
+      "id": "bd_rd_rf_r_rebound",
       "reason": "already_completed"
     },
     {
@@ -28,7 +23,9 @@
     },
     {
       "id": "rd_r_rebound",
-      "reason": "already_completed"
+      "reason": "source_sha_changed",
+      "expected": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
+      "current": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2"
     }
   ]
 }
