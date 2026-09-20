@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 33,
+  "sourceFilename": "033_bd_hh_rf_r_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+HH:RF/R",
+  "runtimeActionKey": "BD+HH:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左肩上方に別ポーズ由来の前腕・手が残留し、通常の左腕と合わせて腕が3本あるように見える。"
+  ],
+  "defectRegions": [
+    "left_arm",
+    "left_hand",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_HH_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+HH:RF/R hit/rebound",
+    "negativeAttention": [
+      "left_arm",
+      "left_hand",
+      "artifact"
+    ]
+  }
+}
