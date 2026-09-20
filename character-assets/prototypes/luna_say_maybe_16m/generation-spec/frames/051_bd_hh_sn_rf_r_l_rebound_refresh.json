@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 51,
+  "sourceFilename": "051_bd_hh_sn_rf_r_l_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+HH+SN:RF/R/L",
+  "runtimeActionKey": "BD+HH+SN:RF/R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "スカート左下と椅子座面の境界に黒い矩形状の切断・貼り合わせ痕があり、左手付近にも短い浮遊線がある。"
+  ],
+  "defectRegions": [
+    "skirt",
+    "stool",
+    "left_hand",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_HH_SN_RF_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+HH+SN:RF/R/L hit/rebound",
+    "negativeAttention": [
+      "skirt",
+      "stool",
+      "left_hand",
+      "artifact"
+    ]
+  }
+}
