@@ -1,0 +1,86 @@
+{
+  "id": "bd_ft_sn_rf_r_l_rebound_refresh",
+  "actionKey": "BD+FT+SN:RF/R/L",
+  "phase": "rebound",
+  "source": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+  "sourceSha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ft_sn_rf_r_l_rebound_refresh_candidate.png",
+  "candidateSha256": "acfedb18b50e34ab0d752d6e3a35468984fa084a4edea0f0a94bfab0b1c86848",
+  "components": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "contact": [
+        735,
+        650
+      ]
+    },
+    {
+      "part": "FT",
+      "limb": "R",
+      "contact": [
+        1165,
+        535
+      ]
+    },
+    {
+      "part": "SN",
+      "limb": "L",
+      "contact": [
+        420,
+        535
+      ]
+    }
+  ],
+  "maskPixelCount": 51186,
+  "changedPixelsVsNeutral": 35976,
+  "changedRatioVsNeutral": 0.02287781,
+  "changedBBoxVsNeutral": {
+    "x": 432,
+    "y": 315,
+    "width": 692,
+    "height": 300
+  },
+  "headGuardChangedPixels": 0,
+  "pelvisGuardChangedPixels": 0,
+  "stoolGuardChangedPixels": 0,
+  "inactiveLowerChangedPixels": null,
+  "outsideMaskChangedPixels": 0,
+  "sourceLocalPreservation": [
+    {
+      "part": "BD",
+      "limb": "RF",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 12248,
+      "preservedPixels": 1854,
+      "preserveRatio": 0.1514
+    },
+    {
+      "part": "FT",
+      "limb": "R",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 1509,
+      "preservedPixels": 1509,
+      "preserveRatio": 1.0
+    },
+    {
+      "part": "SN",
+      "limb": "L",
+      "radiusPx": 180,
+      "sourceRelevantPixels": 16007,
+      "preservedPixels": 14748,
+      "preserveRatio": 0.9213
+    }
+  ],
+  "checks": {
+    "changedVisible": true,
+    "changedRatioWithinLimit": true,
+    "outsideSemanticMaskZero": true,
+    "headLocked": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "inactiveLowerLocked": true,
+    "localSourcePreservation": false
+  },
+  "pass": false
+}
