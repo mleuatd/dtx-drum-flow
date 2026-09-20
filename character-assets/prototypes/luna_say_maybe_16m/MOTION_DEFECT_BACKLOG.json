@@ -7547,7 +7547,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T13:19:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -8459,7 +8459,12 @@
         "reviewedAt": "2026-09-20T09:22:00+09:00",
         "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png"
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "CONTINUOUS-VERIFIED-08",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T13:19:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
@@ -8480,6 +8485,11 @@
           "at": "2026-09-20T09:22:00+09:00",
           "decision": "HOLD_REPAIR_PASS_1_CLOSED",
           "detail": "Released CHATGPT-FRONT claim after two local rebound candidates. Root issue is now classified as pair-level right RD arm/hand/stick duplication, not rebound-only. Formal PNGs unchanged."
+        },
+        {
+          "at": "2026-09-20T13:19:00+09:00",
+          "decision": "CLAIM_CONTINUOUS_COMPLETION",
+          "detail": "Selected as next unowned issue after MOTION-006 reconciliation. Continue from best existing RD+SN candidate/evidence until VERIFIED; do not restart broad repair."
         }
       ]
     },
