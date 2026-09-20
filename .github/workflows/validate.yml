@@ -77,6 +77,12 @@ jobs:
       - name: Luna full-song planning validation
         if: steps.scope.outputs.planningValidation == 'true'
         run: python tools/validate_luna_full_song_planning.py
+      - name: Luna limb authority / immutable chart validation
+        if: steps.scope.outputs.setupToolchains == 'true'
+        run: node tools/validate-luna-limb-authority.mjs
+      - name: Luna limb generator validation
+        if: steps.scope.outputs.setupToolchains == 'true'
+        run: node tools/generate-luna-full-limbs.mjs
       - name: Production pipeline validation
         if: steps.scope.outputs.pipelineValidation == 'true'
         run: python tools/validate_production_pipeline.py
