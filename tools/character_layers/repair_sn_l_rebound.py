@@ -2,7 +2,7 @@
 import json, hashlib, math
 from pathlib import Path
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 ROOT=Path(__file__).resolve().parents[2]
 BASE=ROOT/"character-assets/reference-models/luna_video_20260919"
@@ -90,21 +90,25 @@ for x in range(455,546):
 candidate=Image.fromarray(qa,"RGBA")
 mask=Image.fromarray((allowed.astype(np.uint8)*255),"L")
 
-# Human visual QA v6 diagnosis: source rebound itself contains a second,
-# non-authoritative upper-left hand/stick. The authoritative rebound wrist is
-# (593,496); the upper artifact sits around x640..700/y330..465. Restore only
-# that artifact corridor from approved neutral, preserving the lower rebound
-# hand/stick and all static regions.
-restore=Image.new("L",(W,H),0)
-rd=ImageDraw.Draw(restore)
+# Human visual QA v8: source rebound contains a second non-authoritative
+# upper-left hand/stick. Do NOT restore a broad rectangle/corridor from neutral:
+# that produced the v7 plaid/jacket patch. Instead, restore only pixels inside
+# the diagnosed unwanted-hand ROI that actually differ between source and
+# approved neutral, with a very small dilation to remove line-edge residue.
+roi=Image.new("L",(W,H),0)
+rd=ImageDraw.Draw(roi)
 rd.line([(600,300),(675,405)],fill=255,width=54)
 rd.ellipse([625,355,720,450],fill=255)
 rd.line([(675,405),(650,462)],fill=255,width=82)
-candidate.paste(neutral,(0,0),restore)
-allowed |= (np.asarray(restore)>0)
+roi_arr=np.asarray(roi)>0
+source_diff=np.any(np.asarray(source)!=np.asarray(neutral),axis=2)
+restore_arr=roi_arr & source_diff
+restore_img=Image.fromarray((restore_arr.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5))
+candidate.paste(neutral,(0,0),restore_img)
+allowed |= (np.asarray(restore_img)>0)
 mask=Image.fromarray((allowed.astype(np.uint8)*255),"L")
 
-candidate_path=OUTDIR/"sn_l_rebound_candidate_v7.png"
+candidate_path=OUTDIR/"sn_l_rebound_candidate_v8.png"
 candidate.save(candidate_path)
 
 # Exact raster diagnostics.
@@ -135,10 +139,10 @@ rebound_sep=dist(c["stickTip"],c["contactPoint"])
 
 # Composite debug: drum under candidate, preserving source canvas.
 comp=Image.alpha_composite(drum,candidate)
-comp.save(OUTDIR/"sn_l_rebound_candidate_v7_fixed_drum.png")
+comp.save(OUTDIR/"sn_l_rebound_candidate_v8_fixed_drum.png")
 
 report={
- "schemaVersion":7,
+ "schemaVersion":8,
  "issueId":"MOTION-001",
  "actionKey":"SN:L",
  "phase":"rebound",
@@ -151,6 +155,6 @@ report={
  "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"headGuardChangedPixels":guard_changed["head"]==0,"rightArmGuardChangedPixels":guard_changed["right_arm"]==0,"pelvisSeatGuardChangedPixels":guard_changed["pelvis_seat"]==0,"legsStoolGuardChangedPixels":guard_changed["legs_stool"]==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
 }
 report["pass"]=all(report["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v7_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+(OUTDIR/"sn_l_rebound_candidate_v8_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(report,ensure_ascii=False))
 if not report["pass"]: raise SystemExit(2)
