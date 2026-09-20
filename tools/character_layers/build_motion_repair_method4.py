@@ -176,6 +176,14 @@ for f in fails:
                 yy,xx=np.ogrid[:H,:W]
                 contact_keep=((xx-sn[0])**2+(yy-sn[1])**2 <= 54**2) & src_ink
             M=(M & ~left_zone) | ((M & C & left_zone) | contact_keep)
+            # Method9: remove known disconnected visual islands after Method8.
+            # These tiny regions were confirmed by full-resolution review and
+            # are outside the intended connected hand→stick/contact path.
+            if phase=="rebound":
+                reject=np.zeros((H,W),dtype=bool)
+                reject[260:315,455:510]=True
+                reject[650:790,600:705]=True
+                M &= ~reject
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
