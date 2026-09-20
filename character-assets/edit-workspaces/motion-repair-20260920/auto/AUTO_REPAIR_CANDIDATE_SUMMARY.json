@@ -47,9 +47,9 @@
           "part": "SN",
           "limb": "L",
           "radiusPx": 125,
-          "sourceRelevantPixels": 827,
+          "sourceRelevantPixels": 479,
           "preservedPixels": 479,
-          "preserveRatio": 0.5792
+          "preserveRatio": 1.0
         }
       ],
       "legacyRestStickProbePixels": null,
@@ -61,10 +61,10 @@
         "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
-        "localSourcePreservation": false,
+        "localSourcePreservation": true,
         "legacyRestStickCleared": true
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "hh_sn_r_l_rebound",
@@ -119,26 +119,26 @@
           "part": "SN",
           "limb": "L",
           "radiusPx": 180,
-          "sourceRelevantPixels": 256,
+          "sourceRelevantPixels": 86,
           "preservedPixels": 86,
-          "preserveRatio": 0.3359
+          "preserveRatio": 1.0
         }
       ],
       "legacyRestStickProbePixels": null,
       "checks": {
-        "changedVisible": false,
+        "changedVisible": true,
         "changedRatioWithinLimit": true,
         "outsideSemanticMaskZero": true,
         "headLocked": true,
         "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
-        "localSourcePreservation": false,
+        "localSourcePreservation": true,
         "legacyRestStickCleared": true
       },
-      "pass": false
+      "pass": true
     }
   ],
-  "passCount": 0,
-  "failCount": 2
+  "passCount": 2,
+  "failCount": 0
 }
