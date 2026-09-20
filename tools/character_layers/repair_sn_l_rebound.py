@@ -194,7 +194,13 @@ hit_arr=np.asarray(hit_image)
 v8_arr=np.asarray(candidate)
 pair_diff=np.any(hit_arr!=v8_arr,axis=2)
 pair_replace_arr=pair_roi_arr & pair_diff
-pair_replace=Image.fromarray((pair_replace_arr.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5))
+pair_replace_dil=np.asarray(Image.fromarray((pair_replace_arr.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5)))>0
+# Re-apply static exclusions AFTER dilation so edge growth cannot leak into
+# head/pelvis/right-side guards.
+pair_replace_dil[0:325,500:930]=False
+pair_replace_dil[560:810,560:980]=False
+pair_replace_dil[:,800:]=False
+pair_replace=Image.fromarray((pair_replace_dil.astype(np.uint8)*255),"L")
 
 candidate_v9=hit_image.copy()
 candidate_v9.paste(candidate,(0,0),pair_replace)
