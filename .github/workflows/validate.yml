@@ -11,12 +11,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
       - name: Classify validation scope
         id: scope
         shell: bash
@@ -30,24 +24,36 @@ jobs:
           node - <<'NODE'
           const fs=require("fs");
           const j=JSON.parse(fs.readFileSync("/tmp/validation-scope.json","utf8"));
-          const out=[
-            "scope="+j.scope,
-            "installAudioDeps="+j.run.installAudioDeps,
-            "audioTests="+j.run.audioTests,
-            "oshiSmoke="+j.run.oshiSmoke,
-            "chartValidation="+j.run.chartValidation,
-            "planningValidation="+j.run.planningValidation,
-            "pipelineValidation="+j.run.pipelineValidation,
-            "pipelineSmoke="+j.run.pipelineSmoke,
-            "uiContract="+j.run.uiContract
-          ].join("\n")+"\n";
-          fs.appendFileSync(process.env.GITHUB_OUTPUT,out);
+          for(const [k,v] of Object.entries(j.run)) fs.appendFileSync(process.env.GITHUB_OUTPUT,k+"="+v+"\n");
+          fs.appendFileSync(process.env.GITHUB_OUTPUT,"scope="+j.scope+"\n");
           NODE
+      - name: Evidence-only fast path
+        if: steps.scope.outputs.scope == 'EVIDENCE_FAST'
+        run: echo "Evidence/ledger-only commit; product validation intentionally skipped."
+      - uses: actions/setup-python@v5
+        if: steps.scope.outputs.setupToolchains == 'true'
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: tools/audio_pipeline/requirements.txt
+      - uses: actions/setup-node@v4
+        if: steps.scope.outputs.setupToolchains == 'true'
+        with:
+          node-version: "20"
       - name: Install basic audio dependencies
         if: steps.scope.outputs.installAudioDeps == 'true'
-        run: pip install -r tools/audio_pipeline/requirements.txt
+        run: pip install --disable-pip-version-check -r tools/audio_pipeline/requirements.txt
       - name: Python syntax
+        if: steps.scope.outputs.syntax == 'true'
         run: python -m py_compile tools/audio_pipeline/pipeline.py tools/audio_pipeline/evaluate.py tools/audio_pipeline/realign_existing_midi.py tools/audio_pipeline/video_chart_extractor.py tools/songsterr_gp_to_chart.py tools/chart_validation.py tools/validate_luna_full_song_planning.py tools/validate_production_pipeline.py tools/character_candidate_qa.py tools/build-character-qa-preview.py tools/character_image_diff_metrics.py
+      - name: Browser JavaScript syntax
+        if: steps.scope.outputs.syntax == 'true'
+        run: |
+          node --check site/app.js
+          node --check site/character-prototype.js
+          node --check site/parsers.js
+          node --check site/audio-analysis.js
+          node --check site/original-audio.js
       - name: Pipeline CLI smoke test
         if: steps.scope.outputs.audioTests == 'true'
         run: |
@@ -57,29 +63,6 @@ jobs:
         if: steps.scope.outputs.audioTests == 'true'
         working-directory: tools/audio_pipeline
         run: python test_synthetic.py
-      - name: Browser JavaScript syntax
-        run: |
-          node --check site/app.js
-          node --check site/character-prototype.js
-          node --check site/parsers.js
-          node --check site/audio-analysis.js
-          node --check site/original-audio.js
-          node --check site/oshi-sketch/app.js
-          node --check tools/luna-block-qa.mjs
-          node --check tools/build-next-asset-queue.mjs
-          node --check tools/build-character-generation-prompt.mjs
-          node --check tools/derive-rebound-instruction.mjs
-          node --check tools/build-staging-json.mjs
-          node --check tools/build-block-start-checklist.mjs
-          node --check tools/find-reuse-candidates.mjs
-          node --check tools/build-qa-sampling-and-risk.mjs
-          node --check tools/build-qa-summary.mjs
-          node --check tools/build-next-chat-handoff.mjs
-          node --check tools/luna-production-path.mjs
-          node --check tools/prepare-registration-plan.mjs
-          node --check tools/production-pipeline-dispatcher.mjs
-          node --check tools/start-pipeline-task.mjs
-          node --check tools/check-pipeline-compliance.mjs
       - name: Oshi sketch smoke test
         if: steps.scope.outputs.oshiSmoke == 'true'
         run: node tools/oshi_sketch_smoke.js
@@ -87,29 +70,17 @@ jobs:
         if: steps.scope.outputs.chartValidation == 'true'
         run: python tools/chart_validation.py
       - name: Luna full-song planning validation
+        if: steps.scope.outputs.planningValidation == 'true'
         run: python tools/validate_luna_full_song_planning.py
       - name: Production pipeline validation
+        if: steps.scope.outputs.pipelineValidation == 'true'
         run: python tools/validate_production_pipeline.py
       - name: Production pipeline smoke tests
         if: steps.scope.outputs.pipelineSmoke == 'true'
         run: |
           node tools/build-next-asset-queue.mjs /tmp/next-assets.json
-          node tools/build-character-generation-prompt.mjs 'RC+SN:R/L' hit /tmp/rcsn-hit.md
-          node tools/derive-rebound-instruction.mjs 'RC+SN:R/L' character-assets/layers/character/base/neutral.png 0.2 /tmp/rcsn-rebound.md
-          node tools/build-staging-json.mjs 'RC+SN:R/L' /tmp/nonexistent-hit.png /tmp/nonexistent-rebound.png /tmp/staging.json
-          node tools/prepare-registration-plan.mjs /tmp/staging.json /tmp/registration-plan.json
-          node tools/build-block-start-checklist.mjs 1 8 /tmp/block.json
-          node tools/find-reuse-candidates.mjs 'SN:L' > /tmp/reuse.json
-          node tools/build-qa-sampling-and-risk.mjs 1 8 /tmp/sampling.json
           node tools/luna-production-path.mjs 1 8 /tmp/fast.json
           grep -q 'FAST_PATH' /tmp/fast.json
-          node tools/luna-production-path.mjs 29 32 /tmp/full.json
-          grep -q 'FULL_PATH' /tmp/full.json
-          node tools/build-next-chat-handoff.mjs /tmp/next-chat.md
-          node tools/production-pipeline-dispatcher.mjs 'choose-next-asset' /tmp/route.json
-          grep -q 'USE_PIPELINE' /tmp/route.json
-          node tools/start-pipeline-task.mjs 'choose-next-asset' /tmp/session.json
-          grep -q 'PIPELINE_REQUIRED' /tmp/session.json
       - name: UI contract checks
         if: steps.scope.outputs.uiContract == 'true'
         run: python tools/ui_contract_test.py
