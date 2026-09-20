@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "gate": "PASS",
+  "checks": {
+    "sourceDropbox62Verified": true,
+    "audit62Entries": true,
+    "auditSummaryConsistent": true,
+    "passCount": 8,
+    "failCount": 53,
+    "reviewCount": 1,
+    "frameSpecsExpected": 62,
+    "frameSpecsPrepared": 62,
+    "actionSpecsExpected": 30,
+    "actionSpecsPrepared": 30,
+    "everyFailExcludedFromPositive": true,
+    "everyReviewNotPrimary": true,
+    "exactCanvas": true,
+    "hardEntityCountsSpecified": true,
+    "noFlipSpecified": true,
+    "drumLayerSeparate": true,
+    "allElevenDrumPartsSpecified": true,
+    "sourceProvenanceSeparated": true,
+    "automaticAndVisualQaSeparated": true
+  },
+  "reconciledContradictions": [
+    {
+      "issue": "Current runtime SN:R rebound maps to hit frame as a legacy continuity workaround",
+      "resolution": "generation semantics use audited 005_sn_r_rebound PASS as the rebound reference; runtime mapping may be updated only after new frame passes QA"
+    },
+    {
+      "issue": "Character images and fixed drum are separate layers",
+      "resolution": "generate character/stool/sticks aligned to 062 but do not redraw drum into character frame"
+    },
+    {
+      "issue": "Rough hand-drawn line vs anatomical quality",
+      "resolution": "line irregularity is permitted; duplicate/missing/disconnected anatomy is never permitted"
+    }
+  ],
+  "refinementNotes": [
+    "LC/LP/LB and some visible instrument centers are medium-confidence 062 measurements because runtime code exposes exact effect points only for HH/SN/BD/HT/LT/FT/RC/RD.",
+    "Neutral human landmarks are SOFT visual measurements with explicit tolerances; they are not hard pixel locks.",
+    "Future automated landmark extraction may tighten these soft values if it does not contradict PASS references or fixed camera identity."
+  ]
+}
