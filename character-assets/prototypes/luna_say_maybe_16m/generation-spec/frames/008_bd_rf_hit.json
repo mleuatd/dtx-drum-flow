@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 8,
+  "sourceFilename": "008_bd_rf_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD:RF",
+  "runtimeActionKey": "BD:RF",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカート下端から脚への接続も分断している。"
+  ],
+  "defectRegions": [
+    "waist",
+    "skirt",
+    "left_leg",
+    "right_leg",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_RF.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD:RF hit/rebound",
+    "negativeAttention": [
+      "waist",
+      "skirt",
+      "left_leg",
+      "right_leg",
+      "artifact"
+    ]
+  }
+}
