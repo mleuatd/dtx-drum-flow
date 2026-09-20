@@ -42,6 +42,7 @@ jobs:
           git add character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json
           git add character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json
           git add character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
+          git add character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_PROMOTION_RESULT.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fix: promote guarded motion repair candidates"
           for attempt in 1 2 3 4 5; do
