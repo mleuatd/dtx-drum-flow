@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T02:13:42.936984+00:00",
+  "updatedAt": "2026-09-20T02:14:00+00:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12942,7 +12942,7 @@
     },
     {
       "issueId": "MOTION-015",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -13930,17 +13930,18 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
-        "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
-        "reviewedAt": "2026-09-20T08:56:00+09:00",
+        "reviewedAt": "2026-09-20T11:14:00+09:00",
         "reviewEvidence": {
-          "workflowRunId": 35476577082,
-          "artifactId": 10594860319
+          "workflowRunId": 35483412572,
+          "artifactId": 10596267183,
+          "candidateHitSha256": "36a026a322b5a03a63fd84f5b9a583a8e17f367cd885b145c55160f3810b7dd0",
+          "candidateReboundSha256": "3b8433143925ac0445f689d61fb715032484113de337c9681019d55c3a1618a7"
         },
         "failReasons": [
-          "duplicated left hand/arm-stick geometry, floating fragments, and seat splice"
-        ]
+          "Machine QA passes both phases, but full-resolution fixed-drum review still shows incoherent left hand/stick geometry.",
+          "Rebound retains obvious floating/disconnected line fragments around the left stick/tom corridor; promotion is blocked."
+        ],
+        "nextRepair": "Keep this CLAIM. Use the current machine-PASS pair as parent; switch from broad source transplant to pair-level continuity reconstruction/fragment rejection limited to the active left hand→grip→stick→tip corridor. Preserve the now-passing RF pedal corridor, head, pelvis outside permitted RF motion, stool, and unrelated body regions."
       },
       "claim": {
         "state": "CLAIMED",
@@ -13973,6 +13974,11 @@
           "at": "2026-09-20T11:02:00+09:00",
           "decision": "PASS2_BACK_RESTART_CONDITION_STILL_UNMET",
           "detail": "Latest main still records two failed source-binding attempts and requires a verifiably target-bound editor. No blind third retry; claim released so queue can continue."
+        },
+        {
+          "at": "2026-09-20T11:14:00+09:00",
+          "decision": "PASS2_M015_MACHINE_PASS_VISUAL_FAIL_CONTINUE",
+          "detail": "Run 35483412572 artifact 10596267183: hit/rebound both machine PASS after RF corridor and QA corrections. Full-resolution fixed-drum inspection still FAILS left hand/stick continuity; rebound contains floating/disconnected fragments. Do not promote. Retain CLAIM and continue from these candidates with pair-level continuity reconstruction/fragment rejection."
         }
       ],
       "hold": {
