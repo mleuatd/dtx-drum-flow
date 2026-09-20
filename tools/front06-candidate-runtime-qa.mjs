@@ -18,11 +18,14 @@ const events=groups.map((g,i)=>({g,i,key:keyFor(g),time:Number(g[0].time),measur
 const timing=inv.motionTiming||{},hitEnd=Number(timing.hitEndSeconds??.09),reboundEnd=Number(timing.reboundEndSeconds??.17);
 const targetEvents=events.filter(x=>x.key===TARGET).map(x=>({...x,prevGap:x.time-x.prev,nextGap:x.next-x.time}));
 if(!targetEvents.length)throw new Error("real chart target missing: "+TARGET);
-targetEvents.sort((a,b)=>Math.min(b.prevGap,b.nextGap)-Math.min(a.prevGap,a.nextGap));
-const ev=targetEvents[0],before=ev.time-.02,hit=ev.time+.012,rebound=ev.time+hitEnd+(reboundEnd-hitEnd)*.48,after=ev.time+reboundEnd+.012;
-if(!(before>ev.prev+reboundEnd+.006&&after<ev.next-.006))throw new Error(`no collision-free real-chart occurrence for ${TARGET}; best measure=${ev.measure} prevGap=${ev.prevGap} nextGap=${ev.nextGap}`);
-const expectedFrame=phase=>{if(phase==="neutral")return inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";const id=inv.runtimePhaseFrameMap?.[TARGET]?.[phase]||inv.runtimeFrameMap?.[TARGET];return inv.requiredFrames?.[id]?.path||"";};
-const points=[{label:"neutral_before",time:before,phase:"neutral",key:"neutral",frame:expectedFrame("neutral")},{label:"hit",time:hit,phase:"hit",key:TARGET,frame:expectedFrame("hit")},{label:"rebound",time:rebound,phase:"rebound",key:TARGET,frame:expectedFrame("rebound")},{label:"neutral_after",time:after,phase:"neutral",key:"neutral",frame:expectedFrame("neutral")}];
+targetEvents.sort((a,b)=>b.nextGap-a.nextGap);
+const ev=targetEvents.find(x=>x.nextGap>reboundEnd+.018);
+if(!ev)throw new Error(`no real-chart occurrence has enough post-hit gap for rebound/neutral: ${TARGET}`);
+const before=ev.time-.012,hit=ev.time+.012,rebound=ev.time+hitEnd+(reboundEnd-hitEnd)*.48,after=ev.time+reboundEnd+.012;
+const phaseForEvent=(e,time)=>{const delta=time-e.time;if(delta<0)return "neutral";const gap=Math.max(0,e.next-e.time);let h=hitEnd,r=reboundEnd;if(Number.isFinite(gap)&&gap<reboundEnd){h=Math.min(hitEnd,Math.max(.055,gap*.65));r=Math.min(reboundEnd,Math.max(h+.02,gap-.004));}if(delta<h)return "hit";if(delta<r)return "rebound";return "neutral";};
+const expectedAt=time=>{let e=null;for(const x of events){if(x.time<=time)e=x;else break;}if(!e)return {key:"neutral",phase:"neutral"};const phase=phaseForEvent(e,time);return phase==="neutral"?{key:"neutral",phase}:{key:e.key,phase};};
+const expectedFrame=(key,phase)=>{if(phase==="neutral")return inv.requiredFrames?.neutral?.path||"layers/character/base/neutral.png";const id=inv.runtimePhaseFrameMap?.[key]?.[phase]||inv.runtimeFrameMap?.[key];return inv.requiredFrames?.[id]?.path||"";};
+const points=[["before_neighbor",before],["hit",hit],["rebound",rebound],["neutral_after",after]].map(([label,time])=>{const x=expectedAt(time);return {label,time,...x,frame:expectedFrame(x.key,x.phase)};});
 await fs.mkdir(ROOT,{recursive:true});
 const browser=await chromium.launch({headless:true});const records=[];let failed=0;
 for(const vp of [{name:"pc",width:1280,height:900},{name:"xperia-portrait",width:384,height:864}]){
