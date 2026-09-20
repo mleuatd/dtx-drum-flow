@@ -2,12 +2,28 @@
   "schemaVersion": 1,
   "issueId": "MOTION-010",
   "actionKey": "RD:R",
-  "status": "FORMAL_PROMOTED_RUNTIME_QA_PENDING",
+  "status": "M010_RD_R_PUBLIC_RUNTIME_QA_PASSED",
   "exactCandidate": {
     "hitSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
     "reboundSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
     "candidateRunId": 35487498512,
     "candidateArtifactId": 10598596203
   },
-  "runtimeQaEvidence": {}
+  "runtimeQaEvidence": {
+    "M010-RD-R": {
+      "status": "PASS",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "35487914966",
+      "testedCommitSha": "afdcd20471b27d8e0b7dcdf3e0f97d664358aa51",
+      "artifact": "public-runtime-qa-35487914966",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35487914966",
+      "measureStart": 130,
+      "measureEnd": 130,
+      "actions": [
+        "RD:R"
+      ]
+    }
+  },
+  "blocker": null,
+  "updatedAt": "2026-09-20T03:58:39.133595+00:00"
 }
