@@ -9,6 +9,9 @@ on:
       - '.github/back-visual-actions.txt'
 permissions:
   contents: write
+concurrency:
+  group: motion-repair-back
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
