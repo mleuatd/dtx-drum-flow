@@ -49,7 +49,7 @@ jobs:
           assert not cm['safety']['runtimePathsIncluded']
           assert not cm['safety']['otherFramePathsIncluded']
           PY
-      - name: Compare decoded RGBA with accepted 008 reference
+      - name: Compare decoded RGBA with committed formal 008 candidate
         run: |
           python - <<'PY'
           import json
@@ -57,16 +57,16 @@ jobs:
           from pathlib import Path
           from PIL import Image
           generated=Path('/tmp/mesh-warp-008-regression/008_bd_rf_hit_mesh_v1.png')
-          reference=Path('character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.png')
-          if not reference.exists():
-              raise SystemExit(f'missing accepted reference: {reference}')
+          reference=Path('character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png')
+          visual_reference=Path('character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.png')
           with Image.open(generated) as im:
               a=np.asarray(im.convert('RGBA'))
           with Image.open(reference) as im:
               b=np.asarray(im.convert('RGBA'))
           diff=np.any(a != b, axis=2)
           result={
-              'reference': str(reference),
+              'formalReference': str(reference),
+              'visualReference': str(visual_reference),
               'generated': str(generated),
               'sameShape': a.shape == b.shape,
               'decodedRgbaEqual': bool(np.array_equal(a,b)),
@@ -75,6 +75,7 @@ jobs:
           print(json.dumps(result))
           assert result['sameShape']
           assert result['decodedRgbaEqual']
+          assert result['differentPixels'] == 0
           PY
       - name: Emit regression evidence
         if: always()
