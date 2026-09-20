@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T12:06:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -3797,7 +3797,7 @@
     },
     {
       "issueId": "MOTION-005",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M137,M109",
       "time": "~238.68-238.83s",
@@ -3813,9 +3813,11 @@
         "pc/m137_BD_HH_RF_R_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 14.49% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
         "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
-        "Independent recurrence in public runtime QA run 35427385671: M109, changed-pixel ratio 14.25% (triage metric)"
+        "Independent recurrence in public runtime QA run 35427385671: M109, changed-pixel ratio 14.25% (triage metric)",
+        "M005 donor rebuild run 35485639305 artifact 10596949716",
+        "visual FAIL: HH donor carries duplicate torso/arms; BD RF component itself remains isolated/clean"
       ],
-      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "fixDecision": "Dependency isolated: combo failure is dominated by unresolved single-action HH:R source (MOTION-007), while BD/RF donor mechanism is already VERIFIED via MOTION-002/003. Repair MOTION-007 first, then rebuild M005 from neutral + clean HH + VERIFIED BD.",
       "relatedAsset": [
         "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
         "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
@@ -3826,7 +3828,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:36:00+09:00",
+      "updatedAt": "2026-09-20T12:06:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "HOLD_VISUAL_INTEGRITY",
@@ -4389,6 +4391,11 @@
             "at": "2026-09-20T08:36:00+09:00",
             "decision": "HOLD_VISUAL_INTEGRITY",
             "detail": "Batch 08 corrected evidence: duplicated/disconnected left limb/stick and seat splice. Structural candidate reconstruction required; preserve formal PNG."
+          },
+          {
+            "at": "2026-09-20T12:06:00+09:00",
+            "decision": "DEPENDENCY_ON_MOTION_007_ISOLATED",
+            "detail": "Neutral + HH + VERIFIED BD rebuild showed duplicate torso/arms entirely from HH donor lineage. Stop combo retries until HH:R base action is clean."
           }
         ],
         "measurementTodos": [
@@ -4687,12 +4694,7 @@
         "workflowRunId": 35475852782,
         "artifactId": 10594059870
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FRONT-M005-FASTPIPE",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T12:03:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:36:00+09:00",
@@ -5624,7 +5626,7 @@
     },
     {
       "issueId": "MOTION-007",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M142,M115",
       "time": "~248.40-248.54s",
@@ -6456,7 +6458,12 @@
           "one alpha-safe retry still failed"
         ]
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FRONT-M007-ROOT",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T12:06:00+09:00"
+      },
       "hold": {
         "repairResult": "Existing alpha-safe retry still fails static anatomy/linework/fixed-drum gates.",
         "nextRepair": "Use verifiably source-bound or deterministic semantic ROI reconstruction for right HH arm/hand/stick; remove horizontal splice at cause.",
