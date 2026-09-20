@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T20:01:00+09:00",
+  "updatedAt": "2026-09-20T20:14:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1126,7 +1126,7 @@
       "updatedAt": "2026-09-20T11:46:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "PROMOTED_PENDING_PUBLIC_RUNTIME_QA",
+        "state": "VERIFIED",
         "repairType": "mixed",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -1691,6 +1691,11 @@
             "at": "2026-09-20T09:52:00+09:00",
             "decision": "FRONT_SHARED_BUILDER_PAIR_FAIL",
             "detail": "Shared HOLD_REPAIR builder run 35479776296 / artifact 10595312697 generated both BD+RC phases. Machine QA failed both due BD/RF local preservation near zero; human full-resolution QA also shows neutral/right-arm residue plus added RC arm, producing duplicated right-arm/hand-stick geometry. Root cause is pair-level compositing/pose replacement, not a light local line defect. Formal PNGs unchanged."
+          },
+          {
+            "at": "2026-09-20T20:14:00+09:00",
+            "decision": "RECONCILE_VERIFIED_METADATA",
+            "detail": "Reconciled stale pre-FRONT06 visualIntegrityQa/promotionBlocked fields with later VERIFIED evidence already recorded on the issue: FRONT06 v3 static pair PASS, candidate PC/Xperia PASS, formal validation PASS, and public PC/Xperia runtime PASS run 35484762334 artifact 10596248930."
           }
         ],
         "measurementTodos": [
@@ -1981,17 +1986,17 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_RIGHT_ARM_DUPLICATION",
-        "linework": "FAIL_RIGHT_HAND_STICK_DUPLICATION",
-        "fixedDrumComposite": "FAIL_RC_STRIKE_SEMANTICS",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Shared-builder candidate pair failed. Must replace old right-arm pose rather than layer RC arm on top, while independently preserving BD/RF foot semantics. No formal promotion.",
-        "reviewedAt": "2026-09-20T09:52:00+09:00",
-        "visualQaRunId": 35474616622,
-        "visualQaArtifactId": 10593307774
+        "priorStatus": "PROMOTED_PENDING_PUBLIC_RUNTIME_QA",
+        "note": "Supersedes the earlier shared-builder FAIL. FRONT06 v3 subsequently passed static pair QA, candidate real-chart PC/Xperia QA, formal validation, and public real-chart PC/Xperia runtime QA (run 35484762334, artifact 10596248930).",
+        "reviewedAt": "2026-09-20T11:46:00+09:00",
+        "visualQaRunId": 35484762334,
+        "visualQaArtifactId": 10596248930
       },
       "decisionLog": [
         {
@@ -7537,7 +7542,7 @@
             "phase": "rebound",
             "oldSha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
             "newSha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31",
-            "changedRatioVsNeutral": 5.787e-05
+            "changedRatioVsNeutral": 0.00005787
           }
         ],
         "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
