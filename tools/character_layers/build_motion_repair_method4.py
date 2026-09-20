@@ -134,27 +134,13 @@ for f in fails:
             rd.line([sh,grip,rc],fill=255,width=72 if phase=="hit" else 62,joint="curve")
             rd.ellipse([grip[0]-48,grip[1]-48,grip[0]+48,grip[1]+48],fill=255)
             local |= (np.asarray(rcgeom)>0)
-        if "bd_rc_sn" in tid:
-        # M011 visual pass 1: remove the obvious rebound-only rectangular
-        # seat/pelvis splice while preserving the bounded active-limb repair.
-        if phase=="rebound":
-            reject=np.zeros((H,W),dtype=bool)
-            reject[610:760,700:930]=True
-            M &= ~reject
-            # Restore only source-supported RF pedal/leg ink inside its proven
-            # corridor; the stool/pelvis rectangle remains neutral.
-            rf=np.zeros((H,W),dtype=bool); rf[610:1010,600:760]=True
-            M |= (G & D & rf)
-    if "bd_hh_sn" in tid:
+        if "bd_hh_sn" in tid:
             # MOTION-015 visual-fail refinement. Keep the current formal pair
             # as the source authority but admit only compact, phase-specific
             # hand/stick corridors plus the already-proven RF pedal corridor.
-            # HH contact is far left at x=190,y=390; include the complete
-            # right-hand-to-HH stick path so rebound contact evidence is not
-            # clipped by the previous x>=760 local box.
-            local[300:600,300:700]=True   # L: hand/grip/SN stick corridor
-            local[280:535,140:1110]=True  # R: hand/grip/HH stick to HH contact
-            local[590:1010,600:910]=True  # RF: BD leg/pedal corridor
+            local[300:600,300:700]=True
+            local[280:535,140:1110]=True
+            local[590:1010,600:910]=True
         if tid in ("hh_r_hit","hh_r_rebound"):
             # Proven completion pattern: keep the formal HH frame as source
             # authority, but admit only the one coherent active right-arm/stick
@@ -178,6 +164,12 @@ for f in fails:
         else:
             local[205:442,850:1115]=True # rebound: one upper right RD corridor
         M &= local
+        if "bd_rc_sn" in tid and phase=="rebound":
+            # Remove the observed seat/pelvis rectangular splice only after the
+            # active-limb mask has been applied. Preserve the proven RF corridor.
+            reject=np.zeros((H,W),dtype=bool)
+            reject[610:760,760:930]=True
+            M &= ~reject
     # MOTION-015 method5: topology-aware fragment rejection.  Method4's
     # rectangular local corridor passed pixel QA but leaked disconnected white
     # source patches into the composite.  For this pair, keep only changed-ink
