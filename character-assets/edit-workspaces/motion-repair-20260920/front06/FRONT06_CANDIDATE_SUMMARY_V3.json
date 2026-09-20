@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 3,
+  "issueId": "MOTION-002",
+  "actionKey": "BD+RC:RF/R",
+  "batch": "HOLD-REPAIR-FRONT-06",
+  "method": "v3: keep single-arm RC destructive replacement; preserve neutral pelvis/thigh; transplant BD/RF only from knee through boot",
+  "parentEvidence": {
+    "hit": {
+      "candidateSha256": "beef2e3762f945eb6b222e1bbb59c55f8747b204ec30be4fac93b9a4c3aaac7d"
+    },
+    "rebound": {
+      "candidateSha256": "36b83c287a3e9e5e3e000671418f9aea28de97f8fee6efc1f3226b7872a9c2ef"
+    }
+  },
+  "sources": {
+    "neutral": {
+      "path": "character-assets/layers/character/base/neutral.png",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+    },
+    "bd_hit": {
+      "path": "character-assets/layers/character/bd/hit_rf.png",
+      "sha256": "048513241f9b3c839506347a68859cc6582abc7d506b7c644babcc89df87979f"
+    },
+    "bd_rebound": {
+      "path": "character-assets/layers/character/bd/rebound_rf.png",
+      "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660"
+    },
+    "rc_hit": {
+      "path": "character-assets/layers/character/rc/hit_r_refresh.png",
+      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5"
+    },
+    "rc_rebound": {
+      "path": "character-assets/layers/character/rc/rebound_r_refresh.png",
+      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a"
+    },
+    "drum": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85"
+    }
+  },
+  "phases": [
+    {
+      "phase": "hit",
+      "parentCandidate": "v2",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_hit_candidate_v3.png",
+      "candidateSha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+      "changedRois": [
+        "RC right-arm destructive replacement",
+        "BD/RF knee-to-boot corridor"
+      ],
+      "improvementIntent": [
+        "remove v2 hip/skirt splice",
+        "keep neutral pelvis/thigh",
+        "preserve stool core",
+        "retain single RC arm/hand/stick"
+      ],
+      "rcMaskPixels": 21904,
+      "bdMaskPixels": 47988,
+      "maskOverlapPixels": 0,
+      "changedPixelsVsNeutral": 45551,
+      "changedBBoxVsNeutral": {
+        "x": 600,
+        "y": 136,
+        "width": 624,
+        "height": 858
+      },
+      "rcDonorPreserveRatio": 1.0,
+      "bdDonorPreserveRatio": 1.0,
+      "rfMotionVisiblePixels": 40582,
+      "checks": {
+        "maskDisjoint": true,
+        "outsideMaskZero": true,
+        "headLocked": true,
+        "leftSideLocked": true,
+        "stoolCoreLocked": true,
+        "rcDonorExactInActiveMask": true,
+        "bdDonorExactInActiveMask": true,
+        "rfMotionVisible": true,
+        "candidateDiffVisible": true
+      },
+      "machinePass": true
+    },
+    {
+      "phase": "rebound",
+      "parentCandidate": "v2",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_rebound_candidate_v3.png",
+      "candidateSha256": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b",
+      "changedRois": [
+        "RC right-arm destructive replacement",
+        "BD/RF knee-to-boot corridor"
+      ],
+      "improvementIntent": [
+        "remove v2 hip/skirt splice",
+        "keep neutral pelvis/thigh",
+        "preserve stool core",
+        "retain single RC arm/hand/stick"
+      ],
+      "rcMaskPixels": 14295,
+      "bdMaskPixels": 40060,
+      "maskOverlapPixels": 0,
+      "changedPixelsVsNeutral": 35139,
+      "changedBBoxVsNeutral": {
+        "x": 600,
+        "y": 216,
+        "width": 519,
+        "height": 788
+      },
+      "rcDonorPreserveRatio": 1.0,
+      "bdDonorPreserveRatio": 1.0,
+      "rfMotionVisiblePixels": 31879,
+      "checks": {
+        "maskDisjoint": true,
+        "outsideMaskZero": true,
+        "headLocked": true,
+        "leftSideLocked": true,
+        "stoolCoreLocked": true,
+        "rcDonorExactInActiveMask": true,
+        "bdDonorExactInActiveMask": true,
+        "rfMotionVisible": true,
+        "candidateDiffVisible": true
+      },
+      "machinePass": true
+    }
+  ],
+  "pairMachinePass": true,
+  "nextGate": "full-resolution human anatomy + arm/hand/stick + linework + fixed-drum + transition QA"
+}

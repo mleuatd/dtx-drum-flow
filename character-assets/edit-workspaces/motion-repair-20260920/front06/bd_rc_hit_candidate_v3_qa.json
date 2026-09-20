@@ -1,0 +1,41 @@
+{
+  "phase": "hit",
+  "parentCandidate": "v2",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_hit_candidate_v3.png",
+  "candidateSha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+  "changedRois": [
+    "RC right-arm destructive replacement",
+    "BD/RF knee-to-boot corridor"
+  ],
+  "improvementIntent": [
+    "remove v2 hip/skirt splice",
+    "keep neutral pelvis/thigh",
+    "preserve stool core",
+    "retain single RC arm/hand/stick"
+  ],
+  "rcMaskPixels": 21904,
+  "bdMaskPixels": 47988,
+  "maskOverlapPixels": 0,
+  "changedPixelsVsNeutral": 45551,
+  "changedBBoxVsNeutral": {
+    "x": 600,
+    "y": 136,
+    "width": 624,
+    "height": 858
+  },
+  "rcDonorPreserveRatio": 1.0,
+  "bdDonorPreserveRatio": 1.0,
+  "rfMotionVisiblePixels": 40582,
+  "checks": {
+    "maskDisjoint": true,
+    "outsideMaskZero": true,
+    "headLocked": true,
+    "leftSideLocked": true,
+    "stoolCoreLocked": true,
+    "rcDonorExactInActiveMask": true,
+    "bdDonorExactInActiveMask": true,
+    "rfMotionVisible": true,
+    "candidateDiffVisible": true
+  },
+  "machinePass": true
+}
