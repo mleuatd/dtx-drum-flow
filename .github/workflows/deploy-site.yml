@@ -92,6 +92,28 @@ jobs:
           printf '{"version":"POST-FIX","commitSha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$BUILT_AT" > site/post-fix/build.json
           printf '{"version":"PRE-FIX","commitSha":"a4e3854449e292264192afa63469edf0fb5048af","builtAt":"%s"}\n' "$BUILT_AT" > site/pre-fix/build.json
 
+      - name: Validate staged PRE/POST snapshots
+        run: |
+          set -euo pipefail
+          test -f site/index.html
+          test -f site/pre-fix/index.html
+          test -f site/post-fix/index.html
+          test -f site/pre-fix/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+          test -f site/post-fix/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+          test -f site/pre-fix/version-switcher.js
+          test -f site/post-fix/version-switcher.js
+          grep -q 'version-switcher.js' site/index.html
+          grep -q 'version-switcher.js' site/pre-fix/index.html
+          grep -q 'version-switcher.js' site/post-fix/index.html
+          grep -q '"version":"PRE-FIX"' site/pre-fix/build.json
+          grep -q '"version":"POST-FIX"' site/post-fix/build.json
+          if diff -qr site/pre-fix/character-assets/layers site/post-fix/character-assets/layers >/tmp/pre-post-assets.diff; then
+            echo "PRE-FIX and POST-FIX character layer trees are unexpectedly identical"
+            exit 1
+          fi
+          echo "PRE/POST staged snapshots validated"
+          head -n 20 /tmp/pre-post-assets.diff
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
@@ -107,3 +129,24 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Verify published PRE/POST routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="${{ steps.deployment.outputs.page_url }}"
+          BASE="${BASE%/}"
+          fetch() {
+            curl --fail --silent --show-error --location --retry 12 --retry-delay 5 --retry-all-errors "$1"
+          }
+          ROOT_HTML="$(fetch "$BASE/")"
+          PRE_HTML="$(fetch "$BASE/pre-fix/")"
+          POST_HTML="$(fetch "$BASE/post-fix/")"
+          PRE_BUILD="$(fetch "$BASE/pre-fix/build.json")"
+          POST_BUILD="$(fetch "$BASE/post-fix/build.json")"
+          printf '%s' "$ROOT_HTML" | grep -q 'version-switcher.js'
+          printf '%s' "$PRE_HTML" | grep -q 'version-switcher.js'
+          printf '%s' "$POST_HTML" | grep -q 'version-switcher.js'
+          printf '%s' "$PRE_BUILD" | grep -q '"version":"PRE-FIX"'
+          printf '%s' "$POST_BUILD" | grep -q '"version":"POST-FIX"'
+          echo "Published root/PRE-FIX/POST-FIX routes verified"
