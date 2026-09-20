@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T10:18:00+09:00",
+  "updatedAt": "2026-09-20T11:20:00+09:00",
   "authority": "Latest GitHub main plus MOTION_DEFECT_BACKLOG.json. This file defines shared HOLD-repair execution for all terminals.",
   "objective": "Convert HOLD_VISUAL_INTEGRITY pairs to VERIFIED accurately without cross-terminal collision or premature formal promotion.",
   "coordination": {
@@ -91,6 +91,55 @@
     "iterationPolicy": "Prefer multiple bounded candidate iterations inside one claimed work unit. Never promote a failed candidate. Preserve formal PNG for rollback.",
     "userUiPolicy": "Intermediate image previews are not a required deliverable. Prefer GitHub Actions/artifacts/evidence bundles and report only meaningful batch results.",
     "safety": "If the only available image-edit path cannot verifiably bind the exact source PNG, do not invoke unbound generation repeatedly. Record the block and move to an independently repairable target.",
-    "sharing": "All terminals must read this executionModel from latest main before repair so FRONT/BACK use the same loop."
+    "sharing": "All terminals must read this executionModel from latest main before repair so FRONT/BACK use the same loop.",
+    "efficiencyMode": {
+      "mode": "DEFECT_FAMILY_BATCH",
+      "enabled": true,
+      "primaryMetric": "VERIFIED count, not candidate/inspection count",
+      "rules": [
+        "Cluster HOLD targets by root-cause family before retrying: limb/stick duplication-disconnection, rectangular splice/dropout, registration/body shift.",
+        "Never rerun a method already evidenced as machine-PASS but visual-FAIL for the same target/root cause.",
+        "Reuse one repair recipe across compatible targets, but keep candidate/formal promotion and pair-level QA isolated per actionKey.",
+        "Batch machine QA/evidence generation for compatible targets; perform full-resolution visual QA after the batch rather than rebuilding evidence one target at a time.",
+        "Skip rediscovery when backlog already records exact defect, prohibited methods, and nextRepair; begin at repair stage.",
+        "If a family recipe produces no VERIFIED promotion after two bounded candidate iterations, stop that recipe and switch repair mechanism rather than continuing retries.",
+        "Respect active claims from other terminals; do not include claimed actionKeys in a BACK family batch."
+      ],
+      "currentBackFamilies": [
+        {
+          "family": "limb_stick_duplication_disconnection",
+          "actionKeys": [
+            "RD:R",
+            "BD+RC+SN:RF/R/L"
+          ],
+          "issues": [
+            "MOTION-010",
+            "MOTION-011"
+          ]
+        },
+        {
+          "family": "rectangular_splice_plus_limb_break",
+          "actionKeys": [
+            "HT:R",
+            "BD+HT:RF/R",
+            "BD+SN:RF/L"
+          ],
+          "issues": [
+            "MOTION-012",
+            "MOTION-013",
+            "MOTION-014"
+          ]
+        },
+        {
+          "family": "registration_or_structural_integrity",
+          "actionKeys": [
+            "BD+HH+SN:RF/R/L"
+          ],
+          "issues": [
+            "MOTION-015"
+          ]
+        }
+      ]
+    }
   }
 }
