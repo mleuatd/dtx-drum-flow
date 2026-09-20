@@ -126,5 +126,57 @@ for i,f in enumerate(frames):
 strip.save(OUT/"rc_sn_v5_transition.jpg",quality=95)
 summary["pairMachinePass"]=all(x["machinePass"] for x in summary["phases"])
 (OUT/"M004_V5_SUMMARY.json").write_text(json.dumps(summary,indent=2)+"\n")
-print(json.dumps({"pairMachinePass":summary["pairMachinePass"],"phases":[(x["phase"],x["candidateSha256"]) for x in summary["phases"]]}))
+
+# v6: source-bound local repair from the exact v5 parent.
+# Full-resolution visual QA found one inactive SN-donor hand/forearm/stick
+# remaining above the intended SN arm. Restore only this measured ROI from
+# the neutral/common-body authority. Nothing outside this rectangle may move.
+V6_REPAIR_ROI=(560,270,720,445)
+v6={"schemaVersion":6,"issueId":"MOTION-004","actionKey":"RC+SN:R/L",
+ "parentVersion":"v5","repairType":"source_bound_local_reconstruction",
+ "repairRoiPx":{"x":560,"y":270,"width":160,"height":175},
+ "repairReason":"remove inactive SN-donor upper hand/forearm/stick residue found by full-resolution visual QA",
+ "sources":summary["sources"],"phases":[]}
+
+for phase in ("hit","rebound"):
+    v5p=OUT/f"rc_sn_{phase}_candidate_v5.png"
+    parent=Image.open(v5p).convert("RGBA")
+    cand=parent.copy()
+    cand.paste(I["neutral"].crop(V6_REPAIR_ROI),V6_REPAIR_ROI)
+    cp=OUT/f"rc_sn_{phase}_candidate_v6.png"
+    cand.save(cp)
+    Image.alpha_composite(I["drum"],cand).save(OUT/f"rc_sn_{phase}_candidate_v6_fixed_drum.png")
+
+    A=np.asarray(parent); C=np.asarray(cand)
+    changed=np.any(A!=C,axis=2)
+    roi=np.zeros((H,W),bool)
+    x1,y1,x2,y2=V6_REPAIR_ROI; roi[y1:y2,x1:x2]=True
+    checks={
+      "outsideV5RepairRoiZero":bool(int(np.count_nonzero(changed&~roi))==0),
+      "pelvisLocked":bool(guard(changed,PELVIS)==0),
+      "stoolLocked":bool(guard(changed,STOOL)==0),
+      "lowerBodyLocked":bool(int(np.count_nonzero(changed[620:,:]))==0),
+      "canvasLocked":bool(cand.size==parent.size==(W,H)),
+    }
+    rec={"phase":phase,"candidate":str(cp.relative_to(ROOT)),"candidateSha256":sha(cp),
+      "parentCandidateSha256":sha(v5p),"repairChangedPixels":int(changed.sum()),
+      "repairChangedBBox":bbox(changed),"checks":checks,"machinePass":all(checks.values())}
+    (OUT/f"rc_sn_{phase}_candidate_v6_qa.json").write_text(json.dumps(rec,indent=2)+"\n")
+    v6["phases"].append(rec)
+
+frames=[I["neutral"],Image.open(OUT/"rc_sn_hit_candidate_v6.png").convert("RGBA"),Image.open(OUT/"rc_sn_rebound_candidate_v6.png").convert("RGBA"),I["neutral"]]
+strip=Image.new("RGB",(1920,360),"white")
+for i,f in enumerate(frames):
+    comp=Image.alpha_composite(I["drum"],f).convert("RGB"); comp.thumbnail((480,360))
+    strip.paste(comp,(i*480,0))
+strip.save(OUT/"rc_sn_v6_transition.jpg",quality=95)
+v6["pairMachinePass"]=all(x["machinePass"] for x in v6["phases"])
+(OUT/"M004_V6_SUMMARY.json").write_text(json.dumps(v6,indent=2)+"\n")
+
+print(json.dumps({
+ "v5PairMachinePass":summary["pairMachinePass"],
+ "v6PairMachinePass":v6["pairMachinePass"],
+ "v6Phases":[(x["phase"],x["candidateSha256"]) for x in v6["phases"]]
+}))
 if not summary["pairMachinePass"]: raise SystemExit(2)
+if not v6["pairMachinePass"]: raise SystemExit(3)
