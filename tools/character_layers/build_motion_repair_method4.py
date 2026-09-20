@@ -114,10 +114,11 @@ for f in fails:
             # MOTION-015 visual-fail refinement. Keep the current formal pair
             # as the source authority but admit only compact, phase-specific
             # hand/stick corridors plus the already-proven RF pedal corridor.
-            # This rejects the floating lower-left fragments and prevents the
-            # broad transplant that failed full-resolution visual QA.
+            # HH contact is far left at x=190,y=390; include the complete
+            # right-hand-to-HH stick path so rebound contact evidence is not
+            # clipped by the previous x>=760 local box.
             local[300:600,300:700]=True   # L: hand/grip/SN stick corridor
-            local[255:555,760:1110]=True  # R: HH hand/stick corridor
+            local[280:535,140:1110]=True  # R: hand/grip/HH stick to HH contact
             local[590:1010,600:910]=True  # RF: BD leg/pedal corridor
         if phase=="hit":
             local[245:525,830:1135]=True # hit: one upper right RD corridor
