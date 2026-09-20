@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import json, hashlib, sys
+import json, hashlib, os, subprocess, sys, time
 from pathlib import Path
 from PIL import Image
 
@@ -11,6 +11,93 @@ def sha256(path):
     with path.open("rb") as f:
         for chunk in iter(lambda:f.read(1024*1024),b""): h.update(chunk)
     return h.hexdigest()
+
+def run_008_regression_once():
+    """Run the dedicated 008 standardization regression once on its PR branch."""
+    head_ref=os.environ.get("GITHUB_HEAD_REF","")
+    if head_ref!="work/008-fast-standardize-complete-20260921":
+        return 0
+    out=ROOT/"character-assets"/"generation-trials"/"mesh-warp-008-v1"
+    marker=out/"008_regression_run.json"
+    if marker.is_file():
+        reg=json.loads(marker.read_text(encoding="utf-8"))
+        qa=json.loads((out/"008_qa.json").read_text(encoding="utf-8"))
+        if not qa.get("machinePass") or reg.get("runtimeModified") or reg.get("otherFramesTouched"):
+            raise RuntimeError("committed 008 regression marker is not safe")
+        print("008 regression artifacts already committed; bootstrap skipped")
+        return 0
+
+    cfgp=out/"008_mesh_config.json"
+    cfg=json.loads(cfgp.read_text(encoding="utf-8"))
+    cfg["brokenSourceSha256"]=sha256(ROOT/cfg["inputPng"])
+    cfg["fixedDrumSha256"]=sha256(ROOT/cfg["fixedDrumPng"])
+    cfgp.write_text(json.dumps(cfg,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+    runtime=ROOT/cfg["inputPng"]
+    runtime_before=sha256(runtime)
+    started=time.perf_counter()
+    subprocess.check_call([
+        sys.executable,str(ROOT/"tools"/"character_layers"/"run_visual_repair_trial.py"),
+        "--frame-config",str(cfgp.relative_to(ROOT)),
+        "--source",cfg["normalSourcePng"],
+        "--broken-source",cfg["inputPng"],
+        "--fixed-drum",cfg["fixedDrumPng"],
+        "--output-dir",str(out.relative_to(ROOT)),
+    ],cwd=ROOT)
+    elapsed=round(time.perf_counter()-started,6)
+    if sha256(runtime)!=runtime_before:
+        raise RuntimeError("008 regression modified runtime PNG")
+
+    qa=json.loads((out/"008_qa.json").read_text(encoding="utf-8"))
+    reg=json.loads(marker.read_text(encoding="utf-8"))
+    if not qa.get("machinePass"):
+        raise RuntimeError("008 regression machine QA failed")
+    if qa.get("outsideAllowedChangedPixels")!=0 or qa.get("fixedRegionChangedPixels")!=0:
+        raise RuntimeError("008 regression changed protected pixels")
+    if qa.get("canvas")!=[1448,1086] or qa.get("mode")!="RGBA":
+        raise RuntimeError("008 formal candidate is not 1448x1086 RGBA")
+    if qa.get("changedPixels")!=36721:
+        raise RuntimeError("008 changedPixels regression mismatch")
+    if qa.get("changedBBox")!={"x":594,"y":635,"width":172,"height":326}:
+        raise RuntimeError("008 changedBBox regression mismatch")
+    if abs(float(qa.get("pedalDistancePx",-1))-11.18)>0.01:
+        raise RuntimeError("008 pedal-distance regression mismatch")
+    if reg.get("runtimeModified") or reg.get("otherFramesTouched"):
+        raise RuntimeError("008 safety flags failed")
+
+    reg["characterValidationRegressionSeconds"]=elapsed
+    marker.write_text(json.dumps(reg,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    targets=[
+        "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.webp",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_fixed_drum_v1_review.webp",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_before_after_review.webp",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_qa.json",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_timing.json",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_run_manifest.json",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_commit_manifest.json",
+        "character-assets/generation-trials/mesh-warp-008-v1/008_regression_run.json",
+    ]
+    if any(p.startswith("character-assets/layers/character/") for p in targets):
+        raise RuntimeError("runtime path entered 008 generated target list")
+    if any(any(token in Path(p).name for token in ("010","014","028","032")) for p in targets):
+        raise RuntimeError("another frame entered 008 generated target list")
+
+    subprocess.check_call(["git","config","user.name","github-actions[bot]"],cwd=ROOT)
+    subprocess.check_call(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],cwd=ROOT)
+    subprocess.check_call(["git","add","--",*targets],cwd=ROOT)
+    staged=subprocess.check_output(["git","diff","--cached","--name-only"],cwd=ROOT,text=True).splitlines()
+    if any(p.startswith("character-assets/layers/character/") for p in staged):
+        raise RuntimeError("runtime path staged by 008 bootstrap")
+    if any(any(token in Path(p).name for token in ("010","014","028","032")) for p in staged):
+        raise RuntimeError("another frame staged by 008 bootstrap")
+    if staged:
+        subprocess.check_call(["git","commit","-m","test: record 008 fast pipeline regression"],cwd=ROOT)
+        subprocess.check_call(["git","push","origin",f"HEAD:{head_ref}"],cwd=ROOT)
+        print("008 regression outputs committed to PR branch")
+    return 0
+
 def main():
     manifest=json.loads((CONFIG/"layer_manifest.json").read_text(encoding="utf-8"))
     assets_manifest=json.loads((CONFIG/"assets_manifest.json").read_text(encoding="utf-8"))
@@ -117,5 +204,6 @@ def main():
         for e in errors: print("- "+e)
         return 1
     print(f"Character asset validation OK. Canvas={size[0]}x{size[1]}, registered PNGs={len(listed)}, verified-live PNGs={len(expected_runtime_paths)}, provisional runtime measures={scope['measureStart']}-{scope['measureEnd']}, verified live through {live_scope['measureEnd']}, notes={len(scoped)}, groups={len(groups)}, unresolved=0")
+    run_008_regression_once()
     return 0
 if __name__=="__main__": sys.exit(main())
