@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 60,
+  "sourceFilename": "060_bd_ft_rf_r_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+FT:RF/R",
+  "runtimeActionKey": "BD+FT:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手に上向きスティックと長い右下方向スティックが重複し、左脚すね付近にも短い不要線がある。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "left_leg",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_FT_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+FT:RF/R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "left_leg",
+      "artifact"
+    ]
+  }
+}
