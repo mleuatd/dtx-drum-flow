@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 55,
+  "sourceFilename": "055_bd_rc_sn_rf_r_l_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+RC+SN:RF/R/L",
+  "runtimeActionKey": "BD+RC+SN:RF/R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右上にスティック先端だけが本体から離れて浮遊して右手側スティックが切断して見え、椅子境界にも矩形状合成痕がある。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "skirt",
+    "stool",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_RC_SN_RF_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+RC+SN:RF/R/L hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "skirt",
+      "stool",
+      "artifact"
+    ]
+  }
+}
