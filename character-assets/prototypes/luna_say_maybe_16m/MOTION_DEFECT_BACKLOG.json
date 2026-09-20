@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T17:48:00+09:00",
+  "updatedAt": "2026-09-20T17:57:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -3810,7 +3810,14 @@
         "batch": "FAST-LOCAL-REPAIR-STABLE",
         "owner": "CHAT-FAST-REPAIR-STABLE",
         "claimedAt": "2026-09-20T17:44:00+09:00"
-      }
+      },
+      "decisionLog": [
+        {
+          "at": "2026-09-20T17:57:00+09:00",
+          "decision": "FAST_LOCAL_REPAIR_STABLE_V4_MACHINE_PASS_REUSED",
+          "detail": "Reused existing front-m004-v3 candidate pair built from neutral + VERIFIED RC donor + VERIFIED SN:L donor. M004_V4_SUMMARY reports pairMachinePass=true; hit SHA256 3417325f8754eff0f6e9cbdc7e6a0137a24c63975438529932c790d2ebdc283f and rebound SHA256 29ffe44f317d8a1651aa8f7ee76077e830fefc86ee863141b918d5cd8d7cced3. No new candidate generated and formal assets were not changed. Remaining gate is exact-candidate full-resolution visual anatomy/linework/fixed-drum/transition review; current chat execution surface cannot ingest repository PNG bytes as a visual input, so promotion/runtime QA was intentionally not fabricated."
+        }
+      ]
     },
     {
       "issueId": "MOTION-005",
