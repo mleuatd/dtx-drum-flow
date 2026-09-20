@@ -49,11 +49,15 @@ ma[570:,:]=0
 # Absolute static guards: never import source head/right side/pelvis-seat pixels.
 ma[0:325,500:930]=0
 ma[560:810,560:980]=0
+# Human visual QA v2: remove the detached source-hand/blob below the active
+# stick corridor (approx x470..555, y455..535). This region is not part of the
+# continuous grip-to-tip SN stick and must fall back to approved neutral.
+ma[455:535,470:555]=0
 mask=Image.fromarray(ma.astype(np.uint8),"L")
 
 candidate=neutral.copy()
 candidate.paste(source,(0,0),mask)
-candidate_path=OUTDIR/"sn_l_rebound_candidate_v2.png"
+candidate_path=OUTDIR/"sn_l_rebound_candidate_v3.png"
 candidate.save(candidate_path)
 
 # Exact raster diagnostics.
@@ -84,10 +88,10 @@ rebound_sep=dist(c["stickTip"],c["contactPoint"])
 
 # Composite debug: drum under candidate, preserving source canvas.
 comp=Image.alpha_composite(drum,candidate)
-comp.save(OUTDIR/"sn_l_rebound_candidate_v2_fixed_drum.png")
+comp.save(OUTDIR/"sn_l_rebound_candidate_v3_fixed_drum.png")
 
 report={
- "schemaVersion":2,
+ "schemaVersion":3,
  "issueId":"MOTION-001",
  "actionKey":"SN:L",
  "phase":"rebound",
@@ -100,6 +104,6 @@ report={
  "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"headGuardChangedPixels":guard_changed["head"]==0,"rightArmGuardChangedPixels":guard_changed["right_arm"]==0,"pelvisSeatGuardChangedPixels":guard_changed["pelvis_seat"]==0,"legsStoolGuardChangedPixels":guard_changed["legs_stool"]==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
 }
 report["pass"]=all(report["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v2_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+(OUTDIR/"sn_l_rebound_candidate_v3_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(report,ensure_ascii=False))
 if not report["pass"]: raise SystemExit(2)
