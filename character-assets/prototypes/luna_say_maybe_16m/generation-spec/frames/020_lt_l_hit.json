@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 20,
+  "sourceFilename": "020_lt_l_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "LT:L",
+  "runtimeActionKey": "LT:L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手に本来の斜めスティックとは別に右方向へ伸びるスティックが残り、計3本に見える。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/LT_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action LT:L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
