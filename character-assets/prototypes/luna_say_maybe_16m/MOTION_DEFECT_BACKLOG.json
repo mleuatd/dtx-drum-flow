@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T14:17:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12267,7 +12267,7 @@
     },
     {
       "issueId": "MOTION-014",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M95",
       "time": "~2:46.4",
@@ -12295,7 +12295,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T14:17:00+09:00",
       "occurrences": [
         {
           "measure": "M95",
@@ -12309,7 +12309,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13148,7 +13148,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "reviewedAt": "2026-09-20T14:15:00+09:00",
@@ -13160,12 +13160,7 @@
         "machineQaRunId": 35491078566,
         "machineQaArtifactId": 10599237231
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "BACK-ACTIONS-35491078566",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T05:12:50.015775+00:00"
-      },
+      "claim": null,
       "hold": {
         "attemptedRepair": "PASS2 BACK: existing full-resolution artifact 10593238245 re-opened. Prior static defects confirmed. A target-bound candidate edit was attempted after retrieving exact character-only evidence, but image editor again returned edit_op=null unrelated dashboard output.",
         "repairResult": "FAIL_TARGET_BINDING. No candidate accepted; formal bd_sn hit/rebound PNGs unchanged.",
@@ -13182,8 +13177,24 @@
           "at": "2026-09-20T14:15:00+09:00",
           "decision": "AUTHORITY_COMPOSITE_VISUAL_PASS",
           "detail": "Candidate rebuilt from approved SN:L + BD:RF authorities; machine guards PASS and direct fixed-drum visual review PASS. Candidate SHAs hit=7410eaed..., rebound=cc8e0f3d.... Authorized for formal promotion."
+        },
+        {
+          "at": "2026-09-20T14:17:00+09:00",
+          "decision": "VERIFIED_AFTER_AUTHORITY_COMPOSITE_AND_M95_RUNTIME_QA",
+          "detail": "Rebuilt formal pair from APPROVED_LIVE SN:L + BD:RF authorities, passed visual-integrity gates, guarded formal promotion, asset validation/runtime pose regression, and exact public runtime QA at M95. Run 35491214228 / artifact 10599142648. Released BACK claim."
         }
-      ]
+      ],
+      "runtimeQa": {
+        "state": "PASS",
+        "workflow": ".github/workflows/back-runtime-character-qa.yml",
+        "runId": 35491214228,
+        "artifactId": 10599142648,
+        "artifact": "back-public-runtime-qa-35491214228",
+        "testedCommitSha": "b0447877f1d27d5616c5a357b703cc6be1a64d0c",
+        "measure": "M95",
+        "actionKey": "BD+SN:RF/L",
+        "note": "Exact public runtime QA after formal promotion completed successfully; generic Runtime Character QA also succeeded on the same trigger."
+      }
     },
     {
       "issueId": "MOTION-015",
