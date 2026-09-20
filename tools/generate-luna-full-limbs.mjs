@@ -6,7 +6,11 @@ const rules=JSON.parse(fs.readFileSync("character-assets/prototypes/luna_say_may
 const observedOverridePath="site/charts/luna_say_maybe/Luna_say_maybe_limb_observed_overrides.json";
 const observedOverrides=fs.existsSync(observedOverridePath)?JSON.parse(fs.readFileSync(observedOverridePath,"utf8")):{overrides:[]};
 const notes=chart.notes.map((n,i)=>({...n,_i:i})).sort((a,b)=>a.time-b.time||a._i-b._i);
-const EPS=.008, RAPID=.13, TOM_RESTART=.36;
+const EPS=.008, TOM_RESTART=.36;
+const BEAT_SECONDS=60/Number(chart.bpm||120);
+const RAPID_SUBDIVISION=16;
+const RAPID_TOLERANCE=1.12;
+const RAPID=BEAT_SECONDS/(RAPID_SUBDIVISION/4)*RAPID_TOLERANCE;
 const handParts=new Set(["LC","HH","SN","HT","LT","FT","RC","RD"]);
 const footParts=new Set(["LP","LB","BD"]);
 const cymbalParts=new Set(["LC","HH","RC","RD"]);
@@ -95,6 +99,36 @@ function applyRapidHH(assign){
   }
   return decisions;
 }
+
+function scoreGenericRapidPhrase(phrase,hands,assign,part){
+  let cost=hands[0]===(pref[part]||"R")?0:1;
+  const prev=nearestOtherHandBefore(phrase[0].time,part);
+  const next=nearestOtherHandAfter(phrase.at(-1).time,part);
+  if(prev && phrase[0].time-prev.time<=RAPID && hands[0]===assign.get(key(prev)))cost+=4;
+  if(next && next.time-phrase.at(-1).time<=RAPID && hands.at(-1)===assign.get(key(next)))cost+=10;
+  for(let i=0;i<phrase.length;i++){
+    const grp=groupByTime.get(Number(phrase[i].time).toFixed(6))||[];
+    for(const other of grp){
+      if(other.part===part||!handParts.has(other.part))continue;
+      if(assign.get(key(other))===hands[i])cost+=100;
+    }
+  }
+  return cost;
+}
+function applyRapidAcrossHandParts(assign){
+  const decisions=[];
+  for(const part of [...handParts]){
+    if(part==="SN"||part==="HH"||tomParts.has(part))continue;
+    for(const phrase of rapidPhrases(notes,part)){
+      const r=candidatePhraseHands(phrase.length,"R"),l=candidatePhraseHands(phrase.length,"L");
+      const sr=scoreGenericRapidPhrase(phrase,r,assign,part),sl=scoreGenericRapidPhrase(phrase,l,assign,part);
+      const chosen=sr<=sl?r:l;
+      phrase.forEach((n,i)=>assign.set(key(n),chosen[i]));
+      decisions.push({part,start:phrase[0].time,end:phrase.at(-1).time,count:phrase.length,startHand:chosen[0],sequence:chosen.join(""),scoreR:sr,scoreL:sl});
+    }
+  }
+  return decisions;
+}
 function resolveGroups(assign){
   const fixes=[],unresolved=[];
   for(const g of allGroups){
@@ -133,14 +167,20 @@ function validate(assign,scopeMin=1,scopeMax=148){
     for(const n of g){const l=assign.get(key(n));if(!l)continue;(used.get(l)||used.set(l,[]).get(l)).push(n);}
     for(const [limb,ns] of used)if(ns.length>1)sameLimb.push({time:g[0].time,measure:g[0].measure,limb,notes:ns.map(n=>n.part)});
   }
-  const sns=scoped.filter(n=>n.part==="SN");
-  for(let i=1;i<sns.length;i++){const gap=sns[i].time-sns[i-1].time;if(gap<=RAPID+1e-9&&assign.get(key(sns[i]))===assign.get(key(sns[i-1])))rapidRepeat.push({prev:sns[i-1].time,time:sns[i].time,measure:sns[i].measure,limb:assign.get(key(sns[i])),gap});}
+  for(const part of handParts){
+    const xs=scoped.filter(n=>n.part===part);
+    for(let i=1;i<xs.length;i++){
+      const gap=xs[i].time-xs[i-1].time;
+      if(gap<=RAPID+1e-9&&assign.get(key(xs[i]))===assign.get(key(xs[i-1])))rapidRepeat.push({part,prev:xs[i-1].time,time:xs[i].time,measure:xs[i].measure,limb:assign.get(key(xs[i])),gap});
+    }
+  }
   return {missing,sameLimb,rapidRepeat};
 }
 
 const predicted=baseAssignments(notes);
 const rapidSnDecisions=applyRapidSn(predicted);
 const rapidHhDecisions=applyRapidHH(predicted);
+const rapidOtherHandDecisions=applyRapidAcrossHandParts(predicted);
 const groupResolution=resolveGroups(predicted);
 const prefixMismatches=[];
 for(const a of prefix.assignments){
@@ -199,6 +239,8 @@ const report={
   prefixRegression:{mismatches:prefixMismatches.length,details:prefixMismatches},
   rapidSnPhrases:{count:rapidSnDecisions.length,decisions:rapidSnDecisions},
   rapidHhPhrases:{count:rapidHhDecisions.length},
+  rapidOtherHandPhrases:{count:rapidOtherHandDecisions.length,decisions:rapidOtherHandDecisions},
+  rhythmicStickingPolicy:{bpm:Number(chart.bpm||120),rapidSubdivision:RAPID_SUBDIVISION,rapidToleranceRatio:RAPID_TOLERANCE,rapidThresholdSeconds:RAPID},
   simultaneousResolution:{fixCount:groupResolution.fixes.length,fixes:groupResolution.fixes,unresolved:groupResolution.unresolved},
   observedPerformanceOverrides:{applied:observedAudit.applied.length,invalid:observedAudit.invalid.length,appliedDetails:observedAudit.applied,invalidDetails:observedAudit.invalid},
   validation:{missing:validation.missing.length,sameLimb:validation.sameLimb.length,rapidSameHand:validation.rapidRepeat.length,missingDetails:validation.missing,sameLimbDetails:validation.sameLimb,rapidSameHandDetails:validation.rapidRepeat},
@@ -207,5 +249,5 @@ const report={
 fs.mkdirSync("limb-artifacts",{recursive:true});
 fs.writeFileSync("limb-artifacts/Luna_say_maybe_full_limbs_CANDIDATE.json",JSON.stringify(candidate,null,2)+"\n");
 fs.writeFileSync("limb-artifacts/Luna_say_maybe_full_limbs_VALIDATION.json",JSON.stringify(report,null,2)+"\n");
-console.log(JSON.stringify({promotable:report.promotable,counts:report.counts,prefixMismatches:report.prefixRegression.mismatches,observedPerformanceOverrides:report.observedPerformanceOverrides,rapidSnPhrases:report.rapidSnPhrases.count,simultaneousFixes:report.simultaneousResolution.fixCount,unresolvedGroups:report.simultaneousResolution.unresolved.length,validation:report.validation},null,2));
+console.log(JSON.stringify({promotable:report.promotable,counts:report.counts,prefixMismatches:report.prefixRegression.mismatches,observedPerformanceOverrides:report.observedPerformanceOverrides,rapidSnPhrases:report.rapidSnPhrases.count,rapidOtherHandPhrases:report.rapidOtherHandPhrases.count,rhythmicStickingPolicy:report.rhythmicStickingPolicy,simultaneousFixes:report.simultaneousResolution.fixCount,unresolvedGroups:report.simultaneousResolution.unresolved.length,validation:report.validation},null,2));
 if(!report.promotable)process.exitCode=1;
