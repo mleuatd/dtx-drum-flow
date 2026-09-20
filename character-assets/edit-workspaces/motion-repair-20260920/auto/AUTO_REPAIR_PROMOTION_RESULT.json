@@ -1,15 +1,23 @@
 {
   "schemaVersion": 1,
-  "promoted": [],
-  "failedCandidates": [],
-  "skipped": [
+  "promoted": [
     {
-      "id": "bd_ht_rf_r_hit_refresh",
-      "reason": "already_completed"
+      "id": "ht_r_hit_refresh",
+      "actionKey": "HT:R",
+      "phase": "hit",
+      "oldSha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
+      "newSha256": "295d66bf3545a19e13ffe3c9e02e8d18e72ec1e88abb64be334891fe863ed74e",
+      "changedRatioVsNeutral": 0.00672102
     },
     {
-      "id": "bd_ht_rf_r_rebound_refresh",
-      "reason": "already_completed"
+      "id": "ht_r_rebound_refresh",
+      "actionKey": "HT:R",
+      "phase": "rebound",
+      "oldSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
+      "newSha256": "7e0d05e8339adb5ff4275195cf38e279d334dffb25282fc483b756a5bb2e691a",
+      "changedRatioVsNeutral": 0.00720687
     }
-  ]
+  ],
+  "failedCandidates": [],
+  "skipped": []
 }

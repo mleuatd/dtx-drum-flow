@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T16:45:00+09:00",
+  "updatedAt": "2026-09-20T07:50:24+00:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -10515,7 +10515,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T16:45:00+09:00",
+      "updatedAt": "2026-09-20T07:50:24+00:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -11275,17 +11275,17 @@
             "id": "ht_r_hit_refresh",
             "actionKey": "HT:R",
             "phase": "hit",
-            "oldSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
-            "newSha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
-            "changedRatioVsNeutral": 0.06021196
+            "oldSha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
+            "newSha256": "295d66bf3545a19e13ffe3c9e02e8d18e72ec1e88abb64be334891fe863ed74e",
+            "changedRatioVsNeutral": 0.00672102
           },
           {
             "id": "ht_r_rebound_refresh",
             "actionKey": "HT:R",
             "phase": "rebound",
-            "oldSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
-            "newSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
-            "changedRatioVsNeutral": 0.06724904
+            "oldSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
+            "newSha256": "7e0d05e8339adb5ff4275195cf38e279d334dffb25282fc483b756a5bb2e691a",
+            "changedRatioVsNeutral": 0.00720687
           }
         ],
         "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
