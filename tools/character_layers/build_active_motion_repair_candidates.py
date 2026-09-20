@@ -116,6 +116,12 @@ for t in targets:
                 gd.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
 
     G=np.asarray(geom)>0
+    # HT:R is drawn on the screen-left side in this fixed camera. Keep the
+    # screen-right hair/torso absolutely locked through the upper-body band;
+    # otherwise source splice artifacts beginning at the head-lock boundary
+    # can leak into BD+HT candidates.
+    if any(part=="HT" and limb=="R" for part,limb in components):
+        G[300:620,700:]=False
     # Static locks. Foot-active combos need a narrow RF pedal corridor through
     # the pelvis/lower-body guard; do not unlock the whole pelvis or stool.
     G[HEAD[1]:HEAD[3],HEAD[0]:HEAD[2]]=False
