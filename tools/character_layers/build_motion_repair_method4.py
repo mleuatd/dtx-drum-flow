@@ -23,6 +23,12 @@ if rd_sn_defect and (rd_sn_defect.get("claim") or {}).get("state")=="CLAIMED" an
 rd_r_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="RD:R"),None)
 if rd_r_defect and (rd_r_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_r_defect.get("claim") or {}).get("owner") in ("CHATGPT-FRONT","CHAT-PASS2-BACK"):
     forced_hold_targets += [{"id":"rd_r_hit","actionKey":"RD:R","phase":"hit","_holdRepairClaim":True},{"id":"rd_r_rebound","actionKey":"RD:R","phase":"rebound","_holdRepairClaim":True}]
+m015_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="BD+HH+SN:RF/R/L"),None)
+if m015_defect and (m015_defect.get("claim") or {}).get("state")=="CLAIMED" and (m015_defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK":
+    forced_hold_targets += [
+      {"id":"bd_hh_sn_rf_r_l_hit_refresh","actionKey":"BD+HH+SN:RF/R/L","phase":"hit","_holdRepairClaim":True},
+      {"id":"bd_hh_sn_rf_r_l_rebound_refresh","actionKey":"BD+HH+SN:RF/R/L","phase":"rebound","_holdRepairClaim":True}
+    ]
 # Active PASS2 HOLD claim overrides a stale failedCandidates entry with the
 # same id; otherwise the stale entry lacks _holdRepairClaim and is skipped.
 forced_by_id={x.get("id"):x for x in forced_hold_targets}
@@ -95,7 +101,7 @@ for f in fails:
     # corridor. This intentionally excludes the lower duplicate/disconnected
     # right-hand fragment seen in the formal rebound while leaving locked body
     # regions on the neutral baseline.
-    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound","rd_r_hit","rd_r_rebound"):
+    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound","rd_r_hit","rd_r_rebound","bd_hh_sn_rf_r_l_hit_refresh","bd_hh_sn_rf_r_l_rebound_refresh"):
         # PASS2 pair repair: build one coherent RD right-side corridor for BOTH
         # phases instead of trying to promote a rebound-only fix. Keep the
         # already-good left SN motion and reject the lower/rear duplicate RD
@@ -104,6 +110,15 @@ for f in fails:
         local=np.zeros((H,W),dtype=bool)
         if "rd_sn" in tid:
             local[300:620,340:700]=True   # left SN hand/stick/forearm
+        if "bd_hh_sn" in tid:
+            # MOTION-015 visual-fail refinement. Keep the current formal pair
+            # as the source authority but admit only compact, phase-specific
+            # hand/stick corridors plus the already-proven RF pedal corridor.
+            # This rejects the floating lower-left fragments and prevents the
+            # broad transplant that failed full-resolution visual QA.
+            local[300:600,300:700]=True   # L: hand/grip/SN stick corridor
+            local[255:555,760:1110]=True  # R: HH hand/stick corridor
+            local[590:1010,600:910]=True  # RF: BD leg/pedal corridor
         if phase=="hit":
             local[245:525,830:1135]=True # hit: one upper right RD corridor
         else:
