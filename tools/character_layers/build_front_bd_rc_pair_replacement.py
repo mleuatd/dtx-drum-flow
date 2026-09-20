@@ -43,7 +43,8 @@ LEFT_LOCK=(0,250,520,900)
 STOOL_CORE=(770,800,845,1086)
 RC_SEM=np.zeros((H,W),bool); RC_SEM[:590,700:]=True
 # RF corridor follows the verified BD donor's active leg only; skirt/pelvis are not blanket-transplanted.
-RF_CORRIDOR=polyline_mask([(682,748),(650,902)],175,[(682,748,85),(650,902,105)])\nRF_CORRIDOR[:700,:]=False
+RF_CORRIDOR=polyline_mask([(682,748),(650,902)],175,[(682,748,85),(650,902,105)])
+RF_CORRIDOR[:700,:]=False
 
 summary={
  "schemaVersion":3,"issueId":"MOTION-002","actionKey":"BD+RC:RF/R","batch":"HOLD-REPAIR-FRONT-06",
