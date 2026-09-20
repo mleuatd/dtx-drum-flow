@@ -1,0 +1,161 @@
+name: MOTION-002 headless candidate
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/motion-002-headless-candidate.yml'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+      - name: Build bounded pair candidate and machine QA
+        run: |
+          python - <<'PY'
+          from PIL import Image, ImageChops, ImageFilter, ImageDraw
+          from pathlib import Path
+          import json, hashlib, math
+
+          root=Path('.')
+          out=root/'qa-artifacts'/'motion-002-headless'
+          out.mkdir(parents=True,exist_ok=True)
+
+          paths={
+            'neutral':root/'character-assets/layers/character/base/neutral.png',
+            'bd_hit':root/'character-assets/layers/character/bd/hit_rf.png',
+            'bd_rebound':root/'character-assets/layers/character/bd/rebound_rf.png',
+            'rcsn_hit':root/'character-assets/layers/character/combo/rc_sn_hit_refresh.png',
+            'rcsn_rebound':root/'character-assets/layers/character/combo/rc_sn_rebound_refresh.png',
+            'drum':root/'character-assets/layers/drum/drum_base.png',
+          }
+          ims={k:Image.open(v).convert('RGBA') for k,v in paths.items()}
+          size=ims['neutral'].size
+          assert size==(1448,1086)
+          assert all(im.size==size for im in ims.values())
+
+          def sha(path):
+            h=hashlib.sha256(); h.update(Path(path).read_bytes()); return h.hexdigest()
+
+          def changed_mask(a,b,threshold=10):
+            d=ImageChops.difference(a,b)
+            # Collapse RGBA difference to scalar without external deps.
+            bands=d.split()
+            m=Image.new('L',a.size,0)
+            for band in bands:
+              m=ImageChops.lighter(m,band)
+            return m.point(lambda p:255 if p>threshold else 0)
+
+          # Measure the source replacement corridor directly from neutral->RC+SN delta.
+          # The active RC arm is the right-most upper-body connected delta. We identify it
+          # from measured pixels rather than carrying hand-written edit coordinates.
+          def components(mask):
+            px=mask.load(); w,h=mask.size
+            seen=set(); comps=[]
+            for y in range(h):
+              for x in range(w):
+                if px[x,y]==0 or (x,y) in seen: continue
+                stack=[(x,y)]; seen.add((x,y)); pts=[]
+                while stack:
+                  cx,cy=stack.pop(); pts.append((cx,cy))
+                  for nx,ny in ((cx+1,cy),(cx-1,cy),(cx,cy+1),(cx,cy-1)):
+                    if 0<=nx<w and 0<=ny<h and px[nx,ny] and (nx,ny) not in seen:
+                      seen.add((nx,ny)); stack.append((nx,ny))
+                if len(pts)>=20:
+                  xs=[p[0] for p in pts]; ys=[p[1] for p in pts]
+                  comps.append({'n':len(pts),'bbox':(min(xs),min(ys),max(xs)+1,max(ys)+1),
+                                'cx':sum(xs)/len(xs),'cy':sum(ys)/len(ys),'pts':pts})
+            return comps
+
+          report={'method':'pair replacement from VERIFIED BD base + RC+SN measured right-arm delta',
+                  'formalUntouched':True,'size':size,'phases':{}}
+          cand={}
+
+          for phase in ('hit','rebound'):
+            base=ims['bd_'+phase]
+            src=ims['rcsn_'+phase]
+            raw=changed_mask(ims['neutral'],src)
+            comps=components(raw)
+            # Evidence-driven selection: components whose measured centroid lies on the
+            # right half and upper 65% of canvas; select enough right-most components to
+            # cover the active hand/stick/arm chain, then union with their measured bboxes.
+            eligible=[c for c in comps if c['cx']>=size[0]*0.50 and c['cy']<=size[1]*0.65]
+            eligible=sorted(eligible,key=lambda c:(c['cx'],c['n']),reverse=True)
+            selected=eligible[:12]
+            if not selected:
+              raise RuntimeError(f'no measured right-arm delta components for {phase}')
+            sel=Image.new('L',size,0); sp=sel.load()
+            for c in selected:
+              for x,y in c['pts']: sp[x,y]=255
+            # Include anti-aliased boundary pixels adjacent to measured changed pixels.
+            sel=sel.filter(ImageFilter.MaxFilter(7))
+            bbox=sel.getbbox()
+            if not bbox: raise RuntimeError('empty selection')
+            # Apply exact source pixels inside measured replacement mask; transparent source
+            # pixels erase the previous neutral/BD arm residue instead of layering a second arm.
+            c=base.copy()
+            c.paste(src,(0,0),sel)
+            cand[phase]=c
+            c.save(out/f'candidate_{phase}.png')
+
+            changed=changed_mask(base,c,0)
+            # All candidate changes must be contained in selected mask.
+            inv=ImageChops.subtract(changed,sel)
+            outside=sum(1 for v in inv.getdata() if v)
+            changed_n=sum(1 for v in changed.getdata() if v)
+            # The lower-body/foot semantics are inherited byte-for-pixel from VERIFIED BD base
+            # outside the measured arm replacement mask.
+            lower_guard=Image.new('L',size,0)
+            dg=ImageDraw.Draw(lower_guard); dg.rectangle((0,int(size[1]*0.62),size[0]-1,size[1]-1),fill=255)
+            lower_changed=ImageChops.multiply(changed,lower_guard)
+            lower_n=sum(1 for v in lower_changed.getdata() if v)
+
+            report['phases'][phase]={
+              'selectedComponentCount':len(selected),
+              'selectedMaskBBox':bbox,
+              'candidateChangedPixelsVsBdBase':changed_n,
+              'outsideSelectedMaskChangedPixels':outside,
+              'lowerBodyChangedPixelsVsVerifiedBdBase':lower_n,
+              'sourceComponentSummary':[{'pixels':c0['n'],'bbox':c0['bbox'],'centroid':[round(c0['cx'],2),round(c0['cy'],2)]} for c0 in selected]
+            }
+            if outside!=0:
+              raise RuntimeError(f'outside-mask change {outside} in {phase}')
+            if lower_n!=0:
+              raise RuntimeError(f'lower-body regression {lower_n} in {phase}')
+
+          # Pair evidence: character-only, fixed-drum composites, and transition strip.
+          drum=ims['drum']
+          white=Image.new('RGBA',size,(255,255,255,255))
+          frames=[('neutral',ims['neutral']),('hit',cand['hit']),('rebound',cand['rebound']),('neutral2',ims['neutral'])]
+          thumbs=[]
+          for name,im in frames:
+            comp=white.copy(); comp.alpha_composite(im); comp.alpha_composite(drum)
+            comp.convert('RGB').save(out/f'composite_{name}.jpg',quality=96)
+            t=comp.copy(); t.thumbnail((724,543)); thumbs.append((name,t.convert('RGB')))
+          strip=Image.new('RGB',(724*4,590),'white')
+          dr=ImageDraw.Draw(strip)
+          for i,(name,t) in enumerate(thumbs):
+            strip.paste(t,(i*724,0)); dr.text((i*724+12,550),name,fill='black')
+          strip.save(out/'transition_strip.jpg',quality=95)
+
+          # Pair-level delta metrics, informative only; no promotion from machine QA alone.
+          pairdiff=changed_mask(cand['hit'],cand['rebound'],0)
+          report['pairChangedPixels']=sum(1 for v in pairdiff.getdata() if v)
+          report['candidateSha256']={p:sha(out/f'candidate_{p}.png') for p in ('hit','rebound')}
+          report['sourceSha256']={k:sha(v) for k,v in paths.items()}
+          report['machineQa']='PASS'
+          report['promotion']='BLOCKED_PENDING_FULL_RES_VISUAL_QA'
+          (out/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+          PY
+      - name: Upload candidate evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: motion-002-headless-${{ github.run_id }}
+          path: qa-artifacts/motion-002-headless/
+          retention-days: 30
