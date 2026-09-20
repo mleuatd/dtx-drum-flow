@@ -70,10 +70,10 @@ function phaseFor(group,time,playbackRate=1){
 
   // Human motion timing is real-time based, not chart-time based.
   // Fast passages flow directly into the next hit; slow playback naturally
-  // leaves enough wall-clock time to finish rebound and return to neutral.
+  // leaves enough wall-clock time to finish rebound and return to neutral.\n  // Inside a fast passage, rebound reaches the exact next-hit boundary: no neutral flash.
   if(Number.isFinite(gapReal)&&gapReal<baseReboundEndReal){
     hitEndReal=Math.min(baseHitEndReal,Math.max(.055,gapReal*.65));
-    reboundEndReal=Math.min(baseReboundEndReal,Math.max(hitEndReal+.02,gapReal-.004));
+    reboundEndReal=Math.min(baseReboundEndReal,Math.max(hitEndReal+.02,gapReal));
   }
   if(deltaReal<0)return "neutral";
   if(deltaReal<hitEndReal)return "hit";
