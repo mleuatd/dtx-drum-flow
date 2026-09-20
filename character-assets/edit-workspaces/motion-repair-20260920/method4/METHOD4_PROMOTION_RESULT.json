@@ -1,6 +1,23 @@
 {
   "schemaVersion": 1,
-  "promoted": [],
+  "promoted": [
+    {
+      "id": "rd_sn_r_l_hit",
+      "actionKey": "RD+SN:R/L",
+      "phase": "hit",
+      "oldSha256": "0239bb7b0da8aeb0dfb0b64715214c93b081c9274c2841a427abdb1a0ebe3729",
+      "newSha256": "1339af1ef8b56e24631fdef040567e87d7acd12b5faf320af52574319ae53086",
+      "changedRatioVsNeutral": 0.01736312
+    },
+    {
+      "id": "rd_sn_r_l_rebound",
+      "actionKey": "RD+SN:R/L",
+      "phase": "rebound",
+      "oldSha256": "477027d72d45a767285b96c25f0648b7e441a5eabebdeb74a6af68cce12a17b0",
+      "newSha256": "3481994f351185dc1896be0d4f8fc2fb14b1ed732398c1184f59f197fd82f95b",
+      "changedRatioVsNeutral": 0.0144557
+    }
+  ],
   "failedCandidates": [],
   "skipped": [
     {
@@ -14,18 +31,6 @@
     {
       "id": "bd_rd_rf_r_rebound",
       "reason": "already_verified_monotonic_guard"
-    },
-    {
-      "id": "rd_sn_r_l_hit",
-      "reason": "visual_qa_not_pass_for_exact_candidate",
-      "candidateSha256": "bab11ae4798c91cbf2ba79fc204a2698e0e1a08d84bfb7b743a0d4e0f63db7fc",
-      "reviewedCandidateSha256": null
-    },
-    {
-      "id": "rd_sn_r_l_rebound",
-      "reason": "visual_qa_not_pass_for_exact_candidate",
-      "candidateSha256": "396e80a55d9b9b67ff52b5435453969783bb2dc9ce3e8b9eb2767d2f963f178e",
-      "reviewedCandidateSha256": null
     }
   ]
 }

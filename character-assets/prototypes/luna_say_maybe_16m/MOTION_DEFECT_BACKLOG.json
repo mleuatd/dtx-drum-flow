@@ -7523,7 +7523,7 @@
     },
     {
       "issueId": "MOTION-009",
-      "status": "IN_FIX",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -7552,10 +7552,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T14:40:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "FIXED_PENDING_RUNTIME_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -8436,20 +8436,20 @@
             "id": "rd_sn_r_l_hit",
             "actionKey": "RD+SN:R/L",
             "phase": "hit",
-            "oldSha256": "1af435751264c515323a7390bb93c4aaa181c5e7bbeabed49b4626011ce9af80",
-            "newSha256": "0239bb7b0da8aeb0dfb0b64715214c93b081c9274c2841a427abdb1a0ebe3729",
-            "changedRatioVsNeutral": 0.01962191
+            "oldSha256": "0239bb7b0da8aeb0dfb0b64715214c93b081c9274c2841a427abdb1a0ebe3729",
+            "newSha256": "1339af1ef8b56e24631fdef040567e87d7acd12b5faf320af52574319ae53086",
+            "changedRatioVsNeutral": 0.01736312
           },
           {
             "id": "rd_sn_r_l_rebound",
             "actionKey": "RD+SN:R/L",
             "phase": "rebound",
-            "oldSha256": "7f242e93152f27b146ec211241246271410071d5a27f2cca200eee35876d0a8d",
-            "newSha256": "477027d72d45a767285b96c25f0648b7e441a5eabebdeb74a6af68cce12a17b0",
-            "changedRatioVsNeutral": 0.01832718
+            "oldSha256": "477027d72d45a767285b96c25f0648b7e441a5eabebdeb74a6af68cce12a17b0",
+            "newSha256": "3481994f351185dc1896be0d4f8fc2fb14b1ed732398c1184f59f197fd82f95b",
+            "changedRatioVsNeutral": 0.0144557
           }
         ],
-        "method": "method4: RD-specific right-side release from neutral head landmarks",
+        "method": "method4: bounded neutral-baseline source-authority repair",
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
