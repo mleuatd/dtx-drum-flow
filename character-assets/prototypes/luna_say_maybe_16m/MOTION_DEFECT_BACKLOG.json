@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T13:02:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4734,7 +4734,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4763,7 +4763,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T13:02:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -5321,6 +5321,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T13:02:00+09:00",
+            "decision": "REBUILD_FROM_VERIFIED_ROOTS",
+            "detail": "Existing BD+RD Method4 combo has a visible waist/seat rectangular splice. Do not refine that combo parent. Rebuild from neutral common body + VERIFIED M010 RD:R + VERIFIED M003 BD:RF."
           }
         ],
         "measurementTodos": [
@@ -5624,7 +5629,12 @@
         "runtimeQaArtifactId": 10594916218,
         "runtimeQaCommitSha": "c7ab72c58a70e68fd6db30c2a25686916796f4b7"
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FRONT-M006-AFTER-M010",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T13:02:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:34:00+09:00",
