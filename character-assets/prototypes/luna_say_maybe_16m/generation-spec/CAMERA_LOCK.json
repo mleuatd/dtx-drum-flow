@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0",
+  "orientation": "rear-left over-shoulder, looking toward drums on screen-right",
+  "hard": [
+    "BACK_DOMINANT",
+    "FACE_SLIGHTLY_VISIBLE_ON_SCREEN_LEFT",
+    "GAZE_RIGHT",
+    "OCCIPUT_AND_LONG_HAIR_LEFT_TO_CENTER",
+    "OPPOSITE_SHOULDER_OVERLOOK",
+    "CAMERA_WRAPS_FROM_REAR_TOWARD_LEFT",
+    "DRUMS_EXTEND_TO_RIGHT_DEPTH",
+    "NO_FRONT_VIEW",
+    "NO_TRUE_SIDE_VIEW",
+    "NO_TRUE_REAR_VIEW",
+    "NO_HORIZONTAL_FLIP"
+  ],
+  "soft": {
+    "characterCenterPx": {
+      "preferred": [
+        690,
+        540
+      ],
+      "tolerance": 10
+    },
+    "globalScalePercent": {
+      "preferred": 100,
+      "tolerance": 3
+    },
+    "cameraRollDeg": {
+      "preferred": 0,
+      "tolerance": 2
+    },
+    "faceCenter": {
+      "px": [
+        642,
+        222
+      ],
+      "norm": [
+        0.44337,
+        0.20442
+      ],
+      "tolerancePx": 20,
+      "toleranceNorm": [
+        0.013812,
+        0.018416
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "headTop": {
+      "px": [
+        720,
+        31
+      ],
+      "norm": [
+        0.497238,
+        0.028545
+      ],
+      "tolerancePx": 18,
+      "toleranceNorm": [
+        0.012431,
+        0.016575
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    }
+  },
+  "validation": "Similarity must be judged against 001_neutral and PASS pose references; numerical bounds are safeguards, not permission to change viewpoint."
+}
