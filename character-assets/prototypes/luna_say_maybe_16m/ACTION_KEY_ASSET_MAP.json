@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T12:45:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -719,12 +719,12 @@
       "legacyRuntimeKey": "BD+RC+SN:*",
       "limbAwareRuntimeKey": "BD+RC+SN:RF/R/L",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "hitSha256": "db14316e9e92d394073bf8bcafbc9cf2d15b6fca0f9582fce35d29efc89ba65a",
-      "reboundSha256": "2bb7f88de437e7a58145ffc5d7b081ee6bfa3fdc2e0cd74e389aaf18a6d42f92",
+      "hitSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
+      "reboundSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
       "method": "formal RC+SN:R/L exact bytes plus proven deterministic local BD cue",
       "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
       "motionRepairLastPhase": "rebound",
-      "motionRepairMethod": "cause-specific method2: active RF leg corridor + narrow contact corridor"
+      "motionRepairMethod": "method4: bounded neutral-baseline source-authority repair"
     },
     {
       "actionKey": "BD+FT:RF/L",

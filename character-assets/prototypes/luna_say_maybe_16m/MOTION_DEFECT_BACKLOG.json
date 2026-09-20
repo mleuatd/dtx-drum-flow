@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T12:45:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -9339,7 +9339,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T12:49:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9353,7 +9353,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "FIXED_PENDING_RUNTIME_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -10282,21 +10282,21 @@
             "id": "bd_rc_sn_rf_r_l_hit_refresh",
             "actionKey": "BD+RC+SN:RF/R/L",
             "phase": "hit",
-            "oldSha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
-            "newSha256": "db14316e9e92d394073bf8bcafbc9cf2d15b6fca0f9582fce35d29efc89ba65a",
-            "changedRatioVsNeutral": 0.05093073
+            "oldSha256": "db14316e9e92d394073bf8bcafbc9cf2d15b6fca0f9582fce35d29efc89ba65a",
+            "newSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
+            "changedRatioVsNeutral": 0.0447585
           },
           {
             "id": "bd_rc_sn_rf_r_l_rebound_refresh",
             "actionKey": "BD+RC+SN:RF/R/L",
             "phase": "rebound",
-            "oldSha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
-            "newSha256": "2bb7f88de437e7a58145ffc5d7b081ee6bfa3fdc2e0cd74e389aaf18a6d42f92",
-            "changedRatioVsNeutral": 0.05143692
+            "oldSha256": "2bb7f88de437e7a58145ffc5d7b081ee6bfa3fdc2e0cd74e389aaf18a6d42f92",
+            "newSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
+            "changedRatioVsNeutral": 0.04313246
           }
         ],
-        "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
-        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+        "method": "method4: bounded neutral-baseline source-authority repair",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
         "humanAnatomy": "PASS",
