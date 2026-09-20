@@ -1,0 +1,82 @@
+name: FRONT06 prepromotion validation
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/front06-prepromotion-validation.yml'
+      - 'character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_RUNTIME_QA_V3.json'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r tools/character_layers/requirements.txt
+      - name: Stage exact candidate plus matching metadata in runner only
+        run: |
+          mkdir -p qa-artifacts/front06-prepromotion
+          python - <<'PY'
+          import json, hashlib, shutil
+          from pathlib import Path
+          root=Path('.')
+          def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          backlog=json.loads((root/'character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json').read_text())
+          defect=next(x for x in backlog['defects'] if x['issueId']=='MOTION-002')
+          claim=defect.get('claim') or {}
+          assert claim.get('state')=='CLAIMED' and claim.get('owner')=='CHATGPT-FRONT' and claim.get('batch')=='HOLD-REPAIR-FRONT-06', claim
+          static=json.loads((root/'character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_STATIC_VISUAL_QA_V3.json').read_text())
+          runtime=json.loads((root/'character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_RUNTIME_QA_V3.json').read_text())
+          assert static['decision']=='STATIC_PAIR_PASS_RUNTIME_REQUIRED'
+          assert runtime['runtime']['failed']==0 and runtime['runtime']['passed']==8
+          formal={'hit':root/'character-assets/layers/character/combo/bd_rc_hit.png','rebound':root/'character-assets/layers/character/combo/bd_rc_rebound.png'}
+          cand={'hit':root/'character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_hit_candidate_v3.png','rebound':root/'character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_rebound_candidate_v3.png'}
+          expected=runtime['candidateSha256']
+          before={k:sha(v) for k,v in formal.items()}
+          for phase in ('hit','rebound'):
+              assert sha(cand[phase])==expected[phase], (phase,sha(cand[phase]),expected[phase])
+              shutil.copyfile(cand[phase],formal[phase])
+          after={k:sha(v) for k,v in formal.items()}
+          manifest_path=root/'character-assets/config/assets_manifest.json'
+          inv_path=root/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json'
+          amap_path=root/'character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json'
+          manifest=json.loads(manifest_path.read_text()); inv=json.loads(inv_path.read_text()); amap=json.loads(amap_path.read_text())
+          rels={'hit':'character-assets/layers/character/combo/bd_rc_hit.png','rebound':'character-assets/layers/character/combo/bd_rc_rebound.png'}
+          for phase in ('hit','rebound'):
+              a=next(x for x in manifest['assets'] if x['path']==rels[phase]); a['sha256']=after[phase]; a['status']='MOTION_REPAIR_VERIFIED'
+              invrel=rels[phase].replace('character-assets/','',1)
+              frames=[v for v in inv['requiredFrames'].values() if v.get('path')==invrel]
+              assert frames, invrel
+              for frame in frames: frame['sha256']=after[phase]; frame['state']='motion-repair-verified'
+          ent=next(x for x in amap['entries'] if x.get('actionKey')=='BD+RC:RF/R')
+          ent['hitSha256']=after['hit']; ent['reboundSha256']=after['rebound']
+          manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+          inv_path.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+'\n')
+          amap_path.write_text(json.dumps(amap,ensure_ascii=False,indent=2)+'\n')
+          report={'schemaVersion':1,'issueId':'MOTION-002','actionKey':'BD+RC:RF/R','claimBatch':'HOLD-REPAIR-FRONT-06','beforeFormalSha256':before,'stagedCandidateSha256':after,'candidateMatchesRecordedRuntime':after==expected,'characterAssetValidation':'PENDING','runtimePoseRegression':'PENDING','formalCommitted':False}
+          (root/'qa-artifacts/front06-prepromotion/validation.json').write_text(json.dumps(report,indent=2)+'\n')
+          PY
+      - name: Character asset validation
+        run: python tools/character_layers/validate_assets.py
+      - name: Runtime pose unit regression
+        run: python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+      - name: Mark validation PASS
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('qa-artifacts/front06-prepromotion/validation.json')
+          d=json.loads(p.read_text()); d['characterAssetValidation']='PASS'; d['runtimePoseRegression']='PASS'; d['validation']='PASS'; p.write_text(json.dumps(d,indent=2)+'\n')
+          PY
+      - name: Upload validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front06-prepromotion-validation-${{ github.run_id }}
+          path: qa-artifacts/front06-prepromotion/
+          if-no-files-found: warn
+          retention-days: 30
