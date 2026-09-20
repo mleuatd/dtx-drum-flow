@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "issueId": "MOTION-015",
   "actionKey": "BD+HH+SN:RF/R/L",
-  "status": "VERIFIED",
+  "status": "M015_BD_HH_SN_PUBLIC_RUNTIME_QA_PASSED",
   "exactCandidate": {
     "hitSha256": "42bc7b87fc46698e058770888c0ab048a4fe66b44d5f5bc094de235ff3051b0f",
     "reboundSha256": "eee9d730baade7fdb166253856b6b7fba9eb76dcc35f7d6506ded69ee66d1007"
@@ -11,10 +11,10 @@
     "M015-BD-HH-SN": {
       "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "35488330690",
-      "testedCommitSha": "831d2a9840d2f1d33e22efd511d95627e36609e0",
-      "artifact": "public-runtime-qa-35488330690",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35488330690",
+      "runId": "35490329133",
+      "testedCommitSha": "5d0ffd01e2ec9a581d91a39a9774e0f0b67625b9",
+      "artifact": "public-runtime-qa-35490329133",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/35490329133",
       "measureStart": 67,
       "measureEnd": 67,
       "actions": [
@@ -23,7 +23,7 @@
     }
   },
   "blocker": null,
-  "updatedAt": "2026-09-20T04:08:08.614717+00:00",
+  "updatedAt": "2026-09-20T04:55:59.522267+00:00",
   "verifiedAt": "2026-09-20T13:18:00+09:00",
   "validation": {
     "runtimeQaRunId": 35488330690,
