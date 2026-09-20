@@ -1,7 +1,15 @@
 {
   "schemaVersion": 1,
   "promoted": [],
-  "failedCandidates": [],
+  "failedCandidates": [
+    {
+      "id": "rd_sn_r_l_hit",
+      "actionKey": "RD+SN:R/L",
+      "phase": "hit",
+      "checks": null,
+      "changedRatioVsNeutral": null
+    }
+  ],
   "skipped": [
     {
       "id": "rd_r_hit",
@@ -13,10 +21,6 @@
     },
     {
       "id": "bd_rd_rf_r_rebound",
-      "reason": "already_completed"
-    },
-    {
-      "id": "rd_sn_r_l_hit",
       "reason": "already_completed"
     },
     {
