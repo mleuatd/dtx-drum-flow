@@ -9,7 +9,7 @@
       "source": "character-assets/layers/character/ht/hit_r_refresh.png",
       "sourceSha256": "aff2029602bb5f0356792ffc9edb9df5098ca2b191cec9303689d60a5bfdc756",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_hit_refresh_candidate.png",
-      "candidateSha256": "1c37017d1bd6d031215afc5d2fdde8fee9eca1df04da44f5ebad8f7c45db4d71",
+      "candidateSha256": "930680111fb11281df4198f101fca17384e931fc292709bef6b8d40e4f1982e3",
       "components": [
         {
           "part": "HT",
@@ -20,9 +20,9 @@
           ]
         }
       ],
-      "maskPixelCount": 14843,
-      "changedPixelsVsNeutral": 9560,
-      "changedRatioVsNeutral": 0.00607938,
+      "maskPixelCount": 14964,
+      "changedPixelsVsNeutral": 9687,
+      "changedRatioVsNeutral": 0.00616014,
       "changedBBoxVsNeutral": {
         "x": 471,
         "y": 354,
@@ -39,9 +39,9 @@
           "part": "HT",
           "limb": "R",
           "radiusPx": 125,
-          "sourceRelevantPixels": 9430,
-          "preservedPixels": 9430,
-          "preserveRatio": 1.0
+          "sourceRelevantPixels": 9507,
+          "preservedPixels": 9459,
+          "preserveRatio": 0.995
         }
       ],
       "checks": {
@@ -63,7 +63,7 @@
       "source": "character-assets/layers/character/ht/rebound_r_refresh.png",
       "sourceSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_candidate.png",
-      "candidateSha256": "39822d186c44e43d059100a1cb3aa13e3df61d8c9a07a04c0e4e1fb74b549537",
+      "candidateSha256": "181dabddc637bb566e6798d2b6f8112b7227b078209700e10fde87215203facf",
       "components": [
         {
           "part": "HT",
@@ -74,14 +74,14 @@
           ]
         }
       ],
-      "maskPixelCount": 15900,
-      "changedPixelsVsNeutral": 10195,
-      "changedRatioVsNeutral": 0.00648319,
+      "maskPixelCount": 15929,
+      "changedPixelsVsNeutral": 10348,
+      "changedRatioVsNeutral": 0.00658049,
       "changedBBoxVsNeutral": {
         "x": 492,
-        "y": 324,
+        "y": 321,
         "width": 158,
-        "height": 123
+        "height": 126
       },
       "headGuardChangedPixels": 0,
       "pelvisGuardChangedPixels": 0,
@@ -94,8 +94,8 @@
           "limb": "R",
           "radiusPx": 180,
           "sourceRelevantPixels": 10128,
-          "preservedPixels": 10128,
-          "preserveRatio": 1.0
+          "preservedPixels": 10007,
+          "preserveRatio": 0.9881
         }
       ],
       "checks": {
