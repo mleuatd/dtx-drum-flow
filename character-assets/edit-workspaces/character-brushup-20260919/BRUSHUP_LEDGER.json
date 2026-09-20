@@ -5582,5 +5582,34 @@
       "BD+FT:RF/L: neutral-diff corridor can collapse to near-no-op; explicit left hand/stick ROI required.",
       "BD+HT:RF/L: neutral-locked corridor passed all machine locality/protection gates for both phases; requires human visual QA before promotion."
     ]
+  },
+  "fastLocalRepairStable": {
+    "terminalId": "CHAT-FAST-REPAIR-STABLE",
+    "updatedAt": "2026-09-20T17:38:00+09:00",
+    "currentIssueId": "MOTION-001",
+    "currentActionKey": "SN:L",
+    "stage": "LOCAL_STATIC_PASS_PENDING_FORMAL_PROMOTION",
+    "candidate": {
+      "version": "v16",
+      "sha256": "05b1f5b5509d1735002cbf9d8e81143c9128bee8e056e3da85726a7b5c60df2f",
+      "dropboxPath": "/ChatGPT/dtx-drum-flow/sn_l_rebound_candidate_v16_20260920.png"
+    },
+    "qa": {
+      "outsideEnvelopeChangedPixels": 0,
+      "oldHandResiduePixels": 0,
+      "alphaGapPixels": 0,
+      "staticGuardChangedPixels": {
+        "head": 0,
+        "right_arm": 0,
+        "pelvis_seat": 0,
+        "legs_stool": 0
+      },
+      "humanAnatomy": "PASS",
+      "linework": "PASS",
+      "fixedDrumComposite": "PASS",
+      "runtime": "PENDING"
+    },
+    "method": "ECC-align exact formal rebound to formal hit on static body; replace only left forearm/hand/stick union ROI",
+    "next": "Promote v16 to formal rebound_l.png, run validation and real-chart runtime QA, then VERIFIED and release CLAIM."
   }
 }
