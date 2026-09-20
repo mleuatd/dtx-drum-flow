@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 12,
+  "issueId": "MOTION-001",
+  "actionKey": "SN:L",
+  "phase": "rebound",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v12.png",
+  "method": "formal hit static parent; erase old hit hand/stick; overlay visible v8 rebound hand/stick pixels only",
+  "parent": {
+    "staticBase": "character-assets/layers/character/sn/hit_l.png",
+    "staticBaseSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+    "activeMotionParent": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v8.png",
+    "activeMotionParentSha256": "f5c73278c7b7d5fd089c6e74b8d5f25bee1c4ed70388f0968046f1fdecf8fe44",
+    "rejectedParent": "sn_l_rebound_candidate_v11.png",
+    "rollbackCandidate": "sn_l_rebound_candidate_v8.png"
+  },
+  "changedRoi": {
+    "oldErasePixels": 13993,
+    "addVisiblePixels": 8603,
+    "changedPixelsVsHit": 10590,
+    "changedBBoxVsHit": {
+      "x": 437,
+      "y": 403,
+      "width": 230,
+      "height": 147
+    }
+  },
+  "pairStaticGuards": {
+    "outsideAllowedChangedPixels": 0,
+    "guardChangedPixelsVsHit": {
+      "head": 0,
+      "right_arm": 0,
+      "pelvis_seat": 0,
+      "legs_stool": 0
+    }
+  },
+  "constraintChecks": {
+    "reboundSeparationPx": 118.377,
+    "minimumSeparationPx": 16,
+    "reboundPass": true
+  },
+  "hardPass": {
+    "outsideAllowedChangedPixels": true,
+    "inactiveRightArmExactToHit": true,
+    "headExactToHit": true,
+    "pelvisSeatExactToHit": true,
+    "legsStoolExactToHit": true,
+    "reboundSeparation": true,
+    "changedVisible": true
+  },
+  "pass": true
+}
