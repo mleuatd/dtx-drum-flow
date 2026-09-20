@@ -13930,18 +13930,17 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
-        "reviewedAt": "2026-09-20T11:14:00+09:00",
+        "reviewedAt": "2026-09-20T11:28:00+09:00",
         "reviewEvidence": {
-          "workflowRunId": 35483412572,
-          "artifactId": 10596267183,
-          "candidateHitSha256": "36a026a322b5a03a63fd84f5b9a583a8e17f367cd885b145c55160f3810b7dd0",
-          "candidateReboundSha256": "3b8433143925ac0445f689d61fb715032484113de337c9681019d55c3a1618a7"
+          "workflowRunId": 35483753132,
+          "candidateHitSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
+          "candidateReboundSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9"
         },
         "failReasons": [
-          "Machine QA passes both phases, but full-resolution fixed-drum review still shows incoherent left hand/stick geometry.",
-          "Rebound retains obvious floating/disconnected line fragments around the left stick/tom corridor; promotion is blocked."
+          "Method4 machine QA now passes both MOTION-015 phases, including HH rebound source preservation.",
+          "Full-resolution fixed-drum review still fails: rebound contains a conspicuous white rectangular/vertical splice above the left-side tom and broken/floating left-hand/stick geometry; hit also does not present a clean continuous left-hand-to-tip stick silhouette."
         ],
-        "nextRepair": "Keep this CLAIM. Use the current machine-PASS pair as parent; switch from broad source transplant to pair-level continuity reconstruction/fragment rejection limited to the active left hand→grip→stick→tip corridor. Preserve the now-passing RF pedal corridor, head, pelvis outside permitted RF motion, stool, and unrelated body regions."
+        "nextRepair": "Keep this CLAIM. Do not widen the transplant corridor again. Switch mechanism: connected-component/line-continuity reconstruction limited to the left hand→grip→stick→tip corridor, explicitly reject isolated white/opaque rectangular components and floating fragments, preserve the passing RF/HH contact corridors and all locked regions."
       },
       "claim": {
         "state": "CLAIMED",
@@ -13979,6 +13978,11 @@
           "at": "2026-09-20T11:14:00+09:00",
           "decision": "PASS2_M015_MACHINE_PASS_VISUAL_FAIL_CONTINUE",
           "detail": "Run 35483412572 artifact 10596267183: hit/rebound both machine PASS after RF corridor and QA corrections. Full-resolution fixed-drum inspection still FAILS left hand/stick continuity; rebound contains floating/disconnected fragments. Do not promote. Retain CLAIM and continue from these candidates with pair-level continuity reconstruction/fragment rejection."
+        },
+        {
+          "at": "2026-09-20T11:28:00+09:00",
+          "decision": "PASS2_M015_METHOD4_MACHINE_PASS_VISUAL_FAIL",
+          "detail": "Run 35483753132: method4 hit/rebound both machine PASS after HH corridor extension. Full-resolution fixed-drum inspection still shows rebound white rectangular splice and broken/floating left hand/stick geometry. Broad corridor expansion is now prohibited; next iteration must use connected-component/line-continuity reconstruction and fragment rejection."
         }
       ],
       "hold": {
