@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:47:00+09:00",
+  "updatedAt": "2026-09-20T11:51:00+09:00",
   "mode": "SELF_FEEDING_REPAIR_QUEUE",
   "terminalId": "CHAT-PASS2-BACK",
   "issueId": "MOTION-015",
@@ -14,7 +14,7 @@
     "formalPromotionRequiresExactCandidateVisualPass": true,
     "doNotAdvanceIssueUntilVerified": true
   },
-  "cursor": "M015-006",
+  "cursor": "M015-007",
   "tasks": [
     {
       "id": "M015-001",
@@ -82,10 +82,31 @@
     },
     {
       "id": "M015-006",
-      "status": "READY",
+      "status": "MACHINE_PASS_VISUAL_QA_REQUIRED",
       "type": "REPAIR_AND_MACHINE_QA",
       "mechanism": "METHOD9_COMPONENT_ERASE_AND_STICK_PATH_REBUILD",
-      "instruction": "Use METHOD8 as best parent. Explicitly erase isolated rebound white triangle/stray fragments in bounded left-tom/seat regions, then rebuild a single narrow left-hand→stick path without broad source transplant. Preserve SN contact disk and RF/HH passing regions."
+      "instruction": "Use METHOD8 as best parent. Explicitly erase isolated rebound white triangle/stray fragments in bounded left-tom/seat regions, then rebuild a single narrow left-hand→stick path without broad source transplant. Preserve SN contact disk and RF/HH passing regions.",
+      "runId": 35484687746,
+      "artifactId": 10597008329,
+      "candidates": {
+        "hit": "2a37a6946ecc0a4ee7578b15a230df6688015e4a72391f71f21c9e56460b4362",
+        "rebound": "83b40e7eefba10757c7a93e909d0f0e91a9be1ad034ec056b5e5d86eadafdc68"
+      },
+      "machineQa": {
+        "hit": "PASS",
+        "rebound": "PASS",
+        "hitSnPreserve": 1,
+        "reboundSnPreserve": 0.977,
+        "reboundBdPreserve": 0.8728
+      }
+    },
+    {
+      "id": "M015-007",
+      "status": "READY",
+      "type": "FULL_RES_VISUAL_QA",
+      "runId": 35484687746,
+      "artifactId": 10597008329,
+      "instruction": "Inspect exact Method9 hit/rebound fixed-drum images. If PASS, immediately promote exact candidate and proceed runtime QA; if FAIL, record exact coordinates and perform one bounded direct repair, not another broad mask experiment."
     }
   ]
 }
