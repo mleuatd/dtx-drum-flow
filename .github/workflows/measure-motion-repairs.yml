@@ -31,4 +31,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add character-assets/prototypes/luna_say_maybe_16m/REPAIR_MEASUREMENTS_AUTO.json
           git commit -m "qa: measure motion repair geometry"
+          # Other repair/QA workflows may push to main in parallel. Rebase the
+          # measurement-only commit onto the newest main before pushing so a
+          # harmless race does not leave geometry evidence unpersisted.
+          git pull --rebase origin main
           git push
