@@ -1,0 +1,46 @@
+name: FRONT repair root HH MOTION-007
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/front-m007-root.yml"
+      - "tools/character_layers/build_front_m007.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: front-m007
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            character-assets/layers/character/base/neutral.png
+            character-assets/layers/character/hh
+            character-assets/layers/drum/drum_base.png
+            character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
+            tools/character_layers/build_front_m007.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install --disable-pip-version-check pillow numpy
+      - name: Verify root claim
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"))
+          x=next(v for v in d["defects"] if v["issueId"]=="MOTION-007");c=x.get("claim") or {}
+          assert c.get("owner")=="CHATGPT-FRONT" and c.get("batch")=="FRONT-M007-ROOT",c
+          PY
+      - run: python tools/character_layers/build_front_m007.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: front-m007-${{ github.run_id }}
+          path: character-assets/edit-workspaces/motion-repair-20260920/front-m007/
+          retention-days: 30
