@@ -1,5 +1,6 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
+  "frameId": "008_bd_rf_hit",
   "actionKey": "BD:RF",
   "phase": "hit",
   "source": "character-assets/layers/character/bd/rebound_rf.png",
@@ -9,7 +10,7 @@
   "fixedDrum": "character-assets/layers/drum/drum_base.png",
   "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
   "config": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
-  "configSha256": "977985ef65d38ac16c0893a0286681d4eec65a4ed97030a3fe93ab07bf5cd7f2",
+  "configSha256": "446208229ffea7af32bb9b83937f2f6f20fd84be0ca35e1b47acf6892c2eaf1c",
   "candidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
   "candidateSha256": "4ee11bd49363502e2536bf3a2dce3a1b1f1bd873721d32af7eb667dfe9a93caf",
   "canvas": [
@@ -17,6 +18,7 @@
     1086
   ],
   "mode": "RGBA",
+  "alphaChannelPresent": true,
   "changedPixels": 36721,
   "outsideAllowedChangedPixels": 0,
   "fixedRegionChangedPixels": 0,
@@ -27,26 +29,29 @@
     "height": 326
   },
   "pedalEndpoint": [
-    710.0,
-    925.0
+    710,
+    925
   ],
   "pedalTarget": [
-    700.0,
-    920.0
+    700,
+    920
   ],
   "pedalDistancePx": 11.18,
-  "pedalTolerancePx": 45.0,
-  "alphaChannelPresent": true,
+  "pedalTolerancePx": 45,
   "visualQaRequired": true,
   "checks": {
     "canvas1448x1086": true,
     "rgba": true,
+    "alphaChannelPresent": true,
     "sourceShaMatchesConfig": true,
+    "brokenSourceShaMatchesConfig": true,
+    "fixedDrumShaMatchesConfig": true,
     "candidateDiffersFromSource": true,
     "outsideAllowedZero": true,
     "fixedRegionsZero": true,
     "pedalContactWithinTolerance": true,
     "runtimeWritableFalse": true,
+    "visualQaRequiredTrue": true,
     "userApprovalPending": true
   },
   "regressionChecks": {
@@ -55,5 +60,21 @@
     "outsideAllowedMatch": true,
     "pedalDistanceMatch": true
   },
-  "machinePass": true
+  "machinePass": true,
+  "timings": {
+    "configValidationSeconds": 0.000264,
+    "cacheCheckAndHashSeconds": 0.007434,
+    "gitCommitPreparationSeconds": null,
+    "gitRegistrationSeconds": null,
+    "loadSeconds": 0.083265,
+    "warpSeconds": 0.044213,
+    "candidateSaveSeconds": 0.100483,
+    "qaSeconds": 0.03656,
+    "fixedDrumCompositeSeconds": 0.753306,
+    "reviewGenerationSeconds": 0.412579,
+    "beforeAfterGenerationSeconds": 0.69014,
+    "candidateToReviewCompleteSeconds": 2.037281,
+    "manifestGenerationSeconds": 0.004848,
+    "totalLocalPipelineSeconds": 2.135201
+  }
 }

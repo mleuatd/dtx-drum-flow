@@ -1,32 +1,46 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "frame": "008",
+  "frameId": "008_bd_rf_hit",
   "machinePass": true,
   "visualQaRequired": true,
   "userApprovalStatus": "PENDING",
   "runtimeModified": false,
   "otherFramesTouched": false,
+  "changedPixels": 36721,
+  "changedBBox": {
+    "x": 594,
+    "y": 635,
+    "width": 172,
+    "height": 326
+  },
   "outsideAllowedChangedPixels": 0,
   "fixedRegionChangedPixels": 0,
+  "pedalDistancePx": 11.18,
   "candidateCanvas": [
     1448,
     1086
   ],
   "candidateMode": "RGBA",
   "timings": {
-    "cacheAndHashSeconds": 0.008024,
-    "loadCachedInputsSeconds": 0.066825,
-    "warpSeconds": 0.144989,
-    "saveCandidateSeconds": 0.071159,
-    "qaSeconds": 0.028261,
-    "compositeReviewSeconds": 0.650539,
-    "reviewImagesSeconds": 1.057608,
-    "candidateToReviewCompleteSeconds": 1.952556,
-    "totalSeconds": 2.027783
+    "configValidationSeconds": 0.000264,
+    "cacheCheckAndHashSeconds": 0.007434,
+    "gitCommitPreparationSeconds": null,
+    "gitRegistrationSeconds": null,
+    "loadSeconds": 0.083265,
+    "warpSeconds": 0.044213,
+    "candidateSaveSeconds": 0.100483,
+    "qaSeconds": 0.03656,
+    "fixedDrumCompositeSeconds": 0.753306,
+    "reviewGenerationSeconds": 0.412579,
+    "beforeAfterGenerationSeconds": 0.69014,
+    "candidateToReviewCompleteSeconds": 2.037281,
+    "manifestGenerationSeconds": 0.004848,
+    "totalLocalPipelineSeconds": 2.135201
   },
   "candidateSha256": "4ee11bd49363502e2536bf3a2dce3a1b1f1bd873721d32af7eb667dfe9a93caf",
   "sourceSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+  "brokenSourceSha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
   "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
-  "configSha256": "977985ef65d38ac16c0893a0286681d4eec65a4ed97030a3fe93ab07bf5cd7f2",
-  "characterValidationRegressionSeconds": 2.645649
+  "configSha256": "446208229ffea7af32bb9b83937f2f6f20fd84be0ca35e1b47acf6892c2eaf1c"
 }

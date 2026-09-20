@@ -1,14 +1,19 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "stages": {
-    "cacheAndHashSeconds": 0.008024,
-    "loadCachedInputsSeconds": 0.066825,
-    "warpSeconds": 0.144989,
-    "saveCandidateSeconds": 0.071159,
-    "qaSeconds": 0.028261,
-    "compositeReviewSeconds": 0.650539,
-    "reviewImagesSeconds": 1.057608,
-    "candidateToReviewCompleteSeconds": 1.952556,
-    "totalSeconds": 2.027783
+    "configValidationSeconds": 0.000264,
+    "cacheCheckAndHashSeconds": 0.007434,
+    "gitCommitPreparationSeconds": null,
+    "gitRegistrationSeconds": null,
+    "loadSeconds": 0.083265,
+    "warpSeconds": 0.044213,
+    "candidateSaveSeconds": 0.100483,
+    "qaSeconds": 0.03656,
+    "fixedDrumCompositeSeconds": 0.753306,
+    "reviewGenerationSeconds": 0.412579,
+    "beforeAfterGenerationSeconds": 0.69014,
+    "candidateToReviewCompleteSeconds": 2.037281,
+    "manifestGenerationSeconds": 0.004848,
+    "totalLocalPipelineSeconds": 2.135201
   }
 }
