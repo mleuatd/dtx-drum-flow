@@ -180,7 +180,7 @@ for f in fails:
             if phase=="rebound":
                 reject=np.zeros((H,W),dtype=bool)
                 # Detached shard measured on the 1448x1086 fixed-drum frame.
-                reject[265:310,500:545]=True
+                reject[250:335,480:575]=True
                 # Keep the previously confirmed seat/thigh floating-stroke cleanup.
                 reject[700:815,610:735]=True
                 M &= ~reject
