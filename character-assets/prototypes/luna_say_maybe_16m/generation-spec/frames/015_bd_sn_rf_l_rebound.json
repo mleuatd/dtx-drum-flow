@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 15,
+  "sourceFilename": "015_bd_sn_rf_l_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+SN:RF/L",
+  "runtimeActionKey": "BD+SN:RF/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "人物左側に切り離された手・前腕状パーツが浮遊し、別軌道のスティック線も残る。"
+  ],
+  "defectRegions": [
+    "left_arm",
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_SN_RF_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+SN:RF/L hit/rebound",
+    "negativeAttention": [
+      "left_arm",
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
