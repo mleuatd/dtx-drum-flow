@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "index": 10,
+  "sourceFilename": "010_bd_rc_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+RC",
+  "runtimeActionKey": "BD+RC:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカートが崩れ、右手付近のスティック軌道も重複する。"
+  ],
+  "defectRegions": [
+    "waist",
+    "skirt",
+    "left_leg",
+    "right_leg",
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_RC_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+RC:RF/R hit/rebound",
+    "negativeAttention": [
+      "waist",
+      "skirt",
+      "left_leg",
+      "right_leg",
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
