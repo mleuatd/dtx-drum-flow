@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T11:46:00+09:00",
+  "updatedAt": "2026-09-20T11:48:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -1068,7 +1068,12 @@
           "detail": "FRONT releases MOTION-001 after bounded headless artifact loop. Mask/compositing strategy is exhausted without stable visual PASS. Preserve v8-v12 evidence and formal rollback anchor. Next repair requires exact-source-bound reconstruction of one coherent left arm/hand/stick."
         }
       ],
-      "claim": null
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FRONT-M001-FASTPIPE",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T11:48:00+09:00"
+      }
     },
     {
       "issueId": "MOTION-002",
