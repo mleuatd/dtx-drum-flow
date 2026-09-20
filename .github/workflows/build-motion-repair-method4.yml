@@ -1,5 +1,6 @@
 name: Build motion repair method4 candidates
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -8,6 +9,9 @@ on:
       - '.github/workflows/build-motion-repair-method4.yml'
 permissions:
   contents: write
+concurrency:
+  group: motion-repair-method4-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +21,34 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check pillow numpy
-      - run: python tools/character_layers/build_motion_repair_method4.py
+      - name: Iterate repair and machine QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          MAX_ITER=12
+          mkdir -p character-assets/edit-workspaces/motion-repair-20260920/method4
+          for i in $(seq 1 "$MAX_ITER"); do
+            echo "=== MOTION REPAIR ITERATION $i/$MAX_ITER ==="
+            python tools/character_layers/build_motion_repair_method4.py
+            python - <<'PY'
+          import json, pathlib, sys
+          p=pathlib.Path("character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json")
+          d=json.loads(p.read_text())
+          active=[x for x in d.get("targets",[]) if x.get("actionKey")=="BD+HH+SN:RF/R/L" and not x.get("skip")]
+          ok=len(active)>=2 and all(x.get("pass") for x in active)
+          print(json.dumps({"active":len(active),"machinePass":ok,"shas":[x.get("candidateSha256") for x in active]}))
+          sys.exit(0 if ok else 2)
+          PY
+            rc=$?
+            if [ "$rc" -eq 0 ]; then
+              echo "Machine gates PASS. Stop automatic mutation here; full-resolution visual PASS is mandatory before promotion."
+              break
+            fi
+            if [ "$i" -eq "$MAX_ITER" ]; then
+              echo "Iteration budget exhausted; evidence is preserved for the next run."
+              exit 0
+            fi
+          done
       - name: Upload method4 evidence
         uses: actions/upload-artifact@v4
         with:
