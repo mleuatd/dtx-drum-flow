@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T18:49:00+09:00",
+  "updatedAt": "2026-09-20T18:59:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -2883,7 +2883,7 @@
         "M004 v2 run 35485268379 artifact 10597039154: bounded cleanup PASS machine, horizontal splice remained visually",
         "M004 v4 run 35485503368 artifact 10596939368: combo body splice removed; rebound still inherits SN:L shoulder/sleeve structural defect"
       ],
-      "fixDecision": "Dependency isolated: RC side can be rebuilt cleanly from VERIFIED RC donor, but rebound left side inherits unresolved MOTION-001 SN:L structural defect. Do not spend further retries on RC+SN until SN:L rebound has a clean structural source; then rebuild from neutral + clean SN + VERIFIED RC.",
+      "fixDecision": "v5 full-resolution QA found an extra inactive donor hand/forearm/stick in both phases. Repair only the measured upper-left ROI from v5 parent using neutral/common-body source-bound reconstruction; preserve intended SN and RC limbs, all locked body regions outside ROI, and formal assets until re-QA passes.",
       "relatedAsset": [
         "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
         "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
@@ -2894,7 +2894,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T17:44:00+09:00",
+      "updatedAt": "2026-09-20T18:59:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "HOLD_VISUAL_INTEGRITY",
@@ -3796,12 +3796,12 @@
       },
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
+        "linework": "FAIL_EXTRA_LIMB",
+        "fixedDrumComposite": "FAIL_EXTRA_LIMB",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "Batch 05: both hit and rebound contain a large horizontal/rectangular splice through lower hair/torso geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
+        "note": "v5 exact full-resolution QA: both phases show a third visible hand/stick at upper-left; approximate ROI x565 y275 w155 h185. Formal unchanged; local source-bound repair required.",
         "workflowRunId": 35475413657,
         "artifactId": 10593488275
       },
@@ -3826,6 +3826,11 @@
           "at": "2026-09-20T18:49:00+09:00",
           "decision": "FAST_LOCAL_REPAIR_STABLE_V5_VISUAL_GATE_RECONNECT_CHECK",
           "detail": "Reconnect verified latest main a946cae82b32e903b7530b12a59f5ae88297a502, CLAIM remains CHAT-FAST-REPAIR-STABLE, and M004_V5_SUMMARY still reports pairMachinePass=true with hit SHA256 bdf0a8759d5b8315d7fb9f68e18a7dfbf6f8ead156fbeb7db026249270b8db8f and rebound SHA256 b44199b879bf46755f8934b26625c12cd34ccc0961d87996a26166158f3c3875. Exact v5 repository PNG is retrievable through GitHub connector only as base64 (hit content length 1,257,019 chars), while direct raw.githubusercontent.com transfer into the local visual QA runtime failed DNS resolution and Dropbox search under /ChatGPT/dtx-drum-flow returned no v5 candidate. Therefore full-resolution visual QA is still not actually performed; formal promotion, Actions, runtime QA, PC/Xperia QA, validation, VERIFIED, and CLAIM release remain blocked. No candidate generated, no formal assets changed."
+        },
+        {
+          "at": "2026-09-20T18:59:00+09:00",
+          "decision": "FAST_LOCAL_REPAIR_STABLE_V5_FULL_RES_VISUAL_FAIL_EXTRA_LIMB",
+          "detail": "Exact v5 images were obtained from GitHub Actions artifact front-m004-v3-35501607837 (artifact 10602846055, head a8f95a68e6b8499dc373b701403f1543aed9ece9) and inspected as original 1448x1086 PNGs. Candidate SHA256 matches M004_V5_SUMMARY: hit bdf0a8759d5b8315d7fb9f68e18a7dfbf6f8ead156fbeb7db026249270b8db8f; rebound b44199b879bf46755f8934b26625c12cd34ccc0961d87996a26166158f3c3875. Full-resolution anatomy QA FAIL: both hit and rebound visibly contain an extra upper-left hand/forearm + stick in addition to the intended SN left arm and RC right arm, producing three visible hands/sticks. Approximate FAIL ROI on 1448x1086 canvas: x=565,y=275,width=155,height=185; affected part=inactive donor hand/forearm/stick; symptom=extra limb / floating inactive donor residue. Fixed-drum composites confirm the same contradiction and transition strip repeats it. Cause candidate: SN:L full-body donor mask retained its inactive opposite-hand/stick pixels. Formal assets remain unchanged; VERIFIED is blocked. Next step: source-bound local reconstruction from v5 parent, restoring only this ROI from neutral/common-body while preserving intended SN lower-left arm and RC right arm; then local visual QA + fixed-drum + transition QA."
         }
       ]
     },
