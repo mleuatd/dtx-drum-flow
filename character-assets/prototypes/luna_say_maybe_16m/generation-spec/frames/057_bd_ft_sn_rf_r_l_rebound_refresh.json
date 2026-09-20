@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 57,
+  "sourceFilename": "057_bd_ft_sn_rf_r_l_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+FT+SN:RF/R/L",
+  "runtimeActionKey": "BD+FT+SN:RF/R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手・右手の双方に別軌道のスティックが残り、計4本に見える。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_FT_SN_RF_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+FT+SN:RF/R/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
