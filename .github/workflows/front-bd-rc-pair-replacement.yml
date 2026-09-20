@@ -5,7 +5,7 @@ on:
     paths:
       - 'tools/character_layers/build_front_bd_rc_pair_replacement.py'
       - '.github/workflows/front-bd-rc-pair-replacement.yml'
-      - 'character-assets/prototypes/luna_say_maybe_16m/FRONT_REPAIR_REQUEST.json'
+      - 'character-assets/prototypes/luna_say_maybe_16m/FRONT_REPAIR_REQUEST.json'\n      - '.github/front06-trigger.txt'
 permissions:
   contents: write
 jobs:
