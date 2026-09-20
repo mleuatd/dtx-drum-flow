@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -154,10 +154,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T09:18:00+09:00",
+      "updatedAt": "2026-09-20T09:31:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -664,6 +664,21 @@
             "at": "2026-09-20T07:56:00+09:00",
             "decision": "HOLD_VISUAL_INTEGRITY",
             "detail": "Full-resolution batch 03 hard-gate review: hit PASS but rebound structurally FAILS (duplicate/disconnected arm-hand-stick and whole-body discontinuity). Large failure; skip minimal retry and preserve formal PNGs."
+          },
+          {
+            "at": "2026-09-20T09:31:00+09:00",
+            "decision": "SN_L_V2_MACHINE_PASS_HUMAN_FAIL",
+            "detail": "Run 35478426078 / artifact 10594382638. Candidate v2 machine QA PASS, but full-resolution human review shows an extra detached hand/blob below the active stick plus duplicated left-hand geometry. Formal unchanged."
+          },
+          {
+            "at": "2026-09-20T09:31:00+09:00",
+            "decision": "SN_L_V3_V6_ROOT_CAUSE_REFINEMENT",
+            "detail": "v3-v6 isolated two distinct causes: neutral-pose left-hand residue plus a duplicated upper-left hand/stick embedded in source rebound. v5 removed the lower crescent artifact but still showed three hands; v6 cleared neutral residue but still retained the source duplicate."
+          },
+          {
+            "at": "2026-09-20T09:31:00+09:00",
+            "decision": "SN_L_V7_MACHINE_PASS_HUMAN_HARD_FAIL",
+            "detail": "Run 35478927630 / artifact 10595407657. Restoring the duplicated upper-left source region from neutral removed that hand but introduced a large rectangular plaid/jacket patch across the left shoulder/chest area. Human anatomy/linework/composite FAIL. Stop local mask retries; next repair must reconstruct a single coherent left arm/hand/stick without broad rectangular neutral restoration."
           }
         ],
         "measurementTodos": [
@@ -898,7 +913,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T09:18:00+09:00"
+        "updatedAt": "2026-09-20T09:31:00+09:00"
       },
       "occurrences": [
         {
@@ -932,17 +947,49 @@
         }
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_PAIR_REBOUND",
-        "linework": "FAIL_PAIR_REBOUND",
-        "fixedDrumComposite": "FAIL_PAIR_REBOUND",
+        "humanAnatomy": "FAIL_REBOUND_DUPLICATE_LIMB_OR_PATCH",
+        "linework": "FAIL_RECTANGULAR_RESTORE_PATCH",
+        "fixedDrumComposite": "FAIL_REBOUND_VISUAL_INTEGRITY",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
-        "note": "Batch 03: hit static frame passed, rebound has duplicated/disconnected arm-hand-stick geometry and whole-body registration discontinuity. Pair moved to HOLD; formal PNGs unchanged.",
-        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "note": "SN:L hit remains static PASS. Rebound local-mask attempts v2-v7 exposed both neutral-pose residue and duplicated source-hand geometry. v7 machine PASS but human hard FAIL due large rectangular plaid restore patch. Formal PNGs remain unchanged. Next repair must be a pair-aware left-arm reconstruction, not more rectangular mask patching.",
+        "reviewedAt": "2026-09-20T09:31:00+09:00",
         "visualQaRunId": 35474616622,
-        "visualQaArtifactId": 10593307774
+        "visualQaArtifactId": 10593307774,
+        "repairEvidence": [
+          {
+            "workflowRunId": 35478426078,
+            "artifactId": 10594382638,
+            "candidate": "v2"
+          },
+          {
+            "workflowRunId": 35478531983,
+            "artifactId": 10594738762,
+            "candidate": "v3"
+          },
+          {
+            "workflowRunId": 35478652557,
+            "artifactId": 10595121777,
+            "candidate": "v4"
+          },
+          {
+            "workflowRunId": 35478745506,
+            "artifactId": 10594374694,
+            "candidate": "v5"
+          },
+          {
+            "workflowRunId": 35478826528,
+            "artifactId": 10594304816,
+            "candidate": "v6"
+          },
+          {
+            "workflowRunId": 35478927630,
+            "artifactId": 10595407657,
+            "candidate": "v7"
+          }
+        ]
       },
       "decisionLog": [
         {
@@ -954,14 +1001,14 @@
           "at": "2026-09-20T09:18:00+09:00",
           "decision": "HOLD_REPAIR_CLAIMED",
           "detail": "FRONT claimed SN:L under HOLD_REPAIR_PLAYBOOK. Hit remains protected because static visual PASS. Repair target is rebound; preserve head/torso/stool/right arm/legs unless evidence shows registration corruption inside the rebound itself. Candidate-first only."
+        },
+        {
+          "at": "2026-09-20T09:31:00+09:00",
+          "decision": "HOLD_REPAIR_FRONT_03_CLOSED",
+          "detail": "Released FRONT claim after root cause was clarified. Machine-only PASS is explicitly rejected. Formal PNGs unchanged."
         }
       ],
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-FRONT-03",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T09:18:00+09:00"
-      }
+      "claim": null
     },
     {
       "issueId": "MOTION-002",
