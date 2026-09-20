@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T09:01:00+09:00",
+  "updatedAt": "2026-09-20T09:04:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -4496,10 +4496,10 @@
         54
       ],
       "usageCount": 1,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "pass2-machine-pass-awaiting-human-visual",
+      "brushupStatus": "WAITING_VISUAL_QA",
       "terminalId": "CHAT-PASS2-BACK",
-      "claimState": "PASS2_CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4541,7 +4541,29 @@
         "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "repairPass": 2,
-      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00",
+      "pass2Repair": {
+        "repairPass": 2,
+        "terminal": "CHAT-PASS2-BACK",
+        "attemptedAt": "2026-09-20T09:04:00+09:00",
+        "artifactCommit": "a18ab57bd3d1b5ec2447107e299a8f950777a011",
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "result": "machine gates PASS for hit and rebound; human visual integrity still required",
+        "nextRepair": "Inspect candidate-only and fixed-drum composites; if clean, run runtime transition QA.",
+        "restartCondition": "candidate artifacts exist on main at a18ab57; visual review can start immediately",
+        "prohibitedRepair": "Do not full-redraw; do not relax protected-region or visual-integrity gates.",
+        "protectedRegion": [
+          "head",
+          "face",
+          "hair outside active ROI",
+          "torso outside active ROI",
+          "pelvis",
+          "stool",
+          "unrelated limbs",
+          "fixed drum"
+        ],
+        "state": "WAITING_VISUAL_QA"
+      }
     },
     {
       "order": 52,
@@ -4556,10 +4578,10 @@
         54
       ],
       "usageCount": 1,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "pass2-machine-pass-awaiting-human-visual",
+      "brushupStatus": "WAITING_VISUAL_QA",
       "terminalId": "CHAT-PASS2-BACK",
-      "claimState": "PASS2_CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4601,7 +4623,29 @@
         "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "repairPass": 2,
-      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00",
+      "pass2Repair": {
+        "repairPass": 2,
+        "terminal": "CHAT-PASS2-BACK",
+        "attemptedAt": "2026-09-20T09:04:00+09:00",
+        "artifactCommit": "a18ab57bd3d1b5ec2447107e299a8f950777a011",
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "result": "machine gates PASS for hit and rebound; human visual integrity still required",
+        "nextRepair": "Inspect candidate-only and fixed-drum composites; if clean, run runtime transition QA.",
+        "restartCondition": "candidate artifacts exist on main at a18ab57; visual review can start immediately",
+        "prohibitedRepair": "Do not full-redraw; do not relax protected-region or visual-integrity gates.",
+        "protectedRegion": [
+          "head",
+          "face",
+          "hair outside active ROI",
+          "torso outside active ROI",
+          "pelvis",
+          "stool",
+          "unrelated limbs",
+          "fixed drum"
+        ],
+        "state": "WAITING_VISUAL_QA"
+      }
     },
     {
       "order": 53,
@@ -4747,10 +4791,10 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "pass2-rehold",
+      "brushupStatus": "PASS2_REHOLD",
       "terminalId": "CHAT-PASS2-BACK",
-      "claimState": "PASS2_CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4792,7 +4836,29 @@
         "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "repairPass": 2,
-      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00",
+      "pass2Repair": {
+        "repairPass": 2,
+        "terminal": "CHAT-PASS2-BACK",
+        "attemptedAt": "2026-09-20T09:04:00+09:00",
+        "artifactCommit": "a18ab57bd3d1b5ec2447107e299a8f950777a011",
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "result": "machine FAIL: local source preservation failed at BD/RF contact (hit 0.1621, rebound 0.1514)",
+        "nextRepair": "Use foot-specific RF ROI that preserves pedal/leg contact while keeping pelvis/stool protected; do not relax preservation gate.",
+        "restartCondition": "revise semantic foot corridor/mask, then regenerate candidate-only repair",
+        "prohibitedRepair": "Do not full-redraw; do not relax protected-region or visual-integrity gates.",
+        "protectedRegion": [
+          "head",
+          "face",
+          "hair outside active ROI",
+          "torso outside active ROI",
+          "pelvis",
+          "stool",
+          "unrelated limbs",
+          "fixed drum"
+        ],
+        "state": "PASS2_REHOLD"
+      }
     },
     {
       "order": 56,
@@ -4808,10 +4874,10 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "pass2-rehold",
+      "brushupStatus": "PASS2_REHOLD",
       "terminalId": "CHAT-PASS2-BACK",
-      "claimState": "PASS2_CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4853,7 +4919,29 @@
         "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "repairPass": 2,
-      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00",
+      "pass2Repair": {
+        "repairPass": 2,
+        "terminal": "CHAT-PASS2-BACK",
+        "attemptedAt": "2026-09-20T09:04:00+09:00",
+        "artifactCommit": "a18ab57bd3d1b5ec2447107e299a8f950777a011",
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "result": "machine FAIL: local source preservation failed at BD/RF contact (hit 0.1621, rebound 0.1514)",
+        "nextRepair": "Use foot-specific RF ROI that preserves pedal/leg contact while keeping pelvis/stool protected; do not relax preservation gate.",
+        "restartCondition": "revise semantic foot corridor/mask, then regenerate candidate-only repair",
+        "prohibitedRepair": "Do not full-redraw; do not relax protected-region or visual-integrity gates.",
+        "protectedRegion": [
+          "head",
+          "face",
+          "hair outside active ROI",
+          "torso outside active ROI",
+          "pelvis",
+          "stool",
+          "unrelated limbs",
+          "fixed drum"
+        ],
+        "state": "PASS2_REHOLD"
+      }
     },
     {
       "order": 57,
@@ -4870,10 +4958,10 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "pass2-rehold",
+      "brushupStatus": "PASS2_REHOLD",
       "terminalId": "CHAT-PASS2-BACK",
-      "claimState": "PASS2_CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4915,7 +5003,29 @@
         "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "repairPass": 2,
-      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00",
+      "pass2Repair": {
+        "repairPass": 2,
+        "terminal": "CHAT-PASS2-BACK",
+        "attemptedAt": "2026-09-20T09:04:00+09:00",
+        "artifactCommit": "a18ab57bd3d1b5ec2447107e299a8f950777a011",
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "result": "hit machine FAIL because repair changed only 19 pixels (<250); rebound machine PASS but pair gated by hit",
+        "nextRepair": "Use left-FT stick/hand ROI derived from defect location instead of neutral-diff corridor; preserve foot/pelvis/stool and unrelated regions.",
+        "restartCondition": "add explicit left-hand/stick semantic ROI and regenerate hit first",
+        "prohibitedRepair": "Do not full-redraw; do not relax protected-region or visual-integrity gates.",
+        "protectedRegion": [
+          "head",
+          "face",
+          "hair outside active ROI",
+          "torso outside active ROI",
+          "pelvis",
+          "stool",
+          "unrelated limbs",
+          "fixed drum"
+        ],
+        "state": "PASS2_REHOLD"
+      }
     },
     {
       "order": 58,
@@ -4932,10 +5042,10 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "pass2-rehold",
+      "brushupStatus": "PASS2_REHOLD",
       "terminalId": "CHAT-PASS2-BACK",
-      "claimState": "PASS2_CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4977,7 +5087,29 @@
         "outcome": "HOLD_VISUAL_INTEGRITY"
       },
       "repairPass": 2,
-      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00",
+      "pass2Repair": {
+        "repairPass": 2,
+        "terminal": "CHAT-PASS2-BACK",
+        "attemptedAt": "2026-09-20T09:04:00+09:00",
+        "artifactCommit": "a18ab57bd3d1b5ec2447107e299a8f950777a011",
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "result": "hit machine FAIL because repair changed only 19 pixels (<250); rebound machine PASS but pair gated by hit",
+        "nextRepair": "Use left-FT stick/hand ROI derived from defect location instead of neutral-diff corridor; preserve foot/pelvis/stool and unrelated regions.",
+        "restartCondition": "add explicit left-hand/stick semantic ROI and regenerate hit first",
+        "prohibitedRepair": "Do not full-redraw; do not relax protected-region or visual-integrity gates.",
+        "protectedRegion": [
+          "head",
+          "face",
+          "hair outside active ROI",
+          "torso outside active ROI",
+          "pelvis",
+          "stool",
+          "unrelated limbs",
+          "fixed drum"
+        ],
+        "state": "PASS2_REHOLD"
+      }
     },
     {
       "order": 59,
@@ -5440,13 +5572,21 @@
     "terminal": "CHAT-PASS2-BACK",
     "processingDirection": "BACK_TO_FRONT",
     "startedAt": "2026-09-20T08:59:00+09:00",
-    "lastHeartbeat": "2026-09-20T09:01:00+09:00",
-    "currentActionKey": "BD+FT:RF/L",
-    "currentIssueId": "PASS2-BACK-BATCH-01-03",
-    "status": "ACTIVE_REPAIR",
+    "lastHeartbeat": "2026-09-20T09:04:00+09:00",
+    "currentActionKey": null,
+    "currentIssueId": null,
+    "status": "PASS2_THREE_BATCHES_PROCESSED",
     "completedInPass2": 0,
-    "holdInPass2": 0,
+    "holdInPass2": 2,
     "waitingRuntimeQA": 0,
-    "repairKnowledgeRevision": "read-current-main-before-each-repair"
+    "repairKnowledgeRevision": "read-current-main-before-each-repair",
+    "waitingVisualQA": 1,
+    "processedBatches": 3,
+    "latestArtifactCommit": "a18ab57bd3d1b5ec2447107e299a8f950777a011",
+    "latestRepairKnowledge": [
+      "BD+FT+SN:RF/R/L: generic semantic corridor loses too much BD/RF contact; use foot-specific ROI, do not lower gate.",
+      "BD+FT:RF/L: neutral-diff corridor can collapse to near-no-op; explicit left hand/stick ROI required.",
+      "BD+HT:RF/L: neutral-locked corridor passed all machine locality/protection gates for both phases; requires human visual QA before promotion."
+    ]
   }
 }
