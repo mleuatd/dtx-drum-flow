@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "index": 34,
+  "sourceFilename": "034_hh_sn_r_l_hit.png",
+  "phase": "hit",
+  "auditStatus": "REVIEW",
+  "auditActionKey": "HH+SN:R/L",
+  "runtimeActionKey": "HH+SN:R/L",
+  "referenceClassification": "MOTION_REFERENCE_ONLY",
+  "doNotLearnGeometryFromThisFrame": false,
+  "allowedReferenceFields": [
+    "all non-defective visual properties within declared scope"
+  ],
+  "defects": [
+    "左手外側に短い横方向の線が残り、スティックまたは別ポーズ由来の微小残留線にも見える。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/HH_SN_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action HH+SN:R/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "artifact"
+    ]
+  }
+}
