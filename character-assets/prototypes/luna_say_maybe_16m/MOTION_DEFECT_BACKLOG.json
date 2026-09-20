@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T07:55:12.119127+00:00",
+  "updatedAt": "2026-09-20T17:22:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -157,7 +157,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T11:51:00+09:00",
+      "updatedAt": "2026-09-20T17:22:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "HOLD_VISUAL_INTEGRITY",
@@ -1076,7 +1076,12 @@
           "detail": "FRONT releases MOTION-001 after bounded headless artifact loop. Mask/compositing strategy is exhausted without stable visual PASS. Preserve v8-v12 evidence and formal rollback anchor. Next repair requires exact-source-bound reconstruction of one coherent left arm/hand/stick."
         }
       ],
-      "claim": null
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FAST-LOCAL-REPAIR-STABLE",
+        "owner": "CHAT-FAST-REPAIR-STABLE",
+        "claimedAt": "2026-09-20T17:22:00+09:00"
+      }
     },
     {
       "issueId": "MOTION-002",
