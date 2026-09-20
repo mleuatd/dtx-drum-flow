@@ -1,3 +1,10 @@
+## 2026-09-20 09:16 JST — Shared HOLD repair workflow
+- All terminals must read HOLD_REPAIR_PLAYBOOK.json and latest MOTION_DEFECT_BACKLOG before editing.
+- FRONT claims the lowest available MOTION issue; BACK claims the highest available issue. Claimed items are untouchable by other terminals.
+- Repair unit is the hit/rebound pair. Machine QA alone never promotes; both phases require full-resolution anatomy/linework/fixed-drum PASS, then real-chart runtime QA on PC/Xperia.
+- A local repair that machine-PASSes but still fails human pair review is re-diagnosed at pair level and returned to HOLD with exact learning, not repeatedly patched.
+- RD+SN and RD:R learning from the interrupted session is recorded in the playbook.
+
 ## 2026-09-20 — Verify BD+RD:RF/R
 - Closed BD+RD:RF/R after static visual PASS plus real public runtime QA PASS across PC and Xperia-class portrait.
 - Recorded synthetic explicit-sequence failures as invalid test methodology because arbitrary action keys cannot be synthesized by timeline seek alone.
