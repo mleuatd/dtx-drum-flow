@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 31,
+  "sourceFilename": "031_rd_sn_r_l_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "RD+SN:R/L",
+  "runtimeActionKey": "RD+SN:R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手側に別軌道のスティックが重複して右側だけで2本見え、左手付近にも短い浮遊線が残る。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/RD_SN_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action RD+SN:R/L hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
