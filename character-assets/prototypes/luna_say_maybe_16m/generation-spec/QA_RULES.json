@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0",
+  "preGeneration": [
+    {
+      "id": "LOAD_COMMON_SPEC",
+      "type": "HARD",
+      "rule": "load common master + character + camera + drum + negative constraints"
+    },
+    {
+      "id": "ACTION_KEY_EXACT",
+      "type": "HARD",
+      "rule": "actionKey must match exact runtime action; no left/right inference when explicit"
+    },
+    {
+      "id": "REFERENCE_FILTER",
+      "type": "HARD",
+      "rule": "FAIL images excluded from positive learning"
+    },
+    {
+      "id": "TARGET_RESOLVED",
+      "type": "HARD",
+      "rule": "every active limb has target/instrument and strike/pedal coordinate"
+    },
+    {
+      "id": "NO_FLIP",
+      "type": "HARD",
+      "rule": "horizontal flip prohibited"
+    }
+  ],
+  "automaticPostGeneration": [
+    {
+      "id": "CANVAS",
+      "type": "HARD",
+      "rule": "1448x1086 exactly"
+    },
+    {
+      "id": "COUNTS",
+      "type": "HARD",
+      "rule": "character frame: arms=2 legs=2 hands=2 sticks=2; drum_base exemption: no character required"
+    },
+    {
+      "id": "STICK_ATTACHMENT",
+      "type": "HARD",
+      "rule": "each stick intersects/attaches to exactly one hand grip; no orphan stick component"
+    },
+    {
+      "id": "TARGET_ELLIPSE",
+      "type": "HARD",
+      "rule": "active stick tip or pedal endpoint inside target tolerance ellipse after overlay with fixed drum base"
+    },
+    {
+      "id": "CAMERA_SCALE",
+      "type": "SOFT",
+      "rule": "global character scale within ±3%; center ±10px; roll ±2deg"
+    },
+    {
+      "id": "TEMPORAL_DELTA",
+      "type": "SOFT",
+      "rule": "head/pelvis/stool/inactive limb/frame deltas within MASTER_GEOMETRY.temporal limits"
+    },
+    {
+      "id": "OUT_OF_BOUNDS",
+      "type": "HARD",
+      "rule": "no required anatomy/stick tip clipped by canvas unless explicitly whitelisted"
+    },
+    {
+      "id": "BLACK_COMPONENT",
+      "type": "REVIEW_TRIGGER",
+      "rule": "novel near-solid black connected component >0.8% canvas area outside known clothing/boot masks triggers review"
+    },
+    {
+      "id": "ALPHA_SEAM",
+      "type": "REVIEW_TRIGGER",
+      "rule": "rectangular alpha/edge discontinuities trigger review"
+    },
+    {
+      "id": "FILENAME_SCHEMA",
+      "type": "HARD",
+      "rule": "index/action/phase naming must match frame spec"
+    }
+  ],
+  "visualPostGeneration": [
+    "same person",
+    "rear-left over-shoulder camera remains fixed",
+    "anatomy natural despite rough line style",
+    "waist/skirt/stool contact natural",
+    "no ghost limbs or alternate-pose residue",
+    "sticks visibly connected to hands",
+    "no stray lines/black blocks/white cutouts",
+    "hair continuity",
+    "clothing continuity and irregular hand-drawn check pattern",
+    "hit/rebound pair reads as one continuous motion",
+    "fixed drum overlay alignment is believable"
+  ],
+  "resultPolicy": {
+    "HARD_FAIL": "reject frame",
+    "SOFT_FAIL": "repair unless visual QA proves measurement false",
+    "REVIEW_TRIGGER": "manual/vision review required",
+    "PASS": "only when both automatic and visual QA pass"
+  }
+}
