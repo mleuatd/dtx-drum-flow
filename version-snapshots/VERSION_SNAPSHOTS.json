@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-20T20:14:00+09:00",
+  "defaultPublicVersion": "POST-FIX",
+  "preFix": {
+    "name": "pre-motion-fix",
+    "role": "PRE-FIX",
+    "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+    "sourceBranch": "backup/pre-motion-qa-20260919-2138",
+    "basis": "Known-good restore point before motion-quality edits, explicitly recorded by MOTION_DEFECT_BACKLOG.json",
+    "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/pre-fix/"
+  },
+  "postFix": {
+    "name": "post-motion-fix",
+    "role": "POST-FIX",
+    "sourceCommit": "b68d556a255c2495db56ed88b354e2ee82656c90",
+    "sourceRef": "main at version-snapshot setup start",
+    "basis": "15/15 MOTION_DEFECT_BACKLOG items VERIFIED; current formal character assets",
+    "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/post-fix/"
+  },
+  "root": {
+    "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+    "displays": "POST-FIX"
+  },
+  "notes": [
+    "main is never reset or force-pushed for PRE-FIX.",
+    "PRE-FIX is staged from the pinned backup commit at Pages build time.",
+    "POST-FIX and / are staged from current main at Pages build time.",
+    "PRE-FIX and POST-FIX use separate directories and character-assets trees to prevent cache/version mixing."
+  ]
+}
