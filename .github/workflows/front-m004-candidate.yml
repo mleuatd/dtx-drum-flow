@@ -1,0 +1,98 @@
+name: FRONT build MOTION-004 candidate
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/front-m004-trigger.txt"
+      - ".github/workflows/front-m004-candidate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: front-m004
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow numpy
+
+      - name: Verify FRONT owns MOTION-004
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json").read_text())
+          x=next(v for v in d["defects"] if v["issueId"]=="MOTION-004")
+          c=x.get("claim") or {}
+          assert x.get("status")=="IN_FIX"
+          assert c.get("state")=="CLAIMED" and c.get("owner")=="CHATGPT-FRONT" and c.get("batch")=="FRONT-M004-FASTPIPE", c
+          PY
+
+      - name: Build exact claimed pair from existing generic repair engine
+        env:
+          CLAIM_OWNER: CHATGPT-FRONT
+          ACTION_KEYS: RC+SN:R/L
+        run: python tools/character_layers/build_active_motion_repair_candidates.py
+
+      - name: Extract only MOTION-004 evidence
+        run: |
+          mkdir -p /tmp/m004
+          python - <<'PY'
+          import json, shutil
+          from pathlib import Path
+          src=Path("character-assets/edit-workspaces/motion-repair-20260920/auto")
+          out=Path("/tmp/m004")
+          s=json.loads((src/"AUTO_REPAIR_CANDIDATE_SUMMARY.json").read_text())
+          rows=[x for x in s.get("targets",[]) if x.get("actionKey")=="RC+SN:R/L"]
+          assert len(rows)==2, rows
+          for x in rows:
+              for k in ("candidate",):
+                  p=Path(x[k]); shutil.copy2(p,out/p.name)
+              stem=Path(x["candidate"]).stem.replace("_candidate","")
+              for suffix in ("_qa.json","_fixed_drum.png"):
+                  p=src/(stem+suffix)
+                  assert p.exists(), p
+                  shutil.copy2(p,out/p.name)
+          pair={"issueId":"MOTION-004","actionKey":"RC+SN:R/L","rows":rows,"pairMachinePass":all(x.get("pass") for x in rows)}
+          (out/"M004_PAIR_SUMMARY.json").write_text(json.dumps(pair,indent=2)+"\n")
+          print(json.dumps({"pairMachinePass":pair["pairMachinePass"],"phases":[(x["phase"],x["pass"]) for x in rows]}))
+          if not pair["pairMachinePass"]: raise SystemExit(2)
+          PY
+
+      - name: Upload pair evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front-m004-candidate-${{ github.run_id }}
+          path: /tmp/m004/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Commit candidate evidence only
+        if: success()
+        run: |
+          mkdir -p character-assets/edit-workspaces/motion-repair-20260920/front-m004
+          cp /tmp/m004/* character-assets/edit-workspaces/motion-repair-20260920/front-m004/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/edit-workspaces/motion-repair-20260920/front-m004/
+          git diff --cached --quiet && exit 0
+          git commit -m "qa: build MOTION-004 FRONT pair candidate"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort >/dev/null 2>&1 || true
+            git fetch origin main
+            sleep $((attempt*2))
+          done
+          exit 1
