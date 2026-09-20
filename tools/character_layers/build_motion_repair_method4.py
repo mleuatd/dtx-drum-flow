@@ -21,8 +21,8 @@ rd_sn_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="
 if rd_sn_defect and (rd_sn_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_sn_defect.get("claim") or {}).get("owner") in ("CHATGPT-FRONT","CHAT-PASS2-BACK"):
     forced_hold_targets += [{"id":"rd_sn_r_l_hit","actionKey":"RD+SN:R/L","phase":"hit","_holdRepairClaim":True},{"id":"rd_sn_r_l_rebound","actionKey":"RD+SN:R/L","phase":"rebound","_holdRepairClaim":True}]
 rd_r_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="RD:R"),None)
-if rd_r_defect and (rd_r_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_r_defect.get("claim") or {}).get("owner")=="CHATGPT-FRONT":
-    forced_hold_targets.append({"id":"rd_r_rebound","actionKey":"RD:R","phase":"rebound","_holdRepairClaim":True})
+if rd_r_defect and (rd_r_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_r_defect.get("claim") or {}).get("owner") in ("CHATGPT-FRONT","CHAT-PASS2-BACK"):
+    forced_hold_targets += [{"id":"rd_r_hit","actionKey":"RD:R","phase":"hit","_holdRepairClaim":True},{"id":"rd_r_rebound","actionKey":"RD:R","phase":"rebound","_holdRepairClaim":True}]
 # Active PASS2 HOLD claim overrides a stale failedCandidates entry with the
 # same id; otherwise the stale entry lacks _holdRepairClaim and is skipped.
 forced_by_id={x.get("id"):x for x in forced_hold_targets}
@@ -95,14 +95,15 @@ for f in fails:
     # corridor. This intentionally excludes the lower duplicate/disconnected
     # right-hand fragment seen in the formal rebound while leaving locked body
     # regions on the neutral baseline.
-    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound"):
+    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound","rd_r_hit","rd_r_rebound"):
         # PASS2 pair repair: build one coherent RD right-side corridor for BOTH
         # phases instead of trying to promote a rebound-only fix. Keep the
         # already-good left SN motion and reject the lower/rear duplicate RD
         # limb by limiting source transplant to the upper shoulder-hand-stick
         # corridor. Body core/head/stool remain neutral-locked above.
         local=np.zeros((H,W),dtype=bool)
-        local[300:620,340:700]=True       # left SN hand/stick/forearm
+        if "rd_sn" in tid:
+            local[300:620,340:700]=True   # left SN hand/stick/forearm
         if phase=="hit":
             local[245:525,830:1135]=True # hit: one upper right RD corridor
         else:
