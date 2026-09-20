@@ -53,5 +53,12 @@ jobs:
         if: always()
         with:
           name: front-m004-v3-${{ github.run_id }}
-          path: character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/
+          path: |
+            character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/
+            character-assets/layers/character/base/neutral.png
+            character-assets/layers/character/rc/hit_r_refresh.png
+            character-assets/layers/character/rc/rebound_r_refresh.png
+            character-assets/layers/character/sn/hit_l.png
+            character-assets/layers/character/sn/rebound_l.png
+            character-assets/layers/drum/drum_base.png
           retention-days: 30
