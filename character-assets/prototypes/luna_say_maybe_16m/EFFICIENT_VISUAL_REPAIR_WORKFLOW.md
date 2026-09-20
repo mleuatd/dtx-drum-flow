@@ -40,6 +40,7 @@
 - runtime: `character-assets/layers/character/bd/hit_rf.png`
 - 監査異常: 両脚の間の第3脚・ブーツ状残留、腰・スカート下端から脚への分断、矩形スプライス
 - 採用方式: 同一actionで監査PASSの `character-assets/layers/character/bd/rebound_rf.png` を承認ドナーとして再利用
-- 修復後SHA-256: `6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660`
+- 承認ドナーSHA-256: `6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660`
+- 修復後SHA-256: `eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8`
 - 理由: 元hitの脚パッチ自体が矩形背景を含み、消し込みでは新しい切断線が残るため。同一actionの正常画像を使うことで人体・衣装・カメラを変えずに破綻を除去できる。
 - 停止条件: 008の原寸目視確認完了まで、010、014、028、032その他へ展開しない。
