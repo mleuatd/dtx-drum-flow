@@ -256,27 +256,22 @@ for t in targets:
     D=np.asarray(dil)>0
     M=G & D
 
+    # HT:R rebound source contains one detached/duplicated upper forearm in the
+    # screen-left shoulder band. Lock only that measured polygon back to neutral
+    # so the valid lower active arm/hand/stick remains untouched.
+    if key=="HT:R" and phase=="rebound":
+        keepout=Image.new("L",(W,H),0)
+        kd=ImageDraw.Draw(keepout)
+        kd.polygon([(470,305),(590,305),(590,382),(574,427),(510,423),(474,385)],fill=255)
+        M &= ~(np.asarray(keepout)>0)
+
     # Small deterministic stick bridges. These are line-only ROIs; never use
-    # rectangular image transplants.
+    # rectangular image transplants. HT:R deliberately has no synthetic bridge:
+    # the prior bridge crossed the real stick in hit and floated above the arm
+    # in rebound, causing the visual-integrity failure.
     stick_bridge = None
     stick_lines = None
-    if key=="HT:R":
-        if phase=="hit":
-            line1=((490,452),(575,360))
-            line2=((494,450),(579,358))
-        else:
-            # Clearly readable rebound: same approved grip, released above the
-            # HT head while staying outside the locked head core.
-            line1=((503,342),(592,322))
-            line2=((507,344),(596,324))
-        bridge=Image.new("L",(W,H),0)
-        bd=ImageDraw.Draw(bridge)
-        bd.line(line1,fill=255,width=12)
-        bd.line(line2,fill=255,width=10)
-        stick_bridge=np.asarray(bridge)>0
-        stick_lines=(line1,line2)
-        M |= stick_bridge
-    elif key=="BD+HT:RF/R" and phase=="rebound":
+    if key=="BD+HT:RF/R" and phase=="rebound":
         bridge=Image.new("L",(W,H),0)
         bd=ImageDraw.Draw(bridge)
         line1=((489,263),(514,307)); line2=((494,260),(519,307))
