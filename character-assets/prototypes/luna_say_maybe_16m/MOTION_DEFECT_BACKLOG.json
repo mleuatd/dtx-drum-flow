@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:11:00+09:00",
+  "updatedAt": "2026-09-20T09:52:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1012,7 +1012,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -1039,10 +1039,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T09:33:00+09:00",
+      "updatedAt": "2026-09-20T09:52:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "mixed",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -1602,6 +1602,11 @@
             "at": "2026-09-20T07:56:00+09:00",
             "decision": "HOLD_VISUAL_INTEGRITY",
             "detail": "Full-resolution batch 03 hard-gate review: both phases structurally FAIL with disconnected/duplicate upper-right arm-hand-stick and blocky body/seat splice. Large failure; skip minimal retry and preserve formal PNGs."
+          },
+          {
+            "at": "2026-09-20T09:52:00+09:00",
+            "decision": "FRONT_SHARED_BUILDER_PAIR_FAIL",
+            "detail": "Shared HOLD_REPAIR builder run 35479776296 / artifact 10595312697 generated both BD+RC phases. Machine QA failed both due BD/RF local preservation near zero; human full-resolution QA also shows neutral/right-arm residue plus added RC arm, producing duplicated right-arm/hand-stick geometry. Root cause is pair-level compositing/pose replacement, not a light local line defect. Formal PNGs unchanged."
           }
         ],
         "measurementTodos": [
@@ -1850,7 +1855,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T09:33:00+09:00"
+        "updatedAt": "2026-09-20T09:52:00+09:00"
       },
       "occurrences": [
         {
@@ -1892,15 +1897,15 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
+        "humanAnatomy": "FAIL_RIGHT_ARM_DUPLICATION",
+        "linework": "FAIL_RIGHT_HAND_STICK_DUPLICATION",
+        "fixedDrumComposite": "FAIL_RC_STRIKE_SEMANTICS",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Batch 03: hit/rebound show disconnected/duplicate arm-stick geometry plus blocky vertical body/seat splice. Pair moved to HOLD; formal PNGs unchanged.",
-        "reviewedAt": "2026-09-20T07:56:00+09:00",
+        "note": "Shared-builder candidate pair failed. Must replace old right-arm pose rather than layer RC arm on top, while independently preserving BD/RF foot semantics. No formal promotion.",
+        "reviewedAt": "2026-09-20T09:52:00+09:00",
         "visualQaRunId": 35474616622,
         "visualQaArtifactId": 10593307774
       },
@@ -1914,14 +1919,14 @@
           "at": "2026-09-20T09:33:00+09:00",
           "decision": "HOLD_REPAIR_CLAIMED",
           "detail": "FRONT claimed BD+RC:RF/R under shared HOLD_REPAIR_PLAYBOOK. Both phases are structural failures; use candidate-first pair-level reconstruction and reject machine-only PASS."
+        },
+        {
+          "at": "2026-09-20T09:52:00+09:00",
+          "decision": "HOLD_REPAIR_FRONT_04_CLOSED",
+          "detail": "Released FRONT claim after candidate+machine+human pair review. Next allowed repair is pair-level right-arm pose replacement plus BD/RF foot preservation; do not repeat additive arm corridor."
         }
       ],
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-FRONT-04",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T09:33:00+09:00"
-      }
+      "claim": null
     },
     {
       "issueId": "MOTION-003",
