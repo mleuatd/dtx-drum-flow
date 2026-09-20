@@ -5,18 +5,22 @@ on:
     paths:
       - 'tools/character_layers/build_active_motion_repair_candidates.py'
       - '.github/workflows/build-active-motion-repair-candidates.yml'
+      - 'character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json'
 permissions:
   contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check pillow numpy
-      - name: Build all claimed candidates
+      - name: Build BACK claimed candidates
+        env:
+          CLAIM_OWNER: CHAT-PASS2-BACK
         run: python tools/character_layers/build_active_motion_repair_candidates.py
       - name: Upload pass2 QA artifact
         uses: actions/upload-artifact@v4
