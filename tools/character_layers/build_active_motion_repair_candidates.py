@@ -143,6 +143,14 @@ for t in targets:
     ndiff=np.any(Q!=N,axis=2)
     changed=int(ndiff.sum()); ratio=changed/(W*H)
     headc=guard_count(ndiff,HEAD); pelvisc=guard_count(ndiff,PELVIS); stoolc=guard_count(ndiff,STOOL)
+    # Foot-active actions intentionally change the RF limb through part of the
+    # coarse pelvis rectangle. Judge only pelvis pixels outside the permitted
+    # semantic mask, rather than failing intentional RF motion.
+    if has_foot:
+        x1,y1,x2,y2=PELVIS
+        pelvis_region=ndiff[y1:y2,x1:x2]
+        pelvis_allowed=M[y1:y2,x1:x2]
+        pelvisc=int(np.count_nonzero(pelvis_region & ~pelvis_allowed))
     lower=int(np.count_nonzero(ndiff[620:,:])) if not has_foot else None
     outside=int(np.count_nonzero(ndiff & ~M))
 
