@@ -68,8 +68,8 @@ function scoreSnPhrase(phrase,hands,assign){
   let cost=hands[0]==="R"?0:1;
   const prev=nearestOtherHandBefore(phrase[0].time,"SN");
   const next=nearestOtherHandAfter(phrase.at(-1).time,"SN");
-  if(prev && phrase[0].time-prev.time<=.13 && hands[0]===assign.get(key(prev)))cost+=4;
-  if(next && next.time-phrase.at(-1).time<=.13 && hands.at(-1)===assign.get(key(next)))cost+=10;
+  if(prev && phrase[0].time-prev.time<=RAPID && hands[0]===assign.get(key(prev)))cost+=4;
+  if(next && next.time-phrase.at(-1).time<=RAPID && hands.at(-1)===assign.get(key(next)))cost+=10;
   for(let i=0;i<phrase.length;i++){
     const g=groupByTime.get(Number(phrase[i].time).toFixed(6))||[];
     for(const other of g){
