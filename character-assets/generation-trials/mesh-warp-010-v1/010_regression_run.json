@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "frame": "010",
+  "frameId": "010_bd_rc_hit",
+  "machinePass": true,
+  "visualQaRequired": true,
+  "userApprovalStatus": "PENDING",
+  "runtimeModified": false,
+  "otherFramesTouched": false,
+  "changedPixels": 46898,
+  "changedBBox": {
+    "x": 594,
+    "y": 635,
+    "width": 172,
+    "height": 326
+  },
+  "outsideAllowedChangedPixels": 0,
+  "fixedRegionChangedPixels": 0,
+  "pedalDistancePx": 11.18,
+  "candidateCanvas": [
+    1448,
+    1086
+  ],
+  "candidateMode": "RGBA",
+  "timings": {
+    "configValidationSeconds": 0.000246,
+    "cacheCheckAndHashSeconds": 0.00773,
+    "gitCommitPreparationSeconds": null,
+    "gitRegistrationSeconds": null,
+    "loadSeconds": 0.087749,
+    "warpSeconds": 0.032555,
+    "candidateSaveSeconds": 0.085435,
+    "qaSeconds": 0.027288,
+    "fixedDrumCompositeSeconds": 0.636899,
+    "reviewGenerationSeconds": 0.349096,
+    "beforeAfterGenerationSeconds": 0.632794,
+    "candidateToReviewCompleteSeconds": 1.764067,
+    "manifestGenerationSeconds": 0.003918,
+    "totalLocalPipelineSeconds": 1.863942
+  },
+  "candidateSha256": "468022f8bdd772d0d43a1943a57c1175bff279c3d46dd7ba616ec3235b81719f",
+  "sourceSha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+  "brokenSourceSha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+  "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "configSha256": "75d620daf550709bef86be659c855638609620af457f270c59e439f23fd68b04"
+}
