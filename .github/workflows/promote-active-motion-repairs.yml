@@ -6,8 +6,15 @@ on:
       - '.github/workflows/promote-active-motion-repairs.yml'
       - 'tools/character_layers/promote_active_motion_repairs.py'
       - '.github/back-promote-action.txt'
+      # Visual-integrity approval is recorded here. Trigger promotion directly
+      # from that approval commit so a separate marker-touch commit is no longer
+      # required. The promotion script still enforces exact candidate SHA binding.
+      - 'character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json'
 permissions:
   contents: write
+concurrency:
+  group: motion-repair-promote-back
+  cancel-in-progress: true
 jobs:
   promote:
     runs-on: ubuntu-latest
@@ -16,6 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
       - name: Install validation dependencies
         run: python -m pip install --disable-pip-version-check pillow numpy
       - name: Promote only guarded PASS candidates
