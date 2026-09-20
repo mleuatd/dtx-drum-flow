@@ -1,6 +1,6 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260920-preload-progress-r1";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260920-chart-preload-r2";
 import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-audio-final-r21";
 import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260920-preload-progress-r1";
 
@@ -115,11 +115,15 @@ function ensureAudioEngine(){
 async function preloadDrumSamples(){
   try{
     ensureAudioEngine();
-    if(liveDrumEngine.ready){setPreload("drums",1,{label:"ドラム音の読み込み完了"});return;}
-    drumPreloadPromise??=liveDrumEngine.preload(p=>setPreload("drums",p.ratio,{label:"ドラム音を読み込み中",failed:(p.failures?.length||0)>0&&p.ratio>=1}));
+    setPreload("drums",0,{label:"この曲で使うドラム音を準備中"});
+    const items=(chart?.notes||[]).map(n=>{
+      const mapped=applyDrumVoice(n,n.part);
+      return {part:mapped.part,note:mapped.note,velocity:humanizedVelocity(n.velocity)};
+    });
+    drumPreloadPromise=liveDrumEngine.preloadForNotes(items,p=>setPreload("drums",p.ratio,{label:"この曲で使うドラム音を読み込み中",failed:(p.failures?.length||0)>0&&p.ratio>=1}));
     await drumPreloadPromise;
     if(liveDrumEngine.preloadFailures?.length)throw new Error("ドラム音 "+liveDrumEngine.preloadFailures.length+"件の読み込みに失敗");
-    setPreload("drums",1,{label:"ドラム音の読み込み完了"});
+    setPreload("drums",1,{label:"この曲で使うドラム音の読み込み完了"});
   }catch(err){
     setPreload("drums",1,{label:"ドラム音の読み込み失敗",failed:true});
     setStatus("ドラム音の事前読み込みに失敗しました: "+err.message);
@@ -195,11 +199,11 @@ function seek(v){const was=playing;if(was)pausePlayback();time=clampTime(v);rese
 function restartPlaybackAtClock(){if(!playing)return;const t=chartTimeFromClock();pausePlayback(false);time=clampTime(t);startPlayback()}
 function loop(){if(playing){time=chartTimeFromClock();if(time>=chart.duration){pausePlayback(false);time=chart.duration;updateTime();draw()}else{updateTime();draw()}}updateCharacterPrototype(time,chart?.name||"",playing?playSpeed:currentSpeed());requestAnimationFrame(loop)}
 
-$("chartFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{setPreload("chart",0,{label:"譜面を解析中"});setStatus("譜面を解析しています…");setChart(await parseChart(f));setPreload("chart",1,{label:"譜面の読み込み完了"});setStatus(`${f.name} を読み込みました。`)}catch(err){setPreload("chart",1,{label:"譜面の読み込み失敗",failed:true});setStatus(err.message)}});
+$("chartFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{setPreload("chart",0,{label:"譜面を解析中"});setStatus("譜面を解析しています…");setChart(await parseChart(f));setPreload("chart",1,{label:"譜面の読み込み完了"});drumPreloadPromise=null;preloadDrumSamples().catch(()=>{});setStatus(`${f.name} を読み込みました。`)}catch(err){setPreload("chart",1,{label:"譜面の読み込み失敗",failed:true});setStatus(err.message)}});
 $("audioFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{pausePlayback();setStatus("元音源を解析しています…");audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);$("alignAudio").disabled=false;setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。同じWeb Audio時計で同期再生します。`)}catch(err){setStatus("元音源の読み込みに失敗しました: "+err.message)}});
 $("alignAudio").onclick=()=>{const was=playing,t=was?chartTimeFromClock():time;if(was)pausePlayback(false);const r=realignNotes(chart.notes,onsets,chart.bpm);chart={...chart,notes:r.notes};time=clampTime(t);resetNextNote(time);draw();if(was)startPlayback();setStatus(`音源同期補正: ${r.stats.moved}ノーツを補正、平均移動 ${r.stats.meanShiftMs.toFixed(1)}ms。`)};
 $("loadSample").onclick=()=>{setChart(makeSample());setStatus("サンプルを読み込みました。")};
-async function loadFinalChart({label,path,fileName,status}){setPreload("chart",0,{label:"譜面を読み込み中"});try{setStatus(label+" 完成譜面を読み込んでいます…");const res=await fetch(path,{cache:"no-store"});if(!res.ok)throw new Error("完成譜面を取得できませんでした (HTTP "+res.status+")");const data=await res.json(),file=new File([JSON.stringify(data)],fileName,{type:"application/json"});window.dispatchEvent(new CustomEvent("dtx-chart-change",{detail:{name:data.name||label}}));setChart(await parseChart(file));setPreload("chart",1,{label:"譜面の読み込み完了"});setStatus(status)}catch(err){setPreload("chart",1,{label:"譜面の読み込み失敗",failed:true});setStatus(label+" 完成譜面の読み込みに失敗しました: "+err.message)}}
+async function loadFinalChart({label,path,fileName,status}){setPreload("chart",0,{label:"譜面を読み込み中"});try{setStatus(label+" 完成譜面を読み込んでいます…");const res=await fetch(path,{cache:"no-store"});if(!res.ok)throw new Error("完成譜面を取得できませんでした (HTTP "+res.status+")");const data=await res.json(),file=new File([JSON.stringify(data)],fileName,{type:"application/json"});window.dispatchEvent(new CustomEvent("dtx-chart-change",{detail:{name:data.name||label}}));setChart(await parseChart(file));setPreload("chart",1,{label:"譜面の読み込み完了"});drumPreloadPromise=null;preloadDrumSamples().catch(()=>{});setStatus(status)}catch(err){setPreload("chart",1,{label:"譜面の読み込み失敗",failed:true});setStatus(label+" 完成譜面の読み込みに失敗しました: "+err.message)}}
 const SONGS={
   luna:{label:"Luna say maybe",path:"./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",fileName:"Luna_say_maybe_FINAL_notes.json",status:"Luna say maybe 完成譜面（Songsterr基準・元音源+1.693秒同期）を読み込みました。リアルドラム音色（2番Aメロのサイドスティック含む）で再生できます。"},
   kanaetai:{label:"叶えたい、ことばかり",path:"./charts/kanaetai_koto_bakari/Kanaetai_koto_bakari_FINAL_notes.json",fileName:"Kanaetai_koto_bakari_FINAL_notes.json",status:"叶えたい、ことばかり FINAL譜面（Songsterr s2808958 rev 3694097 Drums・全144小節）を読み込みました。原曲音源との最終ミリ秒同期のみ未実施です。"},
@@ -217,4 +221,4 @@ function measureSeconds(){return 240/(chart.bpm||120)}
 addEventListener("keydown",e=>{if(e.target.matches("input,select"))return;if(e.code==="Space"){e.preventDefault();toggle()}if(e.code==="ArrowLeft")seek(chartTimeFromClock()-5);if(e.code==="ArrowRight")seek(chartTimeFromClock()+5)});
 const dropZone=$("dropZone");for(const ev of ["dragenter","dragover"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.add("dragover")})}for(const ev of ["dragleave","drop"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.remove("dragover")})}
 dropZone.addEventListener("drop",async e=>{const files=[...(e.dataTransfer?.files||[])];for(const f of files){const ext=f.name.split(".").pop().toLowerCase();try{if(["mid","midi","dtx","gda","json"].includes(ext)){setStatus("譜面を解析しています…");setChart(await parseChart(f));setStatus(`${f.name} を読み込みました。`)}else if(f.type.startsWith("audio/")){pausePlayback();setStatus("元音源を解析しています…");audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);$("alignAudio").disabled=false;setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。`)}}catch(err){setStatus(`${f.name}: ${err.message}`)}}});
-initDevAudioMixer();window.__DTX_APP_READY__=true;addEventListener("resize",resize);makeParts();syncSoundToggleUi();setChart(chart);resize();renderPreload();initCharacterPrototype();preloadDrumSamples().catch(()=>{});requestAnimationFrame(loop);loadSelectedSong();
+initDevAudioMixer();window.__DTX_APP_READY__=true;addEventListener("resize",resize);makeParts();syncSoundToggleUi();setChart(chart);resize();renderPreload();initCharacterPrototype();requestAnimationFrame(loop);loadSelectedSong();
