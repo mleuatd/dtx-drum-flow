@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:50:00+09:00",
+  "updatedAt": "2026-09-20T09:53:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -10114,7 +10114,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:50:00+09:00",
+      "updatedAt": "2026-09-20T09:53:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -10128,7 +10128,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -10629,6 +10629,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T09:53:00+09:00",
+            "decision": "PASS2_BACK_EXISTING_CANDIDATE_STATIC_FAIL_CONFIRMED",
+            "detail": "Artifact 10594860319 re-used. Existing HT:R candidate fails mandatory visual integrity: rectangular torso/hair splice, duplicated forearm/hand, detached/crossing sticks. No runtime QA; no promotion."
           }
         ],
         "measurementTodos": [
@@ -10903,12 +10908,7 @@
           "large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments"
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-06",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T09:50:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:36:00+09:00",
@@ -10929,11 +10929,11 @@
         "defect": "large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments",
         "defectLocation": "mid torso/hair rectangle and right arm/stick",
         "cause": "structural splice/transplant artifact in current formal pair",
-        "attemptedRepair": "none in this review; existing artifact reused",
-        "repairResult": "not attempted because defect is structural/non-light",
-        "nextRepair": "Reconstruct only measured right-arm/stick ROI from clean parent and remove residual splice lines.",
+        "attemptedRepair": "PASS2 BACK re-used existing auto-repair candidate/evidence from workflow 35476577082 artifact 10594860319; no new generation.",
+        "repairResult": "STATIC_VISUAL_FAIL. Full-resolution evidence confirms large rectangular torso/hair splice, duplicated/disconnected forearm/hand, and detached/crossing stick fragments. Machine/ROI safety is insufficient; fixed-drum and transition cannot pass.",
+        "nextRepair": "Pair-level structural reconstruction of the right HT arm/hand/stick corridor across hit and rebound. Remove rectangular splice at its cause; do not mask with neutral rectangular transplant. Preserve head/hair/torso outside explicitly measured overlap.",
         "prohibitedRepair": "oversized rectangular transplant; full redraw",
-        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+        "restartCondition": "Verifiably target-bound or deterministic ROI editor available for exact candidate PNG bytes. Existing auto candidate is prohibited from promotion."
       }
     },
     {
