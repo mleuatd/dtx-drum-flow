@@ -25,9 +25,9 @@ jobs:
         with:
           name: sn-l-rebound-repair-${{ github.run_id }}
           path: |
-            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v4.png
-            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v4_fixed_drum.png
-            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v4_qa.json
+            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v*.png
+            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v*_fixed_drum.png
+            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v*_qa.json
           retention-days: 30
       - name: Commit candidate evidence
         run: |
