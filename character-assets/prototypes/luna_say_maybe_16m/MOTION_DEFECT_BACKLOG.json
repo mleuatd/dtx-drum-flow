@@ -14008,7 +14008,7 @@
         "fixedDrumComposite": "PASS",
         "runtimeTransition": "PENDING",
         "promotionBlocked": false,
-        "reviewedAt": "2026-09-20T12:10:00+09:00",
+        "reviewedAt": "2026-09-20T12:08:00+09:00",
         "reviewEvidence": {
           "workflowRunId": 35485620125,
           "artifactId": 10596619045,
@@ -14016,9 +14016,10 @@
           "candidateReboundSha256": "eee9d730baade7fdb166253856b6b7fba9eb76dcc35f7d6506ded69ee66d1007"
         },
         "passReasons": [
-          "Full-resolution fixed-drum review: prior rebound shard removed.",
-          "Hit left-hand/stick path is continuous without the prior duplicate/floating geometry.",
-          "No broad rectangular splice or new seat/thigh floating fragment observed."
+          "Full-resolution Method12 fixed-drum pair inspected.",
+          "Previously isolated rebound shard is absent.",
+          "Hit left-hand/stick path is continuous enough for the intended SN contact; no duplicate arm/stick or rectangular splice remains.",
+          "Static body/drum registration remains visually stable."
         ]
       },
       "claim": {
@@ -14077,6 +14078,11 @@
           "at": "2026-09-20T12:10:00+09:00",
           "decision": "M015_EXACT_CANDIDATE_VISUAL_PASS",
           "detail": "Run 35485620125 artifact 10596619045 exact Method12 pair: machine PASS both and full-resolution fixed-drum visual PASS. Authorize exact-candidate promotion only for hit 42bc7b87... and rebound eee9d730...; runtime QA remains required before VERIFIED."
+        },
+        {
+          "at": "2026-09-20T12:08:00+09:00",
+          "decision": "M015_METHOD12_EXACT_VISUAL_PASS",
+          "detail": "Run 35485620125 artifact 10596619045: both machine QA PASS and exact full-resolution fixed-drum visual QA PASS. Authorize only these exact candidate SHAs for promotion; runtime QA remains required before VERIFIED."
         }
       ],
       "hold": {
