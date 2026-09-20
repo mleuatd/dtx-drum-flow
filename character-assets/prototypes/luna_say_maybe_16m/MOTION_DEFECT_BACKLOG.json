@@ -11324,7 +11324,7 @@
     },
     {
       "issueId": "MOTION-013",
-      "status": "VISUAL_INTEGRITY_PASS_PENDING_PROMOTION",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:07.1-2:07.2",
@@ -11352,7 +11352,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T13:51:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -11366,7 +11366,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "VISUAL_INTEGRITY_PASS_PENDING_PROMOTION",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -12180,27 +12180,27 @@
             "id": "bd_ht_rf_r_hit_refresh",
             "actionKey": "BD+HT:RF/R",
             "phase": "hit",
-            "oldSha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
-            "newSha256": "d9fc81cda94a5bd90ddf1cc3e4062ccc537a282df4cbd1c0206f590e50769372",
-            "changedRatioVsNeutral": 0.04646149
+            "oldSha256": "d9fc81cda94a5bd90ddf1cc3e4062ccc537a282df4cbd1c0206f590e50769372",
+            "newSha256": "f8ffc411a882e16b2b5b07c9af0c4b95c8c31c64be7187e778d4eb91b17cb024",
+            "changedRatioVsNeutral": 0.03950327
           },
           {
             "id": "bd_ht_rf_r_rebound_refresh",
             "actionKey": "BD+HT:RF/R",
             "phase": "rebound",
-            "oldSha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
-            "newSha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
-            "changedRatioVsNeutral": 0.05648167
+            "oldSha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
+            "newSha256": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a",
+            "changedRatioVsNeutral": 0.04847608
           }
         ],
-        "method": "method3: instrument-side forearm/stick corridor + neutral core lock",
-        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method3/METHOD3_CANDIDATE_SUMMARY.json"
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_FORMAL_PROMOTION_RUNTIME_QA",
+        "runtimeTransition": "PENDING_RUNTIME_QA",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "reviewedAt": "2026-09-20T13:51:00+09:00",
