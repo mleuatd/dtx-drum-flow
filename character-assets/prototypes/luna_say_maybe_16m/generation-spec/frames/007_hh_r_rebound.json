@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 7,
+  "sourceFilename": "007_hh_r_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "HH:R",
+  "runtimeActionKey": "HH:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左腕上側に切り離された前腕・手と余分なスティックが残留し、腕が3本あるように見える。"
+  ],
+  "defectRegions": [
+    "left_arm",
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/HH_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action HH:R hit/rebound",
+    "negativeAttention": [
+      "left_arm",
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
