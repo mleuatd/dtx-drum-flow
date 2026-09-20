@@ -9278,7 +9278,7 @@
     },
     {
       "issueId": "MOTION-011",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:06.7-2:06.8",
@@ -10283,7 +10283,12 @@
           "extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body"
         ]
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "BACK-M011-FOCUSED",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T12:20:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -10299,6 +10304,11 @@
           "at": "2026-09-20T11:12:00+09:00",
           "decision": "PASS2_BACK_RESTART_CONDITION_STILL_UNMET",
           "detail": "Exact source-bound/deterministic ROI editor still unavailable; existing candidate remains prohibited. Claim released."
+        },
+        {
+          "at": "2026-09-20T12:20:00+09:00",
+          "decision": "CLAIM_FOR_COMPLETION_PLAYBOOK",
+          "detail": "Selected as next unclaimed BACK-side image pair. Continue from existing formal/best evidence; target only detached/duplicated right RC hand-stick corridor, preserve RF pedal and left SN semantics."
         }
       ],
       "hold": {
