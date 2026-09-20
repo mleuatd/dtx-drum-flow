@@ -281,8 +281,22 @@ for t in targets:
         stick_lines=(line1,line2)
         M |= stick_bridge
 
+    ht_air_cleanup = None
+    if key=="HT:R":
+        # Deterministic air-side cleanup: this region is left of the grip and
+        # contains no intended anatomy or HT stick. It removes anti-aliased
+        # fragments from the old resting/HH stick without touching the hand.
+        cleanup=Image.new("L",(W,H),0); cud=ImageDraw.Draw(cleanup)
+        cud.polygon([(398,356),(484,356),(484,438),(478,466),(398,466)],fill=255)
+        ht_air_cleanup=np.asarray(cleanup)>0
+        M |= ht_air_cleanup
+
     mask=Image.fromarray((M.astype(np.uint8)*255),"L")
     cand=neutral.copy(); cand.paste(src,(0,0),mask)
+    if ht_air_cleanup is not None:
+        carr=np.array(cand)
+        carr[ht_air_cleanup,3]=0
+        cand=Image.fromarray(carr,"RGBA")
     if stick_bridge is not None and stick_lines is not None:
         cd=ImageDraw.Draw(cand)
         # Two imperfect parallel strokes preserve the rough pencil-like stick.
@@ -334,7 +348,7 @@ for t in targets:
     legacy_rest_stick_pixels = None
     if key=="HT:R":
         legacy_probe=Image.new("L",(W,H),0); lpd=ImageDraw.Draw(legacy_probe)
-        lpd.line([(428,382),(466,420)],fill=255,width=14)
+        lpd.polygon([(398,356),(484,356),(484,438),(478,466),(398,466)],fill=255)
         LP=np.asarray(legacy_probe)>0
         legacy_rest_stick_pixels=int(np.count_nonzero((Q[:,:,3]>0) & LP))
     checks={
