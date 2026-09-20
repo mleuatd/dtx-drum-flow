@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:25:00+09:00",
+  "updatedAt": "2026-09-20T09:31:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12704,7 +12704,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:25:00+09:00",
+      "updatedAt": "2026-09-20T09:31:00+09:00",
       "occurrences": [
         {
           "measure": "M67",
@@ -12718,7 +12718,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13676,12 +13676,7 @@
           "duplicated left hand/arm-stick geometry, floating fragments, and seat splice"
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-02",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T09:25:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
@@ -13692,6 +13687,11 @@
           "at": "2026-09-20T08:56:00+09:00",
           "decision": "BACK_VISUAL_INTEGRITY_HOLD",
           "detail": "Artifact 10594860319 / run 35476577082: duplicated left hand/arm-stick geometry, floating fragments, and seat splice. Formal PNGs unchanged; runtime QA blocked by static hard fail."
+        },
+        {
+          "at": "2026-09-20T09:31:00+09:00",
+          "decision": "PASS2_BACK_ATTEMPT1_REJECTED",
+          "detail": "Artifact 10594860319 re-opened at full resolution. Hit visibly contains duplicated left hand/arm-stick and floating marks; rebound contains left-side dropout/floating fragments. Target-bound edit attempt returned edit_op=null unrelated dashboard output; rejected before candidate QA. Formal assets unchanged."
         }
       ],
       "hold": {
@@ -13702,11 +13702,11 @@
         "defect": "duplicated left hand/arm-stick geometry, floating fragments, and seat splice",
         "defectLocation": "left hand/stick and seat overlap",
         "cause": "structural splice/transplant artifact in current formal pair",
-        "attemptedRepair": "none in this review; existing artifact reused",
-        "repairResult": "not attempted because defect is structural/non-light",
-        "nextRepair": "Cause-specific active-limb candidate with measured bilateral hand/stick ROI; no seat/body pixels except approved occlusion.",
+        "attemptedRepair": "PASS2 attempt 1: target-bound image edit requested from exact artifact character-only hit/rebound evidence; editor returned edit_op=null and an unrelated dashboard image, so candidate was rejected immediately and never promoted.",
+        "repairResult": "FAIL_NO_TARGET_BINDING; formal PNGs unchanged. Existing full-resolution evidence reconfirmed hit duplicated left hand/arm-stick + floating fragments/seat splice, rebound left-side dropout/floating fragments.",
+        "nextRepair": "Use an editor that is verifiably bound to the exact character-only PNG bytes. Repair hit and rebound as one pair: bilateral hand→grip→stick→tip corridors plus RF foot corridor; preserve head/torso/hair/skirt/stool/seat outside explicitly measured occlusion ROI. Reject any edit_op=null/fresh redraw or unrelated output before machine QA.",
         "prohibitedRepair": "full redraw; seat/torso transplant",
-        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+        "restartCondition": "Exact source PNG is bound as the edit parent and candidate can be proven against source SHA; then run full-resolution anatomy/linework, fixed-drum composite and transition gates."
       }
     }
   ],
