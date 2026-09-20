@@ -80,59 +80,46 @@ for t in targets:
         summary["targets"].append({"id":t["id"],"actionKey":key,"phase":phase,"pass":False,"reasons":["canvas_mismatch"],"source":rel}); continue
     formal_source_sha=hashlib.sha256(src_path.read_bytes()).hexdigest()
 
-    # MOTION-012: rebuild HT:R from the VERIFIED HH:R arm/hand authority,
-    # then retarget only the stick to the HT contact.  The previous BD+HT
-    # authority still carried a small rectangular rebound dropout, so it must
-    # not be inherited by standalone HT.
+    # MOTION-012: deterministic standalone HT reconstruction.
+    # Use one stable approved arm shape for both phases; remove the neutral
+    # resting stick first, then draw exactly one HT stick per phase.
     if key=="HT:R":
-        hh_rel=("character-assets/layers/character/hh/hit_r.png"
-                if phase=="hit" else
-                "character-assets/layers/character/hh/rebound_r.png")
+        hh_rel="character-assets/layers/character/hh/hit_r.png"
         hh=Image.open(ROOT/hh_rel).convert("RGBA")
         rebuilt=neutral.copy()
 
-        # Copy only dark linework from the approved right forearm/hand route.
-        # Do not paste opaque white source pixels: they were the cause of the
-        # rectangular splice blocks seen in the prior HT candidates.
+        # Remove only the neutral resting-stick stroke in the active hand ROI.
+        # Keep the hand itself; the arm transplant below overwrites the grip.
+        erase=Image.new("L",(W,H),0); ed=ImageDraw.Draw(erase)
+        old_tip=(438,390); old_grip=(490,452)
+        ed.line([old_grip,old_tip],fill=255,width=28)
+        ed.ellipse([old_tip[0]-18,old_tip[1]-18,old_tip[0]+18,old_tip[1]+18],fill=255)
+        E=np.asarray(erase)>0
+        arr=np.array(rebuilt)
+        arr[E,3]=0
+        rebuilt=Image.fromarray(arr,"RGBA")
+
+        # Stable forearm/hand from the approved HH hit authority. The anatomical
+        # mask follows the sleeve/hand shape, so opaque white pixels are safe and
+        # no rectangular source boundary can enter the candidate.
         arm=Image.new("L",(W,H),0); ad=ImageDraw.Draw(arm)
-        if phase=="hit":
-            pts=[(650,390),(585,410),(530,435),(492,452)]
-            width=88
-            grip=(492,452)
-        else:
-            pts=[(650,390),(590,372),(540,352),(505,342)]
-            width=92
-            grip=(505,342)
-        ad.line(pts,fill=255,width=width,joint="curve")
-        for p,r in [(pts[1],44),(pts[2],46),(grip,50)]:
+        pts=[(650,390),(595,405),(545,430),(500,452)]
+        grip=(500,452)
+        ad.line(pts,fill=255,width=92,joint="curve")
+        for p,r in [(pts[1],46),(pts[2],48),(grip,52)]:
             ad.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
         A=np.asarray(arm)>0
         A[HEAD[1]:HEAD[3],HEAD[0]:HEAD[2]]=False
         A[PELVIS[1]:PELVIS[3],PELVIS[0]:PELVIS[2]]=False
         A[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
         A[620:,:]=False
-
-        hh_arr=np.asarray(hh)
-        hh_ink=(hh_arr[:,:,:3].min(axis=2)<210)&(hh_arr[:,:,3]>0)
-        A &= hh_ink
-
-        # Remove the original HH stick corridor while preserving the grip.
-        hhpt=pt_for("HH") or (190,390)
-        old=Image.new("L",(W,H),0); od=ImageDraw.Draw(old)
-        start=(grip[0]-28,grip[1]-8)
-        od.line([start,hhpt],fill=255,width=26)
-        O=np.asarray(old)>0
-        # Keep a compact hand/grip disk so the new stick joins the hand.
-        yy,xx=np.ogrid[:H,:W]
-        grip_keep=(xx-grip[0])**2+(yy-grip[1])**2<=34**2
-        A &= (~O | grip_keep)
-
         rebuilt.paste(hh,(0,0),Image.fromarray((A.astype(np.uint8)*255),"L"))
 
-        # Draw one HT stick only, connected directly to the preserved grip.
+        # One and only one HT stick. Rebound differs by release angle only,
+        # avoiding the previously broken alternate-arm source.
         ht=pt_for("HT") or (575,360)
+        tip=ht if phase=="hit" else (ht[0]+14,ht[1]-36)
         rd=ImageDraw.Draw(rebuilt)
-        tip=ht if phase=="hit" else (ht[0]+10,ht[1]-28)
         rd.line([grip,tip],fill=(20,20,20,255),width=5)
         rd.line([(grip[0]+3,grip[1]-1),(tip[0]+3,tip[1]-1)],fill=(65,65,65,255),width=2)
 
