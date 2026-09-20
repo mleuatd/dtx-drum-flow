@@ -40,7 +40,7 @@ jobs:
           # Explicit queue override is authoritative only when that queue file
           # is the file changed by this commit. This keeps FRONT and BACK sessions
           # independent; ordinary ledger CLAIM commits fall through to the ledger.
-          CHANGED="$(git show --pretty=\"\" --name-only HEAD)"
+          CHANGED="$(git show --pretty= --name-only HEAD)"
           if [ -z "$ACTIONS" ] && [ -f .github/front-visual-actions.txt ] && grep -Fxq ".github/front-visual-actions.txt" <<< "$CHANGED"; then
             ACTIONS="$(tr -d '\r\n' < .github/front-visual-actions.txt)"
           elif [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ] && grep -Fxq ".github/back-visual-actions.txt" <<< "$CHANGED"; then
