@@ -12942,7 +12942,7 @@
     },
     {
       "issueId": "MOTION-015",
-      "status": "IN_FIX",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -12970,7 +12970,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T11:02:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M67",
@@ -12984,7 +12984,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13908,21 +13908,21 @@
             "id": "bd_hh_sn_rf_r_l_hit_refresh",
             "actionKey": "BD+HH+SN:RF/R/L",
             "phase": "hit",
-            "oldSha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
-            "newSha256": "14971ae1a9ea4eb9c268f28fd53dce3d34d2ea27b0959f3c3c6314c2d0e751c6",
-            "changedRatioVsNeutral": 0.04679917
+            "oldSha256": "14971ae1a9ea4eb9c268f28fd53dce3d34d2ea27b0959f3c3c6314c2d0e751c6",
+            "newSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
+            "changedRatioVsNeutral": 0.04299065
           },
           {
             "id": "bd_hh_sn_rf_r_l_rebound_refresh",
             "actionKey": "BD+HH+SN:RF/R/L",
             "phase": "rebound",
-            "oldSha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
-            "newSha256": "40186b1eab3619d938db75ab030b47b745c3e54c51b232e1deeab98eeb533bff",
-            "changedRatioVsNeutral": 0.04756736
+            "oldSha256": "40186b1eab3619d938db75ab030b47b745c3e54c51b232e1deeab98eeb533bff",
+            "newSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9",
+            "changedRatioVsNeutral": 0.04341354
           }
         ],
-        "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
-        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+        "method": "method4: RD-specific right-side release from neutral head landmarks",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -13942,12 +13942,7 @@
         ],
         "nextRepair": "Keep this CLAIM. Do not widen the transplant corridor again. Switch mechanism: connected-component/line-continuity reconstruction limited to the left hand→grip→stick→tip corridor, explicitly reject isolated white/opaque rectangular components and floating fragments, preserve the passing RF/HH contact corridors and all locked regions."
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "BACK-ACTIONS-35483412572",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T02:13:42.936984+00:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
