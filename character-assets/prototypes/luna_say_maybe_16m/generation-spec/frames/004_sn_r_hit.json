@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "index": 4,
+  "sourceFilename": "004_sn_r_hit.png",
+  "phase": "hit",
+  "auditStatus": "PASS",
+  "auditActionKey": "SN:R",
+  "runtimeActionKey": "SN:R",
+  "referenceClassification": "PRIMARY_POSITIVE_REFERENCE",
+  "doNotLearnGeometryFromThisFrame": false,
+  "allowedReferenceFields": [
+    "all non-defective visual properties within declared scope"
+  ],
+  "defects": [],
+  "defectRegions": [],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/SN_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action SN:R hit/rebound",
+    "negativeAttention": []
+  }
+}
