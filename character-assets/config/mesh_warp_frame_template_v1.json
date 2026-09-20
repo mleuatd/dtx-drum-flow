@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 3,
+  "frameId": "REPLACE_ME",
+  "actionKey": "REPLACE_ME",
+  "phase": "REPLACE_ME",
+  "method": "thin_plate_spline_inverse_map",
+  "smoothing": 0,
+  "inputPng": "REPLACE_ME",
+  "normalSourcePng": "REPLACE_ME",
+  "fixedDrumPng": "character-assets/layers/drum/drum_base.png",
+  "outputDir": "REPLACE_ME",
+  "roi": {
+    "x1": 0,
+    "y1": 0,
+    "x2": 0,
+    "y2": 0
+  },
+  "deformationPolygon": [],
+  "fixedRects": [],
+  "landmarks": {
+    "hip": [
+      0,
+      0
+    ],
+    "knee": [
+      0,
+      0
+    ],
+    "ankle": [
+      0,
+      0
+    ],
+    "toe": [
+      0,
+      0
+    ],
+    "pedalEndpoint": [
+      0,
+      0
+    ],
+    "pedalTarget": [
+      0,
+      0
+    ]
+  },
+  "sourcePoints": [],
+  "targetPoints": [],
+  "pedalTolerancePx": 45,
+  "normalSourceSha256": "REPLACE_ME",
+  "brokenSourceSha256": "REPLACE_ME",
+  "fixedDrumSha256": "REPLACE_ME",
+  "runtimeWritable": false,
+  "userApprovalStatus": "PENDING",
+  "visualQaRequired": true,
+  "naturalness": {
+    "pelvisLeft": null,
+    "pelvisRight": null,
+    "waistCenter": null,
+    "torsoCenter": null,
+    "shoulderLeft": null,
+    "shoulderRight": null,
+    "torsoFlowNotes": "",
+    "postureIntent": "",
+    "naturalnessFocusRegions": [
+      "waist",
+      "pelvis",
+      "torso",
+      "shoulders",
+      "legs",
+      "feet"
+    ],
+    "visualQaChecklist": [
+      "waistLegContinuity",
+      "pelvisTorsoDirection",
+      "torsoShoulderRelationship",
+      "upperLowerBodyUnity",
+      "weightBalance",
+      "drummingMotionFlow",
+      "clothingPatternContourConsistency"
+    ]
+  },
+  "outputNames": {
+    "candidate": "{frameId}_mesh_v1.png",
+    "review": "{frameId}_mesh_v1_review.webp",
+    "compositeReview": "{frameId}_fixed_drum_v1_review.webp",
+    "beforeAfterReview": "{frame}_before_after_review.webp",
+    "qa": "{frame}_qa.json",
+    "timing": "{frame}_timing.json",
+    "runManifest": "{frame}_run_manifest.json",
+    "commitManifest": "{frame}_commit_manifest.json",
+    "regression": "{frame}_regression_run.json"
+  }
+}
