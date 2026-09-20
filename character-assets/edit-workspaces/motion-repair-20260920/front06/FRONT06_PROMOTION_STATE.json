@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "issueId": "MOTION-002",
+  "actionKey": "BD+RC:RF/R",
+  "claimBatch": "HOLD-REPAIR-FRONT-06",
+  "candidateVersion": "v3",
+  "candidateSha256": {
+    "hit": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+    "rebound": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b"
+  },
+  "candidateRuntimeQa": {
+    "status": "PASS",
+    "runId": 35483787908,
+    "artifactId": 10596886963,
+    "artifact": "front06-candidate-runtime-35483787908",
+    "testedCommitSha": "42352be4cdc819c7be1f1b9e22395ca34b95f388",
+    "viewports": ["pc 1280x900", "xperia-portrait 384x864"],
+    "source": "real Luna say maybe chart occurrence only"
+  },
+  "status": "READY_FOR_FORMAL_PROMOTION",
+  "runtimeQaEvidence": {}
+}
