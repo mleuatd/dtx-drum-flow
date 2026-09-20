@@ -20,7 +20,7 @@ ledger_path=ROOT/"character-assets/edit-workspaces/character-brushup-20260919/BR
 ledger=json.loads(ledger_path.read_text())
 
 entries={e["actionKey"]:e for e in amap.get("entries",[])}
-targets=[t for t in ledger.get("targets",[]) if t.get("terminalId")=="CHAT-MOTION-REPAIR" and t.get("claimState")=="CLAIMED"]
+targets=[t for t in ledger.get("targets",[]) if ((t.get("terminalId")=="CHAT-MOTION-REPAIR" and t.get("claimState")=="CLAIMED") or (t.get("terminalId")=="CHAT-PASS2-BACK" and t.get("claimState")=="PASS2_CLAIMED"))]
 
 LANDMARKS={
  "shoulder_L":(635,342),"shoulder_R":(875,370),
