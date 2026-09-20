@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T13:07:00+09:00",
+  "updatedAt": "2026-09-20T13:13:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4734,7 +4734,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4750,9 +4750,14 @@
         "pc/m146_BD_RD_RF_R_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 14.35% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
         "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
-        "Independent recurrence in public runtime QA run 35427385671: M130, changed-pixel ratio 14.41% (triage metric)"
+        "Independent recurrence in public runtime QA run 35427385671: M130, changed-pixel ratio 14.41% (triage metric)",
+        "candidate run 35488049381 artifact 10598631500",
+        "formal promotion commit 07fe9b615ba631ee7977f4331b443930bff6fafa",
+        "public runtime QA run 35488205368 artifact 10597688794: PC/Xperia hit+rebound PASS, failed=0",
+        "validate run 35488205381 PASS",
+        "character asset validation run 35488205367 PASS"
       ],
-      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "fixDecision": "VERIFIED: rebuilt from neutral + VERIFIED M010 RD:R + VERIFIED M003 BD:RF; exact pair passed machine/static QA, formal validation, and public real-chart PC/Xperia hit+rebound runtime QA.",
       "relatedAsset": [
         "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
         "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
@@ -4763,10 +4768,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T13:07:00+09:00",
+      "updatedAt": "2026-09-20T13:13:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_RUNTIME_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -5331,6 +5336,11 @@
             "at": "2026-09-20T13:05:00+09:00",
             "decision": "M006_VERIFIED_ROOT_PAIR_VISUAL_PASS",
             "detail": "Run 35488049381 artifact 10598631500 pairMachinePass=true; exact hit SHA 7da76d13... and rebound SHA 38bd82c3... visually PASS with old seat splice removed."
+          },
+          {
+            "at": "2026-09-20T13:13:00+09:00",
+            "decision": "VERIFIED",
+            "detail": "M130 real-chart PC/Xperia hit and rebound all PASS using exact formal BD+RD:RF/R frames; claim released."
           }
         ],
         "measurementTodos": [
@@ -5622,7 +5632,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "reviewedAt": "2026-09-20T13:05:00+09:00",
         "reviewEvidence": {
@@ -5638,12 +5648,7 @@
           "Motion is isolated to VERIFIED RD:R and VERIFIED BD:RF donor regions."
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FRONT-M006-AFTER-M010",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T13:02:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:34:00+09:00",
