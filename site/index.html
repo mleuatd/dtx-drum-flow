@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
   <meta name="theme-color" content="#2516ff">
   <title>DTX Drum Flow — FINAL Charts</title>
-  <link rel="stylesheet" href="./styles.css?v=20260919-audio-final-r21">
+  <link rel="stylesheet" href="./styles.css?v=20260920-preload-r1">
   <style>
     :root{--luna-blue:#2516ff;--luna-ink:#070716;--luna-ivory:#f7f3ea;--luna-lime:#baff00}
     html,body{background:var(--luna-ink)}
@@ -19,6 +19,7 @@
   </style>
   <link rel="stylesheet" href="./version-switcher.css?v=20260920-prepost-r1">\n</head>
 <body>
+  <div id="startupLoader" class="startup-loader" role="status" aria-live="polite" aria-label="読み込み進捗" style="--load-pct:0%"><div class="startup-loader-fill"></div><div class="startup-loader-content"><strong id="startupLoadPercent">0%</strong><span id="startupLoadLabel">準備しています…</span></div></div>
   <div id="devBuildHud" style="position:fixed;right:6px;top:6px;z-index:9999;max-width:42vw;background:#000d;color:#baff00;border:1px solid #baff00;padding:4px 6px;font:700 10px/1.35 monospace;white-space:pre;pointer-events:none">BUILD 20260919-audio-final-r21\nJS:loading\nCHAR:loading<span id="devAudioReadout"></span></div><main class="app">
     <header class="topbar"><div><p class="eyebrow">DRUM PRACTICE / FINAL CHART</p><h1>DTX Drum Flow</h1></div><span id="chartBadge" class="badge">LUNA FINAL</span></header>
     <section class="quick panel">
@@ -41,9 +42,9 @@
     <details class="panel advanced"><summary>詳細設定・ファイル操作</summary><div class="advanced-body"><div class="file-grid"><label class="button">譜面ファイルを開く<input id="chartFile" type="file" accept=".mid,.midi,.dtx,.gda,.json" hidden></label><button id="loadSample" class="button">サンプル譜面</button><button id="exportJson" class="button">譜面JSON保存</button></div><button id="alignAudio" class="button" disabled>元音源にタイミング補正</button><div id="dropZone" class="drop-hint">譜面・音源をドラッグ＆ドロップ</div></div></details>
     <section class="panel status-panel"><h2>STATUS</h2><p id="status">FINAL譜面を自動読み込みしています…</p></section>
   </main>
-  <nav class="mobile-transport" aria-label="再生操作"><button id="rewindMeasure" class="transport-side">−4小節</button><button id="playPause" class="transport-play">再生 ▶</button><button id="forwardMeasure" class="transport-side">＋4小節</button></nav>
-  <script type="module" src="./app.js?v=20260920-speed-adaptive-r1"></script>
-  <script type="module" src="./original-audio.js?v=20260918-neutral-drum-final-r1"></script>
+  <nav class="mobile-transport" aria-label="再生操作"><button id="rewindMeasure" class="transport-side">−4小節</button><button id="playPause" class="transport-play" disabled aria-disabled="true">読み込み中 0%</button><button id="forwardMeasure" class="transport-side">＋4小節</button></nav>
+  <script type="module" src="./app.js?v=20260920-preload-r1"></script>
+  <script type="module" src="./original-audio.js?v=20260920-preload-r1"></script>
   <script>setTimeout(()=>{if(!window.__DTX_APP_READY__){const s=document.getElementById("status");if(s)s.textContent="アプリ本体の読み込みに失敗しました。ページを再読み込みしてください。";}},1500);</script>
   <script src="./version-switcher.js?v=20260920-prepost-r1" defer></script>\n</body>
 </html>
