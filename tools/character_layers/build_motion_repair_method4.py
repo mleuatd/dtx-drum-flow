@@ -165,8 +165,8 @@ for f in fails:
             sh=LAND["shoulder_L"]
             corridor=Image.new("L",(W,H),0); cd=ImageDraw.Draw(corridor)
             grip=(505,455) if phase=="hit" else (475,430)
-            cd.line([sh,grip,sn],fill=255,width=62 if phase=="hit" else 56,joint="curve")
-            cd.ellipse([grip[0]-42,grip[1]-42,grip[0]+42,grip[1]+42],fill=255)
+            cd.line([sh,grip,sn],fill=255,width=76 if phase=="hit" else 56,joint="curve")
+            cd.ellipse([grip[0]-(54 if phase=="hit" else 42),grip[1]-(54 if phase=="hit" else 42),grip[0]+(54 if phase=="hit" else 42),grip[1]+(54 if phase=="hit" else 42)],fill=255)
             C=np.asarray(corridor)>0
             left_zone=np.zeros((H,W),dtype=bool); left_zone[300:600,280:720]=True
             M=(M & ~left_zone) | (M & C & left_zone)
