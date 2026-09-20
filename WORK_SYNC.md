@@ -1,3 +1,11 @@
+
+## 2026-09-20 11:28 JST — FRONT completion-focused override
+- User-directed execution change: FRONT no longer cycles through HOLD targets after bounded failures.
+- FRONT keeps one actionKey until it reaches VERIFIED, or until a genuine repair-mechanism/tool blocker is proven and recorded.
+- Current FRONT target remains MOTION-002 / BD+RC:RF/R under claim HOLD-REPAIR-FRONT-06.
+- Failed candidates are retained as evidence but do not count as completion; repair continues from the best parent candidate with only the diagnosed defect changed.
+- Tool/workflow improvements should be applied immediately when they reduce repeated source extraction, candidate generation, QA, artifact handling, or ledger updates.
+- Other terminals' active claims remain untouched.
 ## 2026-09-20 09:16 JST — HOLD repair coordination standardized
 - All terminals must read HOLD_REPAIR_PLAYBOOK.json and latest MOTION_DEFECT_BACKLOG before editing.
 - FRONT claims the lowest available MOTION issue; BACK claims the highest available issue. Claimed items are untouchable by other terminals.
