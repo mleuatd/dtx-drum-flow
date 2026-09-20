@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 61,
+  "sourceFilename": "061_bd_ft_rf_r_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+FT:RF/R",
+  "runtimeActionKey": "BD+FT:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手に上向きスティックと右方向へ伸びる別スティックが重複している。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_FT_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+FT:RF/R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
