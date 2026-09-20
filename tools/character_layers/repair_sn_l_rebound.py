@@ -174,9 +174,9 @@ h_tip=tuple(map(round,hit["stickTip"]))
 
 pair_roi=Image.new("L",(W,H),0)
 pd=ImageDraw.Draw(pair_roi)
-for pts,width in [([h_shoulder,h_elbow,h_wrist],170),([shoulder,elbow,wrist],170)]:
+for pts,width in [([h_elbow,h_wrist],118),([elbow,wrist],118)]:
     pd.line(pts,fill=255,width=width,joint="curve")
-for p,radius in [(h_shoulder,92),(h_elbow,96),(h_wrist,90),(shoulder,92),(elbow,96),(wrist,90)]:
+for p,radius in [(h_elbow,72),(h_wrist,82),(elbow,72),(wrist,82)]:
     pd.ellipse([p[0]-radius,p[1]-radius,p[0]+radius,p[1]+radius],fill=255)
 for a,b,width in [(h_wrist,h_tip,50),(wrist,tip,50)]:
     pd.line([a,b],fill=255,width=width)
@@ -202,12 +202,12 @@ pair_replace_dil[560:810,560:980]=False
 pair_replace_dil[:,800:]=False
 pair_replace=Image.fromarray((pair_replace_dil.astype(np.uint8)*255),"L")
 
-candidate_v9=hit_image.copy()
-candidate_v9.paste(candidate,(0,0),pair_replace)
-candidate_v9_path=OUTDIR/"sn_l_rebound_candidate_v9.png"
-candidate_v9.save(candidate_v9_path)
+candidate_v10=hit_image.copy()
+candidate_v10.paste(candidate,(0,0),pair_replace)
+candidate_v10_path=OUTDIR/"sn_l_rebound_candidate_v10.png"
+candidate_v10.save(candidate_v10_path)
 
-v9=np.asarray(candidate_v9)
+v9=np.asarray(candidate_v10)
 pair_mask=np.asarray(pair_replace)>0
 diff_hit_v9=np.any(hit_arr!=v9,axis=2)
 outside_pair=int(np.count_nonzero(diff_hit_v9 & ~pair_mask))
@@ -230,16 +230,16 @@ head_exact=pair_guard_changed["head"]==0
 pelvis_exact=pair_guard_changed["pelvis_seat"]==0
 legs_exact=pair_guard_changed["legs_stool"]==0
 
-comp9=Image.alpha_composite(drum,candidate_v9)
-comp9.save(OUTDIR/"sn_l_rebound_candidate_v9_fixed_drum.png")
+comp10=Image.alpha_composite(drum,candidate_v10)
+comp10.save(OUTDIR/"sn_l_rebound_candidate_v10_fixed_drum.png")
 
-report9={
- "schemaVersion":9,
+report10={
+ "schemaVersion":10,
  "issueId":"MOTION-001",
  "actionKey":"SN:L",
  "phase":"rebound",
- "candidate":str(candidate_v9_path.relative_to(ROOT)),
- "method":"formal hit static parent + v8 rebound active-left-arm/stick delta only",
+ "candidate":str(candidate_v10_path.relative_to(ROOT)),
+ "method":"formal hit static parent + v8 rebound elbow-forearm-hand-stick delta only",
  "parent":{
    "staticBase":str(hit_image_path.relative_to(ROOT)),
    "staticBaseSha256":hashlib.sha256(hit_image_path.read_bytes()).hexdigest(),
@@ -260,7 +260,7 @@ report9={
    "changedVisible":int(diff_hit_v9.sum())>=250
  }
 }
-report9["pass"]=all(report9["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v9_qa.json").write_text(json.dumps(report9,ensure_ascii=False,indent=2)+"\n")
-print(json.dumps({"v8":report,"v9":report9},ensure_ascii=False))
-if not report9["pass"]: raise SystemExit(2)
+report10["pass"]=all(report10["hardPass"].values())
+(OUTDIR/"sn_l_rebound_candidate_v10_qa.json").write_text(json.dumps(report10,ensure_ascii=False,indent=2)+"\n")
+print(json.dumps({"v8":report,"v9":report10},ensure_ascii=False))
+if not report10["pass"]: raise SystemExit(2)
