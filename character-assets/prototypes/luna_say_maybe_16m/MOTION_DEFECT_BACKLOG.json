@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:24:00+09:00",
+  "updatedAt": "2026-09-20T09:29:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8160,7 +8160,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8188,7 +8188,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:24:00+09:00",
+      "updatedAt": "2026-09-20T09:29:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -8203,7 +8203,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -8709,6 +8709,11 @@
             "at": "2026-09-20T08:07:00+09:00",
             "decision": "HOLD_VISUAL_INTEGRITY",
             "detail": "Batch 04 full-resolution QA: RD:R rebound contains hard rectangular splice/cut through hair-torso and right arm/stick region. Treat as structural repair; do not use light minimal-retry path. Preserve formal PNG until candidate passes all static gates."
+          },
+          {
+            "at": "2026-09-20T09:29:00+09:00",
+            "decision": "METHOD4_RD_R_REBOUND_MACHINE_PASS_PAIR_HARD_FAIL",
+            "detail": "Run 35477702725 / artifact 10594462976 generated rebound candidate fab1a972...; machine guards/contact preservation PASS and rebound removes the large rectangular splice. Human review of the pair found the current hit still contains duplicated/disconnected right-arm/right-hand geometry. Do not promote rebound alone; next repair must reconstruct one coherent right RD arm/hand/stick across hit and rebound."
           }
         ],
         "measurementTodos": [
@@ -8938,7 +8943,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T09:24:00+09:00"
+        "updatedAt": "2026-09-20T09:29:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -8955,27 +8960,28 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
+        "humanAnatomy": "FAIL_PAIR_RIGHT_ARM_DUPLICATION",
+        "linework": "FAIL_PAIR_RIGHT_HAND_STICK_CONTINUITY",
+        "fixedDrumComposite": "FAIL_PAIR_RD_SEMANTICS",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "Batch 04: hit is visually acceptable, but rebound has a structural rectangular splice/cut across hair-torso and right forearm/hand-stick geometry. Formal PNGs preserved; no minimal retry because defect exceeds light/local threshold.",
+        "note": "Method4 rebound candidate removes the original rebound splice and machine QA passes, but hit has duplicated/disconnected right RD arm/hand geometry. Pair remains HOLD; formal PNGs unchanged.",
         "workflowRunId": 35475145116,
-        "artifactId": 10593238245
+        "artifactId": 10593238245,
+        "reviewedAt": "2026-09-20T09:29:00+09:00"
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-FRONT-02",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T09:24:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T09:24:00+09:00",
           "decision": "HOLD_REPAIR_CLAIMED",
           "detail": "Claimed RD:R for rebound-only local right-arm/hand/stick repair. Hit remains protected because prior static review passed. Formal PNGs remain unchanged until candidate QA passes."
+        },
+        {
+          "at": "2026-09-20T09:29:00+09:00",
+          "decision": "HOLD_REPAIR_PASS_2_CLOSED",
+          "detail": "Released CHATGPT-FRONT claim. Rebound local repair succeeded mechanically/visually, but pair-level hit defect prevents promotion. Formal PNGs unchanged."
         }
       ]
     },
