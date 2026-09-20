@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T11:31:00+09:00",
+  "updatedAt": "2026-09-20T11:46:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1072,7 +1072,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "PROMOTED_PENDING_PUBLIC_RUNTIME",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -1090,9 +1090,10 @@
         "Independent recurrence in public runtime QA run 35427385671: M127, changed-pixel ratio 16.74% (triage metric)",
         "FRONT06 v3 static pair PASS",
         "candidate real-chart runtime QA run 35483787908 artifact 10596886963",
-        "formal promotion guarded by exact v3 SHA and active FRONT claim"
+        "formal promotion guarded by exact v3 SHA and active FRONT claim",
+        "public runtime QA run 35484762334 artifact front06-public-runtime-35484762334 (artifactId 10596248930)"
       ],
-      "fixDecision": "Treat as visual asset-continuity defect unless locked-region diff proves otherwise. Preserve fixed drum/runtime mapping; compare hit/rebound against neutral and choose the smallest image-level repair or frame-hold strategy that removes whole-body teleport.",
+      "fixDecision": "FRONT06 v3 promoted after static pair PASS, candidate real-chart PC/Xperia PASS, formal validation PASS, and public real-chart PC/Xperia PASS.",
       "relatedAsset": [
         "character-assets/layers/character/combo/bd_rc_hit.png",
         "character-assets/layers/character/combo/bd_rc_rebound.png",
@@ -1102,7 +1103,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T11:27:29+09:00",
+      "updatedAt": "2026-09-20T11:46:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "PROMOTED_PENDING_PUBLIC_RUNTIME_QA",
@@ -1999,12 +2000,7 @@
           "detail": "Promoted v3 only after static pair PASS, real-chart M103 PC/Xperia 8/8 PASS, and prepromotion validation PASS. Formal SHA hit=92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1 rebound=61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b. Claim retained until public Pages runtime confirmation."
         }
       ],
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-FRONT-06",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T10:50:00+09:00"
-      },
+      "claim": null,
       "front06ValidatedPromotion": {
         "candidateVersion": "v3",
         "oldFormalSha256": {
