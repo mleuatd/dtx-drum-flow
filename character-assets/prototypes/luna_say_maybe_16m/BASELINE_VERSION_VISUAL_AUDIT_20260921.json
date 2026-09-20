@@ -1,0 +1,3302 @@
+{
+  "schemaVersion": 1,
+  "auditId": "BASELINE_VERSION_VISUAL_AUDIT_20260921",
+  "repository": "mleuatd/dtx-drum-flow",
+  "branch": "main",
+  "auditScope": "all 64 PNGs under character-assets/layers/character in both compared commits",
+  "comparedVersions": [
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e"
+    }
+  ],
+  "comparison": {
+    "sameRelativePaths": 64,
+    "byteIdenticalImages": 35,
+    "byteDifferentImages": 29,
+    "inspectionPolicy": "Every PNG opened at original-resolution equivalent. Identical pairs reused a finding only after byte identity was confirmed; all 29 changed pairs were directly compared at 1:1 scale."
+  },
+  "summary": {
+    "BASELINE_A4E385": {
+      "totalImages": 64,
+      "PASS": 20,
+      "FAIL": 39,
+      "REVIEW": 5,
+      "LOW": 12,
+      "MEDIUM": 0,
+      "HIGH": 32,
+      "CRITICAL": 0,
+      "EASY": 51,
+      "MODERATE": 13,
+      "HARD": 0,
+      "VERY_HARD": 0,
+      "localRepairOnlyFailCount": 39,
+      "fullBodyReconstructionLikelyCount": 0,
+      "hardOrVeryHard": 0
+    },
+    "CURRENT_MAIN_SNAPSHOT": {
+      "totalImages": 64,
+      "PASS": 6,
+      "FAIL": 53,
+      "REVIEW": 5,
+      "LOW": 6,
+      "MEDIUM": 0,
+      "HIGH": 37,
+      "CRITICAL": 15,
+      "EASY": 27,
+      "MODERATE": 17,
+      "HARD": 18,
+      "VERY_HARD": 2,
+      "localRepairOnlyFailCount": 36,
+      "fullBodyReconstructionLikelyCount": 2,
+      "hardOrVeryHard": 20
+    }
+  },
+  "parentSelection": {
+    "selectedParent": "BASELINE_A4E385",
+    "selectedCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+    "reason": "Fewer severe structural regressions and easier remaining local repairs. Current snapshot contains new extra limbs, third-leg residues, duplicated/overlong sticks, and skirt/stool breaks.",
+    "exceptionsWorthPreservingFromCurrent": [
+      "combo/hh_sn_r_l_rebound_refresh.png",
+      "sn/rebound_l.png"
+    ]
+  },
+  "frame010": {
+    "path": "combo/bd_rc_hit.png",
+    "baseline": "PASS: coherent two-leg anatomy and normal-length right stick.",
+    "current": "FAIL/CRITICAL: overlong right stick, secondary fragment, and central third-leg/vertical residue.",
+    "skirtAssessment": "Baseline skirt/waist transition is coherent. Current snapshot is mainly compromised by the central extra-leg/vertical residue; the formerly noted rectangle is not the dominant defect here.",
+    "strikePointAssessment": "Exact contact cannot be certified from the isolated character layer. Baseline trajectory is plausible; current stick overshoots a plausible RC target. Fixed-drum composite QA is mandatory.",
+    "rcHitRefreshDonor": "rc/hit_r_refresh.png is not a safe direct donor because both versions share its overlong/doubled-stick defect."
+  },
+  "records": [
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 1,
+      "filename": "base/neutral.png",
+      "actionKey": "NEUTRAL",
+      "phase": "neutral",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 2,
+      "filename": "bd/hit_rf.png",
+      "actionKey": ":RF",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 3,
+      "filename": "bd/rebound_rf.png",
+      "actionKey": ":RF",
+      "phase": "rebound",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 4,
+      "filename": "combo/bd_ft_rf_l_hit_refresh.png",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 5,
+      "filename": "combo/bd_ft_rf_l_rebound_refresh.png",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 6,
+      "filename": "combo/bd_ft_rf_r_hit_refresh.png",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 7,
+      "filename": "combo/bd_ft_rf_r_rebound_refresh.png",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 8,
+      "filename": "combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 9,
+      "filename": "combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 10,
+      "filename": "combo/bd_hh_rf_r_hit_refresh.png",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 11,
+      "filename": "combo/bd_hh_rf_r_rebound_refresh.png",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 12,
+      "filename": "combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 13,
+      "filename": "combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 14,
+      "filename": "combo/bd_ht_rf_l_hit_refresh.png",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 15,
+      "filename": "combo/bd_ht_rf_l_rebound_refresh.png",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 16,
+      "filename": "combo/bd_ht_rf_r_hit_refresh.png",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 17,
+      "filename": "combo/bd_ht_rf_r_rebound_refresh.png",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 18,
+      "filename": "combo/bd_lt_rf_r_hit_refresh.png",
+      "actionKey": "BD+LT:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 19,
+      "filename": "combo/bd_lt_rf_r_rebound_refresh.png",
+      "actionKey": "BD+LT:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 20,
+      "filename": "combo/bd_rc_hit.png",
+      "actionKey": "BD+RC",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "010: coherent two-leg seated anatomy, normal-length right stick, readable RC-hit trajectory; exact cymbal contact still needs fixed-drum composite QA.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 21,
+      "filename": "combo/bd_rc_rebound.png",
+      "actionKey": "BD+RC",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 22,
+      "filename": "combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 23,
+      "filename": "combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 24,
+      "filename": "combo/bd_rd_rf_r_hit_refresh.png",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 25,
+      "filename": "combo/bd_rd_rf_r_rebound_refresh.png",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 26,
+      "filename": "combo/bd_sn_hit.png",
+      "actionKey": "BD+SN",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 27,
+      "filename": "combo/bd_sn_hit_refresh.png",
+      "actionKey": "BD+SN",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 28,
+      "filename": "combo/bd_sn_rebound_refresh.png",
+      "actionKey": "BD+SN",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 29,
+      "filename": "combo/bd_sn_rf_r_hit_refresh.png",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 30,
+      "filename": "combo/bd_sn_rf_r_rebound_refresh.png",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 31,
+      "filename": "combo/ft_sn_r_l_hit_refresh.png",
+      "actionKey": "FT+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 32,
+      "filename": "combo/ft_sn_r_l_rebound_refresh.png",
+      "actionKey": "FT+SN:R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 33,
+      "filename": "combo/hh_sn_r_l_hit_refresh.png",
+      "actionKey": "HH+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 34,
+      "filename": "combo/hh_sn_r_l_rebound_refresh.png",
+      "actionKey": "HH+SN:R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 35,
+      "filename": "combo/lt_sn_r_l_hit_refresh.png",
+      "actionKey": "LT+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 36,
+      "filename": "combo/lt_sn_r_l_rebound_refresh.png",
+      "actionKey": "LT+SN:R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 37,
+      "filename": "combo/rc_sn_hit.png",
+      "actionKey": "RC+SN",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 38,
+      "filename": "combo/rc_sn_hit_refresh.png",
+      "actionKey": "RC+SN",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 39,
+      "filename": "combo/rc_sn_rebound_refresh.png",
+      "actionKey": "RC+SN",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 40,
+      "filename": "combo/rd_sn_r_l_hit_refresh.png",
+      "actionKey": "RD+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 41,
+      "filename": "combo/rd_sn_r_l_rebound_refresh.png",
+      "actionKey": "RD+SN:R/L",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 42,
+      "filename": "ft/hit_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 43,
+      "filename": "ft/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 44,
+      "filename": "ft/rebound_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 45,
+      "filename": "ft/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 46,
+      "filename": "hh/hit_r.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 47,
+      "filename": "hh/rebound_r.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 48,
+      "filename": "ht/hit_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 49,
+      "filename": "ht/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 50,
+      "filename": "ht/rebound_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 51,
+      "filename": "ht/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 52,
+      "filename": "lt/hit_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 53,
+      "filename": "lt/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 54,
+      "filename": "lt/rebound_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 55,
+      "filename": "lt/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 56,
+      "filename": "rc/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate. Not safe as a direct 010 stick donor: this asset itself has an overlong/doubled right-stick defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 57,
+      "filename": "rc/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 58,
+      "filename": "rd/hit_r.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 59,
+      "filename": "rd/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 60,
+      "filename": "rd/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 61,
+      "filename": "sn/hit_l.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 62,
+      "filename": "sn/hit_r.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 63,
+      "filename": "sn/rebound_l.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "BASELINE_A4E385",
+      "sourceCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "index": 64,
+      "filename": "sn/rebound_r.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 1,
+      "filename": "base/neutral.png",
+      "actionKey": "NEUTRAL",
+      "phase": "neutral",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 2,
+      "filename": "bd/hit_rf.png",
+      "actionKey": ":RF",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 3,
+      "filename": "bd/rebound_rf.png",
+      "actionKey": ":RF",
+      "phase": "rebound",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 4,
+      "filename": "combo/bd_ft_rf_l_hit_refresh.png",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 5,
+      "filename": "combo/bd_ft_rf_l_rebound_refresh.png",
+      "actionKey": "BD+FT:RF/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 6,
+      "filename": "combo/bd_ft_rf_r_hit_refresh.png",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 7,
+      "filename": "combo/bd_ft_rf_r_rebound_refresh.png",
+      "actionKey": "BD+FT:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 8,
+      "filename": "combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 9,
+      "filename": "combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 10,
+      "filename": "combo/bd_hh_rf_r_hit_refresh.png",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 11,
+      "filename": "combo/bd_hh_rf_r_rebound_refresh.png",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 12,
+      "filename": "combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "widespread body/stick/lower-body corruption"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "VERY_HARD",
+      "repairScope": "FULL_BODY_RECONSTRUCTION",
+      "likelyRepairMethod": "restore baseline/coherent parent rather than reconstruct current in place",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Do not reconstruct this current frame in place; restore a coherent parent first.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 13,
+      "filename": "combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 14,
+      "filename": "combo/bd_ht_rf_l_hit_refresh.png",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 15,
+      "filename": "combo/bd_ht_rf_l_rebound_refresh.png",
+      "actionKey": "BD+HT:RF/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 16,
+      "filename": "combo/bd_ht_rf_r_hit_refresh.png",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 17,
+      "filename": "combo/bd_ht_rf_r_rebound_refresh.png",
+      "actionKey": "BD+HT:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 18,
+      "filename": "combo/bd_lt_rf_r_hit_refresh.png",
+      "actionKey": "BD+LT:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 19,
+      "filename": "combo/bd_lt_rf_r_rebound_refresh.png",
+      "actionKey": "BD+LT:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 20,
+      "filename": "combo/bd_rc_hit.png",
+      "actionKey": "BD+RC",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "extremely overlong right stick",
+        "secondary stick/fragment near right hand",
+        "third-leg/vertical boot-like residue between legs"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "010: severe regression versus baseline; stick visibly overshoots a plausible RC target.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 21,
+      "filename": "combo/bd_rc_rebound.png",
+      "actionKey": "BD+RC",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 22,
+      "filename": "combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 23,
+      "filename": "combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 24,
+      "filename": "combo/bd_rd_rf_r_hit_refresh.png",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 25,
+      "filename": "combo/bd_rd_rf_r_rebound_refresh.png",
+      "actionKey": "BD+RD:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 26,
+      "filename": "combo/bd_sn_hit.png",
+      "actionKey": "BD+SN",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 27,
+      "filename": "combo/bd_sn_hit_refresh.png",
+      "actionKey": "BD+SN",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "widespread body/stick/lower-body corruption"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "VERY_HARD",
+      "repairScope": "FULL_BODY_RECONSTRUCTION",
+      "likelyRepairMethod": "restore baseline/coherent parent rather than reconstruct current in place",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Do not reconstruct this current frame in place; restore a coherent parent first.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 28,
+      "filename": "combo/bd_sn_rebound_refresh.png",
+      "actionKey": "BD+SN",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "HIGH",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 29,
+      "filename": "combo/bd_sn_rf_r_hit_refresh.png",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 30,
+      "filename": "combo/bd_sn_rf_r_rebound_refresh.png",
+      "actionKey": "BD+SN:RF/R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 31,
+      "filename": "combo/ft_sn_r_l_hit_refresh.png",
+      "actionKey": "FT+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 32,
+      "filename": "combo/ft_sn_r_l_rebound_refresh.png",
+      "actionKey": "FT+SN:R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 33,
+      "filename": "combo/hh_sn_r_l_hit_refresh.png",
+      "actionKey": "HH+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "LOW",
+      "defects": [
+        "small detached line or residual mark"
+      ],
+      "defectRegions": [
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_ARTIFACT",
+      "likelyRepairMethod": "alpha-safe local line cleanup",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "LOW",
+      "notes": "Localized cosmetic residue; anatomy remains coherent.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 34,
+      "filename": "combo/hh_sn_r_l_rebound_refresh.png",
+      "actionKey": "HH+SN:R/L",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 35,
+      "filename": "combo/lt_sn_r_l_hit_refresh.png",
+      "actionKey": "LT+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 36,
+      "filename": "combo/lt_sn_r_l_rebound_refresh.png",
+      "actionKey": "LT+SN:R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 37,
+      "filename": "combo/rc_sn_hit.png",
+      "actionKey": "RC+SN",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 38,
+      "filename": "combo/rc_sn_hit_refresh.png",
+      "actionKey": "RC+SN",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "HIGH",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 39,
+      "filename": "combo/rc_sn_rebound_refresh.png",
+      "actionKey": "RC+SN",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "HIGH",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 40,
+      "filename": "combo/rd_sn_r_l_hit_refresh.png",
+      "actionKey": "RD+SN:R/L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 41,
+      "filename": "combo/rd_sn_r_l_rebound_refresh.png",
+      "actionKey": "RD+SN:R/L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "HIGH",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 42,
+      "filename": "ft/hit_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 43,
+      "filename": "ft/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 44,
+      "filename": "ft/rebound_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 45,
+      "filename": "ft/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 46,
+      "filename": "hh/hit_r.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "extra/detached limb causing duplicated-arm appearance"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "LOCAL_LIMB",
+      "likelyRepairMethod": "topology-preserving limb transplant from coherent parent",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Severe local limb duplication; use coherent parent/donor, not freehand patch accumulation.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 47,
+      "filename": "hh/rebound_r.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "extra/detached limb causing duplicated-arm appearance"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "LOCAL_LIMB",
+      "likelyRepairMethod": "topology-preserving limb transplant from coherent parent",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Severe local limb duplication; use coherent parent/donor, not freehand patch accumulation.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 48,
+      "filename": "ht/hit_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 49,
+      "filename": "ht/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 50,
+      "filename": "ht/rebound_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 51,
+      "filename": "ht/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 52,
+      "filename": "lt/hit_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 53,
+      "filename": "lt/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 54,
+      "filename": "lt/rebound_l_refresh.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 55,
+      "filename": "lt/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 56,
+      "filename": "rc/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate. Not safe as a direct 010 stick donor: this asset itself has an overlong/doubled right-stick defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 57,
+      "filename": "rc/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "duplicate, detached, crossing, or abnormally long stick residue"
+      ],
+      "defectRegions": [
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "MODERATE",
+      "repairScope": "LOCAL_STICK",
+      "likelyRepairMethod": "stick/hand ROI repair from coherent same-action donor",
+      "donorAvailability": "HIGH",
+      "estimatedRisk": "MEDIUM",
+      "notes": "Body is largely coherent; bounded stick/hand cleanup is appropriate.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 58,
+      "filename": "rd/hit_r.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "REVIEW",
+      "severity": "LOW",
+      "defects": [
+        "exact instrument/pedal contact cannot be certified from isolated character layer"
+      ],
+      "defectRegions": [
+        "performance_contact"
+      ],
+      "repairDifficulty": "EASY",
+      "repairScope": "VALIDATION_ONLY",
+      "likelyRepairMethod": "fixed-drum composite QA only",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Anatomy is coherent; fixed-drum composite QA is required before promotion.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 59,
+      "filename": "rd/hit_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "FAIL",
+      "severity": "CRITICAL",
+      "defects": [
+        "extra/detached limb causing duplicated-arm appearance"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "LOCAL_LIMB",
+      "likelyRepairMethod": "topology-preserving limb transplant from coherent parent",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "CRITICAL",
+      "notes": "Severe local limb duplication; use coherent parent/donor, not freehand patch accumulation.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 60,
+      "filename": "rd/rebound_r_refresh.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "FAIL",
+      "severity": "HIGH",
+      "defects": [
+        "multi-region anatomy/stick/skirt or stool regression"
+      ],
+      "defectRegions": [
+        "arm",
+        "hand",
+        "stick",
+        "waist",
+        "skirt",
+        "leg",
+        "stool",
+        "artifact"
+      ],
+      "repairDifficulty": "HARD",
+      "repairScope": "MULTI_REGION",
+      "likelyRepairMethod": "restore coherent parent, then bounded ROI repairs",
+      "donorAvailability": "HIGH_BASELINE_COUNTERPART_AVAILABLE",
+      "estimatedRisk": "HIGH",
+      "notes": "Multiple repair regions regressed; restore coherent parent then reapply only required motion delta.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 61,
+      "filename": "sn/hit_l.png",
+      "actionKey": ":L",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 62,
+      "filename": "sn/hit_r.png",
+      "actionKey": ":R",
+      "phase": "hit",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 63,
+      "filename": "sn/rebound_l.png",
+      "actionKey": ":L",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + 1:1 side-by-side version comparison"
+    },
+    {
+      "versionId": "CURRENT_MAIN_SNAPSHOT",
+      "sourceCommit": "b298fba62b49599be4fb61b166f429b75df9539e",
+      "index": 64,
+      "filename": "sn/rebound_r.png",
+      "actionKey": ":R",
+      "phase": "rebound",
+      "status": "PASS",
+      "severity": null,
+      "defects": [],
+      "defectRegions": [],
+      "repairDifficulty": "EASY",
+      "repairScope": "NONE",
+      "likelyRepairMethod": "none",
+      "donorAvailability": "N/A",
+      "estimatedRisk": "LOW",
+      "notes": "Full-resolution direct inspection found no clear structural defect.",
+      "inspectedAt": "2026-09-21T06:52:00+09:00",
+      "inspectionMethod": "original-file-full-resolution-direct-open + cross-version byte-identity confirmed"
+    }
+  ]
+}
