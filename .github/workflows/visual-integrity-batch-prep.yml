@@ -40,7 +40,20 @@ jobs:
           # Explicit queue override is authoritative only when that queue file
           # is the file changed by this commit. This keeps FRONT and BACK sessions
           # independent; ordinary ledger CLAIM commits fall through to the ledger.
-          CHANGED="$(git show --pretty= --name-only HEAD)"
+          # Read changed paths from the push event payload rather than git history.
+          # actions/checkout uses fetch-depth=1, so parent-based git diff/show is not
+          # reliable for deciding which explicit queue file triggered this run.
+          CHANGED="$(python - <<'PY'
+          import json, os
+          with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as f:
+              e=json.load(f)
+          paths=[]
+          for commit in e.get("commits") or []:
+              for k in ("added","modified","removed"):
+                  paths.extend(commit.get(k) or [])
+          print("\n".join(dict.fromkeys(paths)))
+          PY
+          )"
           if [ -z "$ACTIONS" ] && [ -f .github/front-visual-actions.txt ] && grep -Fxq ".github/front-visual-actions.txt" <<< "$CHANGED"; then
             ACTIONS="$(tr -d '\r\n' < .github/front-visual-actions.txt)"
           elif [ -z "$ACTIONS" ] && [ -f .github/back-visual-actions.txt ] && grep -Fxq ".github/back-visual-actions.txt" <<< "$CHANGED"; then
