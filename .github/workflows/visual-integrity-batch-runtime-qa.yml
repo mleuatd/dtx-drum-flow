@@ -17,8 +17,8 @@ jobs:
       PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
       MEASURE_START: "1"
       MEASURE_END: "148"
-      QA_ACTIONS: "BD+RD:RF/R,BD+RC+SN:RF/R/L,BD+HT:RF/R"
-      RUNTIME_QA_BLOCK_KEY: "BACK-VISUAL-RUNTIME-BATCH-01"
+      QA_ACTIONS: "BD+RC+SN:RF/R/L"
+      RUNTIME_QA_BLOCK_KEY: "MOTION-011-M72-FINAL"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
