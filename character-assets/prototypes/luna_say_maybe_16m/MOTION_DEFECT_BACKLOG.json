@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:47:00+09:00",
+  "updatedAt": "2026-09-20T10:50:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -10188,7 +10188,7 @@
     },
     {
       "issueId": "MOTION-012",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M76",
       "time": "~2:14.3-2:14.4",
@@ -10216,7 +10216,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:53:00+09:00",
+      "updatedAt": "2026-09-20T10:50:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -10230,7 +10230,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -11010,7 +11010,12 @@
           "large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments"
         ]
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "HOLD-REPAIR-BACK-13",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T10:50:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:36:00+09:00",
