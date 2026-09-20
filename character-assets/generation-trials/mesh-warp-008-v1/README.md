@@ -18,20 +18,24 @@ python3 tools/character_layers/build_mesh_warp_pose.py \
   --fixed-drum character-assets/layers/drums/drum_base.png \
   --preview-output character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_fixed_drum_v1.png \
   --qa-output character-assets/generation-trials/mesh-warp-008-v1/008_qa.json \
-  --timing-output character-assets/generation-trials/mesh-warp-008-v1/008_timing.json
+  --timing-output character-assets/generation-trials/mesh-warp-008-v1/008_timing.json \
+  --png-compress-level 1
 ```
 
 ## 実測と判定
 
-- 合計: 1.77秒
-- warp本体: 0.057秒
-- 変更画素: QA JSON参照
-- 対象外変更: 0画素
-- ペダル目標許容内: PASS
+変更前ベースライン:
+- 合計: 1.770454秒
+- warp本体: 0.056988秒
+- candidate save: 0.437810秒
+- fixed drum composite/save: 1.190685秒
+- 変更画素・対象外変更・ペダル判定: QA JSON参照
 - 人体連続性・柄・見た目: 原寸目視が必要
 
-`*_review.png` はGitHub上で直接確認しやすい256色レビュー用PNGで、寸法は原寸1448×1086。正式候補は再生成コマンドで得る。
+`*_review.png` はGitHub上で直接確認しやすいレビュー用PNG。正式候補は再生成コマンドで得る。
 
-## 高速化メモ
+## 高速化標準
 
-初回だけ入力を取得する。以後はJSONの制御点だけ調整して約2秒で候補・QA・ドラム合成を同時更新する。品質維持のため、ROI解像度、補間次数、原寸確認は削らない。
+`tools/character_layers/build_mesh_warp_pose.py` は、品質を維持したまま保存待ちを減らすため、lossless PNG `compress_level=1` を標準にする。固定ドラム確認画像は変形直後のRGBA配列から直接合成し、候補PNGの再読込を行わない。
+
+詳細: `character-assets/prototypes/luna_say_maybe_16m/MESH_WARP_SPEED_STANDARD.md`

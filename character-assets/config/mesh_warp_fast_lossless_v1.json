@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "profileId": "mesh-warp-fast-lossless-v1",
+  "purpose": "Standard profile for topology-preserving character repair derived from successful frame 008 workflow.",
+  "qualityInvariant": {
+    "pixelFormat": "RGBA",
+    "warpInterpolationOrder": 1,
+    "pngLossless": true,
+    "visualQaRequired": true,
+    "outsideAllowedChangedPixels": 0
+  },
+  "performance": {
+    "pngCompressLevel": 1,
+    "singleProcess": true,
+    "reuseLoadedCandidateForPreview": true,
+    "generateCandidateQaPreviewTogether": true,
+    "avoidOptimizeTrue": true
+  },
+  "requiredOutputs": [
+    "candidate.png",
+    "qa.json",
+    "timing.json",
+    "fixed_drum_preview.png"
+  ],
+  "promotionPolicy": {
+    "runtimeOverwriteBeforeUserApproval": false,
+    "expandToOtherFramesBefore008Approval": false
+  },
+  "referenceFrame": {
+    "index": 8,
+    "sourceFilename": "008_bd_rf_hit.png",
+    "successfulCandidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.png",
+    "config": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json"
+  }
+}
