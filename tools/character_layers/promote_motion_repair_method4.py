@@ -34,6 +34,11 @@ for rec in summary.get("targets",[]):
     if not t:
         skipped.append({"id":tid,"reason":"ledger_target_missing"}); continue
     defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")==rec.get("actionKey")),None)
+    # VERIFIED is monotonic. A stale/older repair candidate must never downgrade
+    # an issue that has already completed formal validation + runtime QA.
+    if defect and (defect.get("status")=="VERIFIED" or (defect.get("repairSpec") or {}).get("state")=="VERIFIED"):
+        skipped.append({"id":tid,"reason":"already_verified_monotonic_guard"})
+        continue
     active_claim=bool(defect and (defect.get("claim") or {}).get("state")=="CLAIMED" and (defect.get("claim") or {}).get("owner") in ("CHAT-PASS2-BACK","CHATGPT-FRONT"))
     pass2_claim=bool(active_claim and (defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK")
     if t.get("claimState")=="COMPLETED" and not active_claim:
@@ -132,6 +137,8 @@ for d in backlog.get("defects",[]):
             d["repairSpec"]["state"]="IN_FIX"
         d["updatedAt"]="2026-09-20T05:45:00+09:00"
     elif relevant and any(not r.get("pass") for r in relevant):
+        if d.get("status")=="VERIFIED" or (d.get("repairSpec") or {}).get("state")=="VERIFIED":
+            continue
         d["status"]="AUTO_REPAIR_MANUAL_REVIEW_REQUIRED"
         d["repairSpec"]["state"]="IN_FIX"
         d["updatedAt"]="2026-09-20T05:45:00+09:00"
@@ -142,7 +149,10 @@ amap["updatedAt"]="2026-09-20T05:45:00+09:00"
 amap_path.write_text(json.dumps(amap,ensure_ascii=False,indent=2)+"\n")
 ledger["updatedAt"]="2026-09-20T05:45:00+09:00"
 ledger_path.write_text(json.dumps(ledger,ensure_ascii=False,indent=2)+"\n")
-backlog["updatedAt"]="2026-09-20T05:45:00+09:00"
+# Do not move the shared ledger timestamp backwards when an older workflow run
+# finishes after a newer human/agent verification commit.
+if not backlog.get("updatedAt") or backlog.get("updatedAt") < "2026-09-20T05:45:00+09:00":
+    backlog["updatedAt"]="2026-09-20T05:45:00+09:00"
 backlog_path.write_text(json.dumps(backlog,ensure_ascii=False,indent=2)+"\n")
 record={"schemaVersion":1,"promoted":promoted,"failedCandidates":failed_candidates,"skipped":skipped}
 (WORK/"METHOD4_PROMOTION_RESULT.json").write_text(json.dumps(record,ensure_ascii=False,indent=2)+"\n")
