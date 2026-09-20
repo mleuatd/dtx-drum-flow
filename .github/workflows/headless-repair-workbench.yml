@@ -1,0 +1,29 @@
+name: Headless Repair Workbench
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'character-assets/prototypes/luna_say_maybe_16m/FRONT_REPAIR_REQUEST.json'
+      - 'tools/character_layers/headless_repair_workbench.py'
+      - '.github/workflows/headless-repair-workbench.yml'
+permissions:
+  contents: read
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Build exact-source evidence bundle
+        run: |
+          python tools/character_layers/headless_repair_workbench.py \
+            --request character-assets/prototypes/luna_say_maybe_16m/FRONT_REPAIR_REQUEST.json \
+            --out qa-artifacts/headless-repair-workbench
+      - uses: actions/upload-artifact@v4
+        with:
+          name: headless-repair-workbench-${{ github.run_id }}
+          path: qa-artifacts/headless-repair-workbench/
+          retention-days: 30
