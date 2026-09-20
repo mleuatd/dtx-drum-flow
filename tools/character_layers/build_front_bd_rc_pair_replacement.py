@@ -43,11 +43,11 @@ LEFT_LOCK=(0,250,520,900)
 STOOL_CORE=(770,800,845,1086)
 RC_SEM=np.zeros((H,W),bool); RC_SEM[:590,700:]=True
 # RF corridor follows the verified BD donor's active leg only; skirt/pelvis are not blanket-transplanted.
-RF_CORRIDOR=polyline_mask([(875,655),(682,748),(650,902)],170,[(875,655,75),(682,748,80),(650,902,100)])
+RF_CORRIDOR=polyline_mask([(682,748),(650,902)],175,[(682,748,85),(650,902,105)])\nRF_CORRIDOR[:700,:]=False
 
 summary={
- "schemaVersion":2,"issueId":"MOTION-002","actionKey":"BD+RC:RF/R","batch":"HOLD-REPAIR-FRONT-06",
- "method":"v2: keep v1 RC destructive replacement; narrow BD/RF transplant to articulated RF corridor; lock skirt/pelvis/stool core",
+ "schemaVersion":3,"issueId":"MOTION-002","actionKey":"BD+RC:RF/R","batch":"HOLD-REPAIR-FRONT-06",
+ "method":"v3: keep single-arm RC destructive replacement; preserve neutral pelvis/thigh; transplant BD/RF only from knee through boot",
  "parentEvidence":{
    "hit":{"candidateSha256":"beef2e3762f945eb6b222e1bbb59c55f8747b204ec30be4fac93b9a4c3aaac7d"},
    "rebound":{"candidateSha256":"36b83c287a3e9e5e3e000671418f9aea28de97f8fee6efc1f3226b7872a9c2ef"}
@@ -97,14 +97,14 @@ for phase in ("hit","rebound"):
       "rfMotionVisible":bool(rf_visible>=1000),
       "candidateDiffVisible":bool(int(np.count_nonzero(changed))>500),
     }
-    stem=f"bd_rc_{phase}_candidate_v2"
+    stem=f"bd_rc_{phase}_candidate_v3"
     cp=OUT/(stem+".png"); cand.save(cp)
     Image.alpha_composite(imgs["drum"],cand).save(OUT/(stem+"_fixed_drum.png"))
     rec={
-      "phase":phase,"parentCandidate":"v1","candidate":str(cp.relative_to(ROOT)),
+      "phase":phase,"parentCandidate":"v2","candidate":str(cp.relative_to(ROOT)),
       "candidateSha256":hashlib.sha256(cp.read_bytes()).hexdigest(),
-      "changedRois":["RC right-arm destructive replacement","narrow BD/RF articulated leg corridor"],
-      "improvementIntent":["remove v1 skirt/pelvis rewrite","preserve stool core","retain single RC arm/hand/stick"],
+      "changedRois":["RC right-arm destructive replacement","BD/RF knee-to-boot corridor"],
+      "improvementIntent":["remove v2 hip/skirt splice","keep neutral pelvis/thigh","preserve stool core","retain single RC arm/hand/stick"],
       "rcMaskPixels":int(np.count_nonzero(rc_mask)),"bdMaskPixels":int(np.count_nonzero(bd_mask)),
       "maskOverlapPixels":int(np.count_nonzero(overlap)),
       "changedPixelsVsNeutral":int(np.count_nonzero(changed)),"changedBBoxVsNeutral":bbox(changed),
@@ -118,10 +118,10 @@ for phase in ("hit","rebound"):
 strip=Image.new("RGBA",(W*3,H),(255,255,255,0))
 strip.paste(imgs["neutral"],(0,0),imgs["neutral"])
 for i,phase in enumerate(("hit","rebound"),1):
-    im=Image.open(OUT/f"bd_rc_{phase}_candidate_v2.png").convert("RGBA")
+    im=Image.open(OUT/f"bd_rc_{phase}_candidate_v3.png").convert("RGBA")
     strip.paste(im,(W*i,0),im)
-strip.save(OUT/"bd_rc_v2_transition_strip.png")
+strip.save(OUT/"bd_rc_v3_transition_strip.png")
 summary["pairMachinePass"]=all(x["machinePass"] for x in summary["phases"])
 summary["nextGate"]="full-resolution human anatomy + arm/hand/stick + linework + fixed-drum + transition QA"
-(OUT/"FRONT06_CANDIDATE_SUMMARY_V2.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n")
+(OUT/"FRONT06_CANDIDATE_SUMMARY_V3.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({"pairMachinePass":summary["pairMachinePass"],"out":str(OUT.relative_to(ROOT))}))
