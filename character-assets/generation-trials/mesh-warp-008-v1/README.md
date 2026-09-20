@@ -98,3 +98,21 @@ python3 tools/character_layers/run_visual_repair_trial.py \
 ## 汎用ラッパー補足
 
 共通ラッパーは actionKey / phase / 出力名をPythonへ固定しない。各画像固有値はJSONの `frameId`、`actionKey`、`phase`、`outputNames` と座標群へ置き、008は互換維持のため既存ファイル名を `outputNames` で明示する。今回の実回帰対象は008のみで、他frame用JSONは作成しない。
+
+## 最終標準化回帰（cached / repository-path run）
+
+- runId: `20260920T183422Z`
+- input cache: normal / broken / fixed drum すべて hit
+- machinePass: true
+- 正式候補の既存formalとのデコードRGBA差分: 0画素（完全一致）
+- candidate -> review complete: 2.037281秒
+- local pipeline total: 2.135201秒
+- GitHub commit preparation（証跡コミット）: 9.002秒
+- GitHub registration（証跡コミット）: 3.200秒
+- local + GitHub: 14.337201秒
+- runtimeChanged: false
+- otherFramesTouched: false
+- userApproved: false
+- visualQaRequired: true
+
+指定されていた旧 `008_bd_rf_hit_mesh_v1_review.png` は確認用画像で、正式候補とは全画素構成が異なるためpixel identityの基準にはしない。品質回帰のpixel oracleは正式候補 `008_bd_rf_hit_mesh_v1.png` とし、今回の再生成結果はデコードRGBA完全一致を確認済み。

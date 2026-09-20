@@ -157,3 +157,15 @@ CI回帰も同じ制約を持ち、runtimeと対象外frameの差分を検出し
 ## v3 汎用化補足
 
 標準ラッパーは008固有の actionKey / phase / 出力ファイル名をコードへ固定しない。frame固有値は設定JSONに集約し、共通Pythonは同じまま再利用する。008では既存成果物名との互換性を `outputNames` で維持する。run manifestには runId / startMainSha / endMainShaCheck / userApproved を記録し、commit manifestは eligible / excluded を分離する。
+
+## cached final regression
+
+同一セッション内でSHA入力cacheを温めた後に同じ1コマンドを再実行し、normal / broken / fixed drum の3入力すべてで `cacheHit=true` を確認した。正式候補は既存formalとのデコードRGBA完全一致（differentPixels=0）。
+
+- candidate -> review complete: 2.037281 s
+- local pipeline total: 2.135201 s
+- evidence commit preparation: 9.002 s
+- GitHub registration: 3.200 s
+- local + GitHub: 14.337201 s
+
+GitHub登録時間は `fb5ba94a4241127fe1f64d457a001ed01d6477e3` の証跡コミットを blob → tree → commit → ref update の安全なfast-forwardで登録した実測。force pushは使用していない。

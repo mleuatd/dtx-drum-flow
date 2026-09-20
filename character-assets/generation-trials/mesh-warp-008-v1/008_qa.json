@@ -64,8 +64,8 @@
   "timings": {
     "configValidationSeconds": 0.000264,
     "cacheCheckAndHashSeconds": 0.007434,
-    "gitCommitPreparationSeconds": null,
-    "gitRegistrationSeconds": null,
+    "gitCommitPreparationSeconds": 9.002,
+    "gitRegistrationSeconds": 3.2,
     "loadSeconds": 0.083265,
     "warpSeconds": 0.044213,
     "candidateSaveSeconds": 0.100483,
@@ -75,6 +75,8 @@
     "beforeAfterGenerationSeconds": 0.69014,
     "candidateToReviewCompleteSeconds": 2.037281,
     "manifestGenerationSeconds": 0.004848,
-    "totalLocalPipelineSeconds": 2.135201
+    "totalLocalPipelineSeconds": 2.135201,
+    "overallWithGitSeconds": 14.337201,
+    "gitTimingEvidenceCommit": "fb5ba94a4241127fe1f64d457a001ed01d6477e3"
   }
 }
