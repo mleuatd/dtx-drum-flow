@@ -44,7 +44,7 @@ STOOL=(760,690,850,1086)
 TORSO_LOWER=(620,455,900,620)
 LOWER=(0,620,W,H)
 
-summary={"schemaVersion":3,"issueId":"MOTION-007","actionKey":"HH:R",
+summary={"schemaVersion":4,"issueId":"MOTION-007","actionKey":"HH:R",
  "method":"neutral body + bounded HH active corridor + destructive neutral-right-arm residue clearing",
  "sources":{k:{"path":str(v.relative_to(ROOT)),"sha256":sha(v)} for k,v in P.items()},"phases":[]}
 for phase in ("hit","rebound"):
@@ -60,6 +60,9 @@ for phase in ("hit","rebound"):
  # that free-space ghost corridor after donor placement; no body pixels touched.
  erase=line_mask([(965,465),(1025,315),(1055,300)],78,[(975,448,70),(1025,315,42),(1055,300,28)])
  erase[:, :930]=False
+ # Never erase character pixels. Ghost cleanup is permitted only where the
+ # approved neutral layer is transparent background.
+ erase &= (N[:,:,3] == 0)
  arr=np.asarray(cand).copy();arr[erase,:]=0
  cand=Image.fromarray(arr,"RGBA")
  m |= erase
@@ -80,19 +83,19 @@ for phase in ("hit","rebound"):
   "donorExact":bool(pres>=0.995),
   "motionVisible":bool(int(np.count_nonzero(ch&ACTIVE))>=500),
  }
- cp=OUT/f"hh_{phase}_candidate_v3.png";cand.save(cp)
- Image.alpha_composite(I["drum"],cand).save(OUT/f"hh_{phase}_candidate_v3_fixed_drum.png")
+ cp=OUT/f"hh_{phase}_candidate_v4.png";cand.save(cp)
+ Image.alpha_composite(I["drum"],cand).save(OUT/f"hh_{phase}_candidate_v4_fixed_drum.png")
  rec={"phase":phase,"candidate":str(cp.relative_to(ROOT)),"candidateSha256":sha(cp),
   "maskPixels":int(m.sum()),"changedPixelsVsNeutral":int(ch.sum()),"changedBBoxVsNeutral":bbox(ch),
   "donorPreserveRatio":round(float(pres),4),"checks":checks,"machinePass":all(checks.values())}
- (OUT/f"hh_{phase}_candidate_v3_qa.json").write_text(json.dumps(rec,indent=2)+"\n")
+ (OUT/f"hh_{phase}_candidate_v4_qa.json").write_text(json.dumps(rec,indent=2)+"\n")
  summary["phases"].append(rec)
-frames=[I["neutral"],Image.open(OUT/"hh_hit_candidate_v3.png").convert("RGBA"),Image.open(OUT/"hh_rebound_candidate_v3.png").convert("RGBA"),I["neutral"]]
+frames=[I["neutral"],Image.open(OUT/"hh_hit_candidate_v4.png").convert("RGBA"),Image.open(OUT/"hh_rebound_candidate_v4.png").convert("RGBA"),I["neutral"]]
 strip=Image.new("RGB",(1920,360),"white")
 for i,f in enumerate(frames):
  c=Image.alpha_composite(I["drum"],f).convert("RGB");c.thumbnail((480,360));strip.paste(c,(i*480,0))
-strip.save(OUT/"hh_v3_transition.jpg",quality=95)
+strip.save(OUT/"hh_v4_transition.jpg",quality=95)
 summary["pairMachinePass"]=all(x["machinePass"] for x in summary["phases"])
-(OUT/"M007_V3_SUMMARY.json").write_text(json.dumps(summary,indent=2)+"\n")
+(OUT/"M007_V4_SUMMARY.json").write_text(json.dumps(summary,indent=2)+"\n")
 print(json.dumps({"pairMachinePass":summary["pairMachinePass"],"phases":[(x["phase"],x["candidateSha256"]) for x in summary["phases"]]}))
 if not summary["pairMachinePass"]:raise SystemExit(2)
