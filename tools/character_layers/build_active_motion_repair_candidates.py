@@ -153,8 +153,26 @@ for t in targets:
     D=np.asarray(dil)>0
     M=G & D
 
+    # BD+HT rebound source has a short rectangular dropout in the active
+    # right-hand stick immediately before the grip. Reserve a tiny deterministic
+    # bridge ROI and redraw only that missing stick segment; all other pixels
+    # remain governed by the semantic transplant mask.
+    stick_bridge = None
+    if key=="BD+HT:RF/R" and phase=="rebound":
+        bridge=Image.new("L",(W,H),0)
+        bd=ImageDraw.Draw(bridge)
+        bd.line([(489,263),(514,307)],fill=255,width=9)
+        stick_bridge=np.asarray(bridge)>0
+        M |= stick_bridge
+
     mask=Image.fromarray((M.astype(np.uint8)*255),"L")
     cand=neutral.copy(); cand.paste(src,(0,0),mask)
+    if stick_bridge is not None:
+        cd=ImageDraw.Draw(cand)
+        # Two imperfect parallel strokes preserve the existing rough pencil-like
+        # stick silhouette instead of introducing a solid rectangular patch.
+        cd.line([(491,264),(511,306)],fill=(20,20,20,255),width=3)
+        cd.line([(496,262),(516,304)],fill=(35,35,35,255),width=2)
     Q=np.asarray(cand)
     ndiff=np.any(Q!=N,axis=2)
     changed=int(ndiff.sum()); ratio=changed/(W*H)
