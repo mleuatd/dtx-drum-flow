@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:31:00+09:00",
+  "updatedAt": "2026-09-20T10:35:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -154,7 +154,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T10:31:00+09:00",
+      "updatedAt": "2026-09-20T10:35:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -684,6 +684,11 @@
             "at": "2026-09-20T10:31:00+09:00",
             "decision": "V9_PARENT_SELECTION",
             "detail": "Parent chain: formal hit static base + v8 rebound active-left-arm pixels. Goal: retain v8 left-arm cleanup while locking inactive right arm, head, torso, stool, legs to hit. Rollback anchor remains formal PNGs; rollback candidate is v8."
+          },
+          {
+            "at": "2026-09-20T10:35:00+09:00",
+            "decision": "V10_NARROW_ACTIVE_FOREARM_PLAN",
+            "detail": "Parent chain: formal hit static base + v8 rebound forearm/hand/stick only. Exclude shoulder/upper sleeve from replace ROI to prevent v9 alpha cutout. Parent v8 retained; v9 preserved as rejected evidence."
           }
         ],
         "measurementTodos": [
@@ -918,7 +923,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T10:31:00+09:00"
+        "updatedAt": "2026-09-20T10:35:00+09:00"
       },
       "occurrences": [
         {
@@ -952,15 +957,15 @@
         }
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_PAIR_INACTIVE_RIGHT_ARM_DRIFT",
-        "linework": "V8_REBOUND_LOCAL_PASS_PAIR_PENDING",
-        "fixedDrumComposite": "V8_REBOUND_LOCAL_PASS_PAIR_PENDING",
-        "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
+        "humanAnatomy": "FAIL_V9_SLEEVE_CUTOUT",
+        "linework": "FAIL_V9_ALPHA_CUTOUT",
+        "fixedDrumComposite": "FAIL_V9_SLEEVE_CUTOUT",
+        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "PARTIAL_FIXED_HIT_CLAIMED_ELSEWHERE",
-        "note": "v8 difference-limited rebound removes the v7 rectangular patch and machine QA passes. Pair review shows inactive right arm/hand/stick changes between formal hit and v8 rebound because rebound is neutral-based. Next candidate must preserve v8 left-SN-arm improvement while using hit as the locked static base for inactive body/right arm.",
-        "reviewedAt": "2026-09-20T10:31:00+09:00",
+        "note": "v9 machine QA passes after static-guard tightening, but full-resolution human QA finds large white triangular/cutout artifacts through the sleeve/upper-arm region. v9 rejected. Roll back to v8 as active-motion parent; v10 will replace only elbow->wrist->stick delta onto formal hit, excluding shoulder/upper sleeve.",
+        "reviewedAt": "2026-09-20T10:35:00+09:00",
         "visualQaRunId": 35474616622,
         "visualQaArtifactId": 10593307774,
         "repairEvidence": [
@@ -1021,6 +1026,11 @@
           "at": "2026-09-20T10:31:00+09:00",
           "decision": "SN_L_V8_PAIR_DIAGNOSIS",
           "detail": "Run 35480036552 / artifact 10595900861: v8 machine QA PASS and rectangular plaid patch resolved. Full-resolution pair review against formal hit finds inactive right-arm/hand/stick drift because v8 uses approved neutral as base. Next v9 will use formal hit as static parent/base and transplant only v8 left SN active-arm/stick region. Formal PNG unchanged."
+        },
+        {
+          "at": "2026-09-20T10:35:00+09:00",
+          "decision": "SN_L_V9_MACHINE_PASS_HUMAN_HARD_FAIL_ROLLBACK",
+          "detail": "Run 35480471618 / artifact 10596001517: v9 deterministic QA and regression tests PASS, but full-resolution pair crop shows large alpha/white cutouts in sleeve/upper-arm region. Reject v9. Rollback candidate=v8. Next v10 narrows transplant to elbow->wrist->stick only; shoulder/upper sleeve remain formal-hit pixels."
         }
       ],
       "claim": {
