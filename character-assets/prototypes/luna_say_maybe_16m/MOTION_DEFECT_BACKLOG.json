@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T14:15:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12295,7 +12295,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T14:15:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "occurrences": [
         {
           "measure": "M95",
@@ -13128,21 +13128,21 @@
             "id": "bd_sn_rf_l_hit",
             "actionKey": "BD+SN:RF/L",
             "phase": "hit",
-            "oldSha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
-            "newSha256": "ea60350f9d729ea272b908f35381091b58d601f0acf0ada2ff3dd2053d2070c7",
-            "changedRatioVsNeutral": 0.04645068
+            "oldSha256": "ea60350f9d729ea272b908f35381091b58d601f0acf0ada2ff3dd2053d2070c7",
+            "newSha256": "7410eaedf8faee5922e67a353f35ad6679f5b319eeb9ca609d35a455499efe08",
+            "changedRatioVsNeutral": 0.04977018
           },
           {
             "id": "bd_sn_rf_l_rebound",
             "actionKey": "BD+SN:RF/L",
             "phase": "rebound",
-            "oldSha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
-            "newSha256": "2e055dc419f8ff16070a50726d95b7170d60e2cc10b6d264b90090af062ec21a",
-            "changedRatioVsNeutral": 0.04643796
+            "oldSha256": "2e055dc419f8ff16070a50726d95b7170d60e2cc10b6d264b90090af062ec21a",
+            "newSha256": "cc8e0f3d653285dbc7cb389c637a4c2b4e50bd8df3c9ba12853e4ac080e2dc86",
+            "changedRatioVsNeutral": 0.04391082
           }
         ],
-        "method": "cause-specific method2: active RF leg corridor + narrow contact corridor",
-        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
+        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
         "humanAnatomy": "PASS",
