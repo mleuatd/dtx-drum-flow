@@ -18,6 +18,10 @@ jobs:
           cp character-assets/layers/character/base/neutral.png qa-artifacts/front-repair-sources/neutral.png
           cp character-assets/layers/character/bd/hit_rf.png qa-artifacts/front-repair-sources/bd_rf_hit.png
           cp character-assets/layers/character/bd/rebound_rf.png qa-artifacts/front-repair-sources/bd_rf_rebound.png
+          cp character-assets/layers/character/combo/bd_rc_hit.png qa-artifacts/front-repair-sources/bd_rc_formal_hit.png
+          cp character-assets/layers/character/combo/bd_rc_rebound.png qa-artifacts/front-repair-sources/bd_rc_formal_rebound.png
+          cp character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_hit_candidate.png qa-artifacts/front-repair-sources/bd_rc_method2_hit.png
+          cp character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_rebound_candidate.png qa-artifacts/front-repair-sources/bd_rc_method2_rebound.png
           cp character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png qa-artifacts/front-repair-sources/bd_rd_hit.png
           cp character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png qa-artifacts/front-repair-sources/bd_rd_rebound.png
           cp character-assets/layers/character/combo/rc_sn_hit_refresh.png qa-artifacts/front-repair-sources/rc_sn_hit.png
