@@ -91,39 +91,50 @@ for t in targets:
         hh=Image.open(ROOT/hh_rel).convert("RGBA")
         rebuilt=neutral.copy()
 
-        # Copy only the visible approved right forearm/hand region from HH:R.
-        # The shoulder/hair/torso remain neutral-locked.
+        # Copy only dark linework from the approved right forearm/hand route.
+        # Do not paste opaque white source pixels: they were the cause of the
+        # rectangular splice blocks seen in the prior HT candidates.
         arm=Image.new("L",(W,H),0); ad=ImageDraw.Draw(arm)
         if phase=="hit":
-            pts=[(650,390),(585,410),(525,438),(485,455)]
-            width=118
-            grip=(490,452)
+            pts=[(650,390),(585,410),(530,435),(492,452)]
+            width=88
+            grip=(492,452)
         else:
-            pts=[(650,390),(585,365),(535,345),(500,340)]
-            width=122
-            grip=(503,342)
+            pts=[(650,390),(590,372),(540,352),(505,342)]
+            width=92
+            grip=(505,342)
         ad.line(pts,fill=255,width=width,joint="curve")
-        for p,r in [(pts[1],58),(pts[2],60),(grip,64)]:
+        for p,r in [(pts[1],44),(pts[2],46),(grip,50)]:
             ad.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
         A=np.asarray(arm)>0
         A[HEAD[1]:HEAD[3],HEAD[0]:HEAD[2]]=False
         A[PELVIS[1]:PELVIS[3],PELVIS[0]:PELVIS[2]]=False
         A[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
         A[620:,:]=False
+
+        hh_arr=np.asarray(hh)
+        hh_ink=(hh_arr[:,:,:3].min(axis=2)<210)&(hh_arr[:,:,3]>0)
+        A &= hh_ink
+
+        # Remove the original HH stick corridor while preserving the grip.
+        hhpt=pt_for("HH") or (190,390)
+        old=Image.new("L",(W,H),0); od=ImageDraw.Draw(old)
+        start=(grip[0]-28,grip[1]-8)
+        od.line([start,hhpt],fill=255,width=26)
+        O=np.asarray(old)>0
+        # Keep a compact hand/grip disk so the new stick joins the hand.
+        yy,xx=np.ogrid[:H,:W]
+        grip_keep=(xx-grip[0])**2+(yy-grip[1])**2<=34**2
+        A &= (~O | grip_keep)
+
         rebuilt.paste(hh,(0,0),Image.fromarray((A.astype(np.uint8)*255),"L"))
 
-        # Draw only the new HT stick from the approved grip. Two thin,
-        # slightly offset strokes match the existing rough pencil silhouette.
+        # Draw one HT stick only, connected directly to the preserved grip.
         ht=pt_for("HT") or (575,360)
         rd=ImageDraw.Draw(rebuilt)
-        if phase=="hit":
-            tip=ht
-        else:
-            # Rebound releases slightly above the contact instead of reusing
-            # the exact hit frame.
-            tip=(ht[0]+8,ht[1]-34)
-        rd.line([grip,tip],fill=(20,20,20,255),width=4)
-        rd.line([(grip[0]+4,grip[1]-2),(tip[0]+3,tip[1]-2)],fill=(55,55,55,255),width=2)
+        tip=ht if phase=="hit" else (ht[0]+10,ht[1]-28)
+        rd.line([grip,tip],fill=(20,20,20,255),width=5)
+        rd.line([(grip[0]+3,grip[1]-1),(tip[0]+3,tip[1]-1)],fill=(65,65,65,255),width=2)
 
         src=rebuilt
         S=np.asarray(src)
