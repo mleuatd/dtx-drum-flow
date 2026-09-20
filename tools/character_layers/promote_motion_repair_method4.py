@@ -33,9 +33,11 @@ for rec in summary.get("targets",[]):
     t=next((x for x in ledger.get("targets",[]) if x.get("id")==tid),None)
     if not t:
         skipped.append({"id":tid,"reason":"ledger_target_missing"}); continue
-    if t.get("claimState")=="COMPLETED":
+    defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")==rec.get("actionKey")),None)
+    pass2_claim=bool(defect and (defect.get("claim") or {}).get("state")=="CLAIMED" and (defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK")
+    if t.get("claimState")=="COMPLETED" and not pass2_claim:
         skipped.append({"id":tid,"reason":"already_completed"}); continue
-    if t.get("terminalId")!="CHAT-MOTION-REPAIR":
+    if t.get("terminalId")!="CHAT-MOTION-REPAIR" and not pass2_claim:
         skipped.append({"id":tid,"reason":"claim_owner_changed"}); continue
     if not rec.get("pass"):
         t["brushupStatus"]="AUTO_REPAIR_METHOD4_FAIL"
@@ -87,6 +89,7 @@ for rec in summary.get("targets",[]):
     t["sha256"]=newsha
     t["brushupStatus"]="MOTION_REPAIR_VERIFIED"
     t["claimState"]="COMPLETED"
+    t["terminalId"]="CHAT-PASS2-BACK" if pass2_claim else t.get("terminalId")
     t["completedAt"]="2026-09-20T05:45:00+09:00"
     t["qaEvidence"]=str((WORK/(tid.lower()+"_qa.json")).relative_to(ROOT)) if (WORK/(tid.lower()+"_qa.json")).exists() else None
     t["motionRepairChangedRatioVsNeutral"]=rec["changedRatioVsNeutral"]
@@ -105,6 +108,7 @@ for d in backlog.get("defects",[]):
         if {"hit","rebound"}.issubset(phases):
             d["status"]="FIXED_PENDING_RUNTIME_QA"
             d["repairSpec"]["state"]="FIXED_PENDING_QA"
+            d["claim"]=None
         else:
             d["status"]="IN_FIX"
             d["repairSpec"]["state"]="IN_FIX"
