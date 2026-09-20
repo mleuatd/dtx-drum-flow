@@ -5,7 +5,9 @@ on:
     branches: [main]
     paths:
       - "site/**"
-      - "character-assets/**"
+      - "character-assets/layers/**"
+      - "character-assets/config/**"
+      - "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json"
       - ".github/workflows/deploy-site.yml"
       - ".github/workflows/runtime-character-qa.yml"
       - ".github/workflows/visual-integrity-batch-runtime-qa.yml"
@@ -20,7 +22,7 @@ permissions:
 
 concurrency:
   group: pages
-  # Preserve each commit's deploy while public runtime QA waits for its exact build SHA.
+  # Preserve each formal/runtime commit's deploy while public runtime QA waits for its exact build SHA.
   cancel-in-progress: false
 
 jobs:
