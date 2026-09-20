@@ -1,3 +1,7 @@
+# MOTION REPAIR COMPLETION PLAYBOOK — READ FIRST
+
+All terminals repairing `MOTION_DEFECT_BACKLOG.json` must refresh `main` and read `docs/MOTION_REPAIR_COMPLETION_PLAYBOOK.md` before CLAIM/edit/promotion. The shared rule is: one claimed issue stays active until VERIFIED; continue from the best candidate, repair only the exact visible defect, require exact-candidate full-resolution visual PASS before promotion, then real-chart runtime QA and validation. Queue writes, candidate generation, machine PASS, and formal promotion alone are not completion.
+
 
 ## 2026-09-20 11:28 JST — FRONT completion-focused override
 - User-directed execution change: FRONT no longer cycles through HOLD targets after bounded failures.
