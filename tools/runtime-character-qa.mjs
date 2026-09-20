@@ -51,7 +51,7 @@ async function deploymentContainsExpected(observed){
     return j.status==="ahead"||j.status==="identical";
   }catch{return false;}
 }
-async function waitForDeployment(){const deadline=Date.now()+12*60*1000;let last="";while(Date.now()<deadline){try{const r=await fetch(new URL("build.json?ts="+Date.now(),PUBLIC_URL),{cache:"no-store"});if(r.ok){const j=await r.json();last=j.commitSha||"";if(await deploymentContainsExpected(last))return {...j,expectedCommitSha:EXPECTED_SHA,acceptedDeploymentSha:last};}}catch{}await new Promise(r=>setTimeout(r,10000));}throw new Error(`Pages deployment timeout: expected-or-descendant-of=${EXPECTED_SHA} observed=${last}`);}
+async function waitForDeployment(){const deadline=Date.now()+12*60*1000;let last="";while(Date.now()<deadline){try{const r=await fetch(new URL("build.json?ts="+Date.now(),PUBLIC_URL),{cache:"no-store"});if(r.ok){const j=await r.json();last=j.commitSha||"";if(await deploymentContainsExpected(last))return {...j,expectedCommitSha:EXPECTED_SHA,acceptedDeploymentSha:last};}}catch{}await new Promise(r=>setTimeout(r,3000));}throw new Error(`Pages deployment timeout: expected-or-descendant-of=${EXPECTED_SHA} observed=${last}`);}
 await fs.mkdir(ROOT,{recursive:true}); const deployment=await waitForDeployment();
 const browser=await chromium.launch({headless:true}); const records=[]; let failed=0;
 for(const vp of viewports){const context=await browser.newContext({viewport:{width:vp.width,height:vp.height}});const page=await context.newPage();const consoleErrors=[],pageErrors=[],failedRequests=[];
