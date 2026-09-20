@@ -1,0 +1,28 @@
+{
+  "phase": "hit",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_hit_candidate_v5.png",
+  "candidateSha256": "bdf0a8759d5b8315d7fb9f68e18a7dfbf6f8ead156fbeb7db026249270b8db8f",
+  "rcMaskPixels": 49262,
+  "snMaskPixels": 49472,
+  "overlapPixels": 0,
+  "changedPixelsVsNeutral": 31295,
+  "changedBBoxVsNeutral": {
+    "x": 405,
+    "y": 136,
+    "width": 819,
+    "height": 407
+  },
+  "rcDonorPreserveRatio": 1.0,
+  "snDonorPreserveRatio": 1.0,
+  "checks": {
+    "outsideMaskZero": true,
+    "hairCoreLocked": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "lowerBodyLocked": true,
+    "rcDonorExact": true,
+    "snDonorExact": true,
+    "bothArmsVisible": true
+  },
+  "machinePass": true
+}
