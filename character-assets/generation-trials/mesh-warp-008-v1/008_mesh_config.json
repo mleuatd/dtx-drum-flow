@@ -1,9 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "frameId": "008_bd_rf_hit",
   "actionKey": "BD:RF",
   "phase": "hit",
   "method": "thin_plate_spline_inverse_map",
   "smoothing": 0.0,
+  "inputPng": "character-assets/layers/character/bd/hit_rf.png",
+  "normalSourcePng": "character-assets/layers/character/bd/rebound_rf.png",
+  "fixedDrumPng": "character-assets/layers/drum/drum_base.png",
+  "outputDir": "character-assets/generation-trials/mesh-warp-008-v1",
   "roi": {
     "x1": 585,
     "y1": 625,
@@ -31,6 +36,14 @@
     "boundary_bl", "boundary_bc", "boundary_br",
     "right_hip", "right_knee", "right_ankle", "right_toe", "right_pedal_endpoint"
   ],
+  "landmarks": {
+    "hip": [676, 660],
+    "knee": [675, 745],
+    "ankle": [682, 825],
+    "toe": [650, 885],
+    "pedalEndpoint": [710, 925],
+    "pedalTarget": [700, 920]
+  },
   "deformationPolygon": [
     [600, 635], [755, 635], [765, 705], [755, 960],
     [600, 960], [590, 875], [600, 705]
@@ -41,5 +54,22 @@
     {"name": "stool_hardware", "x1": 770, "y1": 690, "x2": 900, "y2": 1086}
   ],
   "pedalTarget": [700, 920],
-  "pedalTolerancePx": 45
+  "pedalTolerancePx": 45,
+  "normalSourceSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+  "brokenSourceSha256": "AUTO",
+  "fixedDrumSha256": "AUTO",
+  "runtimeWritable": false,
+  "userApprovalStatus": "PENDING",
+  "visualQaRequired": true,
+  "expectedRegression": {
+    "changedPixels": 36721,
+    "outsideAllowedChangedPixels": 0,
+    "changedBBox": {
+      "x": 594,
+      "y": 635,
+      "width": 172,
+      "height": 326
+    },
+    "pedalDistancePx": 11.18
+  }
 }
