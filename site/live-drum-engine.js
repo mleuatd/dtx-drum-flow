@@ -28,16 +28,20 @@ function voiceFor(part,note={}){
  if(part==="LC")return"crashLeft";if(part==="RC")return"crashRight";return"snare";
 }
 export class LiveDrumEngine{
- constructor(ctx,destination){this.ctx=ctx;this.destination=destination;this.buffers=new Map();this.loading=new Map();this.rr=new Map();this.nodes=new Set();this.userGain=Object.fromEntries(Object.keys(defs).map(v=>[v,1]));this.ready=false;this._buildBus()}
+ constructor(ctx,destination){this.ctx=ctx;this.destination=destination;this.buffers=new Map();this.loading=new Map();this.rr=new Map();this.nodes=new Set();this.userGain=Object.fromEntries(Object.keys(defs).map(v=>[v,1]));this.ready=false;this.preloadFailures=[];this._buildBus()}
  _buildBus(){const c=this.ctx;this.input=c.createGain();this.comp=c.createDynamicsCompressor();this.out=c.createGain();this.input.gain.value=1;this.comp.threshold.value=-6;this.comp.knee.value=12;this.comp.ratio.value=1.6;this.comp.attack.value=.008;this.comp.release.value=.06;this.out.gain.value=1;this.input.connect(this.comp);this.comp.connect(this.out);this.out.connect(this.destination)}
  _url(v,l,r){const d=defs[v];return d.base+d.prefix+"_vl"+l+"_rr"+r+".flac"}
  async _load(v,l,r){const key=v+":"+l+":"+r;if(this.buffers.has(key))return this.buffers.get(key);if(this.loading.has(key))return this.loading.get(key);const p=fetch(this._url(v,l,r)).then(x=>{if(!x.ok)throw Error("sample "+x.status);return x.arrayBuffer()}).then(b=>this.ctx.decodeAudioData(b)).then(b=>(this.buffers.set(key,b),b)).catch(e=>(console.warn("drum sample fallback",key,e),null));this.loading.set(key,p);const b=await p;this.loading.delete(key);return b}
- async preload(){
-  // Decoding 100+ FLAC files at once can starve the WebAudio render thread on phones
-  // and present as clicks/pops. Keep network/decode pressure deliberately bounded.
+ async preload(onProgress=null){
+  // Decoding 100+ FLAC files at once can starve the WebAudio render thread on phones.
+  // Keep pressure bounded and expose deterministic progress so playback can stay locked
+  // until every requested sample has finished loading/decoding.
   const jobs=[];for(const [v,d] of Object.entries(defs))for(let l=1;l<=d.layers;l++)for(let r=1;r<=d.rr;r++)jobs.push([v,l,r]);
-  const workers=Array.from({length:3},async()=>{while(jobs.length){const [v,l,r]=jobs.shift();await this._load(v,l,r)}});
-  await Promise.allSettled(workers);this.ready=true;return this
+  const total=jobs.length;let done=0;this.preloadFailures=[];
+  const report=()=>onProgress?.({done,total,ratio:total?done/total:1,failures:[...this.preloadFailures]});
+  report();
+  const workers=Array.from({length:3},async()=>{while(jobs.length){const [v,l,r]=jobs.shift();const b=await this._load(v,l,r);if(!b)this.preloadFailures.push(v+":"+l+":"+r);done++;report()}});
+  await Promise.allSettled(workers);this.ready=this.preloadFailures.length===0;report();return this
 }
  _layer(v,velocity){const d=defs[v];return clamp(Math.ceil(clamp(velocity,0,1)*d.layers),1,d.layers)}
  _nextRR(v){const d=defs[v],n=((this.rr.get(v)||0)%d.rr)+1;this.rr.set(v,n);return n}
