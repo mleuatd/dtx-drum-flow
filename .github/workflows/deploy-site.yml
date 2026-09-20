@@ -44,9 +44,53 @@ jobs:
           cp -R character-assets/layers/. site/character-assets/layers/
           cp character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json site/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
 
+      - name: Checkout PRE-FIX source
+        uses: actions/checkout@v4
+        with:
+          ref: a4e3854449e292264192afa63469edf0fb5048af
+          path: _pre_fix_source
+          fetch-depth: 1
+
+      - name: Stage PRE-FIX and POST-FIX snapshots
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/dtx-post-fix site/pre-fix site/post-fix
+          mkdir -p /tmp/dtx-post-fix
+          cp -R site/. /tmp/dtx-post-fix/
+
+          mkdir -p site/post-fix
+          cp -R /tmp/dtx-post-fix/. site/post-fix/
+
+          mkdir -p site/pre-fix
+          cp -R _pre_fix_source/site/. site/pre-fix/
+          rm -rf site/pre-fix/character-assets
+          mkdir -p site/pre-fix/character-assets/layers
+          mkdir -p site/pre-fix/character-assets/prototypes/luna_say_maybe_16m
+          cp -R _pre_fix_source/character-assets/layers/. site/pre-fix/character-assets/layers/
+          cp _pre_fix_source/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json site/pre-fix/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+
+          cp site/version-switcher.js site/pre-fix/version-switcher.js
+          cp site/version-switcher.css site/pre-fix/version-switcher.css
+
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("site/pre-fix/index.html")
+          s = p.read_text(encoding="utf-8")
+          if "version-switcher.css" not in s:
+              s = s.replace("</head>", '  <link rel="stylesheet" href="./version-switcher.css?v=20260920-prepost-r1">\n</head>')
+          if "version-switcher.js" not in s:
+              s = s.replace("</body>", '  <script src="./version-switcher.js?v=20260920-prepost-r1" defer></script>\n</body>')
+          p.write_text(s, encoding="utf-8")
+          PY
+
+          rm -rf _pre_fix_source
+
       - name: Write deployment build identifier
         run: |
-          printf '{"commitSha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > site/build.json
+          BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          printf '{"version":"POST-FIX","commitSha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$BUILT_AT" > site/build.json
+          printf '{"version":"POST-FIX","commitSha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$BUILT_AT" > site/post-fix/build.json
+          printf '{"version":"PRE-FIX","commitSha":"a4e3854449e292264192afa63469edf0fb5048af","builtAt":"%s"}\n' "$BUILT_AT" > site/pre-fix/build.json
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
