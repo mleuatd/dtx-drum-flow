@@ -80,33 +80,51 @@ for t in targets:
         summary["targets"].append({"id":t["id"],"actionKey":key,"phase":phase,"pass":False,"reasons":["canvas_mismatch"],"source":rel}); continue
     formal_source_sha=hashlib.sha256(src_path.read_bytes()).hexdigest()
 
-    # MOTION-012: rebuild HT:R from the already VERIFIED BD+HT:RF/R pair.
-    # Only the right HT arm/hand/stick region is borrowed; the BD foot/lower
-    # body is excluded entirely. This removes the historical torso/hair splice
-    # and duplicate arm from the current standalone HT formal pair.
+    # MOTION-012: rebuild HT:R from the VERIFIED HH:R arm/hand authority,
+    # then retarget only the stick to the HT contact.  The previous BD+HT
+    # authority still carried a small rectangular rebound dropout, so it must
+    # not be inherited by standalone HT.
     if key=="HT:R":
-        auth_rel=("character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png"
-                  if phase=="hit" else
-                  "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png")
-        auth=Image.open(ROOT/auth_rel).convert("RGBA")
+        hh_rel=("character-assets/layers/character/hh/hit_r.png"
+                if phase=="hit" else
+                "character-assets/layers/character/hh/rebound_r.png")
+        hh=Image.open(ROOT/hh_rel).convert("RGBA")
         rebuilt=neutral.copy()
-        ht=pt_for("HT") or (575,360)
-        sh=LANDMARKS["shoulder_R"]
-        am=Image.new("L",(W,H),0); ad=ImageDraw.Draw(am)
-        # The verified BD+HT arm crosses from the rear/right shoulder toward
-        # the screen-left high tom. Use a smooth, moderately wide corridor,
-        # while excluding head core, pelvis, stool and all lower-body pixels.
-        elbow=(735,410)
-        grip=(625,390) if phase=="hit" else (655,365)
-        ad.line([sh,elbow,grip,ht],fill=255,width=150 if phase=="hit" else 165,joint="curve")
-        for p,r in [(sh,70),(elbow,75),(grip,68),(ht,105 if phase=="hit" else 120)]:
+
+        # Copy only the visible approved right forearm/hand region from HH:R.
+        # The shoulder/hair/torso remain neutral-locked.
+        arm=Image.new("L",(W,H),0); ad=ImageDraw.Draw(arm)
+        if phase=="hit":
+            pts=[(650,390),(585,410),(525,438),(485,455)]
+            width=118
+            grip=(490,452)
+        else:
+            pts=[(650,390),(585,365),(535,345),(500,340)]
+            width=122
+            grip=(503,342)
+        ad.line(pts,fill=255,width=width,joint="curve")
+        for p,r in [(pts[1],58),(pts[2],60),(grip,64)]:
             ad.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
-        A=np.asarray(am)>0
+        A=np.asarray(arm)>0
         A[HEAD[1]:HEAD[3],HEAD[0]:HEAD[2]]=False
         A[PELVIS[1]:PELVIS[3],PELVIS[0]:PELVIS[2]]=False
         A[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
         A[620:,:]=False
-        rebuilt.paste(auth,(0,0),Image.fromarray((A.astype(np.uint8)*255),"L"))
+        rebuilt.paste(hh,(0,0),Image.fromarray((A.astype(np.uint8)*255),"L"))
+
+        # Draw only the new HT stick from the approved grip. Two thin,
+        # slightly offset strokes match the existing rough pencil silhouette.
+        ht=pt_for("HT") or (575,360)
+        rd=ImageDraw.Draw(rebuilt)
+        if phase=="hit":
+            tip=ht
+        else:
+            # Rebound releases slightly above the contact instead of reusing
+            # the exact hit frame.
+            tip=(ht[0]+8,ht[1]-34)
+        rd.line([grip,tip],fill=(20,20,20,255),width=4)
+        rd.line([(grip[0]+4,grip[1]-2),(tip[0]+3,tip[1]-2)],fill=(55,55,55,255),width=2)
+
         src=rebuilt
         S=np.asarray(src)
 
