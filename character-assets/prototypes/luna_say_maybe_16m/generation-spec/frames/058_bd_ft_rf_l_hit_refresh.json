@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "index": 58,
+  "sourceFilename": "058_bd_ft_rf_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+FT:RF/L",
+  "runtimeActionKey": "BD+FT:RF/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手に斜めスティックとは別の長い水平スティックが残って腕・髪を横断し、左脚すね付近にも短い不要線がある。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "stick",
+    "left_arm",
+    "hair",
+    "left_leg",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_FT_RF_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+FT:RF/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "stick",
+      "left_arm",
+      "hair",
+      "left_leg",
+      "artifact"
+    ]
+  }
+}
