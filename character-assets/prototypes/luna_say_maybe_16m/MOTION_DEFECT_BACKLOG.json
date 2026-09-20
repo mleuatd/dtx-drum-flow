@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T11:36:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12942,7 +12942,7 @@
     },
     {
       "issueId": "MOTION-015",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -12984,7 +12984,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13942,7 +13942,12 @@
         ],
         "nextRepair": "Keep this CLAIM. Do not widen the transplant corridor again. Switch mechanism: connected-component/line-continuity reconstruction limited to the left hand→grip→stick→tip corridor, explicitly reject isolated white/opaque rectangular components and floating fragments, preserve the passing RF/HH contact corridors and all locked regions."
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "BACK-M015-VISUAL-RECOVERY",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T11:36:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
@@ -13978,6 +13983,11 @@
           "at": "2026-09-20T11:28:00+09:00",
           "decision": "PASS2_M015_METHOD4_MACHINE_PASS_VISUAL_FAIL",
           "detail": "Run 35483753132: method4 hit/rebound both machine PASS after HH corridor extension. Full-resolution fixed-drum inspection still shows rebound white rectangular splice and broken/floating left hand/stick geometry. Broad corridor expansion is now prohibited; next iteration must use connected-component/line-continuity reconstruction and fragment rejection."
+        },
+        {
+          "at": "2026-09-20T11:36:00+09:00",
+          "decision": "ROLLBACK_FALSE_MACHINE_ONLY_PROMOTION_STATE",
+          "detail": "Automation incorrectly cleared the claim and marked FIXED_PENDING_RUNTIME_QA despite the recorded visual FAIL. Formal overwrite may already have occurred, so target remains IN_FIX; exact-candidate visual PASS is now a hard promotion gate. Continue from method5 candidate generation/QA, not runtime QA."
         }
       ],
       "hold": {
