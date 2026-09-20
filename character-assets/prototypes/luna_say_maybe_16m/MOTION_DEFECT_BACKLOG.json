@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T12:59:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8456,7 +8456,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8471,9 +8471,13 @@
         "pc/m130_RD_R_hit.png",
         "pc/m130_RD_R_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 13.02% (threshold >25 RGB; triage only)",
-        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors"
+        "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
+        "Method4 candidate run 35487498512 artifact 10598596203",
+        "public runtime QA run 35487914966 artifact 10597648293: PC/Xperia hit+rebound PASS, failed=0",
+        "validate run 35487915005 PASS",
+        "character asset validation run 35487914985 PASS"
       ],
-      "fixDecision": "Treat as action-level continuity issue pending locked-region measurement. Do not change mapping first.",
+      "fixDecision": "VERIFIED: Method4 exact RD:R hit/rebound pair passed static full-resolution review, asset validation, and public real-chart runtime QA on PC/Xperia for hit and rebound.",
       "relatedAsset": [
         "character-assets/layers/character/rd/hit_r_refresh.png",
         "character-assets/layers/character/rd/rebound_r_refresh.png",
@@ -8484,7 +8488,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T12:59:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -8499,7 +8503,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_RUNTIME_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -9025,6 +9029,11 @@
             "at": "2026-09-20T12:55:00+09:00",
             "decision": "M010_METHOD4_EXACT_VISUAL_PASS",
             "detail": "Run 35487498512 artifact 10598596203 exact Method4 RD:R pair machine PASS and full-resolution fixed-drum visual PASS. Formal SHA already matches candidate; proceed directly to public runtime QA."
+          },
+          {
+            "at": "2026-09-20T12:59:00+09:00",
+            "decision": "VERIFIED",
+            "detail": "M130 real-chart PC/Xperia hit and rebound all PASS using exact formal RD:R frames; claim released."
           }
         ],
         "measurementTodos": [
@@ -9282,7 +9291,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "reviewedAt": "2026-09-20T12:55:00+09:00",
         "reviewEvidence": {
@@ -9297,12 +9306,7 @@
           "No disconnected limb, body splice, stool drift, or duplicated full limb is visible."
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FRONT-M010-ROOT",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T12:51:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T09:24:00+09:00",
