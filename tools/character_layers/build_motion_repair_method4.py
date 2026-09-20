@@ -20,6 +20,9 @@ forced_hold_targets=[]
 rd_sn_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="RD+SN:R/L"),None)
 if rd_sn_defect and (rd_sn_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_sn_defect.get("claim") or {}).get("owner")=="CHATGPT-FRONT":
     forced_hold_targets.append({"id":"rd_sn_r_l_rebound","actionKey":"RD+SN:R/L","phase":"rebound","_holdRepairClaim":True})
+rd_r_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="RD:R"),None)
+if rd_r_defect and (rd_r_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_r_defect.get("claim") or {}).get("owner")=="CHATGPT-FRONT":
+    forced_hold_targets.append({"id":"rd_r_rebound","actionKey":"RD:R","phase":"rebound","_holdRepairClaim":True})
 seen={x.get("id") for x in fails}
 fails += [x for x in forced_hold_targets if x.get("id") not in seen]
 
