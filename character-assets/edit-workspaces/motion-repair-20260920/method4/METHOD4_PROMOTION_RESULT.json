@@ -1,6 +1,23 @@
 {
   "schemaVersion": 1,
-  "promoted": [],
+  "promoted": [
+    {
+      "id": "bd_hh_sn_rf_r_l_hit_refresh",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit",
+      "oldSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
+      "newSha256": "42bc7b87fc46698e058770888c0ab048a4fe66b44d5f5bc094de235ff3051b0f",
+      "changedRatioVsNeutral": 0.03542004
+    },
+    {
+      "id": "bd_hh_sn_rf_r_l_rebound_refresh",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound",
+      "oldSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9",
+      "newSha256": "eee9d730baade7fdb166253856b6b7fba9eb76dcc35f7d6506ded69ee66d1007",
+      "changedRatioVsNeutral": 0.03367762
+    }
+  ],
   "failedCandidates": [],
   "skipped": [
     {
@@ -18,18 +35,6 @@
     {
       "id": "rd_sn_r_l_hit",
       "reason": "already_completed"
-    },
-    {
-      "id": "bd_hh_sn_rf_r_l_hit_refresh",
-      "reason": "visual_qa_not_pass_for_exact_candidate",
-      "candidateSha256": "42bc7b87fc46698e058770888c0ab048a4fe66b44d5f5bc094de235ff3051b0f",
-      "reviewedCandidateSha256": "9742006be53af23326cc8866932d66f6b6d8e03a4f8c16c7a99db7e478e5253e"
-    },
-    {
-      "id": "bd_hh_sn_rf_r_l_rebound_refresh",
-      "reason": "visual_qa_not_pass_for_exact_candidate",
-      "candidateSha256": "eee9d730baade7fdb166253856b6b7fba9eb76dcc35f7d6506ded69ee66d1007",
-      "reviewedCandidateSha256": "18e74a3b4f733343b3f0bc93d40ccedb0ad1221c842b536144b0be0ad2490e37"
     }
   ]
 }

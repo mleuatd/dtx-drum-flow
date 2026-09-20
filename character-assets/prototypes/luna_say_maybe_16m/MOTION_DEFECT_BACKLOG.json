@@ -13020,7 +13020,7 @@
     },
     {
       "issueId": "MOTION-015",
-      "status": "IN_FIX",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -13062,7 +13062,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13986,17 +13986,17 @@
             "id": "bd_hh_sn_rf_r_l_hit_refresh",
             "actionKey": "BD+HH+SN:RF/R/L",
             "phase": "hit",
-            "oldSha256": "14971ae1a9ea4eb9c268f28fd53dce3d34d2ea27b0959f3c3c6314c2d0e751c6",
-            "newSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
-            "changedRatioVsNeutral": 0.04299065
+            "oldSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
+            "newSha256": "42bc7b87fc46698e058770888c0ab048a4fe66b44d5f5bc094de235ff3051b0f",
+            "changedRatioVsNeutral": 0.03542004
           },
           {
             "id": "bd_hh_sn_rf_r_l_rebound_refresh",
             "actionKey": "BD+HH+SN:RF/R/L",
             "phase": "rebound",
-            "oldSha256": "40186b1eab3619d938db75ab030b47b745c3e54c51b232e1deeab98eeb533bff",
-            "newSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9",
-            "changedRatioVsNeutral": 0.04341354
+            "oldSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9",
+            "newSha256": "eee9d730baade7fdb166253856b6b7fba9eb76dcc35f7d6506ded69ee66d1007",
+            "changedRatioVsNeutral": 0.03367762
           }
         ],
         "method": "method4: RD-specific right-side release from neutral head landmarks",
@@ -14022,12 +14022,7 @@
           "Static body/drum registration visually stable."
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "BACK-M015-VISUAL-RECOVERY",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T11:36:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
