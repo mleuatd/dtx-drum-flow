@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "BD:RF",
+  "phase": "hit",
+  "method": "thin_plate_spline_inverse_map",
+  "smoothing": 0.0,
+  "roi": {
+    "x1": 585,
+    "y1": 625,
+    "x2": 770,
+    "y2": 970
+  },
+  "sourcePoints": [
+    [590, 630], [675, 630], [765, 630],
+    [590, 720], [765, 720],
+    [590, 850], [765, 850],
+    [590, 965], [675, 965], [765, 965],
+    [676, 660], [675, 745], [682, 825], [650, 885], [720, 910]
+  ],
+  "targetPoints": [
+    [590, 630], [675, 630], [765, 630],
+    [590, 720], [765, 720],
+    [590, 850], [765, 850],
+    [590, 965], [675, 965], [765, 965],
+    [676, 660], [680, 755], [695, 850], [675, 905], [710, 925]
+  ],
+  "landmarkNames": [
+    "boundary_tl", "boundary_tc", "boundary_tr",
+    "boundary_ml", "boundary_mr",
+    "boundary_ll", "boundary_lr",
+    "boundary_bl", "boundary_bc", "boundary_br",
+    "right_hip", "right_knee", "right_ankle", "right_toe", "right_pedal_endpoint"
+  ],
+  "deformationPolygon": [
+    [600, 635], [755, 635], [765, 705], [755, 960],
+    [600, 960], [590, 875], [600, 705]
+  ],
+  "fixedRects": [
+    {"name": "head_hair_upper", "x1": 0, "y1": 0, "x2": 1448, "y2": 625},
+    {"name": "left_leg", "x1": 0, "y1": 610, "x2": 590, "y2": 1086},
+    {"name": "stool_hardware", "x1": 770, "y1": 690, "x2": 900, "y2": 1086}
+  ],
+  "pedalTarget": [700, 920],
+  "pedalTolerancePx": 45
+}

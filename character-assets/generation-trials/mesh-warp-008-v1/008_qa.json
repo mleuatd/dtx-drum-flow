@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "source": "work008/rebound_rf.png",
+  "sourceSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+  "candidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
+  "candidateSha256": "b4caeac036a33ee01052a6a471fcc6ad2c66f9eeb00c94858c60b7bb2c688a5b",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "mode": "RGBA",
+  "changedPixels": 36721,
+  "outsideAllowedChangedPixels": 0,
+  "changedBBox": {
+    "x": 594,
+    "y": 635,
+    "width": 172,
+    "height": 326
+  },
+  "pedalEndpoint": [
+    710.0,
+    925.0
+  ],
+  "pedalTarget": [
+    700.0,
+    920.0
+  ],
+  "pedalDistancePx": 11.18,
+  "pedalTolerancePx": 45.0,
+  "checks": {
+    "canvas1448x1086": true,
+    "outsideAllowedZero": true,
+    "changedVisible": true,
+    "pedalContactWithinTolerance": true
+  },
+  "visualQaRequired": true,
+  "machinePass": true
+}
