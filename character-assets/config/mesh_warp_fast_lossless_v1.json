@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "profileId": "mesh-warp-fast-lossless-v1",
-  "purpose": "Standard profile for topology-preserving character repair derived from successful frame 008 workflow.",
+  "purpose": "Standard topology-preserving character repair profile derived from successful frame 008 workflow, with zero-cost full-body naturalness review metadata for safe horizontal expansion.",
   "qualityInvariant": {
     "pixelFormat": "RGBA",
     "warpInterpolationOrder": 1,
@@ -32,7 +32,8 @@
   ],
   "promotionPolicy": {
     "runtimeOverwriteBeforeUserApproval": false,
-    "expandToOtherFramesBefore008Approval": false
+    "expandToOtherFramesBefore008Approval": true,
+    "horizontalExpansionScope": "candidate-qa-review-only"
   },
   "referenceFrame": {
     "index": 8,
@@ -48,5 +49,38 @@
       "candidateToReviewCompleteSeconds": 1.952556,
       "totalSeconds": 2.027783
     }
+  },
+  "naturalnessPolicy": {
+    "executionCost": "metadata-only",
+    "heavyAutomaticAnalysis": false,
+    "optionalFrameConfigFields": [
+      "pelvisLeft",
+      "pelvisRight",
+      "waistCenter",
+      "torsoCenter",
+      "shoulderLeft",
+      "shoulderRight",
+      "torsoFlowNotes",
+      "postureIntent",
+      "naturalnessFocusRegions",
+      "visualQaChecklist"
+    ],
+    "requiredHumanReview": [
+      "waistLegContinuity",
+      "pelvisTorsoDirection",
+      "torsoShoulderRelationship",
+      "upperLowerBodyUnity",
+      "weightBalance",
+      "drummingMotionFlow",
+      "clothingPatternContourConsistency"
+    ]
+  },
+  "speedGuard": {
+    "referenceFrame": "008",
+    "candidateToReviewMaxIncreasePercent": 5,
+    "candidateToReviewMaxAbsoluteIncreaseSeconds": 0.1,
+    "totalLocalPipelineMaxIncreasePercent": 5,
+    "totalLocalPipelineMaxAbsoluteIncreaseSeconds": 0.1,
+    "rule": "If an executable change exceeds either practical threshold, do not make it permanent without explicit user approval."
   }
 }
