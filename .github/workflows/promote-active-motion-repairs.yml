@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/promote-active-motion-repairs.yml'
+      - 'tools/character_layers/promote_active_motion_repairs.py'
+      - '.github/back-promote-action.txt'
 permissions:
   contents: write
 jobs:
@@ -35,4 +37,12 @@ jobs:
           git add character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_PROMOTION_RESULT.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fix: promote guarded motion repair candidates"
-          git push
+          for attempt in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            git fetch origin main
+            if git rebase origin/main; then continue; fi
+            git rebase --abort || true
+            echo "Concurrent main update caused a conflict; refusing to overwrite."
+            exit 1
+          done
+          exit 1
