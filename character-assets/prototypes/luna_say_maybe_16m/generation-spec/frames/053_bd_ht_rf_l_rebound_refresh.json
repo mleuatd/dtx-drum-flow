@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 53,
+  "sourceFilename": "053_bd_ht_rf_l_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+HT:RF/L",
+  "runtimeActionKey": "BD+HT:RF/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手から2本のスティックが伸び、一方が上腕付近へ不自然に終端している。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "left_arm",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_HT_RF_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+HT:RF/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "left_arm",
+      "stick",
+      "artifact"
+    ]
+  }
+}
