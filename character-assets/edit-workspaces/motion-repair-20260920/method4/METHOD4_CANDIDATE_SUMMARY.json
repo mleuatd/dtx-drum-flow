@@ -37,94 +37,6 @@
       "skip": "claim_changed"
     },
     {
-      "id": "hh_r_hit",
-      "actionKey": "HH:R",
-      "phase": "hit",
-      "source": "character-assets/layers/character/hh/hit_r.png",
-      "sourceSha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/hh_r_hit_candidate.png",
-      "candidateSha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
-      "changedPixelsVsNeutral": 14428,
-      "changedRatioVsNeutral": 0.00917504,
-      "changedBBoxVsNeutral": {
-        "x": 355,
-        "y": 315,
-        "width": 519,
-        "height": 155
-      },
-      "headCoreGuardChangedPixels": 0,
-      "torsoCoreGuardChangedPixels": 0,
-      "stoolGuardChangedPixels": 0,
-      "leftLegGuardChangedPixels": null,
-      "sourceLocalPreservation": [
-        {
-          "part": "HH",
-          "limb": "R",
-          "radiusPx": 48,
-          "sourceRelevantPixels": 0,
-          "preservedPixels": 0,
-          "preserveRatio": 1,
-          "threshold": 0.6,
-          "pass": true
-        }
-      ],
-      "checks": {
-        "changedVisible": true,
-        "ratioWithinLimit": true,
-        "outsideMaskZero": true,
-        "headCoreLocked": true,
-        "torsoCoreLocked": true,
-        "stoolLocked": true,
-        "leftLegLocked": true,
-        "localContactSourcePreservation": true
-      },
-      "pass": true
-    },
-    {
-      "id": "hh_r_rebound",
-      "actionKey": "HH:R",
-      "phase": "rebound",
-      "source": "character-assets/layers/character/hh/rebound_r.png",
-      "sourceSha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/hh_r_rebound_candidate.png",
-      "candidateSha256": "bbfae80c4268037f6126ac39bbb93423984ebad5c71a863f0d52be7a33ef18a1",
-      "changedPixelsVsNeutral": 15140,
-      "changedRatioVsNeutral": 0.00962781,
-      "changedBBoxVsNeutral": {
-        "x": 162,
-        "y": 315,
-        "width": 712,
-        "height": 165
-      },
-      "headCoreGuardChangedPixels": 0,
-      "torsoCoreGuardChangedPixels": 0,
-      "stoolGuardChangedPixels": 0,
-      "leftLegGuardChangedPixels": null,
-      "sourceLocalPreservation": [
-        {
-          "part": "HH",
-          "limb": "R",
-          "radiusPx": 65,
-          "sourceRelevantPixels": 2,
-          "preservedPixels": 2,
-          "preserveRatio": 1.0,
-          "threshold": 0.4,
-          "pass": true
-        }
-      ],
-      "checks": {
-        "changedVisible": true,
-        "ratioWithinLimit": true,
-        "outsideMaskZero": true,
-        "headCoreLocked": true,
-        "torsoCoreLocked": true,
-        "stoolLocked": true,
-        "leftLegLocked": true,
-        "localContactSourcePreservation": true
-      },
-      "pass": true
-    },
-    {
       "id": "bd_rc_sn_rf_r_l_hit_refresh",
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "hit",
@@ -195,9 +107,9 @@
       "source": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
       "sourceSha256": "2bb7f88de437e7a58145ffc5d7b081ee6bfa3fdc2e0cd74e389aaf18a6d42f92",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rc_sn_rf_r_l_rebound_refresh_candidate.png",
-      "candidateSha256": "f2f876acadc592666b41856582b7d50b92a117fadc896968a8b65e9bd969cad4",
-      "changedPixelsVsNeutral": 74754,
-      "changedRatioVsNeutral": 0.04753747,
+      "candidateSha256": "a10b6db6a4ace229c109f2d9c9ea51ee56cfc117702a95330cd6cad59ff2baaf",
+      "changedPixelsVsNeutral": 57988,
+      "changedRatioVsNeutral": 0.03687565,
       "changedBBoxVsNeutral": {
         "x": 432,
         "y": 202,
@@ -214,8 +126,8 @@
           "limb": "RF",
           "radiusPx": 65,
           "sourceRelevantPixels": 11148,
-          "preservedPixels": 10506,
-          "preserveRatio": 0.9424,
+          "preservedPixels": 7929,
+          "preserveRatio": 0.7112,
           "threshold": 0.4,
           "pass": true
         },
@@ -253,6 +165,6 @@
       "pass": true
     }
   ],
-  "passCount": 4,
+  "passCount": 2,
   "failCount": 4
 }
