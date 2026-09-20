@@ -125,6 +125,15 @@ for f in fails:
         else:
             local[205:442,850:1115]=True # rebound: one upper right RD corridor
         M &= local
+    # MOTION-015 method5: topology-aware fragment rejection.  Method4's
+    # rectangular local corridor passed pixel QA but leaked disconnected white
+    # source patches into the composite.  For this pair, keep only changed-ink
+    # components that are spatially supported by source ink; this removes
+    # opaque/white splice islands while retaining hand/stick/RF strokes.
+    if "bd_hh_sn" in tid:
+        src_ink=(S[:,:,:3].min(axis=2)<225)&(S[:,:,3]>0)
+        support=np.asarray(Image.fromarray((src_ink.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(9)))>0
+        M &= support
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
