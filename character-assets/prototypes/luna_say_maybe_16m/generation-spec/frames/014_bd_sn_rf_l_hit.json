@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "index": 14,
+  "sourceFilename": "014_bd_sn_rf_l_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+SN:RF/L",
+  "runtimeActionKey": "BD+SN:RF/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "両脚の間に第3の脚状パーツが残留し腰・スカートから下半身が破綻、上半身にも余分なスティック断片がある。"
+  ],
+  "defectRegions": [
+    "waist",
+    "skirt",
+    "left_leg",
+    "right_leg",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_SN_RF_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+SN:RF/L hit/rebound",
+    "negativeAttention": [
+      "waist",
+      "skirt",
+      "left_leg",
+      "right_leg",
+      "stick",
+      "artifact"
+    ]
+  }
+}
