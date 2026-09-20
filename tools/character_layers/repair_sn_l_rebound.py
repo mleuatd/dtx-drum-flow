@@ -156,5 +156,99 @@ report={
 }
 report["pass"]=all(report["hardPass"].values())
 (OUTDIR/"sn_l_rebound_candidate_v8_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
-print(json.dumps(report,ensure_ascii=False))
-if not report["pass"]: raise SystemExit(2)
+
+# v9 cumulative repair: keep the v8 cleaned rebound left arm/stick, but use the
+# formal hit as the static parent so inactive right arm/head/torso/stool/legs do
+# not jump between hit and rebound. Only pixels that actually differ between
+# hit and v8 inside the UNION of hit+rebound left-arm/stick semantic corridors
+# are replaced, with a very small dilation for line-edge continuity.
+hit_image_path=ROOT/"character-assets/layers/character/sn/hit_l.png"
+hit_image=Image.open(hit_image_path).convert("RGBA")
+assert hit_image.size==candidate.size
+
+hj=hit["joints"]
+h_shoulder=tuple(map(round,hj["shoulder_l"]))
+h_elbow=tuple(map(round,hj["elbow_l"]))
+h_wrist=tuple(map(round,hj["wrist_l"]))
+h_tip=tuple(map(round,hit["stickTip"]))
+
+pair_roi=Image.new("L",(W,H),0)
+pd=ImageDraw.Draw(pair_roi)
+for pts,width in [([h_shoulder,h_elbow,h_wrist],170),([shoulder,elbow,wrist],170)]:
+    pd.line(pts,fill=255,width=width,joint="curve")
+for p,radius in [(h_shoulder,92),(h_elbow,96),(h_wrist,90),(shoulder,92),(elbow,96),(wrist,90)]:
+    pd.ellipse([p[0]-radius,p[1]-radius,p[0]+radius,p[1]+radius],fill=255)
+for a,b,width in [(h_wrist,h_tip,50),(wrist,tip,50)]:
+    pd.line([a,b],fill=255,width=width)
+for p,radius in [(h_tip,34),(tip,34)]:
+    pd.ellipse([p[0]-radius,p[1]-radius,p[0]+radius,p[1]+radius],fill=255)
+
+pair_roi_arr=np.asarray(pair_roi)>0
+hit_arr=np.asarray(hit_image)
+v8_arr=np.asarray(candidate)
+pair_diff=np.any(hit_arr!=v8_arr,axis=2)
+pair_replace_arr=pair_roi_arr & pair_diff
+pair_replace=Image.fromarray((pair_replace_arr.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5))
+
+candidate_v9=hit_image.copy()
+candidate_v9.paste(candidate,(0,0),pair_replace)
+candidate_v9_path=OUTDIR/"sn_l_rebound_candidate_v9.png"
+candidate_v9.save(candidate_v9_path)
+
+v9=np.asarray(candidate_v9)
+pair_mask=np.asarray(pair_replace)>0
+diff_hit_v9=np.any(hit_arr!=v9,axis=2)
+outside_pair=int(np.count_nonzero(diff_hit_v9 & ~pair_mask))
+ys9,xs9=np.nonzero(diff_hit_v9)
+bbox9=None if xs9.size==0 else {"x":int(xs9.min()),"y":int(ys9.min()),"width":int(xs9.max()-xs9.min()+1),"height":int(ys9.max()-ys9.min()+1)}
+
+pair_guards={
+ "head":[500,0,430,325],
+ "right_arm":[820,320,340,250],
+ "pelvis_seat":[560,560,420,250],
+ "legs_stool":[300,700,850,386]
+}
+pair_guard_changed={}
+for name,(x,y,w,h) in pair_guards.items():
+    pair_guard_changed[name]=int(np.count_nonzero(np.any(hit_arr[y:y+h,x:x+w,:]!=v9[y:y+h,x:x+w,:],axis=2)))
+
+# Ensure the inactive right side is exactly inherited from hit.
+inactive_right_exact=pair_guard_changed["right_arm"]==0
+head_exact=pair_guard_changed["head"]==0
+pelvis_exact=pair_guard_changed["pelvis_seat"]==0
+legs_exact=pair_guard_changed["legs_stool"]==0
+
+comp9=Image.alpha_composite(drum,candidate_v9)
+comp9.save(OUTDIR/"sn_l_rebound_candidate_v9_fixed_drum.png")
+
+report9={
+ "schemaVersion":9,
+ "issueId":"MOTION-001",
+ "actionKey":"SN:L",
+ "phase":"rebound",
+ "candidate":str(candidate_v9_path.relative_to(ROOT)),
+ "method":"formal hit static parent + v8 rebound active-left-arm/stick delta only",
+ "parent":{
+   "staticBase":str(hit_image_path.relative_to(ROOT)),
+   "staticBaseSha256":hashlib.sha256(hit_image_path.read_bytes()).hexdigest(),
+   "activeMotionParent":str(candidate_path.relative_to(ROOT)),
+   "activeMotionParentSha256":hashlib.sha256(candidate_path.read_bytes()).hexdigest(),
+   "rollbackCandidate":"sn_l_rebound_candidate_v8.png"
+ },
+ "changedRoi":{"maskPixelCount":int(pair_mask.sum()),"changedPixelsVsHit":int(diff_hit_v9.sum()),"changedBBoxVsHit":bbox9},
+ "pairStaticGuards":{"outsidePairMaskChangedPixels":outside_pair,"guardChangedPixelsVsHit":pair_guard_changed},
+ "constraintChecks":{"reboundSeparationPx":round(rebound_sep,3),"minimumSeparationPx":c["tolerancesPx"]["reboundSeparation"],"reboundPass":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
+ "hardPass":{
+   "outsidePairMaskChangedPixels":outside_pair==0,
+   "inactiveRightArmExactToHit":inactive_right_exact,
+   "headExactToHit":head_exact,
+   "pelvisSeatExactToHit":pelvis_exact,
+   "legsStoolExactToHit":legs_exact,
+   "reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"],
+   "changedVisible":int(diff_hit_v9.sum())>=250
+ }
+}
+report9["pass"]=all(report9["hardPass"].values())
+(OUTDIR/"sn_l_rebound_candidate_v9_qa.json").write_text(json.dumps(report9,ensure_ascii=False,indent=2)+"\n")
+print(json.dumps({"v8":report,"v9":report9},ensure_ascii=False))
+if not report9["pass"]: raise SystemExit(2)
