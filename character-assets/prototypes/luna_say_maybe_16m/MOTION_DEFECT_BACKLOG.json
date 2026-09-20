@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:16:00+09:00",
+  "updatedAt": "2026-09-20T09:22:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -7201,7 +7201,7 @@
     },
     {
       "issueId": "MOTION-009",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -7230,10 +7230,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:16:00+09:00",
+      "updatedAt": "2026-09-20T09:22:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -7834,6 +7834,16 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T09:22:00+09:00",
+            "decision": "METHOD4_REBOUND_V1_MACHINE_PASS_HUMAN_REVIEW_UNRESOLVED",
+            "detail": "Run 35477321233 / artifact 10594702026 generated RD+SN rebound candidate; machine guards/contact preservation passed, but human review still found ambiguous extra right-hand/stick geometry. Formal PNG not promoted."
+          },
+          {
+            "at": "2026-09-20T09:22:00+09:00",
+            "decision": "METHOD4_REBOUND_V2_MACHINE_PASS_PAIR_HARD_FAIL",
+            "detail": "Run 35477475562 / artifact 10594552559 tightened rebound ROI and machine QA passed. Rebound is substantially cleaner, but pair cannot promote because current/formal hit itself contains duplicated/disconnected right-arm/right-hand geometry. Do not solve rebound in isolation; next repair must reconstruct the right RD arm/hand/stick consistently for BOTH hit and rebound while preserving left SN arm and seated base."
           }
         ],
         "measurementTodos": [
@@ -8079,7 +8089,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T09:16:00+09:00"
+        "updatedAt": "2026-09-20T09:22:00+09:00"
       },
       "occurrences": [
         {
@@ -8113,23 +8123,18 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_REBOUND_RIGHT_HAND_STICK",
-        "linework": "FAIL_REBOUND_STICK_CONTINUITY",
-        "fixedDrumComposite": "FAIL_RD_REBOUND_SEMANTICS",
+        "humanAnatomy": "FAIL_PAIR_RIGHT_ARM_DUPLICATION",
+        "linework": "FAIL_PAIR_RIGHT_HAND_STICK_CONTINUITY",
+        "fixedDrumComposite": "FAIL_PAIR_RD_SEMANTICS",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "IN_FIX",
-        "note": "Actual transition strip reviewed. Rebound right-hand/RD area collapses into a rounded disconnected-looking hand/stick shape; the stick is not continuously readable from grip to tip and RD rebound semantics are unclear. HOLD for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
-        "reviewedAt": "2026-09-20T08:43:00+09:00",
+        "note": "Hold after two rebound-local method4 attempts. Rebound v2 improved, but current hit has duplicated/disconnected right RD arm/hand geometry. Pair-level repair must address both hit and rebound; preserve left SN arm/head/torso/stool/legs.",
+        "reviewedAt": "2026-09-20T09:22:00+09:00",
         "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png"
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-FRONT-01",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T09:16:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
@@ -8145,6 +8150,11 @@
           "at": "2026-09-20T09:16:00+09:00",
           "decision": "HOLD_REPAIR_CLAIMED",
           "detail": "Claimed for local rebound right-hand/stick repair only. Preserve current method4 hit, head/torso/stool/legs, and left SN arm. Do not perform whole-character redraw."
+        },
+        {
+          "at": "2026-09-20T09:22:00+09:00",
+          "decision": "HOLD_REPAIR_PASS_1_CLOSED",
+          "detail": "Released CHATGPT-FRONT claim after two local rebound candidates. Root issue is now classified as pair-level right RD arm/hand/stick duplication, not rebound-only. Formal PNGs unchanged."
         }
       ]
     },
