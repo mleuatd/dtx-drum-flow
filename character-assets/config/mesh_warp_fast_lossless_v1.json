@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "profileId": "mesh-warp-fast-lossless-v1",
   "purpose": "Standard profile for topology-preserving character repair derived from successful frame 008 workflow.",
   "qualityInvariant": {
@@ -14,13 +14,21 @@
     "singleProcess": true,
     "reuseLoadedCandidateForPreview": true,
     "generateCandidateQaPreviewTogether": true,
-    "avoidOptimizeTrue": true
+    "avoidOptimizeTrue": true,
+    "cacheDir": ".cache/visual-repair",
+    "cacheBySha256": true,
+    "reviewFormat": "lossless-webp"
   },
   "requiredOutputs": [
-    "candidate.png",
-    "qa.json",
-    "timing.json",
-    "fixed_drum_preview.png"
+    "008_bd_rf_hit_mesh_v1.png",
+    "008_bd_rf_hit_mesh_v1_review.webp",
+    "008_bd_rf_hit_fixed_drum_v1_review.webp",
+    "008_before_after_review.webp",
+    "008_qa.json",
+    "008_timing.json",
+    "008_run_manifest.json",
+    "008_commit_manifest.json",
+    "008_regression_run.json"
   ],
   "promotionPolicy": {
     "runtimeOverwriteBeforeUserApproval": false,
@@ -30,6 +38,15 @@
     "index": 8,
     "sourceFilename": "008_bd_rf_hit.png",
     "successfulCandidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.png",
-    "config": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json"
+    "config": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
+    "formalCandidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
+    "latestRegression": {
+      "machinePass": true,
+      "outsideAllowedChangedPixels": 0,
+      "fixedRegionChangedPixels": 0,
+      "changedPixels": 36721,
+      "candidateToReviewCompleteSeconds": 1.952556,
+      "totalSeconds": 2.027783
+    }
   }
 }
