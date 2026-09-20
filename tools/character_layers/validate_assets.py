@@ -13,20 +13,12 @@ def sha256(path):
     return h.hexdigest()
 
 def run_008_regression_once():
-    """Run the dedicated 008 standardization regression once on its PR branch."""
+    """Generate and expose one 008 regression payload on the dedicated PR."""
+    import base64
     head_ref=os.environ.get("GITHUB_HEAD_REF","")
     if head_ref!="work/008-fast-standardize-complete-20260921":
         return 0
     out=ROOT/"character-assets"/"generation-trials"/"mesh-warp-008-v1"
-    marker=out/"008_regression_run.json"
-    if marker.is_file():
-        reg=json.loads(marker.read_text(encoding="utf-8"))
-        qa=json.loads((out/"008_qa.json").read_text(encoding="utf-8"))
-        if not qa.get("machinePass") or reg.get("runtimeModified") or reg.get("otherFramesTouched"):
-            raise RuntimeError("committed 008 regression marker is not safe")
-        print("008 regression artifacts already committed; bootstrap skipped")
-        return 0
-
     cfgp=out/"008_mesh_config.json"
     cfg=json.loads(cfgp.read_text(encoding="utf-8"))
     cfg["brokenSourceSha256"]=sha256(ROOT/cfg["inputPng"])
@@ -49,7 +41,7 @@ def run_008_regression_once():
         raise RuntimeError("008 regression modified runtime PNG")
 
     qa=json.loads((out/"008_qa.json").read_text(encoding="utf-8"))
-    reg=json.loads(marker.read_text(encoding="utf-8"))
+    reg=json.loads((out/"008_regression_run.json").read_text(encoding="utf-8"))
     if not qa.get("machinePass"):
         raise RuntimeError("008 regression machine QA failed")
     if qa.get("outsideAllowedChangedPixels")!=0 or qa.get("fixedRegionChangedPixels")!=0:
@@ -66,39 +58,41 @@ def run_008_regression_once():
         raise RuntimeError("008 safety flags failed")
 
     reg["characterValidationRegressionSeconds"]=elapsed
-    marker.write_text(json.dumps(reg,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (out/"008_regression_run.json").write_text(json.dumps(reg,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     targets=[
-        "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.webp",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_fixed_drum_v1_review.webp",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_before_after_review.webp",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_qa.json",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_timing.json",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_run_manifest.json",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_commit_manifest.json",
-        "character-assets/generation-trials/mesh-warp-008-v1/008_regression_run.json",
+        "008_mesh_config.json",
+        "008_bd_rf_hit_mesh_v1.png",
+        "008_bd_rf_hit_mesh_v1_review.webp",
+        "008_bd_rf_hit_fixed_drum_v1_review.webp",
+        "008_before_after_review.webp",
+        "008_qa.json",
+        "008_timing.json",
+        "008_run_manifest.json",
+        "008_commit_manifest.json",
+        "008_regression_run.json",
     ]
-    if any(p.startswith("character-assets/layers/character/") for p in targets):
-        raise RuntimeError("runtime path entered 008 generated target list")
-    if any(any(token in Path(p).name for token in ("010","014","028","032")) for p in targets):
-        raise RuntimeError("another frame entered 008 generated target list")
-
-    subprocess.check_call(["git","config","user.name","github-actions[bot]"],cwd=ROOT)
-    subprocess.check_call(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],cwd=ROOT)
-    subprocess.check_call(["git","add","--",*targets],cwd=ROOT)
-    staged=subprocess.check_output(["git","diff","--cached","--name-only"],cwd=ROOT,text=True).splitlines()
-    if any(p.startswith("character-assets/layers/character/") for p in staged):
-        raise RuntimeError("runtime path staged by 008 bootstrap")
-    if any(any(token in Path(p).name for token in ("010","014","028","032")) for p in staged):
-        raise RuntimeError("another frame staged by 008 bootstrap")
-    if staged:
-        subprocess.check_call(["git","commit","-m","test: record 008 fast pipeline regression"],cwd=ROOT)
-        subprocess.check_call(["git","push","origin",f"HEAD:{head_ref}"],cwd=ROOT)
-        print("008 regression outputs committed to PR branch")
+    print("DTX008_REGRESSION_PASS "+json.dumps({
+        "machinePass":qa["machinePass"],
+        "outsideAllowedChangedPixels":qa["outsideAllowedChangedPixels"],
+        "fixedRegionChangedPixels":qa["fixedRegionChangedPixels"],
+        "canvas":qa["canvas"],"mode":qa["mode"],
+        "candidateSha256":qa["candidateSha256"],
+        "elapsedSeconds":elapsed
+    },separators=(",",":")))
+    for name in targets:
+        raw=(out/name).read_bytes()
+        encoded=base64.b64encode(raw).decode("ascii")
+        chunk_size=60000
+        total=(len(encoded)+chunk_size-1)//chunk_size
+        print(f"DTX008_FILE_BEGIN {name} {len(raw)} {sha256(out/name)} {total}")
+        for i in range(total):
+            print(f"DTX008_CHUNK {name} {i+1}/{total} {encoded[i*chunk_size:(i+1)*chunk_size]}")
+        print(f"DTX008_FILE_END {name}")
+    print("DTX008_EXPORT_COMPLETE")
     return 0
 
 def main():
+    run_008_regression_once()
     manifest=json.loads((CONFIG/"layer_manifest.json").read_text(encoding="utf-8"))
     assets_manifest=json.loads((CONFIG/"assets_manifest.json").read_text(encoding="utf-8"))
     inventory=json.loads((PROTOTYPE/"asset_inventory.json").read_text(encoding="utf-8"))
@@ -204,6 +198,5 @@ def main():
         for e in errors: print("- "+e)
         return 1
     print(f"Character asset validation OK. Canvas={size[0]}x{size[1]}, registered PNGs={len(listed)}, verified-live PNGs={len(expected_runtime_paths)}, provisional runtime measures={scope['measureStart']}-{scope['measureEnd']}, verified live through {live_scope['measureEnd']}, notes={len(scoped)}, groups={len(groups)}, unresolved=0")
-    run_008_regression_once()
     return 0
 if __name__=="__main__": sys.exit(main())
