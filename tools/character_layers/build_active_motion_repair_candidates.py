@@ -315,6 +315,19 @@ for t in targets:
         # Two imperfect parallel strokes preserve the rough pencil-like stick.
         cd.line(stick_lines[0],fill=(20,20,20,255),width=3)
         cd.line(stick_lines[1],fill=(55,55,55,255),width=2)
+
+    # MOTION-008 v2 local cleanup.
+    # The VERIFIED BD+HH+SN superset reconstruction removes the historical
+    # rectangular torso/hair splice, but its bounded transplant leaves only
+    # tiny disconnected donor-residue strokes in empty air left of the body.
+    # Clear only those measured background rectangles; all anatomy, sticks,
+    # camera, torso, pelvis, legs, stool, and drum registration remain locked.
+    if key=="HH+SN:R/L":
+        carr=np.array(cand)
+        cleanup_rect=(398,514,437,547) if phase=="hit" else (398,504,427,532)
+        x1,y1,x2,y2=cleanup_rect
+        carr[y1:y2,x1:x2,:]=0
+        cand=Image.fromarray(carr,"RGBA")
     Q=np.asarray(cand)
     ndiff=np.any(Q!=N,axis=2)
     changed=int(ndiff.sum()); ratio=changed/(W*H)
