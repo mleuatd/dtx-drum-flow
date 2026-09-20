@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T13:07:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4734,7 +4734,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4763,18 +4763,18 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T13:07:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "FIXED_PENDING_RUNTIME_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
           "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
           "hitPath": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
-          "hitSha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
+          "hitSha256": "7da76d13cbedff3390cb6b95babac5fd8e42ebe2ef3abbe9cfcdf39a3d586ab4",
           "reboundPath": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
-          "reboundSha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
+          "reboundSha256": "38bd82c3f3df41cdb04433db55749107ae542bfcaee3c2c4a3fa83db3d363110",
           "runtimeAuthorityNote": "exact limb-aware key first; legacy wildcard fallback second",
           "identityState": "MEASURED"
         },

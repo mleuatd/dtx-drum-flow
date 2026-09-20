@@ -218,14 +218,14 @@
     "bd_rd_rf_r_hit": {
       "path": "layers/character/combo/bd_rd_rf_r_hit_refresh.png",
       "state": "motion-repair-verified",
-      "sha256": "0feb65893bc8204f7d00f00d5fa5c84cd7345950a9069693e30ba73c62083263",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rd_rf_r_hit_qa.json"
+      "sha256": "7da76d13cbedff3390cb6b95babac5fd8e42ebe2ef3abbe9cfcdf39a3d586ab4",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m006/bd_rd_hit_candidate_v1_qa.json"
     },
     "bd_rd_rf_r_rebound": {
       "path": "layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
       "state": "motion-repair-verified",
-      "sha256": "f3c383c518aebb05ede620560d6d76c4ff304d85c3e0b5337310469090ae1272",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rd_rf_r_rebound_qa.json"
+      "sha256": "38bd82c3f3df41cdb04433db55749107ae542bfcaee3c2c4a3fa83db3d363110",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m006/bd_rd_rebound_candidate_v1_qa.json"
     },
     "rd_sn_r_l_hit": {
       "path": "layers/character/combo/rd_sn_r_l_hit_refresh.png",
@@ -829,10 +829,9 @@
     "measureStart": 130,
     "measureEnd": 130,
     "actions": [
-      "RD:R"
+      "BD+RD:RF/R"
     ],
-    "progressPath": "character-assets/edit-workspaces/motion-repair-20260920/front-m010/M010_RUNTIME_QA_STATE.json",
-    "blockKey": "M010-RD-R",
-    "requestedAt": "2026-09-20T12:55:00+09:00"
+    "progressPath": "character-assets/edit-workspaces/motion-repair-20260920/front-m006/M006_RUNTIME_QA_STATE.json",
+    "blockKey": "M006-BD-RD"
   }
 }
