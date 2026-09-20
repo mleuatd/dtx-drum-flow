@@ -184,6 +184,12 @@ for p,radius in [(h_tip,34),(tip,34)]:
     pd.ellipse([p[0]-radius,p[1]-radius,p[0]+radius,p[1]+radius],fill=255)
 
 pair_roi_arr=np.asarray(pair_roi)>0
+# Hard-exclude static zones from the pair replacement ROI itself. The active
+# SN left arm/stick is entirely below the head lock and above the pelvis lock;
+# allowing those pixels only creates false hair/waist drift.
+pair_roi_arr[0:325,500:930]=False
+pair_roi_arr[560:810,560:980]=False
+pair_roi_arr[:,800:]=False
 hit_arr=np.asarray(hit_image)
 v8_arr=np.asarray(candidate)
 pair_diff=np.any(hit_arr!=v8_arr,axis=2)
