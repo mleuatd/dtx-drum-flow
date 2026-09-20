@@ -1,10 +1,7 @@
 name: FRONT06 prepromotion validation
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/front06-prepromotion-validation.yml'
-      - 'character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_RUNTIME_QA_V3.json'
+  workflow_dispatch:
+
 permissions:
   contents: read
 jobs:
