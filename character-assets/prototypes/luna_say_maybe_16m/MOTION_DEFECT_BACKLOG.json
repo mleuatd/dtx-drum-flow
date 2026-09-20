@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:43:00+09:00",
+  "updatedAt": "2026-09-20T09:47:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -10961,7 +10961,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:43:00+09:00",
+      "updatedAt": "2026-09-20T09:47:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -10975,7 +10975,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -11529,6 +11529,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T09:47:00+09:00",
+            "decision": "PASS2_BACK_FULLRES_STATIC_FAIL_CONFIRMED",
+            "detail": "Artifact 10593149790 inspected at full resolution. Hit shows horizontal shoulder/hair/torso splice, detached stick fragment and seat splice; rebound shows same splice plus duplicated/disconnected raised arm/hand and broken stick. Static pair FAIL; runtime blocked; no formal promotion."
           }
         ],
         "measurementTodos": [
@@ -11818,12 +11823,7 @@
           "rectangular shoulder/hair/torso and seat splice plus detached stick fragments"
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-05",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T09:43:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -11844,11 +11844,11 @@
         "defect": "rectangular shoulder/hair/torso and seat splice plus detached stick fragments",
         "defectLocation": "upper torso/hair boundary, active stick, seat",
         "cause": "structural splice/transplant artifact in current formal pair",
-        "attemptedRepair": "none in this review; existing artifact reused",
-        "repairResult": "not attempted because defect is structural/non-light",
-        "nextRepair": "Replace only measured active arm/stick ROI and explicitly repair splice boundary; preserve all locked body/seat regions.",
+        "attemptedRepair": "PASS2 BACK full-resolution QA of existing method3 fixed candidate from artifact 10593149790.",
+        "repairResult": "STATIC_VISUAL_FAIL_CONFIRMED. Hit: rectangular horizontal splice/dropout through shoulder/hair/upper torso, floating detached stick segment near left side, blocky seat splice. Rebound: same horizontal shoulder/hair/torso splice plus duplicated/disconnected raised arm/hand and broken/floating stick geometry. Transition therefore fails; runtime remains blocked.",
+        "nextRepair": "Pair-level structural repair required. Do not patch only one phase. Reconstruct coherent active arm/hand/stick corridor across hit+rebound while preserving head/hair outside measured overlap, torso core, skirt, stool and inactive limb; remove rectangular splice rather than hiding it.",
         "prohibitedRepair": "repeat rectangular transplant; full redraw",
-        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+        "restartCondition": "Use verifiably target-bound editor or deterministic local compositor capable of exact ROI edits. Existing method3 candidate must not be promoted."
       }
     },
     {
