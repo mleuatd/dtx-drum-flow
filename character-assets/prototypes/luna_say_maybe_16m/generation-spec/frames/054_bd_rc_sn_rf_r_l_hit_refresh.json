@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 54,
+  "sourceFilename": "054_bd_rc_sn_rf_r_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+RC+SN:RF/R/L",
+  "runtimeActionKey": "BD+RC+SN:RF/R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "髪の右上に人物本体から切り離された前腕・手が浮遊して腕が3本に見え、左手側にも余分なスティック断片がある。"
+  ],
+  "defectRegions": [
+    "right_arm",
+    "right_hand",
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_RC_SN_RF_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+RC+SN:RF/R/L hit/rebound",
+    "negativeAttention": [
+      "right_arm",
+      "right_hand",
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
