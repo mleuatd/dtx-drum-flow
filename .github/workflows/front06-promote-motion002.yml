@@ -1,0 +1,47 @@
+name: FRONT06 promote MOTION-002 v3
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/front06-promote-motion002.yml'
+permissions:
+  contents: write
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r tools/character_layers/requirements.txt
+      - name: Promote from latest main with retry-safe claim guard
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3 4 5; do
+            echo "promotion attempt $attempt"
+            git fetch origin main
+            git reset --hard origin/main
+            python tools/character_layers/promote_front06_motion002.py
+            python tools/character_layers/validate_assets.py
+            python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+            git add character-assets/layers/character/combo/bd_rc_hit.png
+            git add character-assets/layers/character/combo/bd_rc_rebound.png
+            git add character-assets/config/assets_manifest.json
+            git add character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+            git add character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json
+            git add character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
+            git add character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PREPROMOTION_VALIDATION_V3.json
+            git add character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_RESULT_V3.json
+            if git diff --cached --quiet; then echo 'nothing to promote'; exit 0; fi
+            git commit -m 'fix: promote validated FRONT06 MOTION-002 v3'
+            if git push origin HEAD:main; then exit 0; fi
+            echo 'main advanced during promotion; retrying from latest main'
+            sleep $((attempt * 2))
+          done
+          echo 'promotion push failed after retries' >&2
+          exit 1
