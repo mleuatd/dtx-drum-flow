@@ -42,7 +42,7 @@
     "height": 656
   },
   "headGuardChangedPixels": 0,
-  "pelvisGuardChangedPixels": 36783,
+  "pelvisGuardChangedPixels": 0,
   "stoolGuardChangedPixels": 0,
   "inactiveLowerChangedPixels": null,
   "outsideMaskChangedPixels": 0,
@@ -69,10 +69,10 @@
     "changedRatioWithinLimit": true,
     "outsideSemanticMaskZero": true,
     "headLocked": true,
-    "pelvisLocked": false,
+    "pelvisLocked": true,
     "stoolLocked": true,
     "inactiveLowerLocked": true,
     "localSourcePreservation": true
   },
-  "pass": false
+  "pass": true
 }

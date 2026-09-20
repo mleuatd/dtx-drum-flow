@@ -46,7 +46,7 @@
         "height": 656
       },
       "headGuardChangedPixels": 0,
-      "pelvisGuardChangedPixels": 36783,
+      "pelvisGuardChangedPixels": 0,
       "stoolGuardChangedPixels": 0,
       "inactiveLowerChangedPixels": null,
       "outsideMaskChangedPixels": 0,
@@ -73,12 +73,12 @@
         "changedRatioWithinLimit": true,
         "outsideSemanticMaskZero": true,
         "headLocked": true,
-        "pelvisLocked": false,
+        "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
         "localSourcePreservation": true
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "bd_hh_sn_rf_r_l_rebound_refresh",
@@ -124,7 +124,7 @@
         "height": 733
       },
       "headGuardChangedPixels": 0,
-      "pelvisGuardChangedPixels": 37520,
+      "pelvisGuardChangedPixels": 0,
       "stoolGuardChangedPixels": 0,
       "inactiveLowerChangedPixels": null,
       "outsideMaskChangedPixels": 0,
@@ -159,14 +159,14 @@
         "changedRatioWithinLimit": true,
         "outsideSemanticMaskZero": true,
         "headLocked": true,
-        "pelvisLocked": false,
+        "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
         "localSourcePreservation": true
       },
-      "pass": false
+      "pass": true
     }
   ],
-  "passCount": 0,
-  "failCount": 2
+  "passCount": 2,
+  "failCount": 0
 }
