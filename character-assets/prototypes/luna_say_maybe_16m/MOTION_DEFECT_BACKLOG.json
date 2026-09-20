@@ -14003,24 +14003,23 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
-        "reviewedAt": "2026-09-20T11:31:00+09:00",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING",
+        "promotionBlocked": false,
+        "reviewedAt": "2026-09-20T12:10:00+09:00",
         "reviewEvidence": {
-          "workflowRunId": 35484056454,
-          "artifactId": 10596782743,
-          "candidateHitSha256": "9742006be53af23326cc8866932d66f6b6d8e03a4f8c16c7a99db7e478e5253e",
-          "candidateReboundSha256": "18e74a3b4f733343b3f0bc93d40ccedb0ad1221c842b536144b0be0ad2490e37"
+          "workflowRunId": 35485620125,
+          "artifactId": 10596619045,
+          "candidateHitSha256": "42bc7b87fc46698e058770888c0ab048a4fe66b44d5f5bc094de235ff3051b0f",
+          "candidateReboundSha256": "eee9d730baade7fdb166253856b6b7fba9eb76dcc35f7d6506ded69ee66d1007"
         },
-        "failReasons": [
-          "Latest bounded-loop candidates pass machine QA, but full-resolution fixed-drum review still fails.",
-          "Hit: left-hand/stick silhouette remains visually confused at the grip/forearm overlap rather than one clean continuous stick path.",
-          "Rebound: conspicuous isolated white vertical/zig-zag fragment remains above the left-side tom, with additional floating line fragments around the left hand/stick corridor."
-        ],
-        "nextRepair": "Retain CLAIM and best-parent chain. Machine topology filtering alone is insufficient. Next iteration must explicitly reconstruct one connected left hand→grip→stick→tip path and delete disconnected white/line components in the left tom/HH corridor; do not widen rectangular transplant masks and preserve passing RF/contact regions."
+        "passReasons": [
+          "Full-resolution fixed-drum review: prior rebound shard removed.",
+          "Hit left-hand/stick path is continuous without the prior duplicate/floating geometry.",
+          "No broad rectangular splice or new seat/thigh floating fragment observed."
+        ]
       },
       "claim": {
         "state": "CLAIMED",
@@ -14073,6 +14072,11 @@
           "at": "2026-09-20T11:31:00+09:00",
           "decision": "M015_BOUNDED_LOOP_VISUAL_FAIL_CONTINUE",
           "detail": "Run 35484056454 artifact 10596782743 machine-PASS pair inspected at full resolution. Hit grip/stick remains confused; rebound still has an isolated white zig-zag/vertical fragment above the left tom plus floating fragments. Promotion remains blocked; continue with explicit connected-path reconstruction rather than broader masking."
+        },
+        {
+          "at": "2026-09-20T12:10:00+09:00",
+          "decision": "M015_EXACT_CANDIDATE_VISUAL_PASS",
+          "detail": "Run 35485620125 artifact 10596619045 exact Method12 pair: machine PASS both and full-resolution fixed-drum visual PASS. Authorize exact-candidate promotion only for hit 42bc7b87... and rebound eee9d730...; runtime QA remains required before VERIFIED."
         }
       ],
       "hold": {
