@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:31:00+09:00",
+  "updatedAt": "2026-09-20T09:33:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1012,7 +1012,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -1039,10 +1039,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T07:56:00+09:00",
+      "updatedAt": "2026-09-20T09:33:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "IN_FIX",
         "repairType": "mixed",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -1850,7 +1850,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T06:13:00+09:00"
+        "updatedAt": "2026-09-20T09:33:00+09:00"
       },
       "occurrences": [
         {
@@ -1909,8 +1909,19 @@
           "at": "2026-09-20T06:58:00+09:00",
           "decision": "BATCH_2X4_BD_RC_MACHINE_QA_RECONFIRMED",
           "detail": "Existing method2 hit/rebound machine QA was rechecked: both pass with outside-mask changes 0 and locked head/torso/stool/left-leg guards 0. This does not satisfy the newer human-anatomy, linework, fixed-drum-composite, or runtime-transition visual hard gates, so no promotion was performed."
+        },
+        {
+          "at": "2026-09-20T09:33:00+09:00",
+          "decision": "HOLD_REPAIR_CLAIMED",
+          "detail": "FRONT claimed BD+RC:RF/R under shared HOLD_REPAIR_PLAYBOOK. Both phases are structural failures; use candidate-first pair-level reconstruction and reject machine-only PASS."
         }
-      ]
+      ],
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "HOLD-REPAIR-FRONT-04",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T09:33:00+09:00"
+      }
     },
     {
       "issueId": "MOTION-003",
