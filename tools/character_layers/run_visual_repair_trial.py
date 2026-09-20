@@ -234,7 +234,7 @@ def main() -> int:
 
     stage = time.perf_counter()
     source_rgba = load_rgba(source_c)
-    base_rgba = load_rgba(base_c)
+    base_rgba = load_rgba(base_c) if transplant_mode else source_rgba
     broken_rgba = load_rgba(broken_c)
     drum_rgba = load_rgba(drum_c)
     timings["loadSeconds"] = round(time.perf_counter() - stage, 6)
