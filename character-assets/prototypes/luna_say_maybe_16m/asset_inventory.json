@@ -242,14 +242,14 @@
     "bd_hh_rf_r_hit": {
       "path": "layers/character/combo/bd_hh_rf_r_hit_refresh.png",
       "state": "motion-repair-verified",
-      "sha256": "0daf555f78e8ed77d2cc1388cc5ad4831e9f6a8cff772378bb5f027f53c380b6",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_hh_rf_r_hit_qa.json"
+      "sha256": "8b1dcbf1d3287ee90bb4425380314fd412aeaeb407ccb1664815493f1cac6423",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m005/bd_hh_hit_candidate_v1_qa.json"
     },
     "bd_hh_rf_r_rebound": {
       "path": "layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
       "state": "motion-repair-verified",
-      "sha256": "35326f5ca814d1e09bd0ebc06ac9cf9ac552a320e7710195a99c62ab6a88c2d4",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_hh_rf_r_rebound_qa.json"
+      "sha256": "cd33610f79643b80222a250410eeaf2207be7d1014baa2f8847c9e611ba2ac6b",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m005/bd_hh_rebound_candidate_v1_qa.json"
     },
     "hh_sn_r_l_hit": {
       "path": "layers/character/combo/hh_sn_r_l_hit_refresh.png",
@@ -826,12 +826,12 @@
   "updatedAt": "2026-09-19T16:07:00+09:00",
   "note": "Character runtime scope expanded through full song M148. M137-148 uses only existing formal mappings; final range public QA pending.",
   "runtimeQaTarget": {
-    "measureStart": 142,
-    "measureEnd": 142,
+    "measureStart": 137,
+    "measureEnd": 137,
     "actions": [
-      "HH:R"
+      "BD+HH:RF/R"
     ],
-    "progressPath": "character-assets/edit-workspaces/motion-repair-20260920/front-m007/M007_RUNTIME_QA_STATE.json",
-    "blockKey": "M007-HH-R"
+    "progressPath": "character-assets/edit-workspaces/motion-repair-20260920/front-m005/M005_RUNTIME_QA_STATE.json",
+    "blockKey": "M005-BD-HH"
   }
 }
