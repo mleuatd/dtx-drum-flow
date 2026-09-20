@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "issueId": "MOTION-004",
+  "actionKey": "RC+SN:R/L",
+  "status": "APPROVED",
+  "approvedAt": "2026-09-20T19:08:00+09:00",
+  "sourceSummary": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/M004_V6_SUMMARY.json",
+  "staticVisualQa": {
+    "status": "PASS",
+    "evidence": [
+      "rc_sn_hit_candidate_v6.png",
+      "rc_sn_rebound_candidate_v6.png",
+      "rc_sn_hit_candidate_v6_fixed_drum.png",
+      "rc_sn_rebound_candidate_v6_fixed_drum.png",
+      "rc_sn_v6_transition.jpg"
+    ],
+    "note": "Full-resolution review: extra inactive donor limb removed; two hands/two sticks only; fixed-drum contact and neutral->hit->rebound->neutral transition visually coherent."
+  },
+  "assets": [
+    {
+      "assetKey": "rc_sn_r_l_hit_refresh",
+      "phase": "hit",
+      "candidatePath": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_hit_candidate_v6.png",
+      "formalPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "sha256": "719220d6076e5b74a021f5ea8cc86ddffc6e7a334eccda34a74b99f38b3138c8"
+    },
+    {
+      "assetKey": "rc_sn_r_l_rebound_refresh",
+      "phase": "rebound",
+      "candidatePath": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_rebound_candidate_v6.png",
+      "formalPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "sha256": "c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653"
+    }
+  ]
+}
