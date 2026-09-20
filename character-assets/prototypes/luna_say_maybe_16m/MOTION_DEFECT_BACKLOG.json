@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T14:40:00+09:00",
+  "updatedAt": "2026-09-20T14:43:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -7523,7 +7523,7 @@
     },
     {
       "issueId": "MOTION-009",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -7552,10 +7552,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T14:43:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_RUNTIME_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -8456,7 +8456,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "IN_FIX",
@@ -8471,12 +8471,7 @@
           "basis": "full-resolution fixed-drum candidate review against verified RD:R authority"
         }
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "BACK-ACTIONS-35489212632",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T04:28:47.889336+00:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
@@ -8507,8 +8502,26 @@
           "at": "2026-09-20T14:40:00+09:00",
           "decision": "VISUAL_PASS_EXACT_METHOD4_AUTHORITY_PAIR",
           "detail": "Exact method4 candidate pair passed visual anatomy/linework/fixed-drum review after reconstructing right RD motion from VERIFIED RD:R authority while retaining bounded left SN motion. Authorized guarded formal promotion."
+        },
+        {
+          "at": "2026-09-20T14:43:00+09:00",
+          "decision": "VERIFIED_AFTER_EXACT_M130_RUNTIME_QA",
+          "detail": "Authority-rebuilt RD+SN pair passed static visual QA, guarded formal promotion, exact BACK public runtime QA at M130, generic runtime QA, and validate. Released claim."
         }
-      ]
+      ],
+      "runtimeQa": {
+        "state": "PASS",
+        "workflow": ".github/workflows/back-runtime-character-qa.yml",
+        "runId": 35492305651,
+        "artifactId": 10598749862,
+        "artifact": "back-public-runtime-qa-35492305651",
+        "testedCommitSha": "c65206e7d5c85a02577d4f2d8c3e2fda991d43e2",
+        "measure": "M130",
+        "actionKey": "RD+SN:R/L",
+        "genericRuntimeQaRunId": 35492305513,
+        "validateRunId": 35492305497,
+        "note": "Exact public runtime QA, generic Runtime Character QA, and validate all succeeded after guarded formal promotion."
+      }
     },
     {
       "issueId": "MOTION-010",
