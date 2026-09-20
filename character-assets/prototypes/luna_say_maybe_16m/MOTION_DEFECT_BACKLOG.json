@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T11:27:29+09:00",
+  "updatedAt": "2026-09-20T11:31:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -13980,17 +13980,19 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "promotionBlocked": true,
-        "reviewedAt": "2026-09-20T11:28:00+09:00",
+        "reviewedAt": "2026-09-20T11:31:00+09:00",
         "reviewEvidence": {
-          "workflowRunId": 35483753132,
-          "candidateHitSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
-          "candidateReboundSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9"
+          "workflowRunId": 35484056454,
+          "artifactId": 10596782743,
+          "candidateHitSha256": "9742006be53af23326cc8866932d66f6b6d8e03a4f8c16c7a99db7e478e5253e",
+          "candidateReboundSha256": "18e74a3b4f733343b3f0bc93d40ccedb0ad1221c842b536144b0be0ad2490e37"
         },
         "failReasons": [
-          "Method4 machine QA now passes both MOTION-015 phases, including HH rebound source preservation.",
-          "Full-resolution fixed-drum review still fails: rebound contains a conspicuous white rectangular/vertical splice above the left-side tom and broken/floating left-hand/stick geometry; hit also does not present a clean continuous left-hand-to-tip stick silhouette."
+          "Latest bounded-loop candidates pass machine QA, but full-resolution fixed-drum review still fails.",
+          "Hit: left-hand/stick silhouette remains visually confused at the grip/forearm overlap rather than one clean continuous stick path.",
+          "Rebound: conspicuous isolated white vertical/zig-zag fragment remains above the left-side tom, with additional floating line fragments around the left hand/stick corridor."
         ],
-        "nextRepair": "Keep this CLAIM. Do not widen the transplant corridor again. Switch mechanism: connected-component/line-continuity reconstruction limited to the left hand→grip→stick→tip corridor, explicitly reject isolated white/opaque rectangular components and floating fragments, preserve the passing RF/HH contact corridors and all locked regions."
+        "nextRepair": "Retain CLAIM and best-parent chain. Machine topology filtering alone is insufficient. Next iteration must explicitly reconstruct one connected left hand→grip→stick→tip path and delete disconnected white/line components in the left tom/HH corridor; do not widen rectangular transplant masks and preserve passing RF/contact regions."
       },
       "claim": {
         "state": "CLAIMED",
@@ -14038,6 +14040,11 @@
           "at": "2026-09-20T11:36:00+09:00",
           "decision": "ROLLBACK_FALSE_MACHINE_ONLY_PROMOTION_STATE",
           "detail": "Automation incorrectly cleared the claim and marked FIXED_PENDING_RUNTIME_QA despite the recorded visual FAIL. Formal overwrite may already have occurred, so target remains IN_FIX; exact-candidate visual PASS is now a hard promotion gate. Continue from method5 candidate generation/QA, not runtime QA."
+        },
+        {
+          "at": "2026-09-20T11:31:00+09:00",
+          "decision": "M015_BOUNDED_LOOP_VISUAL_FAIL_CONTINUE",
+          "detail": "Run 35484056454 artifact 10596782743 machine-PASS pair inspected at full resolution. Hit grip/stick remains confused; rebound still has an isolated white zig-zag/vertical fragment above the left tom plus floating fragments. Promotion remains blocked; continue with explicit connected-path reconstruction rather than broader masking."
         }
       ],
       "hold": {
