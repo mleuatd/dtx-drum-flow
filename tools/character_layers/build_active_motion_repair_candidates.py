@@ -92,9 +92,8 @@ for t in targets:
         # Do not cut a wide transparent channel through the hand/sleeve: that
         # produced the white triangular fragments seen in the rebound artifact.
         erase=Image.new("L",(W,H),0); ed=ImageDraw.Draw(erase)
-        old_tip=(455,390); erase_end=(512,472)
-        ed.line([old_tip,erase_end],fill=255,width=38)
-        ed.ellipse([old_tip[0]-22,old_tip[1]-22,old_tip[0]+22,old_tip[1]+22],fill=255)
+        old_tip=(430,382); erase_end=(484,444)
+        ed.line([old_tip,erase_end],fill=255,width=10)
         E=np.asarray(erase)>0
         arr=np.array(rebuilt)
         arr[E,3]=0
@@ -261,9 +260,8 @@ for t in targets:
         # The final candidate is initialized from neutral below, so explicitly
         # carry the neutral resting-stick erase ROI through the final paste.
         erase_final=Image.new("L",(W,H),0); ef=ImageDraw.Draw(erase_final)
-        old_tip=(455,390); erase_end=(512,472)
-        ef.line([old_tip,erase_end],fill=255,width=38)
-        ef.ellipse([old_tip[0]-22,old_tip[1]-22,old_tip[0]+22,old_tip[1]+22],fill=255)
+        old_tip=(430,382); erase_end=(484,444)
+        ef.line([old_tip,erase_end],fill=255,width=10)
         M |= (np.asarray(erase_final)>0)
 
     # Small deterministic stick bridges. These are line-only ROIs; never use
