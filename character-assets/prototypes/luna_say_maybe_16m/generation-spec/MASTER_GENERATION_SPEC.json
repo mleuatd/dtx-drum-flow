@@ -27,6 +27,7 @@
     "CAMERA_LOCK",
     "MASTER_GEOMETRY",
     "DRUM_GEOMETRY",
+    "ACTION_NUMERIC_GEOMETRY[actionKey]",
     "NEGATIVE_CONSTRAINTS",
     "ACTION_SPEC",
     "FRAME_OVERRIDE"
@@ -107,6 +108,8 @@
     "allRuntimeActionSpecsRequired": true,
     "negativeConstraintsRequired": true,
     "selfCheckRequired": true,
-    "gate": "PASS"
-  }
+    "gate": "PASS",
+    "numericActionGeometryRequired": true
+  },
+  "numericActionGeometryFile": "ACTION_NUMERIC_GEOMETRY.json"
 }
