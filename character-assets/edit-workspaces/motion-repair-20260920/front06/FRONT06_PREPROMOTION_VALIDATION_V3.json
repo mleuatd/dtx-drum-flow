@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-20T11:25:00+09:00",
+  "issueId": "MOTION-002",
+  "actionKey": "BD+RC:RF/R",
+  "claimBatch": "HOLD-REPAIR-FRONT-06",
+  "workflow": ".github/workflows/front06-prepromotion-validation.yml",
+  "runId": 35483911293,
+  "artifactId": 10597390882,
+  "artifactName": "front06-prepromotion-validation-35483911293",
+  "beforeFormalSha256": {
+    "hit": "0efbdd9a097408e8567af16514348587e039d81212a6b569eac12d67c9edd651",
+    "rebound": "c4615ca06759655be68bb1d668f47b06883f9744d73c3bdc7c71ce1eccfecd79"
+  },
+  "stagedCandidateSha256": {
+    "hit": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+    "rebound": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b"
+  },
+  "candidateMatchesRecordedRuntime": true,
+  "characterAssetValidation": "PASS",
+  "runtimePoseRegression": "PASS",
+  "validation": "PASS",
+  "formalCommitted": false,
+  "decision": "PROMOTION_AUTHORIZED_BY_STATIC_RUNTIME_VALIDATION_GATES"
+}
