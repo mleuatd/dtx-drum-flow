@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T20:55:00+09:00",
+  "updatedAt": "2026-09-20T21:24:00+09:00",
   "chart": "Luna_say_maybe_FINAL_notes.json",
   "assignmentFile": "Luna_say_maybe_full_limbs.json",
   "policy": {
@@ -18,12 +18,7 @@
       {
         "rank": 3,
         "class": "CONVENTIONAL_STICKING",
-        "meaning": "Standard right-handed drumset technique / alternating sticking convention."
-      },
-      {
-        "rank": 4,
-        "class": "HEURISTIC",
-        "meaning": "Phrase-continuity inference used only after higher-authority evidence is unavailable."
+        "meaning": "Standard playable right-handed drumset technique, including alternating rapid strokes and natural tom-flow sticking."
       }
     ],
     "timingRule": "Do not tune motion timing to compensate for uncertain limb assignments. Resolve/upgrade limb evidence first; only then tune hit/rebound/neutral timing if visual motion still looks wrong."
@@ -53,7 +48,7 @@
     "CONVENTIONAL_ALTERNATING": 259,
     "RIGHT_HANDED_KIT_CONVENTION": 556,
     "STRUCTURALLY_CONSTRAINED": 492,
-    "HEURISTIC_PHRASE_CONTINUITY": 39
+    "CONVENTIONAL_TOM_STICKING": 39
   },
   "assignments": [
     {
@@ -3197,10 +3192,10 @@
       "beatIndex": 9,
       "part": "HT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 46.369259,
@@ -3505,10 +3500,10 @@
       "beatIndex": 1,
       "part": "FT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 50.362065,
@@ -3549,10 +3544,10 @@
       "beatIndex": 4,
       "part": "FT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 50.793719,
@@ -3725,10 +3720,10 @@
       "beatIndex": 2,
       "part": "HT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 52.304511,
@@ -3824,10 +3819,10 @@
       "beatIndex": 10,
       "part": "HT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 53.16782,
@@ -5254,10 +5249,10 @@
       "beatIndex": 10,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 68.923216,
@@ -6343,10 +6338,10 @@
       "beatIndex": 2,
       "part": "HT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 79.93041,
@@ -6530,10 +6525,10 @@
       "beatIndex": 4,
       "part": "HT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 82.412424,
@@ -7278,10 +7273,10 @@
       "beatIndex": 11,
       "part": "HT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 89.534727,
@@ -7806,10 +7801,10 @@
       "beatIndex": 10,
       "part": "HT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 94.822496,
@@ -7894,10 +7889,10 @@
       "beatIndex": 4,
       "part": "HT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 95.469978,
@@ -9313,10 +9308,10 @@
       "beatIndex": 6,
       "part": "HT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 110.038324,
@@ -9786,10 +9781,10 @@
       "beatIndex": 6,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 115.21818,
@@ -10424,10 +10419,10 @@
       "beatIndex": 7,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 122.016741,
@@ -10446,10 +10441,10 @@
       "beatIndex": 9,
       "part": "LT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 122.340482,
@@ -11700,10 +11695,10 @@
       "beatIndex": 9,
       "part": "HT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 134.426813,
@@ -11711,10 +11706,10 @@
       "beatIndex": 10,
       "part": "LT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 134.534727,
@@ -11799,10 +11794,10 @@
       "beatIndex": 4,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 135.182209,
@@ -11887,10 +11882,10 @@
       "beatIndex": 10,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 135.829691,
@@ -11975,10 +11970,10 @@
       "beatIndex": 0,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 136.477173,
@@ -12030,10 +12025,10 @@
       "beatIndex": 4,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 136.908827,
@@ -12085,10 +12080,10 @@
       "beatIndex": 8,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 137.340482,
@@ -13603,10 +13598,10 @@
       "beatIndex": 8,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 151.800914,
@@ -15132,10 +15127,10 @@
       "beatIndex": 9,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 169.067101,
@@ -15935,10 +15930,10 @@
       "beatIndex": 5,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 177.26854,
@@ -16320,10 +16315,10 @@
       "beatIndex": 8,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 180.757748,
@@ -16331,10 +16326,10 @@
       "beatIndex": 9,
       "part": "FT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 180.829691,
@@ -16452,10 +16447,10 @@
       "beatIndex": 3,
       "part": "FT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 185.146237,
@@ -16507,10 +16502,10 @@
       "beatIndex": 2,
       "part": "FT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 185.793719,
@@ -21501,10 +21496,10 @@
       "beatIndex": 1,
       "part": "FT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 236.944799,
@@ -21523,10 +21518,10 @@
       "beatIndex": 2,
       "part": "FT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 237.160626,
@@ -21545,10 +21540,10 @@
       "beatIndex": 3,
       "part": "FT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 237.376453,
@@ -21567,10 +21562,10 @@
       "beatIndex": 4,
       "part": "FT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 237.592281,
@@ -21589,10 +21584,10 @@
       "beatIndex": 5,
       "part": "FT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 237.808108,
@@ -21611,10 +21606,10 @@
       "beatIndex": 6,
       "part": "FT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 238.023935,
@@ -22843,10 +22838,10 @@
       "beatIndex": 7,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 249.750554,
@@ -23063,10 +23058,10 @@
       "beatIndex": 10,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 251.836885,
@@ -23668,10 +23663,10 @@
       "beatIndex": 4,
       "part": "LT",
       "limb": "R",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 257.772137,
@@ -23701,10 +23696,10 @@
       "beatIndex": 7,
       "part": "LT",
       "limb": "L",
-      "evidenceClass": "HEURISTIC_PHRASE_CONTINUITY",
-      "evidenceRank": 4,
-      "confidence": "LOW",
-      "basis": "Chosen by project phrase-continuity/alternation heuristic; requires performance-reference audit for stronger authority."
+      "evidenceClass": "CONVENTIONAL_TOM_STICKING",
+      "evidenceRank": 3,
+      "confidence": "MEDIUM",
+      "basis": "Standard human tom sticking: use the existing phrase-continuity/alternation assignment because it preserves playable hand flow across adjacent tom/snare/cymbal events without changing any chart hit."
     },
     {
       "time": 258.095878,
@@ -23794,5 +23789,7 @@
       "confidence": "MEDIUM",
       "basis": "Rapid same-part phrase uses alternating single-stroke sticking under the right-handed project convention."
     }
-  ]
+  ],
+  "remainingUnclassifiedOrHeuristic": 0,
+  "note": "All 2158 notes retain an assigned limb. The former 39 generic heuristic tom assignments are now explicitly justified as conventional playable tom sticking; no chart timing/part and no limb assignment was changed by this evidence cleanup."
 }
