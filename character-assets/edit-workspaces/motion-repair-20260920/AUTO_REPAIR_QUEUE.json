@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:43:00+09:00",
+  "updatedAt": "2026-09-20T11:47:00+09:00",
   "mode": "SELF_FEEDING_REPAIR_QUEUE",
   "terminalId": "CHAT-PASS2-BACK",
   "issueId": "MOTION-015",
@@ -14,7 +14,7 @@
     "formalPromotionRequiresExactCandidateVisualPass": true,
     "doNotAdvanceIssueUntilVerified": true
   },
-  "cursor": "M015-004",
+  "cursor": "M015-006",
   "tasks": [
     {
       "id": "M015-001",
@@ -50,7 +50,7 @@
     },
     {
       "id": "M015-004",
-      "status": "IN_PROGRESS",
+      "status": "FAILED_VISUAL",
       "type": "REPAIR_AND_MACHINE_QA",
       "instruction": "Resume from best candidate; if same mechanism fails twice switch mechanism; enqueue full-resolution visual QA after machine PASS.",
       "lastFailure": {
@@ -60,13 +60,32 @@
         "reboundSha256": "126993330ed6dd4c36724db8784f68e05ecf3a0e90cbe238d09edd9cb21c991b",
         "reboundMachinePass": true
       },
-      "nextMechanism": "METHOD8_EXACT_SN_CONTACT_DISK_PLUS_CONTINUITY_CORRIDOR"
+      "nextMechanism": "METHOD9_COMPONENT_ERASE_AND_STICK_PATH_REBUILD",
+      "result": "METHOD8 machine PASS both phases; full-resolution visual FAIL",
+      "candidates": {
+        "hit": "2a37a6946ecc0a4ee7578b15a230df6688015e4a72391f71f21c9e56460b4362",
+        "rebound": "126993330ed6dd4c36724db8784f68e05ecf3a0e90cbe238d09edd9cb21c991b"
+      },
+      "failure": [
+        "Hit left-hand/stick area remains visually tangled/ambiguous at tom contact.",
+        "Rebound still contains isolated white triangular fragment above left tom/under left crash and stray line fragments around left thigh/seat."
+      ]
     },
     {
       "id": "M015-005",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "DONE_FAIL",
       "type": "FULL_RES_VISUAL_QA",
-      "instruction": "Exact candidate visual QA; PASS enqueues promotion/runtime, FAIL enqueues targeted repair."
+      "instruction": "Exact candidate visual QA; PASS enqueues promotion/runtime, FAIL enqueues targeted repair.",
+      "sourceRunId": 35484598563,
+      "artifactId": 10597262729,
+      "result": "FAIL"
+    },
+    {
+      "id": "M015-006",
+      "status": "READY",
+      "type": "REPAIR_AND_MACHINE_QA",
+      "mechanism": "METHOD9_COMPONENT_ERASE_AND_STICK_PATH_REBUILD",
+      "instruction": "Use METHOD8 as best parent. Explicitly erase isolated rebound white triangle/stray fragments in bounded left-tom/seat regions, then rebuild a single narrow left-hand→stick path without broad source transplant. Preserve SN contact disk and RF/HH passing regions."
     }
   ]
 }
