@@ -134,3 +134,22 @@ CI回帰も同じ制約を持ち、runtimeと対象外frameの差分を検出し
 ## 横展開禁止
 
 008のユーザー最終承認までは010／014／028／032その他へ適用しない。承認後にのみ各frame固有のJSONを作成し、共通ツールは変更せず横展開する。
+
+
+## 008実回帰結果（2026-09-21）
+
+同一設定による実回帰は machine PASS。正式候補は1448×1086 RGBAで、changedPixels=36,721、changedBBox=(594,635,172,326)、outsideAllowed=0、fixedRegionChanged=0、pedalDistance=11.18pxで既存成功値と一致した。
+
+実測:
+- cache/hash: 0.008024 s
+- cached inputs load: 0.066825 s
+- warp: 0.144989 s
+- formal candidate save: 0.071159 s
+- machine QA: 0.028261 s
+- fixed drum review: 0.650539 s
+- review images: 1.057608 s
+- candidate -> review complete: 1.952556 s
+- wrapper total: 2.027783 s
+- CI regression invocation total: 2.645649 s
+
+初回実行のためcacheHitはfalseだが、候補から確認成果物完成まで2秒弱で性能目標「数秒以内」を満たした。runtimeと他frameは未変更。ユーザー原寸目視は未完了なので `visualQaRequired=true` / `userApprovalStatus=PENDING` を維持する。
