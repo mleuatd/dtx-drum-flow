@@ -1,23 +1,6 @@
 {
   "schemaVersion": 1,
-  "promoted": [
-    {
-      "id": "bd_rc_sn_rf_r_l_hit_refresh",
-      "actionKey": "BD+RC+SN:RF/R/L",
-      "phase": "hit",
-      "oldSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
-      "newSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
-      "changedRatioVsNeutral": 0.0447585
-    },
-    {
-      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
-      "actionKey": "BD+RC+SN:RF/R/L",
-      "phase": "rebound",
-      "oldSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
-      "newSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
-      "changedRatioVsNeutral": 0.04313246
-    }
-  ],
+  "promoted": [],
   "failedCandidates": [
     {
       "id": "bd_rd_rf_r_hit",
@@ -45,6 +28,14 @@
     },
     {
       "id": "rd_r_rebound",
+      "reason": "already_completed"
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_hit_refresh",
+      "reason": "already_completed"
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
       "reason": "already_completed"
     }
   ]
