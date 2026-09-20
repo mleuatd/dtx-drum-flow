@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T14:06:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -11324,7 +11324,7 @@
     },
     {
       "issueId": "MOTION-013",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:07.1-2:07.2",
@@ -11352,7 +11352,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T14:06:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -11366,7 +11366,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -12200,7 +12200,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "reviewedAt": "2026-09-20T13:51:00+09:00",
@@ -12211,12 +12211,7 @@
         },
         "machineQaRunId": 35490115009
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "BACK-ACTIONS-35490115009",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T04:50:17.074004+00:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -12237,6 +12232,11 @@
           "at": "2026-09-20T13:51:00+09:00",
           "decision": "PASS2_VISUAL_INTEGRITY_PASS",
           "detail": "Exact auto candidates hit f8ffc411... and rebound 2919aebb... machine PASS; direct image review confirms prior rectangular splice and rebound stick dropout are repaired. Approved for exact formal promotion only."
+        },
+        {
+          "at": "2026-09-20T14:06:00+09:00",
+          "decision": "VERIFIED_AFTER_EXACT_PUBLIC_RUNTIME_QA",
+          "detail": "Formal BD+HT hit/rebound pair passed visual-integrity gates and exact public runtime QA at M72. Run 35490409094 succeeded; artifact 10598519111. Released BACK claim."
         }
       ],
       "hold": {
@@ -12252,6 +12252,17 @@
         "nextRepair": "Pair-level structural repair required. Do not patch only one phase. Reconstruct coherent active arm/hand/stick corridor across hit+rebound while preserving head/hair outside measured overlap, torso core, skirt, stool and inactive limb; remove rectangular splice rather than hiding it.",
         "prohibitedRepair": "repeat rectangular transplant; full redraw",
         "restartCondition": "Use verifiably target-bound editor or deterministic local compositor capable of exact ROI edits. Existing method3 candidate must not be promoted."
+      },
+      "runtimeQa": {
+        "state": "PASS",
+        "workflow": ".github/workflows/back-runtime-character-qa.yml",
+        "runId": 35490409094,
+        "artifactId": 10598519111,
+        "artifact": "back-public-runtime-qa-35490409094",
+        "testedCommitSha": "5a12aae4c1f90c5756c57eb2144351df05fc7769",
+        "measure": "M72",
+        "actionKey": "BD+HT:RF/R",
+        "note": "Exact BACK public runtime QA completed successfully after formal promotion; static visual-integrity gates already PASS."
       }
     },
     {
