@@ -48,7 +48,7 @@
 - 候補保存先: `character-assets/generation-trials/mesh-warp-008-v1/`
 - 標準化ゲート: 候補生成 -> 軽量QA -> 対象外差分QA -> 固定ドラム合成 -> 原寸視覚QA -> ユーザー確認
 - 横展開順: `008 -> 010 -> 014 -> 028 -> 032`
-- 停止条件: 008の原寸目視確認完了まで、010、014、028、032その他へ展開しない
+- 横展開条件: 2026-09-21指示以降は、他frameも candidate / QA / review / GitHub保存まで1件ずつ展開可。runtime反映は各画像のユーザー承認まで禁止
 - 禁止: reboundの単純コピー、矩形貼り付け、足だけの平行移動、第3脚だけの消去、完全新規AI生成、承認前のruntime上書き
 
 ## 008 メッシュ変形試験（runtime未反映）
@@ -74,5 +74,16 @@
 - machine QA FAIL時は候補を登録候補一覧に入れない。
 - `visualQaRequired=true` を維持し、機械PASSだけではVERIFIEDまたはruntime昇格にしない。
 - runtime pathと010／014／028／032その他のframeは安全チェックで登録対象から除外する。
-- 008のユーザー承認状態は `PENDING` のままとし、承認前のruntime上書きと横展開を禁止する。
+- 008のユーザー承認状態は `PENDING` のままとし、承認前のruntime上書きは禁止する。他frameのtrial横展開は1件ずつ許可する。
 - 仕様更新時はGitHub最新版blob SHAを取得した上で、その最新版に今回分だけ追記する。
+
+
+## 全身自然さを含む横展開（2026-09-21）
+
+新規frameでは `character-assets/config/mesh_warp_frame_template_v1.json` を複製して専用JSONを作る。Python本体へのframe別分岐は禁止。
+
+normal source選定では、脚・腕など単一点の近さより、腰→骨盤→体幹→肩→脚→足先までの流れが自然で目標姿勢に近い正常画像を優先する。兄弟phaseが監査FAILなら、そのままnormal sourceへ採用しない。
+
+視覚QAでは局所の形だけでなく、腰と脚、骨盤と体幹、体幹と肩、上下半身の一体感、重心、演奏動作の流れ、服の柄と輪郭の整合を確認する。これらは人間確認用メタデータであり、重い自動探索・自動スコアリング・反復最適化は標準工程へ追加しない。
+
+次候補の010（BD+RC hit）は、同一actionの011 reboundも右手スティック重複でFAILのため、011を無条件にnormal sourceへ使わない。全身の流れが近く監査PASSの別ドナーを先に選定してから専用JSONを作る。
