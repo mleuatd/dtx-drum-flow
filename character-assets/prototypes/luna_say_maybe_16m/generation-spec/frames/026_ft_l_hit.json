@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 26,
+  "sourceFilename": "026_ft_l_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "FT:L",
+  "runtimeActionKey": "FT:L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手に本来の斜めスティックと胴体・髪方向へ横断する長いスティックが重複している。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "stick",
+    "torso",
+    "hair",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/FT_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action FT:L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "stick",
+      "torso",
+      "hair",
+      "artifact"
+    ]
+  }
+}
