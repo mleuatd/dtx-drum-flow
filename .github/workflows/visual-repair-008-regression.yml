@@ -23,20 +23,24 @@ jobs:
           cache: "pip"
           cache-dependency-path: tools/character_layers/requirements.txt
       - run: pip install --disable-pip-version-check -r tools/character_layers/requirements.txt
+      - name: Preserve committed formal reference
+        run: cp character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png /tmp/008_formal_reference.png
+      - name: Warm SHA input cache
+        run: |
+          python tools/character_layers/run_visual_repair_trial.py \
+            --frame-config character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json \
+            --output-dir /tmp/mesh-warp-008-warmup
       - name: Run 008 one-command regression
         run: |
           python tools/character_layers/run_visual_repair_trial.py \
             --frame-config character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json \
-            --source character-assets/layers/character/bd/rebound_rf.png \
-            --broken-source character-assets/layers/character/bd/hit_rf.png \
-            --fixed-drum character-assets/layers/drum/drum_base.png \
-            --output-dir /tmp/mesh-warp-008-regression
+            --output-dir character-assets/generation-trials/mesh-warp-008-v1
       - name: Assert regression safety
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=Path('/tmp/mesh-warp-008-regression')
+          p=Path('character-assets/generation-trials/mesh-warp-008-v1')
           qa=json.loads((p/'008_qa.json').read_text())
           run=json.loads((p/'008_run_manifest.json').read_text())
           cm=json.loads((p/'008_commit_manifest.json').read_text())
@@ -56,8 +60,8 @@ jobs:
           import numpy as np
           from pathlib import Path
           from PIL import Image
-          generated=Path('/tmp/mesh-warp-008-regression/008_bd_rf_hit_mesh_v1.png')
-          reference=Path('character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png')
+          generated=Path('character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png')
+          reference=Path('/tmp/008_formal_reference.png')
           visual_reference=Path('character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.png')
           with Image.open(generated) as im:
               a=np.asarray(im.convert('RGBA'))
@@ -82,5 +86,5 @@ jobs:
         run: |
           for f in 008_qa.json 008_timing.json 008_run_manifest.json 008_commit_manifest.json 008_regression_run.json; do
             echo "===== $f ====="
-            cat "/tmp/mesh-warp-008-regression/$f" || true
+            cat "character-assets/generation-trials/mesh-warp-008-v1/$f" || true
           done
