@@ -1,9 +1,6 @@
 name: FRONT06 finalize MOTION-002
 on:
-  push:
-    branches: [main]
-    paths:
-      - "character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_STATE.json"
+  workflow_dispatch:
 
 permissions:
   contents: write
