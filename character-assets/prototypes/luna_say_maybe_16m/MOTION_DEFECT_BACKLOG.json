@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:44:19+00:00",
+  "updatedAt": "2026-09-20T20:01:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -6614,7 +6614,7 @@
     },
     {
       "issueId": "MOTION-008",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M140,M113",
       "time": "~243.86-244.01s",
@@ -6643,10 +6643,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T10:44:19+00:00",
+      "updatedAt": "2026-09-20T20:01:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -7252,6 +7252,11 @@
             "at": "2026-09-20T10:03:00+09:00",
             "decision": "PASS2_BACK_EXISTING_CANDIDATE_STATIC_FAIL_CONFIRMED",
             "detail": "Reused artifact 10594790972. HH+SN candidate still has large rectangular hair/torso splice and floating fragments. No promotion; runtime remains blocked."
+          },
+          {
+            "at": "2026-09-20T20:01:00+09:00",
+            "decision": "MOTION_008_RUNTIME_VERIFIED",
+            "detail": "Targeted public runtime QA passed at both required occurrences. M140 run 35506492660 artifact 10604635266 passed PC hit/rebound + Xperia portrait hit/rebound 4/4 with expected/actual HH+SN:R/L action, phase and frame matching, zero console/page/request errors. M113 run 35506567691 artifact 10604610474 passed the same 4/4 gates. Public deployment SHA matched each tested commit."
           }
         ],
         "measurementTodos": [
@@ -7497,7 +7502,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T06:13:00+09:00"
+        "updatedAt": "2026-09-20T20:01:00+09:00"
       },
       "occurrences": [
         {
@@ -7532,7 +7537,7 @@
             "phase": "rebound",
             "oldSha256": "689df514c6c7ea188905cc283d91cfec1ef01d2ef8cbaa90e6f2267d2b2f724b",
             "newSha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31",
-            "changedRatioVsNeutral": 5.787e-05
+            "changedRatioVsNeutral": 0.00005787
           }
         ],
         "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
@@ -7542,12 +7547,12 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "PASS after source-bound reconstruction from VERIFIED BD+HH+SN upper-body authority and local cleanup of disconnected donor residue only. Full-resolution hit/rebound and fixed-drum composites inspected; no rectangular torso/hair splice or floating residue remains.",
-        "reviewedAt": "2026-09-20T19:42:00+09:00",
+        "note": "MOTION-008 HH+SN:R/L VERIFIED. Static full-resolution anatomy/linework/fixed-drum composite PASS; formal hit/rebound promoted with SHAs 32d69bc519c796774511a37eabff2c8e1708fc1f12ab29157b78a16d2c45e825 / 55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31. Targeted public runtime QA M140 run 35506492660 and M113 run 35506567691 each passed PC hit/rebound + Xperia portrait hit/rebound 4/4 with zero console/page/request errors. Validate run 35506492608 PASS; M113 deploy 35506567695 PASS; Character asset validation 35506567710 PASS.",
+        "reviewedAt": "2026-09-20T20:01:00+09:00",
         "reviewEvidence": {
           "buildRunId": 35505732652,
           "sourceAuthority": "verified BD+HH+SN superset + measured local residue cleanup",
@@ -7557,13 +7562,62 @@
         "candidateSha256": {
           "hit": "32d69bc519c796774511a37eabff2c8e1708fc1f12ab29157b78a16d2c45e825",
           "rebound": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31"
+        },
+        "runtimeEvidence": {
+          "m140": {
+            "workflowRunId": 35506492660,
+            "artifactId": 10604635266,
+            "testedCommitSha": "8ff5d59929b3baa7d7d24a5f833cd8b5fcb45f22",
+            "measure": 140,
+            "actionKey": "HH+SN:R/L",
+            "pc": {
+              "hit": "PASS",
+              "rebound": "PASS"
+            },
+            "xperiaPortrait": {
+              "hit": "PASS",
+              "rebound": "PASS"
+            },
+            "failed": 0,
+            "passed": 4
+          },
+          "m113": {
+            "workflowRunId": 35506567691,
+            "artifactId": 10604610474,
+            "testedCommitSha": "801af3577d2cf5026fe96570920c8c8d53feee1f",
+            "measure": 113,
+            "actionKey": "HH+SN:R/L",
+            "pc": {
+              "hit": "PASS",
+              "rebound": "PASS"
+            },
+            "xperiaPortrait": {
+              "hit": "PASS",
+              "rebound": "PASS"
+            },
+            "failed": 0,
+            "passed": 4
+          },
+          "validation": {
+            "workflowRunId": 35506492608,
+            "conclusion": "success"
+          },
+          "deploy": {
+            "workflowRunId": 35506567695,
+            "conclusion": "success"
+          },
+          "characterAssetValidation": {
+            "workflowRunId": 35506567710,
+            "conclusion": "success"
+          }
         }
       },
       "claim": {
-        "state": "CLAIMED",
+        "state": "RELEASED",
         "batch": "BACK-ACTIONS-35505732652",
         "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T10:41:14.307728+00:00"
+        "claimedAt": "2026-09-20T10:41:14.307728+00:00",
+        "releasedAt": "2026-09-20T20:01:00+09:00"
       },
       "decisionLog": [
         {
@@ -7589,6 +7643,11 @@
           "at": "2026-09-20T19:44:30+09:00",
           "state": "PROMOTION_RETRY",
           "note": "First guarded promotion selected both MOTION-008 candidates, but repository-wide validation stopped on pre-existing MOTION-004 RC+SN manifest/action-map SHA drift. Metadata was synchronized to the already-promoted VERIFIED v6 formal SHAs; retrying MOTION-008 promotion without changing any RC+SN image pixels."
+        },
+        {
+          "at": "2026-09-20T20:01:00+09:00",
+          "decision": "MOTION_008_VERIFIED_FINAL",
+          "detail": "HH+SN:R/L formal hit/rebound promoted and verified. M140 Runtime Character QA run 35506492660 artifact 10604635266 PASS 4/4; M113 run 35506567691 artifact 10604610474 PASS 4/4; PC and Xperia portrait hit/rebound all matched expected action/phase/frame with zero browser/request errors. Validate 35506492608 PASS, deploy 35506567695 PASS, Character asset validation 35506567710 PASS. CLAIM released."
         }
       ],
       "hold": {
@@ -7603,7 +7662,10 @@
         "repairResult": "STATIC_VISUAL_FAIL confirmed: large rectangular hair/torso splice plus floating line fragments. Existing machine-safe candidate cannot be promoted.",
         "nextRepair": "Pair-level measured two-arm/hand/stick ROI reconstruction; eliminate splice at source and preserve torso/hair/seat outside necessary occlusion. Do not use broad rectangular neutral transplant.",
         "prohibitedRepair": "whole-torso rectangular transplant; full redraw",
-        "restartCondition": "Exact deterministic or verifiably source-bound ROI editing available, followed by anatomy/linework/fixed-drum/transition static gates."
+        "restartCondition": "Exact deterministic or verifiably source-bound ROI editing available, followed by anatomy/linework/fixed-drum/transition static gates.",
+        "resolved": true,
+        "resolvedAt": "2026-09-20T20:01:00+09:00",
+        "resolution": "Resolved by source-bound reconstruction, guarded formal promotion, static visual-integrity PASS, and targeted M140/M113 public runtime QA PASS."
       }
     },
     {
