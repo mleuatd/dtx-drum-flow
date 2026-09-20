@@ -35,10 +35,13 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Stage character assets for site
+      - name: Stage runtime-only character assets for site
         run: |
           rm -rf site/character-assets
-          cp -R character-assets site/character-assets
+          mkdir -p site/character-assets/layers
+          mkdir -p site/character-assets/prototypes/luna_say_maybe_16m
+          cp -R character-assets/layers/. site/character-assets/layers/
+          cp character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json site/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
 
       - name: Write deployment build identifier
         run: |
