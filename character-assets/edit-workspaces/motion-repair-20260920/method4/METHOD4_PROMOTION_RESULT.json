@@ -1,15 +1,40 @@
 {
   "schemaVersion": 1,
-  "promoted": [],
-  "failedCandidates": [
+  "promoted": [
     {
       "id": "rd_r_hit",
       "actionKey": "RD:R",
       "phase": "hit",
-      "checks": null,
-      "changedRatioVsNeutral": null
+      "oldSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
+      "newSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
+      "changedRatioVsNeutral": 0.00954896
+    },
+    {
+      "id": "rd_r_rebound",
+      "actionKey": "RD:R",
+      "phase": "rebound",
+      "oldSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
+      "newSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
+      "changedRatioVsNeutral": 0.00667524
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_hit_refresh",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "hit",
+      "oldSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
+      "newSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
+      "changedRatioVsNeutral": 0.0447585
+    },
+    {
+      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "phase": "rebound",
+      "oldSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
+      "newSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
+      "changedRatioVsNeutral": 0.04313246
     }
   ],
+  "failedCandidates": [],
   "skipped": [
     {
       "id": "bd_rd_rf_r_hit",
@@ -22,18 +47,6 @@
     {
       "id": "rd_sn_r_l_hit",
       "reason": "already_completed"
-    },
-    {
-      "id": "bd_rc_sn_rf_r_l_hit_refresh",
-      "reason": "source_sha_changed",
-      "expected": "db14316e9e92d394073bf8bcafbc9cf2d15b6fca0f9582fce35d29efc89ba65a",
-      "current": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b"
-    },
-    {
-      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
-      "reason": "source_sha_changed",
-      "expected": "2bb7f88de437e7a58145ffc5d7b081ee6bfa3fdc2e0cd74e389aaf18a6d42f92",
-      "current": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d"
     }
   ]
 }
