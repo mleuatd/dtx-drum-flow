@@ -1,45 +1,58 @@
-name: FRONT rebuild MOTION-006 from verified roots
+name: FRONT complete MOTION-006 from verified roots
 on:
   push:
     branches: [main]
     paths:
       - ".github/workflows/front-m006-rebuild.yml"
       - "tools/character_layers/build_front_m006.py"
+      - "tools/character_layers/promote_front_m006.py"
       - ".github/front-m006-trigger.txt"
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: front-m006
   cancel-in-progress: true
 jobs:
-  build:
+  build-promote:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
         with:
-          filter: blob:none
-          sparse-checkout: |
-            character-assets/layers/character/base/neutral.png
-            character-assets/layers/character/bd
-            character-assets/layers/character/rd
-            character-assets/layers/drum/drum_base.png
-            character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
-            tools/character_layers/build_front_m006.py
-          sparse-checkout-cone-mode: false
+          fetch-depth: 0
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
+        with:
+          python-version: "3.12"
       - run: python -m pip install --disable-pip-version-check pillow numpy
-      - name: Verify FRONT claim
+      - name: Replay exact promotion on latest main
         run: |
-          python - <<'PY'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            python - <<'PY'
           import json
           d=json.load(open("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"))
-          x=next(v for v in d["defects"] if v["issueId"]=="MOTION-006");c=x.get("claim") or {}
+          x=next(v for v in d["defects"] if v["issueId"]=="MOTION-006")
+          c=x.get("claim") or {}
           assert c.get("owner")=="CHATGPT-FRONT" and c.get("batch")=="FRONT-M006-AFTER-M010",c
+          v=x.get("visualIntegrityQa") or {}; e=v.get("reviewEvidence") or {}
+          assert v.get("humanAnatomy")=="PASS" and v.get("linework")=="PASS" and v.get("fixedDrumComposite")=="PASS" and not v.get("promotionBlocked"),v
+          assert e.get("candidateHitSha256")=="7da76d13cbedff3390cb6b95babac5fd8e42ebe2ef3abbe9cfcdf39a3d586ab4"
+          assert e.get("candidateReboundSha256")=="38bd82c3f3df41cdb04433db55749107ae542bfcaee3c2c4a3fa83db3d363110"
           PY
-      - run: python tools/character_layers/build_front_m006.py
+            python tools/character_layers/build_front_m006.py
+            python tools/character_layers/promote_front_m006.py
+            python tools/character_layers/validate_assets.py
+            python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+            git add               character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png               character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png               character-assets/config/assets_manifest.json               character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json               character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json               character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json               character-assets/edit-workspaces/motion-repair-20260920/front-m006/M006_RUNTIME_QA_STATE.json
+            git commit -m "repair: promote exact MOTION-006 verified-root pair"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*2))
+          done
+          exit 1
       - uses: actions/upload-artifact@v4
         if: always()
         with:
