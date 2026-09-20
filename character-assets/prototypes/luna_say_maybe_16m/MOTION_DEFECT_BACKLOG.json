@@ -9311,7 +9311,7 @@
     },
     {
       "issueId": "MOTION-011",
-      "status": "IN_FIX",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:06.7-2:06.8",
@@ -9339,7 +9339,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T11:12:00+09:00",
+      "updatedAt": "2026-09-20T12:49:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -10299,22 +10299,20 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
-        "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "BACK-BATCH-01: automated candidate QA and locked-region/contact-preservation checks pass for hit/rebound, but mandatory visual anatomy/linework/fixed-drum review is not represented as PASS evidence. Moved to HOLD per two-queue policy instead of blocking the remaining ledger.",
-        "reviewedAt": "2026-09-20T08:56:00+09:00",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING",
+        "promotionBlocked": false,
+        "ruleVersion": "2026-09-20-exact-fullres-v2",
+        "reviewedAt": "2026-09-20T12:49:00+09:00",
         "reviewEvidence": {
-          "workflowRunId": 35476568863,
-          "artifactId": 10593149790
+          "workflowRunId": 35487259210,
+          "artifactId": 10597971085,
+          "hitSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
+          "reboundSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d"
         },
-        "failReasons": [
-          "extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body"
-        ]
+        "note": "Exact full-resolution fixed-drum review after tight bounded repair: prior detached right-side hand/stick defect is removed and rebound seat-splice cleanup is constrained to the visible defect. Machine gates PASS for both exact candidates."
       },
       "claim": {
         "state": "CLAIMED",
@@ -10342,6 +10340,11 @@
           "at": "2026-09-20T12:20:00+09:00",
           "decision": "CLAIM_FOR_COMPLETION_PLAYBOOK",
           "detail": "Selected as next unclaimed BACK-side image pair. Continue from existing formal/best evidence; target only detached/duplicated right RC hand-stick corridor, preserve RF pedal and left SN semantics."
+        },
+        {
+          "at": "2026-09-20T12:49:00+09:00",
+          "decision": "EXACT_CANDIDATE_VISUAL_PASS",
+          "detail": "Run 35487259210 artifact 10597971085. Exact hit 9f6dfe72... and rebound 59655e19... both machine PASS and full-resolution visual PASS. Ready for exact-candidate promotion; keep CLAIM until VERIFIED."
         }
       ],
       "hold": {
