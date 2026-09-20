@@ -1,0 +1,23 @@
+name: Inspect 010 repair sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-010-sources.yml"
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package exact repair sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: inspect-010-sources
+          if-no-files-found: error
+          compression-level: 0
+          path: |
+            character-assets/layers/character/combo/bd_rc_hit.png
+            character-assets/layers/character/bd/rebound_rf.png
+            character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v3.png
