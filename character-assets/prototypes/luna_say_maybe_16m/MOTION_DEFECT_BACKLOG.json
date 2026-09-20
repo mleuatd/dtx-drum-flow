@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:47:00+09:00",
+  "updatedAt": "2026-09-20T10:50:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1072,7 +1072,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -1099,10 +1099,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T09:52:00+09:00",
+      "updatedAt": "2026-09-20T10:50:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "IN_FIX",
         "repairType": "mixed",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -1915,7 +1915,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T09:52:00+09:00"
+        "updatedAt": "2026-09-20T10:50:00+09:00"
       },
       "occurrences": [
         {
@@ -1984,9 +1984,19 @@
           "at": "2026-09-20T09:52:00+09:00",
           "decision": "HOLD_REPAIR_FRONT_04_CLOSED",
           "detail": "Released FRONT claim after candidate+machine+human pair review. Next allowed repair is pair-level right-arm pose replacement plus BD/RF foot preservation; do not repeat additive arm corridor."
+        },
+        {
+          "at": "2026-09-20T10:50:00+09:00",
+          "decision": "HOLD_REPAIR_RECLAIMED_PAIR_REPLACEMENT",
+          "detail": "FRONT reclaimed MOTION-002 for a new pair-level replacement method: remove old right-arm pose, insert one RC right-arm pose, and preserve BD/RF foot semantics independently. Do not repeat additive arm corridor."
         }
       ],
-      "claim": null
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "HOLD-REPAIR-FRONT-06",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T10:50:00+09:00"
+      }
     },
     {
       "issueId": "MOTION-003",
