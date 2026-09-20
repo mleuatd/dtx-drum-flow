@@ -39,6 +39,19 @@ for rec in summary.get("targets",[]):
         skipped.append({"id":tid,"reason":"already_completed"}); continue
     if t.get("terminalId")!="CHAT-MOTION-REPAIR" and not pass2_claim:
         skipped.append({"id":tid,"reason":"claim_owner_changed"}); continue
+    # Machine/pixel QA is necessary but never sufficient for promotion.
+    # A prior or current full-resolution visual FAIL must hard-block formal
+    # overwrite until an explicit visual PASS is recorded for the exact
+    # candidate SHA and all mandatory visual gates.
+    vq=(defect or {}).get("visualIntegrityQa") or {}
+    ev=vq.get("reviewEvidence") or {}
+    cand_sha=rec.get("candidateSha256")
+    phase_sha=ev.get("candidateHitSha256") if rec.get("phase")=="hit" else ev.get("candidateReboundSha256")
+    visual_pass=(vq.get("humanAnatomy")=="PASS" and vq.get("linework")=="PASS" and vq.get("fixedDrumComposite")=="PASS" and not vq.get("promotionBlocked") and phase_sha==cand_sha)
+    if rec.get("pass") and not visual_pass:
+        t["brushupStatus"]="AUTO_REPAIR_VISUAL_QA_REQUIRED"
+        skipped.append({"id":tid,"reason":"visual_qa_not_pass_for_exact_candidate","candidateSha256":cand_sha,"reviewedCandidateSha256":phase_sha})
+        continue
     if not rec.get("pass"):
         t["brushupStatus"]="AUTO_REPAIR_METHOD4_FAIL"
         t["qaEvidence"]=str((WORK/(tid.lower()+"_qa.json")).relative_to(ROOT)) if (WORK/(tid.lower()+"_qa.json")).exists() else None
