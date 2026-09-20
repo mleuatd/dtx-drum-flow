@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 37,
+  "sourceFilename": "037_bd_lt_rf_r_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+LT:RF/R",
+  "runtimeActionKey": "BD+LT:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手に上向きスティックと髪方向へ伸びる別スティックが重複している。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "hair",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_LT_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+LT:RF/R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "hair",
+      "artifact"
+    ]
+  }
+}
