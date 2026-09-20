@@ -2,7 +2,7 @@ import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
 import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-audio-final-r21";
 import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-audio-final-r21";
-import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260919-public-runtime-qa-r1";
+import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260920-speed-adaptive-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
