@@ -1,25 +1,12 @@
 {
   "schemaVersion": 1,
-  "promoted": [
-    {
-      "id": "rd_r_hit",
-      "actionKey": "RD:R",
-      "phase": "hit",
-      "oldSha256": "0ee5d80562e2b51de3567596c1b114d33b2f7c7255dedb621b922ffde9093ebf",
-      "newSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
-      "changedRatioVsNeutral": 0.00954896
-    },
-    {
-      "id": "rd_r_rebound",
-      "actionKey": "RD:R",
-      "phase": "rebound",
-      "oldSha256": "7f2cc96baaa46184365a6092dbe65ce94aa3918f942808de896c1fc1b708cea6",
-      "newSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
-      "changedRatioVsNeutral": 0.00667524
-    }
-  ],
+  "promoted": [],
   "failedCandidates": [],
   "skipped": [
+    {
+      "id": "rd_r_hit",
+      "reason": "already_completed"
+    },
     {
       "id": "bd_rd_rf_r_hit",
       "reason": "already_completed"
@@ -30,6 +17,10 @@
     },
     {
       "id": "rd_sn_r_l_hit",
+      "reason": "already_completed"
+    },
+    {
+      "id": "rd_r_rebound",
       "reason": "already_completed"
     }
   ]
