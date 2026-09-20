@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T14:17:00+09:00",
+  "updatedAt": "2026-09-20T14:40:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -7523,7 +7523,7 @@
     },
     {
       "issueId": "MOTION-009",
-      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M147,M130",
       "time": "~255.95-256.10s",
@@ -7552,7 +7552,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T14:40:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "IN_FIX",
@@ -8453,16 +8453,23 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL_PAIR_RIGHT_ARM_DUPLICATION",
-        "linework": "FAIL_PAIR_RIGHT_HAND_STICK_CONTINUITY",
-        "fixedDrumComposite": "FAIL_PAIR_RD_SEMANTICS",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "priorStatus": "IN_FIX",
-        "note": "Hold after two rebound-local method4 attempts. Rebound v2 improved, but current hit has duplicated/disconnected right RD arm/hand geometry. Pair-level repair must address both hit and rebound; preserve left SN arm/head/torso/stool/legs.",
-        "reviewedAt": "2026-09-20T09:22:00+09:00",
-        "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png"
+        "note": "Pair rebuilt from bounded left-SN source plus VERIFIED/APPROVED_LIVE RD:R authority. Duplicate right arm removed; active right arm/hand/stick remains coherent with the approved RD:R source. Machine QA PASS for both phases; contact preservation hit RD/SN=100%/100%, rebound RD/SN=96.51%/100%.",
+        "reviewedAt": "2026-09-20T14:40:00+09:00",
+        "visualEvidence": "visual-integrity-batch-prep run 35476033283 artifact 10594885001; transition_strips/rd_sn_r_l_neutral_hit_rebound_neutral.png",
+        "reviewEvidence": {
+          "candidateHitSha256": "1339af1ef8b56e24631fdef040567e87d7acd12b5faf320af52574319ae53086",
+          "candidateReboundSha256": "3481994f351185dc1896be0d4f8fc2fb14b1ed732398c1184f59f197fd82f95b",
+          "machineQaRunId": 35492162101,
+          "artifactId": 10599223784,
+          "basis": "full-resolution fixed-drum candidate review against verified RD:R authority"
+        }
       },
       "claim": {
         "state": "CLAIMED",
@@ -8495,6 +8502,11 @@
           "at": "2026-09-20T13:19:00+09:00",
           "decision": "CLAIM_CONTINUOUS_COMPLETION",
           "detail": "Selected as next unowned issue after MOTION-006 reconciliation. Continue from best existing RD+SN candidate/evidence until VERIFIED; do not restart broad repair."
+        },
+        {
+          "at": "2026-09-20T14:40:00+09:00",
+          "decision": "VISUAL_PASS_EXACT_METHOD4_AUTHORITY_PAIR",
+          "detail": "Exact method4 candidate pair passed visual anatomy/linework/fixed-drum review after reconstructing right RD motion from VERIFIED RD:R authority while retaining bounded left SN motion. Authorized guarded formal promotion."
         }
       ]
     },
