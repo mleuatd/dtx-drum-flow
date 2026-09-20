@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T13:18:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -13159,7 +13159,7 @@
     },
     {
       "issueId": "MOTION-015",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -13175,9 +13175,12 @@
         "pc/m67_BD_HH_SN_RF_R_L_rebound.png",
         "full-frame changed-pixel ratio 14.07% (triage metric only)",
         "visual review: hit/rebound show broader body-registration change than the action semantics require",
-        "Runtime-only completion pass claimed by FRONT; formal Method4 SHAs already registered in inventory/action map."
+        "Runtime-only completion pass claimed by FRONT; formal Method4 SHAs already registered in inventory/action map.",
+        "public runtime QA run 35488330690 artifact 10597557585: PC/Xperia hit+rebound PASS, failed=0",
+        "validate run 35488330725 PASS",
+        "character asset validation run 35488330674 PASS"
       ],
-      "fixDecision": "Before editing, quantify locked-region displacement against neutral and hit/rebound. Preserve current mapping/contact semantics unless separate evidence proves them wrong. Repair at action-asset level, not per-measure workaround.",
+      "fixDecision": "VERIFIED: existing promoted Method4 formal pair passed validate, character asset validation, and public real-chart PC/Xperia hit+rebound runtime QA at M67.",
       "relatedAsset": [
         "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
         "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
@@ -13188,7 +13191,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T13:15:00+09:00",
+      "updatedAt": "2026-09-20T13:18:00+09:00",
       "occurrences": [
         {
           "measure": "M67",
@@ -13202,7 +13205,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_RUNTIME_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13855,6 +13858,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T13:18:00+09:00",
+            "decision": "VERIFIED",
+            "detail": "M67 real-chart PC/Xperia hit and rebound all PASS using promoted BD+HH+SN:RF/R/L frames; claim released."
           }
         ],
         "measurementTodos": [
@@ -14162,12 +14170,7 @@
           "Static body/drum registration visually stable."
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FRONT-M015-RUNTIME-ONLY",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T13:15:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
