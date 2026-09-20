@@ -1009,8 +1009,8 @@
       "hitPath": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
       "reboundPath": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
       "hit": {
-        "sha256": "0239bb7b0da8aeb0dfb0b64715214c93b081c9274c2841a427abdb1a0ebe3729",
-        "opaquePixelCount": 362841,
+        "sha256": "1339af1ef8b56e24631fdef040567e87d7acd12b5faf320af52574319ae53086",
+        "opaquePixelCount": 362571,
         "opaqueBBox": {
           "x": 57,
           "y": 23,
@@ -1018,13 +1018,13 @@
           "height": 1040
         },
         "opaqueCentroid": {
-          "x": 735.621,
-          "y": 555.677
+          "x": 735.379,
+          "y": 555.836
         }
       },
       "rebound": {
-        "sha256": "477027d72d45a767285b96c25f0648b7e441a5eabebdeb74a6af68cce12a17b0",
-        "opaquePixelCount": 360343,
+        "sha256": "3481994f351185dc1896be0d4f8fc2fb14b1ed732398c1184f59f197fd82f95b",
+        "opaquePixelCount": 360562,
         "opaqueBBox": {
           "x": 57,
           "y": 23,
@@ -1032,62 +1032,62 @@
           "height": 1040
         },
         "opaqueCentroid": {
-          "x": 735.72,
-          "y": 556.504
+          "x": 735.064,
+          "y": 556.616
         }
       },
       "neutralToHit": {
-        "changedPixels": 30856,
-        "changedRatio": 0.01962191,
+        "changedPixels": 27304,
+        "changedRatio": 0.01736312,
         "diffBBox": {
           "x": 401,
           "y": 245,
-          "width": 653,
+          "width": 647,
           "height": 308
         },
         "diffCentroid": {
-          "x": 734.347,
-          "y": 392.387
+          "x": 740.555,
+          "y": 393.821
         },
-        "alphaMismatchPixels": 26235
+        "alphaMismatchPixels": 24560
       },
       "neutralToRebound": {
-        "changedPixels": 28820,
-        "changedRatio": 0.01832718,
+        "changedPixels": 22732,
+        "changedRatio": 0.0144557,
         "diffBBox": {
           "x": 401,
-          "y": 205,
+          "y": 253,
           "width": 679,
-          "height": 415
+          "height": 349
         },
         "diffCentroid": {
-          "x": 709.081,
-          "y": 424.811
+          "x": 699.689,
+          "y": 420.281
         },
-        "alphaMismatchPixels": 24133
+        "alphaMismatchPixels": 19629
       },
       "hitToRebound": {
-        "changedPixels": 36723,
-        "changedRatio": 0.02335284,
+        "changedPixels": 29825,
+        "changedRatio": 0.01896628,
         "diffBBox": {
           "x": 401,
-          "y": 205,
+          "y": 245,
           "width": 679,
-          "height": 415
+          "height": 357
         },
         "diffCentroid": {
-          "x": 762.758,
-          "y": 396.003
+          "x": 758.822,
+          "y": 392.191
         },
-        "alphaMismatchPixels": 29446
+        "alphaMismatchPixels": 24778
       },
       "shape": {
         "hitNeutralBboxIoU": 1.0,
         "reboundNeutralBboxIoU": 1.0,
         "hitReboundBboxIoU": 1.0,
-        "hitNeutralCentroidShiftPx": 2.74,
-        "reboundNeutralCentroidShiftPx": 2.231,
-        "hitReboundCentroidShiftPx": 0.833
+        "hitNeutralCentroidShiftPx": 2.467,
+        "reboundNeutralCentroidShiftPx": 1.664,
+        "hitReboundCentroidShiftPx": 0.841
       },
       "contactCenters": [
         {
@@ -1113,21 +1113,21 @@
         "hit": [
           {
             "instrument": "RD",
-            "distancePx": 271.062
+            "distancePx": 266.571
           },
           {
             "instrument": "SN",
-            "distancePx": 345.185
+            "distancePx": 350.267
           }
         ],
         "rebound": [
           {
             "instrument": "RD",
-            "distancePx": 309.925
+            "distancePx": 315.255
           },
           {
             "instrument": "SN",
-            "distancePx": 309.369
+            "distancePx": 302.302
           }
         ]
       }
@@ -1508,8 +1508,8 @@
       "hitPath": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
       "reboundPath": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
       "hit": {
-        "sha256": "d9fc81cda94a5bd90ddf1cc3e4062ccc537a282df4cbd1c0206f590e50769372",
-        "opaquePixelCount": 360779,
+        "sha256": "f8ffc411a882e16b2b5b07c9af0c4b95c8c31c64be7187e778d4eb91b17cb024",
+        "opaquePixelCount": 361717,
         "opaqueBBox": {
           "x": 57,
           "y": 23,
@@ -1517,13 +1517,13 @@
           "height": 1040
         },
         "opaqueCentroid": {
-          "x": 732.135,
-          "y": 554.781
+          "x": 732.234,
+          "y": 555.208
         }
       },
       "rebound": {
-        "sha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
-        "opaquePixelCount": 367936,
+        "sha256": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a",
+        "opaquePixelCount": 368987,
         "opaqueBBox": {
           "x": 57,
           "y": 23,
@@ -1531,62 +1531,62 @@
           "height": 1040
         },
         "opaqueCentroid": {
-          "x": 728.7,
-          "y": 549.806
+          "x": 728.673,
+          "y": 550.083
         }
       },
       "neutralToHit": {
-        "changedPixels": 73062,
-        "changedRatio": 0.04646149,
+        "changedPixels": 62120,
+        "changedRatio": 0.03950327,
         "diffBBox": {
           "x": 496,
           "y": 315,
-          "width": 450,
+          "width": 409,
           "height": 679
         },
         "diffCentroid": {
-          "x": 727.436,
-          "y": 696.252
+          "x": 704.329,
+          "y": 706.842
         },
-        "alphaMismatchPixels": 34338
+        "alphaMismatchPixels": 30721
       },
       "neutralToRebound": {
-        "changedPixels": 88819,
-        "changedRatio": 0.05648167,
+        "changedPixels": 76230,
+        "changedRatio": 0.04847608,
         "diffBBox": {
           "x": 462,
-          "y": 269,
-          "width": 484,
-          "height": 735
+          "y": 262,
+          "width": 443,
+          "height": 742
         },
         "diffCentroid": {
-          "x": 702.971,
-          "y": 660.344
+          "x": 681.809,
+          "y": 663.649
         },
-        "alphaMismatchPixels": 47697
+        "alphaMismatchPixels": 43939
       },
       "hitToRebound": {
-        "changedPixels": 87461,
-        "changedRatio": 0.05561809,
+        "changedPixels": 75437,
+        "changedRatio": 0.0479718,
         "diffBBox": {
           "x": 462,
-          "y": 269,
-          "width": 484,
-          "height": 735
+          "y": 262,
+          "width": 443,
+          "height": 742
         },
         "diffCentroid": {
-          "x": 702.022,
-          "y": 656.372
+          "x": 680.779,
+          "y": 659.478
         },
-        "alphaMismatchPixels": 38427
+        "alphaMismatchPixels": 35476
       },
       "shape": {
         "hitNeutralBboxIoU": 1.0,
         "reboundNeutralBboxIoU": 1.0,
         "hitReboundBboxIoU": 1.0,
-        "hitNeutralCentroidShiftPx": 3.532,
-        "reboundNeutralCentroidShiftPx": 9.572,
-        "hitReboundCentroidShiftPx": 6.046
+        "hitNeutralCentroidShiftPx": 3.116,
+        "reboundNeutralCentroidShiftPx": 9.356,
+        "hitReboundCentroidShiftPx": 6.241
       },
       "contactCenters": [
         {
@@ -1612,21 +1612,21 @@
         "hit": [
           {
             "instrument": "BD",
-            "distancePx": 46.866
+            "distancePx": 64.589
           },
           {
             "instrument": "HT",
-            "distancePx": 369.191
+            "distancePx": 370.169
           }
         ],
         "rebound": [
           {
             "instrument": "BD",
-            "distancePx": 33.658
+            "distancePx": 54.914
           },
           {
             "instrument": "HT",
-            "distancePx": 326.471
+            "distancePx": 321.886
           }
         ]
       }
@@ -1637,8 +1637,8 @@
       "hitPath": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
       "reboundPath": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
       "hit": {
-        "sha256": "ea60350f9d729ea272b908f35381091b58d601f0acf0ada2ff3dd2053d2070c7",
-        "opaquePixelCount": 360052,
+        "sha256": "7410eaedf8faee5922e67a353f35ad6679f5b319eeb9ca609d35a455499efe08",
+        "opaquePixelCount": 357215,
         "opaqueBBox": {
           "x": 57,
           "y": 23,
@@ -1646,13 +1646,13 @@
           "height": 1040
         },
         "opaqueCentroid": {
-          "x": 734.378,
-          "y": 560.653
+          "x": 734.869,
+          "y": 565.745
         }
       },
       "rebound": {
-        "sha256": "2e055dc419f8ff16070a50726d95b7170d60e2cc10b6d264b90090af062ec21a",
-        "opaquePixelCount": 357878,
+        "sha256": "cc8e0f3d653285dbc7cb389c637a4c2b4e50bd8df3c9ba12853e4ac080e2dc86",
+        "opaquePixelCount": 346587,
         "opaqueBBox": {
           "x": 57,
           "y": 23,
@@ -1660,62 +1660,62 @@
           "height": 1040
         },
         "opaqueCentroid": {
-          "x": 734.559,
-          "y": 558.206
+          "x": 738.248,
+          "y": 560.242
         }
       },
       "neutralToHit": {
-        "changedPixels": 73045,
-        "changedRatio": 0.04645068,
+        "changedPixels": 78265,
+        "changedRatio": 0.04977018,
         "diffBBox": {
-          "x": 432,
-          "y": 383,
-          "width": 516,
-          "height": 611
+          "x": 381,
+          "y": 315,
+          "width": 524,
+          "height": 663
         },
         "diffCentroid": {
-          "x": 731.613,
-          "y": 733.4
+          "x": 680.853,
+          "y": 678.912
         },
-        "alphaMismatchPixels": 35964
+        "alphaMismatchPixels": 50152
       },
       "neutralToRebound": {
-        "changedPixels": 73025,
-        "changedRatio": 0.04643796,
+        "changedPixels": 69051,
+        "changedRatio": 0.04391082,
         "diffBBox": {
           "x": 432,
-          "y": 356,
-          "width": 516,
-          "height": 648
+          "y": 325,
+          "width": 473,
+          "height": 653
         },
         "diffCentroid": {
-          "x": 727.471,
-          "y": 722.833
+          "x": 690.065,
+          "y": 664.764
         },
-        "alphaMismatchPixels": 27297
+        "alphaMismatchPixels": 39155
       },
       "hitToRebound": {
-        "changedPixels": 76969,
-        "changedRatio": 0.04894603,
+        "changedPixels": 75070,
+        "changedRatio": 0.04773842,
         "diffBBox": {
-          "x": 432,
-          "y": 356,
-          "width": 516,
-          "height": 648
+          "x": 381,
+          "y": 315,
+          "width": 524,
+          "height": 663
         },
         "diffCentroid": {
-          "x": 729.527,
-          "y": 737.149
+          "x": 682.037,
+          "y": 688.336
         },
-        "alphaMismatchPixels": 33473
+        "alphaMismatchPixels": 49140
       },
       "shape": {
         "hitNeutralBboxIoU": 1.0,
         "reboundNeutralBboxIoU": 1.0,
         "hitReboundBboxIoU": 1.0,
-        "hitNeutralCentroidShiftPx": 2.862,
-        "reboundNeutralCentroidShiftPx": 0.74,
-        "hitReboundCentroidShiftPx": 2.454
+        "hitNeutralCentroidShiftPx": 7.974,
+        "reboundNeutralCentroidShiftPx": 4.954,
+        "hitReboundCentroidShiftPx": 6.458
       },
       "contactCenters": [
         {
@@ -1732,30 +1732,30 @@
           "x": 420,
           "y": 535,
           "source": "INSTRUMENT_CONTACT_POINTS.json",
-          "nearestChangedPixelNeutralToHitPx": 76.158,
-          "nearestChangedPixelNeutralToReboundPx": 76.158,
-          "nearestChangedPixelHitToReboundPx": 98.005
+          "nearestChangedPixelNeutralToHitPx": 56.036,
+          "nearestChangedPixelNeutralToReboundPx": 95.708,
+          "nearestChangedPixelHitToReboundPx": 56.036
         }
       ],
       "contactCenterToDiffCentroidPx": {
         "hit": [
           {
             "instrument": "BD",
-            "distancePx": 83.469
+            "distancePx": 61.382
           },
           {
             "instrument": "SN",
-            "distancePx": 369.412
+            "distancePx": 297.918
           }
         ],
         "rebound": [
           {
             "instrument": "BD",
-            "distancePx": 73.221
+            "distancePx": 47.298
           },
           {
             "instrument": "SN",
-            "distancePx": 360.305
+            "distancePx": 299.623
           }
         ]
       }
