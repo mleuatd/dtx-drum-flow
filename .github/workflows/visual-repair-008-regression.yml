@@ -45,7 +45,41 @@ jobs:
           assert qa['fixedRegionChangedPixels'] == 0
           assert qa['canvas'] == [1448,1086] and qa['mode'] == 'RGBA'
           assert qa['visualQaRequired'] is True
-          assert run['runtimeModified'] is False and run['otherFramesTouched'] is False
+          assert run['runtimeChanged'] is False and run['otherFramesTouched'] is False
           assert not cm['safety']['runtimePathsIncluded']
           assert not cm['safety']['otherFramePathsIncluded']
           PY
+      - name: Compare decoded RGBA with accepted 008 reference
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          from PIL import Image
+          generated=Path('/tmp/mesh-warp-008-regression/008_bd_rf_hit_mesh_v1.png')
+          reference=Path('character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.png')
+          if not reference.exists():
+              raise SystemExit(f'missing accepted reference: {reference}')
+          with Image.open(generated) as im:
+              a=np.asarray(im.convert('RGBA'))
+          with Image.open(reference) as im:
+              b=np.asarray(im.convert('RGBA'))
+          diff=np.any(a != b, axis=2)
+          result={
+              'reference': str(reference),
+              'generated': str(generated),
+              'sameShape': a.shape == b.shape,
+              'decodedRgbaEqual': bool(np.array_equal(a,b)),
+              'differentPixels': int(np.count_nonzero(diff)) if a.shape == b.shape else None,
+          }
+          print(json.dumps(result))
+          assert result['sameShape']
+          assert result['decodedRgbaEqual']
+          PY
+      - name: Emit regression evidence
+        if: always()
+        run: |
+          for f in 008_qa.json 008_timing.json 008_run_manifest.json 008_commit_manifest.json 008_regression_run.json; do
+            echo "===== $f ====="
+            cat "/tmp/mesh-warp-008-regression/$f" || true
+          done
