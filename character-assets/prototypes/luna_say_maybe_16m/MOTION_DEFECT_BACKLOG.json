@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T01:58:34.233495+00:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -11062,7 +11062,12 @@
           "large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments"
         ]
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "BACK-ACTIONS-35482739389",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T01:58:34.233495+00:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:36:00+09:00",
@@ -11987,7 +11992,12 @@
           "rectangular shoulder/hair/torso and seat splice plus detached stick fragments"
         ]
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "BACK-ACTIONS-35482739389",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T01:58:34.233495+00:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -12910,7 +12920,12 @@
         "workflowRunId": 35475145116,
         "artifactId": 10593238245
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "BACK-ACTIONS-35482739389",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T01:58:34.233495+00:00"
+      },
       "hold": {
         "attemptedRepair": "PASS2 BACK: existing full-resolution artifact 10593238245 re-opened. Prior static defects confirmed. A target-bound candidate edit was attempted after retrieving exact character-only evidence, but image editor again returned edit_op=null unrelated dashboard output.",
         "repairResult": "FAIL_TARGET_BINDING. No candidate accepted; formal bd_sn hit/rebound PNGs unchanged.",

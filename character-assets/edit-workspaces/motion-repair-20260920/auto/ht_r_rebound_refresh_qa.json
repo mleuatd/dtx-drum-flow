@@ -3,9 +3,9 @@
   "actionKey": "HT:R",
   "phase": "rebound",
   "source": "character-assets/layers/character/ht/rebound_r_refresh.png",
-  "sourceSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
+  "sourceSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
   "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_candidate.png",
-  "candidateSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
+  "candidateSha256": "0b34fbd72120208f467a1b36b8631df72181685285a0a6f58acd40e0700d7c9e",
   "components": [
     {
       "part": "HT",
@@ -16,14 +16,14 @@
       ]
     }
   ],
-  "maskPixelCount": 114713,
-  "changedPixelsVsNeutral": 105751,
-  "changedRatioVsNeutral": 0.06724904,
+  "maskPixelCount": 105715,
+  "changedPixelsVsNeutral": 96836,
+  "changedRatioVsNeutral": 0.06157983,
   "changedBBoxVsNeutral": {
     "x": 432,
     "y": 209,
     "width": 539,
-    "height": 361
+    "height": 358
   },
   "headGuardChangedPixels": 0,
   "pelvisGuardChangedPixels": 0,
@@ -35,9 +35,9 @@
       "part": "HT",
       "limb": "R",
       "radiusPx": 180,
-      "sourceRelevantPixels": 60326,
+      "sourceRelevantPixels": 46749,
       "preservedPixels": 46749,
-      "preserveRatio": 0.7749
+      "preserveRatio": 1.0
     }
   ],
   "checks": {

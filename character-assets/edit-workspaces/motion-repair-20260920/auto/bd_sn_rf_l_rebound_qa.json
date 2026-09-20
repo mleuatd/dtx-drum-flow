@@ -3,9 +3,9 @@
   "actionKey": "BD+SN:RF/L",
   "phase": "rebound",
   "source": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
-  "sourceSha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
+  "sourceSha256": "2e055dc419f8ff16070a50726d95b7170d60e2cc10b6d264b90090af062ec21a",
   "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_sn_rf_l_rebound_candidate.png",
-  "candidateSha256": "bfea5995594dd0d93d9c7f71a13ed3cf88ad0c2da6f5532fd18731c634a89581",
+  "candidateSha256": "fe97251024b67e0b753a3a9e9e92677b2cbea0a24dab310aaceefbe9d22dc809",
   "components": [
     {
       "part": "BD",
@@ -24,14 +24,14 @@
       ]
     }
   ],
-  "maskPixelCount": 103687,
-  "changedPixelsVsNeutral": 89966,
-  "changedRatioVsNeutral": 0.05721106,
+  "maskPixelCount": 32651,
+  "changedPixelsVsNeutral": 23470,
+  "changedRatioVsNeutral": 0.01492501,
   "changedBBoxVsNeutral": {
     "x": 432,
-    "y": 315,
-    "width": 435,
-    "height": 689
+    "y": 356,
+    "width": 333,
+    "height": 648
   },
   "headGuardChangedPixels": 0,
   "pelvisGuardChangedPixels": 0,
@@ -43,17 +43,17 @@
       "part": "BD",
       "limb": "RF",
       "radiusPx": 180,
-      "sourceRelevantPixels": 74932,
-      "preservedPixels": 17986,
-      "preserveRatio": 0.24
+      "sourceRelevantPixels": 38427,
+      "preservedPixels": 346,
+      "preserveRatio": 0.009
     },
     {
       "part": "SN",
       "limb": "L",
       "radiusPx": 180,
-      "sourceRelevantPixels": 17973,
-      "preservedPixels": 16601,
-      "preserveRatio": 0.9237
+      "sourceRelevantPixels": 4018,
+      "preservedPixels": 4018,
+      "preserveRatio": 1.0
     }
   ],
   "checks": {
