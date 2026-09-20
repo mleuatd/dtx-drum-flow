@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 13,
+  "sourceFilename": "013_rd_r_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "RD:R",
+  "runtimeActionKey": "RD:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "通常の右手とは別に右手上方へ部分的な手・腕とスティックが残り、右側ポーズが二重化している。"
+  ],
+  "defectRegions": [
+    "right_arm",
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/RD_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action RD:R hit/rebound",
+    "negativeAttention": [
+      "right_arm",
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
