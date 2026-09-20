@@ -40,7 +40,11 @@ function keyFor(group,frameMap=data?.frameMap){const exact=exactKeyFor(group);if
 function assetFor(group,phase="hit"){if(phase==="neutral")return data?.frames?.neutral?.path||"layers/character/base/neutral.png";const key=keyFor(group);const phases=data?.phaseFrameMap?.[key];const frameId=phases?.[phase]||data?.frameMap?.[key]||"neutral";return data?.frames?.[frameId]?.path||"layers/character/base/neutral.png"}
 function validatePrototypeCoverage(inventory,scopedNotes,groups){const scope=inventory.runtimeScope||{};if(scopedNotes.length!==Number(scope.noteCount||0))throw new Error("prototype note count mismatch");if(groups.length!==Number(scope.groupCount||0))throw new Error("prototype group count mismatch");if(scopedNotes.some(note=>!note.limb))throw new Error("prototype limb assignments missing");const expectedKeys=new Set(scope.expectedKeys||[]),actualKeys=new Set();for(const group of groups){const key=keyFor(group,inventory.runtimeFrameMap);actualKeys.add(key);if(!inventory.runtimeFrameMap?.[key])throw new Error("prototype frame missing for "+key);for(const phase of ["prep","hit","rebound"]){const frameId=inventory.runtimePhaseFrameMap?.[key]?.[phase];if(!frameId||!inventory.requiredFrames?.[frameId])throw new Error("prototype phase frame missing for "+key+"."+phase)}}const missing=[...expectedKeys].filter(key=>!actualKeys.has(key)),unexpected=[...actualKeys].filter(key=>!expectedKeys.has(key));if(missing.length||unexpected.length)throw new Error("prototype key mismatch missing="+missing.join(",")+" unexpected="+unexpected.join(","))}
 function setFrame(path,label="",phase="neutral"){if(!els.character)return;const src=assetUrl(ASSET_ROOT+"/"+path);if(lastKey!==src){lastKey=src;els.character.src=src}if(els.label)els.label.textContent=label;if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label;els.root.dataset.phase=phase}}
-function findGroupAt(time){
+function normalizedPlaybackRate(playbackRate=1){
+  const rate=Number(playbackRate);
+  return Number.isFinite(rate)&&rate>0?rate:1;
+}
+function findGroupAt(time,playbackRate=1){
   if(!data?.groups?.length)return null;
   let previous=null;
   for(const group of data.groups){
@@ -48,26 +52,32 @@ function findGroupAt(time){
     else break;
   }
   if(!previous)return null;
-  const delta=Number(time)-previous[0].time;
-  const reboundEnd=Number(data?.motionTiming?.reboundEndSeconds??.17);
-  return delta<=reboundEnd?previous:null;
+  const rate=normalizedPlaybackRate(playbackRate);
+  const deltaReal=(Number(time)-previous[0].time)/rate;
+  const reboundEndReal=Number(data?.motionTiming?.reboundEndSeconds??.17);
+  return deltaReal<=reboundEndReal?previous:null;
 }
-function phaseFor(group,time){
-  const delta=Number(time)-group[0].time;
+function phaseFor(group,time,playbackRate=1){
+  const rate=normalizedPlaybackRate(playbackRate);
+  const deltaReal=(Number(time)-group[0].time)/rate;
   const timing=data?.motionTiming||{};
-  const baseHitEnd=Number(timing.hitEndSeconds??.09);
-  const baseReboundEnd=Number(timing.reboundEndSeconds??.17);
+  const baseHitEndReal=Number(timing.hitEndSeconds??.09);
+  const baseReboundEndReal=Number(timing.reboundEndSeconds??.17);
   const index=data?.groups?.indexOf(group)??-1;
   const nextTime=index>=0?Number(data?.groups?.[index+1]?.[0]?.time):NaN;
-  const gap=Number.isFinite(nextTime)?Math.max(0,nextTime-Number(group[0].time)):Infinity;
-  let hitEnd=baseHitEnd,reboundEnd=baseReboundEnd;
-  if(Number.isFinite(gap)&&gap<baseReboundEnd){
-    hitEnd=Math.min(baseHitEnd,Math.max(.055,gap*.65));
-    reboundEnd=Math.min(baseReboundEnd,Math.max(hitEnd+.02,gap-.004));
+  const gapReal=Number.isFinite(nextTime)?Math.max(0,(nextTime-Number(group[0].time))/rate):Infinity;
+  let hitEndReal=baseHitEndReal,reboundEndReal=baseReboundEndReal;
+
+  // Human motion timing is real-time based, not chart-time based.
+  // Fast passages flow directly into the next hit; slow playback naturally
+  // leaves enough wall-clock time to finish rebound and return to neutral.
+  if(Number.isFinite(gapReal)&&gapReal<baseReboundEndReal){
+    hitEndReal=Math.min(baseHitEndReal,Math.max(.055,gapReal*.65));
+    reboundEndReal=Math.min(baseReboundEndReal,Math.max(hitEndReal+.02,gapReal-.004));
   }
-  if(delta<0)return "neutral";
-  if(delta<hitEnd)return "hit";
-  if(delta<reboundEnd)return "rebound";
+  if(deltaReal<0)return "neutral";
+  if(deltaReal<hitEndReal)return "hit";
+  if(deltaReal<reboundEndReal)return "rebound";
   return "neutral";
 }
 function triggerEffect(group,phase){if(!els.effect)return;if(!group||phase!=="hit"){lastEffectToken="";els.effect.dataset.parts="";els.bursts.forEach(b=>b.classList.remove("is-active"));return}const token=String(group[0].time);if(token===lastEffectToken)return;lastEffectToken=token;const parts=[...new Set(group.map(n=>n.part))],points=parts.map(p=>EFFECT_POINTS[p]).filter(Boolean).slice(0,3);els.effect.dataset.parts=parts.join("+");els.bursts.forEach((burst,index)=>{burst.classList.remove("is-active");const point=points[index];if(!point)return;burst.setAttribute("transform",`translate(${point[0]} ${point[1]})`);void burst.getBoundingClientRect();burst.classList.add("is-active")})}
@@ -75,7 +85,7 @@ export async function initCharacterPrototype(){els.root=document.getElementById(
   DRUM,
   ...[...new Set(Object.values(data.frames).map(frame=>ASSET_ROOT+"/"+frame.path))]
 ];const preloadResults=await Promise.allSettled(sources.map(loadImage));const failedSources=preloadResults.map((result,index)=>result.status==="rejected"?sources[index]:null).filter(Boolean);if(failedSources.length){markAssetIssue(failedSources.join(","));console.warn("character asset preload warning",failedSources)}ready=true;els.root.classList.add("character-ready");els.root.dataset.state=failedSources.length?"ready-with-asset-warning":"ready";els.root.dataset.scope=`${startMeasure}-${endMeasure}`;els.root.dataset.runtimeScope=`${startMeasure}-${endMeasure}`;els.root.dataset.noteCount=String(scopedNotes.length);els.root.dataset.groupCount=String(groups.length);updateDevHud("preload:ok")}catch(err){console.warn("character prototype initialization warning",err);els.root.dataset.state="init-warning";els.root.dataset.initError=String(err?.message||err);updateDevHud("init:warning");ready=true;els.root.classList.add("character-ready","asset-warning")}addEventListener("dtx-chart-change",e=>{activeSong=String(e.detail?.name||"").toLowerCase().includes("luna");els.root.classList.toggle("active",activeSong)})}
-export function updateCharacterPrototype(time,chartName=""){if(!els.root)return;els.root.dataset.currentTime=Number(time||0).toFixed(6);activeSong=String(chartName||"").toLowerCase().includes("luna");const provisionalEnd=Number(data?.prototypeEndTime??10.47),inWindow=Number(time)>=0&&Number(time)<=provisionalEnd;els.root.classList.toggle("active",activeSong&&inWindow);els.root.dataset.active=String(activeSong&&inWindow);if(!ready||!data)return;if(!activeSong||!inWindow){triggerEffect(null,"neutral");return}const g=findGroupAt(time);if(!g){els.root.dataset.measure="";els.root.dataset.fallback="false";els.root.dataset.fallbackReason="";els.root.dataset.animationKey="neutral";els.root.dataset.limbs="";triggerEffect(null,"neutral");setFrame(data.frames.neutral.path,"NEUTRAL","neutral");return}const phase=phaseFor(g,time),resolvedKey=keyFor(g),fallback=fallbackInfo(g);els.root.dataset.measure=String(g[0]?.measure??"");els.root.dataset.fallback=String(fallback.fallback);els.root.dataset.fallbackReason=fallback.reason;els.root.dataset.animationKey=resolvedKey;els.root.dataset.limbs=g.map(n=>n.part+":"+handForNote(n)).join(",");const asset=assetFor(g,phase);const parts=[...new Set(g.map(n=>n.part))].sort().join("+"),hand=g.map(n=>handForNote(n)).filter(Boolean).join("/");triggerEffect(g,phase);setFrame(asset,phase==="neutral"?"NEUTRAL":parts+(hand?" · "+hand:"")+" · "+phase.toUpperCase(),phase);updateDevHud()}
+export function updateCharacterPrototype(time,chartName="",playbackRate=1){if(!els.root)return;els.root.dataset.currentTime=Number(time||0).toFixed(6);activeSong=String(chartName||"").toLowerCase().includes("luna");const provisionalEnd=Number(data?.prototypeEndTime??10.47),inWindow=Number(time)>=0&&Number(time)<=provisionalEnd;els.root.classList.toggle("active",activeSong&&inWindow);els.root.dataset.active=String(activeSong&&inWindow);if(!ready||!data)return;if(!activeSong||!inWindow){triggerEffect(null,"neutral");return}const g=findGroupAt(time,playbackRate);if(!g){els.root.dataset.measure="";els.root.dataset.fallback="false";els.root.dataset.fallbackReason="";els.root.dataset.animationKey="neutral";els.root.dataset.limbs="";triggerEffect(null,"neutral");setFrame(data.frames.neutral.path,"NEUTRAL","neutral");return}const phase=phaseFor(g,time,playbackRate),resolvedKey=keyFor(g),fallback=fallbackInfo(g);els.root.dataset.measure=String(g[0]?.measure??"");els.root.dataset.fallback=String(fallback.fallback);els.root.dataset.fallbackReason=fallback.reason;els.root.dataset.animationKey=resolvedKey;els.root.dataset.limbs=g.map(n=>n.part+":"+handForNote(n)).join(",");const asset=assetFor(g,phase);const parts=[...new Set(g.map(n=>n.part))].sort().join("+"),hand=g.map(n=>handForNote(n)).filter(Boolean).join("/");triggerEffect(g,phase);setFrame(asset,phase==="neutral"?"NEUTRAL":parts+(hand?" · "+hand:"")+" · "+phase.toUpperCase(),phase);updateDevHud()}
 
 // Public runtime QA hook. Enabled only with ?qa=1; normal users are unaffected.
 if(new URLSearchParams(location.search).get("qa")==="1"){
