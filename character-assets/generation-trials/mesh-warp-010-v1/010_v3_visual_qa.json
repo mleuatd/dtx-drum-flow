@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "frameId": "010_bd_rc_hit",
+  "candidate": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v3.png",
+  "review": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_fixed_drum_v3_review.webp",
+  "inspectionMethod": "full-resolution PNG opened directly plus full-resolution crops of right-hand stick, skirt/waist, lower body, left-hand stick, and fixed-drum composite",
+  "machinePass": true,
+  "visualPass": false,
+  "findings": [
+    {
+      "id": "V3-STICK-001",
+      "severity": "FAIL",
+      "region": "right_hand_stick",
+      "finding": "Intended long right-hand stick is visibly interrupted; the previous clear region removed part of the long stick and left short dark residual fragments."
+    },
+    {
+      "id": "V3-SKIRT-001",
+      "severity": "FAIL",
+      "region": "skirt_waist",
+      "finding": "Rectangular transplant seam is visible through the central skirt/check pattern, breaking garment line continuity."
+    },
+    {
+      "id": "V3-REVIEW-001",
+      "severity": "REVIEW_ARTIFACT",
+      "region": "fixed_drum_review",
+      "finding": "Transparent WebP preview can render a white rectangle in transparent background areas; pixel inspection of candidate and drum shows RGBA (0,0,0,0) there. Final v4 review is flattened on black to avoid this preview-only artifact."
+    }
+  ],
+  "checklist": {
+    "rightHandStickContinuous": false,
+    "duplicateStickAbsent": false,
+    "rcStrikeReadable": true,
+    "waistLegContinuity": true,
+    "pelvisTorsoDirectionNatural": true,
+    "skirtContinuityNatural": false,
+    "rightAnkleNatural": true,
+    "bootsNatural": true,
+    "thirdLegResidualAbsent": true,
+    "limbCountCorrect": true,
+    "leftHandStickNatural": true,
+    "stoolRelationshipNatural": true,
+    "fixedFaceHairUnchanged": true
+  },
+  "disposition": "DERIVE_V4_FROM_V3",
+  "reason": "Two candidate-level visual defects remain: right-hand stick continuity/residual and rectangular skirt seam. Repair only those regions while preserving v3 lower-body repair."
+}

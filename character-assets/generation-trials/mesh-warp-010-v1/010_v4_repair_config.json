@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "frameId": "010_bd_rc_hit",
+  "parentCandidate": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v3.png",
+  "method": "V3_PARENT_LOCAL_RULE_REPAIR",
+  "runtimeWritable": false,
+  "repairs": [
+    {
+      "name": "restore_clean_skirt_from_original_010",
+      "operation": "copyPolygonFromReference",
+      "reference": "character-assets/layers/character/combo/bd_rc_hit.png",
+      "polygon": [
+        [
+          575,
+          575
+        ],
+        [
+          930,
+          575
+        ],
+        [
+          945,
+          635
+        ],
+        [
+          940,
+          665
+        ],
+        [
+          925,
+          682
+        ],
+        [
+          890,
+          691
+        ],
+        [
+          830,
+          698
+        ],
+        [
+          770,
+          700
+        ],
+        [
+          715,
+          699
+        ],
+        [
+          665,
+          695
+        ],
+        [
+          620,
+          684
+        ],
+        [
+          590,
+          660
+        ]
+      ]
+    },
+    {
+      "name": "remove_duplicate_right_hand_stick_branch",
+      "operation": "clearLineAndEndpoint",
+      "line": [
+        [
+          1005,
+          404
+        ],
+        [
+          1039,
+          322
+        ]
+      ],
+      "width": 26,
+      "endpointEllipse": [
+        1026,
+        309,
+        1052,
+        335
+      ]
+    },
+    {
+      "name": "bridge_intended_right_hand_stick",
+      "operation": "lineOverlay",
+      "start": [
+        996,
+        411
+      ],
+      "end": [
+        1076,
+        313
+      ],
+      "outlineWidth": 13,
+      "coreWidth": 7,
+      "outlineRGBA": [
+        15,
+        15,
+        15,
+        255
+      ],
+      "coreRGBA": [
+        246,
+        246,
+        246,
+        255
+      ],
+      "antialiasScale": 4
+    }
+  ],
+  "notes": [
+    "v3 is the direct parent; no runtime PNG changed",
+    "skirt source is original 010 only in the clean garment region; repaired lower body below the hem remains from v3",
+    "right-hand stick repair is rule-based, not AI generation"
+  ]
+}

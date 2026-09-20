@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "frameId": "010_bd_rc_hit",
+  "actionKey": "BD+RC",
+  "phase": "hit",
+  "parentCandidate": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v3.png",
+  "parentSha256": "1bf7993ab47d69979a2a85c71221e24ab974ec0b6e341d9e500788c69d60cd8c",
+  "candidate": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v4.png",
+  "candidateSha256": "ad3ea448d44ed4217db0c63d27df3e1d3fef08006dcee3409106596ad405592c",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "mode": "RGBA",
+  "changedPixels": 11430,
+  "changedBBox": {
+    "x": 600,
+    "y": 307,
+    "width": 483,
+    "height": 393
+  },
+  "outsideAllowedChangedPixels": 0,
+  "fixedRegionChangedPixels": 0,
+  "pedalDistancePx": 11.18,
+  "pedalTolerancePx": 45.0,
+  "checks": {
+    "canvas1448x1086": true,
+    "rgba": true,
+    "candidateDiffersFromParent": true,
+    "outsideAllowedZero": true,
+    "runtimeWritableFalse": true,
+    "parentIsV3": true,
+    "rightHandStickRuleRepairApplied": true,
+    "skirtReferencePatchApplied": true
+  },
+  "machinePass": true
+}
