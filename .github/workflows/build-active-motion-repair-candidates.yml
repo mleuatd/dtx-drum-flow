@@ -19,6 +19,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check pillow numpy
+      - name: Read BACK queue
+        id: queue
+        shell: bash
+        run: echo "action_keys=$(tr -d '\r\n' < .github/back-visual-actions.txt)" >> "$GITHUB_OUTPUT"
       - name: Claim queued BACK action keys
         env:
           CLAIM_OWNER: CHAT-PASS2-BACK
@@ -44,6 +48,7 @@ jobs:
       - name: Build BACK claimed candidates
         env:
           CLAIM_OWNER: CHAT-PASS2-BACK
+          ACTION_KEYS: ${{ steps.queue.outputs.action_keys }}
         run: python tools/character_layers/build_active_motion_repair_candidates.py
       - name: Upload pass2 QA artifact
         uses: actions/upload-artifact@v4
