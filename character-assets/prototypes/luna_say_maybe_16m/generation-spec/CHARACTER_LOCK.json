@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0",
+  "identity": {
+    "samePerson": true,
+    "designHeads": {
+      "preferred": 4,
+      "tolerance": 0.25
+    },
+    "bodyType": "chibi/deformed, compact, same proportions across all frames"
+  },
+  "hair": {
+    "semanticColor": "blue-green to mint (identity semantic; final line-art remains monochrome)",
+    "length": "long, below waist in rear view",
+    "volume": "fixed",
+    "tipAnchor": {
+      "px": [
+        770,
+        625
+      ],
+      "norm": [
+        0.531768,
+        0.575506
+      ],
+      "tolerancePx": 25,
+      "toleranceNorm": [
+        0.017265,
+        0.02302
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "rearMass": "occupies left-to-center/rear torso area",
+    "frontBackOcclusion": "must obey limb/hair z-order"
+  },
+  "face": {
+    "sameFace": true,
+    "sameHeadShape": true,
+    "visibleAmount": "small left-side profile only",
+    "gaze": "screen-right"
+  },
+  "clothing": {
+    "outer": "gray checked long jacket",
+    "skirt": "dark short skirt",
+    "boots": "black short boots",
+    "pattern": "hand-drawn irregular check; no clean vector grid"
+  },
+  "lineStyle": {
+    "mode": "black rough hand-drawn line art",
+    "background": [
+      "transparent",
+      "white"
+    ],
+    "roughness": "intentionally irregular multi-line construction",
+    "forbid": [
+      "color fill",
+      "gradient",
+      "anime cel shading",
+      "photorealism",
+      "vector-clean inking"
+    ]
+  },
+  "stool": {
+    "sameStool": true,
+    "center": {
+      "px": [
+        800,
+        716
+      ],
+      "norm": [
+        0.552486,
+        0.6593
+      ],
+      "tolerancePx": 12,
+      "toleranceNorm": [
+        0.008287,
+        0.01105
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "seatContact": "pelvis/skirt must visibly and anatomically contact seat without fusion"
+  },
+  "hardCounts": {
+    "arms": 2,
+    "legs": 2,
+    "hands": 2,
+    "sticks": 2,
+    "maxStickPerHand": 1
+  },
+  "forbidden": [
+    "different character",
+    "different outfit",
+    "hair length drift",
+    "hair volume drift",
+    "third arm",
+    "third leg",
+    "floating hand",
+    "floating forearm",
+    "floating stick",
+    "ghost pose",
+    "joint reverse bend",
+    "torso severing",
+    "stool-body fusion"
+  ]
+}
