@@ -134,7 +134,18 @@ for f in fails:
             rd.line([sh,grip,rc],fill=255,width=72 if phase=="hit" else 62,joint="curve")
             rd.ellipse([grip[0]-48,grip[1]-48,grip[0]+48,grip[1]+48],fill=255)
             local |= (np.asarray(rcgeom)>0)
-        if "bd_hh_sn" in tid:
+        if "bd_rc_sn" in tid:
+        # M011 visual pass 1: remove the obvious rebound-only rectangular
+        # seat/pelvis splice while preserving the bounded active-limb repair.
+        if phase=="rebound":
+            reject=np.zeros((H,W),dtype=bool)
+            reject[610:760,700:930]=True
+            M &= ~reject
+            # Restore only source-supported RF pedal/leg ink inside its proven
+            # corridor; the stool/pelvis rectangle remains neutral.
+            rf=np.zeros((H,W),dtype=bool); rf[610:1010,600:760]=True
+            M |= (G & D & rf)
+    if "bd_hh_sn" in tid:
             # MOTION-015 visual-fail refinement. Keep the current formal pair
             # as the source authority but admit only compact, phase-specific
             # hand/stick corridors plus the already-proven RF pedal corridor.
