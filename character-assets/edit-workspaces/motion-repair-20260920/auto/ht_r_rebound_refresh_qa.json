@@ -5,7 +5,7 @@
   "source": "character-assets/layers/character/ht/rebound_r_refresh.png",
   "sourceSha256": "26d3bfca11b20d78a44ca6ee7791fb009bfac264b81e25cad69522208636ce03",
   "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_candidate.png",
-  "candidateSha256": "677705fb1d3c5ea51e0cbdb152ce06f1683310eae13c3b8815c10cc9660ed426",
+  "candidateSha256": "8a18ca960aee83f0129a3fd1fc08e8fa6eab544d29a406431dbe98ee452e7692",
   "components": [
     {
       "part": "HT",
@@ -16,9 +16,9 @@
       ]
     }
   ],
-  "maskPixelCount": 20057,
-  "changedPixelsVsNeutral": 10013,
-  "changedRatioVsNeutral": 0.00636745,
+  "maskPixelCount": 19886,
+  "changedPixelsVsNeutral": 10697,
+  "changedRatioVsNeutral": 0.00680242,
   "changedBBoxVsNeutral": {
     "x": 432,
     "y": 323,
@@ -35,11 +35,12 @@
       "part": "HT",
       "limb": "R",
       "radiusPx": 180,
-      "sourceRelevantPixels": 9904,
-      "preservedPixels": 9904,
+      "sourceRelevantPixels": 10588,
+      "preservedPixels": 10588,
       "preserveRatio": 1.0
     }
   ],
+  "legacyRestStickProbePixels": 0,
   "checks": {
     "changedVisible": true,
     "changedRatioWithinLimit": true,
@@ -48,7 +49,8 @@
     "pelvisLocked": true,
     "stoolLocked": true,
     "inactiveLowerLocked": true,
-    "localSourcePreservation": true
+    "localSourcePreservation": true,
+    "legacyRestStickCleared": true
   },
   "pass": true
 }
