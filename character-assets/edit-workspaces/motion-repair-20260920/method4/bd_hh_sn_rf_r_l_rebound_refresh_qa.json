@@ -5,14 +5,14 @@
   "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
   "sourceSha256": "40186b1eab3619d938db75ab030b47b745c3e54c51b232e1deeab98eeb533bff",
   "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_rebound_refresh_candidate.png",
-  "candidateSha256": "adfeaed2e20193081f5843e09c52a7ea27b2291584b57854276d14b15665d328",
-  "changedPixelsVsNeutral": 67886,
-  "changedRatioVsNeutral": 0.04316998,
+  "candidateSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9",
+  "changedPixelsVsNeutral": 68269,
+  "changedRatioVsNeutral": 0.04341354,
   "changedBBoxVsNeutral": {
-    "x": 401,
-    "y": 300,
-    "width": 509,
-    "height": 704
+    "x": 162,
+    "y": 280,
+    "width": 748,
+    "height": 724
   },
   "headCoreGuardChangedPixels": 0,
   "torsoCoreGuardChangedPixels": 0,
@@ -34,10 +34,10 @@
       "limb": "R",
       "radiusPx": 65,
       "sourceRelevantPixels": 2,
-      "preservedPixels": 0,
-      "preserveRatio": 0.0,
+      "preservedPixels": 2,
+      "preserveRatio": 1.0,
       "threshold": 0.4,
-      "pass": false
+      "pass": true
     },
     {
       "part": "SN",
@@ -58,7 +58,7 @@
     "torsoCoreLocked": true,
     "stoolLocked": true,
     "leftLegLocked": true,
-    "localContactSourcePreservation": false
+    "localContactSourcePreservation": true
   },
-  "pass": false
+  "pass": true
 }
