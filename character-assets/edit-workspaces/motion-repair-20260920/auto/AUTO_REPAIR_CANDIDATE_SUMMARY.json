@@ -3,13 +3,13 @@
   "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
   "targets": [
     {
-      "id": "bd_ht_rf_r_hit_refresh",
-      "actionKey": "BD+HT:RF/R",
+      "id": "bd_sn_rf_l_hit",
+      "actionKey": "BD+SN:RF/L",
       "phase": "hit",
-      "source": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
-      "sourceSha256": "d9fc81cda94a5bd90ddf1cc3e4062ccc537a282df4cbd1c0206f590e50769372",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ht_rf_r_hit_refresh_candidate.png",
-      "candidateSha256": "f8ffc411a882e16b2b5b07c9af0c4b95c8c31c64be7187e778d4eb91b17cb024",
+      "source": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+      "sourceSha256": "ea60350f9d729ea272b908f35381091b58d601f0acf0ada2ff3dd2053d2070c7",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_sn_rf_l_hit_candidate.png",
+      "candidateSha256": "9f0f79c7dfe48f7b9ded17b77769a3efaa388fcc8ea6fb19774e02aa1d608abe",
       "components": [
         {
           "part": "BD",
@@ -20,22 +20,22 @@
           ]
         },
         {
-          "part": "HT",
-          "limb": "R",
+          "part": "SN",
+          "limb": "L",
           "contact": [
-            575,
-            360
+            420,
+            535
           ]
         }
       ],
-      "maskPixelCount": 77352,
-      "changedPixelsVsNeutral": 62120,
-      "changedRatioVsNeutral": 0.03950327,
+      "maskPixelCount": 70491,
+      "changedPixelsVsNeutral": 60446,
+      "changedRatioVsNeutral": 0.03843874,
       "changedBBoxVsNeutral": {
-        "x": 496,
-        "y": 315,
-        "width": 409,
-        "height": 679
+        "x": 447,
+        "y": 398,
+        "width": 458,
+        "height": 596
       },
       "headGuardChangedPixels": 0,
       "pelvisGuardChangedPixels": 0,
@@ -47,16 +47,16 @@
           "part": "BD",
           "limb": "RF",
           "radiusPx": 125,
-          "sourceRelevantPixels": 23943,
-          "preservedPixels": 23943,
+          "sourceRelevantPixels": 26677,
+          "preservedPixels": 26677,
           "preserveRatio": 1.0
         },
         {
-          "part": "HT",
-          "limb": "R",
+          "part": "SN",
+          "limb": "L",
           "radiusPx": 125,
-          "sourceRelevantPixels": 8586,
-          "preservedPixels": 8586,
+          "sourceRelevantPixels": 1510,
+          "preservedPixels": 1510,
           "preserveRatio": 1.0
         }
       ],
@@ -73,13 +73,13 @@
       "pass": true
     },
     {
-      "id": "bd_ht_rf_r_rebound_refresh",
-      "actionKey": "BD+HT:RF/R",
+      "id": "bd_sn_rf_l_rebound",
+      "actionKey": "BD+SN:RF/L",
       "phase": "rebound",
-      "source": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
-      "sourceSha256": "fcfe536cbf7dd263c08e21a233867cb34f89f9db5d8e2ff81dce6d52b9d51fe8",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ht_rf_r_rebound_refresh_candidate.png",
-      "candidateSha256": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a",
+      "source": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+      "sourceSha256": "2e055dc419f8ff16070a50726d95b7170d60e2cc10b6d264b90090af062ec21a",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_sn_rf_l_rebound_candidate.png",
+      "candidateSha256": "d50f03480bbf601e665b2e0dcba7f672550aa07b9ef596b4493cb176b1424107",
       "components": [
         {
           "part": "BD",
@@ -90,22 +90,22 @@
           ]
         },
         {
-          "part": "HT",
-          "limb": "R",
+          "part": "SN",
+          "limb": "L",
           "contact": [
-            575,
-            360
+            420,
+            535
           ]
         }
       ],
-      "maskPixelCount": 91833,
-      "changedPixelsVsNeutral": 76230,
-      "changedRatioVsNeutral": 0.04847608,
+      "maskPixelCount": 71418,
+      "changedPixelsVsNeutral": 59530,
+      "changedRatioVsNeutral": 0.03785624,
       "changedBBoxVsNeutral": {
-        "x": 462,
-        "y": 262,
-        "width": 443,
-        "height": 742
+        "x": 432,
+        "y": 367,
+        "width": 473,
+        "height": 637
       },
       "headGuardChangedPixels": 0,
       "pelvisGuardChangedPixels": 0,
@@ -117,17 +117,17 @@
           "part": "BD",
           "limb": "RF",
           "radiusPx": 180,
-          "sourceRelevantPixels": 33092,
-          "preservedPixels": 33092,
+          "sourceRelevantPixels": 29923,
+          "preservedPixels": 29923,
           "preserveRatio": 1.0
         },
         {
-          "part": "HT",
-          "limb": "R",
+          "part": "SN",
+          "limb": "L",
           "radiusPx": 180,
-          "sourceRelevantPixels": 20149,
-          "preservedPixels": 20117,
-          "preserveRatio": 0.9984
+          "sourceRelevantPixels": 3631,
+          "preservedPixels": 3631,
+          "preserveRatio": 1.0
         }
       ],
       "checks": {
