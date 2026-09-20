@@ -9360,7 +9360,7 @@
     },
     {
       "issueId": "MOTION-011",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:06.7-2:06.8",
@@ -9388,7 +9388,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T13:09:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9402,7 +9402,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_RUNTIME_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -10351,7 +10351,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "RETESTING_PRE_NEUTRAL_ONLY",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "ruleVersion": "2026-09-20-exact-fullres-v2",
         "reviewedAt": "2026-09-20T12:49:00+09:00",
@@ -10363,14 +10363,26 @@
           "candidateHitSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
           "candidateReboundSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d"
         },
-        "note": "Exact full-resolution fixed-drum review after tight bounded repair: prior detached right-side hand/stick defect is removed and rebound seat-splice cleanup is constrained to the visible defect. Machine gates PASS for both exact candidates."
+        "note": "Exact full-resolution fixed-drum review after tight bounded repair: prior detached right-side hand/stick defect is removed and rebound seat-splice cleanup is constrained to the visible defect. Machine gates PASS for both exact candidates.",
+        "runtimeEvidence": {
+          "workflowRunId": 35487988511,
+          "artifactId": 10597883325,
+          "measure": 68,
+          "eventTime": 120.398036,
+          "pc": {
+            "hit": "PASS",
+            "rebound": "PASS",
+            "neutralAfter": "PASS"
+          },
+          "xperiaPortrait": {
+            "hit": "PASS",
+            "rebound": "PASS",
+            "neutralAfter": "PASS"
+          },
+          "note": "Target transition itself passes 6/6 across PC and Xperia portrait. The two workflow FAIL records are only the optional pre-event neutral sample, which lands on a legitimate preceding HH:R chart event and is not a failure of MOTION-011 hit/rebound/neutral return."
+        }
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "BACK-M011-FOCUSED",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T12:20:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -10401,6 +10413,11 @@
           "at": "2026-09-20T13:05:00+09:00",
           "decision": "RUNTIME_QA_DIAGNOSED",
           "detail": "Run 35487858884: target hit/rebound/neutral-after PASS on both PC and Xperia portrait (6/6 target/return checks). Only neutral-before sampled inside the immediately preceding BD+HH event window; QA pre-neutral sample moved farther back without changing production assets."
+        },
+        {
+          "at": "2026-09-20T13:09:00+09:00",
+          "decision": "VERIFIED",
+          "detail": "Formal exact candidate pair promoted. Full-resolution visual QA PASS. Public real-chart runtime evidence run 35487988511: PC and Xperia portrait each PASS hit, rebound, and neutral-after (6/6). Pre-neutral probe overlaps a legitimate preceding HH:R event and is excluded as non-target evidence. CLAIM released."
         }
       ],
       "hold": {
