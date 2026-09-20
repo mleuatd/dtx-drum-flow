@@ -17,6 +17,17 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            character-assets/layers/character/base/neutral.png
+            character-assets/layers/character/rc
+            character-assets/layers/character/sn
+            character-assets/layers/drum/drum_base.png
+            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v8.png
+            character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
+            tools/character_layers/build_front_m004_v3.py
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: python -m pip install --disable-pip-version-check pillow numpy
