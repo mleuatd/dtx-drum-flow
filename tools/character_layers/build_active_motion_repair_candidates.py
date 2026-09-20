@@ -88,12 +88,22 @@ for t in targets:
         if limb in ("L","R"):
             sh=LANDMARKS["shoulder_"+limb]
             end=target if target else ((int(diffcent["x"]),int(diffcent["y"])) if diffcent else sh)
-            width=210 if phase=="hit" else 245
+            # When an authoritative instrument contact exists, keep the arm
+            # corridor tight around shoulder -> contact. Extending the mask toward
+            # the whole-frame diff centroid was pulling unrelated hair/torso splice
+            # artifacts into combo candidates (notably BD+HT and BD+SN).
+            if target:
+                width=150 if phase=="hit" else 175
+                shoulder_r=62
+                er=115 if phase=="hit" else 145
+            else:
+                width=210 if phase=="hit" else 245
+                shoulder_r=95
+                er=145 if phase=="hit" else 195
             gd.line([sh,end],fill=255,width=width)
-            gd.ellipse([sh[0]-95,sh[1]-95,sh[0]+95,sh[1]+95],fill=255)
-            er=145 if phase=="hit" else 195
+            gd.ellipse([sh[0]-shoulder_r,sh[1]-shoulder_r,sh[0]+shoulder_r,sh[1]+shoulder_r],fill=255)
             gd.ellipse([end[0]-er,end[1]-er,end[0]+er,end[1]+er],fill=255)
-            if diffcent:
+            if diffcent and not target:
                 dc=(int(diffcent["x"]),int(diffcent["y"]))
                 gd.line([sh,dc],fill=255,width=190)
                 gd.ellipse([dc[0]-135,dc[1]-135,dc[0]+135,dc[1]+135],fill=255)
