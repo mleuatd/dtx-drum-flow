@@ -24,7 +24,6 @@ jobs:
             character-assets/layers/character/rc
             character-assets/layers/character/sn
             character-assets/layers/drum/drum_base.png
-            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v8.png
             character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json
             tools/character_layers/build_front_m004_v3.py
           sparse-checkout-cone-mode: false
@@ -38,7 +37,7 @@ jobs:
           d=json.load(open("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"))
           x=next(v for v in d["defects"] if v["issueId"]=="MOTION-004")
           c=x.get("claim") or {}
-          assert c.get("owner")=="CHATGPT-FRONT" and c.get("batch")=="FRONT-M004-FASTPIPE", c
+          assert c.get("owner")=="CHAT-FAST-REPAIR-STABLE" and c.get("batch")=="FAST-LOCAL-REPAIR-STABLE", c
           PY
       - run: python tools/character_layers/build_front_m004_v3.py
       - uses: actions/upload-artifact@v4
