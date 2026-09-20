@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:54:00+09:00",
+  "updatedAt": "2026-09-20T09:56:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -9084,7 +9084,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:54:00+09:00",
+      "updatedAt": "2026-09-20T09:56:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9098,7 +9098,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_QA",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -9751,6 +9751,11 @@
             "at": "2026-09-20T06:13:00+09:00",
             "decision": "VISUAL_INTEGRITY_GATE_ADDED",
             "detail": "Changed-pixel/ROI correctness alone no longer permits PASS. Anatomy, linework, and fixed-drum composite semantics are mandatory."
+          },
+          {
+            "at": "2026-09-20T09:56:00+09:00",
+            "decision": "PASS2_BACK_EXISTING_CANDIDATE_STATIC_FAIL_CONFIRMED",
+            "detail": "Existing artifact confirms detached/duplicated right hand/stick geometry in BD+RC+SN pair. Static visual integrity FAIL; runtime blocked; no promotion."
           }
         ],
         "measurementTodos": [
@@ -10056,12 +10061,7 @@
           "extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body"
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-07",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T09:54:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -10082,11 +10082,11 @@
         "defect": "extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body",
         "defectLocation": "right hand/stick corridor above/right torso",
         "cause": "structural splice/transplant artifact in current formal pair",
-        "attemptedRepair": "none in this review; existing artifact reused",
-        "repairResult": "not attempted because defect is structural/non-light",
-        "nextRepair": "Rebuild only measured active right-arm/stick ROI from a clean parent; preserve head/hair/torso/seat/legs/left arm outside approved occlusion.",
+        "attemptedRepair": "PASS2 BACK re-used existing method2 candidate and full-resolution evidence from workflow 35476568863 / artifact 10593149790.",
+        "repairResult": "STATIC_VISUAL_FAIL. Existing evidence confirms detached/duplicated right-side hand/stick geometry; active three-limb pose does not form one continuous body. Runtime remains blocked.",
+        "nextRepair": "Repair pair-level right RC arm→hand→grip→stick→tip continuity across hit/rebound while retaining RF pedal and left SN semantics; remove detached duplicate geometry, not by broad neutral transplant.",
         "prohibitedRepair": "full redraw; whole-torso rectangular transplant",
-        "restartCondition": "semantic ROI measured and candidate passes anatomy + linework + fixed-drum static gates before runtime QA"
+        "restartCondition": "Exact source-bound/deterministic ROI editing available. Existing method2 candidate must not be promoted."
       }
     },
     {
