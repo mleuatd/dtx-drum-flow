@@ -75,3 +75,22 @@ python3 tools/character_layers/run_visual_repair_trial.py \
 - 008ユーザー承認まで正式runtimeを上書きしない。
 
 詳細: `character-assets/prototypes/luna_say_maybe_16m/MESH_WARP_SPEED_STANDARD.md`
+
+
+## 008回帰試験結果（2026-09-21）
+
+- machinePass: true
+- formal candidate: 1448×1086 RGBA
+- changedPixels: 36,721
+- changedBBox: x=594, y=635, width=172, height=326
+- 許可領域外変更: 0画素
+- 固定領域変更: 0画素
+- ペダル距離: 11.18px / 許容45px
+- candidate SHA-256: `4ee11bd49363502e2536bf3a2dce3a1b1f1bd873721d32af7eb667dfe9a93caf`
+- 候補生成から確認用成果物完成: 1.952556秒
+- ラッパー全体: 2.027783秒
+- CI内回帰呼出し全体: 2.645649秒
+- runtimeModified: false
+- otherFramesTouched: false
+- userApprovalStatus: PENDING
+- visualQaRequired: true
