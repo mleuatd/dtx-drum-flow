@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import json, hashlib, os, subprocess, sys, time
+import json, hashlib, sys
 from pathlib import Path
 from PIL import Image
 
@@ -11,88 +11,7 @@ def sha256(path):
     with path.open("rb") as f:
         for chunk in iter(lambda:f.read(1024*1024),b""): h.update(chunk)
     return h.hexdigest()
-
-def run_008_regression_once():
-    """Generate and expose one 008 regression payload on the dedicated PR."""
-    import base64
-    head_ref=os.environ.get("GITHUB_HEAD_REF","")
-    if head_ref!="work/008-fast-standardize-complete-20260921":
-        return 0
-    out=ROOT/"character-assets"/"generation-trials"/"mesh-warp-008-v1"
-    cfgp=out/"008_mesh_config.json"
-    cfg=json.loads(cfgp.read_text(encoding="utf-8"))
-    cfg["brokenSourceSha256"]=sha256(ROOT/cfg["inputPng"])
-    cfg["fixedDrumSha256"]=sha256(ROOT/cfg["fixedDrumPng"])
-    cfgp.write_text(json.dumps(cfg,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-
-    runtime=ROOT/cfg["inputPng"]
-    runtime_before=sha256(runtime)
-    started=time.perf_counter()
-    subprocess.check_call([
-        sys.executable,str(ROOT/"tools"/"character_layers"/"run_visual_repair_trial.py"),
-        "--frame-config",str(cfgp.relative_to(ROOT)),
-        "--source",cfg["normalSourcePng"],
-        "--broken-source",cfg["inputPng"],
-        "--fixed-drum",cfg["fixedDrumPng"],
-        "--output-dir",str(out.relative_to(ROOT)),
-    ],cwd=ROOT)
-    elapsed=round(time.perf_counter()-started,6)
-    if sha256(runtime)!=runtime_before:
-        raise RuntimeError("008 regression modified runtime PNG")
-
-    qa=json.loads((out/"008_qa.json").read_text(encoding="utf-8"))
-    reg=json.loads((out/"008_regression_run.json").read_text(encoding="utf-8"))
-    if not qa.get("machinePass"):
-        raise RuntimeError("008 regression machine QA failed")
-    if qa.get("outsideAllowedChangedPixels")!=0 or qa.get("fixedRegionChangedPixels")!=0:
-        raise RuntimeError("008 regression changed protected pixels")
-    if qa.get("canvas")!=[1448,1086] or qa.get("mode")!="RGBA":
-        raise RuntimeError("008 formal candidate is not 1448x1086 RGBA")
-    if qa.get("changedPixels")!=36721:
-        raise RuntimeError("008 changedPixels regression mismatch")
-    if qa.get("changedBBox")!={"x":594,"y":635,"width":172,"height":326}:
-        raise RuntimeError("008 changedBBox regression mismatch")
-    if abs(float(qa.get("pedalDistancePx",-1))-11.18)>0.01:
-        raise RuntimeError("008 pedal-distance regression mismatch")
-    if reg.get("runtimeModified") or reg.get("otherFramesTouched"):
-        raise RuntimeError("008 safety flags failed")
-
-    reg["characterValidationRegressionSeconds"]=elapsed
-    (out/"008_regression_run.json").write_text(json.dumps(reg,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    targets=[
-        "008_mesh_config.json",
-        "008_bd_rf_hit_mesh_v1.png",
-        "008_bd_rf_hit_mesh_v1_review.webp",
-        "008_bd_rf_hit_fixed_drum_v1_review.webp",
-        "008_before_after_review.webp",
-        "008_qa.json",
-        "008_timing.json",
-        "008_run_manifest.json",
-        "008_commit_manifest.json",
-        "008_regression_run.json",
-    ]
-    print("DTX008_REGRESSION_PASS "+json.dumps({
-        "machinePass":qa["machinePass"],
-        "outsideAllowedChangedPixels":qa["outsideAllowedChangedPixels"],
-        "fixedRegionChangedPixels":qa["fixedRegionChangedPixels"],
-        "canvas":qa["canvas"],"mode":qa["mode"],
-        "candidateSha256":qa["candidateSha256"],
-        "elapsedSeconds":elapsed
-    },separators=(",",":")))
-    for name in targets:
-        raw=(out/name).read_bytes()
-        encoded=base64.b64encode(raw).decode("ascii")
-        chunk_size=60000
-        total=(len(encoded)+chunk_size-1)//chunk_size
-        print(f"DTX008_FILE_BEGIN {name} {len(raw)} {sha256(out/name)} {total}")
-        for i in range(total):
-            print(f"DTX008_CHUNK {name} {i+1}/{total} {encoded[i*chunk_size:(i+1)*chunk_size]}")
-        print(f"DTX008_FILE_END {name}")
-    print("DTX008_EXPORT_COMPLETE")
-    return 0
-
 def main():
-    run_008_regression_once()
     manifest=json.loads((CONFIG/"layer_manifest.json").read_text(encoding="utf-8"))
     assets_manifest=json.loads((CONFIG/"assets_manifest.json").read_text(encoding="utf-8"))
     inventory=json.loads((PROTOTYPE/"asset_inventory.json").read_text(encoding="utf-8"))
