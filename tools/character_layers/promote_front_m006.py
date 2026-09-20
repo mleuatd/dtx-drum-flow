@@ -64,7 +64,7 @@ sa["hitSha256"]=EXPECTED["hit"]; sa["reboundSha256"]=EXPECTED["rebound"]
 x["status"]="FIXED_PENDING_RUNTIME_QA"; x["repairSpec"]["state"]="FIXED_PENDING_RUNTIME_QA"
 x["updatedAt"]="2026-09-20T13:07:00+09:00"
 progress="character-assets/edit-workspaces/motion-repair-20260920/front-m006/M006_RUNTIME_QA_STATE.json"
-inv["runtimeQaTarget"]={"measureStart":129,"measureEnd":129,"actions":["BD+RD:RF/R"],"progressPath":progress,"blockKey":"M006-BD-RD"}
+inv["runtimeQaTarget"]={"measureStart":130,"measureEnd":130,"actions":["BD+RD:RF/R"],"progressPath":progress,"blockKey":"M006-BD-RD"}
 state={
  "schemaVersion":1,"issueId":"MOTION-006","actionKey":"BD+RD:RF/R",
  "status":"FORMAL_PROMOTED_RUNTIME_QA_PENDING",
@@ -77,4 +77,4 @@ BP.write_text(json.dumps(backlog,ensure_ascii=False,indent=2)+"\n")
 IP.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+"\n")
 AP.write_text(json.dumps(amap,ensure_ascii=False,indent=2)+"\n")
 MP.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
-print(json.dumps({"promoted":True,"hit":EXPECTED["hit"],"rebound":EXPECTED["rebound"],"runtimeMeasure":129}))
+print(json.dumps({"promoted":True,"hit":EXPECTED["hit"],"rebound":EXPECTED["rebound"],"runtimeMeasure":130}))
