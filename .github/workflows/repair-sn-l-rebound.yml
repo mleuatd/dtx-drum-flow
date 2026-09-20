@@ -20,6 +20,15 @@ jobs:
         run: python tools/character_layers/repair_sn_l_rebound.py
       - name: Runtime pose regression tests
         run: python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+      - name: Upload candidate evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: sn-l-rebound-repair-${{ github.run_id }}
+          path: |
+            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2.png
+            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_fixed_drum.png
+            character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json
+          retention-days: 30
       - name: Commit candidate evidence
         run: |
           git config user.name "github-actions[bot]"
