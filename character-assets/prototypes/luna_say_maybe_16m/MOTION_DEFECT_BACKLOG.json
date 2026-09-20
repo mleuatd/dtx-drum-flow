@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:12:50.015775+00:00",
+  "updatedAt": "2026-09-20T14:15:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12267,7 +12267,7 @@
     },
     {
       "issueId": "MOTION-014",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M95",
       "time": "~2:46.4",
@@ -12295,7 +12295,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T11:04:00+09:00",
+      "updatedAt": "2026-09-20T14:15:00+09:00",
       "occurrences": [
         {
           "measure": "M95",
@@ -12309,7 +12309,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13145,15 +13145,20 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method2/METHOD2_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "Batch 04: hit has a large rectangular splice across lower hair/skirt/seat plus truncated left stick; rebound has a hard rectangular missing stick segment near the left hand. Formal PNGs preserved; no minimal retry because defects exceed light/local threshold.",
-        "workflowRunId": 35475145116,
-        "artifactId": 10593238245
+        "reviewedAt": "2026-09-20T14:15:00+09:00",
+        "note": "Rebuilt deterministically from APPROVED_LIVE SN:L and BD:RF authorities with bounded semantic masks. Prior lower-hair/skirt/seat rectangular splice and left-stick dropout are absent; hit/rebound read coherently in fixed-drum composite.",
+        "candidateSha256": {
+          "hit": "7410eaedf8faee5922e67a353f35ad6679f5b319eeb9ca609d35a455499efe08",
+          "rebound": "cc8e0f3d653285dbc7cb389c637a4c2b4e50bd8df3c9ba12853e4ac080e2dc86"
+        },
+        "machineQaRunId": 35491078566,
+        "machineQaArtifactId": 10599237231
       },
       "claim": {
         "state": "CLAIMED",
@@ -13172,6 +13177,11 @@
           "at": "2026-09-20T11:04:00+09:00",
           "decision": "PASS2_BACK_RESTART_CONDITION_STILL_UNMET",
           "detail": "Existing HOLD requires verifiable source-bound editing. No unbound regeneration; claim released and queue continues."
+        },
+        {
+          "at": "2026-09-20T14:15:00+09:00",
+          "decision": "AUTHORITY_COMPOSITE_VISUAL_PASS",
+          "detail": "Candidate rebuilt from approved SN:L + BD:RF authorities; machine guards PASS and direct fixed-drum visual review PASS. Candidate SHAs hit=7410eaed..., rebound=cc8e0f3d.... Authorized for formal promotion."
         }
       ]
     },
