@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 29,
+  "sourceFilename": "029_bd_rd_rf_r_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+RD:RF/R",
+  "runtimeActionKey": "BD+RD:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手側に上向きスティックが2本重なって残り、左手分を含め計3本に見える。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_RD_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+RD:RF/R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
