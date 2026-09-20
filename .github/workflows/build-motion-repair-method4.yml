@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'tools/character_layers/build_motion_repair_method4.py'
+      - '.github/method4-trigger.txt'
 permissions:
   contents: write
 concurrency:
