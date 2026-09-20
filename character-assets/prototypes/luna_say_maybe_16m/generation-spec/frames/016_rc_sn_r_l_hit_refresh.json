@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 16,
+  "sourceFilename": "016_rc_sn_r_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "RC+SN:R/L",
+  "runtimeActionKey": "RC+SN:R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手のスティックが二重化し、長い打撃用スティックとは別の残留スティックが同じ右手付近から伸びる。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/RC_SN_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action RC+SN:R/L hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
