@@ -12,7 +12,7 @@ jobs:
   snapshot:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout audit branch
+      - name: Checkout current PR head
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
