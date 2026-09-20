@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-20T21:10:00+09:00",
+  "chart": "Luna_say_maybe_FINAL_notes.json",
+  "bpm": 139,
+  "previousRapidRule": {
+    "type": "absolute-seconds",
+    "thresholdSeconds": 0.13,
+    "scope": "SN/HH primarily"
+  },
+  "currentRapidRule": {
+    "type": "musical-subdivision",
+    "rapidSubdivision": 16,
+    "toleranceRatio": 1.12,
+    "thresholdSecondsAtThisSong": 0.12086330935251799,
+    "scope": [
+      "LC",
+      "HH",
+      "SN",
+      "HT",
+      "LT",
+      "FT",
+      "RC",
+      "RD"
+    ],
+    "eighthNoteSeconds": 0.2158273381294964,
+    "sixteenthNoteSeconds": 0.1079136690647482
+  },
+  "naturalExceptions": [
+    "Observed performance overrides inferred sticking.",
+    "Simultaneous hand notes must use distinct hands.",
+    "Phrase continuity can choose phrase starting hand.",
+    "Tom traversal may keep natural alternation even when slower than the rapid threshold."
+  ],
+  "comparisonAgainstCurrentFullLimbMap": {
+    "totalAssignments": 2158,
+    "changedAssignments": 0,
+    "note": "The generalized musical-subdivision rule changes the inference logic but does not alter any existing per-note limb assignment for the current Luna chart."
+  }
+}
