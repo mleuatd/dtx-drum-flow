@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T10:37:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4632,7 +4632,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4661,10 +4661,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T10:37:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -5522,12 +5522,7 @@
         "runtimeQaArtifactId": 10594916218,
         "runtimeQaCommitSha": "c7ab72c58a70e68fd6db30c2a25686916796f4b7"
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-22",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T10:35:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:34:00+09:00",
@@ -5543,6 +5538,11 @@
           "at": "2026-09-20T09:12:00+09:00",
           "decision": "VISUAL_INTEGRITY_VERIFIED",
           "detail": "Static anatomy/linework/fixed-drum gates PASS from run 35476033283 artifact 10594885001. Public runtime QA run 35477061624 artifact 10594916218 reports failed=0/passed=14 and includes BD+RD:RF/R at M130 on PC and Xperia portrait. Synthetic explicit-sequence failures were caused by attempting to seek to invented times; they are excluded as invalid test methodology, not runtime asset failures."
+        },
+        {
+          "at": "2026-09-20T10:37:00+09:00",
+          "decision": "PASS2_BACK_FINAL_RECONCILIATION_VERIFIED",
+          "detail": "Complete existing evidence reconciled: anatomy, linework, fixed-drum and transition PASS; real-chart public runtime QA run 35477061624 artifact 10594916218 passed=14 failed=0 including BD+RD:RF/R; inventory formal hit/rebound are motion-repair-verified and mapped to the exact action key."
         }
       ]
     },
