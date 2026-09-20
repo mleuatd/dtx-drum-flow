@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:41:00+09:00",
+  "updatedAt": "2026-09-20T10:42:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -5548,7 +5548,7 @@
     },
     {
       "issueId": "MOTION-007",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M142,M115",
       "time": "~248.40-248.54s",
@@ -5577,10 +5577,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T10:41:00+09:00",
+      "updatedAt": "2026-09-20T10:42:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -6380,12 +6380,20 @@
           "one alpha-safe retry still failed"
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-24",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T10:41:00+09:00"
-      }
+      "claim": null,
+      "hold": {
+        "repairResult": "Existing alpha-safe retry still fails static anatomy/linework/fixed-drum gates.",
+        "nextRepair": "Use verifiably source-bound or deterministic semantic ROI reconstruction for right HH arm/hand/stick; remove horizontal splice at cause.",
+        "prohibitedRepair": "repeat alpha-safe rectangular splice; full redraw",
+        "restartCondition": "Exact target-bound/deterministic ROI editor available for character PNG bytes."
+      },
+      "decisionLog": [
+        {
+          "at": "2026-09-20T10:42:00+09:00",
+          "decision": "PASS2_BACK_RESTART_CONDITION_UNMET",
+          "detail": "Existing visual QA already records one alpha-safe retry failing horizontal splice/arm continuity. No blind repeat; claim released and queue continues."
+        }
+      ]
     },
     {
       "issueId": "MOTION-008",
