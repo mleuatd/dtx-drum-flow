@@ -75,6 +75,11 @@ jobs:
               g.write(f"RUNTIME_QA_PROGRESS_PATH={progress}\nRUNTIME_QA_BLOCK_KEY={block}\n")
           print(json.dumps({"measureStart":start,"measureEnd":end,"actions":actions,"progressPath":progress,"blockKey":block},ensure_ascii=False))
           PY
+      - name: Cache Playwright browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-1.55.0-linux
       - name: Install Playwright Chromium
         run: |
           npm install --no-save playwright@1.55.0
