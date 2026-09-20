@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "frameId": "010_bd_rc_hit",
+  "actionKey": "BD+RC",
+  "phase": "hit",
+  "candidate": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v1.png",
+  "review": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_fixed_drum_v1_review.webp",
+  "inspectedAt": "2026-09-20T19:22:00Z",
+  "inspectionMethod": "full-resolution-artifact-visual-inspection",
+  "machinePass": true,
+  "visualPass": false,
+  "userApprovalStatus": "PENDING",
+  "runtimeWritable": false,
+  "findings": [
+    "Upper body, face, hair, torso and shoulders remain effectively preserved as intended.",
+    "The central third-leg/boot-like residual remains visible between the two intended legs.",
+    "A vertical rectangular/strip artifact remains in the lower-body gap.",
+    "The right-hand stick trajectory remains duplicated.",
+    "Because these artifacts remain, the lower body does not read as one anatomically continuous pose."
+  ],
+  "checklist": {
+    "waistLegContinuity": false,
+    "pelvisTorsoDirection": true,
+    "torsoShoulderRelationship": true,
+    "upperLowerBodyUnity": false,
+    "weightBalance": false,
+    "drummingMotionFlow": false,
+    "jacketDirectionMatchesBody": true,
+    "checkPatternMatchesWarp": true,
+    "skirtHemNatural": false,
+    "ankleNatural": false,
+    "bootsNatural": false,
+    "limbCountCorrect": false,
+    "stickCountCorrect": false,
+    "stoolRelationshipNatural": false,
+    "drumContactNatural": true,
+    "fixedFaceHairUnchanged": true
+  },
+  "disposition": "REJECT_TRIAL_KEEP_RUNTIME_UNCHANGED",
+  "reason": "The 008 lower-body displacement field applied to 010 itself cannot replace already-corrupted pixels with clean anatomy. Method D self-warp is therefore insufficient for this frame without a different continuous reconstruction strategy."
+}
