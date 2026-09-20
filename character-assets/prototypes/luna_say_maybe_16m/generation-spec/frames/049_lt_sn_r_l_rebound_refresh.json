@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 49,
+  "sourceFilename": "049_lt_sn_r_l_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "LT+SN:R/L",
+  "runtimeActionKey": "LT+SN:R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手・右手の双方でスティックが二重化し、計4本に見える。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/LT_SN_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action LT+SN:R/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
