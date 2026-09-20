@@ -12,45 +12,8 @@
       "id": "rd_r_hit",
       "actionKey": "RD:R",
       "phase": "hit",
-      "source": "character-assets/layers/character/rd/hit_r_refresh.png",
-      "sourceSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_hit_candidate.png",
-      "candidateSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
-      "changedPixelsVsNeutral": 15016,
-      "changedRatioVsNeutral": 0.00954896,
-      "changedBBoxVsNeutral": {
-        "x": 830,
-        "y": 245,
-        "width": 224,
-        "height": 178
-      },
-      "headCoreGuardChangedPixels": 0,
-      "torsoCoreGuardChangedPixels": 0,
-      "stoolGuardChangedPixels": 0,
-      "leftLegGuardChangedPixels": null,
-      "sourceLocalPreservation": [
-        {
-          "part": "RD",
-          "limb": "R",
-          "radiusPx": 48,
-          "sourceRelevantPixels": 242,
-          "preservedPixels": 242,
-          "preserveRatio": 1.0,
-          "threshold": 0.6,
-          "pass": true
-        }
-      ],
-      "checks": {
-        "changedVisible": true,
-        "ratioWithinLimit": true,
-        "outsideMaskZero": true,
-        "headCoreLocked": true,
-        "torsoCoreLocked": true,
-        "stoolLocked": true,
-        "leftLegLocked": true,
-        "localContactSourcePreservation": true
-      },
-      "pass": true
+      "pass": false,
+      "skip": "claim_changed"
     },
     {
       "id": "bd_rd_rf_r_hit",
@@ -70,24 +33,71 @@
       "id": "rd_sn_r_l_hit",
       "actionKey": "RD+SN:R/L",
       "phase": "hit",
-      "pass": false,
-      "skip": "claim_changed"
+      "source": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
+      "sourceSha256": "0239bb7b0da8aeb0dfb0b64715214c93b081c9274c2841a427abdb1a0ebe3729",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_hit_candidate.png",
+      "candidateSha256": "0239bb7b0da8aeb0dfb0b64715214c93b081c9274c2841a427abdb1a0ebe3729",
+      "changedPixelsVsNeutral": 30856,
+      "changedRatioVsNeutral": 0.01962191,
+      "changedBBoxVsNeutral": {
+        "x": 401,
+        "y": 245,
+        "width": 653,
+        "height": 308
+      },
+      "headCoreGuardChangedPixels": 0,
+      "torsoCoreGuardChangedPixels": 0,
+      "stoolGuardChangedPixels": 0,
+      "leftLegGuardChangedPixels": null,
+      "sourceLocalPreservation": [
+        {
+          "part": "RD",
+          "limb": "R",
+          "radiusPx": 48,
+          "sourceRelevantPixels": 242,
+          "preservedPixels": 242,
+          "preserveRatio": 1.0,
+          "threshold": 0.6,
+          "pass": true
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "radiusPx": 48,
+          "sourceRelevantPixels": 348,
+          "preservedPixels": 348,
+          "preserveRatio": 1.0,
+          "threshold": 0.6,
+          "pass": true
+        }
+      ],
+      "checks": {
+        "changedVisible": true,
+        "ratioWithinLimit": true,
+        "outsideMaskZero": true,
+        "headCoreLocked": true,
+        "torsoCoreLocked": true,
+        "stoolLocked": true,
+        "leftLegLocked": true,
+        "localContactSourcePreservation": true
+      },
+      "pass": true
     },
     {
-      "id": "rd_r_rebound",
-      "actionKey": "RD:R",
+      "id": "rd_sn_r_l_rebound",
+      "actionKey": "RD+SN:R/L",
       "phase": "rebound",
-      "source": "character-assets/layers/character/rd/rebound_r_refresh.png",
-      "sourceSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_rebound_candidate.png",
-      "candidateSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
-      "changedPixelsVsNeutral": 10497,
-      "changedRatioVsNeutral": 0.00667524,
+      "source": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
+      "sourceSha256": "477027d72d45a767285b96c25f0648b7e441a5eabebdeb74a6af68cce12a17b0",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_rebound_candidate.png",
+      "candidateSha256": "477027d72d45a767285b96c25f0648b7e441a5eabebdeb74a6af68cce12a17b0",
+      "changedPixelsVsNeutral": 28820,
+      "changedRatioVsNeutral": 0.01832718,
       "changedBBoxVsNeutral": {
-        "x": 850,
+        "x": 401,
         "y": 205,
-        "width": 230,
-        "height": 227
+        "width": 679,
+        "height": 415
       },
       "headCoreGuardChangedPixels": 0,
       "torsoCoreGuardChangedPixels": 0,
@@ -103,132 +113,14 @@
           "preserveRatio": 1.0,
           "threshold": 0.4,
           "pass": true
-        }
-      ],
-      "checks": {
-        "changedVisible": true,
-        "ratioWithinLimit": true,
-        "outsideMaskZero": true,
-        "headCoreLocked": true,
-        "torsoCoreLocked": true,
-        "stoolLocked": true,
-        "leftLegLocked": true,
-        "localContactSourcePreservation": true
-      },
-      "pass": true
-    },
-    {
-      "id": "bd_rc_sn_rf_r_l_hit_refresh",
-      "actionKey": "BD+RC+SN:RF/R/L",
-      "phase": "hit",
-      "source": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
-      "sourceSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rc_sn_rf_r_l_hit_refresh_candidate.png",
-      "candidateSha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
-      "changedPixelsVsNeutral": 70384,
-      "changedRatioVsNeutral": 0.0447585,
-      "changedBBoxVsNeutral": {
-        "x": 436,
-        "y": 173,
-        "width": 691,
-        "height": 821
-      },
-      "headCoreGuardChangedPixels": 0,
-      "torsoCoreGuardChangedPixels": 0,
-      "stoolGuardChangedPixels": 0,
-      "leftLegGuardChangedPixels": 0,
-      "sourceLocalPreservation": [
-        {
-          "part": "BD",
-          "limb": "RF",
-          "radiusPx": 48,
-          "sourceRelevantPixels": 6069,
-          "preservedPixels": 6069,
-          "preserveRatio": 1.0,
-          "threshold": 0.6,
-          "pass": true
-        },
-        {
-          "part": "RC",
-          "limb": "R",
-          "radiusPx": 48,
-          "sourceRelevantPixels": 0,
-          "preservedPixels": 0,
-          "preserveRatio": 1,
-          "threshold": 0.6,
-          "pass": true
-        },
-        {
-          "part": "SN",
-          "limb": "L",
-          "radiusPx": 48,
-          "sourceRelevantPixels": 0,
-          "preservedPixels": 0,
-          "preserveRatio": 1,
-          "threshold": 0.6,
-          "pass": true
-        }
-      ],
-      "checks": {
-        "changedVisible": true,
-        "ratioWithinLimit": true,
-        "outsideMaskZero": true,
-        "headCoreLocked": true,
-        "torsoCoreLocked": true,
-        "stoolLocked": true,
-        "leftLegLocked": true,
-        "localContactSourcePreservation": true
-      },
-      "pass": true
-    },
-    {
-      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
-      "actionKey": "BD+RC+SN:RF/R/L",
-      "phase": "rebound",
-      "source": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
-      "sourceSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rc_sn_rf_r_l_rebound_refresh_candidate.png",
-      "candidateSha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
-      "changedPixelsVsNeutral": 67827,
-      "changedRatioVsNeutral": 0.04313246,
-      "changedBBoxVsNeutral": {
-        "x": 432,
-        "y": 202,
-        "width": 747,
-        "height": 802
-      },
-      "headCoreGuardChangedPixels": 0,
-      "torsoCoreGuardChangedPixels": 0,
-      "stoolGuardChangedPixels": 0,
-      "leftLegGuardChangedPixels": 0,
-      "sourceLocalPreservation": [
-        {
-          "part": "BD",
-          "limb": "RF",
-          "radiusPx": 65,
-          "sourceRelevantPixels": 9993,
-          "preservedPixels": 9993,
-          "preserveRatio": 1.0,
-          "threshold": 0.4,
-          "pass": true
-        },
-        {
-          "part": "RC",
-          "limb": "R",
-          "radiusPx": 65,
-          "sourceRelevantPixels": 0,
-          "preservedPixels": 0,
-          "preserveRatio": 1,
-          "threshold": 0.4,
-          "pass": true
         },
         {
           "part": "SN",
           "limb": "L",
           "radiusPx": 65,
-          "sourceRelevantPixels": 0,
-          "preservedPixels": 0,
-          "preserveRatio": 1,
+          "sourceRelevantPixels": 174,
+          "preservedPixels": 174,
+          "preserveRatio": 1.0,
           "threshold": 0.4,
           "pass": true
         }
@@ -246,6 +138,6 @@
       "pass": true
     }
   ],
-  "passCount": 4,
+  "passCount": 2,
   "failCount": 3
 }
