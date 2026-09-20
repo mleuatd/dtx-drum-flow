@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-20T11:23:00+09:00",
+  "issueId": "MOTION-002",
+  "actionKey": "BD+RC:RF/R",
+  "claimBatch": "HOLD-REPAIR-FRONT-06",
+  "candidateVersion": "v3",
+  "candidateSha256": {
+    "hit": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+    "rebound": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b"
+  },
+  "runtime": {
+    "workflow": ".github/workflows/front06-candidate-runtime-qa.yml",
+    "runId": 35483787908,
+    "artifactId": 10596886963,
+    "artifactName": "front06-candidate-runtime-35483787908",
+    "source": "real Luna say maybe chart occurrence only",
+    "syntheticActionGeneration": false,
+    "measure": 103,
+    "eventTime": 181.045518,
+    "precedingRealState": {
+      "actionKey": "BD:RF",
+      "phase": "rebound"
+    },
+    "targetHit": {
+      "actionKey": "BD+RC:RF/R",
+      "phase": "hit",
+      "frame": "layers/character/combo/bd_rc_hit.png"
+    },
+    "targetRebound": {
+      "actionKey": "BD+RC:RF/R",
+      "phase": "rebound",
+      "frame": "layers/character/combo/bd_rc_rebound.png"
+    },
+    "neutralAfter": {
+      "actionKey": "neutral",
+      "phase": "neutral"
+    },
+    "nextGapSeconds": 2.3741010000000244,
+    "passed": 8,
+    "failed": 0,
+    "viewports": [
+      "PC 1280x900",
+      "Xperia portrait 384x864"
+    ],
+    "missingAssets": 0,
+    "runtimeErrors": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "failedRequests": 0
+  },
+  "visualRuntimeReview": {
+    "pcHit": "PASS",
+    "pcRebound": "PASS",
+    "xperiaPortraitHit": "PASS",
+    "xperiaPortraitRebound": "PASS",
+    "fixedDrumRegistration": "PASS",
+    "visibleWarp": "PASS_NONE",
+    "neighboringEventRegression": "PASS"
+  },
+  "decision": "REAL_CHART_RUNTIME_PASS_PREPROMOTION_VALIDATION_REQUIRED",
+  "promotionAllowed": false,
+  "nextGate": "stage exact v3 formal bytes in runner, update metadata in runner, run character asset validation and runtime-pose regression before any formal commit"
+}
