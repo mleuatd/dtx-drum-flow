@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T11:36:00+09:00",
+  "updatedAt": "2026-09-20T11:27:29+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -1072,7 +1072,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "IN_FIX",
+      "status": "PROMOTED_PENDING_PUBLIC_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -1099,10 +1099,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T10:50:00+09:00",
+      "updatedAt": "2026-09-20T11:27:29+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "PROMOTED_PENDING_PUBLIC_RUNTIME_QA",
         "repairType": "mixed",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -1989,6 +1989,11 @@
           "at": "2026-09-20T10:50:00+09:00",
           "decision": "HOLD_REPAIR_RECLAIMED_PAIR_REPLACEMENT",
           "detail": "FRONT reclaimed MOTION-002 for a new pair-level replacement method: remove old right-arm pose, insert one RC right-arm pose, and preserve BD/RF foot semantics independently. Do not repeat additive arm corridor."
+        },
+        {
+          "at": "2026-09-20T11:27:29+09:00",
+          "decision": "FRONT06_V3_FORMAL_PROMOTED_PENDING_PUBLIC_RUNTIME",
+          "detail": "Promoted v3 only after static pair PASS, real-chart M103 PC/Xperia 8/8 PASS, and prepromotion validation PASS. Formal SHA hit=92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1 rebound=61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b. Claim retained until public Pages runtime confirmation."
         }
       ],
       "claim": {
@@ -1996,6 +2001,51 @@
         "batch": "HOLD-REPAIR-FRONT-06",
         "owner": "CHATGPT-FRONT",
         "claimedAt": "2026-09-20T10:50:00+09:00"
+      },
+      "front06ValidatedPromotion": {
+        "candidateVersion": "v3",
+        "oldFormalSha256": {
+          "hit": "0efbdd9a097408e8567af16514348587e039d81212a6b569eac12d67c9edd651",
+          "rebound": "c4615ca06759655be68bb1d668f47b06883f9744d73c3bdc7c71ce1eccfecd79"
+        },
+        "newFormalSha256": {
+          "hit": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+          "rebound": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b"
+        },
+        "method": "neutral pelvis/thigh retained; destructive single RC-arm donor replacement; verified BD/RF knee-to-boot donor transplant",
+        "staticQa": {
+          "status": "PASS",
+          "evidence": "character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_STATIC_VISUAL_QA_V3.json"
+        },
+        "candidateRuntimeQa": {
+          "status": "PASS",
+          "runId": 35483787908,
+          "artifactId": 10596886963,
+          "measure": 103,
+          "viewports": [
+            "PC 1280x900",
+            "Xperia portrait 384x864"
+          ]
+        },
+        "prepromotionValidation": {
+          "status": "PASS",
+          "runId": 35483911293,
+          "artifactId": 10597390882
+        },
+        "promotionWorkflowRunId": "35484021938",
+        "promotedAt": "2026-09-20T11:27:29+09:00",
+        "publicRuntimeQa": "PENDING"
+      },
+      "latestVisualIntegrityQa": {
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "hitReboundTransition": "PASS",
+        "candidateRealChartRuntime": "PASS",
+        "pc": "PASS",
+        "xperiaPortrait": "PASS",
+        "validation": "PASS",
+        "publicRuntime": "PENDING"
       }
     },
     {

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "issueId": "MOTION-002",
+  "actionKey": "BD+RC:RF/R",
+  "claimBatch": "HOLD-REPAIR-FRONT-06",
+  "oldFormalSha256": {
+    "hit": "0efbdd9a097408e8567af16514348587e039d81212a6b569eac12d67c9edd651",
+    "rebound": "c4615ca06759655be68bb1d668f47b06883f9744d73c3bdc7c71ce1eccfecd79"
+  },
+  "newFormalSha256": {
+    "hit": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+    "rebound": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b"
+  },
+  "candidateVersion": "v3",
+  "promotionStatus": "PROMOTED_PENDING_PUBLIC_RUNTIME_QA",
+  "promotionWorkflowRunId": "35484021938",
+  "staticQa": "PASS",
+  "candidateRuntimeQa": "PASS",
+  "prepromotionValidation": "PASS",
+  "claimReleased": false
+}
