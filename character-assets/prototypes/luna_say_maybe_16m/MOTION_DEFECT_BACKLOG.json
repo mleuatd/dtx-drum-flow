@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:22:00+09:00",
+  "updatedAt": "2026-09-20T09:24:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8160,7 +8160,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8188,7 +8188,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:07:00+09:00",
+      "updatedAt": "2026-09-20T09:24:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -8203,7 +8203,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -8938,7 +8938,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T08:07:00+09:00"
+        "updatedAt": "2026-09-20T09:24:00+09:00"
       },
       "autoRepairPromotion": {
         "promoted": [
@@ -8964,7 +8964,20 @@
         "note": "Batch 04: hit is visually acceptable, but rebound has a structural rectangular splice/cut across hair-torso and right forearm/hand-stick geometry. Formal PNGs preserved; no minimal retry because defect exceeds light/local threshold.",
         "workflowRunId": 35475145116,
         "artifactId": 10593238245
-      }
+      },
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "HOLD-REPAIR-FRONT-02",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T09:24:00+09:00"
+      },
+      "decisionLog": [
+        {
+          "at": "2026-09-20T09:24:00+09:00",
+          "decision": "HOLD_REPAIR_CLAIMED",
+          "detail": "Claimed RD:R for rebound-only local right-arm/hand/stick repair. Hit remains protected because prior static review passed. Formal PNGs remain unchanged until candidate QA passes."
+        }
+      ]
     },
     {
       "issueId": "MOTION-011",
