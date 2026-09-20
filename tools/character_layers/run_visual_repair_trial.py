@@ -246,11 +246,13 @@ def main() -> int:
         candidate[allowed] = warped[allowed]
     else:
         candidate = warped
+    secondary_allowed = np.zeros(candidate.shape[:2], dtype=bool)
     for repair in cfg.get("secondaryRepairRegions", []):
         if repair.get("operation") != "clear":
             raise ValueError(f"unsupported secondary repair operation: {repair.get('operation')}")
         clear = polygon_mask((candidate.shape[1], candidate.shape[0]), repair["polygon"])
         candidate[clear] = 0
+        secondary_allowed |= clear
         allowed |= clear
     timings["warpSeconds"] = round(time.perf_counter() - stage, 6)
 
@@ -263,6 +265,7 @@ def main() -> int:
     diff = np.any(candidate != base_rgba, axis=2)
     outside = diff & ~allowed
     fmask = fixed_mask(base_rgba.shape[:2], cfg["fixedRects"])
+    fmask &= ~secondary_allowed
     fixed_changed = diff & fmask
     ys, xs = np.nonzero(diff)
     bbox = None if not xs.size else {
