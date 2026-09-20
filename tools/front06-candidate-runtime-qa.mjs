@@ -34,5 +34,5 @@ for(const vp of [{name:"pc",width:1280,height:900},{name:"xperia-portrait",width
  await context.close();
 }
 await browser.close();
-const report={schemaVersion:1,issueId:"MOTION-002",actionKey:TARGET,claimBatch:"HOLD-REPAIR-FRONT-06",source:"real Luna say maybe chart occurrence only",syntheticActionGeneration:false,selectedOccurrence:{measure:ev.measure,time:ev.time,prevGap:ev.prevGap,nextGap:ev.nextGap},sequence:"neutral -> real-chart hit -> rebound -> neutral",viewports:["pc 1280x900","xperia-portrait 384x864"],failed,passed:records.length-failed,records};
+const report={schemaVersion:1,issueId:"MOTION-002",actionKey:TARGET,claimBatch:"HOLD-REPAIR-FRONT-06",source:"real Luna say maybe chart occurrence only",syntheticActionGeneration:false,selectedOccurrence:{measure:ev.measure,time:ev.time,prevGap:ev.prevGap,nextGap:ev.nextGap},sequence:"preceding real-chart state -> real-chart hit -> rebound -> neutral",viewports:["pc 1280x900","xperia-portrait 384x864"],failed,passed:records.length-failed,records};
 await fs.writeFile(path.join(ROOT,"runtime-qa.json"),JSON.stringify(report,null,2));if(failed)process.exit(1);
