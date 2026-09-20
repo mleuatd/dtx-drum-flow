@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "index": 32,
+  "sourceFilename": "032_bd_hh_rf_r_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+HH:RF/R",
+  "runtimeActionKey": "BD+HH:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "両脚の間に第3の脚・ブーツ状パーツが残留し、左手側も腕・手の輪郭が重なって別ポーズ残留が見える。"
+  ],
+  "defectRegions": [
+    "waist",
+    "skirt",
+    "left_leg",
+    "right_leg",
+    "left_arm",
+    "left_hand",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_HH_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+HH:RF/R hit/rebound",
+    "negativeAttention": [
+      "waist",
+      "skirt",
+      "left_leg",
+      "right_leg",
+      "left_arm",
+      "left_hand",
+      "artifact"
+    ]
+  }
+}
