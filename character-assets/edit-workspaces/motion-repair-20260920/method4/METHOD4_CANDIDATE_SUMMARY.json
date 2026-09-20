@@ -43,14 +43,14 @@
       "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
       "sourceSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_hit_refresh_candidate.png",
-      "candidateSha256": "9742006be53af23326cc8866932d66f6b6d8e03a4f8c16c7a99db7e478e5253e",
-      "changedPixelsVsNeutral": 60892,
-      "changedRatioVsNeutral": 0.03872236,
+      "candidateSha256": "851861f09418986880fc7251f8bf2123d228155bbcc797e2aebb8b268bd5a1ee",
+      "changedPixelsVsNeutral": 56664,
+      "changedRatioVsNeutral": 0.0360337,
       "changedBBoxVsNeutral": {
-        "x": 355,
-        "y": 338,
-        "width": 555,
-        "height": 656
+        "x": 410,
+        "y": 415,
+        "width": 500,
+        "height": 579
       },
       "headCoreGuardChangedPixels": 0,
       "torsoCoreGuardChangedPixels": 0,
@@ -82,10 +82,10 @@
           "limb": "L",
           "radiusPx": 48,
           "sourceRelevantPixels": 348,
-          "preservedPixels": 348,
-          "preserveRatio": 1.0,
+          "preservedPixels": 193,
+          "preserveRatio": 0.5546,
           "threshold": 0.6,
-          "pass": true
+          "pass": false
         }
       ],
       "checks": {
@@ -96,9 +96,9 @@
         "torsoCoreLocked": true,
         "stoolLocked": true,
         "leftLegLocked": true,
-        "localContactSourcePreservation": true
+        "localContactSourcePreservation": false
       },
-      "pass": true
+      "pass": false
     },
     {
       "id": "bd_hh_sn_rf_r_l_rebound_refresh",
@@ -107,9 +107,9 @@
       "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
       "sourceSha256": "f5b226c78d14ac1945a2b7f6a275e1f1fda2e6c0bd089c3199c0d38b06996fa9",
       "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_rebound_refresh_candidate.png",
-      "candidateSha256": "18e74a3b4f733343b3f0bc93d40ccedb0ad1221c842b536144b0be0ad2490e37",
-      "changedPixelsVsNeutral": 61876,
-      "changedRatioVsNeutral": 0.03934811,
+      "candidateSha256": "126993330ed6dd4c36724db8784f68e05ecf3a0e90cbe238d09edd9cb21c991b",
+      "changedPixelsVsNeutral": 60512,
+      "changedRatioVsNeutral": 0.03848071,
       "changedBBoxVsNeutral": {
         "x": 162,
         "y": 280,
@@ -146,8 +146,8 @@
           "limb": "L",
           "radiusPx": 65,
           "sourceRelevantPixels": 174,
-          "preservedPixels": 174,
-          "preserveRatio": 1.0,
+          "preservedPixels": 170,
+          "preserveRatio": 0.977,
           "threshold": 0.4,
           "pass": true
         }
@@ -165,6 +165,6 @@
       "pass": true
     }
   ],
-  "passCount": 2,
-  "failCount": 4
+  "passCount": 1,
+  "failCount": 5
 }
