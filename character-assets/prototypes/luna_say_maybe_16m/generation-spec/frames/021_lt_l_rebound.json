@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 21,
+  "sourceFilename": "021_lt_l_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "LT:L",
+  "runtimeActionKey": "LT:L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手のスティック軌道が二重化し、髪・上背部付近にも手から離れた短いスティック状断片が浮遊する。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "stick",
+    "hair",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/LT_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action LT:L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "stick",
+      "hair",
+      "artifact"
+    ]
+  }
+}
