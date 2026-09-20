@@ -1,0 +1,561 @@
+{
+  "schemaVersion": "1.0",
+  "canvas": {
+    "width": 1448,
+    "height": 1086,
+    "aspectRatio": 1.333333,
+    "pixelCoordinateSystem": "top-left"
+  },
+  "provenanceRule": "Exact implementation locks are HARD where stated. Measured/visual landmarks are SOFT anchors with tolerance and must never override anatomy.",
+  "measuredPositiveCompositeAlphaBBoxes": {
+    "001_neutral.png": {
+      "bboxPx": [
+        57,
+        23,
+        1179,
+        1063
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    },
+    "002_sn_l_hit.png": {
+      "bboxPx": [
+        0,
+        52,
+        1329,
+        1054
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    },
+    "003_sn_l_rebound.png": {
+      "bboxPx": [
+        0,
+        52,
+        1329,
+        1054
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    },
+    "004_sn_r_hit.png": {
+      "bboxPx": [
+        33,
+        48,
+        1329,
+        1060
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    },
+    "005_sn_r_rebound.png": {
+      "bboxPx": [
+        57,
+        17,
+        1360,
+        1070
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    },
+    "009_bd_rf_rebound.png": {
+      "bboxPx": [
+        57,
+        23,
+        1179,
+        1063
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    },
+    "035_hh_sn_r_l_rebound.png": {
+      "bboxPx": [
+        57,
+        23,
+        1179,
+        1063
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    },
+    "062_drum_base.png": {
+      "bboxPx": [
+        0,
+        19,
+        1422,
+        1086
+      ],
+      "source": "MEASURED_ALPHA",
+      "confidence": "HIGH"
+    }
+  },
+  "neutralLandmarks": {
+    "headTop": {
+      "px": [
+        720,
+        31
+      ],
+      "norm": [
+        0.497238,
+        0.028545
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "faceCenter": {
+      "px": [
+        642,
+        222
+      ],
+      "norm": [
+        0.44337,
+        0.20442
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "neck": {
+      "px": [
+        696,
+        315
+      ],
+      "norm": [
+        0.480663,
+        0.290055
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "shoulderL": {
+      "px": [
+        648,
+        352
+      ],
+      "norm": [
+        0.447514,
+        0.324125
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "elbowL": {
+      "px": [
+        565,
+        490
+      ],
+      "norm": [
+        0.390193,
+        0.451197
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "wristL": {
+      "px": [
+        500,
+        490
+      ],
+      "norm": [
+        0.345304,
+        0.451197
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "handL": {
+      "px": [
+        492,
+        486
+      ],
+      "norm": [
+        0.339779,
+        0.447514
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "shoulderR": {
+      "px": [
+        810,
+        382
+      ],
+      "norm": [
+        0.559392,
+        0.35175
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "elbowR": {
+      "px": [
+        905,
+        430
+      ],
+      "norm": [
+        0.625,
+        0.395948
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "wristR": {
+      "px": [
+        982,
+        453
+      ],
+      "norm": [
+        0.678177,
+        0.417127
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "handR": {
+      "px": [
+        990,
+        452
+      ],
+      "norm": [
+        0.683702,
+        0.416206
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "pelvis": {
+      "px": [
+        735,
+        620
+      ],
+      "norm": [
+        0.507597,
+        0.570902
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "hipL": {
+      "px": [
+        615,
+        620
+      ],
+      "norm": [
+        0.424724,
+        0.570902
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "hipR": {
+      "px": [
+        735,
+        640
+      ],
+      "norm": [
+        0.507597,
+        0.589319
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "kneeL": {
+      "px": [
+        520,
+        650
+      ],
+      "norm": [
+        0.359116,
+        0.598527
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "kneeR": {
+      "px": [
+        670,
+        685
+      ],
+      "norm": [
+        0.462707,
+        0.630755
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "ankleL": {
+      "px": [
+        455,
+        815
+      ],
+      "norm": [
+        0.314227,
+        0.75046
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "ankleR": {
+      "px": [
+        655,
+        825
+      ],
+      "norm": [
+        0.452348,
+        0.759669
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "bootTipL": {
+      "px": [
+        340,
+        910
+      ],
+      "norm": [
+        0.234807,
+        0.837937
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "bootTipR": {
+      "px": [
+        610,
+        875
+      ],
+      "norm": [
+        0.421271,
+        0.805709
+      ],
+      "tolerancePx": 22,
+      "toleranceNorm": [
+        0.015193,
+        0.020258
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "stoolCenter": {
+      "px": [
+        800,
+        716
+      ],
+      "norm": [
+        0.552486,
+        0.6593
+      ],
+      "tolerancePx": 12,
+      "toleranceNorm": [
+        0.008287,
+        0.01105
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    },
+    "hairTip": {
+      "px": [
+        770,
+        625
+      ],
+      "norm": [
+        0.531768,
+        0.575506
+      ],
+      "tolerancePx": 25,
+      "toleranceNorm": [
+        0.017265,
+        0.02302
+      ],
+      "source": "VISUAL_MEASURED_FROM_001_NEUTRAL",
+      "confidence": "MEDIUM"
+    }
+  },
+  "skeleton": {
+    "armPath": [
+      "shoulder",
+      "elbow",
+      "wrist",
+      "hand",
+      "stick"
+    ],
+    "legPath": [
+      "hip",
+      "knee",
+      "ankle",
+      "bootTip"
+    ],
+    "segmentLengthsPx": {
+      "upperArm": {
+        "preferred": 155,
+        "tolerance": 30
+      },
+      "forearm": {
+        "preferred": 105,
+        "tolerance": 28
+      },
+      "handToGrip": {
+        "preferred": 18,
+        "tolerance": 8
+      },
+      "thigh": {
+        "preferred": 145,
+        "tolerance": 35
+      },
+      "shin": {
+        "preferred": 180,
+        "tolerance": 40
+      },
+      "stick": {
+        "preferred": 185,
+        "tolerance": 30
+      }
+    },
+    "jointAngleRulesDeg": {
+      "elbow": {
+        "min": 35,
+        "max": 170
+      },
+      "knee": {
+        "min": 35,
+        "max": 170
+      },
+      "wristDeviationFromForearm": {
+        "max": 45
+      },
+      "impossibleReverseBend": "HARD_FAIL"
+    }
+  },
+  "bodyScale": {
+    "designHeads": {
+      "preferred": 4,
+      "tolerance": 0.25
+    },
+    "globalScaleDeltaPercent": {
+      "maxAbs": 3
+    },
+    "characterCenterDeltaPx": {
+      "maxAbs": 10
+    },
+    "cameraRotationDeltaDeg": {
+      "maxAbs": 2
+    }
+  },
+  "temporal": {
+    "headCenterFrameDeltaPx": {
+      "max": 20
+    },
+    "pelvisFrameDeltaPx": {
+      "max": 20
+    },
+    "stoolCenterFrameDeltaPx": {
+      "max": 12
+    },
+    "inactiveWristDeltaPx": {
+      "max": 25
+    },
+    "activeWristHitToReboundDeltaPx": {
+      "max": 90
+    },
+    "activeStickTipHitToReboundDeltaPx": {
+      "max": 180
+    },
+    "hairMassCentroidDeltaPx": {
+      "max": 20
+    }
+  }
+}
