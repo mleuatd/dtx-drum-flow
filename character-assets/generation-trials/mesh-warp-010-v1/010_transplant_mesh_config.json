@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "frameId": "010_bd_rc_hit",
   "actionKey": "BD+RC",
   "phase": "hit",
@@ -12,7 +12,7 @@
     "x1": 585,
     "y1": 625,
     "x2": 770,
-    "y2": 970
+    "y2": 1075
   },
   "sourcePoints": [
     [
@@ -74,6 +74,18 @@
     [
       720,
       910
+    ],
+    [
+      590,
+      1070
+    ],
+    [
+      675,
+      1070
+    ],
+    [
+      765,
+      1070
     ]
   ],
   "targetPoints": [
@@ -136,6 +148,18 @@
     [
       710,
       925
+    ],
+    [
+      590,
+      1070
+    ],
+    [
+      675,
+      1070
+    ],
+    [
+      765,
+      1070
     ]
   ],
   "landmarks": {
@@ -178,12 +202,16 @@
       705
     ],
     [
-      755,
-      960
+      765,
+      1070
     ],
     [
       600,
-      960
+      1070
+    ],
+    [
+      590,
+      940
     ],
     [
       590,
@@ -245,7 +273,8 @@
       "skirt",
       "right_leg",
       "right_ankle",
-      "right_foot"
+      "right_foot",
+      "right_hand_duplicate_stick"
     ],
     "fixedRegions": [
       "head",
@@ -269,7 +298,7 @@
     "shoulderLeft": null,
     "shoulderRight": null,
     "torsoFlowNotes": "Keep the original 010 torso and shoulder direction. Lower-body deformation must read as one continuous posture from waist/pelvis through the planted right foot.",
-    "postureIntent": "BD+RC hit: preserve the original upper-body RC strike while removing the lower-body third-leg/boot artifact and restoring waist-to-leg continuity.",
+    "postureIntent": "BD+RC hit: preserve the original upper-body RC strike while replacing the corrupted lower-body region through the full boot residual and removing only the duplicate short right-hand stick.",
     "naturalnessFocusRegions": [
       "waist",
       "pelvis",
@@ -308,15 +337,15 @@
     "032"
   ],
   "outputNames": {
-    "candidate": "010_bd_rc_hit_mesh_v2.png",
-    "review": "010_bd_rc_hit_mesh_v2_review.webp",
-    "compositeReview": "010_bd_rc_hit_fixed_drum_v2_review.webp",
-    "beforeAfterReview": "010_before_after_v2_review.webp",
-    "qa": "010_v2_qa.json",
-    "timing": "010_v2_timing.json",
-    "runManifest": "010_v2_run_manifest.json",
-    "commitManifest": "010_v2_commit_manifest.json",
-    "regression": "010_v2_regression_run.json"
+    "candidate": "010_bd_rc_hit_mesh_v3.png",
+    "review": "010_bd_rc_hit_mesh_v3_review.webp",
+    "compositeReview": "010_bd_rc_hit_fixed_drum_v3_review.webp",
+    "beforeAfterReview": "010_before_after_v3_review.webp",
+    "qa": "010_v3_qa.json",
+    "timing": "010_v3_timing.json",
+    "runManifest": "010_v3_run_manifest.json",
+    "commitManifest": "010_v3_commit_manifest.json",
+    "regression": "010_v3_regression_run.json"
   },
   "executionRetry": 1,
   "basePng": "character-assets/layers/character/combo/bd_rc_hit.png",
@@ -354,5 +383,37 @@
     ]
   ],
   "warpContributionRegion": "deformationPolygon",
-  "implementationSha": "6b363318cf4e5e7c39333b162bf36f43f975483c"
+  "implementationSha": "8108b576f64d879310656a7b8f6c0d07a4a7aad8",
+  "secondaryRepairRegions": [
+    {
+      "name": "right_hand_duplicate_stick",
+      "operation": "clear",
+      "polygon": [
+        [
+          1015,
+          405
+        ],
+        [
+          1047,
+          325
+        ],
+        [
+          1055,
+          311
+        ],
+        [
+          1065,
+          316
+        ],
+        [
+          1059,
+          334
+        ],
+        [
+          1027,
+          412
+        ]
+      ]
+    }
+  ]
 }
