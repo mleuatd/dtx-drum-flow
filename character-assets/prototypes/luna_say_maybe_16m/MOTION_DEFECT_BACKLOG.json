@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T12:49:00+09:00",
+  "updatedAt": "2026-09-20T12:51:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8456,7 +8456,7 @@
     },
     {
       "issueId": "MOTION-010",
-      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M130",
       "time": "~selected event",
@@ -8484,7 +8484,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T12:51:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -9015,6 +9015,11 @@
             "at": "2026-09-20T10:11:00+09:00",
             "decision": "PASS2_BACK_METHOD4_PAIR_FULLRES_FAIL_CONFIRMED",
             "detail": "Downloaded method4 artifact 10594462976 and inspected exact rd_r hit/rebound candidates. Rebound is cleaner, but hit visibly has competing duplicated right-side arm/hand geometry. Pair-level right RD corridor reconstruction required; formal unchanged."
+          },
+          {
+            "at": "2026-09-20T12:51:00+09:00",
+            "decision": "ROOT_FIRST",
+            "detail": "Process root action RD:R before dependent BD+RD:RF/R. Reuse proven Method4 exact-parent bounded repair and require exact visual+runtime completion before releasing claim."
           }
         ],
         "measurementTodos": [
@@ -9280,7 +9285,12 @@
         "artifactId": 10596300390,
         "reviewedAt": "2026-09-20T10:44:00+09:00"
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FRONT-M010-ROOT",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T12:51:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T09:24:00+09:00",
