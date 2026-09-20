@@ -1,0 +1,1528 @@
+{
+  "auditId": "FULL_IMAGE_VISUAL_AUDIT_20260920",
+  "repository": "mleuatd/dtx-drum-flow",
+  "branch": "main",
+  "sourceDropboxFolder": "/ChatGPT/dtx-drum-flow/LATEST_RUNTIME_IMAGES_20260920",
+  "sourceImageCount": 62,
+  "originalImageDimensions": [
+    1448,
+    1086
+  ],
+  "inspectionMethod": "original-file-full-resolution-visual-inspection",
+  "auditPolicy": "Past VERIFIED/PASS states ignored; current original PNG appearance is authoritative for this audit.",
+  "repairScope": "AUDIT_ONLY_NO_REPAIR",
+  "generatedAt": "2026-09-20T14:17:12Z",
+  "summary": {
+    "PASS": 8,
+    "FAIL": 53,
+    "REVIEW": 1,
+    "inspected": 62,
+    "total": 62
+  },
+  "images": [
+    {
+      "index": 1,
+      "filename": "001_neutral.png",
+      "runtimeKey": null,
+      "actionKey": "NEUTRAL",
+      "actionKeySource": "filename-convention",
+      "phase": "neutral",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 2,
+      "filename": "002_sn_l_hit.png",
+      "runtimeKey": null,
+      "actionKey": "SN:L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 3,
+      "filename": "003_sn_l_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "SN:L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 4,
+      "filename": "004_sn_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "SN:R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 5,
+      "filename": "005_sn_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "SN:R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 6,
+      "filename": "006_hh_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "HH:R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左腕側に別ポーズ由来の前腕・手が残留して腕が3本あるように見え、余分なスティックも残る。"
+      ],
+      "defectRegions": [
+        "left_arm",
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 7,
+      "filename": "007_hh_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "HH:R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左腕上側に切り離された前腕・手と余分なスティックが残留し、腕が3本あるように見える。"
+      ],
+      "defectRegions": [
+        "left_arm",
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 8,
+      "filename": "008_bd_rf_hit.png",
+      "runtimeKey": null,
+      "actionKey": "BD:RF",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカート下端から脚への接続も分断している。"
+      ],
+      "defectRegions": [
+        "waist",
+        "skirt",
+        "left_leg",
+        "right_leg",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 9,
+      "filename": "009_bd_rf_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "BD:RF",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 10,
+      "filename": "010_bd_rc_hit.png",
+      "runtimeKey": null,
+      "actionKey": "BD+RC",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカートが崩れ、右手付近のスティック軌道も重複する。"
+      ],
+      "defectRegions": [
+        "waist",
+        "skirt",
+        "left_leg",
+        "right_leg",
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 11,
+      "filename": "011_bd_rc_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "BD+RC",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手から異なる軌道のスティックが2本伸び、右手側のスティックが二重化している。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 12,
+      "filename": "012_rd_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "RD:R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、残留腕付近に黒い三角状断片もある。"
+      ],
+      "defectRegions": [
+        "right_arm",
+        "right_hand",
+        "hair",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 13,
+      "filename": "013_rd_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "RD:R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "通常の右手とは別に右手上方へ部分的な手・腕とスティックが残り、右側ポーズが二重化している。"
+      ],
+      "defectRegions": [
+        "right_arm",
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 14,
+      "filename": "014_bd_sn_rf_l_hit.png",
+      "runtimeKey": null,
+      "actionKey": "BD+SN:RF/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "両脚の間に第3の脚状パーツが残留し腰・スカートから下半身が破綻、上半身にも余分なスティック断片がある。"
+      ],
+      "defectRegions": [
+        "waist",
+        "skirt",
+        "left_leg",
+        "right_leg",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 15,
+      "filename": "015_bd_sn_rf_l_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "BD+SN:RF/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "人物左側に切り離された手・前腕状パーツが浮遊し、別軌道のスティック線も残る。"
+      ],
+      "defectRegions": [
+        "left_arm",
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 16,
+      "filename": "016_rc_sn_r_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "RC+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "右手のスティックが二重化し、長い打撃用スティックとは別の残留スティックが同じ右手付近から伸びる。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 17,
+      "filename": "017_rc_sn_r_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "RC+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手側に異なる軌道のスティックが2本見え、別ポーズのスティックが残留している。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 18,
+      "filename": "018_lt_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "LT:R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "右手から上向きと横向きの2本のスティックが伸び、左手分を含め計3本に見え、横向き線が髪を横断する。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "hair",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 19,
+      "filename": "019_lt_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "LT:R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手に上向きスティックとは別の横向き短いスティックが残り、計3本に見える。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "hair",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 20,
+      "filename": "020_lt_l_hit.png",
+      "runtimeKey": null,
+      "actionKey": "LT:L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手に本来の斜めスティックとは別に右方向へ伸びるスティックが残り、計3本に見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 21,
+      "filename": "021_lt_l_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "LT:L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手のスティック軌道が二重化し、髪・上背部付近にも手から離れた短いスティック状断片が浮遊する。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "hair",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 22,
+      "filename": "022_bd_sn_rf_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "BD+SN:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "右手から髪・背中を横断する長い残留スティックが重複し、左脚すね付近にも短い不要線がある。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "hair",
+        "left_leg",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 23,
+      "filename": "023_bd_sn_rf_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "BD+SN:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手側から髪・背中を横断する残留スティックがあり、右側ポーズ・スティックが二重化している。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "hair",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 24,
+      "filename": "024_ft_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "FT:R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "右手に上向きと長い右下方向の2本のスティックが残り、左手分を含め計3本に見える。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 25,
+      "filename": "025_ft_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "FT:R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手に異なる2本のスティックが残り、左手分を含め計3本に見える。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 26,
+      "filename": "026_ft_l_hit.png",
+      "runtimeKey": null,
+      "actionKey": "FT:L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手に本来の斜めスティックと胴体・髪方向へ横断する長いスティックが重複している。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "torso",
+        "hair",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 27,
+      "filename": "027_ft_l_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "FT:L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手から斜め上と右方向の2本のスティックが伸び、計3本に見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 28,
+      "filename": "028_bd_rd_rf_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "BD+RD:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "両脚の間に第3の脚・ブーツが残留して腰・スカートが破綻し、さらに余分な右腕も残って腕が3本に見える。"
+      ],
+      "defectRegions": [
+        "waist",
+        "skirt",
+        "left_leg",
+        "right_leg",
+        "right_arm",
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 29,
+      "filename": "029_bd_rd_rf_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "BD+RD:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手側に上向きスティックが2本重なって残り、左手分を含め計3本に見える。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 30,
+      "filename": "030_rd_sn_r_l_hit.png",
+      "runtimeKey": null,
+      "actionKey": "RD+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、黒い三角状断片と左側の浮遊線もある。"
+      ],
+      "defectRegions": [
+        "right_arm",
+        "right_hand",
+        "hair",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 31,
+      "filename": "031_rd_sn_r_l_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "RD+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手側に別軌道のスティックが重複して右側だけで2本見え、左手付近にも短い浮遊線が残る。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 32,
+      "filename": "032_bd_hh_rf_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HH:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "両脚の間に第3の脚・ブーツ状パーツが残留し、左手側も腕・手の輪郭が重なって別ポーズ残留が見える。"
+      ],
+      "defectRegions": [
+        "waist",
+        "skirt",
+        "left_leg",
+        "right_leg",
+        "left_arm",
+        "left_hand",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 33,
+      "filename": "033_bd_hh_rf_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HH:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左肩上方に別ポーズ由来の前腕・手が残留し、通常の左腕と合わせて腕が3本あるように見える。"
+      ],
+      "defectRegions": [
+        "left_arm",
+        "left_hand",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 34,
+      "filename": "034_hh_sn_r_l_hit.png",
+      "runtimeKey": null,
+      "actionKey": "HH+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "REVIEW",
+      "defects": [
+        "左手外側に短い横方向の線が残り、スティックまたは別ポーズ由来の微小残留線にも見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "artifact"
+      ],
+      "severity": "LOW",
+      "notes": "人体全体は概ね自然だが微小残留線の疑いがあるためPASSに寄せずREVIEW。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 35,
+      "filename": "035_hh_sn_r_l_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "HH+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 36,
+      "filename": "036_bd_lt_rf_r_hit.png",
+      "runtimeKey": null,
+      "actionKey": "BD+LT:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "右手に上向きスティックと髪を横断する横向きスティックが重複し、左脚すね付近にも短い不要線がある。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "hair",
+        "left_leg",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 37,
+      "filename": "037_bd_lt_rf_r_rebound.png",
+      "runtimeKey": null,
+      "actionKey": "BD+LT:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手に上向きスティックと髪方向へ伸びる別スティックが重複している。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "hair",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 38,
+      "filename": "038_ht_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "HT:L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手から異なる方向へ2本のスティックが伸び、右手分を含め計3本に見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 39,
+      "filename": "039_ht_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "HT:L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手から2本のスティックが異なる軌道で伸び、一方が上腕付近へ不自然に終端している。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "left_arm",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 40,
+      "filename": "040_ft_sn_r_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "FT+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手に2本、右手にも2本のスティックが見え、計4本に見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 41,
+      "filename": "041_ft_sn_r_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "FT+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手・右手の双方に別軌道スティックが残り、計4本に見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 42,
+      "filename": "042_rc_r_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "RC:R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "右手に通常長のスティックとは別に非常に長い同方向のスティックが重複している。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 43,
+      "filename": "043_rc_r_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "RC:R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手側に平行する2本のスティックが重複している。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 44,
+      "filename": "044_ht_r_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "HT:R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "通常の左腕上側に別ポーズ由来の左前腕・手が残留して腕が3本に見え、残留スティック線もある。"
+      ],
+      "defectRegions": [
+        "left_arm",
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 45,
+      "filename": "045_ht_r_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "HT:R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "通常の左腕とは別に上側の左前腕・手が残留して腕が3本に見え、別スティック線もある。"
+      ],
+      "defectRegions": [
+        "left_arm",
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 46,
+      "filename": "046_bd_ht_rf_r_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HT:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左肩付近に手から離れたスティック状パーツが浮遊し、腰・スカート・椅子座面の境界に矩形状の貼り合わせ破綻がある。"
+      ],
+      "defectRegions": [
+        "waist",
+        "skirt",
+        "stool",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 47,
+      "filename": "047_bd_ht_rf_r_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HT:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左上に別ポーズ由来の前腕・手が残って腕が3本に見え、手先が黒い矩形状に欠損し、スカート・椅子にも合成痕がある。"
+      ],
+      "defectRegions": [
+        "left_arm",
+        "left_hand",
+        "skirt",
+        "stool",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 48,
+      "filename": "048_lt_sn_r_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "LT+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手に2本、右手にも2本のスティックが残って計4本に見え、右側の横向き線が髪を横断する。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "right_hand",
+        "stick",
+        "hair",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 49,
+      "filename": "049_lt_sn_r_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "LT+SN:R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手・右手の双方でスティックが二重化し、計4本に見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 50,
+      "filename": "050_bd_hh_sn_rf_r_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "スカートに黒い点・塊・崩れ線が多数残り、右脚上部にも大きな黒い塊、椅子境界に矩形状合成痕がある。"
+      ],
+      "defectRegions": [
+        "skirt",
+        "right_leg",
+        "stool",
+        "left_hand",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 51,
+      "filename": "051_bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "スカート左下と椅子座面の境界に黒い矩形状の切断・貼り合わせ痕があり、左手付近にも短い浮遊線がある。"
+      ],
+      "defectRegions": [
+        "skirt",
+        "stool",
+        "left_hand",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 52,
+      "filename": "052_bd_ht_rf_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HT:RF/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手から2本のスティックが異なる方向へ伸び、左脚すね付近にも短い不要線がある。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "left_leg",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 53,
+      "filename": "053_bd_ht_rf_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+HT:RF/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手から2本のスティックが伸び、一方が上腕付近へ不自然に終端している。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "left_arm",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 54,
+      "filename": "054_bd_rc_sn_rf_r_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "髪の右上に人物本体から切り離された前腕・手が浮遊して腕が3本に見え、左手側にも余分なスティック断片がある。"
+      ],
+      "defectRegions": [
+        "right_arm",
+        "right_hand",
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "CRITICAL",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 55,
+      "filename": "055_bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+RC+SN:RF/R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右上にスティック先端だけが本体から離れて浮遊して右手側スティックが切断して見え、椅子境界にも矩形状合成痕がある。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "skirt",
+        "stool",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 56,
+      "filename": "056_bd_ft_sn_rf_r_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手に2本、右手にも2本のスティックが見えて計4本となり、左脚すね付近にも短い不要線がある。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "right_hand",
+        "stick",
+        "left_leg",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 57,
+      "filename": "057_bd_ft_sn_rf_r_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+FT+SN:RF/R/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手・右手の双方に別軌道のスティックが残り、計4本に見える。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 58,
+      "filename": "058_bd_ft_rf_l_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+FT:RF/L",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "左手に斜めスティックとは別の長い水平スティックが残って腕・髪を横断し、左脚すね付近にも短い不要線がある。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "left_arm",
+        "hair",
+        "left_leg",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 59,
+      "filename": "059_bd_ft_rf_l_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+FT:RF/L",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "左手に斜めスティックと水平スティックが重複している。"
+      ],
+      "defectRegions": [
+        "left_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 60,
+      "filename": "060_bd_ft_rf_r_hit_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+FT:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "hit",
+      "status": "FAIL",
+      "defects": [
+        "右手に上向きスティックと長い右下方向スティックが重複し、左脚すね付近にも短い不要線がある。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "left_leg",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 61,
+      "filename": "061_bd_ft_rf_r_rebound_refresh.png",
+      "runtimeKey": null,
+      "actionKey": "BD+FT:RF/R",
+      "actionKeySource": "filename-convention",
+      "phase": "rebound",
+      "status": "FAIL",
+      "defects": [
+        "右手に上向きスティックと右方向へ伸びる別スティックが重複している。"
+      ],
+      "defectRegions": [
+        "right_hand",
+        "stick",
+        "artifact"
+      ],
+      "severity": "HIGH",
+      "notes": "原寸元PNGを直接視覚確認して記録した新規不具合。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    },
+    {
+      "index": 62,
+      "filename": "062_drum_base.png",
+      "runtimeKey": null,
+      "actionKey": "DRUM_BASE",
+      "actionKeySource": "filename-convention",
+      "phase": "base",
+      "status": "PASS",
+      "defects": [],
+      "defectRegions": [],
+      "severity": null,
+      "notes": "原寸元PNGを直接視覚確認し、監査基準上の明確な異常は確認されない。",
+      "inspectedAt": "2026-09-20T14:17:12Z",
+      "inspectionMethod": "original-file-full-resolution-visual-inspection",
+      "repairMethod": "UNDECIDED",
+      "repairPlan": "UNDECIDED",
+      "recommendedFix": "UNDECIDED"
+    }
+  ]
+}
