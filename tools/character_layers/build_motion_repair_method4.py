@@ -23,6 +23,12 @@ if rd_sn_defect and (rd_sn_defect.get("claim") or {}).get("state")=="CLAIMED" an
 rd_r_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="RD:R"),None)
 if rd_r_defect and (rd_r_defect.get("claim") or {}).get("state")=="CLAIMED" and (rd_r_defect.get("claim") or {}).get("owner") in ("CHATGPT-FRONT","CHAT-PASS2-BACK"):
     forced_hold_targets += [{"id":"rd_r_hit","actionKey":"RD:R","phase":"hit","_holdRepairClaim":True},{"id":"rd_r_rebound","actionKey":"RD:R","phase":"rebound","_holdRepairClaim":True}]
+m007_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="HH:R"),None)
+if m007_defect and (m007_defect.get("claim") or {}).get("state")=="CLAIMED" and (m007_defect.get("claim") or {}).get("owner")=="CHATGPT-FRONT":
+    forced_hold_targets += [
+      {"id":"hh_r_hit","actionKey":"HH:R","phase":"hit","_holdRepairClaim":True},
+      {"id":"hh_r_rebound","actionKey":"HH:R","phase":"rebound","_holdRepairClaim":True}
+    ]
 m015_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="BD+HH+SN:RF/R/L"),None)
 if m015_defect and (m015_defect.get("claim") or {}).get("state")=="CLAIMED" and (m015_defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK":
     forced_hold_targets += [
@@ -101,7 +107,7 @@ for f in fails:
     # corridor. This intentionally excludes the lower duplicate/disconnected
     # right-hand fragment seen in the formal rebound while leaving locked body
     # regions on the neutral baseline.
-    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound","rd_r_hit","rd_r_rebound","bd_hh_sn_rf_r_l_hit_refresh","bd_hh_sn_rf_r_l_rebound_refresh"):
+    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound","rd_r_hit","rd_r_rebound","bd_hh_sn_rf_r_l_hit_refresh","bd_hh_sn_rf_r_l_rebound_refresh","hh_r_hit","hh_r_rebound"):
         # PASS2 pair repair: build one coherent RD right-side corridor for BOTH
         # phases instead of trying to promote a rebound-only fix. Keep the
         # already-good left SN motion and reject the lower/rear duplicate RD
@@ -120,6 +126,24 @@ for f in fails:
             local[300:600,300:700]=True   # L: hand/grip/SN stick corridor
             local[280:535,140:1110]=True  # R: hand/grip/HH stick to HH contact
             local[590:1010,600:910]=True  # RF: BD leg/pedal corridor
+        if tid in ("hh_r_hit","hh_r_rebound"):
+            # Proven completion pattern: keep the formal HH frame as source
+            # authority, but admit only the one coherent active right-arm/stick
+            # corridor from shoulder to HH contact. Static body stays neutral.
+            local[:,:]=False
+            hh=cp("HH") or (190,390)
+            sh=LAND["shoulder_R"]
+            hhgeom=Image.new("L",(W,H),0); hd=ImageDraw.Draw(hhgeom)
+            hd.line([sh,(720,405),(560,420),(360,405),hh],fill=255,width=118 if phase=="hit" else 132,joint="curve")
+            for p,r in [(sh,58),((720,405),62),((560,420),66),((360,405),58),(hh,72)]:
+                hd.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+            local=np.asarray(hhgeom)>0
+            # Preserve head/torso/stool/lower body exactly; this is the same
+            # bounded-neutral strategy that completed the proven M015 pair.
+            local[HEAD_CORE[1]:HEAD_CORE[3],HEAD_CORE[0]:HEAD_CORE[2]]=False
+            local[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
+            local[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+            local[620:,:]=False
         if phase=="hit":
             local[245:525,830:1135]=True # hit: one upper right RD corridor
         else:
@@ -130,6 +154,27 @@ for f in fails:
     # source patches into the composite.  For this pair, keep only changed-ink
     # components that are spatially supported by source ink; this removes
     # opaque/white splice islands while retaining hand/stick/RF strokes.
+    if tid in ("hh_r_hit","hh_r_rebound"):
+        src_ink=(S[:,:,:3].min(axis=2)<225)&(S[:,:,3]>0)
+        support=np.asarray(Image.fromarray((src_ink.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(9)))>0
+        M &= support
+        raw=(M & interest).astype(np.uint8)
+        seen=np.zeros((H,W),dtype=bool); keep=np.zeros((H,W),dtype=bool)
+        hh=cp("HH") or (190,390)
+        for yy in range(H):
+            for xx in range(W):
+                if not raw[yy,xx] or seen[yy,xx]: continue
+                stack=[(xx,yy)]; seen[yy,xx]=True; pts=[]
+                while stack:
+                    px,py=stack.pop(); pts.append((px,py))
+                    for nx,ny in ((px-1,py),(px+1,py),(px,py-1),(px,py+1)):
+                        if 0<=nx<W and 0<=ny<H and raw[ny,nx] and not seen[ny,nx]:
+                            seen[ny,nx]=True; stack.append((nx,ny))
+                touches=any((px-hh[0])**2+(py-hh[1])**2<=82**2 for px,py in pts)
+                if len(pts)>=18 or touches:
+                    for px,py in pts: keep[py,px]=True
+        keep=np.asarray(Image.fromarray((keep.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5)))>0
+        M &= keep
     if "bd_hh_sn" in tid:
         src_ink=(S[:,:,:3].min(axis=2)<225)&(S[:,:,3]>0)
         support=np.asarray(Image.fromarray((src_ink.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(9)))>0
