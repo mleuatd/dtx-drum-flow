@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 11,
+  "issueId": "MOTION-001",
+  "actionKey": "SN:L",
+  "phase": "rebound",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v11.png",
+  "method": "formal hit static parent + v8 rebound y-clamped forearm/hand plus separate stick delta",
+  "parent": {
+    "staticBase": "character-assets/layers/character/sn/hit_l.png",
+    "staticBaseSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+    "activeMotionParent": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v8.png",
+    "activeMotionParentSha256": "f5c73278c7b7d5fd089c6e74b8d5f25bee1c4ed70388f0968046f1fdecf8fe44",
+    "rollbackCandidate": "sn_l_rebound_candidate_v8.png"
+  },
+  "changedRoi": {
+    "maskPixelCount": 22414,
+    "changedPixelsVsHit": 19651,
+    "changedBBoxVsHit": {
+      "x": 414,
+      "y": 386,
+      "width": 308,
+      "height": 174
+    }
+  },
+  "pairStaticGuards": {
+    "outsidePairMaskChangedPixels": 0,
+    "guardChangedPixelsVsHit": {
+      "head": 0,
+      "right_arm": 0,
+      "pelvis_seat": 0,
+      "legs_stool": 0
+    }
+  },
+  "constraintChecks": {
+    "reboundSeparationPx": 118.377,
+    "minimumSeparationPx": 16,
+    "reboundPass": true
+  },
+  "hardPass": {
+    "outsidePairMaskChangedPixels": true,
+    "inactiveRightArmExactToHit": true,
+    "headExactToHit": true,
+    "pelvisSeatExactToHit": true,
+    "legsStoolExactToHit": true,
+    "reboundSeparation": true,
+    "changedVisible": true
+  },
+  "pass": true
+}
