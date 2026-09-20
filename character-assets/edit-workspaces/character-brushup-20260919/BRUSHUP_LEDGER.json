@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T17:40:00+09:00",
+  "updatedAt": "2026-09-20T17:43:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -47,7 +47,7 @@
       "actionKey": "SN:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/sn/hit_l.png",
-      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+      "sha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
       "sourceQueueSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -172,9 +172,9 @@
       ],
       "usageCount": 314,
       "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "TERM-A",
-      "claimState": "CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": "2026-09-19T18:31:00+09:00",
       "attempts": [
         {
@@ -243,7 +243,10 @@
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
       "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
-      "holdReason": "SN:L pair held because rebound has large structural anatomy/linework failure; formal PNGs preserved and no minimal retry was attempted because the failure exceeds the light-fail threshold."
+      "holdReason": "SN:L pair held because rebound has large structural anatomy/linework failure; formal PNGs preserved and no minimal retry was attempted because the failure exceeds the light-fail threshold.",
+      "completedAt": "2026-09-20T17:43:00+09:00",
+      "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14_qa.json",
+      "runtimeQaRunId": 35500268024
     },
     {
       "order": 2,
@@ -376,9 +379,9 @@
       ],
       "usageCount": 314,
       "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
-      "claimState": "CLAIMED",
+      "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:24:00+09:00",
       "repairIssueId": "MOTION-001",
       "repairMode": "deterministic_neutral_locked_active_limb_composite",
@@ -421,7 +424,9 @@
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
       "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
-      "holdReason": "Large structural visual-integrity failure in rebound; formal PNG preserved. No minimal retry attempted because this is not a light/local defect."
+      "holdReason": "Large structural visual-integrity failure in rebound; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
+      "completedAt": "2026-09-20T17:43:00+09:00",
+      "runtimeQaRunId": 35500268024
     },
     {
       "order": 3,
@@ -5584,31 +5589,19 @@
   },
   "fastLocalRepairStable": {
     "terminalId": "CHAT-FAST-REPAIR-STABLE",
-    "updatedAt": "2026-09-20T17:38:00+09:00",
-    "currentIssueId": "MOTION-001",
-    "currentActionKey": "SN:L",
-    "stage": "LOCAL_STATIC_PASS_PENDING_FORMAL_PROMOTION",
-    "candidate": {
-      "version": "v16",
-      "sha256": "05b1f5b5509d1735002cbf9d8e81143c9128bee8e056e3da85726a7b5c60df2f",
-      "dropboxPath": "/ChatGPT/dtx-drum-flow/sn_l_rebound_candidate_v16_20260920.png"
-    },
+    "updatedAt": "2026-09-20T17:43:00+09:00",
+    "currentIssueId": null,
+    "currentActionKey": null,
+    "stage": "MOTION_001_VERIFIED",
+    "completedIssueId": "MOTION-001",
+    "completedActionKey": "SN:L",
+    "finalSha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
+    "runtimeQaRunId": 35500268024,
     "qa": {
-      "outsideEnvelopeChangedPixels": 0,
-      "oldHandResiduePixels": 0,
-      "alphaGapPixels": 0,
-      "staticGuardChangedPixels": {
-        "head": 0,
-        "right_arm": 0,
-        "pelvis_seat": 0,
-        "legs_stool": 0
-      },
       "humanAnatomy": "PASS",
       "linework": "PASS",
       "fixedDrumComposite": "PASS",
-      "runtime": "PENDING"
-    },
-    "method": "ECC-align exact formal rebound to formal hit on static body; replace only left forearm/hand/stick union ROI",
-    "next": "Promote v16 to formal rebound_l.png, run validation and real-chart runtime QA, then VERIFIED and release CLAIM."
+      "runtime": "PASS"
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T17:40:00+09:00",
+  "updatedAt": "2026-09-20T17:43:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "PROMOTED_PENDING_RUNTIME",
+      "status": "MOTION_REPAIR_VERIFIED",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -157,10 +157,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T17:40:00+09:00",
+      "updatedAt": "2026-09-20T17:43:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "MOTION_REPAIR_VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -966,7 +966,7 @@
         }
       ],
       "reboundRepair": {
-        "status": "PROMOTED_PENDING_RUNTIME",
+        "status": "MOTION_REPAIR_VERIFIED",
         "oldSha256": "c3f480bdd5861d5703af400089682fe94427ef07ccd14cf1ff514e45e73d9d9c",
         "newSha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
         "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14.png",
@@ -974,17 +974,20 @@
         "candidateBlobSha": "363d953d2558db26d94ecf666d4a84daf1ac144f",
         "repairRunId": 35499936080,
         "artifactId": 10602280657,
-        "method": "formal hit static parent + exact clean rebound source blob; narrow left forearm/hand/stick semantic replacement only"
+        "method": "formal hit static parent + exact clean rebound source blob; narrow left forearm/hand/stick semantic replacement only",
+        "runtimeQaRunId": 35500268024,
+        "runtimeMeasure": 107,
+        "runtimeActionKey": "SN:L"
       },
       "visualIntegrityQa": {
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING_POST_PROMOTION_RUNTIME_QA",
-        "promotionBlocked": true,
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
         "note": "v14 exact-source-bound candidate passed full-resolution static anatomy/linework/fixed-drum composite review and deterministic QA. Formal promoted atomically with SHA authorities; runtime verification pending.",
-        "reviewedAt": "2026-09-20T17:40:00+09:00",
+        "reviewedAt": "2026-09-20T17:43:00+09:00",
         "localCandidate": {
           "version": "v16",
           "sha256": "05b1f5b5509d1735002cbf9d8e81143c9128bee8e056e3da85726a7b5c60df2f",
@@ -1001,7 +1004,17 @@
           }
         },
         "repairRunId": 35499936080,
-        "repairArtifactId": 10602280657
+        "repairArtifactId": 10602280657,
+        "runtimeEvidence": {
+          "workflow": ".github/workflows/back-runtime-character-qa.yml",
+          "workflowRunId": 35500268024,
+          "measureStart": 107,
+          "measureEnd": 107,
+          "actions": [
+            "SN:L"
+          ],
+          "conclusion": "success"
+        }
       },
       "decisionLog": [
         {
@@ -1063,14 +1076,14 @@
           "at": "2026-09-20T17:40:00+09:00",
           "decision": "SN_L_V14_SOURCE_BOUND_STATIC_PASS_PROMOTED_PENDING_RUNTIME",
           "detail": "v14 uses exact clean source SHA 93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202 via Git blob f8e4c1ff... only inside the active left forearm/hand/stick corridor. Deterministic QA and full-resolution anatomy/linework/fixed-drum composite PASS; formal promotion is pending post-promotion runtime QA."
+        },
+        {
+          "at": "2026-09-20T17:43:00+09:00",
+          "decision": "MOTION_001_VERIFIED",
+          "detail": "Formal source-bound v14 SHA256 93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202; static anatomy/linework/fixed-drum PASS; targeted M107 SN:L browser runtime QA run 35500268024 PASS. CLAIM released."
         }
       ],
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FAST-LOCAL-REPAIR-STABLE",
-        "owner": "CHAT-FAST-REPAIR-STABLE",
-        "claimedAt": "2026-09-20T17:22:00+09:00"
-      }
+      "claim": null
     },
     {
       "issueId": "MOTION-002",
