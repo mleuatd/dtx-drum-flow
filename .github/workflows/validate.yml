@@ -34,8 +34,6 @@ jobs:
         if: steps.scope.outputs.setupToolchains == 'true'
         with:
           python-version: "3.11"
-          cache: "pip"
-          cache-dependency-path: tools/audio_pipeline/requirements.txt
       - uses: actions/setup-node@v4
         if: steps.scope.outputs.setupToolchains == 'true'
         with:
