@@ -6,6 +6,7 @@ on:
     paths:
       - 'tools/character_layers/build_motion_repair_method4.py'
       - 'character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json'
+      - 'character-assets/edit-workspaces/motion-repair-20260920/AUTO_REPAIR_QUEUE.json'
       - '.github/workflows/build-motion-repair-method4.yml'
 permissions:
   contents: write
@@ -30,6 +31,7 @@ jobs:
           for i in $(seq 1 "$MAX_ITER"); do
             echo "=== MOTION REPAIR ITERATION $i/$MAX_ITER ==="
             python tools/character_layers/build_motion_repair_method4.py
+            set +e
             python - <<'PY'
           import json, pathlib, sys
           p=pathlib.Path("character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json")
@@ -40,6 +42,7 @@ jobs:
           sys.exit(0 if ok else 2)
           PY
             rc=$?
+            set -e
             if [ "$rc" -eq 0 ]; then
               echo "Machine gates PASS. Stop automatic mutation here; full-resolution visual PASS is mandatory before promotion."
               break
