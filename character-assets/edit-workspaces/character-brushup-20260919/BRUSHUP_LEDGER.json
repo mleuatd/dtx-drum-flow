@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T09:14:00+09:00",
+  "updatedAt": "2026-09-20T08:59:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -5421,5 +5421,20 @@
     },
     "visualQaRunId": 35476984329,
     "visualQaArtifactId": 10594531751
+  },
+  "repairPassCoordination": {
+    "repairPass": 2,
+    "phase": "HOLD_REPAIR_PASS_2",
+    "terminal": "CHAT-PASS2-BACK",
+    "processingDirection": "BACK_TO_FRONT",
+    "startedAt": "2026-09-20T08:59:00+09:00",
+    "lastHeartbeat": "2026-09-20T08:59:00+09:00",
+    "currentActionKey": null,
+    "currentIssueId": null,
+    "status": "ACTIVE_SELECTING_UNCLAIMED_HOLD",
+    "completedInPass2": 0,
+    "holdInPass2": 0,
+    "waitingRuntimeQA": 0,
+    "repairKnowledgeRevision": "read-current-main-before-each-repair"
   }
 }
