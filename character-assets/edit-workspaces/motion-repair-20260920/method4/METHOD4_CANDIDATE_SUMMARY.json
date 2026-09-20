@@ -35,8 +35,136 @@
       "phase": "hit",
       "pass": false,
       "skip": "claim_changed"
+    },
+    {
+      "id": "bd_hh_sn_rf_r_l_hit_refresh",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "hit",
+      "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "sourceSha256": "14971ae1a9ea4eb9c268f28fd53dce3d34d2ea27b0959f3c3c6314c2d0e751c6",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_hit_refresh_candidate.png",
+      "candidateSha256": "191a7514269da4c4e5270ba557d4b3030230c08f1e983f3e2f7148b624dfacf0",
+      "changedPixelsVsNeutral": 67604,
+      "changedRatioVsNeutral": 0.04299065,
+      "changedBBoxVsNeutral": {
+        "x": 355,
+        "y": 338,
+        "width": 555,
+        "height": 656
+      },
+      "headCoreGuardChangedPixels": 0,
+      "torsoCoreGuardChangedPixels": 0,
+      "stoolGuardChangedPixels": 0,
+      "leftLegGuardChangedPixels": 0,
+      "sourceLocalPreservation": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "radiusPx": 48,
+          "sourceRelevantPixels": 6437,
+          "preservedPixels": 6437,
+          "preserveRatio": 1.0,
+          "threshold": 0.6,
+          "pass": true
+        },
+        {
+          "part": "HH",
+          "limb": "R",
+          "radiusPx": 48,
+          "sourceRelevantPixels": 0,
+          "preservedPixels": 0,
+          "preserveRatio": 1,
+          "threshold": 0.6,
+          "pass": true
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "radiusPx": 48,
+          "sourceRelevantPixels": 348,
+          "preservedPixels": 348,
+          "preserveRatio": 1.0,
+          "threshold": 0.6,
+          "pass": true
+        }
+      ],
+      "checks": {
+        "changedVisible": true,
+        "ratioWithinLimit": true,
+        "outsideMaskZero": true,
+        "headCoreLocked": true,
+        "torsoCoreLocked": true,
+        "stoolLocked": true,
+        "leftLegLocked": true,
+        "localContactSourcePreservation": true
+      },
+      "pass": true
+    },
+    {
+      "id": "bd_hh_sn_rf_r_l_rebound_refresh",
+      "actionKey": "BD+HH+SN:RF/R/L",
+      "phase": "rebound",
+      "source": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "sourceSha256": "40186b1eab3619d938db75ab030b47b745c3e54c51b232e1deeab98eeb533bff",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_rebound_refresh_candidate.png",
+      "candidateSha256": "adfeaed2e20193081f5843e09c52a7ea27b2291584b57854276d14b15665d328",
+      "changedPixelsVsNeutral": 67886,
+      "changedRatioVsNeutral": 0.04316998,
+      "changedBBoxVsNeutral": {
+        "x": 401,
+        "y": 300,
+        "width": 509,
+        "height": 704
+      },
+      "headCoreGuardChangedPixels": 0,
+      "torsoCoreGuardChangedPixels": 0,
+      "stoolGuardChangedPixels": 0,
+      "leftLegGuardChangedPixels": 0,
+      "sourceLocalPreservation": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "radiusPx": 65,
+          "sourceRelevantPixels": 11606,
+          "preservedPixels": 10983,
+          "preserveRatio": 0.9463,
+          "threshold": 0.4,
+          "pass": true
+        },
+        {
+          "part": "HH",
+          "limb": "R",
+          "radiusPx": 65,
+          "sourceRelevantPixels": 2,
+          "preservedPixels": 0,
+          "preserveRatio": 0.0,
+          "threshold": 0.4,
+          "pass": false
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "radiusPx": 65,
+          "sourceRelevantPixels": 174,
+          "preservedPixels": 174,
+          "preserveRatio": 1.0,
+          "threshold": 0.4,
+          "pass": true
+        }
+      ],
+      "checks": {
+        "changedVisible": true,
+        "ratioWithinLimit": true,
+        "outsideMaskZero": true,
+        "headCoreLocked": true,
+        "torsoCoreLocked": true,
+        "stoolLocked": true,
+        "leftLegLocked": true,
+        "localContactSourcePreservation": false
+      },
+      "pass": false
     }
   ],
-  "passCount": 0,
-  "failCount": 4
+  "passCount": 1,
+  "failCount": 5
 }
