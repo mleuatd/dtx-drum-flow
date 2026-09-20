@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "index": 35,
+  "sourceFilename": "035_hh_sn_r_l_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "PASS",
+  "auditActionKey": "HH+SN:R/L",
+  "runtimeActionKey": "HH+SN:R/L",
+  "referenceClassification": "SECONDARY_POSITIVE_REFERENCE",
+  "doNotLearnGeometryFromThisFrame": false,
+  "allowedReferenceFields": [
+    "all non-defective visual properties within declared scope"
+  ],
+  "defects": [],
+  "defectRegions": [],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/HH_SN_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action HH+SN:R/L hit/rebound",
+    "negativeAttention": []
+  }
+}
