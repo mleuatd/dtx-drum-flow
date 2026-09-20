@@ -20,7 +20,11 @@
     "drumLayerSeparate": true,
     "allElevenDrumPartsSpecified": true,
     "sourceProvenanceSeparated": true,
-    "automaticAndVisualQaSeparated": true
+    "automaticAndVisualQaSeparated": true,
+    "numericActionGeometryPrepared": 30,
+    "numericActionGeometryExpected": 30,
+    "numericActionGeometryComplete": true,
+    "actionJointCoordinatesCoveredBySharedNumericIndex": true
   },
   "reconciledContradictions": [
     {
@@ -40,5 +44,6 @@
     "LC/LP/LB and some visible instrument centers are medium-confidence 062 measurements because runtime code exposes exact effect points only for HH/SN/BD/HT/LT/FT/RC/RD.",
     "Neutral human landmarks are SOFT visual measurements with explicit tolerances; they are not hard pixel locks.",
     "Future automated landmark extraction may tighten these soft values if it does not contradict PASS references or fixed camera identity."
-  ]
+  ],
+  "validationUpdatedAt": "2026-09-21T00:22:00+09:00"
 }
