@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:35:00+09:00",
+  "updatedAt": "2026-09-20T11:38:00+09:00",
   "mode": "SELF_FEEDING_REPAIR_QUEUE",
   "terminalId": "CHAT-PASS2-BACK",
   "issueId": "MOTION-015",
@@ -14,7 +14,7 @@
     "formalPromotionRequiresExactCandidateVisualPass": true,
     "doNotAdvanceIssueUntilVerified": true
   },
-  "cursor": "M015-003",
+  "cursor": "M015-004",
   "tasks": [
     {
       "id": "M015-001",
@@ -42,14 +42,15 @@
     },
     {
       "id": "M015-003",
-      "status": "READY",
+      "status": "DONE",
       "type": "FIX_AUTOMATION_LOOP",
       "mechanism": "CAPTURE_NONZERO_WITHOUT_STEP_ABORT",
-      "instruction": "Capture candidate QA exit 2 without GitHub shell implicit -e abort; continue bounded queue loop and persist evidence."
+      "instruction": "Capture candidate QA exit 2 without GitHub shell implicit -e abort; continue bounded queue loop and persist evidence.",
+      "result": "workflow fixed in commit 118584a34150bcb72f147712531b6a9c86e4ba2f"
     },
     {
       "id": "M015-004",
-      "status": "BLOCKED_BY_PREVIOUS",
+      "status": "READY",
       "type": "REPAIR_AND_MACHINE_QA",
       "instruction": "Resume from best candidate; if same mechanism fails twice switch mechanism; enqueue full-resolution visual QA after machine PASS."
     },
