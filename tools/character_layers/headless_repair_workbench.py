@@ -16,6 +16,18 @@ def fit(im, size=(480,360)):
     c.alpha_composite(x, ((size[0]-x.width)//2,(size[1]-x.height)//2))
     return c.convert('RGB')
 
+def delta_mask(base, donor):
+    import numpy as np
+    a=np.asarray(base.convert('RGBA'))
+    b=np.asarray(donor.convert('RGBA'))
+    return Image.fromarray((np.any(a!=b,axis=2)*255).astype('uint8'),'L')
+
+def apply_delta(base, donor):
+    m=delta_mask(base, donor)
+    out=base.copy()
+    out.paste(donor,(0,0),m)
+    return out, m
+
 def changed(a,b):
     d=ImageChops.difference(a.convert('RGBA'),b.convert('RGBA'))
     m=Image.new('L',a.size,0)
@@ -34,6 +46,8 @@ def main():
         for name,path in req.get(group,{}).items():
             allpaths[f'{group}__{name}']=Path(path)
     report={'request':req,'files':{},'pairs':{},'machineQa':'PASS'}
+    strategy=req.get('strategy')
+
     thumbs=[]
     for key,p in allpaths.items():
         if not p.exists():
@@ -51,6 +65,44 @@ def main():
     if report['machineQa']=='FAIL':
         (out/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
         raise SystemExit('missing requested sources')
+    # Candidate generation for disjoint-delta composition: neutral + verified BD lower-limb delta + clean RC arm delta.
+    # This avoids additive-arm duplication because every donor is applied as a delta from the same neutral baseline.
+    if strategy == 'NEUTRAL_PLUS_BD_PLUS_RC_DELTAS':
+        neutral=Image.open(allpaths['formal__neutral']).convert('RGBA')
+        drum=Image.open(allpaths['formal__drum']).convert('RGBA')
+        report['candidate']={}
+        candidates={}
+        for phase in ('hit','rebound'):
+            bd=Image.open(allpaths[f'donors__bd_{phase}']).convert('RGBA')
+            rc=Image.open(allpaths[f'donors__rc_{phase}']).convert('RGBA')
+            c,mb=apply_delta(neutral,bd)
+            c,mr=apply_delta(c,rc)
+            cp=out/f'candidate_{phase}.png'
+            c.save(cp)
+            candidates[phase]=c
+            inter=ImageChops.multiply(mb,mr)
+            overlap=sum(1 for v in inter.getdata() if v)
+            report['candidate'][phase]={
+                'sha256':sha256(cp),
+                'bdDeltaPixels':sum(1 for v in mb.getdata() if v),
+                'rcDeltaPixels':sum(1 for v in mr.getdata() if v),
+                'deltaOverlapPixels':overlap,
+                'changedPixelsVsNeutral':changed(neutral,c)
+            }
+            if overlap:
+                report['machineQa']='FAIL'
+                report.setdefault('failures',[]).append(f'donor delta overlap in {phase}: {overlap}')
+            comp=Image.new('RGBA',neutral.size,(255,255,255,255))
+            comp.alpha_composite(c); comp.alpha_composite(drum)
+            comp.convert('RGB').save(out/f'candidate_{phase}_fixed_drum.jpg',quality=96)
+        trans=[neutral,candidates['hit'],candidates['rebound'],neutral]
+        strip=Image.new('RGB',(480*4,360),'white')
+        for i,im in enumerate(trans):
+            comp=Image.new('RGBA',neutral.size,(255,255,255,255))
+            comp.alpha_composite(im); comp.alpha_composite(drum)
+            strip.paste(fit(comp,(480,360)),(480*i,0))
+        strip.save(out/'candidate_transition.jpg',quality=94)
+
     # compact evidence sheet, plus useful measured pair deltas
     cols=3; cellw,cellh=480,400
     rows=(len(thumbs)+cols-1)//cols
