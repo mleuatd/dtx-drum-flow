@@ -1,14 +1,62 @@
 import {makeSample,parseChart} from "./parsers.js";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
-import {LiveDrumEngine} from "./live-drum-engine.js?v=20260919-audio-final-r21";
+import {LiveDrumEngine} from "./live-drum-engine.js?v=20260920-preload-progress-r1";
 import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-audio-final-r21";
-import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260920-speed-adaptive-r1";
+import {initCharacterPrototype,updateCharacterPrototype} from "./character-prototype.js?v=20260920-preload-progress-r1";
 
 const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"];
 const PART_LABEL={LC:"左シンバル",HH:"ハイハット",SN:"スネア",HT:"ハイタム",LT:"ロータム",FT:"フロアタム",RC:"右シンバル",RD:"ライド",LP:"左足HH",LB:"左足BD",BD:"バスドラム"};
 const PART_ICON={LC:"◯",HH:"◎",SN:"🥁",HT:"◒",LT:"◓",FT:"◉",RC:"◯",RD:"◌",LP:"⌁",LB:"●",BD:"⬤"};
 const $=id=>document.getElementById(id),canvas=$("laneCanvas"),ctx=canvas.getContext("2d");
 let chart=makeSample(),time=0,playing=false,audioBuffer=null,onsets=[],audioCtx=null,drumBus=null,liveDrumEngine=null,drumPreloadPromise=null,originalSource=null,schedulerTimer=null,scheduledNodes=[],nextNote=0,nextMetronomeBeat=0,playAnchorCtx=0,playAnchorPerf=0,playAnchorChart=0,playSpeed=1,noteSpeed=1;
+const PRELOAD_WEIGHTS={chart:.10,character:.30,drums:.55,original:.05};
+const preloadState={
+  chart:{ratio:0,label:"譜面",failed:false},
+  character:{ratio:0,label:"人物画像",failed:false},
+  drums:{ratio:0,label:"ドラム音",failed:false},
+  original:{ratio:0,label:"原曲確認",failed:false}
+};
+let startupReady=false;
+function preloadPercent(){
+  let total=0;
+  for(const [kind,weight] of Object.entries(PRELOAD_WEIGHTS)){
+    total+=Math.max(0,Math.min(1,Number(preloadState[kind]?.ratio)||0))*weight;
+  }
+  return Math.max(0,Math.min(100,Math.round(total*100)));
+}
+function renderPreload(){
+  const button=$("playPause");if(!button)return;
+  const pct=preloadPercent();
+  const failed=Object.values(preloadState).some(x=>x.failed);
+  startupReady=!failed&&Object.values(preloadState).every(x=>Number(x.ratio)>=1);
+  button.style.setProperty("--play-load",pct+"%");
+  button.disabled=!startupReady;
+  button.setAttribute("aria-disabled",String(!startupReady));
+  button.classList.toggle("is-loading",!startupReady&&!failed);
+  button.classList.toggle("is-ready",startupReady);
+  button.classList.toggle("is-error",failed);
+  if(failed){
+    button.textContent="読み込みエラー";
+  }else if(startupReady){
+    if(!playing)button.textContent="再生 ▶";
+  }else{
+    button.textContent="読み込み中 "+pct+"%";
+  }
+}
+function setPreload(kind,ratio,{label="",failed=false}={}){
+  if(!preloadState[kind])return;
+  preloadState[kind].ratio=Math.max(0,Math.min(1,Number(ratio)||0));
+  preloadState[kind].failed=!!failed;
+  if(label)preloadState[kind].label=label;
+  renderPreload();
+}
+addEventListener("dtx-preload-progress",e=>{
+  const d=e.detail||{};
+  if(!preloadState[d.kind])return;
+  const ratio=Number.isFinite(Number(d.ratio))?Number(d.ratio):(Number(d.total)>0?Number(d.done||0)/Number(d.total):0);
+  setPreload(d.kind,ratio,{label:d.label||"",failed:Number(d.failed||0)>0});
+});
+
 const partEls=new Map();
 const DEV_MIXER=[
  ["kick","BD/LB"],["snare","SN"],["sideStick","SideStick"],["hihatClosed","HH Closed"],["hihatOpen","HH Open"],["hihatPedal","LP HH"],
@@ -51,7 +99,7 @@ function resize(){const r=canvas.getBoundingClientRect(),dpr=devicePixelRatio||1
 function draw(){const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);const lane=w/PARTS.length,isLuna=String(chart?.name||"").toLowerCase().includes("luna");if(!isLuna){ctx.fillStyle="#0e172a";ctx.fillRect(0,0,w,h)}ctx.strokeStyle=isLuna?"rgba(34,54,86,.62)":"#223656";ctx.lineWidth=1;for(let i=1;i<PARTS.length;i++){ctx.beginPath();ctx.moveTo(i*lane,0);ctx.lineTo(i*lane,h);ctx.stroke()}const judgeY=h-36,lookAhead=3.3/noteSpeed;const hitNow=chart.notes.some(n=>Math.abs(n.time-time)<=Math.max(.025,.04/currentSpeed()));ctx.save();ctx.strokeStyle=hitNow?"#ffffff":"#86a7ff";ctx.shadowColor=hitNow?"#9fc5ff":"transparent";ctx.shadowBlur=hitNow?22:0;ctx.lineWidth=hitNow?5:3;ctx.beginPath();ctx.moveTo(0,judgeY);ctx.lineTo(w,judgeY);ctx.stroke();ctx.restore();for(const n of chart.notes){const dt=n.time-time;if(dt<0||dt>lookAhead)continue;const x=(PARTS.indexOf(n.part)+.5)*lane,y=judgeY-(dt/lookAhead)*(judgeY-20),conf=Number(n.alignConfidence||0),radius=Math.max(5,lane*.12)*(conf>0?(.78+.22*conf):1);ctx.globalAlpha=conf>0?Math.max(.35,conf):1;ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);ctx.fillStyle=conf>0?(conf>=.65?"#8ad8ff":conf>=.35?"#f0d889":"#e59696"):"#f2f5ff";ctx.fill();ctx.globalAlpha=1}}
 function makeParts(){const root=$("parts");root.innerHTML="";for(const p of PARTS){const el=document.createElement("div");el.className="part";el.innerHTML=`<span class="icon" aria-hidden="true">${PART_ICON[p]}</span><strong>${p}</strong><span class="label">${PART_LABEL[p]}</span>`;root.append(el);partEls.set(p,el)}}
 function flash(part){const el=partEls.get(part);if(!el)return;el.classList.add("hit");setTimeout(()=>el.classList.remove("hit"),90)}
-async function ensureAudio(){
+function ensureAudioEngine(){
   audioCtx??=new (window.AudioContext||window.webkitAudioContext)({latencyHint:"interactive"});
   if(!drumBus){
     const input=audioCtx.createGain(),comp=audioCtx.createDynamicsCompressor(),out=audioCtx.createGain();
@@ -59,10 +107,33 @@ async function ensureAudio(){
     comp.threshold.value=-4;comp.knee.value=12;comp.ratio.value=1.35;comp.attack.value=.01;comp.release.value=.055;
     out.gain.value=1;input.connect(comp);comp.connect(out);out.connect(audioCtx.destination);drumBus=input;
   }
-  liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);for(const [v,n] of Object.entries(devMixerValues))liveDrumEngine.setUserGain(v,n);refreshDevMixerHud();
-  if(!liveDrumEngine.ready){drumPreloadPromise??=liveDrumEngine.preload();await drumPreloadPromise.catch(err=>{drumPreloadPromise=null;throw err})}
+  liveDrumEngine??=new LiveDrumEngine(audioCtx,drumBus);
+  for(const [v,n] of Object.entries(devMixerValues))liveDrumEngine.setUserGain(v,n);
+  refreshDevMixerHud();
+  return audioCtx;
+}
+async function preloadDrumSamples(){
+  try{
+    ensureAudioEngine();
+    if(liveDrumEngine.ready){setPreload("drums",1,{label:"ドラム音の読み込み完了"});return;}
+    drumPreloadPromise??=liveDrumEngine.preload(p=>setPreload("drums",p.ratio,{label:"ドラム音を読み込み中",failed:(p.failures?.length||0)>0&&p.ratio>=1}));
+    await drumPreloadPromise;
+    if(liveDrumEngine.preloadFailures?.length)throw new Error("ドラム音 "+liveDrumEngine.preloadFailures.length+"件の読み込みに失敗");
+    setPreload("drums",1,{label:"ドラム音の読み込み完了"});
+  }catch(err){
+    setPreload("drums",1,{label:"ドラム音の読み込み失敗",failed:true});
+    setStatus("ドラム音の事前読み込みに失敗しました: "+err.message);
+    throw err;
+  }
+}
+async function ensureAudio(){
+  ensureAudioEngine();
+  if(!liveDrumEngine.ready){
+    drumPreloadPromise??=preloadDrumSamples();
+    await drumPreloadPromise;
+  }
   if(audioCtx.state==="suspended")await audioCtx.resume();
-  return audioCtx
+  return audioCtx;
 }
 function trackNode(node){scheduledNodes.push(node);node.addEventListener?.("ended",()=>{scheduledNodes=scheduledNodes.filter(x=>x!==node)},{once:true})}
 function stopScheduled(){for(const n of scheduledNodes){try{n.stop()}catch{}}scheduledNodes=[];liveDrumEngine?.stop()}
@@ -91,6 +162,7 @@ function scheduleMetronome(horizon){if(!$("metronomeSound")?.checked||!audioCtx)
 function scheduleAhead(){if(!playing||!audioCtx)return;const horizon=audioCtx.currentTime+.12;while(nextNote<chart.notes.length){const n=chart.notes[nextNote],target=playAnchorCtx+(n.time-playAnchorChart)/playSpeed;if(target>horizon)break;if(target>=audioCtx.currentTime-.03)drumAt(n.part,humanizedVelocity(n.velocity),target,n);nextNote++}scheduleMetronome(horizon)}
 async function startPlayback(){
   if(playing)return;
+  if(!startupReady){renderPreload();setStatus("読み込みが100%になるまでお待ちください。");return;}
   if(time>=chart.duration)time=0;
   time=clampTime(time);
   playSpeed=currentSpeed();
@@ -117,17 +189,17 @@ async function startPlayback(){
     setStatus("譜面は再生中です。端末の音声初期化に失敗したためドラム音のみ鳴らせません: "+err.message);
   }
 }
-function pausePlayback(update=true){if(update&&playing)time=chartTimeFromClock();playing=false;if(schedulerTimer){clearInterval(schedulerTimer);schedulerTimer=null}stopOriginal();stopScheduled();$("playPause").textContent="再生 ▶";updateTime();draw()}
-function toggle(){playing?pausePlayback():startPlayback()}
+function pausePlayback(update=true){if(update&&playing)time=chartTimeFromClock();playing=false;if(schedulerTimer){clearInterval(schedulerTimer);schedulerTimer=null}stopOriginal();stopScheduled();if(startupReady)$("playPause").textContent="再生 ▶";else renderPreload();updateTime();draw()}
+function toggle(){if(!startupReady&&!playing){renderPreload();return}playing?pausePlayback():startPlayback()}
 function seek(v){const was=playing;if(was)pausePlayback();time=clampTime(v);resetNextNote(time);resetMetronome(time);updateTime();draw();if(was)startPlayback()}
 function restartPlaybackAtClock(){if(!playing)return;const t=chartTimeFromClock();pausePlayback(false);time=clampTime(t);startPlayback()}
 function loop(){if(playing){time=chartTimeFromClock();if(time>=chart.duration){pausePlayback(false);time=chart.duration;updateTime();draw()}else{updateTime();draw()}}updateCharacterPrototype(time,chart?.name||"",playing?playSpeed:currentSpeed());requestAnimationFrame(loop)}
 
-$("chartFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{setStatus("譜面を解析しています…");setChart(await parseChart(f));setStatus(`${f.name} を読み込みました。`)}catch(err){setStatus(err.message)}});
+$("chartFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{setPreload("chart",0,{label:"譜面を解析中"});setStatus("譜面を解析しています…");setChart(await parseChart(f));setPreload("chart",1,{label:"譜面の読み込み完了"});setStatus(`${f.name} を読み込みました。`)}catch(err){setPreload("chart",1,{label:"譜面の読み込み失敗",failed:true});setStatus(err.message)}});
 $("audioFile").addEventListener("change",async e=>{const f=e.target.files?.[0];if(!f)return;try{pausePlayback();setStatus("元音源を解析しています…");audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);$("alignAudio").disabled=false;setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。同じWeb Audio時計で同期再生します。`)}catch(err){setStatus("元音源の読み込みに失敗しました: "+err.message)}});
 $("alignAudio").onclick=()=>{const was=playing,t=was?chartTimeFromClock():time;if(was)pausePlayback(false);const r=realignNotes(chart.notes,onsets,chart.bpm);chart={...chart,notes:r.notes};time=clampTime(t);resetNextNote(time);draw();if(was)startPlayback();setStatus(`音源同期補正: ${r.stats.moved}ノーツを補正、平均移動 ${r.stats.meanShiftMs.toFixed(1)}ms。`)};
 $("loadSample").onclick=()=>{setChart(makeSample());setStatus("サンプルを読み込みました。")};
-async function loadFinalChart({label,path,fileName,status}){try{setStatus(label+" 完成譜面を読み込んでいます…");const res=await fetch(path,{cache:"no-store"});if(!res.ok)throw new Error("完成譜面を取得できませんでした (HTTP "+res.status+")");const data=await res.json(),file=new File([JSON.stringify(data)],fileName,{type:"application/json"});window.dispatchEvent(new CustomEvent("dtx-chart-change",{detail:{name:data.name||label}}));setChart(await parseChart(file));setStatus(status)}catch(err){setStatus(label+" 完成譜面の読み込みに失敗しました: "+err.message)}}
+async function loadFinalChart({label,path,fileName,status}){setPreload("chart",0,{label:"譜面を読み込み中"});try{setStatus(label+" 完成譜面を読み込んでいます…");const res=await fetch(path,{cache:"no-store"});if(!res.ok)throw new Error("完成譜面を取得できませんでした (HTTP "+res.status+")");const data=await res.json(),file=new File([JSON.stringify(data)],fileName,{type:"application/json"});window.dispatchEvent(new CustomEvent("dtx-chart-change",{detail:{name:data.name||label}}));setChart(await parseChart(file));setPreload("chart",1,{label:"譜面の読み込み完了"});setStatus(status)}catch(err){setPreload("chart",1,{label:"譜面の読み込み失敗",failed:true});setStatus(label+" 完成譜面の読み込みに失敗しました: "+err.message)}}
 const SONGS={
   luna:{label:"Luna say maybe",path:"./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",fileName:"Luna_say_maybe_FINAL_notes.json",status:"Luna say maybe 完成譜面（Songsterr基準・元音源+1.693秒同期）を読み込みました。リアルドラム音色（2番Aメロのサイドスティック含む）で再生できます。"},
   kanaetai:{label:"叶えたい、ことばかり",path:"./charts/kanaetai_koto_bakari/Kanaetai_koto_bakari_FINAL_notes.json",fileName:"Kanaetai_koto_bakari_FINAL_notes.json",status:"叶えたい、ことばかり FINAL譜面（Songsterr s2808958 rev 3694097 Drums・全144小節）を読み込みました。原曲音源との最終ミリ秒同期のみ未実施です。"},
@@ -145,4 +217,4 @@ function measureSeconds(){return 240/(chart.bpm||120)}
 addEventListener("keydown",e=>{if(e.target.matches("input,select"))return;if(e.code==="Space"){e.preventDefault();toggle()}if(e.code==="ArrowLeft")seek(chartTimeFromClock()-5);if(e.code==="ArrowRight")seek(chartTimeFromClock()+5)});
 const dropZone=$("dropZone");for(const ev of ["dragenter","dragover"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.add("dragover")})}for(const ev of ["dragleave","drop"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.remove("dragover")})}
 dropZone.addEventListener("drop",async e=>{const files=[...(e.dataTransfer?.files||[])];for(const f of files){const ext=f.name.split(".").pop().toLowerCase();try{if(["mid","midi","dtx","gda","json"].includes(ext)){setStatus("譜面を解析しています…");setChart(await parseChart(f));setStatus(`${f.name} を読み込みました。`)}else if(f.type.startsWith("audio/")){pausePlayback();setStatus("元音源を解析しています…");audioBuffer=await decodeAudio(f);onsets=analyzeOnsets(audioBuffer,chart.bpm);$("alignAudio").disabled=false;setStatus(`元音源を読み込みました。アタック候補 ${onsets.length} 箇所を検出しました。`)}}catch(err){setStatus(`${f.name}: ${err.message}`)}}});
-initDevAudioMixer();window.__DTX_APP_READY__=true;addEventListener("resize",resize);makeParts();syncSoundToggleUi();setChart(chart);resize();initCharacterPrototype();requestAnimationFrame(loop);loadSelectedSong();
+initDevAudioMixer();window.__DTX_APP_READY__=true;addEventListener("resize",resize);makeParts();syncSoundToggleUi();setChart(chart);resize();renderPreload();initCharacterPrototype();preloadDrumSamples().catch(()=>{});requestAnimationFrame(loop);loadSelectedSong();
