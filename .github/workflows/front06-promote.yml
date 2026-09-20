@@ -1,0 +1,137 @@
+name: FRONT06 promote MOTION-002 v3
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/front06-promote.txt"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: front06-promotion
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: tools/character_layers/requirements.txt
+
+      - run: pip install --disable-pip-version-check -r tools/character_layers/requirements.txt
+
+      - name: Verify candidate and promote atomically
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          root=Path(".")
+          ws=root/"character-assets/edit-workspaces/motion-repair-20260920/front06"
+          state_p=ws/"FRONT06_PROMOTION_STATE.json"
+          static_p=ws/"FRONT06_STATIC_VISUAL_QA_V3.json"
+          summary_p=ws/"FRONT06_CANDIDATE_SUMMARY_V3.json"
+          backlog_p=root/"character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"
+          inventory_p=root/"character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json"
+          assets_manifest_p=root/"character-assets/config/assets_manifest.json"
+
+          state=json.loads(state_p.read_text())
+          static=json.loads(static_p.read_text())
+          summary=json.loads(summary_p.read_text())
+          backlog=json.loads(backlog_p.read_text())
+
+          defect=next(x for x in backlog["defects"] if x["issueId"]=="MOTION-002")
+          claim=defect.get("claim") or {}
+          assert claim.get("state")=="CLAIMED" and claim.get("owner")=="CHATGPT-FRONT" and claim.get("batch")=="HOLD-REPAIR-FRONT-06", claim
+          assert defect.get("status")!="VERIFIED"
+          assert summary.get("pairMachinePass") is True
+          assert static.get("decision")=="STATIC_PAIR_PASS_RUNTIME_REQUIRED"
+          assert all(v in ("PASS","PASS_NONE") for v in static.get("gates",{}).values()), static.get("gates")
+          rt=state.get("candidateRuntimeQa") or {}
+          assert rt.get("status")=="PASS" and int(rt.get("runId",0))==35483787908 and int(rt.get("artifactId",0))==10596886963, rt
+
+          pairs=[
+            ("hit", ws/"bd_rc_hit_candidate_v3.png", root/"character-assets/layers/character/combo/bd_rc_hit.png", "layers/character/combo/bd_rc_hit.png"),
+            ("rebound", ws/"bd_rc_rebound_candidate_v3.png", root/"character-assets/layers/character/combo/bd_rc_rebound.png", "layers/character/combo/bd_rc_rebound.png"),
+          ]
+          expected=state["candidateSha256"]
+          new_sha={}
+          for phase,src,dst,rel in pairs:
+              got=hashlib.sha256(src.read_bytes()).hexdigest()
+              assert got==expected[phase], (phase,got,expected[phase])
+              dst.write_bytes(src.read_bytes())
+              new_sha[phase]=hashlib.sha256(dst.read_bytes()).hexdigest()
+
+          inv=json.loads(inventory_p.read_text())
+          am=json.loads(assets_manifest_p.read_text())
+
+          rel_by_phase={"hit":"layers/character/combo/bd_rc_hit.png","rebound":"layers/character/combo/bd_rc_rebound.png"}
+          full_by_phase={k:"character-assets/"+v for k,v in rel_by_phase.items()}
+          for phase in ("hit","rebound"):
+              rel=rel_by_phase[phase]
+              hits=[v for v in inv.get("requiredFrames",{}).values() if v.get("path")==rel]
+              assert hits, ("inventory frame missing",rel)
+              for v in hits:
+                  v["sha256"]=new_sha[phase]
+              hits2=[a for a in am.get("assets",[]) if a.get("path")==full_by_phase[phase]]
+              assert hits2, ("assets manifest missing",full_by_phase[phase])
+              for a in hits2:
+                  a["sha256"]=new_sha[phase]
+
+          inv["runtimeQaTarget"]={
+            "measureStart":128,
+            "measureEnd":128,
+            "actions":["BD+RC:RF/R"],
+            "progressPath":"character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_STATE.json",
+            "blockKey":"FRONT06-MOTION-002"
+          }
+
+          sa=(defect.get("repairSpec") or {}).get("sourceAuthority") or {}
+          sa["hitSha256"]=new_sha["hit"]
+          sa["reboundSha256"]=new_sha["rebound"]
+          defect.setdefault("repairSpec",{})["sourceAuthority"]=sa
+          defect["status"]="PROMOTED_PENDING_PUBLIC_RUNTIME"
+          ev=defect.setdefault("evidence",[])
+          for x in [
+            "FRONT06 v3 static pair PASS",
+            "candidate real-chart runtime QA run 35483787908 artifact 10596886963",
+            "formal promotion guarded by exact v3 SHA and active FRONT claim"
+          ]:
+              if x not in ev: ev.append(x)
+
+          state["status"]="PROMOTED_PENDING_PUBLIC_RUNTIME"
+          state["formalSha256"]=new_sha
+
+          inventory_p.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+"\n")
+          assets_manifest_p.write_text(json.dumps(am,ensure_ascii=False,indent=2)+"\n")
+          backlog_p.write_text(json.dumps(backlog,ensure_ascii=False,indent=2)+"\n")
+          state_p.write_text(json.dumps(state,ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps({"promoted":True,"sha256":new_sha,"runtimeQaTarget":inv["runtimeQaTarget"]}))
+          PY
+
+      - name: Validate promoted formal assets before commit
+        run: python tools/character_layers/validate_assets.py
+
+      - name: Commit promotion against latest main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             character-assets/layers/character/combo/bd_rc_hit.png             character-assets/layers/character/combo/bd_rc_rebound.png             character-assets/config/assets_manifest.json             character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json             character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json             character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_STATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "repair: promote verified FRONT06 BD+RC v3 candidate"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort >/dev/null 2>&1 || true
+            git fetch origin main
+            sleep $((attempt*2))
+          done
+          exit 1
