@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T07:50:24+00:00",
+  "updatedAt": "2026-09-20T16:53:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -3969,12 +3969,12 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "verified",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
-      "completedAt": "2026-09-20T07:50:24+00:00",
+      "completedAt": "2026-09-20T16:53:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_hit_refresh_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.00672102,
       "visualIntegrityQa": {
@@ -4017,6 +4017,13 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
+      },
+      "runtimeQa": {
+        "status": "PASS",
+        "runId": 35497983722,
+        "artifactId": 10600647764,
+        "measure": 76,
+        "deploymentCommitSha": "5c6a9f184d5c2bf57540242395358728e167c50b"
       }
     },
     {
@@ -4041,12 +4048,12 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "verified",
+      "brushupStatus": "MOTION_REPAIR_VERIFIED",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
-      "completedAt": "2026-09-20T07:50:24+00:00",
+      "completedAt": "2026-09-20T16:53:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_qa.json",
       "motionRepairChangedRatioVsNeutral": 0.00720687,
       "visualIntegrityQa": {
@@ -4089,6 +4096,13 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
+      },
+      "runtimeQa": {
+        "status": "PASS",
+        "runId": 35497983722,
+        "artifactId": 10600647764,
+        "measure": 76,
+        "deploymentCommitSha": "5c6a9f184d5c2bf57540242395358728e167c50b"
       }
     },
     {
