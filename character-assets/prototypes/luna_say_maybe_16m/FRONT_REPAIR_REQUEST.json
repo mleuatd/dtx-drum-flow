@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "terminal": "FRONT",
+  "issueId": "MOTION-002",
+  "actionKey": "BD+RC:RF/R",
+  "claimBatch": "HOLD-REPAIR-FRONT-06",
+  "strategy": "PAIR_REPLACEMENT",
+  "formal": {
+    "neutral": "character-assets/layers/character/base/neutral.png",
+    "hit": "character-assets/layers/character/combo/bd_rc_hit.png",
+    "rebound": "character-assets/layers/character/combo/bd_rc_rebound.png",
+    "drum": "character-assets/layers/drum/drum_base.png"
+  },
+  "parents": {
+    "hit": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_hit_candidate.png",
+    "rebound": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rc_rebound_candidate.png"
+  },
+  "donors": {
+    "bd_hit": "character-assets/layers/character/bd/hit_rf.png",
+    "bd_rebound": "character-assets/layers/character/bd/rebound_rf.png",
+    "rc_hit": "character-assets/layers/character/rc/hit_r_refresh.png",
+    "rc_rebound": "character-assets/layers/character/rc/rebound_r_refresh.png",
+    "rc_sn_hit": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+    "rc_sn_rebound": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+    "bd_rd_hit": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+    "bd_rd_rebound": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png"
+  },
+  "notes": [
+    "Use this request as a small trigger/config file; do not edit workflow YAML for every iteration.",
+    "Formal PNGs remain rollback anchors.",
+    "Candidate iteration must keep parent SHA, ROI, regression and rollback metadata."
+  ]
+}
