@@ -1,39 +1,31 @@
 {
   "schemaVersion": 1,
   "promoted": [],
-  "failedCandidates": [
-    {
-      "id": "rd_sn_r_l_hit",
-      "actionKey": "RD+SN:R/L",
-      "phase": "hit",
-      "checks": null,
-      "changedRatioVsNeutral": null
-    }
-  ],
+  "failedCandidates": [],
   "skipped": [
     {
       "id": "rd_r_hit",
-      "reason": "already_completed"
+      "reason": "already_verified_monotonic_guard"
     },
     {
       "id": "bd_rd_rf_r_hit",
-      "reason": "already_completed"
+      "reason": "already_verified_monotonic_guard"
     },
     {
       "id": "bd_rd_rf_r_rebound",
-      "reason": "already_completed"
+      "reason": "already_verified_monotonic_guard"
     },
     {
-      "id": "rd_r_rebound",
-      "reason": "already_completed"
+      "id": "rd_sn_r_l_hit",
+      "reason": "visual_qa_not_pass_for_exact_candidate",
+      "candidateSha256": "bab11ae4798c91cbf2ba79fc204a2698e0e1a08d84bfb7b743a0d4e0f63db7fc",
+      "reviewedCandidateSha256": null
     },
     {
-      "id": "bd_rc_sn_rf_r_l_hit_refresh",
-      "reason": "already_completed"
-    },
-    {
-      "id": "bd_rc_sn_rf_r_l_rebound_refresh",
-      "reason": "already_completed"
+      "id": "rd_sn_r_l_rebound",
+      "reason": "visual_qa_not_pass_for_exact_candidate",
+      "candidateSha256": "396e80a55d9b9b67ff52b5435453969783bb2dc9ce3e8b9eb2767d2f963f178e",
+      "reviewedCandidateSha256": null
     }
   ]
 }
