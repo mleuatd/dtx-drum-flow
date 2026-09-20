@@ -170,7 +170,14 @@ for f in fails:
             local[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
             local[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
             local[620:,:]=False
-        # Do not reopen the old broad RD rectangle for MOTION-009. Its pair-level\n        # failure is exactly duplicated/disconnected right-arm geometry, so only\n        # the bounded shoulder->grip->RD route above may admit source pixels.\n        if "rd_sn" not in tid:\n            if phase=="hit":\n                local[245:525,830:1135]=True # hit: one upper right RD corridor\n            else:\n                local[205:442,850:1115]=True # rebound: one upper right RD corridor
+        # Do not reopen the old broad RD rectangle for MOTION-009. Its pair-level
+        # failure is duplicated/disconnected right-arm geometry, so only the
+        # bounded shoulder->grip->RD route above may admit source pixels.
+        if "rd_sn" not in tid:
+            if phase=="hit":
+                local[245:525,830:1135]=True # hit: one upper right RD corridor
+            else:
+                local[205:442,850:1115]=True # rebound: one upper right RD corridor
         M &= local
         if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound"):
             src_ink=(S[:,:,:3].min(axis=2)<225)&(S[:,:,3]>0)
