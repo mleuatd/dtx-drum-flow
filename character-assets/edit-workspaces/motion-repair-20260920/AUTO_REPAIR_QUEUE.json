@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-20T11:35:00+09:00",
+  "mode": "SELF_FEEDING_REPAIR_QUEUE",
+  "terminalId": "CHAT-PASS2-BACK",
+  "issueId": "MOTION-015",
+  "actionKey": "BD+HH+SN:RF/R/L",
+  "stopCondition": "VERIFIED",
+  "rules": {
+    "readQueueAfterEveryWrite": true,
+    "neverTreatQueueWriteAsCompletion": true,
+    "useBestCandidateAsParent": true,
+    "sameMechanismMaxFailures": 2,
+    "formalPromotionRequiresExactCandidateVisualPass": true,
+    "doNotAdvanceIssueUntilVerified": true
+  },
+  "cursor": "M015-003",
+  "tasks": [
+    {
+      "id": "M015-001",
+      "status": "DONE",
+      "type": "VISUAL_QA",
+      "sourceRunId": 35484056454,
+      "result": "FAIL",
+      "failure": [
+        "hit grip/stick confused",
+        "rebound isolated white zig-zag/vertical fragment",
+        "floating fragments"
+      ]
+    },
+    {
+      "id": "M015-002",
+      "status": "FAILED",
+      "type": "REPAIR_AND_MACHINE_QA",
+      "mechanism": "METHOD7_EXPLICIT_LEFT_GRIP_STICK_CORRIDOR",
+      "parentHitSha256": "9742006be53af23326cc8866932d66f6b6d8e03a4f8c16c7a99db7e478e5253e",
+      "parentReboundSha256": "18e74a3b4f733343b3f0bc93d40ccedb0ad1221c842b536144b0be0ad2490e37",
+      "sourceRunId": 35484195030,
+      "candidateHitSha256": "851861f09418986880fc7251f8bf2123d228155bbcc797e2aebb8b268bd5a1ee",
+      "candidateReboundSha256": "126993330ed6dd4c36724db8784f68e05ecf3a0e90cbe238d09edd9cb21c991b",
+      "result": "MACHINE_FAIL"
+    },
+    {
+      "id": "M015-003",
+      "status": "READY",
+      "type": "FIX_AUTOMATION_LOOP",
+      "mechanism": "CAPTURE_NONZERO_WITHOUT_STEP_ABORT",
+      "instruction": "Capture candidate QA exit 2 without GitHub shell implicit -e abort; continue bounded queue loop and persist evidence."
+    },
+    {
+      "id": "M015-004",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "type": "REPAIR_AND_MACHINE_QA",
+      "instruction": "Resume from best candidate; if same mechanism fails twice switch mechanism; enqueue full-resolution visual QA after machine PASS."
+    },
+    {
+      "id": "M015-005",
+      "status": "BLOCKED_BY_PREVIOUS",
+      "type": "FULL_RES_VISUAL_QA",
+      "instruction": "Exact candidate visual QA; PASS enqueues promotion/runtime, FAIL enqueues targeted repair."
+    }
+  ]
+}
