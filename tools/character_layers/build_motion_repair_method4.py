@@ -157,6 +157,19 @@ for f in fails:
                     for px,py in pts: keep[py,px]=True
         keep=np.asarray(Image.fromarray((keep.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5)))>0
         M &= keep
+        # Method7: explicit left-hand/stick continuity reconstruction.
+        # Topology filtering alone retained a confused grip and rebound
+        # zig-zag fragment. Restrict L/SN to one narrow connected corridor.
+        if any(p=="SN" and l=="L" for p,l in comps):
+            sn=cp("SN") or (500,520)
+            sh=LAND["shoulder_L"]
+            corridor=Image.new("L",(W,H),0); cd=ImageDraw.Draw(corridor)
+            grip=(505,455) if phase=="hit" else (475,430)
+            cd.line([sh,grip,sn],fill=255,width=62 if phase=="hit" else 56,joint="curve")
+            cd.ellipse([grip[0]-42,grip[1]-42,grip[0]+42,grip[1]+42],fill=255)
+            C=np.asarray(corridor)>0
+            left_zone=np.zeros((H,W),dtype=bool); left_zone[300:600,280:720]=True
+            M=(M & ~left_zone) | (M & C & left_zone)
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
