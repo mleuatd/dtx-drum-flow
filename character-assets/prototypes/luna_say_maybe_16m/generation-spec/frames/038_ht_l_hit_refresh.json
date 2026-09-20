@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 38,
+  "sourceFilename": "038_ht_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "HT:L",
+  "runtimeActionKey": "HT:L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手から異なる方向へ2本のスティックが伸び、右手分を含め計3本に見える。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/HT_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action HT:L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
