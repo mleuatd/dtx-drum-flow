@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T12:03:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -2850,7 +2850,7 @@
     },
     {
       "issueId": "MOTION-004",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M141,M135",
       "time": "~245.81-245.95s",
@@ -2866,9 +2866,12 @@
         "pc/m141_RC_SN_R_L_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 15.41% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
         "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
-        "Independent recurrence in public runtime QA run 35427385671: M135, changed-pixel ratio 13.36% (triage metric)"
+        "Independent recurrence in public runtime QA run 35427385671: M135, changed-pixel ratio 13.36% (triage metric)",
+        "M004 v1 run 35485109684 artifact 10596929028: machine PASS, human visual FAIL",
+        "M004 v2 run 35485268379 artifact 10597039154: bounded cleanup PASS machine, horizontal splice remained visually",
+        "M004 v4 run 35485503368 artifact 10596939368: combo body splice removed; rebound still inherits SN:L shoulder/sleeve structural defect"
       ],
-      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "fixDecision": "Dependency isolated: RC side can be rebuilt cleanly from VERIFIED RC donor, but rebound left side inherits unresolved MOTION-001 SN:L structural defect. Do not spend further retries on RC+SN until SN:L rebound has a clean structural source; then rebuild from neutral + clean SN + VERIFIED RC.",
       "relatedAsset": [
         "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
         "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
@@ -2879,7 +2882,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T08:16:00+09:00",
+      "updatedAt": "2026-09-20T12:03:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "HOLD_VISUAL_INTEGRITY",
@@ -3488,6 +3491,11 @@
             "at": "2026-09-20T08:16:00+09:00",
             "decision": "HOLD_VISUAL_INTEGRITY",
             "detail": "Batch 05 full-resolution QA: both RC+SN:R/L frames have a horizontal/rectangular splice cutting hair/torso silhouette. Structural candidate repair required; preserve formal PNG until all static gates pass."
+          },
+          {
+            "at": "2026-09-20T12:03:00+09:00",
+            "decision": "DEPENDENCY_ON_MOTION_001_ISOLATED",
+            "detail": "v4 donor rebuild removed the original combo horizontal splice and duplicate neutral hand/stick, proving the RC/common-body mechanism. Remaining rebound shoulder/sleeve cutout is inherited from SN:L donor lineage. Park M004 until MOTION-001 supplies a clean rebound source."
           }
         ],
         "measurementTodos": [
@@ -3785,16 +3793,11 @@
         "workflowRunId": 35475413657,
         "artifactId": 10593488275
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FRONT-M004-FASTPIPE",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T11:51:00+09:00"
-      }
+      "claim": null
     },
     {
       "issueId": "MOTION-005",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M137,M109",
       "time": "~238.68-238.83s",
@@ -4684,7 +4687,12 @@
         "workflowRunId": 35475852782,
         "artifactId": 10594059870
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FRONT-M005-FASTPIPE",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T12:03:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:36:00+09:00",
