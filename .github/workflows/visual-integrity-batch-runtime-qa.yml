@@ -58,12 +58,12 @@ jobs:
             // occurrence proves the action exists; the QA hook is then exercised in
             // a collision-free synthetic window so another note cannot mask rebound.
             const ev=[...candidates].sort((a,b)=>(b.next-b.time)-(a.next-a.time))[0];
-            const qaBase=30+sequences.length*2;
+            const qaBase=Number(ev.time);
             const neutralAfterTime=qaBase+reboundEnd+.012;
             const hitFrameId=inv.runtimePhaseFrameMap?.[target]?.hit||inv.runtimeFrameMap?.[target];
             const reboundFrameId=inv.runtimePhaseFrameMap?.[target]?.rebound||inv.runtimeFrameMap?.[target];
             sequences.push({target,ev,points:[
-              {label:"neutral_before",time:0,phase:"neutral",key:"neutral",frame:neutralFrame},
+              {label:"neutral_before",time:Math.max(0,qaBase-.35),phase:"neutral",key:"neutral",frame:neutralFrame},
               {label:"hit",time:qaBase+.012,phase:"hit",key:target,frame:inv.requiredFrames?.[hitFrameId]?.path},
               {label:"rebound",time:qaBase+hitEnd+(reboundEnd-hitEnd)*.48,phase:"rebound",key:target,frame:inv.requiredFrames?.[reboundFrameId]?.path},
               {label:"neutral_after",time:neutralAfterTime,phase:"neutral",key:"neutral",frame:neutralFrame}
