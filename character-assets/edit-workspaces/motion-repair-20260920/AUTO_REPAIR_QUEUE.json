@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:38:00+09:00",
+  "updatedAt": "2026-09-20T11:43:00+09:00",
   "mode": "SELF_FEEDING_REPAIR_QUEUE",
   "terminalId": "CHAT-PASS2-BACK",
   "issueId": "MOTION-015",
@@ -50,9 +50,17 @@
     },
     {
       "id": "M015-004",
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "type": "REPAIR_AND_MACHINE_QA",
-      "instruction": "Resume from best candidate; if same mechanism fails twice switch mechanism; enqueue full-resolution visual QA after machine PASS."
+      "instruction": "Resume from best candidate; if same mechanism fails twice switch mechanism; enqueue full-resolution visual QA after machine PASS.",
+      "lastFailure": {
+        "runId": 35484502370,
+        "hitSha256": "cb07ee867dfca1e1f002c5934449b223b02ceba147631fddc26b99dda0160a88",
+        "hitSnPreserveRatio": 0.5345,
+        "reboundSha256": "126993330ed6dd4c36724db8784f68e05ecf3a0e90cbe238d09edd9cb21c991b",
+        "reboundMachinePass": true
+      },
+      "nextMechanism": "METHOD8_EXACT_SN_CONTACT_DISK_PLUS_CONTINUITY_CORRIDOR"
     },
     {
       "id": "M015-005",
