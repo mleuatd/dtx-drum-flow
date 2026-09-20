@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 3,
+  "runId": "20260920T200318Z",
+  "frame": "010",
+  "frameId": "010_bd_rc_hit",
+  "actionKey": "BD+RC",
+  "phase": "hit",
+  "startMainSha": "02f0a1a79dd22f5c1a6cdece1621711a9cb0c59b",
+  "endMainShaCheck": "02f0a1a79dd22f5c1a6cdece1621711a9cb0c59b",
+  "inputs": {
+    "normalSource": null,
+    "warpSource": {
+      "path": "character-assets/layers/character/bd/rebound_rf.png",
+      "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+      "cacheHit": true
+    },
+    "base": {
+      "path": "character-assets/layers/character/combo/bd_rc_hit.png",
+      "sha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+      "cacheHit": true
+    },
+    "brokenSource": {
+      "path": "character-assets/layers/character/combo/bd_rc_hit.png",
+      "sha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+      "cacheHit": true
+    },
+    "fixedDrum": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+      "cacheHit": true
+    },
+    "config": {
+      "path": "character-assets/generation-trials/mesh-warp-010-v1/010_transplant_mesh_config.json",
+      "sha256": "a420b0b16b8d5c2c28f1ee2ae5bcf1b4387a27c5f58c67396b3ff0ef45f8dad1"
+    }
+  },
+  "generatedFiles": [
+    "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v2.png",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v2_review.webp",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_fixed_drum_v2_review.webp",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_before_after_v2_review.webp"
+  ],
+  "filesEligibleForCommit": [
+    "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v2.png",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v2_review.webp",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_fixed_drum_v2_review.webp",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_before_after_v2_review.webp",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_v2_qa.json",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_v2_timing.json",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_v2_run_manifest.json",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_v2_commit_manifest.json",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_v2_regression_run.json",
+    "character-assets/generation-trials/mesh-warp-010-v1/010_transplant_mesh_config.json"
+  ],
+  "filesExcludedFromCommit": [],
+  "runtimeChanged": false,
+  "otherFramesTouched": false,
+  "visualQaRequired": true,
+  "userApproved": false,
+  "machinePass": true,
+  "outputs": [
+    {
+      "path": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v2.png",
+      "sha256": "d2820a440a762c33cf124f78a7ac4e2f53e4df80eaea4c7bf4d4c4500073fe4d"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v2_review.webp",
+      "sha256": "e05b5a48beadc35afcbeea8f433da3341318657eea08dd3bd0586e41a940709f"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_fixed_drum_v2_review.webp",
+      "sha256": "24ef18e79b2dcfb4af0cb00c10cdd47a90f2033f59c89ecf5e2f2566318cf800"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-010-v1/010_before_after_v2_review.webp",
+      "sha256": "b75e8cf78c5767e0dde9ce2d4746e70e2f89bbe36773357f06abca1918baf12e"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-010-v1/010_v2_qa.json",
+      "sha256": "482861f39554168830316dafa9869f15e3811aa1cc117c005fb37273fc2266eb"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-010-v1/010_v2_timing.json",
+      "sha256": "99df5bfd699768cb048a547307c4218779e29fa10b01996af7ba201e1c2e6dcb"
+    }
+  ]
+}
