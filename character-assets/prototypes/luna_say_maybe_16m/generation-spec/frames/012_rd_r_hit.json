@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 12,
+  "sourceFilename": "012_rd_r_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "RD:R",
+  "runtimeActionKey": "RD:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、残留腕付近に黒い三角状断片もある。"
+  ],
+  "defectRegions": [
+    "right_arm",
+    "right_hand",
+    "hair",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/RD_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action RD:R hit/rebound",
+    "negativeAttention": [
+      "right_arm",
+      "right_hand",
+      "hair",
+      "stick",
+      "artifact"
+    ]
+  }
+}
