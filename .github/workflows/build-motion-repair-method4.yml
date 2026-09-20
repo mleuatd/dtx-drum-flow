@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'tools/character_layers/build_motion_repair_method4.py'
+      - 'character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json'
       - '.github/workflows/build-motion-repair-method4.yml'
 permissions:
   contents: write
