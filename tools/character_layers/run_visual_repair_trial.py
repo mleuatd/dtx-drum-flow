@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from build_mesh_warp_pose import alpha_composite_rgba, save_rgba, warp_rgba
+from build_mesh_warp_pose import alpha_composite_rgba, polygon_mask, save_rgba, warp_rgba
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNTIME_PREFIX = "character-assets/layers/character/"
@@ -246,6 +246,12 @@ def main() -> int:
         candidate[allowed] = warped[allowed]
     else:
         candidate = warped
+    for repair in cfg.get("secondaryRepairRegions", []):
+        if repair.get("operation") != "clear":
+            raise ValueError(f"unsupported secondary repair operation: {repair.get('operation')}")
+        clear = polygon_mask((candidate.shape[1], candidate.shape[0]), repair["polygon"])
+        candidate[clear] = 0
+        allowed |= clear
     timings["warpSeconds"] = round(time.perf_counter() - stage, 6)
 
     candidate_path = out_dir / names["candidate"]
