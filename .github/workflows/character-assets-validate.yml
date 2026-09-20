@@ -3,12 +3,20 @@ name: Character asset validation
 on:
   push:
     paths:
-      - "character-assets/**"
+      - "character-assets/layers/**"
+      - "character-assets/config/**"
+      - "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json"
+      - "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json"
+      - "site/charts/luna_say_maybe/**"
       - "tools/character_layers/**"
       - ".github/workflows/character-assets-validate.yml"
   pull_request:
     paths:
-      - "character-assets/**"
+      - "character-assets/layers/**"
+      - "character-assets/config/**"
+      - "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json"
+      - "character-assets/prototypes/luna_say_maybe_16m/CURRENT_PROJECT_STATE.json"
+      - "site/charts/luna_say_maybe/**"
       - "tools/character_layers/**"
       - ".github/workflows/character-assets-validate.yml"
 
@@ -20,5 +28,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r tools/character_layers/requirements.txt
+          cache: "pip"
+          cache-dependency-path: tools/character_layers/requirements.txt
+      - run: pip install --disable-pip-version-check -r tools/character_layers/requirements.txt
       - run: python tools/character_layers/validate_assets.py
