@@ -14,7 +14,7 @@
   "fixedDrum": "character-assets/layers/drum/drum_base.png",
   "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
   "config": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
-  "configSha256": "334b876cd905e70520ab1009c16ac56cefb3a0e29498cffce0ff96aea6fc79f7",
+  "configSha256": "2e2c7eab502688e6e0b48d73c0cfed5a54bbe6efe47a9adfd1421cd5dd6b082b",
   "candidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
   "candidateSha256": "4ee11bd49363502e2536bf3a2dce3a1b1f1bd873721d32af7eb667dfe9a93caf",
   "canvas": [
@@ -67,19 +67,19 @@
   },
   "machinePass": true,
   "timings": {
-    "configValidationSeconds": 0.000266,
-    "cacheCheckAndHashSeconds": 0.007529,
+    "configValidationSeconds": 0.000241,
+    "cacheCheckAndHashSeconds": 0.006199,
     "gitCommitPreparationSeconds": null,
     "gitRegistrationSeconds": null,
-    "loadSeconds": 0.117805,
-    "warpSeconds": 0.041374,
-    "candidateSaveSeconds": 0.105289,
-    "qaSeconds": 0.034563,
-    "fixedDrumCompositeSeconds": 0.803704,
-    "reviewGenerationSeconds": 0.489919,
-    "beforeAfterGenerationSeconds": 0.907849,
-    "candidateToReviewCompleteSeconds": 2.382698,
-    "manifestGenerationSeconds": 0.003947,
-    "totalLocalPipelineSeconds": 2.512495
+    "loadSeconds": 0.069666,
+    "warpSeconds": 0.03255,
+    "candidateSaveSeconds": 0.085132,
+    "qaSeconds": 0.027342,
+    "fixedDrumCompositeSeconds": 0.623356,
+    "reviewGenerationSeconds": 0.346557,
+    "beforeAfterGenerationSeconds": 0.592247,
+    "candidateToReviewCompleteSeconds": 1.707184,
+    "manifestGenerationSeconds": 0.004181,
+    "totalLocalPipelineSeconds": 1.787707
   }
 }
