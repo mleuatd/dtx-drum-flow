@@ -1,0 +1,31 @@
+name: Extract FRONT repair sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/extract-front-repair-sources.yml'
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect exact current-main sources
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/front-repair-sources
+          cp character-assets/layers/character/base/neutral.png qa-artifacts/front-repair-sources/neutral.png
+          cp character-assets/layers/character/bd/hit_rf.png qa-artifacts/front-repair-sources/bd_rf_hit.png
+          cp character-assets/layers/character/bd/rebound_rf.png qa-artifacts/front-repair-sources/bd_rf_rebound.png
+          cp character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png qa-artifacts/front-repair-sources/bd_rd_hit.png
+          cp character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png qa-artifacts/front-repair-sources/bd_rd_rebound.png
+          cp character-assets/layers/character/combo/rc_sn_hit_refresh.png qa-artifacts/front-repair-sources/rc_sn_hit.png
+          cp character-assets/layers/character/combo/rc_sn_rebound_refresh.png qa-artifacts/front-repair-sources/rc_sn_rebound.png
+          cp character-assets/layers/drum/drum_base.png qa-artifacts/front-repair-sources/drum_base.png
+          sha256sum qa-artifacts/front-repair-sources/* > qa-artifacts/front-repair-sources/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: front-repair-sources-${{ github.run_id }}
+          path: qa-artifacts/front-repair-sources/
+          retention-days: 30
