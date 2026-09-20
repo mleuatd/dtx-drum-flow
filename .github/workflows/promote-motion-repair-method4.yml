@@ -28,4 +28,5 @@ jobs:
           git add character-assets/layers/character/ character-assets/config/assets_manifest.json character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_PROMOTION_RESULT.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fix: promote guarded RD motion repair candidates"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
