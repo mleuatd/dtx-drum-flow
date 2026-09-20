@@ -134,6 +134,29 @@ for f in fails:
         src_ink=(S[:,:,:3].min(axis=2)<225)&(S[:,:,3]>0)
         support=np.asarray(Image.fromarray((src_ink.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(9)))>0
         M &= support
+        # Method6: reject tiny disconnected changed-ink islands. Keep only
+        # source-supported components that are large enough to be real linework
+        # or that touch an active instrument contact neighborhood. This is
+        # intentionally applied after the method5 support mask so RF/HH/SN
+        # contact corridors remain protected while floating fragments are
+        # removed without widening any transplant rectangle.
+        raw=(M & interest).astype(np.uint8)
+        seen=np.zeros((H,W),dtype=bool); keep=np.zeros((H,W),dtype=bool)
+        active_contacts=[cp(p) for p,l in comps if cp(p)]
+        for yy in range(H):
+            for xx in range(W):
+                if not raw[yy,xx] or seen[yy,xx]: continue
+                stack=[(xx,yy)]; seen[yy,xx]=True; pts=[]
+                while stack:
+                    px,py=stack.pop(); pts.append((px,py))
+                    for nx,ny in ((px-1,py),(px+1,py),(px,py-1),(px,py+1)):
+                        if 0<=nx<W and 0<=ny<H and raw[ny,nx] and not seen[ny,nx]:
+                            seen[ny,nx]=True; stack.append((nx,ny))
+                touches_contact=any(any((px-cx)**2+(py-cy)**2<=80**2 for px,py in pts) for cx,cy in active_contacts)
+                if len(pts)>=18 or touches_contact:
+                    for px,py in pts: keep[py,px]=True
+        keep=np.asarray(Image.fromarray((keep.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5)))>0
+        M &= keep
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
