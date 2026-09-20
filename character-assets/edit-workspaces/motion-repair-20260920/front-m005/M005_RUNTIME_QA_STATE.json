@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "issueId": "MOTION-005",
   "actionKey": "BD+HH:RF/R",
-  "status": "M005_BD_HH_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "VERIFIED",
   "exactCandidate": {
     "hitSha256": "8b1dcbf1d3287ee90bb4425380314fd412aeaeb407ccb1664815493f1cac6423",
     "reboundSha256": "cd33610f79643b80222a250410eeaf2207be7d1014baa2f8847c9e611ba2ac6b",
@@ -25,5 +25,21 @@
     }
   },
   "blocker": null,
-  "updatedAt": "2026-09-20T03:46:04.720863+00:00"
+  "updatedAt": "2026-09-20T03:46:04.720863+00:00",
+  "verifiedAt": "2026-09-20T12:49:00+09:00",
+  "validation": {
+    "runtimeQaRunId": 35487353693,
+    "runtimeQaArtifactId": 10598031230,
+    "runtimeQaStatus": "PASS",
+    "validateRunId": 35487353699,
+    "characterAssetValidationRunId": 35487353713,
+    "viewports": [
+      "pc",
+      "xperia-portrait"
+    ],
+    "phases": [
+      "hit",
+      "rebound"
+    ]
+  }
 }
