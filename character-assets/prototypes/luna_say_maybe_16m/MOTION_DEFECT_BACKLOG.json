@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T11:11:00+09:00",
+  "updatedAt": "2026-09-20T11:12:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -9171,7 +9171,7 @@
     },
     {
       "issueId": "MOTION-011",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M72",
       "time": "~2:06.7-2:06.8",
@@ -9199,7 +9199,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T11:11:00+09:00",
+      "updatedAt": "2026-09-20T11:12:00+09:00",
       "occurrences": [
         {
           "measure": "M72",
@@ -9213,7 +9213,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "HOLD_VISUAL_INTEGRITY",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -10176,12 +10176,7 @@
           "extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body"
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-21",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T11:11:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T08:20:00+09:00",
@@ -10192,6 +10187,11 @@
           "at": "2026-09-20T08:56:00+09:00",
           "decision": "BACK_VISUAL_INTEGRITY_HOLD",
           "detail": "Artifact 10593149790 / run 35476568863: extra detached/duplicated right-side hand/stick geometry; three-limb anatomy is not one continuous body. Formal PNGs unchanged; runtime QA blocked by static hard fail."
+        },
+        {
+          "at": "2026-09-20T11:12:00+09:00",
+          "decision": "PASS2_BACK_RESTART_CONDITION_STILL_UNMET",
+          "detail": "Exact source-bound/deterministic ROI editor still unavailable; existing candidate remains prohibited. Claim released."
         }
       ],
       "hold": {
