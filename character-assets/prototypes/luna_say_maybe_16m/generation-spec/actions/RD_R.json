@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0",
+  "actionKey": "RD:R",
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../MASTER_GEOMETRY.json",
+    "../CHARACTER_LOCK.json",
+    "../CAMERA_LOCK.json",
+    "../DRUM_GEOMETRY.json",
+    "../NEGATIVE_CONSTRAINTS.json"
+  ],
+  "activeTargets": [
+    {
+      "part": "RD",
+      "limb": "R",
+      "geometryRef": "../DRUM_GEOMETRY.json#instruments.RD",
+      "targetType": "hand/stick"
+    }
+  ],
+  "phases": {
+    "hit": {
+      "summary": "strike RD(R)",
+      "tipOrPedalRule": "active endpoint inside target tolerance ellipse",
+      "jointPolicy": "solve connected anatomical chain without reverse bend"
+    },
+    "rebound": {
+      "summary": "recover from same hit pose, never independent alternate pose",
+      "distanceFromHitPx": {
+        "min": 45,
+        "preferred": 70,
+        "max": 105
+      },
+      "stickAngleDeltaDegMax": 12,
+      "continuity": "preserve identity/camera/torso/stool/inactive limbs"
+    }
+  },
+  "stick": {
+    "countTotal": 2,
+    "maxPerHand": 1,
+    "lengthPx": {
+      "preferred": 185,
+      "tolerance": 30
+    },
+    "thicknessPx": {
+      "preferred": 4,
+      "tolerance": 2
+    },
+    "mustAttachToHand": true,
+    "noGhostTrajectory": true
+  },
+  "anatomy": {
+    "arms": 2,
+    "legs": 2,
+    "hands": 2,
+    "connectivity": [
+      "shoulder>elbow>wrist>hand>stick",
+      "hip>knee>ankle>boot"
+    ]
+  },
+  "specialAttention": [
+    "FAIL references provide motion intent only",
+    "all simultaneous targets share one coherent body pose",
+    "inactive limbs stay near neutral/PASS anchors"
+  ]
+}
