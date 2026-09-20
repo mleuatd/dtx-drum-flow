@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T12:27:00+09:00",
+  "updatedAt": "2026-09-20T05:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -5626,7 +5626,7 @@
     },
     {
       "issueId": "MOTION-007",
-      "status": "IN_FIX",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M142,M115",
       "time": "~248.40-248.54s",
@@ -5655,10 +5655,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T12:27:00+09:00",
+      "updatedAt": "2026-09-20T05:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "STATIC_VISUAL_PASS_PROMOTION_AUTHORIZED",
+        "state": "FIXED_PENDING_RUNTIME_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -6426,21 +6426,21 @@
             "id": "hh_r_hit",
             "actionKey": "HH:R",
             "phase": "hit",
-            "oldSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
-            "newSha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
-            "changedRatioVsNeutral": 0.06023486
+            "oldSha256": "8d1f29dab6606cf923ab6cc4f6d6fa90ce5dd765965e5f161d476ea1c63b9d1c",
+            "newSha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
+            "changedRatioVsNeutral": 0.00917504
           },
           {
             "id": "hh_r_rebound",
             "actionKey": "HH:R",
             "phase": "rebound",
-            "oldSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
-            "newSha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
-            "changedRatioVsNeutral": 0.06409425
+            "oldSha256": "e577aa5d130014695c4d980d4caff15204364af95a98b4fc912ff5c7e1f3e216",
+            "newSha256": "bbfae80c4268037f6126ac39bbb93423984ebad5c71a863f0d52be7a33ef18a1",
+            "changedRatioVsNeutral": 0.00962781
           }
         ],
-        "method": "neutral-locked semantic corridor + changed-ink/alpha transplant",
-        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
+        "method": "method4: bounded neutral-baseline source-authority repair",
+        "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/method4/METHOD4_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
         "humanAnatomy": "PASS",
