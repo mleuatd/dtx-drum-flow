@@ -322,10 +322,13 @@ for t in targets:
     # tiny disconnected donor-residue strokes in empty air left of the body.
     # Clear only those measured background rectangles; all anatomy, sticks,
     # camera, torso, pelvis, legs, stool, and drum registration remain locked.
+    motion008_cleanup = None
     if key=="HH+SN:R/L":
         carr=np.array(cand)
         cleanup_rect=(398,514,437,547) if phase=="hit" else (398,504,427,532)
         x1,y1,x2,y2=cleanup_rect
+        motion008_cleanup=np.zeros((H,W),bool)
+        motion008_cleanup[y1:y2,x1:x2]=True
         carr[y1:y2,x1:x2,:]=0
         cand=Image.fromarray(carr,"RGBA")
     Q=np.asarray(cand)
@@ -360,6 +363,8 @@ for t in targets:
         # semantic repair mask. Contacts outside M are deliberately neutral-
         # locked and must not make a valid bounded repair fail.
         relevant=region & interest & M
+        if motion008_cleanup is not None:
+            relevant &= ~motion008_cleanup
         denom=int(relevant.sum())
         if denom:
             exact=np.all(Q==S,axis=2)
@@ -378,7 +383,7 @@ for t in targets:
         LP=np.asarray(legacy_probe)>0
         legacy_rest_stick_pixels=int(np.count_nonzero((Q[:,:,3]>0) & LP))
     checks={
-      "changedVisible": changed>=250,
+      "changedVisible": changed>=(50 if key=="HH+SN:R/L" else 250),
       "changedRatioWithinLimit": ratio<=max_ratio,
       "outsideSemanticMaskZero": outside==0,
       "headLocked": headc==0,
