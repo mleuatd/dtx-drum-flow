@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 18,
+  "sourceFilename": "018_lt_r_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "LT:R",
+  "runtimeActionKey": "LT:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手から上向きと横向きの2本のスティックが伸び、左手分を含め計3本に見え、横向き線が髪を横断する。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "hair",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/LT_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action LT:R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "hair",
+      "artifact"
+    ]
+  }
+}
