@@ -22,7 +22,8 @@ ledger=json.loads(ledger_path.read_text())
 entries={e["actionKey"]:e for e in amap.get("entries",[])}
 legacy_targets=[t for t in ledger.get("targets",[]) if ((t.get("terminalId")=="CHAT-MOTION-REPAIR" and t.get("claimState")=="CLAIMED") or (t.get("terminalId")=="CHAT-PASS2-BACK" and t.get("claimState")=="PASS2_CLAIMED"))]
 claim_owner=os.environ.get("CLAIM_OWNER","").strip()
-hold_claimed_keys={d.get("actionKey") for d in backlog.get("defects",[]) if (d.get("claim") or {}).get("state")=="CLAIMED" and (not claim_owner or (d.get("claim") or {}).get("owner")==claim_owner)}
+queue_keys={x.strip() for x in os.environ.get("ACTION_KEYS","").split(",") if x.strip()}
+hold_claimed_keys={d.get("actionKey") for d in backlog.get("defects",[]) if (d.get("claim") or {}).get("state")=="CLAIMED" and (not claim_owner or (d.get("claim") or {}).get("owner")==claim_owner) and (not queue_keys or d.get("actionKey") in queue_keys)}
 targets=[]
 seen=set()
 for t in ledger.get("targets",[]):
