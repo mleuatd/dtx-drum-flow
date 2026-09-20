@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:51:00+09:00",
+  "updatedAt": "2026-09-20T12:06:00+09:00",
   "mode": "SELF_FEEDING_REPAIR_QUEUE",
   "terminalId": "CHAT-PASS2-BACK",
   "issueId": "MOTION-015",
@@ -14,7 +14,7 @@
     "formalPromotionRequiresExactCandidateVisualPass": true,
     "doNotAdvanceIssueUntilVerified": true
   },
-  "cursor": "M015-007",
+  "cursor": "M015-008",
   "tasks": [
     {
       "id": "M015-001",
@@ -102,11 +102,20 @@
     },
     {
       "id": "M015-007",
-      "status": "READY",
+      "status": "SUPERSEDED_BY_DIRECT_REPAIR",
       "type": "FULL_RES_VISUAL_QA",
       "runId": 35484687746,
       "artifactId": 10597008329,
-      "instruction": "Inspect exact Method9 hit/rebound fixed-drum images. If PASS, immediately promote exact candidate and proceed runtime QA; if FAIL, record exact coordinates and perform one bounded direct repair, not another broad mask experiment."
+      "instruction": "Inspect exact Method9 hit/rebound fixed-drum images. If PASS, immediately promote exact candidate and proceed runtime QA; if FAIL, record exact coordinates and perform one bounded direct repair, not another broad mask experiment.",
+      "result": "Method9 visual defects were directly bounded and repaired in commit 47ce8a8a50682f89dffdbb3b9e6469261f49113c; old artifact must not be re-reviewed as final."
+    },
+    {
+      "id": "M015-008",
+      "status": "READY",
+      "type": "BUILD_AND_EXACT_VISUAL_QA",
+      "mechanism": "METHOD10_DIRECT_BOUNDED_CLEANUP",
+      "sourceCommit": "47ce8a8a50682f89dffdbb3b9e6469261f49113c",
+      "instruction": "Build exact current main candidate once. Run machine QA. If machine PASS, inspect exact fixed-drum hit/rebound at full resolution. PASS => exact promotion/runtime QA. FAIL => record exact coordinates only; no broad-mask retry."
     }
   ]
 }
