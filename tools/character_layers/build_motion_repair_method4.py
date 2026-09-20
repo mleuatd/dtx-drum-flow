@@ -169,7 +169,13 @@ for f in fails:
             cd.ellipse([grip[0]-(54 if phase=="hit" else 42),grip[1]-(54 if phase=="hit" else 42),grip[0]+(54 if phase=="hit" else 42),grip[1]+(54 if phase=="hit" else 42)],fill=255)
             C=np.asarray(corridor)>0
             left_zone=np.zeros((H,W),dtype=bool); left_zone[300:600,280:720]=True
-            M=(M & ~left_zone) | (M & C & left_zone)
+            # Preserve the actual SN contact disk after continuity cleanup;
+            # visual cleanup applies to the approach corridor, not the contact itself.
+            contact_keep=np.zeros((H,W),dtype=bool)
+            if phase=="hit":
+                yy,xx=np.ogrid[:H,:W]
+                contact_keep=((xx-sn[0])**2+(yy-sn[1])**2 <= 54**2) & src_ink
+            M=(M & ~left_zone) | ((M & C & left_zone) | contact_keep)
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
