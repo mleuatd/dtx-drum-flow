@@ -314,7 +314,8 @@ for f in fails:
     # byte-for-byte at pixel level. This previously let unresolved MOTION-009
     # anatomy pass machine QA without changing the image.
     candidate_changed_from_source=bool(np.any(Q!=S))
-    checks["candidateChangedFromSource"]=candidate_changed_from_source\n    passed=all(checks.values()); stem=safe(tid); cpath=WORK/(stem+"_candidate.png"); cand.save(cpath)
+    checks["candidateChangedFromSource"]=candidate_changed_from_source
+    passed=all(checks.values()); stem=safe(tid); cpath=WORK/(stem+"_candidate.png"); cand.save(cpath)
     Image.alpha_composite(Image.open(ROOT/"character-assets/layers/drum/drum_base.png").convert("RGBA"),cand).save(WORK/(stem+"_fixed_drum.png"))
     rec={"id":tid,"actionKey":key,"phase":phase,"source":t["formalGitHubPath"],"sourceSha256":hashlib.sha256(srcp.read_bytes()).hexdigest(),
       "candidate":str(cpath.relative_to(ROOT)),"candidateSha256":hashlib.sha256(cpath.read_bytes()).hexdigest(),
