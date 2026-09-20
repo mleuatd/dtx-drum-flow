@@ -12,45 +12,8 @@
       "id": "rd_r_hit",
       "actionKey": "RD:R",
       "phase": "hit",
-      "source": "character-assets/layers/character/rd/hit_r_refresh.png",
-      "sourceSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_hit_candidate.png",
-      "candidateSha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
-      "changedPixelsVsNeutral": 15016,
-      "changedRatioVsNeutral": 0.00954896,
-      "changedBBoxVsNeutral": {
-        "x": 830,
-        "y": 245,
-        "width": 224,
-        "height": 178
-      },
-      "headCoreGuardChangedPixels": 0,
-      "torsoCoreGuardChangedPixels": 0,
-      "stoolGuardChangedPixels": 0,
-      "leftLegGuardChangedPixels": null,
-      "sourceLocalPreservation": [
-        {
-          "part": "RD",
-          "limb": "R",
-          "radiusPx": 48,
-          "sourceRelevantPixels": 242,
-          "preservedPixels": 242,
-          "preserveRatio": 1.0,
-          "threshold": 0.6,
-          "pass": true
-        }
-      ],
-      "checks": {
-        "changedVisible": true,
-        "ratioWithinLimit": true,
-        "outsideMaskZero": true,
-        "headCoreLocked": true,
-        "torsoCoreLocked": true,
-        "stoolLocked": true,
-        "leftLegLocked": true,
-        "localContactSourcePreservation": true
-      },
-      "pass": true
+      "pass": false,
+      "skip": "claim_changed"
     },
     {
       "id": "bd_rd_rf_r_hit",
@@ -72,52 +35,8 @@
       "phase": "hit",
       "pass": false,
       "skip": "claim_changed"
-    },
-    {
-      "id": "rd_r_rebound",
-      "actionKey": "RD:R",
-      "phase": "rebound",
-      "source": "character-assets/layers/character/rd/rebound_r_refresh.png",
-      "sourceSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
-      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_rebound_candidate.png",
-      "candidateSha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
-      "changedPixelsVsNeutral": 10497,
-      "changedRatioVsNeutral": 0.00667524,
-      "changedBBoxVsNeutral": {
-        "x": 850,
-        "y": 205,
-        "width": 230,
-        "height": 227
-      },
-      "headCoreGuardChangedPixels": 0,
-      "torsoCoreGuardChangedPixels": 0,
-      "stoolGuardChangedPixels": 0,
-      "leftLegGuardChangedPixels": null,
-      "sourceLocalPreservation": [
-        {
-          "part": "RD",
-          "limb": "R",
-          "radiusPx": 65,
-          "sourceRelevantPixels": 458,
-          "preservedPixels": 458,
-          "preserveRatio": 1.0,
-          "threshold": 0.4,
-          "pass": true
-        }
-      ],
-      "checks": {
-        "changedVisible": true,
-        "ratioWithinLimit": true,
-        "outsideMaskZero": true,
-        "headCoreLocked": true,
-        "torsoCoreLocked": true,
-        "stoolLocked": true,
-        "leftLegLocked": true,
-        "localContactSourcePreservation": true
-      },
-      "pass": true
     }
   ],
-  "passCount": 2,
-  "failCount": 3
+  "passCount": 0,
+  "failCount": 4
 }
