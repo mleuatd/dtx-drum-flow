@@ -4,7 +4,7 @@
   "issueId": "MOTION-002",
   "actionKey": "BD+RC:RF/R",
   "claimBatch": "HOLD-REPAIR-FRONT-06",
-  "strategy": "PAIR_REPLACEMENT",
+  "strategy": "NEUTRAL_PLUS_BD_PLUS_RC_DELTAS",
   "formal": {
     "neutral": "character-assets/layers/character/base/neutral.png",
     "hit": "character-assets/layers/character/combo/bd_rc_hit.png",
@@ -26,8 +26,9 @@
     "bd_rd_rebound": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png"
   },
   "notes": [
-    "Use this request as a small trigger/config file; do not edit workflow YAML for every iteration.",
-    "Formal PNGs remain rollback anchors.",
-    "Candidate iteration must keep parent SHA, ROI, regression and rollback metadata."
+    "Reusable workbench now generates candidate pair from shared-neutral donor deltas.",
+    "RC donor delta and BD donor delta must be disjoint; overlap is a machine FAIL.",
+    "Formal PNGs remain rollback anchors until static + runtime gates pass.",
+    "Candidate iteration keeps exact source SHA evidence in artifact."
   ]
 }
