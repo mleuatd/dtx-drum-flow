@@ -1,0 +1,66 @@
+name: FRONT06 candidate real-chart runtime QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/front06-candidate-runtime-qa.mjs'
+      - '.github/workflows/front06-candidate-runtime-qa.yml'
+      - 'character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_hit_candidate_v3.png'
+      - 'character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_rebound_candidate_v3.png'
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify claim and exact v3 candidate SHA
+        run: |
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          b=json.loads(Path('character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json').read_text())
+          d=next(x for x in b['defects'] if x['issueId']=='MOTION-002')
+          c=d.get('claim') or {}
+          assert c.get('state')=='CLAIMED' and c.get('owner')=='CHATGPT-FRONT' and c.get('batch')=='HOLD-REPAIR-FRONT-06', c
+          s=json.loads(Path('character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_CANDIDATE_SUMMARY_V3.json').read_text())
+          assert s.get('pairMachinePass') is True
+          expected={x['phase']:x['candidateSha256'] for x in s['phases']}
+          for phase in ('hit','rebound'):
+              p=Path(f'character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_{phase}_candidate_v3.png')
+              got=hashlib.sha256(p.read_bytes()).hexdigest()
+              assert got==expected[phase], (phase,got,expected[phase])
+          PY
+      - name: Stage candidate only in runner checkout
+        run: |
+          cp character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_hit_candidate_v3.png character-assets/layers/character/combo/bd_rc_hit.png
+          cp character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_rebound_candidate_v3.png character-assets/layers/character/combo/bd_rc_rebound.png
+          rm -rf site/character-assets
+          cp -R character-assets site/character-assets
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local production-site server
+        run: |
+          python3 -m http.server 4173 --directory site >/tmp/front06-http.log 2>&1 &
+          echo $! > /tmp/front06-http.pid
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0; sleep 1; done
+          cat /tmp/front06-http.log
+          exit 1
+      - name: Real-chart PC and Xperia candidate QA
+        env:
+          PUBLIC_URL: http://127.0.0.1:4173/
+        run: node tools/front06-candidate-runtime-qa.mjs
+      - name: Upload runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front06-candidate-runtime-${{ github.run_id }}
+          path: qa-artifacts/front06-runtime/
+          if-no-files-found: warn
+          retention-days: 30
