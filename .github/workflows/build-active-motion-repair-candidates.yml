@@ -6,6 +6,7 @@ on:
       - 'tools/character_layers/build_active_motion_repair_candidates.py'
       - '.github/workflows/build-active-motion-repair-candidates.yml'
       - 'character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json'
+      - '.github/back-visual-actions.txt'
 permissions:
   contents: write
 jobs:
