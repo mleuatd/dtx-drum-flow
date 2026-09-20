@@ -92,8 +92,9 @@ for t in targets:
         # Do not cut a wide transparent channel through the hand/sleeve: that
         # produced the white triangular fragments seen in the rebound artifact.
         erase=Image.new("L",(W,H),0); ed=ImageDraw.Draw(erase)
-        old_tip=(430,382); erase_end=(484,444)
-        ed.line([old_tip,erase_end],fill=255,width=10)
+        old_tip=(405,390); erase_end=(488,458)
+        ed.line([old_tip,erase_end],fill=255,width=28)
+        ed.ellipse([old_tip[0]-13,old_tip[1]-13,old_tip[0]+13,old_tip[1]+13],fill=255)
         E=np.asarray(erase)>0
         arr=np.array(rebuilt)
         arr[E,3]=0
@@ -118,12 +119,11 @@ for t in targets:
         # that stick corridor from the transplant, otherwise the HT candidate
         # visibly carries two sticks. Preserve only a compact grip disk so the
         # newly drawn HT stick remains connected to the hand.
-        hhpt=pt_for("HH") or (190,390)
         old_hh=Image.new("L",(W,H),0); ohd=ImageDraw.Draw(old_hh)
-        ohd.line([(470,430),hhpt],fill=255,width=30)
+        ohd.line([(405,390),(500,470)],fill=255,width=34)
         O=np.asarray(old_hh)>0
         yy,xx=np.ogrid[:H,:W]
-        grip_keep=(xx-grip[0])**2+(yy-grip[1])**2<=30**2
+        grip_keep=(xx-grip[0])**2+(yy-grip[1])**2<=24**2
         A &= (~O | grip_keep)
 
         rebuilt.paste(hh,(0,0),Image.fromarray((A.astype(np.uint8)*255),"L"))
@@ -260,8 +260,9 @@ for t in targets:
         # The final candidate is initialized from neutral below, so explicitly
         # carry the neutral resting-stick erase ROI through the final paste.
         erase_final=Image.new("L",(W,H),0); ef=ImageDraw.Draw(erase_final)
-        old_tip=(430,382); erase_end=(484,444)
-        ef.line([old_tip,erase_end],fill=255,width=10)
+        old_tip=(405,390); erase_end=(488,458)
+        ef.line([old_tip,erase_end],fill=255,width=28)
+        ef.ellipse([old_tip[0]-13,old_tip[1]-13,old_tip[0]+13,old_tip[1]+13],fill=255)
         M |= (np.asarray(erase_final)>0)
 
     # Small deterministic stick bridges. These are line-only ROIs; never use
