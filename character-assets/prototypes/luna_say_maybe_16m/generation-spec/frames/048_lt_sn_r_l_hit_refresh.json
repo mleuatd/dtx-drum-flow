@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 48,
+  "sourceFilename": "048_lt_sn_r_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "LT+SN:R/L",
+  "runtimeActionKey": "LT+SN:R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手に2本、右手にも2本のスティックが残って計4本に見え、右側の横向き線が髪を横断する。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "right_hand",
+    "stick",
+    "hair",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/LT_SN_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action LT+SN:R/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "right_hand",
+      "stick",
+      "hair",
+      "artifact"
+    ]
+  }
+}
