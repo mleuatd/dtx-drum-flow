@@ -1,0 +1,1436 @@
+{
+  "schemaVersion": "1.0",
+  "hardNegativeRules": [
+    "arms must equal 2",
+    "legs must equal 2",
+    "hands must equal 2",
+    "sticks must equal 2",
+    "each hand grips at most 1 stick",
+    "no detached limb/hand/forearm/stick",
+    "no ghost pose residue",
+    "no rectangular compositing seam",
+    "no black block/blob artifact",
+    "no white void/cutout artifact",
+    "no broken stick",
+    "no body/drum penetration inconsistent with z-order",
+    "no reverse joint",
+    "no waist/skirt collapse",
+    "no stool fusion",
+    "no stray hair fragment",
+    "no unowned line segment"
+  ],
+  "categories": [
+    {
+      "id": "EXTRA_OR_GHOST_LIMB",
+      "evidence": [
+        {
+          "index": 6,
+          "filename": "006_hh_r_hit.png",
+          "defects": [
+            "左腕側に別ポーズ由来の前腕・手が残留して腕が3本あるように見え、余分なスティックも残る。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 7,
+          "filename": "007_hh_r_rebound.png",
+          "defects": [
+            "左腕上側に切り離された前腕・手と余分なスティックが残留し、腕が3本あるように見える。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 8,
+          "filename": "008_bd_rf_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカート下端から脚への接続も分断している。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 10,
+          "filename": "010_bd_rc_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカートが崩れ、右手付近のスティック軌道も重複する。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 12,
+          "filename": "012_rd_r_hit.png",
+          "defects": [
+            "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、残留腕付近に黒い三角状断片もある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "hair",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 14,
+          "filename": "014_bd_sn_rf_l_hit.png",
+          "defects": [
+            "両脚の間に第3の脚状パーツが残留し腰・スカートから下半身が破綻、上半身にも余分なスティック断片がある。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 28,
+          "filename": "028_bd_rd_rf_r_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツが残留して腰・スカートが破綻し、さらに余分な右腕も残って腕が3本に見える。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "right_arm",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 30,
+          "filename": "030_rd_sn_r_l_hit.png",
+          "defects": [
+            "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、黒い三角状断片と左側の浮遊線もある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "hair",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 32,
+          "filename": "032_bd_hh_rf_r_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツ状パーツが残留し、左手側も腕・手の輪郭が重なって別ポーズ残留が見える。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "left_arm",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 33,
+          "filename": "033_bd_hh_rf_r_rebound.png",
+          "defects": [
+            "左肩上方に別ポーズ由来の前腕・手が残留し、通常の左腕と合わせて腕が3本あるように見える。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 44,
+          "filename": "044_ht_r_hit_refresh.png",
+          "defects": [
+            "通常の左腕上側に別ポーズ由来の左前腕・手が残留して腕が3本に見え、残留スティック線もある。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 45,
+          "filename": "045_ht_r_rebound_refresh.png",
+          "defects": [
+            "通常の左腕とは別に上側の左前腕・手が残留して腕が3本に見え、別スティック線もある。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 47,
+          "filename": "047_bd_ht_rf_r_rebound_refresh.png",
+          "defects": [
+            "左上に別ポーズ由来の前腕・手が残って腕が3本に見え、手先が黒い矩形状に欠損し、スカート・椅子にも合成痕がある。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        },
+        {
+          "index": 54,
+          "filename": "054_bd_rc_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "髪の右上に人物本体から切り離された前腕・手が浮遊して腕が3本に見え、左手側にも余分なスティック断片がある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DUPLICATE_OR_EXTRA_STICK",
+      "evidence": [
+        {
+          "index": 6,
+          "filename": "006_hh_r_hit.png",
+          "defects": [
+            "左腕側に別ポーズ由来の前腕・手が残留して腕が3本あるように見え、余分なスティックも残る。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 7,
+          "filename": "007_hh_r_rebound.png",
+          "defects": [
+            "左腕上側に切り離された前腕・手と余分なスティックが残留し、腕が3本あるように見える。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 10,
+          "filename": "010_bd_rc_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカートが崩れ、右手付近のスティック軌道も重複する。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 11,
+          "filename": "011_bd_rc_rebound.png",
+          "defects": [
+            "右手から異なる軌道のスティックが2本伸び、右手側のスティックが二重化している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 14,
+          "filename": "014_bd_sn_rf_l_hit.png",
+          "defects": [
+            "両脚の間に第3の脚状パーツが残留し腰・スカートから下半身が破綻、上半身にも余分なスティック断片がある。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 16,
+          "filename": "016_rc_sn_r_l_hit_refresh.png",
+          "defects": [
+            "右手のスティックが二重化し、長い打撃用スティックとは別の残留スティックが同じ右手付近から伸びる。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 17,
+          "filename": "017_rc_sn_r_l_rebound_refresh.png",
+          "defects": [
+            "右手側に異なる軌道のスティックが2本見え、別ポーズのスティックが残留している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 18,
+          "filename": "018_lt_r_hit.png",
+          "defects": [
+            "右手から上向きと横向きの2本のスティックが伸び、左手分を含め計3本に見え、横向き線が髪を横断する。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 19,
+          "filename": "019_lt_r_rebound.png",
+          "defects": [
+            "右手に上向きスティックとは別の横向き短いスティックが残り、計3本に見える。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 20,
+          "filename": "020_lt_l_hit.png",
+          "defects": [
+            "左手に本来の斜めスティックとは別に右方向へ伸びるスティックが残り、計3本に見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 21,
+          "filename": "021_lt_l_rebound.png",
+          "defects": [
+            "左手のスティック軌道が二重化し、髪・上背部付近にも手から離れた短いスティック状断片が浮遊する。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 22,
+          "filename": "022_bd_sn_rf_r_hit.png",
+          "defects": [
+            "右手から髪・背中を横断する長い残留スティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 23,
+          "filename": "023_bd_sn_rf_r_rebound.png",
+          "defects": [
+            "右手側から髪・背中を横断する残留スティックがあり、右側ポーズ・スティックが二重化している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 24,
+          "filename": "024_ft_r_hit.png",
+          "defects": [
+            "右手に上向きと長い右下方向の2本のスティックが残り、左手分を含め計3本に見える。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 25,
+          "filename": "025_ft_r_rebound.png",
+          "defects": [
+            "右手に異なる2本のスティックが残り、左手分を含め計3本に見える。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 26,
+          "filename": "026_ft_l_hit.png",
+          "defects": [
+            "左手に本来の斜めスティックと胴体・髪方向へ横断する長いスティックが重複している。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "torso",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 27,
+          "filename": "027_ft_l_rebound.png",
+          "defects": [
+            "左手から斜め上と右方向の2本のスティックが伸び、計3本に見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 29,
+          "filename": "029_bd_rd_rf_r_rebound.png",
+          "defects": [
+            "右手側に上向きスティックが2本重なって残り、左手分を含め計3本に見える。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 31,
+          "filename": "031_rd_sn_r_l_rebound.png",
+          "defects": [
+            "右手側に別軌道のスティックが重複して右側だけで2本見え、左手付近にも短い浮遊線が残る。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 36,
+          "filename": "036_bd_lt_rf_r_hit.png",
+          "defects": [
+            "右手に上向きスティックと髪を横断する横向きスティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 37,
+          "filename": "037_bd_lt_rf_r_rebound.png",
+          "defects": [
+            "右手に上向きスティックと髪方向へ伸びる別スティックが重複している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 38,
+          "filename": "038_ht_l_hit_refresh.png",
+          "defects": [
+            "左手から異なる方向へ2本のスティックが伸び、右手分を含め計3本に見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 40,
+          "filename": "040_ft_sn_r_l_hit_refresh.png",
+          "defects": [
+            "左手に2本、右手にも2本のスティックが見え、計4本に見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 41,
+          "filename": "041_ft_sn_r_l_rebound_refresh.png",
+          "defects": [
+            "左手・右手の双方に別軌道スティックが残り、計4本に見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 42,
+          "filename": "042_rc_r_hit_refresh.png",
+          "defects": [
+            "右手に通常長のスティックとは別に非常に長い同方向のスティックが重複している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 43,
+          "filename": "043_rc_r_rebound_refresh.png",
+          "defects": [
+            "右手側に平行する2本のスティックが重複している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 44,
+          "filename": "044_ht_r_hit_refresh.png",
+          "defects": [
+            "通常の左腕上側に別ポーズ由来の左前腕・手が残留して腕が3本に見え、残留スティック線もある。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 48,
+          "filename": "048_lt_sn_r_l_hit_refresh.png",
+          "defects": [
+            "左手に2本、右手にも2本のスティックが残って計4本に見え、右側の横向き線が髪を横断する。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 49,
+          "filename": "049_lt_sn_r_l_rebound_refresh.png",
+          "defects": [
+            "左手・右手の双方でスティックが二重化し、計4本に見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 54,
+          "filename": "054_bd_rc_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "髪の右上に人物本体から切り離された前腕・手が浮遊して腕が3本に見え、左手側にも余分なスティック断片がある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 56,
+          "filename": "056_bd_ft_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "左手に2本、右手にも2本のスティックが見えて計4本となり、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 57,
+          "filename": "057_bd_ft_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "左手・右手の双方に別軌道のスティックが残り、計4本に見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 59,
+          "filename": "059_bd_ft_rf_l_rebound_refresh.png",
+          "defects": [
+            "左手に斜めスティックと水平スティックが重複している。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 60,
+          "filename": "060_bd_ft_rf_r_hit_refresh.png",
+          "defects": [
+            "右手に上向きスティックと長い右下方向スティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 61,
+          "filename": "061_bd_ft_rf_r_rebound_refresh.png",
+          "defects": [
+            "右手に上向きスティックと右方向へ伸びる別スティックが重複している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FLOATING_PART",
+      "evidence": [
+        {
+          "index": 7,
+          "filename": "007_hh_r_rebound.png",
+          "defects": [
+            "左腕上側に切り離された前腕・手と余分なスティックが残留し、腕が3本あるように見える。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 15,
+          "filename": "015_bd_sn_rf_l_rebound.png",
+          "defects": [
+            "人物左側に切り離された手・前腕状パーツが浮遊し、別軌道のスティック線も残る。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 21,
+          "filename": "021_lt_l_rebound.png",
+          "defects": [
+            "左手のスティック軌道が二重化し、髪・上背部付近にも手から離れた短いスティック状断片が浮遊する。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 30,
+          "filename": "030_rd_sn_r_l_hit.png",
+          "defects": [
+            "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、黒い三角状断片と左側の浮遊線もある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "hair",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 31,
+          "filename": "031_rd_sn_r_l_rebound.png",
+          "defects": [
+            "右手側に別軌道のスティックが重複して右側だけで2本見え、左手付近にも短い浮遊線が残る。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 46,
+          "filename": "046_bd_ht_rf_r_hit_refresh.png",
+          "defects": [
+            "左肩付近に手から離れたスティック状パーツが浮遊し、腰・スカート・椅子座面の境界に矩形状の貼り合わせ破綻がある。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "stool",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 51,
+          "filename": "051_bd_hh_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "スカート左下と椅子座面の境界に黒い矩形状の切断・貼り合わせ痕があり、左手付近にも短い浮遊線がある。"
+          ],
+          "regions": [
+            "skirt",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 54,
+          "filename": "054_bd_rc_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "髪の右上に人物本体から切り離された前腕・手が浮遊して腕が3本に見え、左手側にも余分なスティック断片がある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "left_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 55,
+          "filename": "055_bd_rc_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "右上にスティック先端だけが本体から離れて浮遊して右手側スティックが切断して見え、椅子境界にも矩形状合成痕がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BLACK_BLOB_OR_VOID",
+      "evidence": [
+        {
+          "index": 12,
+          "filename": "012_rd_r_hit.png",
+          "defects": [
+            "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、残留腕付近に黒い三角状断片もある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "hair",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 30,
+          "filename": "030_rd_sn_r_l_hit.png",
+          "defects": [
+            "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、黒い三角状断片と左側の浮遊線もある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "hair",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 47,
+          "filename": "047_bd_ht_rf_r_rebound_refresh.png",
+          "defects": [
+            "左上に別ポーズ由来の前腕・手が残って腕が3本に見え、手先が黒い矩形状に欠損し、スカート・椅子にも合成痕がある。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        },
+        {
+          "index": 50,
+          "filename": "050_bd_hh_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "スカートに黒い点・塊・崩れ線が多数残り、右脚上部にも大きな黒い塊、椅子境界に矩形状合成痕がある。"
+          ],
+          "regions": [
+            "skirt",
+            "right_leg",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 51,
+          "filename": "051_bd_hh_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "スカート左下と椅子座面の境界に黒い矩形状の切断・貼り合わせ痕があり、左手付近にも短い浮遊線がある。"
+          ],
+          "regions": [
+            "skirt",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "RECTANGULAR_COMPOSITE_SEAM",
+      "evidence": [
+        {
+          "index": 46,
+          "filename": "046_bd_ht_rf_r_hit_refresh.png",
+          "defects": [
+            "左肩付近に手から離れたスティック状パーツが浮遊し、腰・スカート・椅子座面の境界に矩形状の貼り合わせ破綻がある。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "stool",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 47,
+          "filename": "047_bd_ht_rf_r_rebound_refresh.png",
+          "defects": [
+            "左上に別ポーズ由来の前腕・手が残って腕が3本に見え、手先が黒い矩形状に欠損し、スカート・椅子にも合成痕がある。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        },
+        {
+          "index": 50,
+          "filename": "050_bd_hh_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "スカートに黒い点・塊・崩れ線が多数残り、右脚上部にも大きな黒い塊、椅子境界に矩形状合成痕がある。"
+          ],
+          "regions": [
+            "skirt",
+            "right_leg",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 51,
+          "filename": "051_bd_hh_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "スカート左下と椅子座面の境界に黒い矩形状の切断・貼り合わせ痕があり、左手付近にも短い浮遊線がある。"
+          ],
+          "regions": [
+            "skirt",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 55,
+          "filename": "055_bd_rc_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "右上にスティック先端だけが本体から離れて浮遊して右手側スティックが切断して見え、椅子境界にも矩形状合成痕がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WAIST_SKIRT_STOOL_FAILURE",
+      "evidence": [
+        {
+          "index": 8,
+          "filename": "008_bd_rf_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカート下端から脚への接続も分断している。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 10,
+          "filename": "010_bd_rc_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツ状パーツが残留し、腰・スカートが崩れ、右手付近のスティック軌道も重複する。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 14,
+          "filename": "014_bd_sn_rf_l_hit.png",
+          "defects": [
+            "両脚の間に第3の脚状パーツが残留し腰・スカートから下半身が破綻、上半身にも余分なスティック断片がある。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 28,
+          "filename": "028_bd_rd_rf_r_hit.png",
+          "defects": [
+            "両脚の間に第3の脚・ブーツが残留して腰・スカートが破綻し、さらに余分な右腕も残って腕が3本に見える。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "left_leg",
+            "right_leg",
+            "right_arm",
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 46,
+          "filename": "046_bd_ht_rf_r_hit_refresh.png",
+          "defects": [
+            "左肩付近に手から離れたスティック状パーツが浮遊し、腰・スカート・椅子座面の境界に矩形状の貼り合わせ破綻がある。"
+          ],
+          "regions": [
+            "waist",
+            "skirt",
+            "stool",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 47,
+          "filename": "047_bd_ht_rf_r_rebound_refresh.png",
+          "defects": [
+            "左上に別ポーズ由来の前腕・手が残って腕が3本に見え、手先が黒い矩形状に欠損し、スカート・椅子にも合成痕がある。"
+          ],
+          "regions": [
+            "left_arm",
+            "left_hand",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        },
+        {
+          "index": 50,
+          "filename": "050_bd_hh_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "スカートに黒い点・塊・崩れ線が多数残り、右脚上部にも大きな黒い塊、椅子境界に矩形状合成痕がある。"
+          ],
+          "regions": [
+            "skirt",
+            "right_leg",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 51,
+          "filename": "051_bd_hh_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "スカート左下と椅子座面の境界に黒い矩形状の切断・貼り合わせ痕があり、左手付近にも短い浮遊線がある。"
+          ],
+          "regions": [
+            "skirt",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 55,
+          "filename": "055_bd_rc_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "右上にスティック先端だけが本体から離れて浮遊して右手側スティックが切断して見え、椅子境界にも矩形状合成痕がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "HAIR_CROSSING_ARTIFACT",
+      "evidence": [
+        {
+          "index": 18,
+          "filename": "018_lt_r_hit.png",
+          "defects": [
+            "右手から上向きと横向きの2本のスティックが伸び、左手分を含め計3本に見え、横向き線が髪を横断する。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 22,
+          "filename": "022_bd_sn_rf_r_hit.png",
+          "defects": [
+            "右手から髪・背中を横断する長い残留スティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 23,
+          "filename": "023_bd_sn_rf_r_rebound.png",
+          "defects": [
+            "右手側から髪・背中を横断する残留スティックがあり、右側ポーズ・スティックが二重化している。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 26,
+          "filename": "026_ft_l_hit.png",
+          "defects": [
+            "左手に本来の斜めスティックと胴体・髪方向へ横断する長いスティックが重複している。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "torso",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 36,
+          "filename": "036_bd_lt_rf_r_hit.png",
+          "defects": [
+            "右手に上向きスティックと髪を横断する横向きスティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 48,
+          "filename": "048_lt_sn_r_l_hit_refresh.png",
+          "defects": [
+            "左手に2本、右手にも2本のスティックが残って計4本に見え、右側の横向き線が髪を横断する。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "hair",
+            "artifact"
+          ]
+        },
+        {
+          "index": 58,
+          "filename": "058_bd_ft_rf_l_hit_refresh.png",
+          "defects": [
+            "左手に斜めスティックとは別の長い水平スティックが残って腕・髪を横断し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "left_arm",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "STRAY_LINE",
+      "evidence": [
+        {
+          "index": 22,
+          "filename": "022_bd_sn_rf_r_hit.png",
+          "defects": [
+            "右手から髪・背中を横断する長い残留スティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 30,
+          "filename": "030_rd_sn_r_l_hit.png",
+          "defects": [
+            "髪の右側から別ポーズ由来の右腕が大きく伸びて腕が3本に見え、黒い三角状断片と左側の浮遊線もある。"
+          ],
+          "regions": [
+            "right_arm",
+            "right_hand",
+            "hair",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 31,
+          "filename": "031_rd_sn_r_l_rebound.png",
+          "defects": [
+            "右手側に別軌道のスティックが重複して右側だけで2本見え、左手付近にも短い浮遊線が残る。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 34,
+          "filename": "034_hh_sn_r_l_hit.png",
+          "defects": [
+            "左手外側に短い横方向の線が残り、スティックまたは別ポーズ由来の微小残留線にも見える。"
+          ],
+          "regions": [
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 36,
+          "filename": "036_bd_lt_rf_r_hit.png",
+          "defects": [
+            "右手に上向きスティックと髪を横断する横向きスティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 51,
+          "filename": "051_bd_hh_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "スカート左下と椅子座面の境界に黒い矩形状の切断・貼り合わせ痕があり、左手付近にも短い浮遊線がある。"
+          ],
+          "regions": [
+            "skirt",
+            "stool",
+            "left_hand",
+            "artifact"
+          ]
+        },
+        {
+          "index": 52,
+          "filename": "052_bd_ht_rf_l_hit_refresh.png",
+          "defects": [
+            "左手から2本のスティックが異なる方向へ伸び、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 56,
+          "filename": "056_bd_ft_sn_rf_r_l_hit_refresh.png",
+          "defects": [
+            "左手に2本、右手にも2本のスティックが見えて計4本となり、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "left_hand",
+            "right_hand",
+            "stick",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 58,
+          "filename": "058_bd_ft_rf_l_hit_refresh.png",
+          "defects": [
+            "左手に斜めスティックとは別の長い水平スティックが残って腕・髪を横断し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "left_hand",
+            "stick",
+            "left_arm",
+            "hair",
+            "left_leg",
+            "artifact"
+          ]
+        },
+        {
+          "index": 60,
+          "filename": "060_bd_ft_rf_r_hit_refresh.png",
+          "defects": [
+            "右手に上向きスティックと長い右下方向スティックが重複し、左脚すね付近にも短い不要線がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "left_leg",
+            "artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "STICK_BREAK",
+      "evidence": [
+        {
+          "index": 39,
+          "filename": "039_ht_l_rebound_refresh.png",
+          "defects": [
+            "左手から2本のスティックが異なる軌道で伸び、一方が上腕付近へ不自然に終端している。"
+          ],
+          "regions": [
+            "left_hand",
+            "left_arm",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 53,
+          "filename": "053_bd_ht_rf_l_rebound_refresh.png",
+          "defects": [
+            "左手から2本のスティックが伸び、一方が上腕付近へ不自然に終端している。"
+          ],
+          "regions": [
+            "left_hand",
+            "left_arm",
+            "stick",
+            "artifact"
+          ]
+        },
+        {
+          "index": 55,
+          "filename": "055_bd_rc_sn_rf_r_l_rebound_refresh.png",
+          "defects": [
+            "右上にスティック先端だけが本体から離れて浮遊して右手側スティックが切断して見え、椅子境界にも矩形状合成痕がある。"
+          ],
+          "regions": [
+            "right_hand",
+            "stick",
+            "skirt",
+            "stool",
+            "artifact"
+          ]
+        }
+      ]
+    }
+  ],
+  "allFailImages": [
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "reviewImages": [
+    34
+  ]
+}
