@@ -92,8 +92,9 @@ for t in targets:
         # Do not cut a wide transparent channel through the hand/sleeve: that
         # produced the white triangular fragments seen in the rebound artifact.
         erase=Image.new("L",(W,H),0); ed=ImageDraw.Draw(erase)
-        old_tip=(438,390); erase_end=(478,438)
-        ed.line([old_tip,erase_end],fill=255,width=14)
+        old_tip=(455,390); erase_end=(512,472)
+        ed.line([old_tip,erase_end],fill=255,width=38)
+        ed.ellipse([old_tip[0]-22,old_tip[1]-22,old_tip[0]+22,old_tip[1]+22],fill=255)
         E=np.asarray(erase)>0
         arr=np.array(rebuilt)
         arr[E,3]=0
@@ -256,14 +257,14 @@ for t in targets:
     D=np.asarray(dil)>0
     M=G & D
 
-    # HT:R rebound source contains one detached/duplicated upper forearm in the
-    # screen-left shoulder band. Lock only that measured polygon back to neutral
-    # so the valid lower active arm/hand/stick remains untouched.
-    if key=="HT:R" and phase=="rebound":
-        keepout=Image.new("L",(W,H),0)
-        kd=ImageDraw.Draw(keepout)
-        kd.polygon([(470,305),(590,305),(590,382),(574,427),(510,423),(474,385)],fill=255)
-        M &= ~(np.asarray(keepout)>0)
+    if key=="HT:R":
+        # The final candidate is initialized from neutral below, so explicitly
+        # carry the neutral resting-stick erase ROI through the final paste.
+        erase_final=Image.new("L",(W,H),0); ef=ImageDraw.Draw(erase_final)
+        old_tip=(455,390); erase_end=(512,472)
+        ef.line([old_tip,erase_end],fill=255,width=38)
+        ef.ellipse([old_tip[0]-22,old_tip[1]-22,old_tip[0]+22,old_tip[1]+22],fill=255)
+        M |= (np.asarray(erase_final)>0)
 
     # Small deterministic stick bridges. These are line-only ROIs; never use
     # rectangular image transplants. HT:R deliberately has no synthetic bridge:
