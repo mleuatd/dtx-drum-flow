@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/front-m005-rebuild.yml"
       - "tools/character_layers/build_front_m005.py"
+      - ".github/front-m005-trigger.txt"
   workflow_dispatch:
 permissions:
   contents: read
@@ -36,7 +37,7 @@ jobs:
           import json
           d=json.load(open("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"))
           x=next(v for v in d["defects"] if v["issueId"]=="MOTION-005");c=x.get("claim") or {}
-          assert c.get("owner")=="CHATGPT-FRONT" and c.get("batch")=="FRONT-M005-FASTPIPE",c
+          assert c.get("owner")=="CHATGPT-FRONT" and c.get("batch")=="FRONT-M005-AFTER-M007",c
           PY
       - run: python tools/character_layers/build_front_m005.py
       - uses: actions/upload-artifact@v4
