@@ -5,7 +5,8 @@ on:
     paths:
       - 'tools/character_layers/build_front_bd_rc_pair_replacement.py'
       - '.github/workflows/front-bd-rc-pair-replacement.yml'
-      - 'character-assets/prototypes/luna_say_maybe_16m/FRONT_REPAIR_REQUEST.json'\n      - '.github/front06-trigger.txt'
+      - 'character-assets/prototypes/luna_say_maybe_16m/FRONT_REPAIR_REQUEST.json'
+      - '.github/front06-trigger.txt'
 permissions:
   contents: write
 jobs:
@@ -14,6 +15,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -46,4 +49,5 @@ jobs:
           git add character-assets/edit-workspaces/motion-repair-20260920/front06/
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "qa: build FRONT06 BD+RC replacement candidate"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
