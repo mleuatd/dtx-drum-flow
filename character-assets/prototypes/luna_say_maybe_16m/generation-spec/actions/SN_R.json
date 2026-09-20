@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0",
+  "actionKey": "SN:R",
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../MASTER_GEOMETRY.json",
+    "../CHARACTER_LOCK.json",
+    "../CAMERA_LOCK.json",
+    "../DRUM_GEOMETRY.json",
+    "../NEGATIVE_CONSTRAINTS.json"
+  ],
+  "activeTargets": [
+    {
+      "part": "SN",
+      "limb": "R",
+      "geometryRef": "DRUM_GEOMETRY.json#instruments.SN",
+      "targetType": "hand/stick"
+    }
+  ],
+  "phases": {
+    "hit": {
+      "summary": "strike SN(R)",
+      "tipOrPedalRule": "active endpoint inside target tolerance ellipse",
+      "jointPolicy": "solve shoulder→elbow→wrist→hand→stick or hip→knee→ankle→boot without reverse bend"
+    },
+    "rebound": {
+      "summary": "recover from the same hit pose, not a second independent pose",
+      "distanceFromHitPx": {
+        "min": 45,
+        "preferred": 70,
+        "max": 105
+      },
+      "stickAngleDeltaDegMax": 12,
+      "continuity": "preserve identity, camera, torso, stool, inactive limbs"
+    }
+  },
+  "stick": {
+    "countTotal": 2,
+    "maxPerHand": 1,
+    "lengthPx": {
+      "preferred": 185,
+      "tolerance": 30
+    },
+    "thicknessPx": {
+      "preferred": 4,
+      "tolerance": 2
+    },
+    "mustAttachToHand": true,
+    "noGhostTrajectory": true
+  },
+  "anatomy": {
+    "arms": 2,
+    "legs": 2,
+    "hands": 2,
+    "connectivity": [
+      "shoulder>elbow>wrist>hand>stick",
+      "hip>knee>ankle>boot"
+    ]
+  },
+  "specialAttention": [
+    "Do not copy local geometry from FAIL references",
+    "simultaneous targets must be satisfied in the same single body pose",
+    "inactive limbs must remain close to neutral/PASS anchors"
+  ]
+}
