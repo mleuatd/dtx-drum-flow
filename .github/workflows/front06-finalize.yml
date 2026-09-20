@@ -1,0 +1,73 @@
+name: FRONT06 finalize MOTION-002
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_STATE.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: front06-finalize
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mark VERIFIED only after public runtime PASS
+        id: finalize
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          state_p=Path("character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_STATE.json")
+          backlog_p=Path("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json")
+          state=json.loads(state_p.read_text())
+          evidence=(state.get("runtimeQaEvidence") or {}).get("FRONT06-MOTION-002") or {}
+          if evidence.get("status")!="PASS":
+              print("Public runtime PASS not present yet; no finalization.")
+              with open(os.environ["GITHUB_OUTPUT"],"a") as f: f.write("changed=false\n")
+              raise SystemExit(0)
+
+          backlog=json.loads(backlog_p.read_text())
+          defect=next(x for x in backlog["defects"] if x["issueId"]=="MOTION-002")
+          if defect.get("status")=="VERIFIED" and not defect.get("claim"):
+              with open(os.environ["GITHUB_OUTPUT"],"a") as f: f.write("changed=false\n")
+              raise SystemExit(0)
+
+          claim=defect.get("claim") or {}
+          assert claim.get("owner")=="CHATGPT-FRONT" and claim.get("batch")=="HOLD-REPAIR-FRONT-06", claim
+          defect["status"]="VERIFIED"
+          defect["claim"]=None
+          defect["updatedAt"]=state.get("updatedAt") or evidence.get("testedAt") or ""
+          ev=defect.setdefault("evidence",[])
+          entry=f"public runtime QA run {evidence.get('runId')} artifact {evidence.get('artifact')}"
+          if entry not in ev: ev.append(entry)
+          defect["fixDecision"]="FRONT06 v3 promoted after static pair PASS, candidate real-chart PC/Xperia PASS, formal validation PASS, and public real-chart runtime PASS."
+          state["status"]="VERIFIED"
+          state["verifiedByPublicRuntime"]=evidence
+          backlog_p.write_text(json.dumps(backlog,ensure_ascii=False,indent=2)+"\n")
+          state_p.write_text(json.dumps(state,ensure_ascii=False,indent=2)+"\n")
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f: f.write("changed=true\n")
+          PY
+
+      - name: Commit VERIFIED and release claim
+        if: steps.finalize.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json             character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_STATE.json
+          git commit -m "qa: verify MOTION-002 and release FRONT claim"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort >/dev/null 2>&1 || true
+            git fetch origin main
+            sleep $((attempt*2))
+          done
+          exit 1
