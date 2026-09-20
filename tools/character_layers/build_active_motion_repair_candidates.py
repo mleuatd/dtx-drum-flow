@@ -152,7 +152,10 @@ for t in targets:
         if not p: continue
         r=125 if phase=="hit" else 180
         region=circle_mask(p[0],p[1],r)
-        relevant=region & interest
+        # Preservation is only meaningful inside the candidate's permitted
+        # semantic repair mask. Contacts outside M are deliberately neutral-
+        # locked and must not make a valid bounded repair fail.
+        relevant=region & interest & M
         denom=int(relevant.sum())
         if denom:
             exact=np.all(Q==S,axis=2)
