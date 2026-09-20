@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 23,
+  "sourceFilename": "023_bd_sn_rf_r_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+SN:RF/R",
+  "runtimeActionKey": "BD+SN:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手側から髪・背中を横断する残留スティックがあり、右側ポーズ・スティックが二重化している。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "hair",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_SN_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+SN:RF/R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "hair",
+      "artifact"
+    ]
+  }
+}
