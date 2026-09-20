@@ -1,0 +1,58 @@
+name: Baseline version visual audit snapshot
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/baseline-version-audit-snapshot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Record refs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audit-snapshot/current audit-snapshot/baseline
+          git rev-parse HEAD > audit-snapshot/current/COMMIT_SHA.txt
+          echo a4e3854449e292264192afa63469edf0fb5048af > audit-snapshot/baseline/COMMIT_SHA.txt
+
+      - name: Copy current character layers
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp -a character-assets/layers/character audit-snapshot/current/character
+
+      - name: Extract baseline character layers
+        shell: bash
+        run: |
+          set -euo pipefail
+          git archive a4e3854449e292264192afa63469edf0fb5048af character-assets/layers/character | tar -x -C audit-snapshot/baseline
+          mv audit-snapshot/baseline/character-assets/layers/character audit-snapshot/baseline/character
+          rmdir -p audit-snapshot/baseline/character-assets/layers 2>/dev/null || true
+
+      - name: Build inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          find audit-snapshot/current/character -type f -name '*.png' | sort > audit-snapshot/current_pngs.txt
+          find audit-snapshot/baseline/character -type f -name '*.png' | sort > audit-snapshot/baseline_pngs.txt
+          wc -l audit-snapshot/current_pngs.txt audit-snapshot/baseline_pngs.txt > audit-snapshot/counts.txt
+
+      - name: Upload audit snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: baseline-version-audit-snapshot
+          path: audit-snapshot
+          if-no-files-found: error
+          retention-days: 7
