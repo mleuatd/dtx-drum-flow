@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 4,
+  "issueId": "MOTION-004",
+  "actionKey": "RC+SN:R/L",
+  "method": "neutral common body + VERIFIED RC donor + VERIFIED formal SN:L donor; no combo-source body pixels",
+  "sources": {
+    "neutral": {
+      "path": "character-assets/layers/character/base/neutral.png",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+    },
+    "drum": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85"
+    },
+    "rc_hit": {
+      "path": "character-assets/layers/character/rc/hit_r_refresh.png",
+      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5"
+    },
+    "rc_rebound": {
+      "path": "character-assets/layers/character/rc/rebound_r_refresh.png",
+      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a"
+    },
+    "sn_hit": {
+      "path": "character-assets/layers/character/sn/hit_l.png",
+      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+    },
+    "sn_rebound": {
+      "path": "character-assets/layers/character/sn/rebound_l.png",
+      "sha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202"
+    }
+  },
+  "phases": [
+    {
+      "phase": "hit",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_hit_candidate_v4.png",
+      "candidateSha256": "3417325f8754eff0f6e9cbdc7e6a0137a24c63975438529932c790d2ebdc283f",
+      "rcMaskPixels": 39557,
+      "snMaskPixels": 43132,
+      "overlapPixels": 0,
+      "changedPixelsVsNeutral": 30848,
+      "changedBBoxVsNeutral": {
+        "x": 417,
+        "y": 136,
+        "width": 807,
+        "height": 410
+      },
+      "rcDonorPreserveRatio": 1.0,
+      "snDonorPreserveRatio": 1.0,
+      "checks": {
+        "outsideMaskZero": true,
+        "hairCoreLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "lowerBodyLocked": true,
+        "rcDonorExact": true,
+        "snDonorExact": true,
+        "bothArmsVisible": true
+      },
+      "machinePass": true
+    },
+    {
+      "phase": "rebound",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_rebound_candidate_v4.png",
+      "candidateSha256": "29ffe44f317d8a1651aa8f7ee76077e830fefc86ee863141b918d5cd8d7cced3",
+      "rcMaskPixels": 30926,
+      "snMaskPixels": 50567,
+      "overlapPixels": 0,
+      "changedPixelsVsNeutral": 36038,
+      "changedBBoxVsNeutral": {
+        "x": 432,
+        "y": 216,
+        "width": 687,
+        "height": 345
+      },
+      "rcDonorPreserveRatio": 1.0,
+      "snDonorPreserveRatio": 1.0,
+      "checks": {
+        "outsideMaskZero": true,
+        "hairCoreLocked": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "lowerBodyLocked": true,
+        "rcDonorExact": true,
+        "snDonorExact": true,
+        "bothArmsVisible": true
+      },
+      "machinePass": true
+    }
+  ],
+  "pairMachinePass": true
+}
