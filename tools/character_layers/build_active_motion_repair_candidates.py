@@ -88,12 +88,12 @@ for t in targets:
         hh=Image.open(ROOT/hh_rel).convert("RGBA")
         rebuilt=neutral.copy()
 
-        # Remove only the neutral resting-stick stroke in the active hand ROI.
-        # Keep the hand itself; the arm transplant below overwrites the grip.
+        # Remove only the exposed neutral resting-stick pixels before the grip.
+        # Do not cut a wide transparent channel through the hand/sleeve: that
+        # produced the white triangular fragments seen in the rebound artifact.
         erase=Image.new("L",(W,H),0); ed=ImageDraw.Draw(erase)
-        old_tip=(438,390); old_grip=(490,452)
-        ed.line([old_grip,old_tip],fill=255,width=28)
-        ed.ellipse([old_tip[0]-18,old_tip[1]-18,old_tip[0]+18,old_tip[1]+18],fill=255)
+        old_tip=(438,390); erase_end=(478,438)
+        ed.line([old_tip,erase_end],fill=255,width=14)
         E=np.asarray(erase)>0
         arr=np.array(rebuilt)
         arr[E,3]=0
@@ -113,6 +113,19 @@ for t in targets:
         A[PELVIS[1]:PELVIS[3],PELVIS[0]:PELVIS[2]]=False
         A[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
         A[620:,:]=False
+
+        # The approved HH arm authority also contains its own HH stick. Exclude
+        # that stick corridor from the transplant, otherwise the HT candidate
+        # visibly carries two sticks. Preserve only a compact grip disk so the
+        # newly drawn HT stick remains connected to the hand.
+        hhpt=pt_for("HH") or (190,390)
+        old_hh=Image.new("L",(W,H),0); ohd=ImageDraw.Draw(old_hh)
+        ohd.line([(470,430),hhpt],fill=255,width=30)
+        O=np.asarray(old_hh)>0
+        yy,xx=np.ogrid[:H,:W]
+        grip_keep=(xx-grip[0])**2+(yy-grip[1])**2<=30**2
+        A &= (~O | grip_keep)
+
         rebuilt.paste(hh,(0,0),Image.fromarray((A.astype(np.uint8)*255),"L"))
 
         # One and only one HT stick. Rebound differs by release angle only,
