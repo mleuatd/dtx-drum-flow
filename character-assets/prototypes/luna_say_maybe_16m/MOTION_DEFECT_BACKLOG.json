@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T17:57:00+09:00",
+  "updatedAt": "2026-09-20T18:42:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -3816,6 +3816,11 @@
           "at": "2026-09-20T17:57:00+09:00",
           "decision": "FAST_LOCAL_REPAIR_STABLE_V4_MACHINE_PASS_REUSED",
           "detail": "Reused existing front-m004-v3 candidate pair built from neutral + VERIFIED RC donor + VERIFIED SN:L donor. M004_V4_SUMMARY reports pairMachinePass=true; hit SHA256 3417325f8754eff0f6e9cbdc7e6a0137a24c63975438529932c790d2ebdc283f and rebound SHA256 29ffe44f317d8a1651aa8f7ee76077e830fefc86ee863141b918d5cd8d7cced3. No new candidate generated and formal assets were not changed. Remaining gate is exact-candidate full-resolution visual anatomy/linework/fixed-drum/transition review; current chat execution surface cannot ingest repository PNG bytes as a visual input, so promotion/runtime QA was intentionally not fabricated."
+        },
+        {
+          "at": "2026-09-20T18:42:00+09:00",
+          "decision": "FAST_LOCAL_REPAIR_STABLE_V5_LATEST_CANDIDATE_CONFIRMED",
+          "detail": "New-chat reconnect verified main remained a8f95a68e6b8499dc373b701403f1543aed9ece9 before this coordination update. Commit history confirms v5 supersedes v4 via 395dcf60a4735824510e11c9b189528453b08266 (residual neutral limb removal) and 9ce2d9e9bafbc32e3793b4919742a6492dc410db (persist v5 pair). M004_V5_SUMMARY pairMachinePass=true; hit SHA256 bdf0a8759d5b8315d7fb9f68e18a7dfbf6f8ead156fbeb7db026249270b8db8f, rebound SHA256 b44199b879bf46755f8934b26625c12cd34ccc0961d87996a26166158f3c3875. CLAIM remains CHAT-FAST-REPAIR-STABLE. No candidate generated and formal assets remain protected. Exact full-resolution visual QA is still the only static gate; GitHub fetch exposes PNG bytes as base64 but this chat execution surface cannot pass repository binary pixels into visual inspection, and Dropbox does not contain the v5 files, so promotion/runtime QA remains intentionally blocked rather than fabricated."
         }
       ]
     },
