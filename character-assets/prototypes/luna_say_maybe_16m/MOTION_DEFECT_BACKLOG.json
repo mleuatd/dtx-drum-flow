@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T18:59:00+09:00",
+  "updatedAt": "2026-09-20T19:12:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -2862,7 +2862,7 @@
     },
     {
       "issueId": "MOTION-004",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M141,M135",
       "time": "~245.81-245.95s",
@@ -2883,7 +2883,7 @@
         "M004 v2 run 35485268379 artifact 10597039154: bounded cleanup PASS machine, horizontal splice remained visually",
         "M004 v4 run 35485503368 artifact 10596939368: combo body splice removed; rebound still inherits SN:L shoulder/sleeve structural defect"
       ],
-      "fixDecision": "v5 full-resolution QA found an extra inactive donor hand/forearm/stick in both phases. Repair only the measured upper-left ROI from v5 parent using neutral/common-body source-bound reconstruction; preserve intended SN and RC limbs, all locked body regions outside ROI, and formal assets until re-QA passes.",
+      "fixDecision": "MOTION-004 v6 accepted. v5 full-resolution QA exposed an extra inactive SN-donor hand/forearm/stick. v6 restored only ROI x560,y270,w160,h175 from neutral/common-body, preserving all pixels outside the repair ROI. GitHub candidate, fixed-drum, transition, formal promotion, validation, PC runtime QA, and Xperia-portrait runtime QA all PASS.",
       "relatedAsset": [
         "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
         "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
@@ -2894,10 +2894,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T18:59:00+09:00",
+      "updatedAt": "2026-09-20T19:12:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -3745,7 +3745,27 @@
           "semanticActiveLimbRois": false,
           "numericContactTolerance": false,
           "limbAngleLengthRanges": false,
-          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed."
+          "note": "All safely automatable raster measurements are filled. Remaining nulls require semantic landmark/limb segmentation or fixed-drum contact-radius calibration; they are intentionally not guessed.",
+          "motion004V6": {
+            "status": "PASS",
+            "repairRoiPx": {
+              "x": 560,
+              "y": 270,
+              "width": 160,
+              "height": 175
+            },
+            "hitSha256": "719220d6076e5b74a021f5ea8cc86ddffc6e7a334eccda34a74b99f38b3138c8",
+            "reboundSha256": "c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653",
+            "outsideRepairRoiChangedPixels": 0,
+            "runtimeQaRunId": 35504234047,
+            "runtimeQaPassed": 4,
+            "runtimeQaFailed": 0,
+            "pc": "PASS",
+            "xperiaPortrait": "PASS",
+            "validationRunId": 35504234061,
+            "deploymentRunId": 35504234089,
+            "promotionCommit": "788591e8928449eaef759da1ca1fc4874ca8375d"
+          }
         },
         "visualIntegrityRequirements": {
           "humanAnatomyQaRequired": true,
@@ -3753,7 +3773,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T08:16:00+09:00"
+        "updatedAt": "2026-09-20T19:12:00+09:00"
       },
       "occurrences": [
         {
@@ -3795,21 +3815,20 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL_EXTRA_LIMB",
-        "fixedDrumComposite": "FAIL_EXTRA_LIMB",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PASS",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "v5 exact full-resolution QA: both phases show a third visible hand/stick at upper-left; approximate ROI x565 y275 w155 h185. Formal unchanged; local source-bound repair required.",
-        "workflowRunId": 35475413657,
-        "artifactId": 10593488275
+        "note": "v6 exact full-resolution QA PASS. Extra upper-left inactive donor limb removed. Candidate SHAs hit=719220d6076e5b74a021f5ea8cc86ddffc6e7a334eccda34a74b99f38b3138c8 rebound=c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653. Formal promotion commit 788591e8928449eaef759da1ca1fc4874ca8375d. Targeted M135 RC+SN:R/L runtime QA run 35504234047 passed 4/4 on PC and Xperia portrait; deploy run 35504234089 PASS; validate run 35504234061 PASS."
       },
       "claim": {
-        "state": "CLAIMED",
+        "state": "RELEASED",
         "batch": "FAST-LOCAL-REPAIR-STABLE",
         "owner": "CHAT-FAST-REPAIR-STABLE",
-        "claimedAt": "2026-09-20T17:44:00+09:00"
+        "claimedAt": "2026-09-20T17:44:00+09:00",
+        "releasedAt": "2026-09-20T19:12:00+09:00"
       },
       "decisionLog": [
         {
@@ -3831,6 +3850,11 @@
           "at": "2026-09-20T18:59:00+09:00",
           "decision": "FAST_LOCAL_REPAIR_STABLE_V5_FULL_RES_VISUAL_FAIL_EXTRA_LIMB",
           "detail": "Exact v5 images were obtained from GitHub Actions artifact front-m004-v3-35501607837 (artifact 10602846055, head a8f95a68e6b8499dc373b701403f1543aed9ece9) and inspected as original 1448x1086 PNGs. Candidate SHA256 matches M004_V5_SUMMARY: hit bdf0a8759d5b8315d7fb9f68e18a7dfbf6f8ead156fbeb7db026249270b8db8f; rebound b44199b879bf46755f8934b26625c12cd34ccc0961d87996a26166158f3c3875. Full-resolution anatomy QA FAIL: both hit and rebound visibly contain an extra upper-left hand/forearm + stick in addition to the intended SN left arm and RC right arm, producing three visible hands/sticks. Approximate FAIL ROI on 1448x1086 canvas: x=565,y=275,width=155,height=185; affected part=inactive donor hand/forearm/stick; symptom=extra limb / floating inactive donor residue. Fixed-drum composites confirm the same contradiction and transition strip repeats it. Cause candidate: SN:L full-body donor mask retained its inactive opposite-hand/stick pixels. Formal assets remain unchanged; VERIFIED is blocked. Next step: source-bound local reconstruction from v5 parent, restoring only this ROI from neutral/common-body while preserving intended SN lower-left arm and RC right arm; then local visual QA + fixed-drum + transition QA."
+        },
+        {
+          "at": "2026-09-20T19:12:00+09:00",
+          "decision": "FAST_LOCAL_REPAIR_STABLE_MOTION004_V6_VERIFIED",
+          "detail": "v6 source-bound local reconstruction completed and promoted. Repair parent=v5; repair ROI x560,y270,w160,h175 only. GitHub v6 candidate SHA256 hit 719220d6076e5b74a021f5ea8cc86ddffc6e7a334eccda34a74b99f38b3138c8, rebound c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653. Full-resolution candidate/fixed-drum/transition visual QA PASS. Promotion staging motion-004-v6 status PROMOTED; asset inventory formal SHAs match v6. Deploy 35504234089 PASS, validate 35504234061 PASS, targeted BACK Runtime Character QA 35504234047 tested M135 RC+SN:R/L with 4/4 PASS across PC hit/rebound and Xperia-portrait hit/rebound, zero console/page/request errors. status=VERIFIED; CLAIM released."
         }
       ]
     },
