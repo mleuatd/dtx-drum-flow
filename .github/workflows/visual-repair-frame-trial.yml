@@ -43,11 +43,20 @@ jobs:
           PY
           )"
           echo "config=$CONFIG" >> "$GITHUB_OUTPUT"
-          OUTDIR="$(dirname "$CONFIG")"
-          echo "outdir=$OUTDIR" >> "$GITHUB_OUTPUT"
+          echo "outdir=$(dirname "$CONFIG")" >> "$GITHUB_OUTPUT"
+      - name: Warm SHA input cache
+        run: |
+          python tools/character_layers/run_visual_repair_trial.py             --frame-config "${{ steps.cfg.outputs.config }}"             --output-dir /tmp/visual-repair-frame-warmup
       - name: Run one-command frame trial and guarded commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           python tools/character_layers/run_visual_repair_trial.py             --frame-config "${{ steps.cfg.outputs.config }}"             --output-dir "${{ steps.cfg.outputs.outdir }}"             --git-commit             --start-main-sha "$GITHUB_SHA"             --commit-message "trial: generate visual repair candidate"
-          git push origin HEAD:main
+      - name: Upload trial evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-repair-frame-${{ github.run_id }}
+          path: ${{ steps.cfg.outputs.outdir }}/
+          retention-days: 30
+      - name: Push generated trial
+        run: git push origin HEAD:main
