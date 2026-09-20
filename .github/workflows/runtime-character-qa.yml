@@ -13,6 +13,7 @@ on:
       - ".github/workflows/runtime-character-qa.yml"
       - ".github/workflows/deploy-site.yml"
       - "docs/PUBLIC_RUNTIME_QA.md"
+      - ".github/back-runtime-qa.json"
   workflow_dispatch:
     inputs:
       measure_start:
@@ -64,12 +65,28 @@ jobs:
               progress=""
               block=f"M{start}-{end}"
           else:
-              start=str(target.get("measureStart",18))
-              end=str(target.get("measureEnd",24))
-              a=target.get("actions") or ["BD+RD:RF/R","RD+SN:R/L","BD+HH:RF/R","HH+SN:R/L"]
+              # A direct BACK runtime-QA marker is authoritative only for the push
+              # that changed that marker. This avoids changing the shared inventory
+              # runtimeQaTarget while another terminal is working.
+              override=None
+              try:
+                  event=json.load(open(os.environ["GITHUB_EVENT_PATH"],encoding="utf-8"))
+                  changed=[]
+                  for commit in event.get("commits") or []:
+                      for k in ("added","modified","removed"):
+                          changed.extend(commit.get(k) or [])
+                  marker=".github/back-runtime-qa.json"
+                  if marker in changed and os.path.exists(marker):
+                      override=json.load(open(marker,encoding="utf-8"))
+              except Exception as ex:
+                  print("BACK runtime override ignored:",ex)
+              use=override or target
+              start=str(use.get("measureStart",18))
+              end=str(use.get("measureEnd",24))
+              a=use.get("actions") or ["BD+RD:RF/R","RD+SN:R/L","BD+HH:RF/R","HH+SN:R/L"]
               actions=",".join(a) if isinstance(a,list) else str(a)
-              progress=str(target.get("progressPath",""))
-              block=str(target.get("blockKey",f"M{start}-{end}"))
+              progress=str(use.get("progressPath",""))
+              block=str(use.get("blockKey",f"M{start}-{end}"))
           with open(os.environ["GITHUB_ENV"],"a",encoding="utf-8") as g:
               g.write(f"MEASURE_START={start}\nMEASURE_END={end}\nQA_ACTIONS={actions}\n")
               g.write(f"RUNTIME_QA_PROGRESS_PATH={progress}\nRUNTIME_QA_BLOCK_KEY={block}\n")
