@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "1.0",
+  "capturedForSpec": "2026-09-21",
+  "github": {
+    "repository": "mleuatd/dtx-drum-flow",
+    "branch": "main",
+    "auditBlobSha": "21eaec7d0b0338f876d5aa850970e0c36a7b0bf3",
+    "inventoryBlobSha": "4a63ce588d8ea03b482fe75edb3ce31a6fc03c02",
+    "characterPrototypeBlobSha": "e86695c55b0f88fe3ce169149480a194afcd15ab",
+    "appBlobSha": "6f34506c9ca188d657bb7c37a1685b978526c260"
+  },
+  "dropbox": {
+    "path": "/ChatGPT/dtx-drum-flow/LATEST_RUNTIME_IMAGES_20260920",
+    "verifiedCount": 62,
+    "expectedCount": 62,
+    "originalsMustNotBeOverwritten": true
+  },
+  "auditSummary": {
+    "PASS": 8,
+    "FAIL": 53,
+    "REVIEW": 1,
+    "inspected": 62,
+    "total": 62
+  },
+  "canvas": [
+    1448,
+    1086
+  ],
+  "implementationStrikePoints": {
+    "HH": {
+      "px": [
+        190,
+        390
+      ],
+      "norm": [
+        0.131215,
+        0.359116
+      ]
+    },
+    "SN": {
+      "px": [
+        420,
+        535
+      ],
+      "norm": [
+        0.290055,
+        0.492634
+      ]
+    },
+    "BD": {
+      "px": [
+        735,
+        650
+      ],
+      "norm": [
+        0.507597,
+        0.598527
+      ]
+    },
+    "HT": {
+      "px": [
+        575,
+        360
+      ],
+      "norm": [
+        0.397099,
+        0.331492
+      ]
+    },
+    "LT": {
+      "px": [
+        885,
+        455
+      ],
+      "norm": [
+        0.611188,
+        0.418969
+      ]
+    },
+    "FT": {
+      "px": [
+        1165,
+        535
+      ],
+      "norm": [
+        0.804558,
+        0.492634
+      ]
+    },
+    "RC": {
+      "px": [
+        1215,
+        145
+      ],
+      "norm": [
+        0.839088,
+        0.133517
+      ]
+    },
+    "RD": {
+      "px": [
+        965,
+        250
+      ],
+      "norm": [
+        0.666436,
+        0.230203
+      ]
+    }
+  },
+  "passReferenceIndices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    35,
+    62
+  ],
+  "reviewReferenceIndices": [
+    34
+  ],
+  "provenanceLegend": {
+    "USER_HARD_REQUIREMENT": "explicit fixed rule",
+    "IMPLEMENTATION_LOCK": "read from current main runtime implementation",
+    "MEASURED_ALPHA": "pixel measurement from actual PNG",
+    "VISUAL_MEASURED_FROM_001_NEUTRAL": "visual landmark estimate from actual PASS image; SOFT only",
+    "MEASURED_DRUM_BASE_APPROX": "visual measurement from actual 062; refine by future landmark tooling without changing identity"
+  }
+}
