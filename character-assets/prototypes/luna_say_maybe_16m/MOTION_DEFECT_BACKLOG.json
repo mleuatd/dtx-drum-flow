@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:08:00+09:00",
+  "updatedAt": "2026-09-20T10:11:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -8262,7 +8262,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T10:08:00+09:00",
+      "updatedAt": "2026-09-20T10:11:00+09:00",
       "occurrences": [
         {
           "measure": "M130",
@@ -8788,6 +8788,11 @@
             "at": "2026-09-20T09:29:00+09:00",
             "decision": "METHOD4_RD_R_REBOUND_MACHINE_PASS_PAIR_HARD_FAIL",
             "detail": "Run 35477702725 / artifact 10594462976 generated rebound candidate fab1a972...; machine guards/contact preservation PASS and rebound removes the large rectangular splice. Human review of the pair found the current hit still contains duplicated/disconnected right-arm/right-hand geometry. Do not promote rebound alone; next repair must reconstruct one coherent right RD arm/hand/stick across hit and rebound."
+          },
+          {
+            "at": "2026-09-20T10:11:00+09:00",
+            "decision": "PASS2_BACK_METHOD4_PAIR_FULLRES_FAIL_CONFIRMED",
+            "detail": "Downloaded method4 artifact 10594462976 and inspected exact rd_r hit/rebound candidates. Rebound is cleaner, but hit visibly has competing duplicated right-side arm/hand geometry. Pair-level right RD corridor reconstruction required; formal unchanged."
           }
         ],
         "measurementTodos": [
@@ -9045,12 +9050,7 @@
         "artifactId": 10593238245,
         "reviewedAt": "2026-09-20T09:29:00+09:00"
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "HOLD-REPAIR-BACK-09",
-        "owner": "CHAT-PASS2-BACK",
-        "claimedAt": "2026-09-20T10:08:00+09:00"
-      },
+      "claim": null,
       "decisionLog": [
         {
           "at": "2026-09-20T09:24:00+09:00",
@@ -9062,7 +9062,21 @@
           "decision": "HOLD_REPAIR_PASS_2_CLOSED",
           "detail": "Released CHATGPT-FRONT claim. Rebound local repair succeeded mechanically/visually, but pair-level hit defect prevents promotion. Formal PNGs unchanged."
         }
-      ]
+      ],
+      "hold": {
+        "issueId": "MOTION-010",
+        "actionKey": "RD:R",
+        "phase": "hit+rebound",
+        "confirmedImages": "method4 artifact 10594462976 full-resolution candidate pair + fixed-drum composites",
+        "defect": "pair-level duplicated/disconnected right RD arm/hand/stick geometry",
+        "defectLocation": "right shoulder/upper-arm behind hair through right hand/grip/stick corridor",
+        "cause": "hit source/candidate contains an extra rear/right arm-like limb while foreground right hand/stick remains, so rebound-only splice removal cannot make the pair anatomically coherent",
+        "attemptedRepair": "method4 rebound-local repair already machine-passed; PASS2 BACK reopened full-resolution hit/rebound candidates and confirmed pair defect visually",
+        "repairResult": "FAIL_PAIR. Rebound splice is improved, but hit visibly contains two competing right-side arm/hand structures; pair cannot promote. Formal assets unchanged.",
+        "nextRepair": "Reconstruct one coherent right RD shoulder→arm→hand→grip→stick→tip corridor consistently across BOTH hit and rebound. Preserve left hand/stick, head/hair except necessary occlusion edge, torso core, skirt, stool and legs.",
+        "prohibitedRepair": "rebound-only retry; broad rectangular neutral transplant; whole-character redraw; formal overwrite before pair static PASS",
+        "restartCondition": "A deterministic or verifiably source-bound ROI editor can edit exact hit+rebound PNG bytes as a pair."
+      }
     },
     {
       "issueId": "MOTION-011",
