@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json, hashlib, shutil
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -13,6 +14,7 @@ ledger_path=ROOT/"character-assets/edit-workspaces/character-brushup-20260919/BR
 backlog_path=PROTO/"MOTION_DEFECT_BACKLOG.json"
 pass2_marker=ROOT/".github/back-promote-action.txt"
 pass2_action=pass2_marker.read_text().strip().rstrip(",") if pass2_marker.exists() else ""
+run_now=datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 if not summary_path.exists():
     print("No candidate summary yet; nothing to promote.")
@@ -109,7 +111,7 @@ for rec in summary.get("targets",[]):
     t["brushupStatus"]="MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA" if pass2_authorized else "MOTION_REPAIR_VERIFIED"
     t["qaState"]="promoted-pending-runtime-qa" if pass2_authorized else t.get("qaState")
     t["claimState"]="COMPLETED"
-    t["completedAt"]="2026-09-20T05:45:00+09:00"
+    t["completedAt"]=run_now
     t["qaEvidence"]=str((WORK/(tid.lower()+"_qa.json")).relative_to(ROOT)) if (WORK/(tid.lower()+"_qa.json")).exists() else None
     t["motionRepairChangedRatioVsNeutral"]=rec["changedRatioVsNeutral"]
     promoted.append({"id":tid,"actionKey":rec["actionKey"],"phase":rec["phase"],"oldSha256":current,"newSha256":newsha,"changedRatioVsNeutral":rec["changedRatioVsNeutral"]})
@@ -132,20 +134,25 @@ for d in backlog.get("defects",[]):
         else:
             d["status"]="IN_FIX"
             d["repairSpec"]["state"]="IN_FIX"
-        d["updatedAt"]="2026-09-20T05:45:00+09:00"
+        d["updatedAt"]=run_now
     elif relevant and any(not r.get("pass") for r in relevant):
         d["status"]="AUTO_REPAIR_SECOND_PASS_REQUIRED"
         d["repairSpec"]["state"]="IN_FIX"
-        d["updatedAt"]="2026-09-20T05:45:00+09:00"
+        d["updatedAt"]=run_now
 
-manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
-inventory_path.write_text(json.dumps(inventory,ensure_ascii=False,indent=2)+"\n")
-amap["updatedAt"]="2026-09-20T05:45:00+09:00"
-amap_path.write_text(json.dumps(amap,ensure_ascii=False,indent=2)+"\n")
-ledger["updatedAt"]="2026-09-20T05:45:00+09:00"
-ledger_path.write_text(json.dumps(ledger,ensure_ascii=False,indent=2)+"\n")
-backlog["updatedAt"]="2026-09-20T05:45:00+09:00"
-backlog_path.write_text(json.dumps(backlog,ensure_ascii=False,indent=2)+"\n")
+# Do not mutate authoritative metadata when every candidate was skipped (for
+# example, when visual approval is bound to an older candidate SHA). This keeps
+# stale promotion attempts from creating misleading timestamp-only commits.
+did_mutate=bool(promoted or failed_candidates)
+if did_mutate:
+    manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
+    inventory_path.write_text(json.dumps(inventory,ensure_ascii=False,indent=2)+"\n")
+    amap["updatedAt"]=run_now
+    amap_path.write_text(json.dumps(amap,ensure_ascii=False,indent=2)+"\n")
+    ledger["updatedAt"]=run_now
+    ledger_path.write_text(json.dumps(ledger,ensure_ascii=False,indent=2)+"\n")
+    backlog["updatedAt"]=run_now
+    backlog_path.write_text(json.dumps(backlog,ensure_ascii=False,indent=2)+"\n")
 record={"schemaVersion":1,"promoted":promoted,"failedCandidates":failed_candidates,"skipped":skipped}
 (WORK/"AUTO_REPAIR_PROMOTION_RESULT.json").write_text(json.dumps(record,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({"promoted":len(promoted),"failedCandidates":len(failed_candidates),"skipped":len(skipped)}))
