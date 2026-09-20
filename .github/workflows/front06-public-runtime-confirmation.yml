@@ -1,0 +1,37 @@
+name: FRONT06 public runtime confirmation
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'character-assets/layers/character/combo/bd_rc_hit.png'
+      - 'character-assets/layers/character/combo/bd_rc_rebound.png'
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
+      MEASURE_START: '1'
+      MEASURE_END: '148'
+      QA_ACTIONS: 'BD+RC:RF/R'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Wait for promoted Pages build and test real chart
+        run: node tools/runtime-character-qa.mjs
+      - name: Upload public runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front06-public-runtime-${{ github.run_id }}
+          path: qa-artifacts/
+          if-no-files-found: warn
+          retention-days: 30
