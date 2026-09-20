@@ -17,10 +17,11 @@ def fit(im, size=(480,360)):
     return c.convert('RGB')
 
 def delta_mask(base, donor):
-    import numpy as np
-    a=np.asarray(base.convert('RGBA'))
-    b=np.asarray(donor.convert('RGBA'))
-    return Image.fromarray((np.any(a!=b,axis=2)*255).astype('uint8'),'L')
+    d=ImageChops.difference(base.convert('RGBA'),donor.convert('RGBA'))
+    m=Image.new('L',base.size,0)
+    for band in d.split():
+        m=ImageChops.lighter(m,band)
+    return m.point(lambda p: 255 if p else 0)
 
 def apply_delta(base, donor):
     m=delta_mask(base, donor)
