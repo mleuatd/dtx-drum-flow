@@ -1,6 +1,10 @@
 name: Build motion repair method4 candidates
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/character_layers/build_motion_repair_method4.py'
 permissions:
   contents: write
 concurrency:
