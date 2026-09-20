@@ -29,6 +29,12 @@ if m007_defect and (m007_defect.get("claim") or {}).get("state")=="CLAIMED" and 
       {"id":"hh_r_hit","actionKey":"HH:R","phase":"hit","_holdRepairClaim":True},
       {"id":"hh_r_rebound","actionKey":"HH:R","phase":"rebound","_holdRepairClaim":True}
     ]
+m011_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="BD+RC+SN:RF/R/L"),None)
+if m011_defect and (m011_defect.get("claim") or {}).get("state")=="CLAIMED" and (m011_defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK":
+    forced_hold_targets += [
+      {"id":"bd_rc_sn_rf_r_l_hit_refresh","actionKey":"BD+RC+SN:RF/R/L","phase":"hit","_holdRepairClaim":True},
+      {"id":"bd_rc_sn_rf_r_l_rebound_refresh","actionKey":"BD+RC+SN:RF/R/L","phase":"rebound","_holdRepairClaim":True}
+    ]
 m015_defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")=="BD+HH+SN:RF/R/L"),None)
 if m015_defect and (m015_defect.get("claim") or {}).get("state")=="CLAIMED" and (m015_defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK":
     forced_hold_targets += [
@@ -107,7 +113,7 @@ for f in fails:
     # corridor. This intentionally excludes the lower duplicate/disconnected
     # right-hand fragment seen in the formal rebound while leaving locked body
     # regions on the neutral baseline.
-    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound","rd_r_hit","rd_r_rebound","bd_hh_sn_rf_r_l_hit_refresh","bd_hh_sn_rf_r_l_rebound_refresh","hh_r_hit","hh_r_rebound"):
+    if tid in ("rd_sn_r_l_hit","rd_sn_r_l_rebound","rd_r_hit","rd_r_rebound","bd_rc_sn_rf_r_l_hit_refresh","bd_rc_sn_rf_r_l_rebound_refresh","bd_hh_sn_rf_r_l_hit_refresh","bd_hh_sn_rf_r_l_rebound_refresh","hh_r_hit","hh_r_rebound"):
         # PASS2 pair repair: build one coherent RD right-side corridor for BOTH
         # phases instead of trying to promote a rebound-only fix. Keep the
         # already-good left SN motion and reject the lower/rear duplicate RD
@@ -116,6 +122,18 @@ for f in fails:
         local=np.zeros((H,W),dtype=bool)
         if "rd_sn" in tid:
             local[300:620,340:700]=True   # left SN hand/stick/forearm
+        if "bd_rc_sn" in tid:
+            # MOTION-011: preserve left SN and RF/BD corridors, but admit only
+            # one bounded right RC shoulder->hand->stick route. This avoids the
+            # detached duplicate right-hand/stick geometry seen in formal pair.
+            local[300:610,300:710]=True
+            local[590:1010,600:910]=True
+            rc=cp("RC") or (1215,145); sh=LAND["shoulder_R"]
+            rcgeom=Image.new("L",(W,H),0); rd=ImageDraw.Draw(rcgeom)
+            grip=(1010,315) if phase=="hit" else (990,330)
+            rd.line([sh,grip,rc],fill=255,width=72 if phase=="hit" else 62,joint="curve")
+            rd.ellipse([grip[0]-48,grip[1]-48,grip[0]+48,grip[1]+48],fill=255)
+            local |= (np.asarray(rcgeom)>0)
         if "bd_hh_sn" in tid:
             # MOTION-015 visual-fail refinement. Keep the current formal pair
             # as the source authority but admit only compact, phase-specific
