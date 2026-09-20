@@ -1,0 +1,40 @@
+{
+  "phase": "rebound",
+  "parentCandidate": "v1",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_rebound_candidate_v2.png",
+  "candidateSha256": "594c9be0a3760bd07a55355b3f62f0100a707bcc4e3749ca2183b4c774d5a9b4",
+  "changedRois": [
+    "RC right-arm destructive replacement",
+    "narrow BD/RF articulated leg corridor"
+  ],
+  "improvementIntent": [
+    "remove v1 skirt/pelvis rewrite",
+    "preserve stool core",
+    "retain single RC arm/hand/stick"
+  ],
+  "rcMaskPixels": 14295,
+  "bdMaskPixels": 70727,
+  "maskOverlapPixels": 0,
+  "changedPixelsVsNeutral": 63118,
+  "changedBBoxVsNeutral": {
+    "x": 600,
+    "y": 216,
+    "width": 519,
+    "height": 787
+  },
+  "rcDonorPreserveRatio": 1.0,
+  "bdDonorPreserveRatio": 1.0,
+  "rfMotionVisiblePixels": 59858,
+  "checks": {
+    "maskDisjoint": true,
+    "outsideMaskZero": true,
+    "headLocked": true,
+    "leftSideLocked": true,
+    "stoolCoreLocked": true,
+    "rcDonorExactInActiveMask": true,
+    "bdDonorExactInActiveMask": true,
+    "rfMotionVisible": true,
+    "candidateDiffVisible": true
+  },
+  "machinePass": true
+}
