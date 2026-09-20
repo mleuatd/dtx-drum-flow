@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:44:00+09:00",
+  "updatedAt": "2026-09-20T10:45:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -4632,7 +4632,7 @@
     },
     {
       "issueId": "MOTION-006",
-      "status": "AUTO_REPAIR_MANUAL_REVIEW_REQUIRED",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M146,M130",
       "time": "~254.01-254.15s",
@@ -4661,10 +4661,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T10:45:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "IN_FIX",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -5543,6 +5543,11 @@
           "at": "2026-09-20T10:37:00+09:00",
           "decision": "PASS2_BACK_FINAL_RECONCILIATION_VERIFIED",
           "detail": "Complete existing evidence reconciled: anatomy, linework, fixed-drum and transition PASS; real-chart public runtime QA run 35477061624 artifact 10594916218 passed=14 failed=0 including BD+RD:RF/R; inventory formal hit/rebound are motion-repair-verified and mapped to the exact action key."
+        },
+        {
+          "at": "2026-09-20T10:45:00+09:00",
+          "decision": "PASS2_BACK_FINAL_RECONCILIATION_VERIFIED",
+          "detail": "Existing complete evidence reconciled: anatomy/linework/fixed-drum/transition PASS; real-chart public runtime QA run 35477061624 artifact 10594916218 passed=14 failed=0 including BD+RD:RF/R; inventory formal pair is motion-repair-verified with exact mapping. Status corrected from stale manual-review state to VERIFIED."
         }
       ]
     },
