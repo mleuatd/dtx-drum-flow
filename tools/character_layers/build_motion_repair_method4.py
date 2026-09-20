@@ -176,22 +176,27 @@ for f in fails:
                 yy,xx=np.ogrid[:H,:W]
                 contact_keep=((xx-sn[0])**2+(yy-sn[1])**2 <= 54**2) & src_ink
             M=(M & ~left_zone) | ((M & C & left_zone) | contact_keep)
-            # Method10: direct bounded cleanup after full-resolution Method9 review.
-            # These tiny regions were confirmed by full-resolution review and
-            # are outside the intended connected hand→stick/contact path.
+            # Method11: exact full-resolution defect repair.
             if phase=="rebound":
                 reject=np.zeros((H,W),dtype=bool)
-                # Full-resolution Method9 review: remaining artifacts are a
-                # diagonal/triangular island immediately above the left tom
-                # and two short floating strokes below the skirt/left thigh.
-                reject[330:455,430:555]=True
+                # Detached shard measured on the 1448x1086 fixed-drum frame.
+                reject[265:310,500:545]=True
+                # Keep the previously confirmed seat/thigh floating-stroke cleanup.
                 reject[700:815,610:735]=True
                 M &= ~reject
-                # Re-open only a narrow connected SN stick/contact route.
                 route=Image.new("L",(W,H),0); rd=ImageDraw.Draw(route)
-                rd.line([(505,455),(470,430),sn],fill=255,width=34,joint="curve")
+                rd.line([(505,455),(470,430),sn],fill=255,width=26,joint="curve")
                 R=np.asarray(route)>0
                 M |= (R & src_ink & left_zone)
+            else:
+                # Hit: retain the hand/forearm, but force the visible stick to one
+                # narrow connected source-supported path into the SN contact disk.
+                stick_zone=np.zeros((H,W),dtype=bool); stick_zone[360:555,430:570]=True
+                M &= ~stick_zone
+                route=Image.new("L",(W,H),0); rd=ImageDraw.Draw(route)
+                rd.line([(500,455),sn],fill=255,width=24,joint="curve")
+                R=np.asarray(route)>0
+                M |= (R & src_ink & stick_zone) | contact_keep
     cand=neutral.copy(); cand.paste(src,(0,0),Image.fromarray((M.astype(np.uint8)*255),"L"))
     Q=np.asarray(cand); nd=np.any(Q!=N,axis=2); exact=np.all(Q==S,axis=2)
     changed=int(nd.sum()); ratio=changed/(W*H)
