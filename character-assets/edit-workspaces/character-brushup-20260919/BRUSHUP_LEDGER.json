@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T13:51:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -4107,8 +4107,8 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "visual-integrity-pass-pending-promotion",
+      "brushupStatus": "VISUAL_INTEGRITY_PASS_PENDING_PROMOTION",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4116,29 +4116,19 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.04646149,
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
-        "introducedAt": "2026-09-20T06:13:00+09:00",
-        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
-        "priorQaState": "ready",
-        "historicalEvidencePreserved": true,
-        "reviewedAt": "2026-09-20T08:55:00+09:00",
-        "reviewEvidence": {
-          "workflowRunId": 35476568863,
-          "artifactId": 10593149790,
-          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
-        },
-        "failReasons": [
-          "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous."
-        ]
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_FORMAL_PROMOTION_RUNTIME_QA",
+        "promotionBlocked": false,
+        "reviewedAt": "2026-09-20T13:51:00+09:00",
+        "candidateSha256": "f8ffc411a882e16b2b5b07c9af0c4b95c8c31c64be7187e778d4eb91b17cb024",
+        "machineQaRunId": 35490115009
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
       "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
-      "holdReason": "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "holdReason": null,
       "lastBatchReview": {
         "batchId": "BACK-VISUAL-REVIEW-20260920",
         "at": "2026-09-20T08:55:00+09:00",
@@ -4173,8 +4163,8 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "visual-integrity-pass-pending-promotion",
+      "brushupStatus": "VISUAL_INTEGRITY_PASS_PENDING_PROMOTION",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4182,29 +4172,19 @@
       "completedAt": "2026-09-20T05:45:00+09:00",
       "motionRepairChangedRatioVsNeutral": 0.05648167,
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
-        "introducedAt": "2026-09-20T06:13:00+09:00",
-        "priorBrushupStatus": "MOTION_REPAIR_VERIFIED",
-        "priorQaState": "ready",
-        "historicalEvidencePreserved": true,
-        "reviewedAt": "2026-09-20T08:55:00+09:00",
-        "reviewEvidence": {
-          "workflowRunId": 35476568863,
-          "artifactId": 10593149790,
-          "evidence": "full-resolution character-only, fixed-drum composites, transition strip"
-        },
-        "failReasons": [
-          "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous."
-        ]
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_FORMAL_PROMOTION_RUNTIME_QA",
+        "promotionBlocked": false,
+        "reviewedAt": "2026-09-20T13:51:00+09:00",
+        "candidateSha256": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a",
+        "machineQaRunId": 35490115009
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
       "reviewCompletedAt": "2026-09-20T08:55:00+09:00",
-      "holdReason": "hit/rebound show rectangular splice boundaries across shoulder/hair/torso, detached stick fragments, and seat splice corruption; anatomy/linework are not continuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
+      "holdReason": null,
       "lastBatchReview": {
         "batchId": "BACK-VISUAL-REVIEW-20260920",
         "at": "2026-09-20T08:55:00+09:00",
