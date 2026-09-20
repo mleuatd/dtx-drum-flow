@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T12:06:00+09:00",
+  "updatedAt": "2026-09-20T12:01:00+09:00",
   "mode": "SELF_FEEDING_REPAIR_QUEUE",
   "terminalId": "CHAT-PASS2-BACK",
   "issueId": "MOTION-015",
@@ -14,7 +14,7 @@
     "formalPromotionRequiresExactCandidateVisualPass": true,
     "doNotAdvanceIssueUntilVerified": true
   },
-  "cursor": "M015-008",
+  "cursor": "M015-009",
   "tasks": [
     {
       "id": "M015-001",
@@ -111,11 +111,29 @@
     },
     {
       "id": "M015-008",
-      "status": "READY",
+      "status": "FAILED_VISUAL",
       "type": "BUILD_AND_EXACT_VISUAL_QA",
       "mechanism": "METHOD10_DIRECT_BOUNDED_CLEANUP",
       "sourceCommit": "47ce8a8a50682f89dffdbb3b9e6469261f49113c",
-      "instruction": "Build exact current main candidate once. Run machine QA. If machine PASS, inspect exact fixed-drum hit/rebound at full resolution. PASS => exact promotion/runtime QA. FAIL => record exact coordinates only; no broad-mask retry."
+      "instruction": "Build exact current main candidate once. Run machine QA. If machine PASS, inspect exact fixed-drum hit/rebound at full resolution. PASS => exact promotion/runtime QA. FAIL => record exact coordinates only; no broad-mask retry.",
+      "runId": 35485231885,
+      "artifactId": 10596708185,
+      "candidates": {
+        "hit": "2a37a6946ecc0a4ee7578b15a230df6688015e4a72391f71f21c9e56460b4362",
+        "rebound": "6284f75ef2692ab00a8154d934ccb56d33b144585d2b0c2c453607f33f90b9e2"
+      },
+      "result": "Machine PASS both; full-resolution visual FAIL",
+      "failure": [
+        "Hit still has malformed/ambiguous left-hand-to-stick geometry at SN/tom edge.",
+        "Rebound still has a detached white triangular shard above the left tom (approx full-frame x510-535,y270-300)."
+      ]
+    },
+    {
+      "id": "M015-009",
+      "status": "READY",
+      "type": "DIRECT_PIXEL_COMPONENT_REPAIR",
+      "mechanism": "REMOVE_EXACT_REBOUND_SHARD_AND_REBUILD_HIT_LEFT_STICK",
+      "instruction": "Use exact Method10 pair as parent. Rebound: remove only detached shard around x510-535,y270-300. Hit: replace malformed left-hand/stick cluster with one connected narrow stick path from grip to SN while preserving hand/forearm and SN contact. Then machine+full-res visual QA; no broad masks."
     }
   ]
 }
