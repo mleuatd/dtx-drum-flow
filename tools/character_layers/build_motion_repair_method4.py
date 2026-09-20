@@ -176,7 +176,7 @@ for f in fails:
                 yy,xx=np.ogrid[:H,:W]
                 contact_keep=((xx-sn[0])**2+(yy-sn[1])**2 <= 54**2) & src_ink
             M=(M & ~left_zone) | ((M & C & left_zone) | contact_keep)
-            # Method9: remove known disconnected visual islands after Method8.
+            # Method10: direct bounded cleanup after full-resolution Method9 review.
             # These tiny regions were confirmed by full-resolution review and
             # are outside the intended connected hand→stick/contact path.
             if phase=="rebound":
