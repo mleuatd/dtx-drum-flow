@@ -87,15 +87,15 @@ for phase in ("hit","rebound"):
     # Motion visibility in lower RF region, avoiding the stool core.
     rf_visible=np.count_nonzero(changed & RF_CORRIDOR)
     checks={
-      "maskDisjoint":int(np.count_nonzero(overlap))==0,
-      "outsideMaskZero":int(np.count_nonzero(changed & ~union))==0,
-      "headLocked":guard_count(changed,HEAD)==0,
-      "leftSideLocked":guard_count(changed,LEFT_LOCK)==0,
-      "stoolCoreLocked":guard_count(changed,STOOL_CORE)==0,
-      "rcDonorExactInActiveMask":rc_pres>=0.995,
-      "bdDonorExactInActiveMask":bd_pres>=0.995,
-      "rfMotionVisible":rf_visible>=1000,
-      "candidateDiffVisible":int(np.count_nonzero(changed))>500,
+      "maskDisjoint":bool(int(np.count_nonzero(overlap))==0),
+      "outsideMaskZero":bool(int(np.count_nonzero(changed & ~union))==0),
+      "headLocked":bool(guard_count(changed,HEAD)==0),
+      "leftSideLocked":bool(guard_count(changed,LEFT_LOCK)==0),
+      "stoolCoreLocked":bool(guard_count(changed,STOOL_CORE)==0),
+      "rcDonorExactInActiveMask":bool(rc_pres>=0.995),
+      "bdDonorExactInActiveMask":bool(bd_pres>=0.995),
+      "rfMotionVisible":bool(rf_visible>=1000),
+      "candidateDiffVisible":bool(int(np.count_nonzero(changed))>500),
     }
     stem=f"bd_rc_{phase}_candidate_v2"
     cp=OUT/(stem+".png"); cand.save(cp)
