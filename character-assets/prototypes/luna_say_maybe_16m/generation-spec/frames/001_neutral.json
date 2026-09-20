@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "index": 1,
+  "sourceFilename": "001_neutral.png",
+  "phase": "neutral",
+  "auditStatus": "PASS",
+  "auditActionKey": "NEUTRAL",
+  "runtimeActionKey": "NEUTRAL",
+  "referenceClassification": "PRIMARY_POSITIVE_REFERENCE",
+  "doNotLearnGeometryFromThisFrame": false,
+  "allowedReferenceFields": [
+    "all non-defective visual properties within declared scope"
+  ],
+  "defects": [],
+  "defectRegions": [],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../MASTER_GEOMETRY.json",
+    "../CHARACTER_LOCK.json",
+    "../CAMERA_LOCK.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "frameType": "NEUTRAL",
+    "neutralLandmarksRef": "../MASTER_GEOMETRY.json#neutralLandmarks"
+  }
+}
