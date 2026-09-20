@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T08:59:00+09:00",
+  "updatedAt": "2026-09-20T09:01:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -4498,8 +4498,8 @@
       "usageCount": 1,
       "qaState": "visual-integrity-hard-fail-hold",
       "brushupStatus": "HOLD_VISUAL_INTEGRITY",
-      "terminalId": null,
-      "claimState": "UNCLAIMED",
+      "terminalId": "CHAT-PASS2-BACK",
+      "claimState": "PASS2_CLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4539,7 +4539,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "repairPass": 2,
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
     },
     {
       "order": 52,
@@ -4556,8 +4558,8 @@
       "usageCount": 1,
       "qaState": "visual-integrity-hard-fail-hold",
       "brushupStatus": "HOLD_VISUAL_INTEGRITY",
-      "terminalId": null,
-      "claimState": "UNCLAIMED",
+      "terminalId": "CHAT-PASS2-BACK",
+      "claimState": "PASS2_CLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4597,7 +4599,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "repairPass": 2,
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
     },
     {
       "order": 53,
@@ -4745,8 +4749,8 @@
       "usageCount": 3,
       "qaState": "visual-integrity-hard-fail-hold",
       "brushupStatus": "HOLD_VISUAL_INTEGRITY",
-      "terminalId": null,
-      "claimState": "UNCLAIMED",
+      "terminalId": "CHAT-PASS2-BACK",
+      "claimState": "PASS2_CLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4786,7 +4790,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "repairPass": 2,
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
     },
     {
       "order": 56,
@@ -4804,8 +4810,8 @@
       "usageCount": 3,
       "qaState": "visual-integrity-hard-fail-hold",
       "brushupStatus": "HOLD_VISUAL_INTEGRITY",
-      "terminalId": null,
-      "claimState": "UNCLAIMED",
+      "terminalId": "CHAT-PASS2-BACK",
+      "claimState": "PASS2_CLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4845,7 +4851,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "repairPass": 2,
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
     },
     {
       "order": 57,
@@ -4864,8 +4872,8 @@
       "usageCount": 5,
       "qaState": "visual-integrity-hard-fail-hold",
       "brushupStatus": "HOLD_VISUAL_INTEGRITY",
-      "terminalId": null,
-      "claimState": "UNCLAIMED",
+      "terminalId": "CHAT-PASS2-BACK",
+      "claimState": "PASS2_CLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4905,7 +4913,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "repairPass": 2,
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
     },
     {
       "order": 58,
@@ -4924,8 +4934,8 @@
       "usageCount": 5,
       "qaState": "visual-integrity-hard-fail-hold",
       "brushupStatus": "HOLD_VISUAL_INTEGRITY",
-      "terminalId": null,
-      "claimState": "UNCLAIMED",
+      "terminalId": "CHAT-PASS2-BACK",
+      "claimState": "PASS2_CLAIMED",
       "claimedAt": null,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
@@ -4965,7 +4975,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "repairPass": 2,
+      "pass2ClaimedAt": "2026-09-20T09:01:00+09:00"
     },
     {
       "order": 59,
@@ -5428,10 +5440,10 @@
     "terminal": "CHAT-PASS2-BACK",
     "processingDirection": "BACK_TO_FRONT",
     "startedAt": "2026-09-20T08:59:00+09:00",
-    "lastHeartbeat": "2026-09-20T08:59:00+09:00",
-    "currentActionKey": null,
-    "currentIssueId": null,
-    "status": "ACTIVE_SELECTING_UNCLAIMED_HOLD",
+    "lastHeartbeat": "2026-09-20T09:01:00+09:00",
+    "currentActionKey": "BD+FT:RF/L",
+    "currentIssueId": "PASS2-BACK-BATCH-01-03",
+    "status": "ACTIVE_REPAIR",
     "completedInPass2": 0,
     "holdInPass2": 0,
     "waitingRuntimeQA": 0,
