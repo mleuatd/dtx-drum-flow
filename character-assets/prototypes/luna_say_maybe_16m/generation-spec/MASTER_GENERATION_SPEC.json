@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0",
+  "specId": "DTX_LUNA_CHARACTER_GENERATION_MASTER_20260921",
+  "status": "SPEC_COMPLETE_GENERATION_GATE_READY",
+  "repository": "mleuatd/dtx-drum-flow",
+  "branch": "main",
+  "sourceDropboxFolder": "/ChatGPT/dtx-drum-flow/LATEST_RUNTIME_IMAGES_20260920",
+  "canvas": {
+    "width": 1448,
+    "height": 1086,
+    "format": "PNG",
+    "colorMode": "monochrome rough line art",
+    "background": "transparent preferred; white allowed where pipeline requires"
+  },
+  "sourcePriority": [
+    "USER_HARD_REQUIREMENTS",
+    "GITHUB_MAIN_CURRENT_AUDIT",
+    "GITHUB_MAIN_RUNTIME_IMPLEMENTATION_LOCKS",
+    "PASS_REFERENCE_MEASUREMENTS",
+    "DRUM_BASE_MEASUREMENTS",
+    "DERIVED_IK_SOFT_RULES",
+    "FAIL_MOTION_INTENT_ONLY"
+  ],
+  "inheritance": [
+    "MASTER_GENERATION_SPEC",
+    "CHARACTER_LOCK",
+    "CAMERA_LOCK",
+    "MASTER_GEOMETRY",
+    "DRUM_GEOMETRY",
+    "NEGATIVE_CONSTRAINTS",
+    "ACTION_SPEC",
+    "FRAME_OVERRIDE"
+  ],
+  "constraints": {
+    "HARD_CONSTRAINTS": [
+      "canvas 1448x1086",
+      "no horizontal flip",
+      "fixed camera family",
+      "fixed drum layer",
+      "arms=2",
+      "legs=2",
+      "hands=2",
+      "sticks=2",
+      "max one stick per hand",
+      "same character/outfit",
+      "no extra/floating/ghost parts",
+      "no destructive overwrite of source 62"
+    ],
+    "SOFT_CONSTRAINTS": [
+      "character center ±10px",
+      "global scale ±3%",
+      "camera roll ±2deg",
+      "neutral joint anchors generally ±22px",
+      "stool center ±12px",
+      "hair tip ±25px",
+      "stick length 185±30px",
+      "hit/rebound temporal deltas per MASTER_GEOMETRY"
+    ],
+    "VISUAL_RULES": [
+      "same person",
+      "rough hand-drawn black line art",
+      "4-head chibi impression",
+      "comic but natural",
+      "roughness is allowed; anatomical breakage is not"
+    ]
+  },
+  "layers": {
+    "characterFrame": "character/stool/sticks only; transparent canvas aligned to full scene",
+    "drumBase": "062-derived independent fixed layer; do not redraw inside character frame",
+    "effects": "independent runtime layer",
+    "compositeOrder": [
+      "background",
+      "drum_far",
+      "character_back_hair",
+      "character_body",
+      "character_limbs",
+      "sticks",
+      "character_front_hair",
+      "drum_near",
+      "effects"
+    ]
+  },
+  "motionPairPolicy": {
+    "hitAndRebound": "one action set",
+    "continuity": "rebound evolves from hit; no alternate-pose remnants",
+    "timing": {
+      "prepBoundarySeconds": 0,
+      "hitEndSeconds": 0.18,
+      "reboundEndSeconds": 0.28,
+      "rapidRepeatMaxGapSeconds": 0.09,
+      "returnToNeutralAfterNonRapidHit": true
+    }
+  },
+  "referencePolicyFile": "REFERENCE_POLICY.json",
+  "qaFile": "QA_RULES.json",
+  "actionCount": 30,
+  "frameCount": 62,
+  "knownRuntimeMismatch": {
+    "actionKey": "SN:R",
+    "legacyRuntimeReboundFrame": "sn_r_hit",
+    "auditedReboundReference": "005_sn_r_rebound.png",
+    "resolution": "new generation spec treats 005 as valid rebound reference; runtime workaround must not redefine motion semantics"
+  },
+  "generationGate": {
+    "specFilesRequired": true,
+    "all62FrameSpecsRequired": true,
+    "allRuntimeActionSpecsRequired": true,
+    "negativeConstraintsRequired": true,
+    "selfCheckRequired": true,
+    "gate": "PASS"
+  }
+}
