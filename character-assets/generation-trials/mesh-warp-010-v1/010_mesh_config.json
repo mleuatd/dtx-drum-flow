@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 3,
+  "frameId": "010_bd_rc_hit",
+  "actionKey": "BD+RC",
+  "phase": "hit",
+  "method": "thin_plate_spline_inverse_map",
+  "smoothing": 0,
+  "inputPng": "character-assets/layers/character/combo/bd_rc_hit.png",
+  "normalSourcePng": "character-assets/layers/character/combo/bd_rc_hit.png",
+  "fixedDrumPng": "character-assets/layers/drum/drum_base.png",
+  "outputDir": "character-assets/generation-trials/mesh-warp-010-v1",
+  "roi": {
+    "x1": 585,
+    "y1": 625,
+    "x2": 770,
+    "y2": 970
+  },
+  "sourcePoints": [
+    [
+      590,
+      630
+    ],
+    [
+      675,
+      630
+    ],
+    [
+      765,
+      630
+    ],
+    [
+      590,
+      720
+    ],
+    [
+      765,
+      720
+    ],
+    [
+      590,
+      850
+    ],
+    [
+      765,
+      850
+    ],
+    [
+      590,
+      965
+    ],
+    [
+      675,
+      965
+    ],
+    [
+      765,
+      965
+    ],
+    [
+      676,
+      660
+    ],
+    [
+      675,
+      745
+    ],
+    [
+      682,
+      825
+    ],
+    [
+      650,
+      885
+    ],
+    [
+      720,
+      910
+    ]
+  ],
+  "targetPoints": [
+    [
+      590,
+      630
+    ],
+    [
+      675,
+      630
+    ],
+    [
+      765,
+      630
+    ],
+    [
+      590,
+      720
+    ],
+    [
+      765,
+      720
+    ],
+    [
+      590,
+      850
+    ],
+    [
+      765,
+      850
+    ],
+    [
+      590,
+      965
+    ],
+    [
+      675,
+      965
+    ],
+    [
+      765,
+      965
+    ],
+    [
+      676,
+      660
+    ],
+    [
+      680,
+      755
+    ],
+    [
+      695,
+      850
+    ],
+    [
+      675,
+      905
+    ],
+    [
+      710,
+      925
+    ]
+  ],
+  "landmarks": {
+    "hip": [
+      676,
+      660
+    ],
+    "knee": [
+      675,
+      745
+    ],
+    "ankle": [
+      682,
+      825
+    ],
+    "toe": [
+      650,
+      885
+    ],
+    "pedalEndpoint": [
+      710,
+      925
+    ],
+    "pedalTarget": [
+      700,
+      920
+    ]
+  },
+  "deformationPolygon": [
+    [
+      600,
+      635
+    ],
+    [
+      755,
+      635
+    ],
+    [
+      765,
+      705
+    ],
+    [
+      755,
+      960
+    ],
+    [
+      600,
+      960
+    ],
+    [
+      590,
+      875
+    ],
+    [
+      600,
+      705
+    ]
+  ],
+  "fixedRects": [
+    {
+      "name": "head_hair_upper",
+      "x1": 0,
+      "y1": 0,
+      "x2": 1448,
+      "y2": 625
+    },
+    {
+      "name": "left_leg",
+      "x1": 0,
+      "y1": 610,
+      "x2": 590,
+      "y2": 1086
+    },
+    {
+      "name": "stool_hardware",
+      "x1": 770,
+      "y1": 690,
+      "x2": 900,
+      "y2": 1086
+    }
+  ],
+  "pedalTarget": [
+    700,
+    920
+  ],
+  "pedalTolerancePx": 45,
+  "normalSourceSha256": "AUTO",
+  "brokenSourceSha256": "AUTO",
+  "fixedDrumSha256": "AUTO",
+  "runtimeWritable": false,
+  "userApprovalStatus": "PENDING",
+  "visualQaRequired": true,
+  "repairSelection": {
+    "repairMethod": "D",
+    "firstNormalSourceCandidate": "character-assets/layers/character/bd/rebound_rf.png",
+    "secondNormalSourceCandidate": "character-assets/layers/character/combo/hh_sn_r_l_rebound.png",
+    "finalNormalSource": "character-assets/layers/character/combo/bd_rc_hit.png",
+    "selectionReason": "Preserve the intact BD+RC upper-body hit pose and apply the proven 008 continuous lower-body mesh field only. PASS donors would replace the intended RC upper-body action.",
+    "rejectedCandidates": [
+      {
+        "path": "character-assets/layers/character/bd/rebound_rf.png",
+        "reason": "Audit PASS and close lower-body/pedal posture, but RC upper-body action is absent."
+      },
+      {
+        "path": "character-assets/layers/character/combo/hh_sn_r_l_rebound.png",
+        "reason": "Audit PASS but torso/shoulder/arm action differs too much from BD+RC hit."
+      }
+    ],
+    "changedRegions": [
+      "waist",
+      "pelvis",
+      "right_leg",
+      "right_ankle",
+      "right_foot"
+    ],
+    "fixedRegions": [
+      "head",
+      "hair_upper",
+      "upper_torso",
+      "shoulders",
+      "arms",
+      "RC_hit_pose",
+      "left_outer_leg",
+      "stool_hardware"
+    ],
+    "jsonOnly": true,
+    "pythonChanged": false,
+    "speedRisk": "LOW"
+  },
+  "naturalness": {
+    "pelvisLeft": null,
+    "pelvisRight": null,
+    "waistCenter": null,
+    "torsoCenter": null,
+    "shoulderLeft": null,
+    "shoulderRight": null,
+    "torsoFlowNotes": "Keep the original 010 torso and shoulder direction. Lower-body deformation must read as one continuous posture from waist/pelvis through the planted right foot.",
+    "postureIntent": "BD+RC hit: preserve the original upper-body RC strike while removing the lower-body third-leg/boot artifact and restoring waist-to-leg continuity.",
+    "naturalnessFocusRegions": [
+      "waist",
+      "pelvis",
+      "torso",
+      "shoulders",
+      "right_leg",
+      "right_ankle",
+      "right_foot",
+      "skirt",
+      "stool",
+      "right_hand_stick"
+    ],
+    "visualQaChecklist": [
+      "waistLegContinuity",
+      "pelvisTorsoDirection",
+      "torsoShoulderRelationship",
+      "upperLowerBodyUnity",
+      "weightBalance",
+      "drummingMotionFlow",
+      "jacketDirectionMatchesBody",
+      "checkPatternMatchesWarp",
+      "skirtHemNatural",
+      "ankleNatural",
+      "bootsNatural",
+      "limbCountCorrect",
+      "stickCountCorrect",
+      "stoolRelationshipNatural",
+      "drumContactNatural",
+      "fixedFaceHairUnchanged"
+    ]
+  },
+  "forbiddenFrameTokens": [
+    "008",
+    "014",
+    "028",
+    "032"
+  ],
+  "outputNames": {
+    "candidate": "010_bd_rc_hit_mesh_v1.png",
+    "review": "010_bd_rc_hit_mesh_v1_review.webp",
+    "compositeReview": "010_bd_rc_hit_fixed_drum_v1_review.webp",
+    "beforeAfterReview": "010_before_after_review.webp",
+    "qa": "010_qa.json",
+    "timing": "010_timing.json",
+    "runManifest": "010_run_manifest.json",
+    "commitManifest": "010_commit_manifest.json",
+    "regression": "010_regression_run.json"
+  }
+}
