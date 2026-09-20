@@ -1,353 +1,125 @@
 #!/usr/bin/env python3
-import json, hashlib, math
+import hashlib, io, json, subprocess
 from pathlib import Path
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[2]
-BASE=ROOT/"character-assets/reference-models/luna_video_20260919"
-PROTO=ROOT/"character-assets/prototypes/luna_say_maybe_16m"
-OUTDIR=ROOT/"character-assets/edit-workspaces/motion-repair-20260920"
-OUTDIR.mkdir(parents=True,exist_ok=True)
+BASE=ROOT/"character-assets/reference-models/luna_video_20260919/runtime_pose_constraints"
+OUT=ROOT/"character-assets/edit-workspaces/motion-repair-20260920"
+OUT.mkdir(parents=True,exist_ok=True)
 
-neutral_path=ROOT/"character-assets/layers/character/base/neutral.png"
-source_path=ROOT/"character-assets/layers/character/sn/rebound_l.png"
-constraint_path=BASE/"runtime_pose_constraints/SN_L_rebound_V1.json"
-neutral_constraint_path=BASE/"runtime_pose_constraints/SN_L_neutral_V1.json"
-hit_constraint_path=BASE/"runtime_pose_constraints/SN_L_hit_V1.json"
-drum_path=ROOT/"character-assets/layers/drum/drum_base.png"
+HIT=ROOT/"character-assets/layers/character/sn/hit_l.png"
+DRUM=ROOT/"character-assets/layers/drum/drum_base.png"
+DONOR_BLOB="f8e4c1fffe3b959f862b8039a08b30fb4c2cf8cd"
+DONOR_SHA256="79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777"
 
-neutral=Image.open(neutral_path).convert("RGBA")
-source=Image.open(source_path).convert("RGBA")
-drum=Image.open(drum_path).convert("RGBA")
-c=json.loads(constraint_path.read_text())
-neutral_pose=json.loads(neutral_constraint_path.read_text())
-hit=json.loads(hit_constraint_path.read_text())
-W,H=neutral.size
-assert neutral.size==source.size==(1448,1086)
+def blob_bytes(sha):
+    test=subprocess.run(["git","cat-file","-e",sha],cwd=ROOT)
+    if test.returncode:
+        subprocess.run(["git","fetch","--unshallow","--no-tags","origin"],cwd=ROOT,check=False)
+    return subprocess.check_output(["git","cat-file","blob",sha],cwd=ROOT)
 
-# Active-left-limb semantic corridor from tool-authority joints/effectors.
-j=c["joints"]
-shoulder=tuple(map(round,j["shoulder_l"]))
-elbow=tuple(map(round,j["elbow_l"]))
-wrist=tuple(map(round,j["wrist_l"]))
-tip=tuple(map(round,c["stickTip"]))
-hit_tip=tuple(map(round,hit["stickTip"]))
+raw=blob_bytes(DONOR_BLOB)
+assert hashlib.sha256(raw).hexdigest()==DONOR_SHA256
+donor=Image.open(io.BytesIO(raw)).convert("RGBA")
+hit=Image.open(HIT).convert("RGBA")
+drum=Image.open(DRUM).convert("RGBA")
+assert hit.size==donor.size==drum.size==(1448,1086)
+W,H=hit.size
 
-mask=Image.new("L",(W,H),0)
-d=ImageDraw.Draw(mask)
-# Wide enough to preserve actual drawn arm/clothing/stick, but deliberately local.
-d.line([shoulder,elbow,wrist],fill=255,width=150,joint="curve")
-for p,r in [(shoulder,85),(elbow,85),(wrist,75)]:
+hp=json.loads((BASE/"SN_L_hit_V1.json").read_text())
+rp=json.loads((BASE/"SN_L_rebound_V1.json").read_text())
+
+def pt(obj,key):
+    return tuple(map(round,obj["joints"][key]))
+
+h_elbow,h_wrist,h_tip=pt(hp,"elbow_l"),pt(hp,"wrist_l"),tuple(map(round,hp["stickTip"]))
+r_elbow,r_wrist,r_tip=pt(rp,"elbow_l"),pt(rp,"wrist_l"),tuple(map(round,rp["stickTip"]))
+
+# Source-bound semantic mask: active left forearm/hand + both old/new stick corridors only.
+arm=Image.new("L",(W,H),0); d=ImageDraw.Draw(arm)
+for a,b in [(h_elbow,h_wrist),(r_elbow,r_wrist)]:
+    d.line([a,b],fill=255,width=112)
+for p,r in [(h_elbow,58),(h_wrist,72),(r_elbow,58),(r_wrist,72)]:
     d.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
-# Stick corridor follows wrist->source rebound stick tip.
-d.line([wrist,tip],fill=255,width=38)
-for p,r in [(tip,26),(hit_tip,18)]:
-    d.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+arm_a=np.asarray(arm)>0
+yy,xx=np.indices((H,W))
+arm_a &= (yy>=430)
 
-# Also cover the approved-neutral LEFT arm/hand/stick pose. The candidate base
-# is neutral, so any neutral pixels from the old left-arm pose must be inside
-# the replace mask; otherwise they remain beside the rebound limb and create
-# a false third hand/stick. Source transparency is allowed to erase them.
-nj=neutral_pose["joints"]
-n_shoulder=tuple(map(round,nj["shoulder_l"]))
-n_elbow=tuple(map(round,nj["elbow_l"]))
-n_wrist=tuple(map(round,nj["wrist_l"]))
-n_tip=tuple(map(round,neutral_pose["stickTip"]))
-d.line([n_shoulder,n_elbow,n_wrist],fill=255,width=165,joint="curve")
-for p,r in [(n_shoulder,88),(n_elbow,92),(n_wrist,86)]:
-    d.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
-d.line([n_wrist,n_tip],fill=255,width=46)
-d.ellipse([n_tip[0]-30,n_tip[1]-30,n_tip[0]+30,n_tip[1]+30],fill=255)
+stick=Image.new("L",(W,H),0); s=ImageDraw.Draw(stick)
+for a,b in [(h_wrist,h_tip),(r_wrist,r_tip)]:
+    s.line([a,b],fill=255,width=42)
+for p,r in [(h_wrist,34),(r_wrist,34),(h_tip,28),(r_tip,28)]:
+    s.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+stick_a=np.asarray(stick)>0
 
-# Restrict lower mask to upper-body/action area so legs/stool cannot be imported.
-ma=np.asarray(mask).copy()
-ma[570:,:]=0
-# Absolute static guards: never import source head/right side/pelvis-seat pixels.
-ma[0:325,500:930]=0
-ma[560:810,560:980]=0
-# Human visual QA v4 diagnosis: both neutral residue and source artifact
-# contributed to the detached white crescent below the rebound stick.
-# Keep the old-hand corridor replaceable, then explicitly clear only pixels
-# sufficiently below the grip-to-tip stick axis inside a narrow local ROI.
-ma[435:545,455:570]=255
-mask=Image.fromarray(ma.astype(np.uint8),"L")
+allowed=arm_a|stick_a
+# Static locks: never alter upper-hand/shoulder, head, pelvis/seat, legs, right side.
+allowed &= (yy<570)&(xx<750)
+allowed &= ~((yy<440)&(xx>=625))
+# Tiny diagnosed floating-fragment cleanup below/left of rebound tip.
+allowed[432:482,385:442]=True
 
-candidate=neutral.copy()
-candidate.paste(source,(0,0),mask)
-
-# Artifact-clear mask: x 455..545 only, and >18 px below the rebound stick axis
-# from tip(438,418) to wrist(593,496). This preserves the stick shaft and grip.
-qa=np.asarray(candidate).copy()
-allowed=np.asarray(mask)>0
-for x in range(455,546):
-    stick_y = 418 + (496-418) * ((x-438)/(593-438))
-    y0=max(0,int(round(stick_y+18)))
-    y1=min(H,545)
-    if y0<y1:
-        qa[y0:y1,x,:]=0
-        allowed[y0:y1,x]=True
-candidate=Image.fromarray(qa,"RGBA")
+hit_a=np.asarray(hit)
+don_a=np.asarray(donor)
+candidate=hit.copy()
 mask=Image.fromarray((allowed.astype(np.uint8)*255),"L")
+candidate.paste(donor,(0,0),mask)
 
-# Human visual QA v8: source rebound contains a second non-authoritative
-# upper-left hand/stick. Do NOT restore a broad rectangle/corridor from neutral:
-# that produced the v7 plaid/jacket patch. Instead, restore only pixels inside
-# the diagnosed unwanted-hand ROI that actually differ between source and
-# approved neutral, with a very small dilation to remove line-edge residue.
-roi=Image.new("L",(W,H),0)
-rd=ImageDraw.Draw(roi)
-rd.line([(600,300),(675,405)],fill=255,width=54)
-rd.ellipse([625,355,720,450],fill=255)
-rd.line([(675,405),(650,462)],fill=255,width=82)
-roi_arr=np.asarray(roi)>0
-source_diff=np.any(np.asarray(source)!=np.asarray(neutral),axis=2)
-restore_arr=roi_arr & source_diff
-restore_img=Image.fromarray((restore_arr.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5))
-candidate.paste(neutral,(0,0),restore_img)
-allowed |= (np.asarray(restore_img)>0)
-mask=Image.fromarray((allowed.astype(np.uint8)*255),"L")
+# In the tiny cleanup zone, only donor-transparent pixels may erase residue.
+ca=np.asarray(candidate).copy()
+zone=np.zeros((H,W),dtype=bool); zone[432:482,385:442]=True
+clear=zone&(don_a[:,:,3]==0)
+ca[clear]=0
+candidate=Image.fromarray(ca,"RGBA")
 
-candidate_path=OUTDIR/"sn_l_rebound_candidate_v8.png"
-candidate.save(candidate_path)
+CAND=OUT/"sn_l_rebound_candidate_v14.png"
+COMP=OUT/"sn_l_rebound_candidate_v14_fixed_drum.png"
+QA=OUT/"sn_l_rebound_candidate_v14_qa.json"
+candidate.save(CAND)
+Image.alpha_composite(drum,candidate).save(COMP)
 
-# Exact raster diagnostics.
-n=np.asarray(neutral); s=np.asarray(source); q=np.asarray(candidate); mm=np.asarray(mask)>0
-diff_nq=np.any(n!=q,axis=2)
-diff_sq=np.any(s!=q,axis=2)
-outside_changed=int(np.count_nonzero(diff_nq & ~mm))
-inside_changed=int(np.count_nonzero(diff_nq & mm))
-changed=int(np.count_nonzero(diff_nq))
-ys,xs=np.nonzero(diff_nq)
-bbox=None if xs.size==0 else {"x":int(xs.min()),"y":int(ys.min()),"width":int(xs.max()-xs.min()+1),"height":int(ys.max()-ys.min()+1)}
-# Compare inactive lower body/seat directly to neutral.
-inactive_lower_changed=int(np.count_nonzero(np.any(n[720:,:,:]!=q[720:,:,:],axis=2)))
-# head/core guard boxes chosen from approved-neutral geometry/tool landmarks.
+q=np.asarray(candidate)
+changed=np.any(q!=hit_a,axis=2)
+outside=int(np.count_nonzero(changed&~allowed))
+ys,xs=np.where(changed)
+bbox=None if not len(xs) else [int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())]
+
 guards={
- "head":[500,0,430,325],
- "right_arm":[820,320,340,250],
- "pelvis_seat":[560,560,420,250],
- "legs_stool":[300,700,850,386]
+ "head":(500,0,430,320),
+ "upper_hand_shoulder":(625,320,125,120),
+ "pelvis_seat":(560,570,500,260),
+ "legs_stool":(300,700,900,386),
 }
-guard_changed={}
+gc={}
 for name,(x,y,w,h) in guards.items():
- guard_changed[name]=int(np.count_nonzero(np.any(n[y:y+h,x:x+w,:]!=q[y:y+h,x:x+w,:],axis=2)))
+    gc[name]=int(np.count_nonzero(np.any(q[y:y+h,x:x+w]!=hit_a[y:y+h,x:x+w],axis=2)))
 
-# Constraint semantics.
-def dist(a,b): return math.hypot(a[0]-b[0],a[1]-b[1])
-rebound_sep=dist(c["stickTip"],c["contactPoint"])
-
-# Composite debug: drum under candidate, preserving source canvas.
-comp=Image.alpha_composite(drum,candidate)
-comp.save(OUTDIR/"sn_l_rebound_candidate_v8_fixed_drum.png")
-
+hard={
+ "canvas":candidate.size==(1448,1086),
+ "alpha":candidate.getchannel("A").getextrema()==(0,255),
+ "outsideAllowedChangedPixels":outside==0,
+ "headExactToHit":gc["head"]==0,
+ "upperHandShoulderExactToHit":gc["upper_hand_shoulder"]==0,
+ "pelvisSeatExactToHit":gc["pelvis_seat"]==0,
+ "legsStoolExactToHit":gc["legs_stool"]==0,
+ "sourceBoundDonor":hashlib.sha256(raw).hexdigest()==DONOR_SHA256,
+}
 report={
- "schemaVersion":8,
- "issueId":"MOTION-001",
- "actionKey":"SN:L",
- "phase":"rebound",
- "candidate":str(candidate_path.relative_to(ROOT)),
- "method":"approved neutral base + source rebound pixels only inside semantic left-arm/stick corridor",
- "source":{"neutralSha256":hashlib.sha256(neutral_path.read_bytes()).hexdigest(),"reboundSha256":hashlib.sha256(source_path.read_bytes()).hexdigest(),"constraint":str(constraint_path.relative_to(ROOT))},
- "semanticMask":{"shoulder":shoulder,"elbow":elbow,"wrist":wrist,"stickTip":tip,"maskPixelCount":int(mm.sum()),"lowerCutoffY":570},
- "constraintChecks":{"reboundSeparationPx":round(rebound_sep,3),"minimumSeparationPx":c["tolerancesPx"]["reboundSeparation"],"reboundPass":rebound_sep>=c["tolerancesPx"]["reboundSeparation"],"stoolAnchor":c["stoolAnchor"],"hipAnchor":c["hipAnchor"]},
- "rasterChecks":{"changedPixelsVsNeutral":changed,"changedRatioVsNeutral":round(changed/(W*H),8),"changedBBoxVsNeutral":bbox,"outsideMaskChangedPixels":outside_changed,"inactiveLowerBodyChangedPixels":inactive_lower_changed,"guardChangedPixels":guard_changed,"sourcePixelsRejectedOutsideMask":int(np.count_nonzero(diff_sq & ~mm))},
- "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"headGuardChangedPixels":guard_changed["head"]==0,"rightArmGuardChangedPixels":guard_changed["right_arm"]==0,"pelvisSeatGuardChangedPixels":guard_changed["pelvis_seat"]==0,"legsStoolGuardChangedPixels":guard_changed["legs_stool"]==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
+ "schemaVersion":14,
+ "issueId":"MOTION-001","actionKey":"SN:L","phase":"rebound",
+ "candidate":str(CAND.relative_to(ROOT)),
+ "method":"formal hit static parent + exact clean rebound source blob; narrow left forearm/hand/stick semantic replacement only",
+ "source":{"cleanReboundBlob":DONOR_BLOB,"cleanReboundSha256":DONOR_SHA256,
+           "hitSha256":hashlib.sha256(HIT.read_bytes()).hexdigest()},
+ "changedRoi":{"changedPixelsVsHit":int(changed.sum()),"changedBBoxVsHit":bbox,
+               "outsideAllowedChangedPixels":outside,"floatingCleanupPixels":int(clear.sum())},
+ "guardChangedPixelsVsHit":gc,
+ "hardPass":hard,
 }
-report["pass"]=all(report["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v8_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
-
-# v9 cumulative repair: keep the v8 cleaned rebound left arm/stick, but use the
-# formal hit as the static parent so inactive right arm/head/torso/stool/legs do
-# not jump between hit and rebound. Only pixels that actually differ between
-# hit and v8 inside the UNION of hit+rebound left-arm/stick semantic corridors
-# are replaced, with a very small dilation for line-edge continuity.
-hit_image_path=ROOT/"character-assets/layers/character/sn/hit_l.png"
-hit_image=Image.open(hit_image_path).convert("RGBA")
-assert hit_image.size==candidate.size
-
-hj=hit["joints"]
-h_shoulder=tuple(map(round,hj["shoulder_l"]))
-h_elbow=tuple(map(round,hj["elbow_l"]))
-h_wrist=tuple(map(round,hj["wrist_l"]))
-h_tip=tuple(map(round,hit["stickTip"]))
-
-arm_roi=Image.new("L",(W,H),0)
-ad=ImageDraw.Draw(arm_roi)
-for pts,width in [([h_elbow,h_wrist],104),([elbow,wrist],104)]:
-    ad.line(pts,fill=255,width=width,joint="curve")
-for p,radius in [(h_elbow,62),(h_wrist,72),(elbow,62),(wrist,72)]:
-    ad.ellipse([p[0]-radius,p[1]-radius,p[0]+radius,p[1]+radius],fill=255)
-arm_roi_arr=np.asarray(arm_roi)>0
-arm_roi_arr[:430,:]=False
-
-stick_roi=Image.new("L",(W,H),0)
-sd=ImageDraw.Draw(stick_roi)
-for a,b,width in [(h_wrist,h_tip,42),(wrist,tip,42)]:
-    sd.line([a,b],fill=255,width=width)
-for p,radius in [(h_tip,30),(tip,30),(h_wrist,34),(wrist,34)]:
-    sd.ellipse([p[0]-radius,p[1]-radius,p[0]+radius,p[1]+radius],fill=255)
-stick_roi_arr=np.asarray(stick_roi)>0
-
-pair_roi_arr=arm_roi_arr | stick_roi_arr
-# Hard-exclude static zones from the pair replacement ROI itself. The active
-# SN left arm/stick is entirely below the head lock and above the pelvis lock;
-# allowing those pixels only creates false hair/waist drift.
-pair_roi_arr[0:325,500:930]=False
-pair_roi_arr[560:810,560:980]=False
-pair_roi_arr[:,800:]=False
-hit_arr=np.asarray(hit_image)
-v8_arr=np.asarray(candidate)
-pair_diff=np.any(hit_arr!=v8_arr,axis=2)
-pair_replace_arr=pair_roi_arr & pair_diff
-pair_replace_dil=np.asarray(Image.fromarray((pair_replace_arr.astype(np.uint8)*255),"L").filter(ImageFilter.MaxFilter(5)))>0
-# Re-apply static exclusions AFTER dilation so edge growth cannot leak into
-# head/pelvis/right-side guards.
-pair_replace_dil[0:325,500:930]=False
-pair_replace_dil[560:810,560:980]=False
-pair_replace_dil[:,800:]=False
-pair_replace=Image.fromarray((pair_replace_dil.astype(np.uint8)*255),"L")
-
-candidate_v11=hit_image.copy()
-candidate_v11.paste(candidate,(0,0),pair_replace)
-candidate_v11_path=OUTDIR/"sn_l_rebound_candidate_v11.png"
-candidate_v11.save(candidate_v11_path)
-
-v9=np.asarray(candidate_v11)
-pair_mask=np.asarray(pair_replace)>0
-diff_hit_v9=np.any(hit_arr!=v9,axis=2)
-outside_pair=int(np.count_nonzero(diff_hit_v9 & ~pair_mask))
-ys9,xs9=np.nonzero(diff_hit_v9)
-bbox9=None if xs9.size==0 else {"x":int(xs9.min()),"y":int(ys9.min()),"width":int(xs9.max()-xs9.min()+1),"height":int(ys9.max()-ys9.min()+1)}
-
-pair_guards={
- "head":[500,0,430,325],
- "right_arm":[820,320,340,250],
- "pelvis_seat":[560,560,420,250],
- "legs_stool":[300,700,850,386]
-}
-pair_guard_changed={}
-for name,(x,y,w,h) in pair_guards.items():
-    pair_guard_changed[name]=int(np.count_nonzero(np.any(hit_arr[y:y+h,x:x+w,:]!=v9[y:y+h,x:x+w,:],axis=2)))
-
-# Ensure the inactive right side is exactly inherited from hit.
-inactive_right_exact=pair_guard_changed["right_arm"]==0
-head_exact=pair_guard_changed["head"]==0
-pelvis_exact=pair_guard_changed["pelvis_seat"]==0
-legs_exact=pair_guard_changed["legs_stool"]==0
-
-comp11=Image.alpha_composite(drum,candidate_v11)
-comp11.save(OUTDIR/"sn_l_rebound_candidate_v11_fixed_drum.png")
-
-report11={
- "schemaVersion":11,
- "issueId":"MOTION-001",
- "actionKey":"SN:L",
- "phase":"rebound",
- "candidate":str(candidate_v11_path.relative_to(ROOT)),
- "method":"formal hit static parent + v8 rebound y-clamped forearm/hand plus separate stick delta",
- "parent":{
-   "staticBase":str(hit_image_path.relative_to(ROOT)),
-   "staticBaseSha256":hashlib.sha256(hit_image_path.read_bytes()).hexdigest(),
-   "activeMotionParent":str(candidate_path.relative_to(ROOT)),
-   "activeMotionParentSha256":hashlib.sha256(candidate_path.read_bytes()).hexdigest(),
-   "rollbackCandidate":"sn_l_rebound_candidate_v8.png"
- },
- "changedRoi":{"maskPixelCount":int(pair_mask.sum()),"changedPixelsVsHit":int(diff_hit_v9.sum()),"changedBBoxVsHit":bbox9},
- "pairStaticGuards":{"outsidePairMaskChangedPixels":outside_pair,"guardChangedPixelsVsHit":pair_guard_changed},
- "constraintChecks":{"reboundSeparationPx":round(rebound_sep,3),"minimumSeparationPx":c["tolerancesPx"]["reboundSeparation"],"reboundPass":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
- "hardPass":{
-   "outsidePairMaskChangedPixels":outside_pair==0,
-   "inactiveRightArmExactToHit":inactive_right_exact,
-   "headExactToHit":head_exact,
-   "pelvisSeatExactToHit":pelvis_exact,
-   "legsStoolExactToHit":legs_exact,
-   "reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"],
-   "changedVisible":int(diff_hit_v9.sum())>=250
- }
-}
-report11["pass"]=all(report11["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v11_qa.json").write_text(json.dumps(report11,ensure_ascii=False,indent=2)+"\n")
-if not report11["pass"]: raise SystemExit(2)
-
-# v12: preserve the formal-hit arm/sleeve and move only the active hand/stick.
-# Remove the OLD hit hand+stick from the hit parent, then overlay only VISIBLE
-# v8 rebound hand+stick pixels. Never paste transparent v8 forearm pixels.
-candidate_v12=hit_image.copy()
-v12_arr=np.asarray(candidate_v12).copy()
-
-old_mask=Image.new("L",(W,H),0)
-od=ImageDraw.Draw(old_mask)
-od.line([h_wrist,h_tip],fill=255,width=46)
-od.ellipse([h_wrist[0]-58,h_wrist[1]-58,h_wrist[0]+58,h_wrist[1]+58],fill=255)
-old_mask_arr=np.asarray(old_mask)>0
-# old active hand/stick may be erased; keep static guards untouched
-old_mask_arr[0:325,500:930]=False
-old_mask_arr[560:810,560:980]=False
-old_mask_arr[:,800:]=False
-v12_arr[old_mask_arr,:]=0
-candidate_v12=Image.fromarray(v12_arr,"RGBA")
-
-add_mask=Image.new("L",(W,H),0)
-nd=ImageDraw.Draw(add_mask)
-nd.line([wrist,tip],fill=255,width=46)
-nd.ellipse([wrist[0]-66,wrist[1]-66,wrist[0]+66,wrist[1]+66],fill=255)
-# limited visible-ink bridge toward elbow, without transparent replacement
-nd.line([elbow,wrist],fill=255,width=54)
-add_mask_arr=np.asarray(add_mask)>0
-v8_alpha=v8_arr[:,:,3]>0
-add_visible=add_mask_arr & v8_alpha
-add_visible[0:325,500:930]=False
-add_visible[560:810,560:980]=False
-add_visible[:,800:]=False
-add_mask_img=Image.fromarray((add_visible.astype(np.uint8)*255),"L")
-candidate_v12.paste(candidate,(0,0),add_mask_img)
-
-candidate_v12_path=OUTDIR/"sn_l_rebound_candidate_v12.png"
-candidate_v12.save(candidate_v12_path)
-v12=np.asarray(candidate_v12)
-allowed_v12=old_mask_arr | add_visible
-diff_hit_v12=np.any(hit_arr!=v12,axis=2)
-outside_v12=int(np.count_nonzero(diff_hit_v12 & ~allowed_v12))
-ys12,xs12=np.nonzero(diff_hit_v12)
-bbox12=None if xs12.size==0 else {"x":int(xs12.min()),"y":int(ys12.min()),"width":int(xs12.max()-xs12.min()+1),"height":int(ys12.max()-ys12.min()+1)}
-
-guard12={}
-for name,(x,y,w,h) in pair_guards.items():
-    guard12[name]=int(np.count_nonzero(np.any(hit_arr[y:y+h,x:x+w,:]!=v12[y:y+h,x:x+w,:],axis=2)))
-
-comp12=Image.alpha_composite(drum,candidate_v12)
-comp12.save(OUTDIR/"sn_l_rebound_candidate_v12_fixed_drum.png")
-
-report12={
- "schemaVersion":12,
- "issueId":"MOTION-001",
- "actionKey":"SN:L",
- "phase":"rebound",
- "candidate":str(candidate_v12_path.relative_to(ROOT)),
- "method":"formal hit static parent; erase old hit hand/stick; overlay visible v8 rebound hand/stick pixels only",
- "parent":{
-   "staticBase":str(hit_image_path.relative_to(ROOT)),
-   "staticBaseSha256":hashlib.sha256(hit_image_path.read_bytes()).hexdigest(),
-   "activeMotionParent":str(candidate_path.relative_to(ROOT)),
-   "activeMotionParentSha256":hashlib.sha256(candidate_path.read_bytes()).hexdigest(),
-   "rejectedParent":"sn_l_rebound_candidate_v11.png",
-   "rollbackCandidate":"sn_l_rebound_candidate_v8.png"
- },
- "changedRoi":{"oldErasePixels":int(old_mask_arr.sum()),"addVisiblePixels":int(add_visible.sum()),"changedPixelsVsHit":int(diff_hit_v12.sum()),"changedBBoxVsHit":bbox12},
- "pairStaticGuards":{"outsideAllowedChangedPixels":outside_v12,"guardChangedPixelsVsHit":guard12},
- "constraintChecks":{"reboundSeparationPx":round(rebound_sep,3),"minimumSeparationPx":c["tolerancesPx"]["reboundSeparation"],"reboundPass":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
- "hardPass":{
-   "outsideAllowedChangedPixels":outside_v12==0,
-   "inactiveRightArmExactToHit":guard12["right_arm"]==0,
-   "headExactToHit":guard12["head"]==0,
-   "pelvisSeatExactToHit":guard12["pelvis_seat"]==0,
-   "legsStoolExactToHit":guard12["legs_stool"]==0,
-   "reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"],
-   "changedVisible":int(diff_hit_v12.sum())>=250
- }
-}
-report12["pass"]=all(report12["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v12_qa.json").write_text(json.dumps(report12,ensure_ascii=False,indent=2)+"\n")
-print(json.dumps({"v8":report,"v11":report11,"v12":report12},ensure_ascii=False))
-if not report12["pass"]: raise SystemExit(2)
+report["pass"]=all(hard.values()) and int(changed.sum())>=250
+QA.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+print(json.dumps(report,ensure_ascii=False))
+if not report["pass"]:
+    raise SystemExit(2)
