@@ -34,10 +34,11 @@ for rec in summary.get("targets",[]):
     if not t:
         skipped.append({"id":tid,"reason":"ledger_target_missing"}); continue
     defect=next((d for d in backlog.get("defects",[]) if d.get("actionKey")==rec.get("actionKey")),None)
-    pass2_claim=bool(defect and (defect.get("claim") or {}).get("state")=="CLAIMED" and (defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK")
-    if t.get("claimState")=="COMPLETED" and not pass2_claim:
+    active_claim=bool(defect and (defect.get("claim") or {}).get("state")=="CLAIMED" and (defect.get("claim") or {}).get("owner") in ("CHAT-PASS2-BACK","CHATGPT-FRONT"))
+    pass2_claim=bool(active_claim and (defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK")
+    if t.get("claimState")=="COMPLETED" and not active_claim:
         skipped.append({"id":tid,"reason":"already_completed"}); continue
-    if t.get("terminalId")!="CHAT-MOTION-REPAIR" and not pass2_claim:
+    if t.get("terminalId")!="CHAT-MOTION-REPAIR" and not active_claim:
         skipped.append({"id":tid,"reason":"claim_owner_changed"}); continue
     # Machine/pixel QA is necessary but never sufficient for promotion.
     # A prior or current full-resolution visual FAIL must hard-block formal
@@ -97,12 +98,15 @@ for rec in summary.get("targets",[]):
         e[field]=newsha
         e["motionRepairQaStatus"]="AUTO_CANDIDATE_PASS_PROMOTED"
         e["motionRepairLastPhase"]=rec["phase"]
-        e["motionRepairMethod"]="method4: RD-specific right-side release from neutral head landmarks"
+        e["motionRepairMethod"]="method4: bounded neutral-baseline source-authority repair"
 
     t["sha256"]=newsha
     t["brushupStatus"]="MOTION_REPAIR_VERIFIED"
     t["claimState"]="COMPLETED"
-    t["terminalId"]="CHAT-PASS2-BACK" if pass2_claim else t.get("terminalId")
+    if active_claim:
+        t["terminalId"]=(defect.get("claim") or {}).get("owner")
+    else:
+        t["terminalId"]=t.get("terminalId")
     t["completedAt"]="2026-09-20T05:45:00+09:00"
     t["qaEvidence"]=str((WORK/(tid.lower()+"_qa.json")).relative_to(ROOT)) if (WORK/(tid.lower()+"_qa.json")).exists() else None
     t["motionRepairChangedRatioVsNeutral"]=rec["changedRatioVsNeutral"]
@@ -116,12 +120,13 @@ for d in backlog.get("defects",[]):
     p=by_action.get(key,[])
     relevant=[r for r in summary.get("targets",[]) if r.get("actionKey")==key]
     if p:
-        d["autoRepairPromotion"]={"promoted":p,"method":"method4: RD-specific right-side release from neutral head landmarks","candidateSummary":str(summary_path.relative_to(ROOT))}
+        d["autoRepairPromotion"]={"promoted":p,"method":"method4: bounded neutral-baseline source-authority repair","candidateSummary":str(summary_path.relative_to(ROOT))}
         phases={x["phase"] for x in p}
         if {"hit","rebound"}.issubset(phases):
             d["status"]="FIXED_PENDING_RUNTIME_QA"
-            d["repairSpec"]["state"]="FIXED_PENDING_QA"
-            d["claim"]=None
+            d["repairSpec"]["state"]="FIXED_PENDING_RUNTIME_QA"
+            # Keep the CLAIM until runtime QA + validation reach VERIFIED.
+            # The shared completion playbook releases CLAIM only at VERIFIED.
         else:
             d["status"]="IN_FIX"
             d["repairSpec"]["state"]="IN_FIX"
