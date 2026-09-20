@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-20T11:20:00+09:00",
+  "issueId": "MOTION-002",
+  "actionKey": "BD+RC:RF/R",
+  "claimBatch": "HOLD-REPAIR-FRONT-06",
+  "candidateVersion": "v3",
+  "parentCandidate": "v2",
+  "parentSha256": {
+    "hit": "744f7eddcecc72a09cce03f75e9602e2a26724ee91fab5550c33867e620d8bf5",
+    "rebound": "594c9be0a3760bd07a55355b3f62f0100a707bcc4e3749ca2183b4c774d5a9b4"
+  },
+  "candidateSha256": {
+    "hit": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+    "rebound": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b"
+  },
+  "builderWorkflow": {
+    "runId": 35483467230,
+    "artifactId": 10596871555
+  },
+  "evidence": [
+    "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_hit_candidate_v3.png",
+    "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_rebound_candidate_v3.png",
+    "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_hit_candidate_v3_fixed_drum.png",
+    "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_rebound_candidate_v3_fixed_drum.png",
+    "character-assets/edit-workspaces/motion-repair-20260920/front06/bd_rc_v3_transition_strip.png"
+  ],
+  "gates": {
+    "machineQa": "PASS",
+    "fullResolutionHumanAnatomy": "PASS",
+    "armHandStickContinuity": "PASS",
+    "singleRightArm": "PASS",
+    "singleRightHand": "PASS",
+    "singleContinuousStick": "PASS",
+    "disconnectedLimb": "PASS_NONE",
+    "floatingFragment": "PASS_NONE",
+    "rectangularSplice": "PASS_NONE",
+    "dropout": "PASS_NONE",
+    "doubleStroke": "PASS_NONE",
+    "waistPelvisSeatContinuity": "PASS",
+    "seatedPoseReadability": "PASS",
+    "fixedDrumRcStrikeSemantics": "PASS",
+    "fixedDrumBdFootSemantics": "PASS",
+    "hitReboundPairContinuity": "PASS",
+    "neutralHitReboundNeutralTransition": "PASS"
+  },
+  "repairMechanism": "neutral pelvis/thigh retained; exact RC donor right-arm replacement; verified BD/RF donor transplanted only knee-to-boot",
+  "decision": "STATIC_PAIR_PASS_RUNTIME_REQUIRED",
+  "promotionAllowed": false,
+  "nextGate": "real-chart runtime QA on PC and Xperia portrait, then validation; formal remains unchanged until those pass"
+}
