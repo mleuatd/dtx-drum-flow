@@ -268,5 +268,86 @@ report11={
 }
 report11["pass"]=all(report11["hardPass"].values())
 (OUTDIR/"sn_l_rebound_candidate_v11_qa.json").write_text(json.dumps(report11,ensure_ascii=False,indent=2)+"\n")
-print(json.dumps({"v8":report,"v9":report11},ensure_ascii=False))
 if not report11["pass"]: raise SystemExit(2)
+
+# v12: preserve the formal-hit arm/sleeve and move only the active hand/stick.
+# Remove the OLD hit hand+stick from the hit parent, then overlay only VISIBLE
+# v8 rebound hand+stick pixels. Never paste transparent v8 forearm pixels.
+candidate_v12=hit_image.copy()
+v12_arr=np.asarray(candidate_v12).copy()
+
+old_mask=Image.new("L",(W,H),0)
+od=ImageDraw.Draw(old_mask)
+od.line([h_wrist,h_tip],fill=255,width=46)
+od.ellipse([h_wrist[0]-58,h_wrist[1]-58,h_wrist[0]+58,h_wrist[1]+58],fill=255)
+old_mask_arr=np.asarray(old_mask)>0
+# old active hand/stick may be erased; keep static guards untouched
+old_mask_arr[0:325,500:930]=False
+old_mask_arr[560:810,560:980]=False
+old_mask_arr[:,800:]=False
+v12_arr[old_mask_arr,:]=0
+candidate_v12=Image.fromarray(v12_arr,"RGBA")
+
+add_mask=Image.new("L",(W,H),0)
+nd=ImageDraw.Draw(add_mask)
+nd.line([wrist,tip],fill=255,width=46)
+nd.ellipse([wrist[0]-66,wrist[1]-66,wrist[0]+66,wrist[1]+66],fill=255)
+# limited visible-ink bridge toward elbow, without transparent replacement
+nd.line([elbow,wrist],fill=255,width=54)
+add_mask_arr=np.asarray(add_mask)>0
+v8_alpha=v8_arr[:,:,3]>0
+add_visible=add_mask_arr & v8_alpha
+add_visible[0:325,500:930]=False
+add_visible[560:810,560:980]=False
+add_visible[:,800:]=False
+add_mask_img=Image.fromarray((add_visible.astype(np.uint8)*255),"L")
+candidate_v12.paste(candidate,(0,0),add_mask_img)
+
+candidate_v12_path=OUTDIR/"sn_l_rebound_candidate_v12.png"
+candidate_v12.save(candidate_v12_path)
+v12=np.asarray(candidate_v12)
+allowed_v12=old_mask_arr | add_visible
+diff_hit_v12=np.any(hit_arr!=v12,axis=2)
+outside_v12=int(np.count_nonzero(diff_hit_v12 & ~allowed_v12))
+ys12,xs12=np.nonzero(diff_hit_v12)
+bbox12=None if xs12.size==0 else {"x":int(xs12.min()),"y":int(ys12.min()),"width":int(xs12.max()-xs12.min()+1),"height":int(ys12.max()-ys12.min()+1)}
+
+guard12={}
+for name,(x,y,w,h) in pair_guards.items():
+    guard12[name]=int(np.count_nonzero(np.any(hit_arr[y:y+h,x:x+w,:]!=v12[y:y+h,x:x+w,:],axis=2)))
+
+comp12=Image.alpha_composite(drum,candidate_v12)
+comp12.save(OUTDIR/"sn_l_rebound_candidate_v12_fixed_drum.png")
+
+report12={
+ "schemaVersion":12,
+ "issueId":"MOTION-001",
+ "actionKey":"SN:L",
+ "phase":"rebound",
+ "candidate":str(candidate_v12_path.relative_to(ROOT)),
+ "method":"formal hit static parent; erase old hit hand/stick; overlay visible v8 rebound hand/stick pixels only",
+ "parent":{
+   "staticBase":str(hit_image_path.relative_to(ROOT)),
+   "staticBaseSha256":hashlib.sha256(hit_image_path.read_bytes()).hexdigest(),
+   "activeMotionParent":str(candidate_path.relative_to(ROOT)),
+   "activeMotionParentSha256":hashlib.sha256(candidate_path.read_bytes()).hexdigest(),
+   "rejectedParent":"sn_l_rebound_candidate_v11.png",
+   "rollbackCandidate":"sn_l_rebound_candidate_v8.png"
+ },
+ "changedRoi":{"oldErasePixels":int(old_mask_arr.sum()),"addVisiblePixels":int(add_visible.sum()),"changedPixelsVsHit":int(diff_hit_v12.sum()),"changedBBoxVsHit":bbox12},
+ "pairStaticGuards":{"outsideAllowedChangedPixels":outside_v12,"guardChangedPixelsVsHit":guard12},
+ "constraintChecks":{"reboundSeparationPx":round(rebound_sep,3),"minimumSeparationPx":c["tolerancesPx"]["reboundSeparation"],"reboundPass":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
+ "hardPass":{
+   "outsideAllowedChangedPixels":outside_v12==0,
+   "inactiveRightArmExactToHit":guard12["right_arm"]==0,
+   "headExactToHit":guard12["head"]==0,
+   "pelvisSeatExactToHit":guard12["pelvis_seat"]==0,
+   "legsStoolExactToHit":guard12["legs_stool"]==0,
+   "reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"],
+   "changedVisible":int(diff_hit_v12.sum())>=250
+ }
+}
+report12["pass"]=all(report12["hardPass"].values())
+(OUTDIR/"sn_l_rebound_candidate_v12_qa.json").write_text(json.dumps(report12,ensure_ascii=False,indent=2)+"\n")
+print(json.dumps({"v8":report,"v11":report11,"v12":report12},ensure_ascii=False))
+if not report12["pass"]: raise SystemExit(2)
