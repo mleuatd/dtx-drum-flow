@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T09:16:00+09:00",
+  "updatedAt": "2026-09-20T09:31:00+09:00",
   "authority": "Latest GitHub main plus MOTION_DEFECT_BACKLOG.json. This file defines shared HOLD-repair execution for all terminals.",
   "objective": "Convert HOLD_VISUAL_INTEGRITY pairs to VERIFIED accurately without cross-terminal collision or premature formal promotion.",
   "coordination": {
@@ -63,10 +63,11 @@
   "currentLearning": [
     "RD+SN:R/L: two rebound-local method4 attempts improved rebound but pair still fails because hit has duplicated/disconnected right RD arm/hand. Next repair must address right RD arm/hand/stick consistently across BOTH phases.",
     "RD:R: method4 rebound removes original splice, but hit has duplicated/disconnected right RD arm/hand. Next repair must be pair-level, not rebound-only.",
-    "Synthetic runtime timeline seek cannot create arbitrary action keys; use real chart occurrences for authoritative runtime PASS."
+    "Synthetic runtime timeline seek cannot create arbitrary action keys; use real chart occurrences for authoritative runtime PASS.",
+    "SN:L: v2-v7 machine-safe local masking exposed neutral-pose residue plus duplicated source hand/stick. Broad neutral restoration created a rectangular plaid patch. Do not continue rectangular mask patching; next repair must reconstruct one coherent left arm/hand/stick while keeping hit/static base protected."
   ],
   "parallelExecution": {
-    "frontSuggestedNext": "SN:L",
+    "frontSuggestedNext": "BD+RC:RF/R",
     "backSuggestedNext": "BD+HH+SN:RF/R/L",
     "note": "These are suggestions only; always re-read latest main and claims immediately before claiming."
   }
