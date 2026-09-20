@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 19,
+  "sourceFilename": "019_lt_r_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "LT:R",
+  "runtimeActionKey": "LT:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手に上向きスティックとは別の横向き短いスティックが残り、計3本に見える。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "hair",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/LT_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action LT:R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "hair",
+      "artifact"
+    ]
+  }
+}
