@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 27,
+  "sourceFilename": "027_ft_l_rebound.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "FT:L",
+  "runtimeActionKey": "FT:L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手から斜め上と右方向の2本のスティックが伸び、計3本に見える。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/FT_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action FT:L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
