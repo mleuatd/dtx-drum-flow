@@ -107,3 +107,18 @@ A JSON chart note may optionally carry:
 ```
 
 If omitted, runtime selection uses `animation_rules.json` based on part, local subdivision, repetition, and simultaneous notes.
+
+
+## Topology-preserving deformation
+
+For a motion correction that crosses a joint chain or the waist/skirt boundary, do not use a rectangular pasted patch. Use one connected semantic region and a continuous deformation field.
+
+Mandatory rules:
+
+- Determine camera, torso direction, pelvis and stool contact before placing the active limb.
+- For a pedal action, preserve the chain `hip -> knee -> ankle -> boot -> pedal` without reverse bends or detached segments.
+- Transform body contour, clothing contour, checked fabric lines, skirt hem, boot details and alpha with the same deformation field.
+- Masks follow the character silhouette and natural clothing/occlusion boundaries; bounding-box edges must never become visible seams.
+- Fixed regions outside the declared deformation ROI must remain byte-identical whenever technically possible.
+- The immutable drum layer is used for contact QA only and is never warped or baked into the character PNG.
+- Save landmarks, source SHA, target contact, fixed ROI, deformation ROI and QA tolerances as versioned configuration data.

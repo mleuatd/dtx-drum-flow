@@ -387,3 +387,25 @@ Do not build a tool-only pipeline merely because automation is possible.
 Do not use AI for simple byte/metadata/math work when a deterministic tool is safer.
 Prefer a hybrid handoff: tool evidence -> AI judgment/edit -> tool verification.
 
+
+
+## 19. Topology-preserving articulated deformation rule
+
+When a defect crosses an articulated chain or the waist/skirt/pelvis boundary, the local-edit-first rule does not authorize a rectangular crop/paste. Use a connected semantic ROI and a continuous deformation field.
+
+Mandatory order:
+
+`camera/torso direction -> pelvis/stool anchor -> clothing overlap -> joint landmarks -> instrument contact -> continuous warp -> alpha repair -> fixed-drum QA`
+
+Rules:
+- Use only an APPROVED/PASS source with known path and SHA as geometry authority. A FAIL frame may contribute action/phase intent only.
+- Preserve the source limb topology. For BD:RF the required chain is `hip -> knee -> ankle -> boot -> pedal`.
+- Move contours, checked-clothing lines, skirt hem, boot details and alpha through the same deformation field. Never repair the body while leaving its clothing pattern behind.
+- A deformation mask must follow silhouette, clothing seams, hair occlusion and other natural boundaries. Visible bounding-box edges, white rectangular fields and splice seams are immediate FAIL.
+- Decide torso direction before limb placement. Do not rotate the whole body after contact alignment to conceal a mismatch.
+- Declare fixed ROI and deformation ROI in versioned JSON. Fixed regions should have zero changed pixels whenever technically possible.
+- Generate candidate, fixed-drum composite, before/after comparison, QA JSON and timing record before any formal promotion.
+- The first validated representative frame becomes the configuration/tool authority for same-pattern expansion. Do not expand before user visual confirmation.
+- Current BD lower-body expansion order is `008 -> 010 -> 014 -> 028 -> 032`.
+
+This rule supersedes any older instruction to copy a PASS sibling phase directly into the target phase. A sibling phase is a deformation source, not a final substitute.

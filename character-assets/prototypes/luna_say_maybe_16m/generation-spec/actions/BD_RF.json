@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "actionKey": "BD:RF",
   "inherits": [
     "../MASTER_GENERATION_SPEC.json",
@@ -54,12 +54,59 @@
     "hands": 2,
     "connectivity": [
       "shoulder>elbow>wrist>hand>stick",
-      "hip>knee>ankle>boot"
+      "hip>knee>ankle>boot>pedal"
     ]
   },
   "specialAttention": [
     "Do not copy local geometry from FAIL references",
     "simultaneous targets must be satisfied in the same single body pose",
     "inactive limbs must remain close to neutral/PASS anchors"
-  ]
+  ],
+  "repairStandard": {
+    "strategy": "topology_preserving_mesh_warp",
+    "geometryAuthority": "PASS sibling phase or approved same-action source with known SHA",
+    "prohibitedStrategies": [
+      "copy sibling phase unchanged as final hit",
+      "rectangular crop/paste",
+      "translate foot only",
+      "erase third leg without reconstructing the articulated chain",
+      "full-frame generative redraw"
+    ],
+    "constructionOrder": [
+      "lock camera and torso direction",
+      "lock pelvis and stool contact",
+      "lock skirt/waist overlap",
+      "set hip/knee/ankle/heel/toe landmarks",
+      "align boot endpoint to BD pedal contact",
+      "warp body contour, clothing pattern and alpha together"
+    ],
+    "transformTogether": [
+      "body contour",
+      "clothing contour",
+      "checked pattern",
+      "skirt hem",
+      "right leg",
+      "boot details",
+      "alpha"
+    ],
+    "fixedByDefault": [
+      "face",
+      "head",
+      "hair",
+      "arms",
+      "hands",
+      "sticks",
+      "left leg",
+      "stool",
+      "outside transparent region"
+    ],
+    "qa": [
+      "two legs and two boots only",
+      "continuous hip-to-pedal chain",
+      "BD contact inside tolerance",
+      "no rectangular seam",
+      "no checked-pattern discontinuity",
+      "fixed ROI changed pixels equals zero where technically possible"
+    ]
+  }
 }

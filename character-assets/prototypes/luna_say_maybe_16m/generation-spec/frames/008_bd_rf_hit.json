@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "index": 8,
   "sourceFilename": "008_bd_rf_hit.png",
   "phase": "hit",
@@ -40,5 +40,67 @@
       "right_leg",
       "artifact"
     ]
+  },
+  "repairPlan": {
+    "role": "representative standardization frame",
+    "sourceAuthority": {
+      "path": "character-assets/layers/character/bd/rebound_rf.png",
+      "requiredClassification": "PASS",
+      "use": "geometry/style/camera source; deform into hit, never copy unchanged as final"
+    },
+    "strategy": "topology_preserving_mesh_warp",
+    "landmarks": [
+      "right_hip",
+      "right_knee",
+      "right_ankle",
+      "right_heel",
+      "right_toe",
+      "BD_pedal_contact"
+    ],
+    "constructionOrder": [
+      "camera_torso_lock",
+      "pelvis_stool_lock",
+      "waist_skirt_lock",
+      "right_leg_mesh",
+      "BD_contact_alignment",
+      "alpha_repair",
+      "QA"
+    ],
+    "transformTogether": [
+      "outline",
+      "clothing",
+      "checked_pattern",
+      "skirt_hem",
+      "right_leg",
+      "boot",
+      "alpha"
+    ],
+    "fixedRegions": [
+      "face",
+      "head",
+      "hair",
+      "arms",
+      "hands",
+      "sticks",
+      "left_leg",
+      "stool",
+      "outside_roi"
+    ],
+    "candidateDirectory": "character-assets/generation-trials/mesh-warp-008-v1/",
+    "promotionGate": [
+      "machine_qa",
+      "outside_roi_diff_qa",
+      "fixed_drum_composite_qa",
+      "full_resolution_visual_qa",
+      "user_confirmation"
+    ],
+    "expansionOrder": [
+      8,
+      10,
+      14,
+      28,
+      32
+    ],
+    "stopBeforeExpansion": true
   }
 }
