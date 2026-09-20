@@ -24,7 +24,7 @@ jobs:
       - name: Iterate repair and machine QA
         shell: bash
         run: |
-          set -euo pipefail
+          set -uo pipefail
           MAX_ITER=12
           mkdir -p character-assets/edit-workspaces/motion-repair-20260920/method4
           for i in $(seq 1 "$MAX_ITER"); do
