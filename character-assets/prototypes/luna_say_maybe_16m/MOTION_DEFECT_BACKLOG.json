@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T11:51:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "IN_FIX",
+      "status": "HOLD_VISUAL_INTEGRITY",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -142,9 +142,12 @@
         "pc/m143_SN_L_hit.png",
         "pc/m143_SN_L_rebound.png",
         "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
-        "Independent recurrence in public runtime QA run 35427385671: M107, changed-pixel ratio 14.08% (triage metric)"
+        "Independent recurrence in public runtime QA run 35427385671: M107, changed-pixel ratio 14.08% (triage metric)",
+        "exact-parent rebound repair workflow run 35485015269",
+        "artifact 10596809144",
+        "BLOCKED: GitHub Actions OPENAI_API_KEY secret unavailable (exit 20)"
       ],
-      "fixDecision": "Do not change runtime mapping first. Compare both formal frames to approved neutral and quantify locked-region displacement; repair only if image-level delta is the root cause. Respect active SN:L formal-image CLAIMs before any PNG edit.",
+      "fixDecision": "Mask-compositing v8-v12 is exhausted. Exact-parent structural rebound editor and QA are implemented, but execution is blocked only by missing GitHub Actions OPENAI_API_KEY. Do not rerun unchanged. Resume this mechanism when credential exists; meanwhile FRONT may process independently repairable targets.",
       "relatedAsset": [
         "character-assets/layers/character/sn/hit_l.png",
         "character-assets/layers/character/sn/rebound_l.png",
@@ -154,7 +157,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T10:47:00+09:00",
+      "updatedAt": "2026-09-20T11:51:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "HOLD_VISUAL_INTEGRITY",
@@ -704,6 +707,11 @@
             "at": "2026-09-20T10:47:00+09:00",
             "decision": "MASK_REPAIR_LOOP_EXHAUSTED",
             "detail": "v8-v12 bounded iterations tested difference-limited neutral cleanup, hit-parent active-arm transplant, y-clamped forearm transplant, and visible hand/stick-only overlay. Machine QA repeatedly passed, but human full-resolution QA still found sleeve cutouts, alpha gaps, or white/black fragments. Root cause is source-level left-arm/hand/stick structural inconsistency; further mask compositing is not an improving direction."
+          },
+          {
+            "at": "2026-09-20T11:51:00+09:00",
+            "decision": "EXACT_PARENT_AI_MECHANISM_READY_CREDENTIAL_BLOCKED",
+            "detail": "Run 35485015269 reached exact-parent rebound mask/prompt successfully, then exited 20 because OPENAI_API_KEY was empty. Artifact 10596809144 records the blocker. No image candidate was produced; do not retry until credential state changes."
           }
         ],
         "measurementTodos": [
@@ -1068,12 +1076,7 @@
           "detail": "FRONT releases MOTION-001 after bounded headless artifact loop. Mask/compositing strategy is exhausted without stable visual PASS. Preserve v8-v12 evidence and formal rollback anchor. Next repair requires exact-source-bound reconstruction of one coherent left arm/hand/stick."
         }
       ],
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FRONT-M001-FASTPIPE",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T11:48:00+09:00"
-      }
+      "claim": null
     },
     {
       "issueId": "MOTION-002",
@@ -2847,7 +2850,7 @@
     },
     {
       "issueId": "MOTION-004",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M141,M135",
       "time": "~245.81-245.95s",
@@ -3781,6 +3784,12 @@
         "note": "Batch 05: both hit and rebound contain a large horizontal/rectangular splice through lower hair/torso geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
         "workflowRunId": 35475413657,
         "artifactId": 10593488275
+      },
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FRONT-M004-FASTPIPE",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T11:51:00+09:00"
       }
     },
     {
