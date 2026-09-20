@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 6,
+  "sourceFilename": "006_hh_r_hit.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "HH:R",
+  "runtimeActionKey": "HH:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左腕側に別ポーズ由来の前腕・手が残留して腕が3本あるように見え、余分なスティックも残る。"
+  ],
+  "defectRegions": [
+    "left_arm",
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/HH_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action HH:R hit/rebound",
+    "negativeAttention": [
+      "left_arm",
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
