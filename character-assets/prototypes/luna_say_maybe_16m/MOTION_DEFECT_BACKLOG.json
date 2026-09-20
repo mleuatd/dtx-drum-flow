@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-20T12:36:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -5626,7 +5626,7 @@
     },
     {
       "issueId": "MOTION-007",
-      "status": "FIXED_PENDING_RUNTIME_QA",
+      "status": "VERIFIED",
       "severity": "HIGH",
       "measures": "M142,M115",
       "time": "~248.40-248.54s",
@@ -5642,9 +5642,13 @@
         "pc/m142_HH_R_rebound.png",
         "full-frame hit/rebound changed-pixel ratio 14.28% (threshold >25 RGB); used for triage only, not as sole PASS/FAIL authority",
         "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
-        "Independent recurrence in public runtime QA run 35427385671: M115, changed-pixel ratio 13.99% (triage metric)"
+        "Independent recurrence in public runtime QA run 35427385671: M115, changed-pixel ratio 13.99% (triage metric)",
+        "Method4 candidate run 35486487451 artifact 10598315094",
+        "formal promotion commit 23e9807cecd23f0afaf6db3764be300e3f83ade0",
+        "runtime QA run 35486915750 artifact 10597731781: PC/Xperia hit PASS + rebound PASS, failed=0",
+        "validate run 35486915788 PASS"
       ],
-      "fixDecision": "Do not change mapping first. Measure locked-region displacement against neutral and between hit/rebound, then choose the smallest repair that keeps action/contact semantics intact.",
+      "fixDecision": "VERIFIED: exact Method4 hit/rebound pair promoted; validate PASS; public real-chart runtime QA PASS on PC/Xperia for hit and rebound at M142; next-note transition verified by runtime timing.",
       "relatedAsset": [
         "character-assets/layers/character/hh/hit_r.png",
         "character-assets/layers/character/hh/rebound_r.png",
@@ -5655,10 +5659,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T05:45:00+09:00",
+      "updatedAt": "2026-09-20T12:36:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "FIXED_PENDING_RUNTIME_QA",
+        "state": "VERIFIED",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -6170,6 +6174,11 @@
             "at": "2026-09-20T12:27:00+09:00",
             "decision": "M007_METHOD4_EXACT_VISUAL_PASS",
             "detail": "Run 35486487451 artifact 10598315094: machine QA PASS and exact full-resolution fixed-drum visual QA PASS. Authorize only hit SHA 86a08a90... and rebound SHA bbfae80c... for promotion; runtime QA remains required before VERIFIED."
+          },
+          {
+            "at": "2026-09-20T12:36:00+09:00",
+            "decision": "VERIFIED",
+            "detail": "Exact promoted HH:R pair passed public real-chart runtime QA in both PC and Xperia viewports. Rebound sampled using full-song next-event timing across measure boundaries."
           }
         ],
         "measurementTodos": [
@@ -6446,7 +6455,7 @@
         "humanAnatomy": "PASS",
         "linework": "PASS",
         "fixedDrumComposite": "PASS",
-        "runtimeTransition": "PENDING",
+        "runtimeTransition": "PASS",
         "promotionBlocked": false,
         "reviewedAt": "2026-09-20T12:27:00+09:00",
         "reviewEvidence": {
@@ -6462,12 +6471,7 @@
           "No rectangular whole-body splice or duplicate full limb remains."
         ]
       },
-      "claim": {
-        "state": "CLAIMED",
-        "batch": "FRONT-M007-ROOT",
-        "owner": "CHATGPT-FRONT",
-        "claimedAt": "2026-09-20T12:06:00+09:00"
-      },
+      "claim": null,
       "hold": {
         "repairResult": "Existing alpha-safe retry still fails static anatomy/linework/fixed-drum gates.",
         "nextRepair": "Use verifiably source-bound or deterministic semantic ROI reconstruction for right HH arm/hand/stick; remove horizontal splice at cause.",
