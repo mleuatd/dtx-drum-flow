@@ -1,14 +1,20 @@
 {
   "schemaVersion": 3,
-  "runId": "20260920T183422Z",
+  "runId": "20260920T200015Z",
   "frame": "008",
   "frameId": "008_bd_rf_hit",
   "actionKey": "BD:RF",
   "phase": "hit",
-  "startMainSha": "e0635a1802fc5b11accd712a5d8dcbab947f27b5",
-  "endMainShaCheck": "e0635a1802fc5b11accd712a5d8dcbab947f27b5",
+  "startMainSha": "7528696b159c5c133b136ffb5a92f73a7c79f744",
+  "endMainShaCheck": "7528696b159c5c133b136ffb5a92f73a7c79f744",
   "inputs": {
     "normalSource": {
+      "path": "character-assets/layers/character/bd/rebound_rf.png",
+      "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+      "cacheHit": true
+    },
+    "warpSource": null,
+    "base": {
       "path": "character-assets/layers/character/bd/rebound_rf.png",
       "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
       "cacheHit": true
@@ -25,7 +31,7 @@
     },
     "config": {
       "path": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
-      "sha256": "446208229ffea7af32bb9b83937f2f6f20fd84be0ca35e1b47acf6892c2eaf1c"
+      "sha256": "334b876cd905e70520ab1009c16ac56cefb3a0e29498cffce0ff96aea6fc79f7"
     }
   },
   "generatedFiles": [
@@ -71,23 +77,11 @@
     },
     {
       "path": "character-assets/generation-trials/mesh-warp-008-v1/008_qa.json",
-      "sha256": "dd60a6d39d044a92c17fd220f809b99fdf814b61bdb89e4b74f53ae5fd7c048e"
+      "sha256": "cd285032f7b2964ac02da2d1539f48c13f1f9fd2a77b0c1a580b36b6b39b735a"
     },
     {
       "path": "character-assets/generation-trials/mesh-warp-008-v1/008_timing.json",
-      "sha256": "5489ded8c84cb666e4978a279e2037d7e4bae507b1a3a2e8a575d69fbf94f7b4"
+      "sha256": "40d7cc41911fab1a584e1e764eb29be8346b11fffe844d93b98f8014323818f8"
     }
-  ],
-  "evidenceCommitSha": "fb5ba94a4241127fe1f64d457a001ed01d6477e3",
-  "githubRegistrationTiming": {
-    "commitPreparationSeconds": 9.002,
-    "registrationSeconds": 3.2,
-    "overallWithLocalPipelineSeconds": 14.337201
-  },
-  "decodedRgbaRegression": {
-    "formalReference": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
-    "equal": true,
-    "differentPixels": 0
-  },
-  "visualReferenceNote": "008_bd_rf_hit_mesh_v1_review.png is review-only and not used as the pixel-identity oracle."
+  ]
 }

@@ -1,21 +1,19 @@
 {
   "schemaVersion": 4,
   "stages": {
-    "configValidationSeconds": 0.000264,
-    "cacheCheckAndHashSeconds": 0.007434,
-    "gitCommitPreparationSeconds": 9.002,
-    "gitRegistrationSeconds": 3.2,
-    "loadSeconds": 0.083265,
-    "warpSeconds": 0.044213,
-    "candidateSaveSeconds": 0.100483,
-    "qaSeconds": 0.03656,
-    "fixedDrumCompositeSeconds": 0.753306,
-    "reviewGenerationSeconds": 0.412579,
-    "beforeAfterGenerationSeconds": 0.69014,
-    "candidateToReviewCompleteSeconds": 2.037281,
-    "manifestGenerationSeconds": 0.004848,
-    "totalLocalPipelineSeconds": 2.135201,
-    "overallWithGitSeconds": 14.337201,
-    "gitTimingEvidenceCommit": "fb5ba94a4241127fe1f64d457a001ed01d6477e3"
+    "configValidationSeconds": 0.000266,
+    "cacheCheckAndHashSeconds": 0.007529,
+    "gitCommitPreparationSeconds": null,
+    "gitRegistrationSeconds": null,
+    "loadSeconds": 0.117805,
+    "warpSeconds": 0.041374,
+    "candidateSaveSeconds": 0.105289,
+    "qaSeconds": 0.034563,
+    "fixedDrumCompositeSeconds": 0.803704,
+    "reviewGenerationSeconds": 0.489919,
+    "beforeAfterGenerationSeconds": 0.907849,
+    "candidateToReviewCompleteSeconds": 2.382698,
+    "manifestGenerationSeconds": 0.003947,
+    "totalLocalPipelineSeconds": 2.512495
   }
 }

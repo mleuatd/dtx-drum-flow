@@ -5,12 +5,16 @@
   "phase": "hit",
   "source": "character-assets/layers/character/bd/rebound_rf.png",
   "sourceSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+  "warpSource": null,
+  "warpSourceSha256": null,
+  "base": "character-assets/layers/character/bd/rebound_rf.png",
+  "baseSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
   "brokenSource": "character-assets/layers/character/bd/hit_rf.png",
   "brokenSourceSha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
   "fixedDrum": "character-assets/layers/drum/drum_base.png",
   "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
   "config": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
-  "configSha256": "446208229ffea7af32bb9b83937f2f6f20fd84be0ca35e1b47acf6892c2eaf1c",
+  "configSha256": "334b876cd905e70520ab1009c16ac56cefb3a0e29498cffce0ff96aea6fc79f7",
   "candidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
   "candidateSha256": "4ee11bd49363502e2536bf3a2dce3a1b1f1bd873721d32af7eb667dfe9a93caf",
   "canvas": [
@@ -29,21 +33,22 @@
     "height": 326
   },
   "pedalEndpoint": [
-    710,
-    925
+    710.0,
+    925.0
   ],
   "pedalTarget": [
-    700,
-    920
+    700.0,
+    920.0
   ],
   "pedalDistancePx": 11.18,
-  "pedalTolerancePx": 45,
+  "pedalTolerancePx": 45.0,
   "visualQaRequired": true,
   "checks": {
     "canvas1448x1086": true,
     "rgba": true,
     "alphaChannelPresent": true,
     "sourceShaMatchesConfig": true,
+    "baseShaMatchesConfig": true,
     "brokenSourceShaMatchesConfig": true,
     "fixedDrumShaMatchesConfig": true,
     "candidateDiffersFromSource": true,
@@ -62,21 +67,19 @@
   },
   "machinePass": true,
   "timings": {
-    "configValidationSeconds": 0.000264,
-    "cacheCheckAndHashSeconds": 0.007434,
-    "gitCommitPreparationSeconds": 9.002,
-    "gitRegistrationSeconds": 3.2,
-    "loadSeconds": 0.083265,
-    "warpSeconds": 0.044213,
-    "candidateSaveSeconds": 0.100483,
-    "qaSeconds": 0.03656,
-    "fixedDrumCompositeSeconds": 0.753306,
-    "reviewGenerationSeconds": 0.412579,
-    "beforeAfterGenerationSeconds": 0.69014,
-    "candidateToReviewCompleteSeconds": 2.037281,
-    "manifestGenerationSeconds": 0.004848,
-    "totalLocalPipelineSeconds": 2.135201,
-    "overallWithGitSeconds": 14.337201,
-    "gitTimingEvidenceCommit": "fb5ba94a4241127fe1f64d457a001ed01d6477e3"
+    "configValidationSeconds": 0.000266,
+    "cacheCheckAndHashSeconds": 0.007529,
+    "gitCommitPreparationSeconds": null,
+    "gitRegistrationSeconds": null,
+    "loadSeconds": 0.117805,
+    "warpSeconds": 0.041374,
+    "candidateSaveSeconds": 0.105289,
+    "qaSeconds": 0.034563,
+    "fixedDrumCompositeSeconds": 0.803704,
+    "reviewGenerationSeconds": 0.489919,
+    "beforeAfterGenerationSeconds": 0.907849,
+    "candidateToReviewCompleteSeconds": 2.382698,
+    "manifestGenerationSeconds": 0.003947,
+    "totalLocalPipelineSeconds": 2.512495
   }
 }
