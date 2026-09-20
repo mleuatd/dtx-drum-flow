@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 40,
+  "sourceFilename": "040_ft_sn_r_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "FT+SN:R/L",
+  "runtimeActionKey": "FT+SN:R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左手に2本、右手にも2本のスティックが見え、計4本に見える。"
+  ],
+  "defectRegions": [
+    "left_hand",
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/FT_SN_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action FT+SN:R/L hit/rebound",
+    "negativeAttention": [
+      "left_hand",
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
