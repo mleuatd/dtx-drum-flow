@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T09:52:00+09:00",
+  "updatedAt": "2026-09-20T09:56:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -154,10 +154,10 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T09:31:00+09:00",
+      "updatedAt": "2026-09-20T09:56:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -913,7 +913,7 @@
           "fixedDrumCompositeQaRequired": true,
           "promotionBlockedUntilAllPass": true
         },
-        "updatedAt": "2026-09-20T09:31:00+09:00"
+        "updatedAt": "2026-09-20T09:56:00+09:00"
       },
       "occurrences": [
         {
@@ -1006,9 +1006,19 @@
           "at": "2026-09-20T09:31:00+09:00",
           "decision": "HOLD_REPAIR_FRONT_03_CLOSED",
           "detail": "Released FRONT claim after root cause was clarified. Machine-only PASS is explicitly rejected. Formal PNGs unchanged."
+        },
+        {
+          "at": "2026-09-20T09:56:00+09:00",
+          "decision": "HOLD_REPAIR_RECLAIMED_DIFFERENCE_LIMITED",
+          "detail": "FRONT reclaims MOTION-001 only for a new difference-limited reconstruction method. v7 broad neutral restoration is prohibited; next candidate may restore only pixels inside the diagnosed unwanted-hand ROI that actually differ between source and neutral, preserving clothing/hair linework."
         }
       ],
-      "claim": null
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "HOLD-REPAIR-FRONT-05",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T09:56:00+09:00"
+      }
     },
     {
       "issueId": "MOTION-002",
