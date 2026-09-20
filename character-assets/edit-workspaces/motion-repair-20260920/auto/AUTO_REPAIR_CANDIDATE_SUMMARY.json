@@ -98,7 +98,7 @@
           ]
         }
       ],
-      "maskPixelCount": 91349,
+      "maskPixelCount": 91833,
       "changedPixelsVsNeutral": 76230,
       "changedRatioVsNeutral": 0.04847608,
       "changedBBoxVsNeutral": {
@@ -107,11 +107,11 @@
         "width": 443,
         "height": 742
       },
-      "headGuardChangedPixels": 147,
+      "headGuardChangedPixels": 0,
       "pelvisGuardChangedPixels": 0,
       "stoolGuardChangedPixels": 0,
       "inactiveLowerChangedPixels": null,
-      "outsideMaskChangedPixels": 62,
+      "outsideMaskChangedPixels": 0,
       "sourceLocalPreservation": [
         {
           "part": "BD",
@@ -133,16 +133,16 @@
       "checks": {
         "changedVisible": true,
         "changedRatioWithinLimit": true,
-        "outsideSemanticMaskZero": false,
-        "headLocked": false,
+        "outsideSemanticMaskZero": true,
+        "headLocked": true,
         "pelvisLocked": true,
         "stoolLocked": true,
         "inactiveLowerLocked": true,
         "localSourcePreservation": true
       },
-      "pass": false
+      "pass": true
     }
   ],
-  "passCount": 1,
-  "failCount": 1
+  "passCount": 2,
+  "failCount": 0
 }
