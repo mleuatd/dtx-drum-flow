@@ -1,8 +1,8 @@
 {
-  "version": 2,
+  "version": 3,
   "prototype": "luna-say-maybe-full-song",
   "handedness": "right-handed",
-  "technique": "cross-hand default with phrase-aware sticking",
+  "technique": "right-handed cross-hand default with note-value-aware sticking and phrase-aware exceptions",
   "authorityPolicy": "Per-note sidecar is authoritative. Renderer must not guess when an assignment exists.",
   "semantics": {
     "hands": [
@@ -50,24 +50,26 @@
       "default": [
         "R"
       ],
-      "rapidGapSeconds": 0.13,
-      "rapidSequence": [
-        "R",
-        "L"
-      ],
-      "rapidAlternates": true
-    },
-    "SN": {
-      "default": [
-        "L"
-      ],
-      "rapidGapSeconds": 0.13,
       "rapidSequence": [
         "R",
         "L"
       ],
       "rapidAlternates": true,
-      "startHandPolicy": "Choose a single-stroke alternating start hand phrase-by-phrase; prefer R lead, but choose parity/start so the final hand leaves the immediately following required cymbal/tom hand available. Respect simultaneous-hand conflicts and the authoritative M1-16 precedent."
+      "rapidSubdivision": 16,
+      "rapidToleranceRatio": 1.12
+    },
+    "SN": {
+      "default": [
+        "L"
+      ],
+      "rapidSequence": [
+        "R",
+        "L"
+      ],
+      "rapidAlternates": true,
+      "startHandPolicy": "Choose a single-stroke alternating start hand phrase-by-phrase; prefer R lead, but choose parity/start so the final hand leaves the immediately following required cymbal/tom hand available. Respect simultaneous-hand conflicts and the authoritative M1-16 precedent.",
+      "rapidSubdivision": 16,
+      "rapidToleranceRatio": 1.12
     },
     "LC": {
       "default": [
@@ -121,12 +123,13 @@
   "validation": {
     "prohibitSameLimbSimultaneous": true,
     "prohibitMissingLimb": true,
-    "rapidSameHandRepeatMaxGapSeconds": 0.13,
     "authoritativePrefixMeasures": [
       1,
       16
     ],
-    "allowDocumentedPrefixExceptionOnly": false
+    "allowDocumentedPrefixExceptionOnly": false,
+    "rapidSameHandRepeatSubdivision": 16,
+    "rapidToleranceRatio": 1.12
   },
   "researchReferences": [
     {
@@ -144,5 +147,29 @@
       "url": "https://ae.vicfirth.com/wp-content/uploads/Fresh-Approach-to-Drumset-SAMPLER.pdf",
       "note": "Tom single-stroke exercises use R-L alternation."
     }
-  ]
+  ],
+  "rhythmicStickingPolicy": {
+    "basis": "musical-note-value",
+    "bpmSource": "fixed FINAL chart bpm",
+    "defaultRapidSubdivision": 16,
+    "toleranceRatio": 1.12,
+    "meaning": "For repeated strikes on the same hand-played part, eighth-note spacing remains on the normal/default hand when practical; sixteenth-note-or-faster spacing becomes an alternating-sticking candidate.",
+    "appliesTo": [
+      "LC",
+      "HH",
+      "SN",
+      "HT",
+      "LT",
+      "FT",
+      "RC",
+      "RD"
+    ],
+    "exceptions": [
+      "Observed-performance sticking overrides inferred sticking.",
+      "Simultaneous hand-played notes must use distinct hands.",
+      "Phrase continuity may choose the starting hand so the following required strike remains playable.",
+      "Tom traversal may retain alternating hands at slower spacing when alternating is more natural for moving across the kit.",
+      "Do not alter chart note timing, part, or instrument to satisfy sticking."
+    ]
+  }
 }
