@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T10:55:00+09:00",
+  "updatedAt": "2026-09-20T10:56:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -12893,7 +12893,7 @@
     },
     {
       "issueId": "MOTION-015",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M67",
       "time": "~1:58.7-1:58.8",
@@ -12921,7 +12921,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T09:38:00+09:00",
+      "updatedAt": "2026-09-20T10:56:00+09:00",
       "occurrences": [
         {
           "measure": "M67",
@@ -12935,7 +12935,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -13893,7 +13893,12 @@
           "duplicated left hand/arm-stick geometry, floating fragments, and seat splice"
         ]
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "HOLD-REPAIR-BACK-16",
+        "owner": "CHAT-PASS2-BACK",
+        "claimedAt": "2026-09-20T10:56:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:27:00+09:00",
