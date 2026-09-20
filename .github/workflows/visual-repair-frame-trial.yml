@@ -1,0 +1,53 @@
+name: Visual repair frame trial
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/generation-trials/mesh-warp-*-v1/*_mesh_config.json"
+      - ".github/workflows/visual-repair-frame-trial.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  trial:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: tools/character_layers/requirements.txt
+      - run: pip install --disable-pip-version-check -r tools/character_layers/requirements.txt
+      - name: Resolve changed frame config
+        id: cfg
+        shell: bash
+        run: |
+          CONFIG="$(python - <<'PY'
+          import json, os
+          e=json.load(open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8"))
+          paths=[]
+          for c in e.get("commits") or []:
+              paths += c.get("added") or []
+              paths += c.get("modified") or []
+          configs=[p for p in paths if p.startswith("character-assets/generation-trials/mesh-warp-") and p.endswith("_mesh_config.json")]
+          if len(configs) != 1:
+              raise SystemExit(f"expected exactly one frame config change, got {configs}")
+          print(configs[0])
+          PY
+          )"
+          echo "config=$CONFIG" >> "$GITHUB_OUTPUT"
+          OUTDIR="$(dirname "$CONFIG")"
+          echo "outdir=$OUTDIR" >> "$GITHUB_OUTPUT"
+      - name: Run one-command frame trial and guarded commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python tools/character_layers/run_visual_repair_trial.py             --frame-config "${{ steps.cfg.outputs.config }}"             --output-dir "${{ steps.cfg.outputs.outdir }}"             --git-commit             --start-main-sha "$GITHUB_SHA"             --commit-message "trial: generate visual repair candidate"
+          git push origin HEAD:main
