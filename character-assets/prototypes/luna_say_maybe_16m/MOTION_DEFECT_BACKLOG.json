@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T07:03:42.315033+00:00",
+  "updatedAt": "2026-09-20T16:01:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -10487,7 +10487,7 @@
     },
     {
       "issueId": "MOTION-012",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "FIXED_PENDING_RUNTIME_QA",
       "severity": "HIGH",
       "measures": "M76",
       "time": "~2:14.3-2:14.4",
@@ -10515,7 +10515,7 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T11:10:00+09:00",
+      "updatedAt": "2026-09-20T16:01:00+09:00",
       "occurrences": [
         {
           "measure": "M76",
@@ -10529,7 +10529,7 @@
       ],
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "FIXED_PENDING_QA",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -11292,22 +11292,20 @@
         "candidateSummary": "character-assets/edit-workspaces/motion-repair-20260920/auto/AUTO_REPAIR_CANDIDATE_SUMMARY.json"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "FAIL",
-        "linework": "FAIL",
-        "fixedDrumComposite": "FAIL",
-        "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
-        "promotionBlocked": true,
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_RUNTIME_QA",
+        "promotionBlocked": false,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "priorStatus": "FIXED_PENDING_RUNTIME_QA",
-        "note": "Prior pixel/ROI/runtime evidence is preserved but does not satisfy the new mandatory visual-integrity gates.",
-        "reviewedAt": "2026-09-20T08:56:00+09:00",
-        "reviewEvidence": {
-          "workflowRunId": 35476577082,
-          "artifactId": 10594860319
+        "reviewedAt": "2026-09-20T16:01:00+09:00",
+        "note": "Deterministic HT reconstruction now uses one stable right forearm/hand pose with a single phase-specific HT stick. Full-resolution and cropped review confirm no rectangular torso/hair splice, no duplicated forearm/hand, and continuous grip-to-stick linework.",
+        "candidateSha256": {
+          "hit": "a4d933677c8a8f8d944eb6db5d934364220677d82b55b10fa175d1dad6902781",
+          "rebound": "d2427bc90a2399e8f8d2283d8e69f66a3662779fe4420e6fef8d8bc0794021be"
         },
-        "failReasons": [
-          "large rectangular torso/hair splice with duplicated forearm/hand and detached/crossing stick fragments"
-        ]
+        "machineQaRunId": 35495667621,
+        "machineQaArtifactId": 10600179286
       },
       "claim": {
         "state": "CLAIMED",
@@ -11330,6 +11328,11 @@
           "at": "2026-09-20T11:10:00+09:00",
           "decision": "PASS2_BACK_RESTART_CONDITION_STILL_UNMET",
           "detail": "Exact target-bound/deterministic ROI editor remains required. Existing auto candidate remains prohibited; claim released."
+        },
+        {
+          "at": "2026-09-20T16:01:00+09:00",
+          "decision": "PASS2_HT_VISUAL_INTEGRITY_PASS",
+          "detail": "Run 35495667621 candidate pair machine QA PASS. Full-resolution + hand/stick crop review PASS: one continuous HT stick, coherent right forearm/hand, no structural splice. Authorized for guarded formal promotion."
         }
       ],
       "hold": {
