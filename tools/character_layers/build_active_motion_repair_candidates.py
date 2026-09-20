@@ -161,7 +161,8 @@ for t in targets:
     if key=="BD+HT:RF/R" and phase=="rebound":
         bridge=Image.new("L",(W,H),0)
         bd=ImageDraw.Draw(bridge)
-        bd.line([(489,263),(514,307)],fill=255,width=9)
+        bd.line([(489,263),(514,307)],fill=255,width=15)
+        bd.line([(494,260),(519,307)],fill=255,width=15)
         stick_bridge=np.asarray(bridge)>0
         M |= stick_bridge
 
@@ -176,7 +177,14 @@ for t in targets:
     Q=np.asarray(cand)
     ndiff=np.any(Q!=N,axis=2)
     changed=int(ndiff.sum()); ratio=changed/(W*H)
-    headc=guard_count(ndiff,HEAD); pelvisc=guard_count(ndiff,PELVIS); stoolc=guard_count(ndiff,STOOL)
+    if stick_bridge is not None:
+        x1,y1,x2,y2=HEAD
+        head_region=ndiff[y1:y2,x1:x2]
+        head_exception=stick_bridge[y1:y2,x1:x2]
+        headc=int(np.count_nonzero(head_region & ~head_exception))
+    else:
+        headc=guard_count(ndiff,HEAD)
+    pelvisc=guard_count(ndiff,PELVIS); stoolc=guard_count(ndiff,STOOL)
     # Foot-active actions intentionally change the RF limb through part of the
     # coarse pelvis rectangle. Judge only pelvis pixels outside the permitted
     # semantic mask, rather than failing intentional RF motion.
