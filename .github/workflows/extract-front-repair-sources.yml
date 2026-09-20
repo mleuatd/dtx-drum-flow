@@ -26,6 +26,12 @@ jobs:
           cp character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png qa-artifacts/front-repair-sources/bd_rd_rebound.png
           cp character-assets/layers/character/combo/rc_sn_hit_refresh.png qa-artifacts/front-repair-sources/rc_sn_hit.png
           cp character-assets/layers/character/combo/rc_sn_rebound_refresh.png qa-artifacts/front-repair-sources/rc_sn_rebound.png
+          cp character-assets/layers/character/rc/hit_r_refresh.png qa-artifacts/front-repair-sources/rc_hit_standalone.png
+          cp character-assets/layers/character/rc/rebound_r_refresh.png qa-artifacts/front-repair-sources/rc_rebound_standalone.png
+          cp character-assets/layers/character/hh/hit_r.png qa-artifacts/front-repair-sources/hh_hit.png
+          cp character-assets/layers/character/hh/rebound_r.png qa-artifacts/front-repair-sources/hh_rebound.png
+          cp character-assets/layers/character/rd/hit_r_refresh.png qa-artifacts/front-repair-sources/rd_hit_refresh.png
+          cp character-assets/layers/character/rd/rebound_r_refresh.png qa-artifacts/front-repair-sources/rd_rebound_refresh.png
           cp character-assets/layers/drum/drum_base.png qa-artifacts/front-repair-sources/drum_base.png
           sha256sum qa-artifacts/front-repair-sources/* > qa-artifacts/front-repair-sources/SHA256SUMS.txt
       - uses: actions/upload-artifact@v4
