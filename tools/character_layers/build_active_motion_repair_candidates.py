@@ -106,11 +106,26 @@ for t in targets:
                 gd.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
 
     G=np.asarray(geom)>0
-    # Static locks.
+    # Static locks. Foot-active combos need a narrow RF pedal corridor through
+    # the pelvis/lower-body guard; do not unlock the whole pelvis or stool.
     G[HEAD[1]:HEAD[3],HEAD[0]:HEAD[2]]=False
     G[PELVIS[1]:PELVIS[3],PELVIS[0]:PELVIS[2]]=False
     G[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
-    if not has_foot:
+    if has_foot:
+        for part,limb in components:
+            if limb not in ("LF","RF"):
+                continue
+            hip=LANDMARKS["hip_"+limb]; knee=LANDMARKS["knee_"+limb]; ankle=LANDMARKS["ankle_"+limb]
+            end=pt_for(part) or ankle
+            foot=Image.new("L",(W,H),0); fd=ImageDraw.Draw(foot)
+            fd.line([hip,knee,ankle,end],fill=255,width=135,joint="curve")
+            for p,r in [(knee,65),(ankle,75),(end,90)]:
+                fd.ellipse([p[0]-r,p[1]-r,p[0]+r,p[1]+r],fill=255)
+            F=np.asarray(foot)>0
+            G |= F
+        # Stool remains immutable even where the foot corridor approaches it.
+        G[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+    else:
         G[620:,:]=False
 
     diff=np.any(S!=N,axis=2)
