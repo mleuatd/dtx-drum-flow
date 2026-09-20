@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 46,
+  "sourceFilename": "046_bd_ht_rf_r_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+HT:RF/R",
+  "runtimeActionKey": "BD+HT:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左肩付近に手から離れたスティック状パーツが浮遊し、腰・スカート・椅子座面の境界に矩形状の貼り合わせ破綻がある。"
+  ],
+  "defectRegions": [
+    "waist",
+    "skirt",
+    "stool",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_HT_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+HT:RF/R hit/rebound",
+    "negativeAttention": [
+      "waist",
+      "skirt",
+      "stool",
+      "stick",
+      "artifact"
+    ]
+  }
+}
