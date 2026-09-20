@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 50,
+  "sourceFilename": "050_bd_hh_sn_rf_r_l_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+HH+SN:RF/R/L",
+  "runtimeActionKey": "BD+HH+SN:RF/R/L",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "スカートに黒い点・塊・崩れ線が多数残り、右脚上部にも大きな黒い塊、椅子境界に矩形状合成痕がある。"
+  ],
+  "defectRegions": [
+    "skirt",
+    "right_leg",
+    "stool",
+    "left_hand",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_HH_SN_RF_R_L.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action BD+HH+SN:RF/R/L hit/rebound",
+    "negativeAttention": [
+      "skirt",
+      "right_leg",
+      "stool",
+      "left_hand",
+      "artifact"
+    ]
+  }
+}
