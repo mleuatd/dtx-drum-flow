@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:20:00+09:00",
+  "updatedAt": "2026-09-20T11:28:00+09:00",
   "authority": "Latest GitHub main plus MOTION_DEFECT_BACKLOG.json. This file defines shared HOLD-repair execution for all terminals.",
   "objective": "Convert HOLD_VISUAL_INTEGRITY pairs to VERIFIED accurately without cross-terminal collision or premature formal promotion.",
   "coordination": {
@@ -95,7 +95,7 @@
     "efficiencyMode": {
       "mode": "DEFECT_FAMILY_BATCH",
       "enabled": true,
-      "primaryMetric": "VERIFIED count, not candidate/inspection count",
+      "primaryMetric": "VERIFIED count, with FRONT using single-target completion before queue advancement",
       "rules": [
         "Cluster HOLD targets by root-cause family before retrying: limb/stick duplication-disconnection, rectangular splice/dropout, registration/body shift.",
         "Never rerun a method already evidenced as machine-PASS but visual-FAIL for the same target/root cause.",
@@ -139,6 +139,20 @@
             "MOTION-015"
           ]
         }
+      ]
+    },
+    "completionFocus": {
+      "mode": "SINGLE_TARGET_TO_VERIFIED",
+      "appliesTo": "FRONT terminal immediately; other terminals keep their active claims and must not be overwritten",
+      "primaryMetric": "completed VERIFIED actionKeys",
+      "currentTarget": "MOTION-002 / BD+RC:RF/R",
+      "rules": [
+        "Do not advance FRONT to another HOLD target merely because one candidate failed.",
+        "Keep the current CLAIM and iterate parent-candidate -> minimal repair -> machine QA -> full-resolution visual QA -> fixed-drum QA -> transition QA until VERIFIED or a genuine tool/mechanism blocker is proven.",
+        "A FAIL is not progress completion; record it, rollback to the best parent candidate, change only the diagnosed cause, and continue on the same actionKey.",
+        "Improve tooling/workflows whenever it immediately reduces repeated extraction, candidate generation, QA, artifact retrieval, or bookkeeping for the current target.",
+        "Do not trade away mandatory visual/runtime gates for speed.",
+        "Only after currentTarget reaches VERIFIED may FRONT claim the next lowest unclaimed HOLD issue."
       ]
     }
   }
