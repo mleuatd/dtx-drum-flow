@@ -122,6 +122,17 @@ for f in fails:
         local=np.zeros((H,W),dtype=bool)
         if "rd_sn" in tid:
             local[300:620,340:700]=True   # left SN hand/stick/forearm
+            rdpt=cp("RD") or (965,250); sh=LAND["shoulder_R"]
+            rdgeom=Image.new("L",(W,H),0); rdd=ImageDraw.Draw(rdgeom)
+            grip=(930,335) if phase=="hit" else (915,350)
+            rdd.line([sh,grip,rdpt],fill=255,width=76 if phase=="hit" else 62,joint="curve")
+            rdd.ellipse([grip[0]-48,grip[1]-48,grip[0]+48,grip[1]+48],fill=255)
+            rdroute=np.asarray(rdgeom)>0
+            rdroute[HEAD_CORE[1]:HEAD_CORE[3],HEAD_CORE[0]:HEAD_CORE[2]]=False
+            rdroute[TORSO_CORE[1]:TORSO_CORE[3],TORSO_CORE[0]:TORSO_CORE[2]]=False
+            rdroute[STOOL[1]:STOOL[3],STOOL[0]:STOOL[2]]=False
+            rdroute[620:,:]=False
+            local |= rdroute
         if "bd_rc_sn" in tid:
             # MOTION-011: preserve left SN and RF/BD corridors, but admit only
             # one bounded right RC shoulder->hand->stick route. This avoids the
