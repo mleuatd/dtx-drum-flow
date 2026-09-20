@@ -268,7 +268,112 @@
       "actionKey": "BD:RF",
       "hitPath": "character-assets/layers/character/bd/hit_rf.png",
       "reboundPath": "character-assets/layers/character/bd/rebound_rf.png",
-      "measurementError": "OSError('broken data stream when reading image file')"
+      "hit": {
+        "sha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+        "opaquePixelCount": 313881,
+        "opaqueBBox": {
+          "x": 331,
+          "y": 30,
+          "width": 731,
+          "height": 1028
+        },
+        "opaqueCentroid": {
+          "x": 733.066,
+          "y": 554.91
+        }
+      },
+      "rebound": {
+        "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+        "opaquePixelCount": 356753,
+        "opaqueBBox": {
+          "x": 57,
+          "y": 23,
+          "width": 1122,
+          "height": 1040
+        },
+        "opaqueCentroid": {
+          "x": 734.287,
+          "y": 556.315
+        }
+      },
+      "neutralToHit": {
+        "changedPixels": 1572512,
+        "changedRatio": 0.99998983,
+        "diffBBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1448,
+          "height": 1086
+        },
+        "diffCentroid": {
+          "x": 723.499,
+          "y": 542.497
+        },
+        "alphaMismatchPixels": 358715
+      },
+      "neutralToRebound": {
+        "changedPixels": 70236,
+        "changedRatio": 0.04466439,
+        "diffBBox": {
+          "x": 600,
+          "y": 590,
+          "width": 348,
+          "height": 414
+        },
+        "diffCentroid": {
+          "x": 742.318,
+          "y": 740.755
+        },
+        "alphaMismatchPixels": 30157
+      },
+      "hitToRebound": {
+        "changedPixels": 1572512,
+        "changedRatio": 0.99998983,
+        "diffBBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1448,
+          "height": 1086
+        },
+        "diffCentroid": {
+          "x": 723.499,
+          "y": 542.497
+        },
+        "alphaMismatchPixels": 356461
+      },
+      "shape": {
+        "hitNeutralBboxIoU": 0.64399767,
+        "reboundNeutralBboxIoU": 1.0,
+        "hitReboundBboxIoU": 0.64399767,
+        "hitNeutralCentroidShiftPx": 3.04,
+        "reboundNeutralCentroidShiftPx": 1.555,
+        "hitReboundCentroidShiftPx": 1.861
+      },
+      "contactCenters": [
+        {
+          "instrument": "BD",
+          "x": 735,
+          "y": 650,
+          "source": "INSTRUMENT_CONTACT_POINTS.json",
+          "nearestChangedPixelNeutralToHitPx": 0.0,
+          "nearestChangedPixelNeutralToReboundPx": 0.0,
+          "nearestChangedPixelHitToReboundPx": 0.0
+        }
+      ],
+      "contactCenterToDiffCentroidPx": {
+        "hit": [
+          {
+            "instrument": "BD",
+            "distancePx": 108.116
+          }
+        ],
+        "rebound": [
+          {
+            "instrument": "BD",
+            "distancePx": 91.05
+          }
+        ]
+      }
     },
     "RC+SN:R/L": {
       "issueId": "MOTION-004",
