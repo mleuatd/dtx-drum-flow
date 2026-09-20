@@ -14,7 +14,7 @@ P={
  "rc_hit":ROOT/"character-assets/layers/character/rc/hit_r_refresh.png",
  "rc_rebound":ROOT/"character-assets/layers/character/rc/rebound_r_refresh.png",
  "sn_hit":ROOT/"character-assets/layers/character/sn/hit_l.png",
- "sn_rebound":ROOT/"character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v8.png",
+ "sn_rebound":ROOT/"character-assets/layers/character/sn/rebound_l.png",
 }
 I={k:Image.open(v).convert("RGBA") for k,v in P.items()}
 N=np.asarray(I["neutral"]); H,W=N.shape[:2]
@@ -57,7 +57,7 @@ STOOL=(760,700,850,1086)
 LOWER=(0,620,W,H)
 
 summary={"schemaVersion":4,"issueId":"MOTION-004","actionKey":"RC+SN:R/L",
- "method":"neutral common body + VERIFIED RC destructive arm + SN single-action destructive arm; no combo-source body pixels",
+ "method":"neutral common body + VERIFIED RC donor + VERIFIED formal SN:L donor; no combo-source body pixels",
  "sources":{k:{"path":str(v.relative_to(ROOT)),"sha256":sha(v)} for k,v in P.items()},"phases":[]}
 
 for phase in ("hit","rebound"):
