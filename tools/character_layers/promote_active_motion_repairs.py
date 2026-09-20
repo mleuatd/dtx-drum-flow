@@ -11,6 +11,8 @@ inventory_path=PROTO/"asset_inventory.json"
 amap_path=PROTO/"ACTION_KEY_ASSET_MAP.json"
 ledger_path=ROOT/"character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
 backlog_path=PROTO/"MOTION_DEFECT_BACKLOG.json"
+pass2_marker=ROOT/".github/back-promote-action.txt"
+pass2_action=pass2_marker.read_text().strip().rstrip(",") if pass2_marker.exists() else ""
 
 if not summary_path.exists():
     print("No candidate summary yet; nothing to promote.")
@@ -31,12 +33,31 @@ promoted=[]; skipped=[]; failed_candidates=[]
 for rec in summary.get("targets",[]):
     tid=rec["id"]
     t=next((x for x in ledger.get("targets",[]) if x.get("id")==tid),None)
+    if pass2_action and rec.get("actionKey")!=pass2_action:
+        skipped.append({"id":tid,"reason":"not_selected_pass2_action"}); continue
     if not t:
         skipped.append({"id":tid,"reason":"ledger_target_missing"}); continue
-    if t.get("claimState")=="COMPLETED":
-        skipped.append({"id":tid,"reason":"already_completed"}); continue
-    if t.get("terminalId")!="CHAT-MOTION-REPAIR":
-        skipped.append({"id":tid,"reason":"claim_owner_changed"}); continue
+
+    defect=next((x for x in backlog.get("defects",[]) if x.get("actionKey")==rec.get("actionKey")),None)
+    vqa=(defect or {}).get("visualIntegrityQa") or {}
+    expected_sha=(vqa.get("candidateSha256") or {}).get(rec.get("phase"))
+    pass2_authorized=bool(
+        pass2_action
+        and rec.get("actionKey")==pass2_action
+        and defect
+        and defect.get("status")!="VERIFIED"
+        and vqa.get("humanAnatomy")=="PASS"
+        and vqa.get("linework")=="PASS"
+        and vqa.get("fixedDrumComposite")=="PASS"
+        and vqa.get("promotionBlocked") is False
+        and expected_sha==rec.get("candidateSha256")
+        and (defect.get("claim") or {}).get("owner")=="CHAT-PASS2-BACK"
+    )
+    if not pass2_authorized:
+        if t.get("claimState")=="COMPLETED":
+            skipped.append({"id":tid,"reason":"already_completed"}); continue
+        if t.get("terminalId")!="CHAT-MOTION-REPAIR":
+            skipped.append({"id":tid,"reason":"claim_owner_changed"}); continue
     if not rec.get("pass"):
         t["brushupStatus"]="AUTO_REPAIR_METHOD1_FAIL"
         t["qaEvidence"]=str((WORK/(tid.lower()+"_qa.json")).relative_to(ROOT)) if (WORK/(tid.lower()+"_qa.json")).exists() else None
@@ -85,7 +106,8 @@ for rec in summary.get("targets",[]):
         e["motionRepairMethod"]="neutral-locked semantic corridor + changed-ink/alpha transplant"
 
     t["sha256"]=newsha
-    t["brushupStatus"]="MOTION_REPAIR_VERIFIED"
+    t["brushupStatus"]="MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA" if pass2_authorized else "MOTION_REPAIR_VERIFIED"
+    t["qaState"]="promoted-pending-runtime-qa" if pass2_authorized else t.get("qaState")
     t["claimState"]="COMPLETED"
     t["completedAt"]="2026-09-20T05:45:00+09:00"
     t["qaEvidence"]=str((WORK/(tid.lower()+"_qa.json")).relative_to(ROOT)) if (WORK/(tid.lower()+"_qa.json")).exists() else None
@@ -105,6 +127,8 @@ for d in backlog.get("defects",[]):
         if {"hit","rebound"}.issubset(phases):
             d["status"]="FIXED_PENDING_RUNTIME_QA"
             d["repairSpec"]["state"]="FIXED_PENDING_QA"
+            if d.get("visualIntegrityQa"):
+                d["visualIntegrityQa"]["runtimeTransition"]="PENDING_RUNTIME_QA"
         else:
             d["status"]="IN_FIX"
             d["repairSpec"]["state"]="IN_FIX"
