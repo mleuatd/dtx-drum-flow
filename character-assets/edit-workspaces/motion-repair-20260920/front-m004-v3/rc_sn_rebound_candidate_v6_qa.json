@@ -1,0 +1,21 @@
+{
+  "phase": "rebound",
+  "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_rebound_candidate_v6.png",
+  "candidateSha256": "c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653",
+  "parentCandidateSha256": "b44199b879bf46755f8934b26625c12cd34ccc0961d87996a26166158f3c3875",
+  "repairChangedPixels": 12600,
+  "repairChangedBBox": {
+    "x": 593,
+    "y": 285,
+    "width": 107,
+    "height": 160
+  },
+  "checks": {
+    "outsideV5RepairRoiZero": true,
+    "pelvisLocked": true,
+    "stoolLocked": true,
+    "lowerBodyLocked": true,
+    "canvasLocked": true
+  },
+  "machinePass": true
+}

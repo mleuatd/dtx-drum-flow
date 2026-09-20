@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 6,
+  "issueId": "MOTION-004",
+  "actionKey": "RC+SN:R/L",
+  "parentVersion": "v5",
+  "repairType": "source_bound_local_reconstruction",
+  "repairRoiPx": {
+    "x": 560,
+    "y": 270,
+    "width": 160,
+    "height": 175
+  },
+  "repairReason": "remove inactive SN-donor upper hand/forearm/stick residue found by full-resolution visual QA",
+  "sources": {
+    "neutral": {
+      "path": "character-assets/layers/character/base/neutral.png",
+      "sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9"
+    },
+    "drum": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85"
+    },
+    "rc_hit": {
+      "path": "character-assets/layers/character/rc/hit_r_refresh.png",
+      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5"
+    },
+    "rc_rebound": {
+      "path": "character-assets/layers/character/rc/rebound_r_refresh.png",
+      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a"
+    },
+    "sn_hit": {
+      "path": "character-assets/layers/character/sn/hit_l.png",
+      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+    },
+    "sn_rebound": {
+      "path": "character-assets/layers/character/sn/rebound_l.png",
+      "sha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202"
+    }
+  },
+  "phases": [
+    {
+      "phase": "hit",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_hit_candidate_v6.png",
+      "candidateSha256": "719220d6076e5b74a021f5ea8cc86ddffc6e7a334eccda34a74b99f38b3138c8",
+      "parentCandidateSha256": "bdf0a8759d5b8315d7fb9f68e18a7dfbf6f8ead156fbeb7db026249270b8db8f",
+      "repairChangedPixels": 10644,
+      "repairChangedBBox": {
+        "x": 593,
+        "y": 285,
+        "width": 101,
+        "height": 160
+      },
+      "checks": {
+        "outsideV5RepairRoiZero": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "lowerBodyLocked": true,
+        "canvasLocked": true
+      },
+      "machinePass": true
+    },
+    {
+      "phase": "rebound",
+      "candidate": "character-assets/edit-workspaces/motion-repair-20260920/front-m004-v3/rc_sn_rebound_candidate_v6.png",
+      "candidateSha256": "c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653",
+      "parentCandidateSha256": "b44199b879bf46755f8934b26625c12cd34ccc0961d87996a26166158f3c3875",
+      "repairChangedPixels": 12600,
+      "repairChangedBBox": {
+        "x": 593,
+        "y": 285,
+        "width": 107,
+        "height": 160
+      },
+      "checks": {
+        "outsideV5RepairRoiZero": true,
+        "pelvisLocked": true,
+        "stoolLocked": true,
+        "lowerBodyLocked": true,
+        "canvasLocked": true
+      },
+      "machinePass": true
+    }
+  ],
+  "pairMachinePass": true
+}
