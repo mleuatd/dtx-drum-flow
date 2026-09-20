@@ -49,16 +49,30 @@ ma[570:,:]=0
 # Absolute static guards: never import source head/right side/pelvis-seat pixels.
 ma[0:325,500:930]=0
 ma[560:810,560:980]=0
-# Human visual QA v3 diagnosis: the extra "hand" was neutral-pose residue,
-# not a source fragment. Force the old neutral-hand corridor into the replace
-# mask so source transparency can erase the old pose before the rebound hand
-# is composited. This prevents two simultaneous left hands.
+# Human visual QA v4 diagnosis: both neutral residue and source artifact
+# contributed to the detached white crescent below the rebound stick.
+# Keep the old-hand corridor replaceable, then explicitly clear only pixels
+# sufficiently below the grip-to-tip stick axis inside a narrow local ROI.
 ma[435:545,455:570]=255
 mask=Image.fromarray(ma.astype(np.uint8),"L")
 
 candidate=neutral.copy()
 candidate.paste(source,(0,0),mask)
-candidate_path=OUTDIR/"sn_l_rebound_candidate_v4.png"
+
+# Artifact-clear mask: x 455..545 only, and >18 px below the rebound stick axis
+# from tip(438,418) to wrist(593,496). This preserves the stick shaft and grip.
+qa=np.asarray(candidate).copy()
+allowed=np.asarray(mask)>0
+for x in range(455,546):
+    stick_y = 418 + (496-418) * ((x-438)/(593-438))
+    y0=max(0,int(round(stick_y+18)))
+    y1=min(H,545)
+    if y0<y1:
+        qa[y0:y1,x,:]=0
+        allowed[y0:y1,x]=True
+candidate=Image.fromarray(qa,"RGBA")
+mask=Image.fromarray((allowed.astype(np.uint8)*255),"L")
+candidate_path=OUTDIR/"sn_l_rebound_candidate_v5.png"
 candidate.save(candidate_path)
 
 # Exact raster diagnostics.
@@ -89,10 +103,10 @@ rebound_sep=dist(c["stickTip"],c["contactPoint"])
 
 # Composite debug: drum under candidate, preserving source canvas.
 comp=Image.alpha_composite(drum,candidate)
-comp.save(OUTDIR/"sn_l_rebound_candidate_v4_fixed_drum.png")
+comp.save(OUTDIR/"sn_l_rebound_candidate_v5_fixed_drum.png")
 
 report={
- "schemaVersion":4,
+ "schemaVersion":5,
  "issueId":"MOTION-001",
  "actionKey":"SN:L",
  "phase":"rebound",
@@ -105,6 +119,6 @@ report={
  "hardPass":{"outsideMaskChangedPixels":outside_changed==0,"inactiveLowerBodyChangedPixels":inactive_lower_changed==0,"headGuardChangedPixels":guard_changed["head"]==0,"rightArmGuardChangedPixels":guard_changed["right_arm"]==0,"pelvisSeatGuardChangedPixels":guard_changed["pelvis_seat"]==0,"legsStoolGuardChangedPixels":guard_changed["legs_stool"]==0,"reboundSeparation":rebound_sep>=c["tolerancesPx"]["reboundSeparation"]},
 }
 report["pass"]=all(report["hardPass"].values())
-(OUTDIR/"sn_l_rebound_candidate_v4_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+(OUTDIR/"sn_l_rebound_candidate_v5_qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(report,ensure_ascii=False))
 if not report["pass"]: raise SystemExit(2)
