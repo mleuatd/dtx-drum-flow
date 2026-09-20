@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "index": 45,
+  "sourceFilename": "045_ht_r_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "HT:R",
+  "runtimeActionKey": "HT:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "通常の左腕とは別に上側の左前腕・手が残留して腕が3本に見え、別スティック線もある。"
+  ],
+  "defectRegions": [
+    "left_arm",
+    "left_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/HT_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action HT:R hit/rebound",
+    "negativeAttention": [
+      "left_arm",
+      "left_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
