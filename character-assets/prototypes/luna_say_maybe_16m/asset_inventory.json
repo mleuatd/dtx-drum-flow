@@ -826,32 +826,12 @@
   "updatedAt": "2026-09-19T16:07:00+09:00",
   "note": "Character runtime scope expanded through full song M148. M137-148 uses only existing formal mappings; final range public QA pending.",
   "runtimeQaTarget": {
-    "measureStart": 137,
-    "measureEnd": 148,
+    "measureStart": 128,
+    "measureEnd": 128,
     "actions": [
-      "BD+RC:RF/R",
-      "HH:R",
-      "SN:L",
-      "BD+HH:RF/R",
-      "HH+SN:R/L",
-      "BD:RF",
-      "SN:R",
-      "BD+SN:RF/R",
-      "LT:R",
-      "LT:L",
-      "BD+LT:RF/R",
-      "FT:R",
-      "FT:L",
-      "BD+FT:RF/R",
-      "RC+SN:R/L",
-      "BD+SN:RF/L",
-      "BD+RD:RF/R",
-      "RD+SN:R/L",
-      "RD:R"
+      "BD+RC:RF/R"
     ],
-    "progressPath": "character-assets/prototypes/luna_say_maybe_137_148/PROGRESS.json",
-    "blockKey": "M137-148",
-    "purpose": "Public PC/Xperia reuse-only final character runtime checkpoint through M148.",
-    "retriggerAt": "2026-09-19T16:07:00+09:00"
+    "progressPath": "character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_PROMOTION_STATE.json",
+    "blockKey": "FRONT06-MOTION-002"
   }
 }

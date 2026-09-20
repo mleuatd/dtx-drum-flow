@@ -1072,7 +1072,7 @@
     },
     {
       "issueId": "MOTION-002",
-      "status": "PROMOTED_PENDING_PUBLIC_RUNTIME_QA",
+      "status": "PROMOTED_PENDING_PUBLIC_RUNTIME",
       "severity": "HIGH",
       "measures": "M143,M127",
       "time": "~250.11-250.27s",
@@ -1087,7 +1087,10 @@
         "pc/m143_BD_RC_RF_R_hit.png",
         "pc/m143_BD_RC_RF_R_rebound.png",
         "runtime-qa.json reports correct actionKey/phase/frame and no runtime errors",
-        "Independent recurrence in public runtime QA run 35427385671: M127, changed-pixel ratio 16.74% (triage metric)"
+        "Independent recurrence in public runtime QA run 35427385671: M127, changed-pixel ratio 16.74% (triage metric)",
+        "FRONT06 v3 static pair PASS",
+        "candidate real-chart runtime QA run 35483787908 artifact 10596886963",
+        "formal promotion guarded by exact v3 SHA and active FRONT claim"
       ],
       "fixDecision": "Treat as visual asset-continuity defect unless locked-region diff proves otherwise. Preserve fixed drum/runtime mapping; compare hit/rebound against neutral and choose the smallest image-level repair or frame-hold strategy that removes whole-body teleport.",
       "relatedAsset": [
@@ -1108,9 +1111,9 @@
           "baselinePath": "character-assets/layers/character/base/neutral.png",
           "baselineSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
           "hitPath": "character-assets/layers/character/combo/bd_rc_hit.png",
-          "hitSha256": "c166cea0c1f4477cc868f76cc7d2035a0022d4b96e925d54c6eb960ac757d242",
+          "hitSha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
           "reboundPath": "character-assets/layers/character/combo/bd_rc_rebound.png",
-          "reboundSha256": "c7ca4b42afa236ee41f74a4ce27e2b814bb769f4f7f7f73813f10f5dc8caf528",
+          "reboundSha256": "61daecdb947f87a08b78b7e94704eee789d2bcd6b59c75cdbebc53dc3861aa6b",
           "runtimeAuthorityNote": "exact limb-aware key first; legacy wildcard fallback second",
           "identityState": "MEASURED"
         },
