@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T12:36:00+09:00",
+  "updatedAt": "2026-09-20T12:38:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -3797,7 +3797,7 @@
     },
     {
       "issueId": "MOTION-005",
-      "status": "HOLD_VISUAL_INTEGRITY",
+      "status": "IN_FIX",
       "severity": "HIGH",
       "measures": "M137,M109",
       "time": "~238.68-238.83s",
@@ -3828,10 +3828,10 @@
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
         "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json"
       ],
-      "updatedAt": "2026-09-20T12:06:00+09:00",
+      "updatedAt": "2026-09-20T12:38:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
-        "state": "HOLD_VISUAL_INTEGRITY",
+        "state": "IN_FIX",
         "repairType": "local_image_edit",
         "sourceAuthority": {
           "baselinePath": "character-assets/layers/character/base/neutral.png",
@@ -4396,6 +4396,11 @@
             "at": "2026-09-20T12:06:00+09:00",
             "decision": "DEPENDENCY_ON_MOTION_007_ISOLATED",
             "detail": "Neutral + HH + VERIFIED BD rebuild showed duplicate torso/arms entirely from HH donor lineage. Stop combo retries until HH:R base action is clean."
+          },
+          {
+            "at": "2026-09-20T12:38:00+09:00",
+            "decision": "RETRY_AFTER_ROOT_DEPENDENCY_VERIFIED",
+            "detail": "MOTION-007 HH:R is now VERIFIED. Rebuild M005 once from neutral + current formal HH:R + VERIFIED BD:RF, then inspect exact pair. Do not branch into alternate methods unless exact residual defect remains."
           }
         ],
         "measurementTodos": [
@@ -4694,7 +4699,12 @@
         "workflowRunId": 35475852782,
         "artifactId": 10594059870
       },
-      "claim": null,
+      "claim": {
+        "state": "CLAIMED",
+        "batch": "FRONT-M005-AFTER-M007",
+        "owner": "CHATGPT-FRONT",
+        "claimedAt": "2026-09-20T12:38:00+09:00"
+      },
       "decisionLog": [
         {
           "at": "2026-09-20T08:36:00+09:00",
