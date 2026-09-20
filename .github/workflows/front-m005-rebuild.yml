@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/front-m005-rebuild.yml"
       - "tools/character_layers/build_front_m005.py"
+      - "tools/character_layers/promote_front_m005.py"
       - ".github/front-m005-trigger.txt"
   workflow_dispatch:
 permissions:
@@ -15,7 +16,7 @@ concurrency:
 jobs:
   build-promote:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,9 +26,16 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install --disable-pip-version-check pillow numpy
 
-      - name: Verify FRONT claim and exact visual approval
+      - name: Apply exact promotion against latest main with conflict-safe replay
         run: |
-          python - <<'PY'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5; do
+            echo "M005 latest-main promotion attempt $attempt"
+            git fetch origin main
+            git reset --hard origin/main
+
+            python - <<'PY'
           import json
           d=json.load(open("character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"))
           x=next(v for v in d["defects"] if v["issueId"]=="MOTION-005")
@@ -39,95 +47,20 @@ jobs:
           assert e.get("candidateReboundSha256")=="cd33610f79643b80222a250410eeaf2207be7d1014baa2f8847c9e611ba2ac6b"
           PY
 
-      - name: Rebuild exact approved pair
-        run: python tools/character_layers/build_front_m005.py
+            python tools/character_layers/build_front_m005.py
+            python tools/character_layers/promote_front_m005.py
+            python tools/character_layers/validate_assets.py
+            python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
 
-      - name: Promote only exact approved SHA pair and set runtime target
-        run: |
-          python - <<'PY'
-          import hashlib, json, shutil
-          from pathlib import Path
-          root=Path(".")
-          work=root/"character-assets/edit-workspaces/motion-repair-20260920/front-m005"
-          summary=json.loads((work/"M005_SUMMARY.json").read_text())
-          assert summary.get("pairMachinePass") is True, summary
-          by={x["phase"]:x for x in summary["phases"]}
-          expected={
-            "hit":"8b1dcbf1d3287ee90bb4425380314fd412aeaeb407ccb1664815493f1cac6423",
-            "rebound":"cd33610f79643b80222a250410eeaf2207be7d1014baa2f8847c9e611ba2ac6b",
-          }
-          for ph in ("hit","rebound"):
-            assert by[ph]["candidateSha256"]==expected[ph], (ph,by[ph]["candidateSha256"])
-          formal={
-            "hit":root/"character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
-            "rebound":root/"character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
-          }
-          for ph in ("hit","rebound"):
-            shutil.copyfile(root/by[ph]["candidate"],formal[ph])
-            got=hashlib.sha256(formal[ph].read_bytes()).hexdigest()
-            assert got==expected[ph],(ph,got)
-
-          bp=root/"character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json"
-          ip=root/"character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json"
-          ap=root/"character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json"
-          mp=root/"character-assets/config/assets_manifest.json"
-          backlog=json.loads(bp.read_text()); inv=json.loads(ip.read_text()); amap=json.loads(ap.read_text()); manifest=json.loads(mp.read_text())
-          x=next(v for v in backlog["defects"] if v["issueId"]=="MOTION-005")
-          claim=x.get("claim") or {}
-          assert claim.get("owner")=="CHATGPT-FRONT" and claim.get("batch")=="FRONT-M005-AFTER-M007",claim
-
-          paths={
-            "hit":"character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
-            "rebound":"character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
-          }
-          for ph in ("hit","rebound"):
-            full=paths[ph]; rel=full.replace("character-assets/","",1); sha=expected[ph]
-            found=False
-            for a in manifest.get("assets",[]):
-              if a.get("path")==full:
-                a["sha256"]=sha; a["status"]="MOTION_REPAIR_VERIFIED"
-                a.setdefault("notes",[]).append(f"2026-09-20 MOTION-005 exact approved pair {ph}; donor roots M003/M007 VERIFIED.")
-                found=True
-            assert found,("manifest",full)
-            found=False
-            for k,v in inv.get("requiredFrames",{}).items():
-              if v.get("path")==rel:
-                v["sha256"]=sha; v["state"]="motion-repair-verified"
-                v["motionRepairQa"]=str((work/f"bd_hh_{ph}_candidate_v1_qa.json").relative_to(root))
-                found=True
-            assert found,("inventory",rel)
-
-          e=next(v for v in amap.get("entries",[]) if v.get("actionKey")=="BD+HH:RF/R")
-          e["hitSha256"]=expected["hit"]; e["reboundSha256"]=expected["rebound"]
-          e["motionRepairQaStatus"]="EXACT_VISUAL_PASS_PROMOTED"
-          e["motionRepairMethod"]="neutral body + VERIFIED HH:R + VERIFIED BD:RF"
-
-          sa=x.setdefault("repairSpec",{}).setdefault("sourceAuthority",{})
-          sa["hitSha256"]=expected["hit"]; sa["reboundSha256"]=expected["rebound"]
-          x["status"]="FIXED_PENDING_RUNTIME_QA"; x["repairSpec"]["state"]="FIXED_PENDING_RUNTIME_QA"
-          x["updatedAt"]="2026-09-20T12:43:00+09:00"
-          x.setdefault("evidence",[]).append("M005 exact promotion from run 35487131337 artifact 10598475674; pairMachinePass=true and exact visual PASS.")
-          progress="character-assets/edit-workspaces/motion-repair-20260920/front-m005/M005_RUNTIME_QA_STATE.json"
-          inv["runtimeQaTarget"]={"measureStart":137,"measureEnd":137,"actions":["BD+HH:RF/R"],"progressPath":progress,"blockKey":"M005-BD-HH"}
-          state={
-            "schemaVersion":1,"issueId":"MOTION-005","actionKey":"BD+HH:RF/R",
-            "status":"FORMAL_PROMOTED_RUNTIME_QA_PENDING",
-            "exactCandidate":{"hitSha256":expected["hit"],"reboundSha256":expected["rebound"],"candidateRunId":35487131337,"candidateArtifactId":10598475674},
-            "runtimeQaEvidence":{}
-          }
-          sp=root/progress; sp.parent.mkdir(parents=True,exist_ok=True); sp.write_text(json.dumps(state,indent=2)+"\n")
-          backlog["updatedAt"]="2026-09-20T12:43:00+09:00"; amap["updatedAt"]="2026-09-20T12:43:00+09:00"
-          bp.write_text(json.dumps(backlog,ensure_ascii=False,indent=2)+"\n")
-          ip.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+"\n")
-          ap.write_text(json.dumps(amap,ensure_ascii=False,indent=2)+"\n")
-          mp.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
-          print(json.dumps({"promoted":True,"hit":expected["hit"],"rebound":expected["rebound"],"runtimeMeasure":137}))
-          PY
-
-      - name: Validate promoted assets
-        run: |
-          python tools/character_layers/validate_assets.py
-          python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+            git add               character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png               character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png               character-assets/config/assets_manifest.json               character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json               character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json               character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json               character-assets/edit-workspaces/motion-repair-20260920/front-m005/M005_RUNTIME_QA_STATE.json
+            git commit -m "repair: promote exact MOTION-005 verified-donor pair"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "main advanced; discard local commit and replay exact mutation on newest main."
+            sleep $((attempt*2))
+          done
+          exit 1
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -135,17 +68,3 @@ jobs:
           name: front-m005-${{ github.run_id }}
           path: character-assets/edit-workspaces/motion-repair-20260920/front-m005/
           retention-days: 30
-
-      - name: Commit exact promotion safely
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add             character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png             character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png             character-assets/config/assets_manifest.json             character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json             character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json             character-assets/prototypes/luna_say_maybe_16m/MOTION_DEFECT_BACKLOG.json             character-assets/edit-workspaces/motion-repair-20260920/front-m005/M005_RUNTIME_QA_STATE.json
-          git commit -m "repair: promote exact MOTION-005 verified-donor pair"
-          for attempt in 1 2 3 4 5; do
-            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
-            git rebase --abort >/dev/null 2>&1 || true
-            git fetch origin main
-            sleep $((attempt*2))
-          done
-          exit 1
