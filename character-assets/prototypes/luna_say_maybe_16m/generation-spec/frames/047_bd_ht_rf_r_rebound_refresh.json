@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "index": 47,
+  "sourceFilename": "047_bd_ht_rf_r_rebound_refresh.png",
+  "phase": "rebound",
+  "auditStatus": "FAIL",
+  "auditActionKey": "BD+HT:RF/R",
+  "runtimeActionKey": "BD+HT:RF/R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "左上に別ポーズ由来の前腕・手が残って腕が3本に見え、手先が黒い矩形状に欠損し、スカート・椅子にも合成痕がある。"
+  ],
+  "defectRegions": [
+    "left_arm",
+    "left_hand",
+    "skirt",
+    "stool",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/BD_HT_RF_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "rebound",
+    "continuityPair": "same action BD+HT:RF/R hit/rebound",
+    "negativeAttention": [
+      "left_arm",
+      "left_hand",
+      "skirt",
+      "stool",
+      "artifact"
+    ]
+  }
+}
