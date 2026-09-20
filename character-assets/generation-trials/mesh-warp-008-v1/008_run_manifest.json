@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 2,
+  "frame": "008",
+  "actionKey": "BD:RF",
+  "phase": "hit",
+  "inputs": {
+    "normalSource": {
+      "path": "character-assets/layers/character/bd/rebound_rf.png",
+      "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+      "cacheHit": false
+    },
+    "brokenSource": {
+      "path": "character-assets/layers/character/bd/hit_rf.png",
+      "sha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+      "cacheHit": false
+    },
+    "fixedDrum": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+      "cacheHit": false
+    },
+    "config": {
+      "path": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
+      "sha256": "977985ef65d38ac16c0893a0286681d4eec65a4ed97030a3fe93ab07bf5cd7f2"
+    }
+  },
+  "outputs": [
+    {
+      "path": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
+      "sha256": "4ee11bd49363502e2536bf3a2dce3a1b1f1bd873721d32af7eb667dfe9a93caf"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1_review.webp",
+      "sha256": "fc45cb0e214aa965b5128b340cd7387b8839817a29b454335a0ec544bcb8291b"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_fixed_drum_v1_review.webp",
+      "sha256": "f537baef381d7c89e3b15d953bca4b515230382feffba599d8ce743367132b53"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-008-v1/008_before_after_review.webp",
+      "sha256": "aad42a3a259a514451b6c5ea87a49244b0227d25cafc0e4283344d563f3e5ac7"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-008-v1/008_qa.json",
+      "sha256": "f2690f51b8e485c4e932a1f5fb6bcb504ff5a4366474a1168ffae929cce1ef9c"
+    },
+    {
+      "path": "character-assets/generation-trials/mesh-warp-008-v1/008_timing.json",
+      "sha256": "2618de957f1f05b1e9f90f1ee2cc8f8653a6527c1ef70ab3c5c61c8ab031e8d4"
+    }
+  ],
+  "runtimeModified": false,
+  "otherFramesTouched": false,
+  "visualQaRequired": true,
+  "machinePass": true
+}

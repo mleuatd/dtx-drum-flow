@@ -1,9 +1,17 @@
 {
-  "schemaVersion": 1,
-  "source": "work008/rebound_rf.png",
+  "schemaVersion": 3,
+  "actionKey": "BD:RF",
+  "phase": "hit",
+  "source": "character-assets/layers/character/bd/rebound_rf.png",
   "sourceSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+  "brokenSource": "character-assets/layers/character/bd/hit_rf.png",
+  "brokenSourceSha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+  "fixedDrum": "character-assets/layers/drum/drum_base.png",
+  "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "config": "character-assets/generation-trials/mesh-warp-008-v1/008_mesh_config.json",
+  "configSha256": "977985ef65d38ac16c0893a0286681d4eec65a4ed97030a3fe93ab07bf5cd7f2",
   "candidate": "character-assets/generation-trials/mesh-warp-008-v1/008_bd_rf_hit_mesh_v1.png",
-  "candidateSha256": "b4caeac036a33ee01052a6a471fcc6ad2c66f9eeb00c94858c60b7bb2c688a5b",
+  "candidateSha256": "4ee11bd49363502e2536bf3a2dce3a1b1f1bd873721d32af7eb667dfe9a93caf",
   "canvas": [
     1448,
     1086
@@ -11,6 +19,7 @@
   "mode": "RGBA",
   "changedPixels": 36721,
   "outsideAllowedChangedPixels": 0,
+  "fixedRegionChangedPixels": 0,
   "changedBBox": {
     "x": 594,
     "y": 635,
@@ -27,12 +36,24 @@
   ],
   "pedalDistancePx": 11.18,
   "pedalTolerancePx": 45.0,
+  "alphaChannelPresent": true,
+  "visualQaRequired": true,
   "checks": {
     "canvas1448x1086": true,
+    "rgba": true,
+    "sourceShaMatchesConfig": true,
+    "candidateDiffersFromSource": true,
     "outsideAllowedZero": true,
-    "changedVisible": true,
-    "pedalContactWithinTolerance": true
+    "fixedRegionsZero": true,
+    "pedalContactWithinTolerance": true,
+    "runtimeWritableFalse": true,
+    "userApprovalPending": true
   },
-  "visualQaRequired": true,
+  "regressionChecks": {
+    "changedPixelsMatch": true,
+    "changedBBoxMatch": true,
+    "outsideAllowedMatch": true,
+    "pedalDistanceMatch": true
+  },
   "machinePass": true
 }

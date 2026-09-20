@@ -1,11 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 3,
   "stages": {
-    "loadSeconds": 0.042191,
-    "warpSeconds": 0.056988,
-    "saveCandidateSeconds": 0.43781,
-    "qaSeconds": 0.042731,
-    "fixedDrumCompositeSeconds": 1.190685,
-    "totalSeconds": 1.770454
+    "cacheAndHashSeconds": 0.008024,
+    "loadCachedInputsSeconds": 0.066825,
+    "warpSeconds": 0.144989,
+    "saveCandidateSeconds": 0.071159,
+    "qaSeconds": 0.028261,
+    "compositeReviewSeconds": 0.650539,
+    "reviewImagesSeconds": 1.057608,
+    "candidateToReviewCompleteSeconds": 1.952556,
+    "totalSeconds": 2.027783
   }
 }
