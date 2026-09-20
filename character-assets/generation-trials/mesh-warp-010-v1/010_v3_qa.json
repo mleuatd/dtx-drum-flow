@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 4,
+  "frameId": "010_bd_rc_hit",
+  "actionKey": "BD+RC",
+  "phase": "hit",
+  "source": "character-assets/layers/character/bd/rebound_rf.png",
+  "sourceSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+  "warpSource": "character-assets/layers/character/bd/rebound_rf.png",
+  "warpSourceSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+  "base": "character-assets/layers/character/combo/bd_rc_hit.png",
+  "baseSha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+  "brokenSource": "character-assets/layers/character/combo/bd_rc_hit.png",
+  "brokenSourceSha256": "92711eb5d1f401ae3c17f40b95dab1724720cfad5f2a9660d30e53aa2931c9b1",
+  "fixedDrum": "character-assets/layers/drum/drum_base.png",
+  "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "config": "character-assets/generation-trials/mesh-warp-010-v1/010_transplant_mesh_config.json",
+  "configSha256": "131ac3304d9d964cdba8479db94047fa2371cd93e35ce43864be44a53d60b8d5",
+  "candidate": "character-assets/generation-trials/mesh-warp-010-v1/010_bd_rc_hit_mesh_v3.png",
+  "candidateSha256": "1bf7993ab47d69979a2a85c71221e24ab974ec0b6e341d9e500788c69d60cd8c",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "mode": "RGBA",
+  "alphaChannelPresent": true,
+  "changedPixels": 56929,
+  "outsideAllowedChangedPixels": 0,
+  "fixedRegionChangedPixels": 0,
+  "changedBBox": {
+    "x": 594,
+    "y": 311,
+    "width": 471,
+    "height": 745
+  },
+  "pedalEndpoint": [
+    710.0,
+    925.0
+  ],
+  "pedalTarget": [
+    700.0,
+    920.0
+  ],
+  "pedalDistancePx": 11.18,
+  "pedalTolerancePx": 45.0,
+  "visualQaRequired": true,
+  "checks": {
+    "canvas1448x1086": true,
+    "rgba": true,
+    "alphaChannelPresent": true,
+    "sourceShaMatchesConfig": true,
+    "baseShaMatchesConfig": true,
+    "brokenSourceShaMatchesConfig": true,
+    "fixedDrumShaMatchesConfig": true,
+    "candidateDiffersFromSource": true,
+    "outsideAllowedZero": true,
+    "fixedRegionsZero": true,
+    "pedalContactWithinTolerance": true,
+    "runtimeWritableFalse": true,
+    "visualQaRequiredTrue": true,
+    "userApprovalPending": true
+  },
+  "regressionChecks": {},
+  "machinePass": true,
+  "timings": {
+    "configValidationSeconds": 0.000376,
+    "cacheCheckAndHashSeconds": 0.011714,
+    "gitCommitPreparationSeconds": null,
+    "gitRegistrationSeconds": null,
+    "loadSeconds": 0.139609,
+    "warpSeconds": 0.084331,
+    "candidateSaveSeconds": 0.093283,
+    "qaSeconds": 0.037479,
+    "fixedDrumCompositeSeconds": 0.764348,
+    "reviewGenerationSeconds": 0.415461,
+    "beforeAfterGenerationSeconds": 0.735571,
+    "candidateToReviewCompleteSeconds": 2.130473,
+    "manifestGenerationSeconds": 0.005358,
+    "totalLocalPipelineSeconds": 2.28781
+  }
+}
