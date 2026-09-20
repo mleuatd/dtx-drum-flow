@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "index": 42,
+  "sourceFilename": "042_rc_r_hit_refresh.png",
+  "phase": "hit",
+  "auditStatus": "FAIL",
+  "auditActionKey": "RC:R",
+  "runtimeActionKey": "RC:R",
+  "referenceClassification": "EXCLUDE_FROM_POSITIVE_LEARNING",
+  "doNotLearnGeometryFromThisFrame": true,
+  "allowedReferenceFields": [
+    "actionKey",
+    "phase",
+    "motionIntent",
+    "cameraIntent"
+  ],
+  "defects": [
+    "右手に通常長のスティックとは別に非常に長い同方向のスティックが重複している。"
+  ],
+  "defectRegions": [
+    "right_hand",
+    "stick",
+    "artifact"
+  ],
+  "inherits": [
+    "../MASTER_GENERATION_SPEC.json",
+    "../actions/RC_R.json",
+    "../REFERENCE_POLICY.json",
+    "../QA_RULES.json"
+  ],
+  "overrides": {
+    "phase": "hit",
+    "continuityPair": "same action RC:R hit/rebound",
+    "negativeAttention": [
+      "right_hand",
+      "stick",
+      "artifact"
+    ]
+  }
+}
