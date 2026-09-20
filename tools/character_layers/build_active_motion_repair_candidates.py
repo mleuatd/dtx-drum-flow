@@ -92,9 +92,9 @@ for t in targets:
         # Do not cut a wide transparent channel through the hand/sleeve: that
         # produced the white triangular fragments seen in the rebound artifact.
         erase=Image.new("L",(W,H),0); ed=ImageDraw.Draw(erase)
-        old_tip=(405,390); erase_end=(488,458)
-        ed.line([old_tip,erase_end],fill=255,width=28)
-        ed.ellipse([old_tip[0]-13,old_tip[1]-13,old_tip[0]+13,old_tip[1]+13],fill=255)
+        old_tip=(428,382); erase_end=(490,444)
+        ed.line([old_tip,erase_end],fill=255,width=32)
+        ed.ellipse([old_tip[0]-16,old_tip[1]-16,old_tip[0]+16,old_tip[1]+16],fill=255)
         E=np.asarray(erase)>0
         arr=np.array(rebuilt)
         arr[E,3]=0
@@ -260,9 +260,9 @@ for t in targets:
         # The final candidate is initialized from neutral below, so explicitly
         # carry the neutral resting-stick erase ROI through the final paste.
         erase_final=Image.new("L",(W,H),0); ef=ImageDraw.Draw(erase_final)
-        old_tip=(405,390); erase_end=(488,458)
-        ef.line([old_tip,erase_end],fill=255,width=28)
-        ef.ellipse([old_tip[0]-13,old_tip[1]-13,old_tip[0]+13,old_tip[1]+13],fill=255)
+        old_tip=(428,382); erase_end=(490,444)
+        ef.line([old_tip,erase_end],fill=255,width=32)
+        ef.ellipse([old_tip[0]-16,old_tip[1]-16,old_tip[0]+16,old_tip[1]+16],fill=255)
         M |= (np.asarray(erase_final)>0)
 
     # Small deterministic stick bridges. These are line-only ROIs; never use
@@ -331,6 +331,12 @@ for t in targets:
         preserve_pass=all(x["preserveRatio"]>=0.45 for x in preserves) if preserves else True
 
     max_ratio=0.10 if len(components)==1 else 0.14
+    legacy_rest_stick_pixels = None
+    if key=="HT:R":
+        legacy_probe=Image.new("L",(W,H),0); lpd=ImageDraw.Draw(legacy_probe)
+        lpd.line([(428,382),(466,420)],fill=255,width=14)
+        LP=np.asarray(legacy_probe)>0
+        legacy_rest_stick_pixels=int(np.count_nonzero((Q[:,:,3]>0) & LP))
     checks={
       "changedVisible": changed>=250,
       "changedRatioWithinLimit": ratio<=max_ratio,
@@ -340,6 +346,7 @@ for t in targets:
       "stoolLocked": stoolc==0,
       "inactiveLowerLocked": True if has_foot else lower==0,
       "localSourcePreservation": preserve_pass,
+      "legacyRestStickCleared": True if key!="HT:R" else legacy_rest_stick_pixels<=8,
     }
     passed=all(checks.values())
     stem=safe_name(t["id"])
@@ -356,7 +363,7 @@ for t in targets:
       "maskPixelCount":int(M.sum()),"changedPixelsVsNeutral":changed,"changedRatioVsNeutral":round(ratio,8),
       "changedBBoxVsNeutral":bbox(ndiff),"headGuardChangedPixels":headc,"pelvisGuardChangedPixels":pelvisc,
       "stoolGuardChangedPixels":stoolc,"inactiveLowerChangedPixels":lower,"outsideMaskChangedPixels":outside,
-      "sourceLocalPreservation":preserves,"checks":checks,"pass":passed
+      "sourceLocalPreservation":preserves,"legacyRestStickProbePixels":legacy_rest_stick_pixels,"checks":checks,"pass":passed
     }
     qp.write_text(json.dumps(rec,ensure_ascii=False,indent=2)+"\n")
     summary["targets"].append(rec)
