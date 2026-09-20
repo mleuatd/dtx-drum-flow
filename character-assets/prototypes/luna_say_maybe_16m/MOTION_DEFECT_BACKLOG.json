@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "updatedAt": "2026-09-20T17:37:00+09:00",
+  "updatedAt": "2026-09-20T17:40:00+09:00",
   "authority": "GitHub main + public/local runtime QA evidence",
   "backup": {
     "branch": "backup/pre-motion-qa-20260919-2138",
@@ -127,7 +127,7 @@
   "defects": [
     {
       "issueId": "MOTION-001",
-      "status": "FIXED_PENDING_PROMOTION",
+      "status": "PROMOTED_PENDING_RUNTIME",
       "severity": "HIGH",
       "measures": "M143,M107",
       "time": "~249.89-250.05s",
@@ -157,7 +157,7 @@
         "site/character-prototype.js",
         "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
       ],
-      "updatedAt": "2026-09-20T17:37:00+09:00",
+      "updatedAt": "2026-09-20T17:40:00+09:00",
       "repairSpec": {
         "schemaVersion": 1,
         "state": "HOLD_VISUAL_INTEGRITY",
@@ -966,31 +966,25 @@
         }
       ],
       "reboundRepair": {
-        "status": "VERIFIED_PROMOTED",
-        "oldSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
-        "newSha256": "c3f480bdd5861d5703af400089682fe94427ef07ccd14cf1ff514e45e73d9d9c",
-        "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2.png",
-        "qa": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v2_qa.json",
-        "changedRatioVsNeutral": 0.0234088,
-        "staticGuardChangedPixels": {
-          "head": 0,
-          "right_arm": 0,
-          "pelvis_seat": 0,
-          "legs_stool": 0
-        },
-        "latestCandidate": "sn_l_rebound_candidate_v16_20260920.png",
-        "latestCandidateSha256": "05b1f5b5509d1735002cbf9d8e81143c9128bee8e056e3da85726a7b5c60df2f",
-        "latestCandidateStatus": "LOCAL_STATIC_PASS_PENDING_FORMAL_PROMOTION"
+        "status": "PROMOTED_PENDING_RUNTIME",
+        "oldSha256": "c3f480bdd5861d5703af400089682fe94427ef07ccd14cf1ff514e45e73d9d9c",
+        "newSha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
+        "candidate": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14.png",
+        "qa": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14_qa.json",
+        "candidateBlobSha": "363d953d2558db26d94ecf666d4a84daf1ac144f",
+        "repairRunId": 35499936080,
+        "artifactId": 10602280657,
+        "method": "formal hit static parent + exact clean rebound source blob; narrow left forearm/hand/stick semantic replacement only"
       },
       "visualIntegrityQa": {
-        "humanAnatomy": "PASS_LOCAL_V16",
-        "linework": "PASS_LOCAL_V16",
-        "fixedDrumComposite": "PASS_LOCAL_V16",
-        "runtimeTransition": "PENDING_FORMAL_PROMOTION_AND_RUNTIME_QA",
+        "humanAnatomy": "PASS",
+        "linework": "PASS",
+        "fixedDrumComposite": "PASS",
+        "runtimeTransition": "PENDING_POST_PROMOTION_RUNTIME_QA",
         "promotionBlocked": true,
         "ruleVersion": "2026-09-20-visual-integrity-v1",
-        "note": "v16 source-bound deterministic repair: exact formal hit static parent; formal rebound ECC-aligned to hit using static regions; only measured left forearm/hand/stick union ROI replaced. Old duplicated hand residue and alpha gaps reduced to zero. Head/right arm/pelvis-seat/legs-stool remain exact to hit. Candidate stored in Dropbox; formal GitHub PNG not yet overwritten.",
-        "reviewedAt": "2026-09-20T17:37:00+09:00",
+        "note": "v14 exact-source-bound candidate passed full-resolution static anatomy/linework/fixed-drum composite review and deterministic QA. Formal promoted atomically with SHA authorities; runtime verification pending.",
+        "reviewedAt": "2026-09-20T17:40:00+09:00",
         "localCandidate": {
           "version": "v16",
           "sha256": "05b1f5b5509d1735002cbf9d8e81143c9128bee8e056e3da85726a7b5c60df2f",
@@ -1005,7 +999,9 @@
             "pelvis_seat": 0,
             "legs_stool": 0
           }
-        }
+        },
+        "repairRunId": 35499936080,
+        "repairArtifactId": 10602280657
       },
       "decisionLog": [
         {
@@ -1062,6 +1058,11 @@
           "at": "2026-09-20T17:37:00+09:00",
           "decision": "SN_L_V16_LOCAL_STATIC_PASS",
           "detail": "Abandoned failed v8-v12 raw-mask strategy. Aligned exact formal rebound to formal hit using static-body ECC, then replaced only measured left forearm/hand/stick union ROI. v16: outside-envelope 0; head/right-arm/pelvis-seat/legs-stool drift 0; old-hand residue 0; alpha gap 0. Full-resolution character and fixed-drum composite visual review PASS. Candidate SHA256 05b1f5b5509d1735002cbf9d8e81143c9128bee8e056e3da85726a7b5c60df2f. Formal PNG unchanged pending binary promotion."
+        },
+        {
+          "at": "2026-09-20T17:40:00+09:00",
+          "decision": "SN_L_V14_SOURCE_BOUND_STATIC_PASS_PROMOTED_PENDING_RUNTIME",
+          "detail": "v14 uses exact clean source SHA 93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202 via Git blob f8e4c1ff... only inside the active left forearm/hand/stick corridor. Deterministic QA and full-resolution anatomy/linework/fixed-drum composite PASS; formal promotion is pending post-promotion runtime QA."
         }
       ],
       "claim": {

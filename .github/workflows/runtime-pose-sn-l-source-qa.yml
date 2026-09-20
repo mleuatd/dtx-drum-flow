@@ -37,7 +37,7 @@ jobs:
           set -euo pipefail
           echo "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9  character-assets/layers/character/base/neutral.png" | sha256sum -c -
           echo "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb  character-assets/layers/character/sn/hit_l.png" | sha256sum -c -
-          echo "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777  character-assets/layers/character/sn/rebound_l.png" | sha256sum -c -
+          echo "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202  character-assets/layers/character/sn/rebound_l.png" | sha256sum -c -
           echo "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85  character-assets/layers/drum/drum_base.png" | sha256sum -c -
 
       - name: Run numeric pose sequence QA
