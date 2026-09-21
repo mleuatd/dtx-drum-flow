@@ -105,8 +105,8 @@ def main():
     # Local naturalization stage: keep shoulder/contact hard-locked, soften only
     # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands
     # and preserve the approved donor linework rather than redrawing it.
-    shoulder=[648,352]; elbow=[530,468]; wrist=[422,428]; grip=[400,418]
-    src_chain=[[648,352],[565,490],[500,490],[492,486],source_contact]
+    shoulder=[648,352]; elbow=[520,455]; wrist=[412,438]; grip=[390,430]
+    src_chain=[[620,375],[565,475],[490,455],[442,421],source_contact]
     dst_chain=[shoulder,elbow,wrist,grip,target]
     boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
     cfg={"sourcePoints":boundary+src_chain,"targetPoints":boundary+dst_chain,
@@ -153,7 +153,7 @@ def main():
                  (n["headTop"]["px"][1]+n["faceCenter"]["px"][1])/2]
     # Solved screen-left chain for semantic R hand in the rear-view camera.
     shoulder=n["shoulderL"]["px"]
-    grip=[400,418]; wrist=[422,428]; elbow=[530,468]
+    grip=[390,430]; wrist=[412,438]; elbow=[520,455]
     hit_landmarks={
       "headCenter":[round(head_center[0],1),round(head_center[1],1)],
       "neck":n["neck"]["px"],"leftShoulder":n["shoulderL"]["px"],"rightShoulder":n["shoulderR"]["px"],
