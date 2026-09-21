@@ -92,7 +92,10 @@ def main():
     # If the audited donor does not yet reach the fixed target, deform only its
     # active source-pixel corridor. Boundary anchors stay fixed; the solved arm
     # chain meets the MASTER_GEOMETRY lengths and the fixed HH point.
-    # Local naturalization stage: keep shoulder/contact hard-locked, soften only\n    # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands\n    # and preserve the approved donor linework rather than redrawing it.\n    shoulder=[648,352]; elbow=[520,420]; wrist=[415,428]; grip=[392,428]\n    src_chain=[[648,352],[565,490],[500,490],[492,486],source_contact]
+    # Local naturalization stage: keep shoulder/contact hard-locked, soften only
+    # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands
+    # and preserve the approved donor linework rather than redrawing it.
+    shoulder=[648,352]; elbow=[520,420]; wrist=[415,428]; grip=[392,428]\n    src_chain=[[648,352],[565,490],[500,490],[492,486],source_contact]
     dst_chain=[shoulder,elbow,wrist,grip,target]
     boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
     cfg={"sourcePoints":boundary+src_chain,"targetPoints":boundary+dst_chain,
@@ -141,7 +144,7 @@ def main():
                  (n["headTop"]["px"][1]+n["faceCenter"]["px"][1])/2]
     # Solved screen-left chain for semantic R hand in the rear-view camera.
     shoulder=n["shoulderL"]["px"]
-    grip=[390,430]; wrist=[408,433]; elbow=[513,428]
+    grip=[392,428]; wrist=[415,428]; elbow=[520,420]
     hit_landmarks={
       "headCenter":[round(head_center[0],1),round(head_center[1],1)],
       "neck":n["neck"]["px"],"leftShoulder":n["shoulderL"]["px"],"rightShoulder":n["shoulderR"]["px"],
@@ -196,15 +199,21 @@ def main():
 
     result={
       "schemaVersion":1,"createdAt":"2026-09-21T21:00:00+09:00","issueId":"DMR-009","phase":"hit",
-      "authority":{"branch":"main","neutral":"character-assets/layers/character/base/neutral.png",\n        "hhDonor":{"commit":BASELINE,"path":"character-assets/layers/character/hh/hit_r.png","auditStatus":"PASS"},
+      "authority":{"branch":"main","neutral":"character-assets/layers/character/base/neutral.png",
+        "hhDonor":{"commit":BASELINE,"path":"character-assets/layers/character/hh/hit_r.png","auditStatus":"PASS"},
         "bdDonor":{"commit":BASELINE,"path":"character-assets/layers/character/bd/hit_rf.png","auditStatus":"REVIEW_ANATOMY_COHERENT"},
-        "fixedDrum":"character-assets/layers/drum/drum_base.png","contactDefinition":"DRUM_GEOMETRY.json#HH",\n        "donorSelectionReason":{"hh":"baseline HH:R hit is audited PASS and preserves source-style stick/hand linework","bd":"baseline BD:RF hit is the closest audited pedal-action donor and is used only in the lower active-foot region"}},\n      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",\n        "changedPixels":int(np.count_nonzero(changed)),"changedBBox":bbox(changed),"outsideAllowedChangedPixels":outside},
+        "fixedDrum":"character-assets/layers/drum/drum_base.png","contactDefinition":"DRUM_GEOMETRY.json#HH",
+        "donorSelectionReason":{"hh":"baseline HH:R hit is audited PASS and preserves source-style stick/hand linework","bd":"baseline BD:RF hit is the closest audited pedal-action donor and is used only in the lower active-foot region"}},
+      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",
+        "changedPixels":int(np.count_nonzero(changed)),"changedBBox":bbox(changed),"outsideAllowedChangedPixels":outside},
       "landmarks":{"neutralSource":"MASTER_GEOMETRY.json#neutralLandmarks","hit":hit_landmarks},
       "registration":{"candidateDriftPx":candidate_drift,"staticChangedPixels":static_changed,
         "fullAlphaBBoxNeutral":full_bbox_neutral,"fullAlphaBBoxCandidate":full_bbox_candidate,
         "bodyBBoxDriftExcludingActiveCorridor":[0,0,0,0],
         "note":"Full alpha bbox expands left only because the active HH stick reaches the fixed contact; static body/head/hip/stool remain neutral-locked."},
-      "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,\n        "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},\n        "result":"PASS" if anatomy_pass else "FAIL"},\n      "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"sourceStyle":"approved HH donor pixels; no vector redraw",
+      "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,
+        "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},\n        "result":"PASS" if anatomy_pass else "FAIL"},
+      "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"sourceStyle":"approved HH donor pixels; no vector redraw",
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
         "result":"PASS" if contact_pass else "FAIL"},
       "fixedDrumComposite":{"path":str(fp.relative_to(ROOT)),"result":"PASS" if contact_pass else "FAIL"},
@@ -224,7 +233,7 @@ def main():
     st["activeWork"]["promotionBlocked"]=True
     st["activeWork"]["secondaryHold"]=None if transition_pass else "HOLD_TRANSITION_REBOUND_ONLY"
     st["resultSummary"].update({"oneCandidateCreated":True,"candidateSha256":sha(cp),
-      "registrationPassed":outside==0 and static_changed["head"]==0 and static_changed["stool"]==0,
+      "registrationPassed":outside==0 and static_changed["head"]==0 and static_changed["hip"]==0 and static_changed["stool"]==0,
       "contactPassed":contact_pass,"selectedContactType":"SOURCE_STYLE_CONTACT",
       "lineworkPassed":True,"compositeContactPassed":contact_pass,"transitionPassed":transition_pass,
       "formalImageOverwritten":False,"advancedToSecondImage":False})
@@ -232,7 +241,8 @@ def main():
     STATUS.write_text(json.dumps(st,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 
     with CHANGELOG.open("a",encoding="utf-8") as f:
-      f.write("\n- 2026-09-21 DMR-009 hit: donor-mesh-primary trial rerun with local elbow/wrist/grip naturalization. HH fixed target (190,390), neutral static locks, audited HH/BD donors, fixed-drum composite and transition QA preserved. Runtime/formal image not overwritten; no second image modified.\n")\n    print(json.dumps({"candidate":str(cp.relative_to(ROOT)),"qa":str(qa.relative_to(ROOT)),
+      f.write("\n- 2026-09-21 DMR-009 hit: donor-mesh-primary trial rerun with local elbow/wrist/grip naturalization. HH fixed target (190,390), neutral static locks, audited HH/BD donors, fixed-drum composite and transition QA preserved. Runtime/formal image not overwritten; no second image modified.\n")
+    print(json.dumps({"candidate":str(cp.relative_to(ROOT)),"qa":str(qa.relative_to(ROOT)),
       "anatomyPass":anatomy_pass,"contactPass":contact_pass,"transitionPass":transition_pass,
       "contact":contact,"reboundDrift":rebound_drift},ensure_ascii=False))
 
