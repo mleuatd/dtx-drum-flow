@@ -128,6 +128,26 @@ Use DRUM_GEOMETRY / current authoritative geometry.
 Maintain standard stick length/tolerance defined by the work order or geometry.
 If reach fails, adjust/reselect arm chain; never simply lengthen stick.
 
+## 11A. Rigid-stick and wrist-alignment gate
+
+Before a candidate can pass:
+- grip→tip must be a single straight rigid shaft
+- the shaft must be continuous and unbroken
+- no local direction change is allowed anywhere between grip and tip
+- wrist→grip orientation must plausibly support the stick axis
+- forearm→wrist→hand must not look twisted merely to preserve an old donor pose
+
+If straight-stick geometry and wrist anatomy conflict, preserve the rigid stick and re-solve the wrist/forearm/elbow chain or reselect the donor.
+
+Numeric QA should record at least:
+- stickAxisAngle
+- stickAxisStraightness / residual
+- stickContinuity
+- wristToGripVsStickAxisDelta
+- existing wrist deviation and elbow angle
+
+A visually bent/broken stick is FAIL even if contact, length and target angle pass.
+
 ## 12. Required visual loop
 After donor composite, mesh, local transform, or AI edit:
 - inspect actual candidate
