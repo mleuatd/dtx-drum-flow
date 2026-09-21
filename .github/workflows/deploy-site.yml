@@ -7,6 +7,7 @@ on:
       - "site/**"
       - "character-assets/layers/**"
       - "character-assets/config/**"
+      - "character-assets/versions/donor-mesh-v3/**"
       - "character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json"
       - ".github/workflows/deploy-site.yml"
       - ".github/workflows/runtime-character-qa.yml"
