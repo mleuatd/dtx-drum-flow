@@ -23,6 +23,6 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes",
-  "retry": 2,
-  "retryReason": "approved donor does not directly occupy fixed HH corridor; use source-pixel TPS to fixed contact"
+  "retry": 3,
+  "retryReason": "image/anatomy/contact/transition already passed; rerun only after fixing untracked-output guard"
 }
