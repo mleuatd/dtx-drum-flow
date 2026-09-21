@@ -2,26 +2,29 @@
 
 This directory is the current-state authority for single-image repair experiments.
 
+## Read order
+1. `CURRENT_STATUS.json`
+2. `REPAIR_PIPELINE_PATTERNS.json`
+3. `STRIKE_CONTACT_QA_RULES.json`
+4. case-specific previous QA / attempt JSON
+5. fixed `POSE_TRANSITION_RULES.json` and failure registry as supporting authorities
+
 ## Active case
 - DMR-009
 - File: `combo/bd_hh_rf_r_hit_refresh.png`
 - Mode: one image only
-- Current state: RETRY_REQUIRED / promotion blocked
-- Previous evidence: `../donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json`
+- Promotion remains blocked until registration, limb geometry, contact, linework, fixed-drum composite and transition all pass.
 
-## Required order
-1. Static/global registration: head, hip, stool, body bbox.
-2. Torso/posture registration.
-3. Active arm/hand/stick geometry.
-4. Instrument contact.
-5. Fixed-drum composite.
-6. Transition against neutral and rebound.
+## Standard order
+CURRENT_STATUS -> SOURCE_AUTHORITY -> REGISTRATION -> ACTIVE_LIMB_CHAIN -> CONTACT_MODE_SELECTION -> OPTIONAL_STRIKE_EXPRESSION -> LINEWORK_CLEANUP -> FIXED_DRUM_COMPOSITE -> TRANSITION -> FINAL_DECISION -> GITHUB_RECORD
 
-Do not diagnose a contact miss as a stick-only defect until steps 1-3 are complete.
+## Contact rule
+Do not force tip contact or shaft contact. Use `TIP_OR_SHAFT_CONTACT_ADAPTIVE`: choose the contact mode that is visually natural, easiest to preserve, and requires the smallest safe edit.
 
 ## Hard rules
 - Fixed drum and camera are locked.
 - No text-to-image generation.
-- No formal PNG overwrite from a candidate that has not passed all required QA.
-- Do not start another image while DMR-009 is the active one-image experiment.
-- Every candidate, rejection, hold, promotion, and final result must be reflected in `CURRENT_STATUS.json` and a case QA JSON.
+- Do not solve contact by stretching only the stick when the grip/hand/wrist chain becomes unnatural.
+- Contact PASS does not override linework/composite/transition FAIL.
+- Do not start a second image in a one-image experiment.
+- Every outcome must be written to `CURRENT_STATUS.json` and a case attempt JSON.
