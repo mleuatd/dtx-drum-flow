@@ -45,6 +45,30 @@
         "fileId": "id:Ec2HdgD6JJYAAAAAAAABRw",
         "sizeBytes": 989922
       }
+    },
+    {
+      "issueId": "DMR-018",
+      "filename": "combo/bd_rd_rf_r_hit_refresh.png",
+      "status": "RESERVE_PASS",
+      "repairCategory": "LOCAL_ARTIFACT_REMOVAL",
+      "subtype": "INTERNAL_SURFACE_RESTORE",
+      "candidateSha256": "e823ffdcac3220225d28590711736a2d9e53ffeadf4d9b09a6f96a66e173e694",
+      "changedPixels": 472,
+      "changedBBox": {
+        "x": 463,
+        "y": 790,
+        "width": 36,
+        "height": 31
+      },
+      "outsideAllowedChangedPixels": 0,
+      "visualQaStatus": "PASS",
+      "runtimeModified": false,
+      "reserveStorage": {
+        "provider": "Dropbox",
+        "path": "/ChatGPT/dtx-drum-flow/PRE15_BASELINE_MERGED_WITH_AI_PASS/RESERVE_DMR018_bd_rd_rf_r_hit_refresh_candidate.png",
+        "fileId": "id:Ec2HdgD6JJYAAAAAAAABSA",
+        "sizeBytes": 1027565
+      }
     }
   ]
 }
