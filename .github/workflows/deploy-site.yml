@@ -54,7 +54,7 @@ jobs:
       - name: Stage PRE-FIX and POST-FIX snapshots
         run: |
           set -euo pipefail
-          rm -rf /tmp/dtx-post-fix site/pre-fix site/post-fix
+          rm -rf /tmp/dtx-post-fix site/pre-fix site/post-fix site/donor-mesh-v3
           mkdir -p /tmp/dtx-post-fix
           cp -R site/. /tmp/dtx-post-fix/
 
@@ -71,6 +71,15 @@ jobs:
 
           cp site/version-switcher.js site/pre-fix/version-switcher.js
           cp site/version-switcher.css site/pre-fix/version-switcher.css
+
+          mkdir -p site/donor-mesh-v3
+          cp -R /tmp/dtx-post-fix/. site/donor-mesh-v3/
+          rm -rf site/donor-mesh-v3/character-assets/layers
+          mkdir -p site/donor-mesh-v3/character-assets/layers
+          cp -R _pre_fix_source/character-assets/layers/. site/donor-mesh-v3/character-assets/layers/
+          cp -R character-assets/versions/donor-mesh-v3/overlays/. site/donor-mesh-v3/character-assets/layers/character/
+          cp site/version-switcher.js site/donor-mesh-v3/version-switcher.js
+          cp site/version-switcher.css site/donor-mesh-v3/version-switcher.css
 
           python3 - <<'PY'
           from pathlib import Path
@@ -91,6 +100,7 @@ jobs:
           printf '{"version":"POST-FIX","commitSha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$BUILT_AT" > site/build.json
           printf '{"version":"POST-FIX","commitSha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$BUILT_AT" > site/post-fix/build.json
           printf '{"version":"PRE-FIX","commitSha":"a4e3854449e292264192afa63469edf0fb5048af","builtAt":"%s"}\n' "$BUILT_AT" > site/pre-fix/build.json
+          printf '{"version":"DONOR-MESH-V3","commitSha":"%s","baseCommit":"a4e3854449e292264192afa63469edf0fb5048af","builtAt":"%s"}\n' "$GITHUB_SHA" "$BUILT_AT" > site/donor-mesh-v3/build.json
 
       - name: Validate staged PRE/POST snapshots
         run: |
@@ -100,11 +110,14 @@ jobs:
           test -f site/post-fix/index.html
           test -f site/pre-fix/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
           test -f site/post-fix/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
+          test -f site/donor-mesh-v3/character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json
           test -f site/pre-fix/version-switcher.js
           test -f site/post-fix/version-switcher.js
+          test -f site/donor-mesh-v3/version-switcher.js
           grep -q 'version-switcher.js' site/index.html
           grep -q 'version-switcher.js' site/pre-fix/index.html
           grep -q 'version-switcher.js' site/post-fix/index.html
+          grep -q 'version-switcher.js' site/donor-mesh-v3/index.html
           grep -q '"version":"PRE-FIX"' site/pre-fix/build.json
           grep -q '"version":"POST-FIX"' site/post-fix/build.json
           if diff -qr site/pre-fix/character-assets/layers site/post-fix/character-assets/layers >/tmp/pre-post-assets.diff; then
@@ -142,11 +155,14 @@ jobs:
           ROOT_HTML="$(fetch "$BASE/")"
           PRE_HTML="$(fetch "$BASE/pre-fix/")"
           POST_HTML="$(fetch "$BASE/post-fix/")"
+          V3_HTML="$(fetch "$BASE/donor-mesh-v3/")"
           PRE_BUILD="$(fetch "$BASE/pre-fix/build.json")"
           POST_BUILD="$(fetch "$BASE/post-fix/build.json")"
+          V3_BUILD="$(fetch "$BASE/donor-mesh-v3/build.json")"
           printf '%s' "$ROOT_HTML" | grep -q 'version-switcher.js'
           printf '%s' "$PRE_HTML" | grep -q 'version-switcher.js'
           printf '%s' "$POST_HTML" | grep -q 'version-switcher.js'
+          printf '%s' "$V3_HTML" | grep -q 'version-switcher.js'
           printf '%s' "$PRE_BUILD" | grep -q '"version":"PRE-FIX"'
           printf '%s' "$POST_BUILD" | grep -q '"version":"POST-FIX"'
           echo "Published root/PRE-FIX/POST-FIX routes verified"
