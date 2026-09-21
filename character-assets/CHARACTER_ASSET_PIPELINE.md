@@ -2,34 +2,65 @@
 
 ## Mandatory image-failure preflight
 
-Before PLAN, EDIT, candidate generation, retry, or APPROVE on **any character image**, every chat/device MUST read the latest `character-assets/CHARACTER_FAILURE_KNOWLEDGE.json` from GitHub `main`. This is image-production-only knowledge: do not add runtime/Pages/general CI failures to it.
+Before PLAN, EDIT, candidate generation, retry, VISUAL_QA, or APPROVE on **any character image**, every chat/device MUST begin at:
 
-A character-image workflow MUST NOT proceed from an old local/chat copy of that ledger. Re-fetch `main`, load all ACTIVE rules applicable to the planned edit, then choose the source and edit strategy. If another device has added a newer rule or image result, reconcile it before continuing.
+`character-assets/AI_IMAGE_WORK_ENTRYPOINT.md`
 
-After any image visual FAIL, classify the lesson before the next retry. Action-specific details stay in transaction/PROGRESS; any lesson that can prevent the same visual mistake on another image MUST be added to `CHARACTER_FAILURE_KNOWLEDGE.json` in the same work cycle. The next retry must demonstrate that applicable rules were considered; do not repeat a prohibited strategy.
+and read the latest-main versions required by `character-assets/IMAGE_WORK_PREFLIGHT.json`, including:
+- `AI_OPERATION_MASTER_RULES.md`
+- `IMAGE_DECISION_POLICY.md`
+- `CURRENT_WORK_ORDER.json`
+- `CHARACTER_FAILURE_KNOWLEDGE.json`
+- this pipeline
+- `LAYER_RULES.md`
+- required baseline/geometry/PROGRESS/transaction files
 
+A character-image workflow MUST NOT proceed from an old local/chat copy of those files.
+
+### Decision-before-edit gate
+
+Do not choose mesh, local AI edit, donor splice, or any other technique first.
+Before EDIT:
+1. resolve primary/secondary actions from the active work order
+2. find completed PASS/VERIFIED donors
+3. visually inspect the primary completed donor on the fixed drum
+4. assign one source owner per active body region
+5. try the least-destructive direct donor composite first
+6. escalate only when a concrete failure justifies it
+
+### Visual feedback gate
+
+After every meaningful donor composite, local transform, mesh, or local AI edit:
+candidate → fixed-drum composite → numeric QA → AI visual QA → classified correction.
+
+Do not perform several geometry edits and wait until the end to look at the image.
+
+Numeric PASS, workflow success, existence, and SHA correctness do not override visual FAIL.
+
+After any image visual FAIL, classify the lesson before the next retry. Action-specific details stay in transaction/PROGRESS; any reusable lesson MUST be added to `CHARACTER_FAILURE_KNOWLEDGE.json` in the same work cycle.
 
 This is the reusable M25-148 path. It exists to prevent chat/session/tool boundaries from becoming project blockers.
 
 ## Principle
 
-GitHub main is authoritative. Dropbox is durable candidate/recovery storage. PROGRESS.json is the resume cursor.
+GitHub main is authoritative. Dropbox is durable candidate/recovery storage. PROGRESS/current work order is the resume cursor.
 
 Do not restart analysis or regenerate a PASS asset. Resume from the first incomplete stage.
 
 ## Stages
 
-1. PLAN — resolve actionKey/limb/phase and select an APPROVED parent asset.
-2. SOURCE_LOCK — record parent path, exact SHA-256, dimensions, and immutable regions.
-3. EDIT — create only the required performance-motion change. The editor used may vary by session; the contract does not.
-4. CANDIDATE_SAVE — immediately persist candidate bytes to Dropbox with attempt number.
-5. CANDIDATE_IMPORT — use candidate-staging + import-character-review-candidates.yml to import exact verified bytes as review-only.
-6. STATIC_QA — PNG/dimensions/alpha/source-diff/left-right/contact/composite checks.
-7. VISUAL_QA — inspect character + locked drum composite. Existence-only checks are insufficient.
-8. APPROVE — only a PASS candidate may be promoted to formal layers and inventory.
-9. RUNTIME — update frame/phase mapping and contiguous runtime scope.
-10. PUBLIC_QA — exact deployed SHA, PC 1280x900, Xperia 384x864, hit/rebound/neutral screenshots and runtime errors.
-11. CHECKPOINT — write evidence to PROGRESS before moving to the next pair.
+1. PLAN — resolve actionKey/limb/phase, primary/secondary action and select an APPROVED parent donor.
+2. SOURCE_LOCK — record parent path, exact SHA-256, dimensions, immutable regions and region ownership.
+3. DIRECT_DONOR_TEST — before destructive deformation, test the completed donor/composite in fixed registration when applicable.
+4. EDIT — create only the required performance-motion change using the least destructive method.
+5. CANDIDATE_SAVE — immediately persist candidate bytes when durable recovery storage is needed.
+6. CANDIDATE_IMPORT — import exact verified bytes as review-only when required.
+7. STATIC_QA — PNG/dimensions/alpha/source-diff/left-right/contact/composite checks.
+8. VISUAL_QA — inspect actual character + locked drum composite; existence-only checks are insufficient.
+9. APPROVE — only a numeric+visual PASS candidate may be promoted.
+10. RUNTIME — update frame/phase mapping and contiguous runtime scope.
+11. PUBLIC_QA — exact deployed SHA, PC/Xperia screenshots and runtime errors where applicable.
+12. CHECKPOINT — write evidence before moving to the next pair.
 
 ## Editor independence
 
@@ -39,11 +70,8 @@ Never weaken source identity to work around an editor boundary. No screenshots, 
 
 ## Pair transaction
 
-Each action pair is a transaction:
-
-hit EDIT -> Dropbox -> rebound EDIT -> Dropbox -> import -> static/composite QA -> approve -> inventory -> PROGRESS -> commit/push.
-
-Do not batch ten unsaved images.
+Do not advance rebound before hit is visually accepted unless the active work order explicitly says otherwise.
+A READ_ONLY pair asset may be inspected for transition QA but must not be edited.
 
 ## PROGRESS cursor
 
@@ -53,21 +81,23 @@ Use:
 - attempt
 - stage
 - parentPath / parentSha256
-- dropboxPath
+- donor/region ownership
 - candidateSha256
 - dimensions
-- qaStatus
+- numericQaStatus
+- visualQaStatus
+- failureClass
 - formalPath
 - formalCommit
 - updatedAt
 
-Allowed stages: PLAN, SOURCE_LOCK, EDIT, CANDIDATE_SAVE, CANDIDATE_IMPORT, STATIC_QA, VISUAL_QA, APPROVE, RUNTIME, PUBLIC_QA, DONE, BLOCKED_EXTERNAL.
+Allowed stages include: PLAN, SOURCE_LOCK, DIRECT_DONOR_TEST, EDIT, CANDIDATE_SAVE, CANDIDATE_IMPORT, STATIC_QA, VISUAL_QA, APPROVE, RUNTIME, PUBLIC_QA, DONE, BLOCKED_EXTERNAL.
 
 BLOCKED_EXTERNAL is allowed only when the missing capability is outside this repository. Repository/workflow defects must be repaired and retried.
 
 ## Existing reusable infrastructure
 
-Prefer these generic components over adding per-measure one-off workflows:
+Prefer generic components over per-measure one-off workflows:
 - .github/workflows/import-character-review-candidates.yml
 - .github/workflows/import-character-asset-from-dropbox.yml
 - .github/workflows/mirror-character-assets-to-dropbox.yml
