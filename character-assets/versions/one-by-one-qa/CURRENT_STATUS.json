@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T21:00:00+09:00",
+  "updatedAt": "2026-09-21T20:12:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
@@ -38,7 +38,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run.",
+  "nextAction": "STOP: DMR-009 hit one-image run completed at CANDIDATE_READY_HIT. Registration/anatomy/contact/linework/fixed-drum composite/transition all passed; do not advance to another image in this run.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",
@@ -61,6 +61,8 @@
     "PATTERN-006",
     "PATTERN-007",
     "PATTERN-008",
-    "PATTERN-009"
+    "PATTERN-009",
+    "PATTERN-010",
+    "PATTERN-011"
   ]
 }
