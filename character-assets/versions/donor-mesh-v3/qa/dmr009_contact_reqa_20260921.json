@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-21T18:22:00+09:00",
+  "basisMain": "55db3b41682e5fd99cc51e49190ee09211f3c797",
+  "issueId": "DMR-009",
+  "filename": "combo/bd_hh_rf_r_hit_refresh.png",
+  "parent": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
+  "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
+  "attemptedRepair": {
+    "category": "LOCAL_ARTIFACT_REMOVAL",
+    "candidate": "DMR009_bd_hh_rf_r_hit_refresh_candidate_v1.png",
+    "candidateSha256": "3d7dec49c36bcb1f3fc3460a07c4656778aeb448a8864ab5d2820219b34442dc",
+    "changedPixels": 11,
+    "changedBBox": [
+      576,
+      510,
+      583,
+      513
+    ],
+    "method": "EXTERNAL_ALPHA_CLEAR on one detached 11-pixel connected component only",
+    "outsideAllowedChangedPixels": 0
+  },
+  "qa": {
+    "localArtifactVisual": "PASS",
+    "canvas": "PASS 1448x1086 RGBA",
+    "contactQa": "FAIL",
+    "contactFindings": [
+      "BD+HH hit frame does not visually reach the HH playing surface near the authoritative HH point (190,390) in the fixed-drum composite.",
+      "The 11-pixel artifact edit does not cause the contact problem; the parent already has the mismatch."
+    ],
+    "transitionQa": "NOT_PROMOTABLE",
+    "failureRegistryQa": "FAIL_CONTACT_TARGET"
+  },
+  "finalStatus": "RETRY_REQUIRED",
+  "githubBinaryRegistered": false,
+  "note": "Do not promote the artifact-only candidate because the hand/instrument contact authority is not satisfied. Repair must start from the merged parent or another approved visual-PASS parent and correct HH contact without altering body/camera/stool registration."
+}
