@@ -25,12 +25,12 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+    "sha256": "979da1358c31c1232f1cddc1bb7bbc0d5f35333d232e237db621634ffba52593",
     "method": "bone-local donor transform: upper arm + forearm/hand + constrained stick; source-pose clear limited by donor-vs-neutral diff; explicit static locks",
-    "changedPixels": 86956,
+    "changedPixels": 81905,
     "changedBBox": [
       185,
-      273,
+      231,
       761,
       986
     ],
@@ -40,7 +40,7 @@
     "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
     "hit": {
       "headCenter": [
-        681,
+        681.0,
         126.5
       ],
       "neck": [
@@ -62,12 +62,12 @@
         352
       ],
       "activeElbow": [
-        478,
-        358
+        490,
+        291
       ],
       "activeWrist": [
-        376,
-        317
+        375,
+        304
       ],
       "activeGrip": [
         358,
@@ -149,13 +149,13 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 170.11,
-      "elbowToWrist": 109.93,
-      "wristToGrip": 18.68,
+      "shoulderToElbow": 169.37,
+      "elbowToWrist": 115.73,
+      "wristToGrip": 18.79,
       "gripToContact": 185.22
     },
-    "elbowAngleDeg": 156.08,
-    "wristDeviationDeg": 6.37,
+    "elbowAngleDeg": 152.44,
+    "wristDeviationDeg": 18.75,
     "localNaturalization": {
       "hardLocked": [
         "shoulder",
@@ -177,7 +177,7 @@
   },
   "stick": {
     "angleDegScreen": 155.1,
-    "expectedApproachAngleDeg": 155,
+    "expectedApproachAngleDeg": 155.0,
     "approachAngleDeltaDeg": 0.1,
     "visibleLengthPx": 185.22,
     "standardLengthPx": 185,
@@ -186,7 +186,21 @@
       194.25
     ],
     "lengthErrorPercent": 0.12,
-    "sourceStyle": "approved HH donor pixels; no vector redraw",
+    "sourceStyle": "approved HH donor pixels; one affine rigid shaft segment",
+    "rigidRod": {
+      "required": true,
+      "stickAxisAngleDeg": 155.1,
+      "wristToGripAxisAngleDeg": 154.8,
+      "wristGripVsStickAxisDeltaDeg": 0.3,
+      "maxAxisDeltaDeg": 15.0,
+      "pixelCount": 1162,
+      "axisCenterOffsetPx": 3.5,
+      "straightnessResidualP95Px": 3.63,
+      "continuityRatio": 1.0,
+      "straightnessMaxResidualP95Px": 8.0,
+      "continuityMinRatio": 0.94,
+      "result": "PASS"
+    },
     "sourceContactPixel": [
       357,
       350
@@ -196,7 +210,7 @@
       190,
       389
     ],
-    "contactDistancePx": 1,
+    "contactDistancePx": 1.0,
     "contactEllipseScore": 0.0016,
     "result": "PASS"
   },
@@ -229,13 +243,11 @@
   },
   "visualQa": {
     "required": true,
-    "status": "PASS",
-    "record": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_qa_v2.json",
+    "status": "PENDING_AI_VISUAL_QA",
     "fullComposite": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
     "thumbnail": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_thumb_v2.png",
     "armCrop": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
   },
   "formalPromotion": false,
-  "finalStatus": "CANDIDATE_VALIDATED_HIT",
-  "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json"
+  "finalStatus": "CANDIDATE_READY_HIT"
 }

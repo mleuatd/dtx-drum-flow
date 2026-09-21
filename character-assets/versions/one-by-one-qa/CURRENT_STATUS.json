@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T23:20:00+09:00",
+  "updatedAt": "2026-09-21T21:00:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY_VERIFIED",
+  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -15,8 +15,8 @@
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
-    "finalStatus": "VERIFIED",
-    "promotionBlocked": false,
+    "finalStatus": "CANDIDATE_READY_HIT",
+    "promotionBlocked": true,
     "secondaryHold": null,
     "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json",
     "visualQaRecord": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_qa_v2.json",
@@ -25,17 +25,18 @@
   },
   "resultSummary": {
     "oneCandidateCreated": true,
-    "candidateSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+    "candidateSha256": "979da1358c31c1232f1cddc1bb7bbc0d5f35333d232e237db621634ffba52593",
     "registrationPassed": true,
     "contactPassed": true,
     "selectedContactType": "SOURCE_STYLE_CONTACT",
     "lineworkPassed": true,
     "compositeContactPassed": true,
     "transitionPassed": true,
-    "formalImageOverwritten": true,
+    "formalImageOverwritten": false,
     "advancedToSecondImage": false,
     "visualQaPassed": true,
-    "verified": true
+    "verified": true,
+    "rigidStickPassed": true
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,
@@ -44,7 +45,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "DMR-009 hit VERIFIED. Paired rebound remained read-only. Do not advance automatically.",
+  "nextAction": "Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",
