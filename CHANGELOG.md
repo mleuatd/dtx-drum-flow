@@ -305,3 +305,5 @@ See Git history for earlier character-pose experiments and full-song / 1-16 / 1-
 - 2026-09-21 DMR-009 hit: created neutral-locked skeleton candidate from audited source-pixel HH/BD donors; fixed HH target (190,390), fixed-drum composite and transition QA recorded. Runtime/formal image not overwritten; no second image modified.
 
 - 2026-09-21 DMR-009 hit: created neutral-locked skeleton candidate from audited source-pixel HH/BD donors; fixed HH target (190,390), fixed-drum composite and transition QA recorded. Runtime/formal image not overwritten; no second image modified.
+
+- 2026-09-21 DMR-009 hit continuation: repaired residual literal `\\n` tokens that kept the naturalized fast-path builder from executing, then re-requested the same one-image-only DMR-009 hit run with verified inputs reused. No rebound or second image was modified; formal promotion remains blocked pending regenerated QA.
