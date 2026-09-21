@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "extends": "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json",
+  "patterns": [
+    {"id":"DM-FAIL-PARENT-DRIFT","severity":"CRITICAL","detection":"base image is not locked merged-parent bytes or a prior full-resolution PASS candidate","action":"REJECT"},
+    {"id":"DM-FAIL-DONOR-NONPASS","severity":"CRITICAL","detection":"donor is FAIL/REVIEW/unverified","action":"REJECT"},
+    {"id":"DM-FAIL-OUTSIDE-ROI","severity":"CRITICAL","detection":"outsideAllowedChangedPixels > 0","action":"REJECT"},
+    {"id":"DM-FAIL-FIXED-REGION","severity":"CRITICAL","detection":"fixedRegionChangedPixels > 0","action":"REJECT"},
+    {"id":"DM-FAIL-RECT-SPLICE","severity":"HIGH","detection":"visible rectangular patch boundary or alpha seam","action":"REJECT"},
+    {"id":"DM-FAIL-DUPLICATE-STICK","severity":"HIGH","detection":"more sticks/fragments than intended after repair","action":"REJECT"},
+    {"id":"DM-FAIL-STICK-DISCONNECT","severity":"HIGH","detection":"stick/grip/wrist continuity is broken","action":"REJECT"},
+    {"id":"DM-FAIL-LIMB-MULTIPLY","severity":"CRITICAL","detection":"extra arm/leg/hand/foot appears","action":"REJECT"},
+    {"id":"DM-FAIL-WRONG-CONTACT","severity":"HIGH","detection":"stickTip/foot targets wrong instrument region","action":"REJECT_AND_RESELECT_DONOR_OR_TARGET_POINTS"},
+    {"id":"DM-FAIL-CLOTHING-DISCONTINUITY","severity":"HIGH","detection":"sleeve/check/skirt contour or repeated-stroke style breaks at splice","action":"REJECT"},
+    {"id":"DM-FAIL-OVERWARP","severity":"HIGH","detection":"hand/stick/limb visibly stretched, crushed, bent, or rubber-like","action":"REJECT_AND_RESELECT_DONOR"},
+    {"id":"DM-FAIL-PHASE-MISMATCH","severity":"HIGH","detection":"hit/rebound donor phase mismatches target phase without explicit override","action":"REJECT"},
+    {"id":"DM-FAIL-OPPOSITE-HAND-REFLECTION","severity":"HIGH","detection":"mirrored opposite-hand donor used without explicit visual proof","action":"REJECT"},
+    {"id":"DM-FAIL-WHOLE-BODY-IMPORT","severity":"CRITICAL","detection":"donor head/torso/camera/stool leaks into target outside allowed region","action":"REJECT"}
+  ]
+}
