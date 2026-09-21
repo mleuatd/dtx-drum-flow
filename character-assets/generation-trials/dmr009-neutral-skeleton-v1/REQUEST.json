@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T21:46:00+09:00",
+  "requestedAt": "2026-09-21T21:50:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,9 +23,9 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 13,
-  "retryReason": "Diagnostic rerun for DMR-009 hit only: persist audited HH donor and donor-difference visual evidence to verify contact source pixel after repeated AI visual failures.",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Generate normal candidate plus HH donor/diff diagnostics in trial directory. Do not modify rebound, formal/runtime image, fixed drum, or any second image.",
+  "retry": 14,
+  "retryReason": "AI visual root cause identified from donor diagnostic: previous src_chain used neutral-like grip/wrist coordinates that do not match HH donor. Rerun with donor-true shoulder/elbow/wrist/grip anchors and target-only corridor.",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Use actual HH donor chain [620,375]->[565,475]->[490,455]->[442,421]->source contact, mapped to naturalized target chain and fixed HH contact. Do not modify rebound or any second image.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
