@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-21T19:55:00+09:00",
+  "contactPolicy": "TIP_OR_SHAFT_CONTACT_ADAPTIVE",
+  "principle": "A visually plausible strike is the goal. Tip contact and shaft contact are both valid when they preserve natural hand/wrist/stick geometry and fixed-drum semantics.",
+  "axes": {
+    "tipContact": {
+      "required": false,
+      "pass": "Natural tip-on-surface contact when chosen."
+    },
+    "shaftContact": {
+      "required": false,
+      "pass": "Natural shaft/belly contact when chosen; no implausible penetration."
+    },
+    "visualStrikePlausibility": {
+      "required": true,
+      "pass": "Strike direction, wrist angle, grip and instrument relation read as an intentional hit."
+    },
+    "lineworkIntegrity": {
+      "required": true,
+      "hardFail": [
+        "thick black blob",
+        "doubled stick",
+        "broken shaft",
+        "hand-stick disconnect",
+        "floating fragment",
+        "rectangular splice",
+        "hair/arm fusion"
+      ]
+    },
+    "fixedDrumComposite": {
+      "required": true
+    },
+    "transitionContinuity": {
+      "required": true
+    }
+  },
+  "optionalStrikeExpression": {
+    "allowed": [
+      "small contact marks",
+      "a few subtle impact lines",
+      "minor motion indication"
+    ],
+    "forbidden": [
+      "large manga effects",
+      "concentration-line burst",
+      "glow",
+      "color effects",
+      "style-changing effects"
+    ],
+    "required": false
+  },
+  "promotionRule": "Contact success alone is insufficient. lineworkIntegrity + fixedDrumComposite + transitionContinuity must also pass."
+}
