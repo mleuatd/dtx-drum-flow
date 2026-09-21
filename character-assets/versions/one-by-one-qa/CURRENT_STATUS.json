@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T20:12:00+09:00",
+  "updatedAt": "2026-09-21T21:14:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
+  "executionMode": "ONE_IMAGE_ONLY_RERUN_REQUESTED",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -15,7 +15,7 @@
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
-    "finalStatus": "CANDIDATE_READY_HIT",
+    "finalStatus": "RERUN_REQUESTED_AFTER_BUILDER_FIX",
     "promotionBlocked": true,
     "secondaryHold": null
   },
@@ -38,7 +38,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "STOP: DMR-009 hit one-image run completed at CANDIDATE_READY_HIT. Registration/anatomy/contact/linework/fixed-drum composite/transition all passed; do not advance to another image in this run.",
+  "nextAction": "Rerun only DMR-009 hit with the repaired donor-mesh fast-path builder. Reuse verified neutral/donors/fixed drum; do not modify rebound or any second image. Re-evaluate registration/contact/anatomy/linework/transition before any formal promotion.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",
