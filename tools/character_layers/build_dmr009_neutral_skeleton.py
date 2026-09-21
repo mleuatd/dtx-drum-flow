@@ -57,6 +57,33 @@ def alpha_comp(bottom,top):
     rgb=np.divide(t[:,:,:3]*ta+b[:,:,:3]*ba*(1-ta),oa,out=np.zeros_like(b[:,:,:3]),where=oa>0)
     return np.clip(np.rint(np.concatenate([rgb,oa],2)*255),0,255).astype(np.uint8)
 
+def capsule_mask(size,a,b,width):
+    im=Image.new("L",size,0); d=ImageDraw.Draw(im)
+    a=tuple(map(float,a)); b=tuple(map(float,b))
+    d.line([a,b],fill=255,width=int(width))
+    rr=float(width)/2
+    for p in (a,b):
+        d.ellipse([p[0]-rr,p[1]-rr,p[0]+rr,p[1]+rr],fill=255)
+    return np.asarray(im)>0
+
+def segment_affine(a,b,ad,bd,width_scale=1.0):
+    a=np.asarray(a,float); b=np.asarray(b,float); ad=np.asarray(ad,float); bd=np.asarray(bd,float)
+    u=b-a; L=float(np.linalg.norm(u)); u=u/L; v=np.array([-u[1],u[0]])
+    ud=bd-ad; Ld=float(np.linalg.norm(ud)); ud=ud/Ld; vd=np.array([-ud[1],ud[0]])
+    A=np.column_stack([ud*(Ld/L),vd*float(width_scale)]) @ np.column_stack([u,v]).T
+    t=ad-A@a
+    M=np.eye(3); M[:2,:2]=A; M[:2,2]=t
+    return M
+
+def warp_segment(source,mask,a,b,ad,bd,width_scale=1.0):
+    src=source.copy(); src[~mask]=0
+    inv=np.linalg.inv(segment_affine(a,b,ad,bd,width_scale))
+    coeff=(inv[0,0],inv[0,1],inv[0,2],inv[1,0],inv[1,1],inv[1,2])
+    im=Image.fromarray(src,"RGBA").transform(
+        (source.shape[1],source.shape[0]),Image.Transform.AFFINE,coeff,
+        resample=Image.Resampling.BICUBIC,fillcolor=(0,0,0,0))
+    return np.asarray(im).copy()
+
 def best_shift(ref,mov,roi,limit=24):
     x1,y1,x2,y2=roi
     A=ref[y1:y2,x1:x2,3]>24
@@ -99,38 +126,35 @@ def main():
     diff_vis[:,:,3]=(hh_core.astype(np.uint8)*255)
     save(diff_vis,debug_diff)
 
-    # If the audited donor does not yet reach the fixed target, deform only its
-    # active source-pixel corridor. Boundary anchors stay fixed; the solved arm
-    # chain meets the MASTER_GEOMETRY lengths and the fixed HH point.
-    # Local naturalization stage: keep shoulder/contact hard-locked, soften only
-    # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands
-    # and preserve the approved donor linework rather than redrawing it.
+    # Single global RBF warp proved visually unstable for this large reach.
+    # Move three donor bones locally so sleeve/stick thickness remains stable.
     shoulder=[648,352]; elbow=[478,358]; wrist=[376,317]; grip=[358,312]
-    src_chain=[[648,352],[565,475],[490,455],[442,421],source_contact]
-    dst_chain=[shoulder,elbow,wrist,grip,target]
-    boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
-    cfg={"sourcePoints":boundary+src_chain,"targetPoints":boundary+dst_chain,
-         "roi":{"x1":70,"y1":250,"x2":760,"y2":630},
-         "deformationPolygon":[[70,250],[759,250],[759,629],[70,629]],
-         "fixedRects":[],"smoothing":0}
-    warped_hh,_=warp_rgba(hhdonor,cfg)
-    mask_rgba=np.zeros_like(hhdonor); mask_rgba[:,:,3]=(hh_core.astype(np.uint8)*255)
-    warped_mask_rgba,_=warp_rgba(mask_rgba,cfg)
-    warped_mask=warped_mask_rgba[:,:,3]>24
+    source_shoulder=[648,352]; source_elbow=[565,475]; source_grip=[442,421]
+    source_neutral_elbow=[565,490]; source_neutral_wrist=[500,490]; source_neutral_hand=[492,486]
 
-    # Restrict edits to the actual source/target limb corridor instead of the
-    # donor's broad whole-pose diff. This keeps head/torso/stool registration locked.
-    corridor_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
-    d=ImageDraw.Draw(corridor_img)
-    # Treat source + destination as one motion corridor so the old arm is
-    # actually moved rather than leaving a second/ghost arm behind.
-    d.line([tuple(source_contact),(442,421)],fill=255,width=20)
-    d.line([(442,421),(490,455),(565,475),(648,352)],fill=255,width=52,joint="curve")
-    d.line([tuple(target),tuple(grip)],fill=255,width=20)
-    d.line([tuple(grip),tuple(wrist),tuple(elbow),tuple(shoulder)],fill=255,width=52,joint="curve")
-    corridor=np.asarray(corridor_img)>0
-    hh_mask=binary_dilation(corridor,iterations=1)
-    candidate[hh_mask]=warped_hh[hh_mask]
+    clear_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
+    cd=ImageDraw.Draw(clear_img)
+    cd.line([tuple(source_contact),tuple(source_grip)],fill=255,width=30)
+    cd.line([tuple(source_grip),tuple(source_elbow),tuple(source_shoulder)],fill=255,width=98,joint="curve")
+    cd.line([tuple(source_neutral_hand),tuple(source_neutral_wrist),tuple(source_neutral_elbow),tuple(source_shoulder)],fill=255,width=94,joint="curve")
+    clear_corridor=np.asarray(clear_img)>0
+    clear_mask=binary_dilation(hh_diff & clear_corridor,iterations=2)
+    candidate[clear_mask]=0
+
+    source_alpha=hhdonor[:,:,3]>24
+    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,22) & source_alpha
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_grip,94) & source_alpha & ~binary_dilation(src_stick,iterations=2)
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,108) & source_alpha
+
+    upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
+    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_grip,elbow,grip,1.0)
+    stick_layer=warp_segment(hhdonor,src_stick,source_grip,source_contact,grip,target,0.62)
+
+    candidate=alpha_comp(candidate,upper_layer)
+    candidate=alpha_comp(candidate,fore_layer)
+    candidate=alpha_comp(candidate,stick_layer)
+    transformed_mask=(upper_layer[:,:,3]>12)|(fore_layer[:,:,3]>12)|(stick_layer[:,:,3]>12)
+    hh_mask=binary_dilation(clear_mask|transformed_mask,iterations=1)
 
     # BD/RF is retained only below the stool/hip lock zone. Upper leg, pelvis,
     # seat and stool remain byte-identical to neutral in this one-image run.
@@ -224,7 +248,7 @@ def main():
         "bdDonor":{"commit":BASELINE,"path":"character-assets/layers/character/bd/hit_rf.png","auditStatus":"REVIEW_ANATOMY_COHERENT"},
         "fixedDrum":"character-assets/layers/drum/drum_base.png","contactDefinition":"DRUM_GEOMETRY.json#HH",
         "donorSelectionReason":{"hh":"baseline HH:R hit is audited PASS and preserves source-style stick/hand linework","bd":"baseline BD:RF hit is the closest audited pedal-action donor and is used only in the lower active-foot region"}},
-      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",
+      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"bone-local donor transform: upper arm + forearm/hand + constrained stick; source-pose clear limited by donor-vs-neutral diff; explicit static locks",
         "changedPixels":int(np.count_nonzero(changed)),"changedBBox":bbox(changed),"outsideAllowedChangedPixels":outside},
       "landmarks":{"neutralSource":"MASTER_GEOMETRY.json#neutralLandmarks","hit":hit_landmarks},
       "registration":{"candidateDriftPx":candidate_drift,"staticChangedPixels":static_changed,
