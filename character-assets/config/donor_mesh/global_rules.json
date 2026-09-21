@@ -10,7 +10,12 @@
     "failCandidateMayBecomeParent": false,
     "onlyFullResolutionPassMayBecomeDonor": true
   },
-  "canvas": {"width": 1448, "height": 1086, "mode": "RGBA", "pngLossless": true},
+  "canvas": {
+    "width": 1448,
+    "height": 1086,
+    "mode": "RGBA",
+    "pngLossless": true
+  },
   "mandatoryAuthorities": {
     "contactPoints": "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
     "poseTransitions": "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
@@ -40,20 +45,48 @@
     "forearmDirectionDefect": "elbow-distal forearm + wrist + hand + stick",
     "shoulderTorsoNormal": "do not modify shoulder/torso/waist/legs"
   },
-  "protectedRegions": ["head","hair","cowlick","normal-opposite-arm","waist","pelvis","normal-legs","stool"],
+  "protectedRegions": [
+    "head",
+    "hair",
+    "cowlick",
+    "normal-opposite-arm",
+    "waist",
+    "pelvis",
+    "normal-legs",
+    "stool"
+  ],
   "bodyContinuity": [
     "shoulder-upperArm-elbow-forearm-wrist-hand-stick",
     "pelvis-thigh-knee-lowerLeg-ankle-foot-pedal"
   ],
   "requiredVisualQa": [
-    "limbCount","shoulderArmContinuity","elbowNaturalness","wristNaturalness","handShape",
-    "stickCount","stickContinuity","stickLength","stickTipContact","floatingArtifacts",
-    "waistContinuity","pelvisTorsoDirection","torsoShoulderRelationship","upperLowerBodyUnity",
-    "weightBalance","clothingPatternContinuity","hairUnchangedOutsideAllowedRegion","stoolRegistration",
-    "fixedDrumCompositeContact","noUnexpectedWholeFrameChange"
+    "limbCount",
+    "shoulderArmContinuity",
+    "elbowNaturalness",
+    "wristNaturalness",
+    "handShape",
+    "stickCount",
+    "stickContinuity",
+    "stickLength",
+    "stickTipContact",
+    "floatingArtifacts",
+    "waistContinuity",
+    "pelvisTorsoDirection",
+    "torsoShoulderRelationship",
+    "upperLowerBodyUnity",
+    "weightBalance",
+    "clothingPatternContinuity",
+    "hairUnchangedOutsideAllowedRegion",
+    "stoolRegistration",
+    "fixedDrumCompositeContact",
+    "noUnexpectedWholeFrameChange"
   ],
   "templateResolutionOrder": [
-    "GLOBAL_COMMON","INSTRUMENT_TEMPLATE","LIMB_PHASE_TEMPLATE","ACTION_COMBINATION_TEMPLATE","FRAME_OVERRIDE"
+    "GLOBAL_COMMON",
+    "INSTRUMENT_TEMPLATE",
+    "LIMB_PHASE_TEMPLATE",
+    "ACTION_COMBINATION_TEMPLATE",
+    "FRAME_OVERRIDE"
   ],
   "directReplacementGate": {
     "required": true,
@@ -61,5 +94,23 @@
     "alphaAreaRatioMin": 0.85,
     "alphaAreaRatioMax": 1.15,
     "rule": "If any registration gate fails, DIRECT_SAME_ACTION_REPLACEMENT is prohibited even when actionKey/phase names match."
+  },
+  "localArtifactPolicy": {
+    "externalDetachedArtifact": {
+      "method": "ALPHA_CLEAR",
+      "condition": "artifact is fully outside intended opaque character anatomy",
+      "rule": "clear only confirmed residue pixels/ROI; outsideAllowedChangedPixels must remain 0"
+    },
+    "internalSurfaceArtifact": {
+      "method": "SURFACE_RESTORE",
+      "condition": "unwanted line/mark lies inside an intended opaque body/clothing surface",
+      "rule": "do not alpha-clear; restore local underlying surface color/alpha from nearby same-surface pixels"
+    },
+    "classificationRequiredBeforeMutation": true
+  },
+  "issueIdentityPolicy": {
+    "rule": "issueId, filename, actionKey and classification source must agree before candidate promotion",
+    "onMismatch": "BLOCK_AND_RECORD_ALIAS",
+    "legacyAliasesAllowed": true
   }
 }
