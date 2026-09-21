@@ -117,7 +117,7 @@ def main():
     d.line([tuple(target),tuple(grip)],fill=255,width=28)
     d.line([tuple(grip),tuple(wrist),tuple(elbow),tuple(shoulder)],fill=255,width=64,joint="curve")
     corridor=np.asarray(corridor_img)>0
-    hh_mask=binary_dilation((hh_core|warped_mask)&corridor,iterations=3)
+    hh_mask=binary_dilation(warped_mask & corridor,iterations=2)
     candidate[hh_mask]=warped_hh[hh_mask]
 
     # BD/RF is retained only below the stool/hip lock zone. Upper leg, pelvis,
