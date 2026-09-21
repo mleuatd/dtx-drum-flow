@@ -7,14 +7,16 @@
     "branch": "main",
     "neutral": "character-assets/layers/character/base/neutral.png",
     "hhDonor": {
-      "commit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "authority": "latest-main",
       "path": "character-assets/layers/character/hh/hit_r.png",
+      "sha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
       "auditStatus": "PASS"
     },
     "bdDonor": {
-      "commit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "authority": "latest-main",
       "path": "character-assets/layers/character/bd/hit_rf.png",
-      "auditStatus": "REVIEW_ANATOMY_COHERENT"
+      "sha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+      "auditStatus": "FORMAL_CURRENT"
     },
     "fixedDrum": "character-assets/layers/drum/drum_base.png",
     "contactDefinition": "DRUM_GEOMETRY.json#HH",
@@ -25,11 +27,11 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "979da1358c31c1232f1cddc1bb7bbc0d5f35333d232e237db621634ffba52593",
+    "sha256": "24984c0a3853e8cbc6143e6a1e230f2cbd9ba1b08261bebccbd5f6434134ea35",
     "method": "bone-local donor transform: upper arm + forearm/hand + constrained stick; source-pose clear limited by donor-vs-neutral diff; explicit static locks",
-    "changedPixels": 81905,
+    "changedPixels": 76121,
     "changedBBox": [
-      185,
+      186,
       231,
       761,
       986
@@ -134,7 +136,7 @@
       1058
     ],
     "fullAlphaBBoxCandidate": [
-      185,
+      187,
       28,
       1062,
       1058
@@ -193,9 +195,9 @@
       "wristToGripAxisAngleDeg": 154.8,
       "wristGripVsStickAxisDeltaDeg": 0.3,
       "maxAxisDeltaDeg": 15.0,
-      "pixelCount": 1162,
-      "axisCenterOffsetPx": 3.5,
-      "straightnessResidualP95Px": 3.63,
+      "pixelCount": 1155,
+      "axisCenterOffsetPx": 3.47,
+      "straightnessResidualP95Px": 3.66,
       "continuityRatio": 1.0,
       "straightnessMaxResidualP95Px": 8.0,
       "continuityMinRatio": 0.94,
