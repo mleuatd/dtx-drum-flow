@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 2,
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "authority": {
+    "initialFrozenMain": "95251ca1898390d54fa0fc0fa8bd93b7bcf881f0",
+    "validatedCandidateCommit": "87f59955b05365aba7cf9d9f741131285c17ced2"
+  },
+  "targetInstrument": "HH",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "registrationLocks": {
+    "head": true,
+    "torso": true,
+    "pelvis": true,
+    "stool": true,
+    "camera": true,
+    "scale": true,
+    "fixedDrum": true,
+    "unrelatedLimbs": true,
+    "hair": true,
+    "outfit": true,
+    "characterIdentity": true
+  },
+  "contactTarget": {
+    "instrument": "HH",
+    "tipTargetPx": [
+      190,
+      390
+    ],
+    "toleranceEllipsePx": [
+      55,
+      25
+    ],
+    "expectedApproachAngleDegR": 155
+  },
+  "activeChain": {
+    "shoulder": [
+      648,
+      352
+    ],
+    "elbow": [
+      478,
+      358
+    ],
+    "wrist": [
+      376,
+      317
+    ],
+    "grip": [
+      358,
+      312
+    ],
+    "stickTipTarget": [
+      190,
+      390
+    ]
+  },
+  "geometry": {
+    "upperArmLengthPx": 170.11,
+    "forearmLengthPx": 109.93,
+    "handToGripLengthPx": 18.68,
+    "standardStickLengthPx": 185,
+    "actualStickLengthPx": 185.22,
+    "stickLengthTolerancePercent": 5
+  },
+  "jointLimits": {
+    "elbowDeg": {
+      "min": 35,
+      "max": 170,
+      "actual": 156.08
+    },
+    "wristDeviationDeg": {
+      "maxAbs": 45,
+      "actual": 6.37
+    },
+    "approachAngleDeg": {
+      "expected": 155,
+      "actual": 155.1,
+      "maxDelta": 12
+    }
+  },
+  "method": {
+    "name": "bone-local donor transform",
+    "segments": [
+      "upper arm",
+      "forearm+hand",
+      "stick"
+    ],
+    "sourcePixelsPreserved": true,
+    "fullSceneRedraw": false
+  },
+  "allowedChanges": [
+    "active upper arm",
+    "active forearm",
+    "active elbow",
+    "active wrist",
+    "active hand",
+    "active grip",
+    "active stick",
+    "minimal sleeve-line cleanup",
+    "BD/RF lower active-foot donor region already part of target combo"
+  ],
+  "forbiddenChanges": [
+    "fixed drum",
+    "head",
+    "torso registration",
+    "hip",
+    "stool",
+    "camera",
+    "scale",
+    "hair",
+    "unrelated limb",
+    "paired rebound"
+  ],
+  "acceptance": {
+    "outsideAllowedChangedPixels": 0,
+    "headStaticChangedPixels": 0,
+    "hipStaticChangedPixels": 0,
+    "stoolStaticChangedPixels": 0,
+    "contactDistancePx": 1,
+    "stickLengthErrorPercent": 0.12,
+    "visualQa": "PASS"
+  },
+  "correctiveRules": [
+    "Never compensate insufficient arm reach by extending the stick beyond ±5%.",
+    "Lock contact target and approach angle before solving arm joints.",
+    "For large pose changes, do not use one global RBF warp when it visibly stretches or tears linework; use bone-local transforms."
+  ]
+}
