@@ -106,7 +106,7 @@ def main():
     # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands
     # and preserve the approved donor linework rather than redrawing it.
     shoulder=[648,352]; elbow=[478,358]; wrist=[376,317]; grip=[358,312]
-    src_chain=[[620,375],[565,475],[490,455],[442,421],source_contact]
+    src_chain=[[648,352],[565,475],[490,455],[442,421],source_contact]
     dst_chain=[shoulder,elbow,wrist,grip,target]
     boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
     cfg={"sourcePoints":boundary+src_chain,"targetPoints":boundary+dst_chain,
@@ -122,10 +122,14 @@ def main():
     # donor's broad whole-pose diff. This keeps head/torso/stool registration locked.
     corridor_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
     d=ImageDraw.Draw(corridor_img)
-    d.line([tuple(target),tuple(grip)],fill=255,width=18)
-    d.line([tuple(grip),tuple(wrist),tuple(elbow),tuple(shoulder)],fill=255,width=56,joint="curve")
+    # Treat source + destination as one motion corridor so the old arm is
+    # actually moved rather than leaving a second/ghost arm behind.
+    d.line([tuple(source_contact),(442,421)],fill=255,width=20)
+    d.line([(442,421),(490,455),(565,475),(648,352)],fill=255,width=52,joint="curve")
+    d.line([tuple(target),tuple(grip)],fill=255,width=20)
+    d.line([tuple(grip),tuple(wrist),tuple(elbow),tuple(shoulder)],fill=255,width=52,joint="curve")
     corridor=np.asarray(corridor_img)>0
-    hh_mask=binary_dilation(warped_mask & corridor,iterations=2)
+    hh_mask=binary_dilation(corridor,iterations=1)
     candidate[hh_mask]=warped_hh[hh_mask]
 
     # BD/RF is retained only below the stool/hip lock zone. Upper leg, pelvis,
