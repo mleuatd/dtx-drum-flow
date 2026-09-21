@@ -102,7 +102,7 @@ jobs:
           printf '{"version":"PRE-FIX","commitSha":"a4e3854449e292264192afa63469edf0fb5048af","builtAt":"%s"}\n' "$BUILT_AT" > site/pre-fix/build.json
           printf '{"version":"DONOR-MESH-V3","commitSha":"%s","baseCommit":"a4e3854449e292264192afa63469edf0fb5048af","builtAt":"%s"}\n' "$GITHUB_SHA" "$BUILT_AT" > site/donor-mesh-v3/build.json
 
-      - name: Validate staged PRE/POST snapshots
+      - name: Validate staged V1/V2/V3 snapshots
         run: |
           set -euo pipefail
           test -f site/index.html
@@ -120,11 +120,20 @@ jobs:
           grep -q 'version-switcher.js' site/donor-mesh-v3/index.html
           grep -q '"version":"PRE-FIX"' site/pre-fix/build.json
           grep -q '"version":"POST-FIX"' site/post-fix/build.json
+          grep -q '"version":"DONOR-MESH-V3"' site/donor-mesh-v3/build.json
+          test -f site/donor-mesh-v3/character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png
+          test -f site/donor-mesh-v3/character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png
+          test -f site/donor-mesh-v3/character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png
+          test -f site/donor-mesh-v3/character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png
+          cmp character-assets/versions/donor-mesh-v3/overlays/combo/bd_hh_sn_rf_r_l_hit_refresh.png site/donor-mesh-v3/character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png
+          cmp character-assets/versions/donor-mesh-v3/overlays/combo/bd_rc_sn_rf_r_l_hit_refresh.png site/donor-mesh-v3/character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png
+          cmp character-assets/versions/donor-mesh-v3/overlays/combo/bd_rd_rf_r_hit_refresh.png site/donor-mesh-v3/character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png
+          cmp character-assets/versions/donor-mesh-v3/overlays/combo/hh_sn_r_l_rebound_refresh.png site/donor-mesh-v3/character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png
           if diff -qr site/pre-fix/character-assets/layers site/post-fix/character-assets/layers >/tmp/pre-post-assets.diff; then
             echo "PRE-FIX and POST-FIX character layer trees are unexpectedly identical"
             exit 1
           fi
-          echo "PRE/POST staged snapshots validated"
+          echo "V1/V2/V3 staged snapshots validated"
           head -n 20 /tmp/pre-post-assets.diff
 
       - name: Upload site
@@ -143,7 +152,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Verify published PRE/POST routes
+      - name: Verify published V1/V2/V3 routes
         shell: bash
         run: |
           set -euo pipefail
@@ -165,4 +174,5 @@ jobs:
           printf '%s' "$V3_HTML" | grep -q 'version-switcher.js'
           printf '%s' "$PRE_BUILD" | grep -q '"version":"PRE-FIX"'
           printf '%s' "$POST_BUILD" | grep -q '"version":"POST-FIX"'
-          echo "Published root/PRE-FIX/POST-FIX routes verified"
+          printf '%s' "$V3_BUILD" | grep -q '"version":"DONOR-MESH-V3"'
+          echo "Published root/PRE-FIX/POST-FIX/V3 routes verified"
