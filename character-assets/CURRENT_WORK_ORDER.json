@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "ACTIVE",
+  "status": "VERIFIED",
   "project": "DTX Drum Flow",
   "repository": {
     "fullName": "mleuatd/dtx-drum-flow",
@@ -42,7 +42,10 @@
   },
   "geometry": {
     "authoritativeInstrument": "HH",
-    "strikeTarget": [190, 390],
+    "strikeTarget": [
+      190,
+      390
+    ],
     "preferNewerDrumGeometryIfAvailable": true,
     "stick": {
       "standardLengthRequired": true,
@@ -129,5 +132,13 @@
       "no_protected_region_regression"
     ],
     "completionState": "VERIFIED"
+  },
+  "completion": {
+    "state": "VERIFIED",
+    "candidateSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+    "formalPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+    "formalSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+    "pairedReboundModified": false,
+    "note": "Exact numeric+AI-visual+transition PASS candidate promoted only after SHA lock and repository validation."
   }
 }

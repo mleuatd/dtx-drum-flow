@@ -147,14 +147,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "048513241f9b3c839506347a68859cc6582abc7d506b7c644babcc89df87979f",
+      "sha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
       "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "BD",
       "phase": "hit",
       "hand": "RF",
       "notes": [
-        "2026-09-20 deterministic motion repair BD:RF hit; auto candidate QA PASS."
+        "2026-09-20 deterministic motion repair BD:RF hit; auto candidate QA PASS.",
+        "2026-09-21 metadata reconciled to documented 008 repaired formal SHA; image unchanged."
       ]
     },
     {
@@ -804,7 +805,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "8b1dcbf1d3287ee90bb4425380314fd412aeaeb407ccb1664815493f1cac6423",
+      "sha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
       "status": "MOTION_REPAIR_VERIFIED",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+HH",
@@ -813,7 +814,8 @@
       "notes": [
         "Synced from asset_inventory requiredFrames for active runtime validation.",
         "2026-09-20 deterministic motion repair BD+HH:RF/R hit; auto candidate QA PASS.",
-        "2026-09-20 MOTION-005 exact approved pair hit; donor roots M003/M007 VERIFIED."
+        "2026-09-20 MOTION-005 exact approved pair hit; donor roots M003/M007 VERIFIED.",
+        "2026-09-21 DMR-009 exact candidate promoted after numeric + AI visual + transition PASS."
       ]
     },
     {

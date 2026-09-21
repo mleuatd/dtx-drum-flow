@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T22:40:00+09:00",
+  "updatedAt": "2026-09-21T23:20:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY_VALIDATED",
+  "executionMode": "ONE_IMAGE_ONLY_VERIFIED",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -15,11 +15,13 @@
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
-    "finalStatus": "CANDIDATE_VALIDATED_HIT",
-    "promotionBlocked": true,
+    "finalStatus": "VERIFIED",
+    "promotionBlocked": false,
     "secondaryHold": null,
     "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json",
-    "visualQaRecord": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_qa_v2.json"
+    "visualQaRecord": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_qa_v2.json",
+    "formalPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+    "formalSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c"
   },
   "resultSummary": {
     "oneCandidateCreated": true,
@@ -30,9 +32,10 @@
     "lineworkPassed": true,
     "compositeContactPassed": true,
     "transitionPassed": true,
-    "formalImageOverwritten": false,
+    "formalImageOverwritten": true,
     "advancedToSecondImage": false,
-    "visualQaPassed": true
+    "visualQaPassed": true,
+    "verified": true
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,
@@ -41,7 +44,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Stop on DMR-009 hit as instructed. Candidate is validated by numeric QA and AI visual QA; formal/runtime remains untouched and paired rebound remains read-only.",
+  "nextAction": "DMR-009 hit VERIFIED. Paired rebound remained read-only. Do not advance automatically.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",

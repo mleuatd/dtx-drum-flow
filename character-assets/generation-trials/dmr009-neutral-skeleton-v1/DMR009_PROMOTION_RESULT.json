@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "result": "VERIFIED",
+  "candidateSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+  "previousFormalSha256": "8b1dcbf1d3287ee90bb4425380314fd412aeaeb407ccb1664815493f1cac6423",
+  "formalPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+  "formalSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+  "pairedReboundSha256": "cd33610f79643b80222a250410eeaf2207be7d1014baa2f8847c9e611ba2ac6b",
+  "pairedReboundModified": false,
+  "numericQa": "PASS",
+  "aiVisualQa": "PASS",
+  "transitionQa": "PASS",
+  "metadataReconciliation": {
+    "bdRfImageChanged": false,
+    "bdRfFormalSha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+    "reason": "008 repaired PNG was already formal on main but manifest/inventory/action-map still referenced its pre-repair SHA."
+  }
+}

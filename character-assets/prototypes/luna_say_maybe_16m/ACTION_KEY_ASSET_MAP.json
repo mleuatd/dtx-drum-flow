@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-21T23:20:00+09:00",
   "song": "Luna Say Maybe",
   "authority": "character-assets/prototypes/luna_say_maybe_16m/FULL_SONG_ASSET_IMPLEMENTATION_PLAN.json",
   "entries": [
@@ -70,10 +70,10 @@
       "legacyRuntimeKey": "BD:RF",
       "limbAwareRuntimeKey": "BD:RF",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
-      "hitSha256": "048513241f9b3c839506347a68859cc6582abc7d506b7c644babcc89df87979f",
-      "motionRepairQaStatus": "AUTO_CANDIDATE_PASS_PROMOTED",
-      "motionRepairLastPhase": "rebound",
-      "motionRepairMethod": "cause-specific method2: active RF leg corridor + narrow contact corridor",
+      "hitSha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+      "motionRepairQaStatus": "EXACT_VISUAL_PASS_PROMOTED",
+      "motionRepairLastPhase": "hit",
+      "motionRepairMethod": "metadata reconciliation to audited 008 repaired formal image; image unchanged",
       "reboundSha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660"
     },
     {
@@ -456,10 +456,10 @@
       "limbAwareRuntimeKey": "BD+HH:RF/R",
       "runtimeResolution": "exact limb-aware key first; legacy wildcard fallback second",
       "syncedFromRuntimeInventoryAt": "2026-09-19T13:24:00+09:00",
-      "hitSha256": "8b1dcbf1d3287ee90bb4425380314fd412aeaeb407ccb1664815493f1cac6423",
+      "hitSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
       "motionRepairQaStatus": "EXACT_VISUAL_PASS_PROMOTED",
-      "motionRepairLastPhase": "rebound",
-      "motionRepairMethod": "neutral body + VERIFIED HH:R + VERIFIED BD:RF",
+      "motionRepairLastPhase": "hit",
+      "motionRepairMethod": "DMR-009 exact validated donor/bone-local hit promotion",
       "reboundSha256": "cd33610f79643b80222a250410eeaf2207be7d1014baa2f8847c9e611ba2ac6b"
     },
     {
