@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "status": "ACTIVE",
+  "project": "DTX Drum Flow",
+  "repository": {
+    "fullName": "mleuatd/dtx-drum-flow",
+    "branch": "main",
+    "sourceOfTruth": "LATEST_MAIN"
+  },
+  "execution": {
+    "mode": "ONE_CASE_UNTIL_VERIFIED",
+    "resetOnNewChat": false,
+    "askIntermediateConfirmation": false,
+    "useChatGPTWork": false,
+    "advanceToNextIssue": false,
+    "advanceToNextPhase": false
+  },
+  "issue": {
+    "id": "DMR-009",
+    "phase": "hit",
+    "target": "combo/bd_hh_rf_r_hit_refresh.png",
+    "pairedAsset": {
+      "path": "combo/bd_hh_rf_r_rebound_refresh.png",
+      "mode": "READ_ONLY",
+      "allowModification": false
+    }
+  },
+  "motion": {
+    "primaryAction": {
+      "instrument": "HH",
+      "limb": "R",
+      "phase": "hit"
+    },
+    "secondaryActions": [
+      {
+        "instrument": "BD",
+        "limb": "RF",
+        "phase": "hit"
+      }
+    ],
+    "rule": "PRIMARY_ACTION_MUST_NOT_BE_DEGRADED_TO_ADD_SECONDARY_ACTION"
+  },
+  "geometry": {
+    "authoritativeInstrument": "HH",
+    "strikeTarget": [190, 390],
+    "preferNewerDrumGeometryIfAvailable": true,
+    "stick": {
+      "standardLengthRequired": true,
+      "strictTolerancePercent": 5,
+      "forbidReachCompensationByStickExtension": true
+    }
+  },
+  "preferredDonors": {
+    "primary": {
+      "path": "character-assets/layers/character/hh/hit_r.png",
+      "role": "COMPLETED_PRIMARY_ACTION_DONOR",
+      "knownStatus": "PASS",
+      "baselineReference": "a4e3854449e292264192afa63469edf0fb5048af"
+    },
+    "secondary": {
+      "path": "character-assets/layers/character/bd/hit_rf.png",
+      "role": "BD_RF_SECONDARY_DONOR",
+      "usage": "LOWER_BODY_ONLY_UNLESS_EVIDENCE_REQUIRES_MORE"
+    }
+  },
+  "firstRequiredAction": {
+    "action": "VISUALLY_INSPECT_PRIMARY_DONOR_ON_FIXED_DRUM",
+    "reason": "Verify the completed HH donor itself before any mesh. Previous diff/alpha contact detection may have selected the wrong pixel."
+  },
+  "methodPriority": [
+    "DIRECT_COMPLETED_HH_DONOR_AS_PARENT",
+    "ADD_BD_RF_SECONDARY_REGION_ONLY",
+    "DIRECT_DONOR_COMPOSITE",
+    "LOCAL_SEAM_OR_CONTACT_CORRECTION",
+    "BONE_LOCAL_TRANSFORM",
+    "LOCAL_MESH",
+    "LOCAL_AI_EDIT_OF_EXISTING_CANDIDATE",
+    "LARGE_SCALE_RECONSTRUCTION_LAST"
+  ],
+  "protectedPrimaryRegions": [
+    "right_upper_arm",
+    "right_forearm",
+    "right_wrist",
+    "right_hand",
+    "right_stick",
+    "HH_contact_relationship"
+  ],
+  "prohibited": [
+    "TEXT_TO_IMAGE",
+    "WHOLE_CHARACTER_REGENERATION",
+    "UNNECESSARY_LARGE_RBF_WARP",
+    "STICK_LENGTHENING_TO_REACH_TARGET",
+    "MODIFY_PAIRED_REBOUND",
+    "FORMAL_PROMOTION_BEFORE_ALL_QA_PASS",
+    "RUNTIME_PROMOTION_BEFORE_ALL_QA_PASS"
+  ],
+  "qa": {
+    "numericRequired": true,
+    "visualRequired": true,
+    "visualPerformedByAI": true,
+    "inspectActualImage": true,
+    "requiredViews": [
+      "full_resolution_candidate",
+      "fixed_drum_composite",
+      "right_arm_crop",
+      "transition_review_if_applicable"
+    ],
+    "numericChecks": [
+      "HH_contact",
+      "stick_length",
+      "stick_angle",
+      "approach_angle",
+      "elbow_angle",
+      "wrist_deviation",
+      "fixed_drum_registration",
+      "protected_region_regression"
+    ]
+  },
+  "knownFailure": {
+    "summary": "Large RBF-style deformation reached numeric contact but created visible arm banding/ghost/distortion. The process became mesh-centric despite an existing completed HH hit donor.",
+    "correction": "DONOR_FIRST_THEN_MINIMAL_LOCAL_CORRECTION"
+  },
+  "promotion": {
+    "requires": [
+      "numeric_PASS",
+      "AI_visual_PASS",
+      "fixed_drum_visual_PASS",
+      "transition_PASS_if_required",
+      "no_protected_region_regression"
+    ],
+    "completionState": "VERIFIED"
+  }
+}
