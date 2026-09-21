@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T20:08:00+09:00",
+  "updatedAt": "2026-09-21T20:12:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -387,6 +387,23 @@
       "qaAction": "Compare local shaft line-weight/texture to approved neighboring sticks; reconstruct from source-style pixels or an approved donor.",
       "neverUse": false,
       "evidence": "DMR-009 one-image adaptive attempt v3, 2026-09-21"
+    },
+    {
+      "id": "FAIL-ACTIVE-DONOR-MASK-STATIC-REGION-CONTAMINATION",
+      "name": "active donor/TPS mask contaminated neutral-locked static regions",
+      "severity": "HIGH",
+      "actionKey": "BD+HH:RF/R",
+      "phase": "hit",
+      "problem": "A donor-difference mask was broad enough to alter head, hip and stool pixels even though landmark coordinates were nominally held at neutral.",
+      "cause": "The allowed edit mask followed a broad whole-pose donor diff instead of the minimum source-to-target limb corridor.",
+      "prohibitedStrategy": "Do not certify registration from landmark coordinates alone, and do not use an unrestricted donor-difference/TPS mask for a local limb repair.",
+      "nextPermittedStrategy": "Clip the edit to the union of narrow source and target limb corridors, restore neutral-authoritative static zones byte-for-byte, and require zero changed pixels in head/hip/stool registration ROIs.",
+      "detection": "Any nonzero staticChangedPixels in neutral-locked head/hip/stool ROIs after a local limb repair.",
+      "automaticAction": "HOLD_REGISTRATION; do not promote or mark candidate ready.",
+      "qaAction": "Pixel-diff neutral vs candidate in head/hip/stool plus body-bbox drift excluding the active corridor; all static locks must be zero.",
+      "neverUse": false,
+      "evidence": "DMR-009 neutral-skeleton v4 first candidate: anatomy/contact/transition passed but staticChangedPixels were head=11127, hip=6955, stool=8343; narrow-corridor + explicit neutral locks reduced all three to 0.",
+      "updatedAt": "2026-09-21T20:12:00+09:00"
     }
   ],
   "adaptiveRetry": {
