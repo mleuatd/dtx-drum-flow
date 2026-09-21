@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T21:12:00+09:00",
+  "requestedAt": "2026-09-21T21:27:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -22,10 +22,20 @@
     "paired rebound",
     "any second image"
   ],
-  "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes",
-  "retry": 8,
-  "retryReason": "rerun after residual escaped-newline repair in DMR009 builder; single-candidate fast path only",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Reuse verified inputs, rerun the existing fast-path candidate only, do not modify paired rebound or any second image.",
+  "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
+  "retry": 9,
+  "retryReason": "continue DMR-009 hit after builder repair; require AI visual review after regenerated candidate",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Reuse verified inputs, rerun existing fast-path forearm candidate only, do not modify paired rebound or any second image.",
   "fastPath": true,
-  "reuseVerifiedInputs": true
+  "reuseVerifiedInputs": true,
+  "aiVisualQaRequired": true,
+  "aiVisualQaChecks": [
+    "forearm bend",
+    "elbow placement",
+    "wrist angle",
+    "hand thickness and orientation",
+    "grip-stick continuity",
+    "stick angle and continuity",
+    "whole-image visual naturalness"
+  ]
 }
