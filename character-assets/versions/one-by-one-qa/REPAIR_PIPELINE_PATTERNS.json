@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T20:08:00+09:00",
+  "updatedAt": "2026-09-21T20:12:00+09:00",
   "authority": "character-assets/versions/one-by-one-qa/CURRENT_STATUS.json",
   "standardOrder": [
     "CURRENT_STATUS",
@@ -75,6 +75,12 @@
       "name": "SOURCE_STYLE_STICK_RECONSTRUCTION",
       "cost": "NORMAL",
       "rule": "A geometrically correct stick is not sufficient. Final stick reconstruction must inherit rough line weight/texture from approved source pixels or an approved style-matched donor; a perfectly clean vector-like shaft is evidence-only, not promotable."
+    },
+    {
+      "id": "PATTERN-011",
+      "name": "ACTIVE_LIMB_CORRIDOR_WITH_STATIC_LOCKS",
+      "cost": "NORMAL",
+      "rule": "For donor/TPS limb repair, allow only the narrow union of the source and solved target limb corridors. Reapply authoritative neutral bytes to static head/hip/stool regions and require zero changed pixels there before registration can pass."
     }
   ],
   "methodPreference": [
@@ -119,6 +125,21 @@
         "paired rebound retains ~7px stool registration shift"
       ],
       "nextPermittedStrategy": "Keep neutral-locked static body. Rebuild only the active hand/grip/stick corridor using source-style pixels/approved donor texture, and repair/reselect the paired rebound before transition promotion."
+    },
+    {
+      "issueId": "DMR-009",
+      "attempt": "v4_neutral_skeleton",
+      "success": [
+        "fixed HH target reached exactly at (190,390)",
+        "MASTER_GEOMETRY arm segment lengths and joint-angle checks passed",
+        "source-style donor pixels avoided vector-clean stick regression",
+        "narrow active-limb corridor plus neutral byte-locks reduced head/hip/stool changed pixels to zero",
+        "neutral->hit->rebound->neutral registration check passed"
+      ],
+      "failureRecovered": [
+        "initial broad donor/TPS mask altered neutral-locked head/hip/stool despite correct contact"
+      ],
+      "reusableStrategy": "Use approved source pixels, solve the active joint chain numerically, clip TPS/donor edits to the active limb corridor, and enforce byte-identical static registration zones."
     }
   ]
 }
