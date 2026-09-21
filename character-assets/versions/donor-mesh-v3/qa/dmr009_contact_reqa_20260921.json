@@ -33,5 +33,15 @@
   },
   "finalStatus": "RETRY_REQUIRED",
   "githubBinaryRegistered": false,
-  "note": "Do not promote the artifact-only candidate because the hand/instrument contact authority is not satisfied. Repair must start from the merged parent or another approved visual-PASS parent and correct HH contact without altering body/camera/stool registration."
+  "note": "Do not promote the artifact-only candidate because the hand/instrument contact authority is not satisfied.",
+  "supersededCurrentStateBy": "character-assets/versions/one-by-one-qa/CURRENT_STATUS.json",
+  "nextDiagnosticOrder": [
+    "global_registration",
+    "torso_registration",
+    "active_limb_geometry",
+    "stick_contact",
+    "fixed_drum_composite",
+    "transition"
+  ],
+  "diagnosticReason": "A contact miss may be caused by whole-character or torso registration drift; do not assume a stick-only defect before static anchors are measured."
 }
