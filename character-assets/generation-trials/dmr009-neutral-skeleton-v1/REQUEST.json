@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T23:18:00+09:00",
+  "requestedAt": "2026-09-21T23:22:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,8 +23,8 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 15,
-  "retryReason": "User full-resolution visual FAIL: stick must be one rigid straight rod and wrist/hand/forearm must be re-solved to support the same axis. Previous length/contact/angle PASS was insufficient.",
+  "retry": 16,
+  "retryReason": "Retry after implementation update: rigid straight stick + wrist-chain hard gates, latest-main approved donors, shallow checkout, cancel stale run.",
   "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Rebuild active R chain as shoulder→elbow→wrist→grip→HH tip with independent bone-local segments. Hard gates: straight rigid stick, continuity, grip-axis alignment, natural wrist, fixed HH contact. Paired rebound READ_ONLY.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
