@@ -21,14 +21,14 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "04d3b8732d43c1771a893fa5f20badddfe9e99f9f424591c3c7cc71af903723f",
-    "method": "neutral locked + approved source-pixel donor; adaptive TPS only inside active HH corridor",
-    "changedPixels": 202180,
+    "sha256": "d27fc820e23470323b0abfbd046e7b20207cf4a644cf1594b1e5b01df4f3097b",
+    "method": "neutral locked + approved source-pixel donor; adaptive TPS inside narrow active-limb corridor + explicit static-region locks",
+    "changedPixels": 84615,
     "changedBBox": [
       189,
-      246,
-      807,
-      987
+      330,
+      761,
+      986
     ],
     "outsideAllowedChangedPixels": 0
   },
@@ -119,9 +119,9 @@
       ]
     },
     "staticChangedPixels": {
-      "head": 11127,
-      "hip": 6955,
-      "stool": 8343
+      "head": 0,
+      "hip": 0,
+      "stool": 0
     },
     "fullAlphaBBoxNeutral": [
       330,
@@ -134,7 +134,14 @@
       28,
       1062,
       1058
-    ]
+    ],
+    "bodyBBoxDriftExcludingActiveCorridor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "note": "Full alpha bbox expands left only because the active HH stick reaches the fixed contact; static body/head/hip/stool remain neutral-locked."
   },
   "anatomy": {
     "segmentLengthsPx": {
