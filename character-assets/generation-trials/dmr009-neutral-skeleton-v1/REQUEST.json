@@ -22,5 +22,7 @@
     "paired rebound",
     "any second image"
   ],
-  "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes"
+  "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes",
+  "retry": 2,
+  "retryReason": "approved donor does not directly occupy fixed HH corridor; use source-pixel TPS to fixed contact"
 }
