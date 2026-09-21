@@ -51,6 +51,39 @@ def angle3(a,b,c):
     if n==0:return 0.0
     return float(math.degrees(math.acos(float(np.clip(np.dot(v1,v2)/n,-1,1)))))
 
+def signed_angle_delta_deg(a,b):
+    return abs(((float(a)-float(b)+180.0)%360.0)-180.0)
+
+def stick_axis_metrics(mask, grip, tip):
+    yy,xx=np.nonzero(mask)
+    if not len(xx):
+        return {"pixelCount":0,"straightnessResidualP95Px":999.0,"continuityRatio":0.0}
+    a=np.asarray(grip,float); b=np.asarray(tip,float)
+    u=b-a; L=float(np.linalg.norm(u))
+    if L<=0:
+        return {"pixelCount":int(len(xx)),"straightnessResidualP95Px":999.0,"continuityRatio":0.0}
+    u=u/L; v=np.array([-u[1],u[0]])
+    pts=np.column_stack([xx,yy]).astype(float)
+    q=pts-a
+    t=q@u; d=q@v
+    core=(t>=24.0)&(t<=L-6.0)&(np.abs(d)<=14.0)
+    if not np.any(core):
+        return {"pixelCount":int(len(xx)),"straightnessResidualP95Px":999.0,"continuityRatio":0.0}
+    dc=d[core]
+    center=float(np.median(dc))
+    residual=float(np.percentile(np.abs(dc-center),95))
+    samples=np.linspace(28.0,max(29.0,L-8.0),36)
+    hits=0
+    for sv in samples:
+        near=(np.abs(t-sv)<=2.5)&(np.abs(d-center)<=7.0)
+        if np.any(near): hits+=1
+    return {
+      "pixelCount":int(np.count_nonzero(core)),
+      "axisCenterOffsetPx":round(center,2),
+      "straightnessResidualP95Px":round(residual,2),
+      "continuityRatio":round(hits/max(1,len(samples)),4)
+    }
+
 def alpha_comp(bottom,top):
     b=bottom.astype(float)/255; t=top.astype(float)/255
     ta=t[:,:,3:4]; ba=b[:,:,3:4]; oa=ta+ba*(1-ta)
@@ -133,8 +166,11 @@ def main():
 
     # Single global RBF warp proved visually unstable for this large reach.
     # Move three donor bones locally so sleeve/stick thickness remains stable.
-    shoulder=[648,352]; elbow=[478,358]; wrist=[376,317]; grip=[358,312]
-    source_shoulder=[648,352]; source_elbow=[565,475]; source_grip=[442,421]
+    # Rigid-stick-first target chain.  The stick direction is solved first;
+    # wrist/grip/forearm are then positioned to support that single straight axis.
+    shoulder=[648,352]; elbow=[490,291]; wrist=[375,304]; grip=[358,312]
+    # Donor-true HH chain from the accepted single-HH source.
+    source_shoulder=[620,375]; source_elbow=[565,475]; source_wrist=[490,455]; source_grip=[442,421]
     source_neutral_elbow=[565,490]; source_neutral_wrist=[500,490]; source_neutral_hand=[492,486]
 
     clear_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
@@ -148,17 +184,21 @@ def main():
 
     source_alpha=hhdonor[:,:,3]>24
     src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,22) & source_alpha
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_grip,94) & source_alpha & ~binary_dilation(src_stick,iterations=2)
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,66) & source_alpha & ~binary_dilation(src_stick,iterations=2)
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,94) & source_alpha & ~binary_dilation(src_stick|src_hand,iterations=1)
     src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,108) & source_alpha
 
     upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
-    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_grip,elbow,grip,1.0)
+    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
+    hand_layer=warp_segment(hhdonor,src_hand,source_wrist,source_grip,wrist,grip,1.0)
+    # A single affine segment preserves a straight source shaft as one rigid axis.
     stick_layer=warp_segment(hhdonor,src_stick,source_grip,source_contact,grip,target,0.62)
 
     candidate=alpha_comp(candidate,upper_layer)
     candidate=alpha_comp(candidate,fore_layer)
+    candidate=alpha_comp(candidate,hand_layer)
     candidate=alpha_comp(candidate,stick_layer)
-    transformed_mask=(upper_layer[:,:,3]>0)|(fore_layer[:,:,3]>0)|(stick_layer[:,:,3]>0)
+    transformed_mask=(upper_layer[:,:,3]>0)|(fore_layer[:,:,3]>0)|(hand_layer[:,:,3]>0)|(stick_layer[:,:,3]>0)
     hh_mask=binary_dilation(clear_mask|transformed_mask,iterations=1)
 
     # BD/RF is retained only below the stool/hip lock zone. Upper leg, pelvis,
@@ -186,7 +226,7 @@ def main():
                  (n["headTop"]["px"][1]+n["faceCenter"]["px"][1])/2]
     # Solved screen-left chain for semantic R hand in the rear-view camera.
     shoulder=n["shoulderL"]["px"]
-    grip=[358,312]; wrist=[376,317]; elbow=[478,358]
+    grip=[358,312]; wrist=[375,304]; elbow=[490,291]
     hit_landmarks={
       "headCenter":[round(head_center[0],1),round(head_center[1],1)],
       "neck":n["neck"]["px"],"leftShoulder":n["shoulderL"]["px"],"rightShoulder":n["shoulderR"]["px"],
@@ -206,6 +246,13 @@ def main():
     ang=round(math.degrees(math.atan2(target[1]-grip[1],target[0]-grip[0])),2)
     elbow_angle=round(angle3(shoulder,elbow,wrist),2)
     wrist_dev=round(180-angle3(elbow,wrist,grip),2)
+    stick_axis_deg=round(math.degrees(math.atan2(target[1]-grip[1],target[0]-grip[0])),2)
+    hand_axis_deg=round(math.degrees(math.atan2(grip[1]-wrist[1],grip[0]-wrist[0])),2)
+    grip_axis_delta=round(signed_angle_delta_deg(stick_axis_deg,hand_axis_deg),2)
+    stick_geom=stick_axis_metrics(stick_layer[:,:,3]>24,grip,target)
+    rigid_stick_pass=(stick_geom["straightnessResidualP95Px"]<=8.0 and
+                      stick_geom["continuityRatio"]>=0.94 and
+                      grip_axis_delta<=15.0)
     sk=geom["skeleton"]; seg=sk["segmentLengthsPx"]
     expected_approach=float(dg["instruments"]["HH"]["approachAngleDeg"]["R"])
     approach_delta=abs(((ang-expected_approach+180)%360)-180)
@@ -215,7 +262,7 @@ def main():
                   seg["stick"]["preferred"]*0.95 <= lengths["gripToContact"] <= seg["stick"]["preferred"]*1.05 and
                   sk["jointAngleRulesDeg"]["elbow"]["min"] <= elbow_angle <= sk["jointAngleRulesDeg"]["elbow"]["max"] and
                   abs(wrist_dev) <= sk["jointAngleRulesDeg"]["wristDeviationFromForearm"]["max"] and
-                  approach_delta <= 12)
+                  approach_delta <= 12 and rigid_stick_pass)
 
     # Static registration: candidate is neutral outside two explicitly allowed donor masks.
     changed=np.any(candidate!=neutral,axis=2); allowed=hh_mask|bd_mask
@@ -263,9 +310,10 @@ def main():
       "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,
         "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},
         "result":"PASS" if anatomy_pass else "FAIL"},
-      "stick":{"angleDegScreen":ang,"expectedApproachAngleDeg":expected_approach,"approachAngleDeltaDeg":round(approach_delta,2),"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; no vector redraw",
+      "stick":{"angleDegScreen":ang,"expectedApproachAngleDeg":expected_approach,"approachAngleDeltaDeg":round(approach_delta,2),"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; one affine rigid shaft segment",
+        "rigidRod":{"required":True,"stickAxisAngleDeg":stick_axis_deg,"wristToGripAxisAngleDeg":hand_axis_deg,"wristGripVsStickAxisDeltaDeg":grip_axis_delta,"maxAxisDeltaDeg":15.0,**stick_geom,"straightnessMaxResidualP95Px":8.0,"continuityMinRatio":0.94,"result":"PASS" if rigid_stick_pass else "FAIL"},
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
-        "result":"PASS" if contact_pass else "FAIL"},
+        "result":"PASS" if contact_pass and rigid_stick_pass else "FAIL"},
       "fixedDrumComposite":{"path":str(fp.relative_to(ROOT)),"result":"PASS" if contact_pass else "FAIL"},
       "transition":{"path":str(tp.relative_to(ROOT)),"reboundRegistrationDriftPx":rebound_drift,
         "result":"PASS" if transition_pass else "HOLD_REBOUND_REGISTRATION",
@@ -273,7 +321,7 @@ def main():
       "linework":{"result":"PASS_BY_SOURCE_PRESERVATION","note":"No synthetic vector shaft; active pixels come from full-resolution audited donor."},
       "visualQa":{"required":True,"status":"PENDING_AI_VISUAL_QA","fullComposite":str(fp.relative_to(ROOT)),"thumbnail":str((OUT/"DMR009_visual_review_thumb_v2.png").relative_to(ROOT)),"armCrop":str((OUT/"DMR009_visual_review_arm_crop_v2.png").relative_to(ROOT))},
       "formalPromotion":False,
-      "finalStatus":"CANDIDATE_READY_HIT" if anatomy_pass and contact_pass and outside==0 and static_changed["head"]==0 and static_changed["hip"]==0 and static_changed["stool"]==0 else "HOLD_HIT_QA"
+      "finalStatus":"CANDIDATE_READY_HIT" if anatomy_pass and contact_pass and rigid_stick_pass and outside==0 and static_changed["head"]==0 and static_changed["hip"]==0 and static_changed["stool"]==0 else "HOLD_HIT_QA"
     }
     qa=OUT/"dmr009_attempt_20260921_v4_neutral_skeleton.json"
     qa.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
@@ -285,7 +333,7 @@ def main():
     st["activeWork"]["secondaryHold"]=None if transition_pass else "HOLD_TRANSITION_REBOUND_ONLY"
     st["resultSummary"].update({"oneCandidateCreated":True,"candidateSha256":sha(cp),
       "registrationPassed":outside==0 and static_changed["head"]==0 and static_changed["hip"]==0 and static_changed["stool"]==0,
-      "contactPassed":contact_pass,"selectedContactType":"SOURCE_STYLE_CONTACT",
+      "contactPassed":contact_pass,"rigidStickPassed":rigid_stick_pass,"selectedContactType":"SOURCE_STYLE_CONTACT",
       "lineworkPassed":True,"compositeContactPassed":contact_pass,"transitionPassed":transition_pass,
       "formalImageOverwritten":False,"advancedToSecondImage":False})
     st["nextAction"]="Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run."
