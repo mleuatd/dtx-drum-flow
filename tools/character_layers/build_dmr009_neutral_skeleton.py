@@ -55,7 +55,12 @@ def alpha_comp(bottom,top):
     b=bottom.astype(float)/255; t=top.astype(float)/255
     ta=t[:,:,3:4]; ba=b[:,:,3:4]; oa=ta+ba*(1-ta)
     rgb=np.divide(t[:,:,:3]*ta+b[:,:,:3]*ba*(1-ta),oa,out=np.zeros_like(b[:,:,:3]),where=oa>0)
-    return np.clip(np.rint(np.concatenate([rgb,oa],2)*255),0,255).astype(np.uint8)
+    out=np.clip(np.rint(np.concatenate([rgb,oa],2)*255),0,255).astype(np.uint8)
+    # Byte-stable no-op outside the actual top layer, including hidden RGB
+    # under fully transparent pixels. Registration QA requires exact bytes.
+    no_top=(top[:,:,3]==0)
+    out[no_top]=bottom[no_top]
+    return out
 
 def capsule_mask(size,a,b,width):
     im=Image.new("L",size,0); d=ImageDraw.Draw(im)
