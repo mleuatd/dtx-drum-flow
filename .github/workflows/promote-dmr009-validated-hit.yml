@@ -37,12 +37,13 @@ jobs:
         run: |
           git diff -- character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png --exit-code
           test "$(sha256sum character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png | awk '{print $1}')" = "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c"
+          test "$(sha256sum character-assets/layers/character/bd/hit_rf.png | awk '{print $1}')" = "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8"
       - name: Commit verified promotion
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png                   character-assets/CURRENT_WORK_ORDER.json                   character-assets/versions/one-by-one-qa/CURRENT_STATUS.json                   character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_PROMOTION_RESULT.json
+          git add character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png                   character-assets/config/assets_manifest.json                   character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json                   character-assets/prototypes/luna_say_maybe_16m/ACTION_KEY_ASSET_MAP.json                   character-assets/CURRENT_WORK_ORDER.json                   character-assets/versions/one-by-one-qa/CURRENT_STATUS.json                   character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_PROMOTION_RESULT.json
           git commit -m "fix: promote verified DMR009 hit"
           git pull --rebase origin main
           git push origin HEAD:main
