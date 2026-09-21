@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T21:42:00+09:00",
+  "requestedAt": "2026-09-21T21:46:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,9 +23,9 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 12,
-  "retryReason": "AI visual QA failed retry 11 because final corridor still contained source-side limb/stick path. Rerun with target-side arm/stick corridor only.",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Use target-only active-limb corridor with narrow stick path; keep current naturalized elbow/wrist/grip, fixed HH contact, neutral static locks, and fixed drum. Do not modify paired rebound or any second image.",
+  "retry": 13,
+  "retryReason": "Diagnostic rerun for DMR-009 hit only: persist audited HH donor and donor-difference visual evidence to verify contact source pixel after repeated AI visual failures.",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Generate normal candidate plus HH donor/diff diagnostics in trial directory. Do not modify rebound, formal/runtime image, fixed drum, or any second image.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
