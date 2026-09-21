@@ -158,7 +158,7 @@ def main():
     candidate=alpha_comp(candidate,upper_layer)
     candidate=alpha_comp(candidate,fore_layer)
     candidate=alpha_comp(candidate,stick_layer)
-    transformed_mask=(upper_layer[:,:,3]>12)|(fore_layer[:,:,3]>12)|(stick_layer[:,:,3]>12)
+    transformed_mask=(upper_layer[:,:,3]>0)|(fore_layer[:,:,3]>0)|(stick_layer[:,:,3]>0)
     hh_mask=binary_dilation(clear_mask|transformed_mask,iterations=1)
 
     # BD/RF is retained only below the stool/hip lock zone. Upper leg, pelvis,
