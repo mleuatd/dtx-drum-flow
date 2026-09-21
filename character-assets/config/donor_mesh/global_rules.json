@@ -103,8 +103,14 @@
     },
     "internalSurfaceArtifact": {
       "method": "SURFACE_RESTORE",
+      "preferredTechnique": "LOCAL_INPAINT_FROM_NEARBY_SAME_SURFACE_PIXELS",
       "condition": "unwanted line/mark lies inside an intended opaque body/clothing surface",
-      "rule": "do not alpha-clear; restore local underlying surface color/alpha from nearby same-surface pixels"
+      "rule": "do not alpha-clear; restore local surface while preserving alpha and nearby contour",
+      "contourProtection": {
+        "enabled": true,
+        "rule": "do not overwrite the anatomical/clothing silhouette; restrict mask to confirmed residue pixels and preserve contour-connected structure unless the residue is explicitly identified as a branch from the contour"
+      },
+      "antiAliasPolicy": "include the residue anti-aliased halo in the repair mask when visible, but keep all pixels outside the allowed ROI byte-identical"
     },
     "classificationRequiredBeforeMutation": true
   },
