@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "name": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
+  "basisCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+  "dropboxAuthority": "/ChatGPT/dtx-drum-flow/PRE15_BASELINE_MERGED_WITH_AI_PASS",
+  "baselineRelativeRoot": "character-assets/layers/character",
+  "overlays": {
+    "combo/hh_sn_r_l_rebound_refresh.png": {
+      "source": "later-direct-full-resolution-AI-PASS",
+      "sha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31"
+    }
+  },
+  "resolutionRule": "use basisCommit bytes unless path exists in overlays; overlays require exact SHA verification before use"
+}
