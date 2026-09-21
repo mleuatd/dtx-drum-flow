@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "profileId": "donor-mesh-policy-index-v1",
+  "mandatoryFiles": [
+    "character-assets/config/donor_mesh/global_rules.json",
+    "character-assets/config/donor_mesh/parent_manifest.json",
+    "character-assets/config/donor_mesh/template_registry.json",
+    "character-assets/config/donor_mesh/action_combination_rules.json",
+    "character-assets/config/donor_mesh/frame_overrides.json",
+    "character-assets/config/donor_mesh/failure_registry.json",
+    "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+    "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+    "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json"
+  ],
+  "meshEngine": "tools/character_layers/run_visual_repair_trial.py",
+  "policyRunner": "tools/character_layers/run_donor_mesh_repair.py",
+  "rule": "If any mandatory file is missing or malformed, repair execution must stop."
+}
