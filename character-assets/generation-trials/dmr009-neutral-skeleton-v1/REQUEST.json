@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T22:34:00+09:00",
+  "requestedAt": "2026-09-21T23:18:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,20 +23,26 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 14,
-  "retryReason": "AI visual root cause identified from donor diagnostic: previous src_chain used neutral-like grip/wrist coordinates that do not match HH donor. Rerun with donor-true shoulder/elbow/wrist/grip anchors and target-only corridor.",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Use actual HH donor chain [620,375]->[565,475]->[490,455]->[442,421]->source contact, mapped to naturalized target chain and fixed HH contact. Do not modify rebound or any second image.",
+  "retry": 15,
+  "retryReason": "User full-resolution visual FAIL: stick must be one rigid straight rod and wrist/hand/forearm must be re-solved to support the same axis. Previous length/contact/angle PASS was insufficient.",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Rebuild active R chain as shoulder→elbow→wrist→grip→HH tip with independent bone-local segments. Hard gates: straight rigid stick, continuity, grip-axis alignment, natural wrist, fixed HH contact. Paired rebound READ_ONLY.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
   "aiVisualQaChecks": [
-    "forearm bend",
-    "elbow placement",
-    "wrist angle",
-    "hand thickness and orientation",
-    "grip-stick continuity",
-    "stick angle and continuity",
+    "stick is one straight rigid rod from grip to tip",
+    "no kink/bend/break anywhere on shaft",
+    "wrist→grip supports the same stick axis naturally",
+    "forearm→wrist→hand continuity",
+    "elbow and shoulder anatomy",
+    "HH contact on fixed drum",
     "whole-image visual naturalness"
   ],
-  "reason": "final QA rerun: include antialias fringe in allowed active transform mask; no visual geometry change"
+  "reason": "final QA rerun: include antialias fringe in allowed active transform mask; no visual geometry change",
+  "rigidStickQa": {
+    "required": true,
+    "maxWristGripVsStickAxisDeltaDeg": 15,
+    "maxStraightnessResidualP95Px": 8,
+    "minContinuityRatio": 0.94
+  }
 }
