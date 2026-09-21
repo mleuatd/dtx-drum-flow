@@ -43,27 +43,27 @@ jobs:
           install -m 0644 "$TMP/hh_sn_r_l_rebound_refresh.png" "$OUT/hh_sn_r_l_rebound_refresh.png"
 
           cat > "$ROOT/checksums.sha256" <<'EOF'
-67b8cba2ce9a65e3ac923a789775bbdc48b0f71e73b701d0bae4e0c9435a4ee9  overlays/combo/bd_hh_sn_rf_r_l_hit_refresh.png
-cf3ef1dd8c70ff5a493501fd8466c756e3f33fddf41d12317947daf92e86dfc2  overlays/combo/bd_rc_sn_rf_r_l_hit_refresh.png
-e823ffdcac3220225d28590711736a2d9e53ffeadf4d9b09a6f96a66e173e694  overlays/combo/bd_rd_rf_r_hit_refresh.png
-55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31  overlays/combo/hh_sn_r_l_rebound_refresh.png
-EOF
+          67b8cba2ce9a65e3ac923a789775bbdc48b0f71e73b701d0bae4e0c9435a4ee9  overlays/combo/bd_hh_sn_rf_r_l_hit_refresh.png
+          cf3ef1dd8c70ff5a493501fd8466c756e3f33fddf41d12317947daf92e86dfc2  overlays/combo/bd_rc_sn_rf_r_l_hit_refresh.png
+          e823ffdcac3220225d28590711736a2d9e53ffeadf4d9b09a6f96a66e173e694  overlays/combo/bd_rd_rf_r_hit_refresh.png
+          55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31  overlays/combo/hh_sn_r_l_rebound_refresh.png
+          EOF
 
           cat > "$ROOT/manifest.json" <<'EOF'
-{
-  "schemaVersion": 1,
-  "versionId": "DONOR-MESH-V3",
-  "label": "統合親＋予備修正版",
-  "baseCommit": "a4e3854449e292264192afa63469edf0fb5048af",
-  "runtimePolicy": "baseline character set plus verified overlay PNGs",
-  "overlays": [
-    {"path":"combo/bd_hh_sn_rf_r_l_hit_refresh.png","issueId":"DMR-012","status":"RESERVE_PASS"},
-    {"path":"combo/bd_rc_sn_rf_r_l_hit_refresh.png","issueId":"DMR-017","status":"RESERVE_PASS"},
-    {"path":"combo/bd_rd_rf_r_hit_refresh.png","issueId":"DMR-018","status":"RESERVE_PASS"},
-    {"path":"combo/hh_sn_r_l_rebound_refresh.png","source":"PRE15 merged explicit full-resolution PASS","status":"PASS"}
-  ]
-}
-EOF
+          {
+            "schemaVersion": 1,
+            "versionId": "DONOR-MESH-V3",
+            "label": "統合親＋予備修正版",
+            "baseCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+            "runtimePolicy": "baseline character set plus verified overlay PNGs",
+            "overlays": [
+              {"path":"combo/bd_hh_sn_rf_r_l_hit_refresh.png","issueId":"DMR-012","status":"RESERVE_PASS"},
+              {"path":"combo/bd_rc_sn_rf_r_l_hit_refresh.png","issueId":"DMR-017","status":"RESERVE_PASS"},
+              {"path":"combo/bd_rd_rf_r_hit_refresh.png","issueId":"DMR-018","status":"RESERVE_PASS"},
+              {"path":"combo/hh_sn_r_l_rebound_refresh.png","source":"PRE15 merged explicit full-resolution PASS","status":"PASS"}
+            ]
+          }
+          EOF
 
       - name: Commit imported binary assets
         shell: bash
@@ -79,4 +79,4 @@ EOF
           git commit -m "assets: import donor mesh v3 verified PNG overlays"
           git push origin HEAD:main
 
-# trigger: 2026-09-21 v3 binary import
+# trigger: 2026-09-21 v3 binary import retry-3
