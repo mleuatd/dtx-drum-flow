@@ -25,16 +25,16 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "6a9fb6473a5807686bef0bb6ffc76acfd0e372a139e0b76b1ed5e1922bde7fa5",
+    "sha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
     "method": "bone-local donor transform: upper arm + forearm/hand + constrained stick; source-pose clear limited by donor-vs-neutral diff; explicit static locks",
-    "changedPixels": 87228,
+    "changedPixels": 86956,
     "changedBBox": [
       185,
-      192,
-      1054,
-      1058
+      273,
+      761,
+      986
     ],
-    "outsideAllowedChangedPixels": 349
+    "outsideAllowedChangedPixels": 77
   },
   "landmarks": {
     "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
