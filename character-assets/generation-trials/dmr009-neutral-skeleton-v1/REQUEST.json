@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T22:17:00+09:00",
+  "requestedAt": "2026-09-21T22:23:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -38,5 +38,5 @@
     "stick angle and continuity",
     "whole-image visual naturalness"
   ],
-  "reason": "AI visual QA FAIL: remove source-pose arm ghost by warping source+target corridor as one motion region"
+  "reason": "RBF visual QA failed; rerun DMR009 hit with bone-local donor transforms for upper arm, forearm/hand, and constrained stick"
 }
