@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SPEC = ROOT / "character-assets/config/donor_mesh"
 GLOBAL = SPEC / "global_rules.json"
 PARENT = SPEC / "parent_manifest.json"
+POLICY_INDEX = SPEC / "policy_index.json"
 
 def loadj(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
@@ -60,6 +61,17 @@ def main():
     ap.add_argument("--frame-config", required=True, type=Path)
     ap.add_argument("--output", required=True, type=Path)
     args=ap.parse_args()
+    policy_index=loadj(POLICY_INDEX)
+    mandatory=[ROOT / p for p in policy_index["mandatoryFiles"]]
+    missing=[str(p.relative_to(ROOT)) for p in mandatory if not p.exists()]
+    if missing:
+        raise RuntimeError("mandatory donor/mesh policy files missing: " + ", ".join(missing))
+    # Parse every mandatory JSON authority before any image mutation. A malformed
+    # shared specification is therefore a hard stop rather than a silent fallback.
+    parsed={}
+    for p in mandatory:
+        if p.suffix.lower()==".json":
+            parsed[str(p.relative_to(ROOT))]=loadj(p)
     rules=loadj(GLOBAL); parent=loadj(PARENT); cfg=loadj(ROOT/args.frame_config)
     if rules["parentAuthority"]["latestMainMayBecomeAutomaticParent"]:
         raise RuntimeError("global safety misconfigured")
@@ -71,7 +83,7 @@ def main():
     cat=cfg["repairCategory"]
     out=args.output if args.output.is_absolute() else ROOT/args.output
     out.parent.mkdir(parents=True,exist_ok=True)
-    report={"schemaVersion":1,"issueId":cfg["issueId"],"frame":logical,"repairCategory":cat}
+    report={"schemaVersion":1,"issueId":cfg["issueId"],"frame":logical,"repairCategory":cat,"policyProfile":rules["profileId"],"mandatoryPolicyFilesLoaded":len(mandatory)}
     if cat=="LOCAL_ARTIFACT_REMOVAL":
         r=cfg["allowedRoi"]; x1,y1,x2,y2=[int(r[k]) for k in ("x1","y1","x2","y2")]
         cand=base.copy(); cand[y1:y2,x1:x2]=0
