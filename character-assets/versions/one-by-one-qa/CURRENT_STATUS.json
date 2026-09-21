@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T21:00:00+09:00",
+  "updatedAt": "2026-09-21T22:40:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
+  "executionMode": "ONE_IMAGE_ONLY_VALIDATED",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -15,9 +15,11 @@
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
-    "finalStatus": "CANDIDATE_READY_HIT",
+    "finalStatus": "CANDIDATE_VALIDATED_HIT",
     "promotionBlocked": true,
-    "secondaryHold": null
+    "secondaryHold": null,
+    "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json",
+    "visualQaRecord": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_qa_v2.json"
   },
   "resultSummary": {
     "oneCandidateCreated": true,
@@ -29,7 +31,8 @@
     "compositeContactPassed": true,
     "transitionPassed": true,
     "formalImageOverwritten": false,
-    "advancedToSecondImage": false
+    "advancedToSecondImage": false,
+    "visualQaPassed": true
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,
@@ -38,7 +41,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run.",
+  "nextAction": "Stop on DMR-009 hit as instructed. Candidate is validated by numeric QA and AI visual QA; formal/runtime remains untouched and paired rebound remains read-only.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",
