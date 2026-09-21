@@ -2,12 +2,14 @@
   "schemaVersion": 1,
   "issueId": "DMR-009",
   "phase": "hit",
-  "requestedAt": "2026-09-21T23:12:00+09:00",
+  "requestedAt": "2026-09-21T23:23:00+09:00",
   "mode": "PROMOTE_EXACT_VALIDATED_CANDIDATE_ONLY",
   "candidateSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
   "pairedRebound": "READ_ONLY",
   "requireNumericQa": "PASS",
   "requireAiVisualQa": "PASS",
   "requireTransitionQa": "PASS",
-  "advanceAfterVerified": false
+  "advanceAfterVerified": false,
+  "retry": 2,
+  "retryReason": "Promotion v1 proved exact candidate gates but validator exposed stale manifest/inventory/action-map SHA metadata. Retry with target metadata update plus metadata-only reconciliation of documented 008 BD formal SHA; no BD/rebound image changes."
 }
