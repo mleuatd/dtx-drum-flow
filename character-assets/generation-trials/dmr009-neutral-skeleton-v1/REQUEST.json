@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T23:33:00+09:00",
+  "requestedAt": "2026-09-21T23:39:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,9 +23,9 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 18,
-  "retryReason": "Fixed-drum AI visual FAIL on prior retry: rigid stick passed but hand/arm remained disconnected. Move grip/wrist/elbow lower using ~165° HH approach within tolerance and narrow donor limb ownership masks.",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Target HH [190,390]; rigid stick ~185 px at ~165°. Target chain shoulder [648,352] → elbow [500,330] → wrist [387,337] → grip [369,342] → HH. Preserve stick collinearity and continuous hand/wrist/forearm. Rebound READ_ONLY.",
+  "retry": 19,
+  "retryReason": "Donor-first visual selection pass: generate untouched fixed-drum composites for HH single, HH+SN, BD+HH+SN, and current BD+HH formal before further arm reconstruction.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Produce donor review evidence plus candidate; do not promote. Paired rebound READ_ONLY.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
