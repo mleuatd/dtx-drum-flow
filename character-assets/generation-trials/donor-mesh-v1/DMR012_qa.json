@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "issueId": "DMR-012",
+  "frame": "combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+  "actionKey": "BD+HH+SN:RF/R/L",
+  "phase": "hit",
+  "parentAuthority": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
+  "basisCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+  "repairCategory": "LOCAL_ARTIFACT_REMOVAL",
+  "method": "alpha_clear_confirmed_isolated_residue_roi",
+  "allowedRoi": {"x1": 395, "y1": 512, "x2": 440, "y2": 548},
+  "actualChangedBBox": {"x": 401, "y": 516, "width": 33, "height": 28},
+  "changedPixels": 348,
+  "outsideAllowedChangedPixels": 0,
+  "fixedRegionChangedPixels": 0,
+  "canvas": [1448,1086],
+  "mode": "RGBA",
+  "candidateSha256": "67b8cba2ce9a65e3ac923a789775bbdc48b0f71e73b701d0bae4e0c9435a4ee9",
+  "machinePass": true,
+  "visualQa": {
+    "status": "PASS",
+    "inspection": "actual PNG opened at full resolution",
+    "confirmed": [
+      "two detached floating line residues removed",
+      "no anatomy existed inside cleared residue ROI",
+      "person silhouette unchanged outside ROI",
+      "hair/cowlick unchanged",
+      "both arms and hands unchanged",
+      "both legs unchanged",
+      "stool unchanged",
+      "intended sticks unchanged",
+      "no new floating residue visible"
+    ]
+  },
+  "promotion": {
+    "runtimeModified": false,
+    "formalLayerModified": false,
+    "candidateIsSampleOnly": true
+  }
+}
