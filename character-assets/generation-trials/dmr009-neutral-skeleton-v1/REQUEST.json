@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T22:29:00+09:00",
+  "requestedAt": "2026-09-21T22:34:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -38,5 +38,5 @@
     "stick angle and continuity",
     "whole-image visual naturalness"
   ],
-  "reason": "final QA rerun after byte-stable transparent-pixel composite fix; visual candidate unchanged"
+  "reason": "final QA rerun: include antialias fringe in allowed active transform mask; no visual geometry change"
 }
