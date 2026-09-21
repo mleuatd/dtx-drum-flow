@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "candidateSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+  "inspectedFiles": [
+    "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
+    "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
+  ],
+  "result": "PASS",
+  "checks": {
+    "shoulderElbowFlow": "PASS",
+    "elbowPlacement": "PASS",
+    "forearmReach": "PASS",
+    "wristAngle": "PASS",
+    "handOrientation": "PASS",
+    "handThickness": "PASS",
+    "gripRealism": "PASS",
+    "stickContinuity": "PASS",
+    "stickLength": "PASS",
+    "stickAngle": "PASS",
+    "brokenStick": "PASS",
+    "duplicateStickFragments": "PASS",
+    "armTooShort": "PASS",
+    "stickCompensatingForReach": "PASS",
+    "intendedInstrumentObvious": "PASS",
+    "characterIdentityPreserved": "PASS",
+    "restOfBodyFixed": "PASS"
+  },
+  "observations": [
+    "Earlier RBF candidates were rejected visually despite numeric contact because the active arm became band-like/duplicated or developed rectangular tearing.",
+    "Bone-local donor transforms preserve sleeve/hand linework and create a continuous hand-to-stick chain.",
+    "Stick enters the HH at the locked R-hand approach angle and reaches the fixed target without abnormal length."
+  ],
+  "formalPromotion": false,
+  "pairedReboundEdited": false
+}
