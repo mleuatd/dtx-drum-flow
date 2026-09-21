@@ -40,7 +40,7 @@
     "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
     "hit": {
       "headCenter": [
-        681.0,
+        681,
         126.5
       ],
       "neck": [
@@ -177,7 +177,7 @@
   },
   "stick": {
     "angleDegScreen": 155.1,
-    "expectedApproachAngleDeg": 155.0,
+    "expectedApproachAngleDeg": 155,
     "approachAngleDeltaDeg": 0.1,
     "visibleLengthPx": 185.22,
     "standardLengthPx": 185,
@@ -196,7 +196,7 @@
       190,
       389
     ],
-    "contactDistancePx": 1.0,
+    "contactDistancePx": 1,
     "contactEllipseScore": 0.0016,
     "result": "PASS"
   },
@@ -229,11 +229,13 @@
   },
   "visualQa": {
     "required": true,
-    "status": "PENDING_AI_VISUAL_QA",
+    "status": "PASS",
+    "record": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_qa_v2.json",
     "fullComposite": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
     "thumbnail": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_thumb_v2.png",
     "armCrop": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
   },
   "formalPromotion": false,
-  "finalStatus": "CANDIDATE_READY_HIT"
+  "finalStatus": "CANDIDATE_VALIDATED_HIT",
+  "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json"
 }
