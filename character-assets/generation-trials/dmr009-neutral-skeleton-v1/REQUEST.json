@@ -23,6 +23,6 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes",
-  "retry": 3,
-  "retryReason": "image/anatomy/contact/transition already passed; rerun only after fixing untracked-output guard"
+  "retry": 4,
+  "retryReason": "workflow YAML repaired; image build previously passed anatomy/contact/transition"
 }
