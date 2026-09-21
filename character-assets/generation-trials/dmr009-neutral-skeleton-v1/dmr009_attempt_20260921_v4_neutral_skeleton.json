@@ -25,9 +25,9 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "2d054623b3ac4640291f0ff04f46adaf2fb2e0300abb79ea44e8e4ce5c03ba30",
+    "sha256": "92ea2e68b6a01d11ca833ff2fb101619b415e0c39869407f60efcec82704f3bf",
     "method": "donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",
-    "changedPixels": 84043,
+    "changedPixels": 80354,
     "changedBBox": [
       189,
       330,
@@ -62,16 +62,16 @@
         352
       ],
       "activeElbow": [
-        520,
-        420
+        530,
+        468
       ],
       "activeWrist": [
-        415,
+        422,
         428
       ],
       "activeGrip": [
-        392,
-        428
+        400,
+        418
       ],
       "hipCenter": [
         735,
@@ -149,13 +149,13 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 144.94,
-      "elbowToWrist": 105.3,
-      "wristToGrip": 23.0,
-      "gripToContact": 205.54
+      "shoulderToElbow": 165.47,
+      "elbowToWrist": 115.17,
+      "wristToGrip": 24.17,
+      "gripToContact": 211.86
     },
-    "elbowAngleDeg": 156.38,
-    "wristDeviationDeg": 4.36,
+    "elbowAngleDeg": 115.17,
+    "wristDeviationDeg": 4.12,
     "localNaturalization": {
       "hardLocked": [
         "shoulder",
@@ -176,8 +176,8 @@
     "result": "PASS"
   },
   "stick": {
-    "angleDegScreen": -169.35,
-    "visibleLengthPx": 205.54,
+    "angleDegScreen": -172.41,
+    "visibleLengthPx": 211.86,
     "sourceStyle": "approved HH donor pixels; no vector redraw",
     "sourceContactPixel": [
       357,
