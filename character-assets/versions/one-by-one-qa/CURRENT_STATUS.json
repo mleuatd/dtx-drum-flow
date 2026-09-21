@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T19:55:00+09:00",
+  "updatedAt": "2026-09-21T20:08:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY",
+  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -14,14 +14,20 @@
     "parentSet": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
-    "attemptQa": "character-assets/versions/one-by-one-qa/dmr009_attempt_20260921_v1.json",
-    "finalStatus": "IN_PROGRESS_RULES_LOCKED",
-    "promotionBlocked": true
+    "attemptQa": "character-assets/versions/one-by-one-qa/dmr009_attempt_20260921_v3.json",
+    "finalStatus": "HOLD_LINEWORK",
+    "promotionBlocked": true,
+    "secondaryHold": "HOLD_TRANSITION"
   },
   "resultSummary": {
     "oneCandidateCreated": true,
-    "numericContactPassed": true,
-    "visualLineworkPassed": false,
+    "candidateSha256": "1620751fee0cb055870761225b8d9b892bbc9a58303cc4a3303e06b841f2eb47",
+    "registrationPassed": true,
+    "contactPassed": true,
+    "selectedContactType": "TIP_CONTACT",
+    "lineworkPassed": false,
+    "compositeContactPassed": true,
+    "transitionPassed": false,
     "formalImageOverwritten": false,
     "advancedToSecondImage": false
   },
@@ -32,7 +38,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Apply the locked pipeline to DMR-009 hit only: registration -> limb chain -> adaptive tip/shaft contact -> optional strike expression -> linework -> composite -> transition -> record.",
+  "nextAction": "Do not create another image in this run. Next DMR-009 attempt should preserve neutral-locked registration, rebuild the active grip/stick corridor with source-style rough linework (PATTERN-010), and only promote after paired rebound registration is also corrected.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",
