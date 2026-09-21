@@ -163,7 +163,7 @@ def main():
     # Move three donor bones locally so sleeve/stick thickness remains stable.
     # Rigid-stick-first target chain.  The stick direction is solved first;
     # wrist/grip/forearm are then positioned to support that single straight axis.
-    shoulder=[648,352]; elbow=[490,291]; wrist=[375,304]; grip=[358,312]
+    shoulder=[648,352]; elbow=[490,340]; wrist=[375,304]; grip=[358,312]
     # Donor-true HH chain from the accepted single-HH source.
     source_shoulder=[620,375]; source_elbow=[565,475]; source_wrist=[490,455]; source_grip=[442,421]
     source_neutral_elbow=[565,490]; source_neutral_wrist=[500,490]; source_neutral_hand=[492,486]
@@ -178,10 +178,14 @@ def main():
     candidate[clear_mask]=0
 
     source_alpha=hhdonor[:,:,3]>24
-    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,22) & source_alpha
-    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,66) & source_alpha & ~binary_dilation(src_stick,iterations=2)
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,94) & source_alpha & ~binary_dilation(src_stick|src_hand,iterations=1)
-    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,108) & source_alpha
+    # Donor ownership is limited to pixels that actually differ from neutral.
+    # This prevents opaque torso/background regions from being carried as
+    # rectangular slabs when a bone-local transform is applied.
+    source_motion=binary_dilation(hh_diff,iterations=1) & source_alpha
+    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,22) & source_motion
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,66) & source_motion & ~binary_dilation(src_stick,iterations=2)
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,94) & source_motion & ~binary_dilation(src_stick|src_hand,iterations=1)
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,108) & source_motion
 
     upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
     fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
@@ -295,7 +299,7 @@ def main():
         "bdDonor":{"authority":"latest-main","path":"character-assets/layers/character/bd/hit_rf.png","sha256":hashlib.sha256((ROOT/"character-assets/layers/character/bd/hit_rf.png").read_bytes()).hexdigest(),"auditStatus":"FORMAL_CURRENT"},
         "fixedDrum":"character-assets/layers/drum/drum_base.png","contactDefinition":"DRUM_GEOMETRY.json#HH",
         "donorSelectionReason":{"hh":"baseline HH:R hit is audited PASS and preserves source-style stick/hand linework","bd":"baseline BD:RF hit is the closest audited pedal-action donor and is used only in the lower active-foot region"}},
-      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"bone-local donor transform: upper arm + forearm/hand + constrained stick; source-pose clear limited by donor-vs-neutral diff; explicit static locks",
+      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
         "changedPixels":int(np.count_nonzero(changed)),"changedBBox":bbox(changed),"outsideAllowedChangedPixels":outside},
       "landmarks":{"neutralSource":"MASTER_GEOMETRY.json#neutralLandmarks","hit":hit_landmarks},
       "registration":{"candidateDriftPx":candidate_drift,"staticChangedPixels":static_changed,
