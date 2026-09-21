@@ -2,6 +2,23 @@
 
 This directory is the canonical management location for drummer background-character layers and animation variants used by DTX Drum Flow.
 
+## AI / new-chat entrypoint
+
+Before any character-image PLAN / EDIT / RETRY / VISUAL_QA / APPROVE work, start with:
+
+- `AI_IMAGE_WORK_ENTRYPOINT.md`
+
+That entrypoint requires the latest-main versions of:
+- `AI_OPERATION_MASTER_RULES.md`
+- `IMAGE_DECISION_POLICY.md`
+- `CURRENT_WORK_ORDER.json`
+- `IMAGE_WORK_PREFLIGHT.json`
+- `CHARACTER_FAILURE_KNOWLEDGE.json`
+- `CHARACTER_ASSET_PIPELINE.md`
+- `LAYER_RULES.md`
+
+Do not select an image-editing technique first. Resolve the active motion and completed donors first, then choose the least destructive method.
+
 ## Fixed baseline rules
 
 The approved rough black-and-white drummer composition is the baseline/origin for all future variants.
