@@ -25,12 +25,12 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "438c867102423faf2fc109718302b2a440fff9bf932e7c298612de8642feff14",
+    "sha256": "34bbfd0e10c90fbca575bfc71fd6adee93f17b81d72e6993453cc3ce1c5b6270",
     "method": "donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",
-    "changedPixels": 65394,
+    "changedPixels": 62198,
     "changedBBox": [
       189,
-      339,
+      296,
       761,
       986
     ],
@@ -62,16 +62,16 @@
         352
       ],
       "activeElbow": [
-        505,
-        452
+        478,
+        358
       ],
       "activeWrist": [
-        394,
-        434
+        376,
+        317
       ],
       "activeGrip": [
-        371,
-        426
+        358,
+        312
       ],
       "hipCenter": [
         735,
@@ -149,13 +149,13 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 174.5,
-      "elbowToWrist": 112.45,
-      "wristToGrip": 24.35,
-      "gripToContact": 184.55
+      "shoulderToElbow": 170.11,
+      "elbowToWrist": 109.93,
+      "wristToGrip": 18.68,
+      "gripToContact": 185.22
     },
-    "elbowAngleDeg": 135.82,
-    "wristDeviationDeg": 9.97,
+    "elbowAngleDeg": 156.08,
+    "wristDeviationDeg": 6.37,
     "localNaturalization": {
       "hardLocked": [
         "shoulder",
@@ -176,14 +176,16 @@
     "result": "PASS"
   },
   "stick": {
-    "angleDegScreen": -168.75,
-    "visibleLengthPx": 184.55,
+    "angleDegScreen": 155.1,
+    "expectedApproachAngleDeg": 155.0,
+    "approachAngleDeltaDeg": 0.1,
+    "visibleLengthPx": 185.22,
     "standardLengthPx": 185,
     "allowedLengthPx": [
       175.75,
       194.25
     ],
-    "lengthErrorPercent": -0.24,
+    "lengthErrorPercent": 0.12,
     "sourceStyle": "approved HH donor pixels; no vector redraw",
     "sourceContactPixel": [
       357,
