@@ -15,7 +15,7 @@
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
-    "finalStatus": "CANDIDATE_READY_HIT",
+    "finalStatus": "HOLD_HIT_QA",
     "promotionBlocked": true,
     "secondaryHold": null,
     "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json",
@@ -25,7 +25,7 @@
   },
   "resultSummary": {
     "oneCandidateCreated": true,
-    "candidateSha256": "0ddfe19acb9460d259dd6e99d40c5532263ee7ac4a617098429e6d218fe0103f",
+    "candidateSha256": "c274c7c783feb19d7a5d73e0418463cdfe91cf67a026661e81e13ffd37c775a6",
     "registrationPassed": true,
     "contactPassed": true,
     "selectedContactType": "SOURCE_STYLE_CONTACT",
@@ -36,7 +36,7 @@
     "advancedToSecondImage": false,
     "visualQaPassed": true,
     "verified": true,
-    "rigidStickPassed": true
+    "rigidStickPassed": false
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,

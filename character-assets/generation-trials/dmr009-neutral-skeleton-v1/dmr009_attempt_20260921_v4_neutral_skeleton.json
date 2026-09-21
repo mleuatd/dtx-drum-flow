@@ -27,12 +27,12 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "0ddfe19acb9460d259dd6e99d40c5532263ee7ac4a617098429e6d218fe0103f",
+    "sha256": "c274c7c783feb19d7a5d73e0418463cdfe91cf67a026661e81e13ffd37c775a6",
     "method": "rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
-    "changedPixels": 68182,
+    "changedPixels": 70724,
     "changedBBox": [
       186,
-      272,
+      289,
       761,
       986
     ],
@@ -175,7 +175,7 @@
       ],
       "strategy": "minimum interior-chain adjustment; donor pixels preserved"
     },
-    "result": "PASS"
+    "result": "FAIL"
   },
   "stick": {
     "angleDegScreen": 155.1,
@@ -195,13 +195,13 @@
       "wristToGripAxisAngleDeg": 154.8,
       "wristGripVsStickAxisDeltaDeg": 0.3,
       "maxAxisDeltaDeg": 15.0,
-      "pixelCount": 1155,
-      "axisCenterOffsetPx": 3.47,
-      "straightnessResidualP95Px": 3.66,
-      "continuityRatio": 1.0,
+      "pixelCount": 700,
+      "axisCenterOffsetPx": -5.23,
+      "straightnessResidualP95Px": 8.41,
+      "continuityRatio": 0.6944,
       "straightnessMaxResidualP95Px": 8.0,
       "continuityMinRatio": 0.94,
-      "result": "PASS"
+      "result": "FAIL"
     },
     "sourceContactPixel": [
       357,
@@ -214,7 +214,7 @@
     ],
     "contactDistancePx": 1.0,
     "contactEllipseScore": 0.0016,
-    "result": "PASS"
+    "result": "FAIL"
   },
   "fixedDrumComposite": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
@@ -251,5 +251,5 @@
     "armCrop": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
   },
   "formalPromotion": false,
-  "finalStatus": "CANDIDATE_READY_HIT"
+  "finalStatus": "HOLD_HIT_QA"
 }
