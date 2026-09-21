@@ -1,37 +1,32 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "issueId": "DMR-009",
   "phase": "hit",
-  "candidateSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+  "candidateSha256": "979da1358c31c1232f1cddc1bb7bbc0d5f35333d232e237db621634ffba52593",
   "inspectedFiles": [
     "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
     "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
   ],
-  "result": "PASS",
+  "result": "FAIL",
   "checks": {
-    "shoulderElbowFlow": "PASS",
-    "elbowPlacement": "PASS",
-    "forearmReach": "PASS",
-    "wristAngle": "PASS",
-    "handOrientation": "PASS",
-    "handThickness": "PASS",
-    "gripRealism": "PASS",
-    "stickContinuity": "PASS",
-    "stickLength": "PASS",
-    "stickAngle": "PASS",
-    "brokenStick": "PASS",
-    "duplicateStickFragments": "PASS",
-    "armTooShort": "PASS",
-    "stickCompensatingForReach": "PASS",
-    "intendedInstrumentObvious": "PASS",
-    "characterIdentityPreserved": "PASS",
-    "restOfBodyFixed": "PASS"
+    "rigidStickNumeric": "PASS",
+    "stickContinuityNumeric": "PASS",
+    "wristGripAxisNumeric": "PASS",
+    "intendedInstrumentContactNumeric": "PASS",
+    "shoulderElbowFlowVisual": "FAIL",
+    "wristHandVisual": "FAIL",
+    "rectangularSplice": "FAIL",
+    "donorSlabArtifact": "FAIL",
+    "fixedDrumCompositeVisual": "FAIL",
+    "wholeImageNaturalness": "FAIL"
   },
   "observations": [
-    "Earlier RBF candidates were rejected visually despite numeric contact because the active arm became band-like/duplicated or developed rectangular tearing.",
-    "Bone-local donor transforms preserve sleeve/hand linework and create a continuous hand-to-stick chain.",
-    "Stick enters the HH at the locked R-hand approach angle and reaches the fixed target without abnormal length."
+    "User full-resolution review supersedes the prior visual PASS.",
+    "The latest rigid-stick candidate keeps the stick straight numerically, but the upper-arm path intersects the rectangular head-protection overwrite and is visibly severed.",
+    "Source masks based on broad opaque donor pixels carry non-limb white regions into the transformed candidate, producing rectangular slab artifacts.",
+    "Next retry moves the elbow below the protected head rectangle and restricts transformed ownership to donor-vs-neutral motion pixels only."
   ],
   "formalPromotion": false,
+  "promotionBlocked": true,
   "pairedReboundEdited": false
 }
