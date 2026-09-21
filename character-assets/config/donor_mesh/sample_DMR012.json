@@ -1,0 +1,21 @@
+{
+  "schemaVersion":1,
+  "issueId":"DMR-012",
+  "frame":"combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+  "actionKey":"BD+HH+SN:RF/R/L",
+  "phase":"hit",
+  "inherits":["GLOBAL_COMMON"],
+  "repairCategory":"LOCAL_ARTIFACT_REMOVAL",
+  "method":"alpha_clear_confirmed_isolated_residue_roi",
+  "baseAuthority":"PRE15_BASELINE_MERGED_WITH_AI_PASS",
+  "allowedRoi":{"x1":395,"y1":512,"x2":440,"y2":548},
+  "operation":{"type":"clear","reason":"two detached floating line residues; no anatomical pixels inside ROI"},
+  "expected":{"outsideAllowedChangedPixels":0,"fixedRegionChangedPixels":0},
+  "visualQaRequired":true,
+  "result":{
+    "candidate":"character-assets/generation-trials/donor-mesh-v1/DMR012_bd_hh_sn_rf_r_l_hit_refresh_candidate.png",
+    "qa":"character-assets/generation-trials/donor-mesh-v1/DMR012_qa.json",
+    "candidateSha256":"67b8cba2ce9a65e3ac923a789775bbdc48b0f71e73b701d0bae4e0c9435a4ee9",
+    "status":"PASS"
+  }
+}
