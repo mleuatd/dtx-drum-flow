@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "registryId": "donor-mesh-reserve-candidates-v1",
+  "runtimePromotionPolicy": "RESERVE_ONLY_UNTIL_EXPLICIT_PROMOTION",
+  "candidates": [
+    {
+      "legacyIssueId": "DMR-012",
+      "filename": "combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "status": "RESERVE_PASS",
+      "repairCategory": "LOCAL_ARTIFACT_REMOVAL",
+      "subtype": "EXTERNAL_ALPHA_CLEAR",
+      "candidateSha256": "67b8cba2ce9a65e3ac923a789775bbdc48b0f71e73b701d0bae4e0c9435a4ee9",
+      "changedPixels": 348,
+      "outsideAllowedChangedPixels": 0,
+      "visualQaStatus": "PASS",
+      "runtimeModified": false,
+      "note": "Legacy sample issueId retained for compatibility; filename is authoritative."
+    },
+    {
+      "issueId": "DMR-017",
+      "filename": "combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "status": "RESERVE_PASS",
+      "repairCategory": "LOCAL_ARTIFACT_REMOVAL",
+      "subtype": "INTERNAL_SURFACE_RESTORE",
+      "candidateSha256": "cf3ef1dd8c70ff5a493501fd8466c756e3f33fddf41d12317947daf92e86dfc2",
+      "changedPixels": 206,
+      "changedBBox": {"x":491,"y":789,"width":7,"height":30},
+      "outsideAllowedChangedPixels": 0,
+      "visualQaStatus": "PASS",
+      "runtimeModified": false
+    }
+  ]
+}
