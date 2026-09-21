@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "requestedAt": "2026-09-21T20:55:00+09:00",
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "mode": "ONE_IMAGE_ONLY",
+  "sourceAuthority": "latest main",
+  "fixedContact": {
+    "part": "HH",
+    "x": 190,
+    "y": 390
+  },
+  "structuralBase": "character-assets/layers/character/base/neutral.png",
+  "donorPolicy": {
+    "hh": "a4e3854449e292264192afa63469edf0fb5048af:character-assets/layers/character/hh/hit_r.png",
+    "bd": "a4e3854449e292264192afa63469edf0fb5048af:character-assets/layers/character/bd/hit_rf.png"
+  },
+  "doNotModify": [
+    "fixed drum",
+    "camera",
+    "stool",
+    "paired rebound",
+    "any second image"
+  ],
+  "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes"
+}
