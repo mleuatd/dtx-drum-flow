@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "versionId": "DONOR-MESH-V3",
+  "label": "統合親＋予備修正版",
+  "baseCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+  "runtimePolicy": "baseline character set plus verified overlay PNGs",
+  "overlays": [
+    {"path":"combo/bd_hh_sn_rf_r_l_hit_refresh.png","issueId":"DMR-012","status":"RESERVE_PASS"},
+    {"path":"combo/bd_rc_sn_rf_r_l_hit_refresh.png","issueId":"DMR-017","status":"RESERVE_PASS"},
+    {"path":"combo/bd_rd_rf_r_hit_refresh.png","issueId":"DMR-018","status":"RESERVE_PASS"},
+    {"path":"combo/hh_sn_r_l_rebound_refresh.png","source":"PRE15 merged explicit full-resolution PASS","status":"PASS"}
+  ]
+}
