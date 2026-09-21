@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-09-21T21:00:00+09:00",
+  "createdAt": "2026-09-21T20:11:05+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "authority": {
@@ -36,7 +36,7 @@
     "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
     "hit": {
       "headCenter": [
-        681.0,
+        681,
         126.5
       ],
       "neck": [
@@ -167,8 +167,8 @@
       190,
       390
     ],
-    "contactDistancePx": 0.0,
-    "contactEllipseScore": 0.0,
+    "contactDistancePx": 0,
+    "contactEllipseScore": 0,
     "result": "PASS"
   },
   "fixedDrumComposite": {
@@ -199,5 +199,8 @@
     "note": "No synthetic vector shaft; active pixels come from full-resolution audited donor."
   },
   "formalPromotion": false,
-  "finalStatus": "CANDIDATE_READY_HIT"
+  "finalStatus": "CANDIDATE_READY_HIT",
+  "completedAt": "2026-09-21T20:12:00+09:00",
+  "finalDecision": "CANDIDATE_READY_HIT",
+  "stopCondition": "DMR-009 hit only; no second image modified"
 }
