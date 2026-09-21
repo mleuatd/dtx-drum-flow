@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "rules": {
+    "singleHand": {"composeOrder":["target-hand"],"requireOppositeHandUnchanged":true},
+    "handPlusFoot": {"composeOrder":["hand","foot"],"stoolRegistrationLocked":true},
+    "twoHands": {"composeOrder":["higher-risk-hand","full-resolution-QA","other-hand"],"repairBothAtOnce":false},
+    "twoHandsPlusFoot": {"composeOrder":["higher-risk-hand","QA","other-hand","QA","foot/contact-validation"],"repairAllAtOnce":false},
+    "simultaneous": {"oneFrameRepresentsAllLimbs":true,"serializeInstruments":false}
+  },
+  "transitionAuthority": "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json"
+}
