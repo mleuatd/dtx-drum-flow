@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-21T19:34:00+09:00",
+  "issueId": "DMR-009",
+  "mode": "ONE_IMAGE_ONLY",
+  "phase": "hit",
+  "parent": {
+    "filename": "combo/bd_hh_rf_r_hit_refresh.png",
+    "set": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
+    "sha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381"
+  },
+  "candidate": {
+    "filename": "DMR009_bd_hh_rf_r_hit_candidate_registrationfirst_v1.png",
+    "sha256": "fdeb42ac41c6b58053fdb2a6194a4f832b2e7de71a9702e013e83d8455ebd209",
+    "githubBinaryRegistered": false,
+    "changedPixels": 6095,
+    "changedBBox": [
+      191,
+      338,
+      448,
+      424
+    ],
+    "method": "Deterministic affine relocation of existing stick pixels only; body, stool, camera and fixed drum left unchanged."
+  },
+  "qa": {
+    "staticRegistration": "UNCHANGED_FROM_PARENT_BY_EDIT",
+    "contactTarget": {
+      "authoritativePoint": [
+        190,
+        390
+      ],
+      "nearestCharacterAlphaDistancePx": 2.83,
+      "result": "PASS_NUMERIC"
+    },
+    "fixedDrumComposite": "PASS_CONTACT_LOCATION",
+    "linework": "FAIL",
+    "lineworkFinding": "Grip-side shaft becomes visibly thick/black and the connection is not clean enough for promotion.",
+    "transition": "NOT_RUN because linework hard-failed",
+    "formalPromotion": "BLOCKED"
+  },
+  "finalStatus": "HOLD_LINEWORK",
+  "nextAction": "Stop after this single-image experiment. Do not create another image. If resumed later, first measure parent global/head/hip/stool registration, then rebuild the stick corridor with a cleaner source-preserving transform."
+}
