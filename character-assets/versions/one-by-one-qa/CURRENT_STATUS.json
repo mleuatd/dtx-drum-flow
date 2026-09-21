@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T20:08:00+09:00",
+  "updatedAt": "2026-09-21T21:00:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
@@ -14,20 +14,20 @@
     "parentSet": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
-    "attemptQa": "character-assets/versions/one-by-one-qa/dmr009_attempt_20260921_v3.json",
-    "finalStatus": "HOLD_LINEWORK",
+    "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
+    "finalStatus": "CANDIDATE_READY_HIT",
     "promotionBlocked": true,
-    "secondaryHold": "HOLD_TRANSITION"
+    "secondaryHold": null
   },
   "resultSummary": {
     "oneCandidateCreated": true,
-    "candidateSha256": "1620751fee0cb055870761225b8d9b892bbc9a58303cc4a3303e06b841f2eb47",
-    "registrationPassed": true,
+    "candidateSha256": "04d3b8732d43c1771a893fa5f20badddfe9e99f9f424591c3c7cc71af903723f",
+    "registrationPassed": false,
     "contactPassed": true,
-    "selectedContactType": "TIP_CONTACT",
-    "lineworkPassed": false,
+    "selectedContactType": "SOURCE_STYLE_CONTACT",
+    "lineworkPassed": true,
     "compositeContactPassed": true,
-    "transitionPassed": false,
+    "transitionPassed": true,
     "formalImageOverwritten": false,
     "advancedToSecondImage": false
   },
@@ -38,7 +38,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Do not create another image in this run. Next DMR-009 attempt should preserve neutral-locked registration, rebuild the active grip/stick corridor with source-style rough linework (PATTERN-010), and only promote after paired rebound registration is also corrected.",
+  "nextAction": "Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",

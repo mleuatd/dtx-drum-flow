@@ -301,3 +301,5 @@ See Git history for earlier character-pose experiments and full-song / 1-16 / 1-
 - Added explicit zero-drift constraints, ROI/lock/anchor/contact/bbox/timing/validation fields and NEEDS_MEASUREMENT handling.
 - Added REPAIR_SPEC_SCHEMA_V1.json and REPAIR_MEASUREMENT_RULES.md.
 - Formal character PNGs were not modified.
+
+- 2026-09-21 DMR-009 hit: created neutral-locked skeleton candidate from audited source-pixel HH/BD donors; fixed HH target (190,390), fixed-drum composite and transition QA recorded. Runtime/formal image not overwritten; no second image modified.

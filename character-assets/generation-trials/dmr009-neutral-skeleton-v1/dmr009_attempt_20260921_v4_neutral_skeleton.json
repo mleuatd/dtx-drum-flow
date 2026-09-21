@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-21T21:00:00+09:00",
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "authority": {
+    "branch": "main",
+    "neutral": "character-assets/layers/character/base/neutral.png",
+    "hhDonor": {
+      "commit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "path": "character-assets/layers/character/hh/hit_r.png",
+      "auditStatus": "PASS"
+    },
+    "bdDonor": {
+      "commit": "a4e3854449e292264192afa63469edf0fb5048af",
+      "path": "character-assets/layers/character/bd/hit_rf.png",
+      "auditStatus": "REVIEW_ANATOMY_COHERENT"
+    },
+    "fixedDrum": "character-assets/layers/drum/drum_base.png",
+    "contactDefinition": "DRUM_GEOMETRY.json#HH"
+  },
+  "candidate": {
+    "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
+    "sha256": "04d3b8732d43c1771a893fa5f20badddfe9e99f9f424591c3c7cc71af903723f",
+    "method": "neutral locked + approved source-pixel donor; adaptive TPS only inside active HH corridor",
+    "changedPixels": 202180,
+    "changedBBox": [
+      189,
+      246,
+      807,
+      987
+    ],
+    "outsideAllowedChangedPixels": 0
+  },
+  "landmarks": {
+    "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
+    "hit": {
+      "headCenter": [
+        681.0,
+        126.5
+      ],
+      "neck": [
+        696,
+        315
+      ],
+      "leftShoulder": [
+        648,
+        352
+      ],
+      "rightShoulder": [
+        810,
+        382
+      ],
+      "activeSemanticLimb": "R",
+      "activeVisualChain": "screen-left/shoulderL",
+      "activeShoulder": [
+        648,
+        352
+      ],
+      "activeElbow": [
+        513,
+        428
+      ],
+      "activeWrist": [
+        408,
+        433
+      ],
+      "activeGrip": [
+        390,
+        430
+      ],
+      "hipCenter": [
+        735,
+        620
+      ],
+      "leftKnee": [
+        520,
+        650
+      ],
+      "rightKnee": [
+        670,
+        685
+      ],
+      "leftAnkle": [
+        455,
+        815
+      ],
+      "rightAnkle": [
+        655,
+        825
+      ],
+      "stoolCenter": [
+        800,
+        716
+      ],
+      "seatCenter": [
+        800,
+        690
+      ],
+      "contactPoint": [
+        190,
+        390
+      ]
+    }
+  },
+  "registration": {
+    "candidateDriftPx": {
+      "headCenter": [
+        0,
+        0
+      ],
+      "hipCenter": [
+        0,
+        0
+      ],
+      "stoolCenter": [
+        0,
+        0
+      ]
+    },
+    "staticChangedPixels": {
+      "head": 11127,
+      "hip": 6955,
+      "stool": 8343
+    },
+    "fullAlphaBBoxNeutral": [
+      330,
+      28,
+      1062,
+      1058
+    ],
+    "fullAlphaBBoxCandidate": [
+      190,
+      28,
+      1062,
+      1058
+    ]
+  },
+  "anatomy": {
+    "segmentLengthsPx": {
+      "shoulderToElbow": 154.92,
+      "elbowToWrist": 105.12,
+      "wristToGrip": 18.25,
+      "gripToContact": 203.96
+    },
+    "elbowAngleDeg": 153.35,
+    "wristDeviationDeg": 12.19,
+    "result": "PASS"
+  },
+  "stick": {
+    "angleDegScreen": -168.69,
+    "visibleLengthPx": 203.96,
+    "sourceStyle": "approved HH donor pixels; no vector redraw",
+    "sourceContactPixel": [
+      357,
+      350
+    ],
+    "sourceContactDistancePx": 171.72,
+    "contactMeasuredPixel": [
+      190,
+      390
+    ],
+    "contactDistancePx": 0.0,
+    "contactEllipseScore": 0.0,
+    "result": "PASS"
+  },
+  "fixedDrumComposite": {
+    "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
+    "result": "PASS"
+  },
+  "transition": {
+    "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_transition_neutral_hit_rebound_neutral_v1.png",
+    "reboundRegistrationDriftPx": {
+      "head": [
+        0,
+        0
+      ],
+      "hip": [
+        0,
+        0
+      ],
+      "stool": [
+        0,
+        0
+      ]
+    },
+    "result": "PASS",
+    "note": "Rebound is inspected only and is not modified in this one-image run."
+  },
+  "linework": {
+    "result": "PASS_BY_SOURCE_PRESERVATION",
+    "note": "No synthetic vector shaft; active pixels come from full-resolution audited donor."
+  },
+  "formalPromotion": false,
+  "finalStatus": "CANDIDATE_READY_HIT"
+}
