@@ -1,3 +1,10 @@
+## 2026-09-21 — One-image adaptive strike repair pipeline
+- Standardized one-image repair order: CURRENT_STATUS -> source authority -> registration -> active limb chain -> adaptive contact mode -> optional strike expression -> linework cleanup -> fixed-drum composite -> transition -> final decision -> GitHub record.
+- Added REPAIR_PIPELINE_PATTERNS.json with REGISTRATION_FIRST, TIP_OR_SHAFT_CONTACT_ADAPTIVE, LIMB_CHAIN_BEFORE_STICK_EXTENSION, CONTACT_THEN_LINEWORK_CLEANUP, OPTIONAL_STRIKE_EXPRESSION, FIXED_DRUM_COMPOSITE_REQUIRED, TRANSITION_REQUIRED, MINIMUM_CHANGE_WINS and FAILED_METHOD_LEARNING.
+- Added STRIKE_CONTACT_QA_RULES.json. Tip contact and shaft contact are both valid; neither is mandatory. The chosen mode must look natural and minimize destructive edits.
+- Added processing-cost preference (FAST/NORMAL/HEAVY) so equal-quality solutions prefer the lighter method.
+- DMR-009 hit remains the only active image for this experiment; no second image may start before its result is recorded.
+
 ## 2026-09-20 09:16 JST — Shared HOLD repair workflow
 - All terminals must read HOLD_REPAIR_PLAYBOOK.json and latest MOTION_DEFECT_BACKLOG before editing.
 - FRONT claims the lowest available MOTION issue; BACK claims the highest available issue. Claimed items are untouchable by other terminals.
