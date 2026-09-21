@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T21:56:00+09:00",
+  "updatedAt": "2026-09-21T20:08:00+09:00",
   "patterns": [
     {
       "id": "FAIL-RC-WRONG-SIDE",
@@ -377,6 +377,16 @@
       "neverUse": true,
       "evidence": "2026-09-19 current session renderer retry after exact-source bridge and neutral-shoulder numeric refinement produced unrelated status-dashboard image instead of SN:L character edit.",
       "updatedAt": "2026-09-19T21:56:00+09:00"
+    },
+    {
+      "id": "FAIL-STICK-VECTOR-STYLE-MISMATCH",
+      "name": "geometrically correct but over-clean stick",
+      "severity": "MEDIUM",
+      "detection": "Stick reaches the correct instrument contact but its shaft is unnaturally straight/uniform/clean compared with the surrounding rough hand-drawn linework.",
+      "automaticAction": "HOLD_LINEWORK; do not promote on contact success alone.",
+      "qaAction": "Compare local shaft line-weight/texture to approved neighboring sticks; reconstruct from source-style pixels or an approved donor.",
+      "neverUse": false,
+      "evidence": "DMR-009 one-image adaptive attempt v3, 2026-09-21"
     }
   ],
   "adaptiveRetry": {
