@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "issueId": "DMR-017",
+  "frame": "combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+  "actionKey": "BD+RC+SN:RF/R/L",
+  "phase": "hit",
+  "inherits": ["GLOBAL_COMMON"],
+  "repairCategory": "LOCAL_ARTIFACT_REMOVAL",
+  "repairSubtype": "INTERNAL_SURFACE_RESTORE",
+  "method": "nearby_same_surface_color_restore",
+  "baseAuthority": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
+  "allowedRoi": {"x1":491,"y1":789,"x2":498,"y2":819},
+  "sourceSampleBand": {"x1":482,"y1":789,"x2":490,"y2":819},
+  "expected": {"outsideAllowedChangedPixels":0,"fixedRegionChangedPixels":0},
+  "visualQaRequired": true,
+  "result": {
+    "candidateSha256": "cf3ef1dd8c70ff5a493501fd8466c756e3f33fddf41d12317947daf92e86dfc2",
+    "changedPixels": 206,
+    "status": "RESERVE_PASS"
+  }
+}
