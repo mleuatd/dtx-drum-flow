@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-21T19:55:00+09:00",
+  "authority": "character-assets/versions/one-by-one-qa/CURRENT_STATUS.json",
+  "standardOrder": [
+    "CURRENT_STATUS",
+    "SOURCE_AUTHORITY",
+    "REGISTRATION",
+    "ACTIVE_LIMB_CHAIN",
+    "CONTACT_MODE_SELECTION",
+    "OPTIONAL_STRIKE_EXPRESSION",
+    "LINEWORK_CLEANUP",
+    "FIXED_DRUM_COMPOSITE",
+    "TRANSITION",
+    "FINAL_DECISION",
+    "GITHUB_RECORD"
+  ],
+  "patterns": [
+    {
+      "id": "PATTERN-001",
+      "name": "REGISTRATION_FIRST",
+      "cost": "FAST",
+      "rule": "Diagnose head/torso/hip/stool/body-bbox/camera/scale before contact editing."
+    },
+    {
+      "id": "PATTERN-002",
+      "name": "TIP_OR_SHAFT_CONTACT_ADAPTIVE",
+      "cost": "FAST",
+      "rule": "Do not force tip or shaft contact. Choose whichever gives the most natural strike with the smallest, safest edit."
+    },
+    {
+      "id": "PATTERN-003",
+      "name": "LIMB_CHAIN_BEFORE_STICK_EXTENSION",
+      "cost": "NORMAL",
+      "rule": "If stick-only extension would distort the grip, include the smallest necessary hand/wrist/forearm corridor."
+    },
+    {
+      "id": "PATTERN-004",
+      "name": "CONTACT_THEN_LINEWORK_CLEANUP",
+      "cost": "FAST",
+      "rule": "After contact correction, hard-check black blobs, doubled shafts, broken continuity, detached hand/stick, stray fragments and splice artifacts."
+    },
+    {
+      "id": "PATTERN-005",
+      "name": "OPTIONAL_STRIKE_EXPRESSION",
+      "cost": "FAST",
+      "rule": "Tiny contact/impact/motion lines are optional only when they improve readability without changing the established line-art style."
+    },
+    {
+      "id": "PATTERN-006",
+      "name": "FIXED_DRUM_COMPOSITE_REQUIRED",
+      "cost": "FAST",
+      "rule": "Character-only appearance never completes contact QA; fixed-drum composite is mandatory."
+    },
+    {
+      "id": "PATTERN-007",
+      "name": "TRANSITION_REQUIRED",
+      "cost": "NORMAL",
+      "rule": "A hit candidate cannot promote without neutral->hit->rebound->neutral continuity."
+    },
+    {
+      "id": "PATTERN-008",
+      "name": "MINIMUM_CHANGE_WINS",
+      "cost": "FAST",
+      "rule": "When multiple methods are visually equivalent, prefer the smaller ROI, lighter process, higher source preservation and lower regression risk."
+    },
+    {
+      "id": "PATTERN-009",
+      "name": "FAILED_METHOD_LEARNING",
+      "cost": "FAST",
+      "rule": "Record why a failed method failed, whether it is conditionally reusable, and the next permitted strategy. Do not blindly repeat."
+    }
+  ],
+  "methodPreference": [
+    {
+      "order": 1,
+      "method": "deterministic_local_transform",
+      "cost": "FAST"
+    },
+    {
+      "order": 2,
+      "method": "hand_wrist_forearm_local_transform",
+      "cost": "NORMAL"
+    },
+    {
+      "order": 3,
+      "method": "approved_donor_local_patch",
+      "cost": "NORMAL"
+    },
+    {
+      "order": 4,
+      "method": "target_bound_local_ai_edit",
+      "cost": "NORMAL_TO_HEAVY"
+    },
+    {
+      "order": 5,
+      "method": "full_limb_redraw",
+      "cost": "HEAVY",
+      "policy": "PROHIBITED_BY_DEFAULT"
+    }
+  ]
+}
