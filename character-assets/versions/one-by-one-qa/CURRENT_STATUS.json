@@ -1,12 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T19:20:00+09:00",
+  "updatedAt": "2026-09-21T19:34:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
-    "branch": "main",
-    "observedHeadBeforeCleanup": "3c3a3340f6f0080249e76a59ba2770caef562736"
+    "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY",
+  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -15,27 +14,16 @@
     "parentSet": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
-    "previousStatus": "RETRY_REQUIRED",
+    "attemptQa": "character-assets/versions/one-by-one-qa/dmr009_attempt_20260921_v1.json",
+    "finalStatus": "HOLD_LINEWORK",
     "promotionBlocked": true
   },
-  "diagnosticOrder": [
-    "global_registration",
-    "torso_registration",
-    "active_limb_geometry",
-    "stick_contact",
-    "fixed_drum_composite",
-    "transition"
-  ],
-  "registrationThresholdsPx": {
-    "head": 2,
-    "hip": 3,
-    "stool": 2,
-    "bodyBoundingBox": 4
-  },
-  "contactThresholdsPx": {
-    "stickTipIdeal": 8,
-    "stickTipPass": 12,
-    "stickTipFailFrom": 13
+  "resultSummary": {
+    "oneCandidateCreated": true,
+    "numericContactPassed": true,
+    "visualLineworkPassed": false,
+    "formalImageOverwritten": false,
+    "advancedToSecondImage": false
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,
@@ -44,5 +32,5 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Measure static-region registration of DMR-009 hit against neutral and paired rebound. Only after classifying global/torso/local drift, create one candidate image and record its QA."
+  "nextAction": "No further image creation in this run. Resume only with registration measurement first and a cleaner source-preserving stick-corridor repair."
 }
