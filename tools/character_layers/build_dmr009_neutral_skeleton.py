@@ -89,6 +89,16 @@ def main():
     source_contact,source_contact_dist=nearest((hhdonor[:,:,3]>24)&hh_core,target,[0,250,700,650])
     if source_contact is None:
         raise SystemExit("no opaque HH donor-difference pixel found")
+    # Visual diagnostic evidence for the audited HH donor/contact selection.
+    # Kept inside the DMR-009 trial directory only; formal/runtime assets remain untouched.
+    debug_donor=OUT/"DMR009_debug_hh_donor.png"
+    debug_diff=OUT/"DMR009_debug_hh_diff.png"
+    save(hhdonor,debug_donor)
+    diff_vis=np.zeros_like(hhdonor)
+    diff_vis[:,:,0:3]=255
+    diff_vis[:,:,3]=(hh_core.astype(np.uint8)*255)
+    save(diff_vis,debug_diff)
+
     # If the audited donor does not yet reach the fixed target, deform only its
     # active source-pixel corridor. Boundary anchors stay fixed; the solved arm
     # chain meets the MASTER_GEOMETRY lengths and the fixed HH point.
