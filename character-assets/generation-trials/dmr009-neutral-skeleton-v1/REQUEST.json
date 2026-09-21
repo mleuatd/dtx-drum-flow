@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T23:22:00+09:00",
+  "requestedAt": "2026-09-21T23:27:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,9 +23,9 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 16,
-  "retryReason": "Retry after implementation update: rigid straight stick + wrist-chain hard gates, latest-main approved donors, shallow checkout, cancel stale run.",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Rebuild active R chain as shoulder→elbow→wrist→grip→HH tip with independent bone-local segments. Hard gates: straight rigid stick, continuity, grip-axis alignment, natural wrist, fixed HH contact. Paired rebound READ_ONLY.",
+  "retry": 17,
+  "retryReason": "AI full-resolution composite review FAIL: rectangular arm slab and head-lock severing. Retry with elbow below head lock and donor-vs-neutral motion ownership masks; retain rigid-stick hard gates.",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Keep grip→HH tip as one rigid straight shaft. Use independent upper-arm/forearm/hand transforms, elbow [490,340], wrist [375,304], grip [358,312]. Restrict donor source ownership to HH donor-vs-neutral motion pixels. Rebound remains READ_ONLY.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
