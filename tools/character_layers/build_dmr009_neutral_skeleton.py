@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 from scipy.ndimage import binary_dilation
+from build_mesh_warp_pose import warp_rgba
 
 ROOT=Path(__file__).resolve().parents[2]
 BASELINE="a4e3854449e292264192afa63469edf0fb5048af"
@@ -80,22 +81,42 @@ def main():
         raise SystemExit("baseline/current neutral mismatch; refusing cross-registration transplant")
 
     candidate=neutral.copy()
+    target=dg["instruments"]["HH"]["strikeTarget"]["px"]
+    tol=dg["instruments"]["HH"]["strikeToleranceEllipsePx"]
     hh_diff=np.any(hhdonor!=bneutral,axis=2)
-    upper=np.zeros(hh_diff.shape,bool); upper[265:615,100:735]=True
-    hh_mask=binary_dilation(hh_diff & upper,iterations=4)
-    candidate[hh_mask]=hhdonor[hh_mask]
+    upper=np.zeros(hh_diff.shape,bool); upper[250:630,70:760]=True
+    hh_core=hh_diff & upper
+    source_contact,source_contact_dist=nearest((hhdonor[:,:,3]>24)&hh_core,target,[0,250,700,650])
+    if source_contact is None:
+        raise SystemExit("no opaque HH donor-difference pixel found")
+    # If the audited donor does not yet reach the fixed target, deform only its
+    # active source-pixel corridor. Boundary anchors stay fixed; the solved arm
+    # chain meets the MASTER_GEOMETRY lengths and the fixed HH point.
+    shoulder=[648,352]; elbow=[513,428]; wrist=[408,433]; grip=[390,430]
+    src_chain=[[648,352],[565,490],[500,490],[492,486],source_contact]
+    dst_chain=[shoulder,elbow,wrist,grip,target]
+    boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
+    cfg={"sourcePoints":boundary+src_chain,"targetPoints":boundary+dst_chain,
+         "roi":{"x1":70,"y1":250,"x2":760,"y2":630},
+         "deformationPolygon":[[70,250],[759,250],[759,629],[70,629]],
+         "fixedRects":[],"smoothing":0}
+    warped_hh,_=warp_rgba(hhdonor,cfg)
+    mask_rgba=np.zeros_like(hhdonor); mask_rgba[:,:,3]=(hh_core.astype(np.uint8)*255)
+    warped_mask_rgba,_=warp_rgba(mask_rgba,cfg)
+    warped_mask=warped_mask_rgba[:,:,3]>24
+    hh_mask=binary_dilation(hh_core|warped_mask,iterations=4)
+    candidate[hh_mask]=warped_hh[hh_mask]
 
     bd_diff=np.any(bddonor!=bneutral,axis=2)
     lower=np.zeros(bd_diff.shape,bool); lower[635:985,520:805]=True
     bd_mask=binary_dilation(bd_diff & lower,iterations=3)
     candidate[bd_mask]=bddonor[bd_mask]
 
-    target=dg["instruments"]["HH"]["strikeTarget"]["px"]
-    tol=dg["instruments"]["HH"]["strikeToleranceEllipsePx"]
     # Contact is measured only in the far-left HH corridor to avoid body/hair false positives.
     cmask=(candidate[:,:,3]>24)
     contact,contact_dist=nearest(cmask,target,[110,330,330,465])
-    if contact is None: raise SystemExit("no candidate alpha in HH contact corridor")
+    if contact is None:
+        raise SystemExit(f"HH warp produced no contact corridor alpha; source_contact={source_contact} distance={source_contact_dist:.2f}")
     ellipse=((contact[0]-target[0])/tol[0])**2+((contact[1]-target[1])/tol[1])**2
     contact_pass=ellipse<=1.0
 
@@ -163,14 +184,14 @@ def main():
         "hhDonor":{"commit":BASELINE,"path":"character-assets/layers/character/hh/hit_r.png","auditStatus":"PASS"},
         "bdDonor":{"commit":BASELINE,"path":"character-assets/layers/character/bd/hit_rf.png","auditStatus":"REVIEW_ANATOMY_COHERENT"},
         "fixedDrum":"character-assets/layers/drum/drum_base.png","contactDefinition":"DRUM_GEOMETRY.json#HH"},
-      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"neutral locked + approved source-pixel local donor transplant",
+      "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"neutral locked + approved source-pixel donor; adaptive TPS only inside active HH corridor",
         "changedPixels":int(np.count_nonzero(changed)),"changedBBox":bbox(changed),"outsideAllowedChangedPixels":outside},
       "landmarks":{"neutralSource":"MASTER_GEOMETRY.json#neutralLandmarks","hit":hit_landmarks},
       "registration":{"candidateDriftPx":candidate_drift,"staticChangedPixels":static_changed,
         "fullAlphaBBoxNeutral":full_bbox_neutral,"fullAlphaBBoxCandidate":full_bbox_candidate},
       "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,"result":"PASS" if anatomy_pass else "FAIL"},
       "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"sourceStyle":"approved HH donor pixels; no vector redraw",
-        "contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
+        "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
         "result":"PASS" if contact_pass else "FAIL"},
       "fixedDrumComposite":{"path":str(fp.relative_to(ROOT)),"result":"PASS" if contact_pass else "FAIL"},
       "transition":{"path":str(tp.relative_to(ROOT)),"reboundRegistrationDriftPx":rebound_drift,
