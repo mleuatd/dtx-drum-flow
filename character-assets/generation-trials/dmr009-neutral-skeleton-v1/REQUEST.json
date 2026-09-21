@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T21:27:00+09:00",
+  "requestedAt": "2026-09-21T21:34:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,9 +23,9 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 9,
-  "retryReason": "continue DMR-009 hit after builder repair; require AI visual review after regenerated candidate",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Reuse verified inputs, rerun existing fast-path forearm candidate only, do not modify paired rebound or any second image.",
+  "retry": 10,
+  "retryReason": "AI visual QA failed previous candidate: overextended horizontal forearm and splice-like wrist artifact; rerun narrowed active-limb corridor with naturalized elbow/wrist/grip",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Use narrowed forearm corridor and revised elbow/wrist/grip. Keep fixed HH contact and all static locks. Do not modify paired rebound or any second image.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
