@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T21:14:00+09:00",
+  "updatedAt": "2026-09-21T21:00:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY_RERUN_REQUESTED",
+  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -15,13 +15,13 @@
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
-    "finalStatus": "RERUN_REQUESTED_AFTER_BUILDER_FIX",
+    "finalStatus": "CANDIDATE_READY_HIT",
     "promotionBlocked": true,
     "secondaryHold": null
   },
   "resultSummary": {
     "oneCandidateCreated": true,
-    "candidateSha256": "d27fc820e23470323b0abfbd046e7b20207cf4a644cf1594b1e5b01df4f3097b",
+    "candidateSha256": "2d054623b3ac4640291f0ff04f46adaf2fb2e0300abb79ea44e8e4ce5c03ba30",
     "registrationPassed": true,
     "contactPassed": true,
     "selectedContactType": "SOURCE_STYLE_CONTACT",
@@ -38,7 +38,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Rerun only DMR-009 hit with the repaired donor-mesh fast-path builder. Reuse verified neutral/donors/fixed drum; do not modify rebound or any second image. Re-evaluate registration/contact/anatomy/linework/transition before any formal promotion.",
+  "nextAction": "Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-09-21T20:11:05+09:00",
+  "createdAt": "2026-09-21T21:00:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "authority": {
@@ -17,13 +17,17 @@
       "auditStatus": "REVIEW_ANATOMY_COHERENT"
     },
     "fixedDrum": "character-assets/layers/drum/drum_base.png",
-    "contactDefinition": "DRUM_GEOMETRY.json#HH"
+    "contactDefinition": "DRUM_GEOMETRY.json#HH",
+    "donorSelectionReason": {
+      "hh": "baseline HH:R hit is audited PASS and preserves source-style stick/hand linework",
+      "bd": "baseline BD:RF hit is the closest audited pedal-action donor and is used only in the lower active-foot region"
+    }
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "d27fc820e23470323b0abfbd046e7b20207cf4a644cf1594b1e5b01df4f3097b",
-    "method": "neutral locked + approved source-pixel donor; adaptive TPS inside narrow active-limb corridor + explicit static-region locks",
-    "changedPixels": 84615,
+    "sha256": "2d054623b3ac4640291f0ff04f46adaf2fb2e0300abb79ea44e8e4ce5c03ba30",
+    "method": "donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",
+    "changedPixels": 84043,
     "changedBBox": [
       189,
       330,
@@ -36,7 +40,7 @@
     "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
     "hit": {
       "headCenter": [
-        681,
+        681.0,
         126.5
       ],
       "neck": [
@@ -58,16 +62,16 @@
         352
       ],
       "activeElbow": [
-        513,
-        428
+        520,
+        420
       ],
       "activeWrist": [
-        408,
-        433
+        415,
+        428
       ],
       "activeGrip": [
-        390,
-        430
+        392,
+        428
       ],
       "hipCenter": [
         735,
@@ -145,18 +149,35 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 154.92,
-      "elbowToWrist": 105.12,
-      "wristToGrip": 18.25,
-      "gripToContact": 203.96
+      "shoulderToElbow": 144.94,
+      "elbowToWrist": 105.3,
+      "wristToGrip": 23.0,
+      "gripToContact": 205.54
     },
-    "elbowAngleDeg": 153.35,
-    "wristDeviationDeg": 12.19,
+    "elbowAngleDeg": 156.38,
+    "wristDeviationDeg": 4.36,
+    "localNaturalization": {
+      "hardLocked": [
+        "shoulder",
+        "HH contact",
+        "head",
+        "hip",
+        "stool",
+        "camera",
+        "scale"
+      ],
+      "softened": [
+        "elbow",
+        "wrist",
+        "grip"
+      ],
+      "strategy": "minimum interior-chain adjustment; donor pixels preserved"
+    },
     "result": "PASS"
   },
   "stick": {
-    "angleDegScreen": -168.69,
-    "visibleLengthPx": 203.96,
+    "angleDegScreen": -169.35,
+    "visibleLengthPx": 205.54,
     "sourceStyle": "approved HH donor pixels; no vector redraw",
     "sourceContactPixel": [
       357,
@@ -167,8 +188,8 @@
       190,
       390
     ],
-    "contactDistancePx": 0,
-    "contactEllipseScore": 0,
+    "contactDistancePx": 0.0,
+    "contactEllipseScore": 0.0,
     "result": "PASS"
   },
   "fixedDrumComposite": {
@@ -199,8 +220,5 @@
     "note": "No synthetic vector shaft; active pixels come from full-resolution audited donor."
   },
   "formalPromotion": false,
-  "finalStatus": "CANDIDATE_READY_HIT",
-  "completedAt": "2026-09-21T20:12:00+09:00",
-  "finalDecision": "CANDIDATE_READY_HIT",
-  "stopCondition": "DMR-009 hit only; no second image modified"
+  "finalStatus": "CANDIDATE_READY_HIT"
 }
