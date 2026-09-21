@@ -25,16 +25,16 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "f4cd0a9d18ede29a9c30fc05d9b93b4f2803e01e7501c77ea468ec64d57f0d96",
-    "method": "donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",
-    "changedPixels": 74201,
+    "sha256": "6a9fb6473a5807686bef0bb6ffc76acfd0e372a139e0b76b1ed5e1922bde7fa5",
+    "method": "bone-local donor transform: upper arm + forearm/hand + constrained stick; source-pose clear limited by donor-vs-neutral diff; explicit static locks",
+    "changedPixels": 87228,
     "changedBBox": [
-      189,
-      296,
-      761,
-      986
+      185,
+      192,
+      1054,
+      1058
     ],
-    "outsideAllowedChangedPixels": 0
+    "outsideAllowedChangedPixels": 349
   },
   "landmarks": {
     "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
@@ -134,7 +134,7 @@
       1058
     ],
     "fullAlphaBBoxCandidate": [
-      190,
+      185,
       28,
       1062,
       1058
@@ -194,10 +194,10 @@
     "sourceContactDistancePx": 171.72,
     "contactMeasuredPixel": [
       190,
-      390
+      389
     ],
-    "contactDistancePx": 0.0,
-    "contactEllipseScore": 0.0,
+    "contactDistancePx": 1.0,
+    "contactEllipseScore": 0.0016,
     "result": "PASS"
   },
   "fixedDrumComposite": {
@@ -235,5 +235,5 @@
     "armCrop": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
   },
   "formalPromotion": false,
-  "finalStatus": "CANDIDATE_READY_HIT"
+  "finalStatus": "HOLD_HIT_QA"
 }
