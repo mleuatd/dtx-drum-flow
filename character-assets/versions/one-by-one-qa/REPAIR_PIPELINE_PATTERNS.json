@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T19:55:00+09:00",
+  "updatedAt": "2026-09-21T20:08:00+09:00",
   "authority": "character-assets/versions/one-by-one-qa/CURRENT_STATUS.json",
   "standardOrder": [
     "CURRENT_STATUS",
@@ -69,6 +69,12 @@
       "name": "FAILED_METHOD_LEARNING",
       "cost": "FAST",
       "rule": "Record why a failed method failed, whether it is conditionally reusable, and the next permitted strategy. Do not blindly repeat."
+    },
+    {
+      "id": "PATTERN-010",
+      "name": "SOURCE_STYLE_STICK_RECONSTRUCTION",
+      "cost": "NORMAL",
+      "rule": "A geometrically correct stick is not sufficient. Final stick reconstruction must inherit rough line weight/texture from approved source pixels or an approved style-matched donor; a perfectly clean vector-like shaft is evidence-only, not promotable."
     }
   ],
   "methodPreference": [
@@ -97,6 +103,22 @@
       "method": "full_limb_redraw",
       "cost": "HEAVY",
       "policy": "PROHIBITED_BY_DEFAULT"
+    }
+  ],
+  "learnedExamples": [
+    {
+      "issueId": "DMR-009",
+      "attempt": "v3_adaptive",
+      "success": [
+        "neutral-locked registration",
+        "authoritative HH contact reached",
+        "small edit ROI"
+      ],
+      "failure": [
+        "new shaft is too geometrically clean relative to source sketch texture",
+        "paired rebound retains ~7px stool registration shift"
+      ],
+      "nextPermittedStrategy": "Keep neutral-locked static body. Rebuild only the active hand/grip/stick corridor using source-style pixels/approved donor texture, and repair/reselect the paired rebound before transition promotion."
     }
   ]
 }
