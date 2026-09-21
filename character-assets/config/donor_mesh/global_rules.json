@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "profileId": "donor-mesh-repair-global-v1",
+  "purpose": "Mandatory shared rules for donor/local-mesh character repair using PRE15_BASELINE_MERGED_WITH_AI_PASS as locked parent.",
+  "parentAuthority": {
+    "dropboxPath": "/ChatGPT/dtx-drum-flow/PRE15_BASELINE_MERGED_WITH_AI_PASS",
+    "basisCommit": "a4e3854449e292264192afa63469edf0fb5048af",
+    "mergeIndex": "/ChatGPT/dtx-drum-flow/PRE15_BASELINE_MERGE_INDEX.json",
+    "latestMainMayBecomeAutomaticParent": false,
+    "failCandidateMayBecomeParent": false,
+    "onlyFullResolutionPassMayBecomeDonor": true
+  },
+  "canvas": {"width": 1448, "height": 1086, "mode": "RGBA", "pngLossless": true},
+  "mandatoryAuthorities": {
+    "contactPoints": "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+    "poseTransitions": "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+    "failurePatterns": "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json",
+    "fixedDrum": "character-assets/layers/drum/drum_base.png"
+  },
+  "methodPrecedence": [
+    "DIRECT_SAME_ACTION_REPLACEMENT",
+    "LOCAL_ARTIFACT_REMOVAL",
+    "SAME_INSTRUMENT_DONOR",
+    "CROSS_INSTRUMENT_DONOR_MESH",
+    "COMPOSITE_VALIDATION",
+    "HOLD"
+  ],
+  "changeSafety": {
+    "outsideAllowedChangedPixelsMax": 0,
+    "fixedRegionChangedPixelsMax": 0,
+    "runtimeWritableDuringTrial": false,
+    "visualQaRequired": true,
+    "fullImageRegressionReviewRequired": true,
+    "sameFailureSameStrategyMaxAttempts": 1,
+    "sameMethodTotalAttemptsBeforeForcedMethodChange": 2
+  },
+  "minimalSplicePolicy": {
+    "stickOnlyDefect": "stick + minimum hand attachment",
+    "wristDefect": "wrist + hand + stick",
+    "forearmDirectionDefect": "elbow-distal forearm + wrist + hand + stick",
+    "shoulderTorsoNormal": "do not modify shoulder/torso/waist/legs"
+  },
+  "protectedRegions": ["head","hair","cowlick","normal-opposite-arm","waist","pelvis","normal-legs","stool"],
+  "bodyContinuity": [
+    "shoulder-upperArm-elbow-forearm-wrist-hand-stick",
+    "pelvis-thigh-knee-lowerLeg-ankle-foot-pedal"
+  ],
+  "requiredVisualQa": [
+    "limbCount","shoulderArmContinuity","elbowNaturalness","wristNaturalness","handShape",
+    "stickCount","stickContinuity","stickLength","stickTipContact","floatingArtifacts",
+    "waistContinuity","pelvisTorsoDirection","torsoShoulderRelationship","upperLowerBodyUnity",
+    "weightBalance","clothingPatternContinuity","hairUnchangedOutsideAllowedRegion","stoolRegistration",
+    "fixedDrumCompositeContact","noUnexpectedWholeFrameChange"
+  ],
+  "templateResolutionOrder": [
+    "GLOBAL_COMMON","INSTRUMENT_TEMPLATE","LIMB_PHASE_TEMPLATE","ACTION_COMBINATION_TEMPLATE","FRAME_OVERRIDE"
+  ],
+  "directReplacementGate": {
+    "required": true,
+    "alphaBBoxEdgeDeltaMaxPx": 20,
+    "alphaAreaRatioMin": 0.85,
+    "alphaAreaRatioMax": 1.15,
+    "rule": "If any registration gate fails, DIRECT_SAME_ACTION_REPLACEMENT is prohibited even when actionKey/phase names match."
+  }
+}
