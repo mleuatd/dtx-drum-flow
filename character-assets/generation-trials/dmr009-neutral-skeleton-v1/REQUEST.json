@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T20:25:00+09:00",
+  "requestedAt": "2026-09-21T20:55:30+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,7 +23,9 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes",
-  "retry": 6,
-  "retryReason": "donor-mesh primary rerun with local elbow/wrist/grip naturalization; fixed HH contact and static locks unchanged",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Do not modify paired rebound or any formal/runtime PNG."
+  "retry": 7,
+  "retryReason": "rerun after executable-builder repair; single-candidate fast path only",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Do not modify paired rebound or any formal/runtime PNG.",
+  "fastPath": true,
+  "reuseVerifiedInputs": true
 }
