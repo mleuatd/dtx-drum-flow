@@ -105,7 +105,7 @@ def main():
     # Local naturalization stage: keep shoulder/contact hard-locked, soften only
     # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands
     # and preserve the approved donor linework rather than redrawing it.
-    shoulder=[648,352]; elbow=[505,452]; wrist=[394,434]; grip=[371,426]
+    shoulder=[648,352]; elbow=[478,358]; wrist=[376,317]; grip=[358,312]
     src_chain=[[620,375],[565,475],[490,455],[442,421],source_contact]
     dst_chain=[shoulder,elbow,wrist,grip,target]
     boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
@@ -153,7 +153,7 @@ def main():
                  (n["headTop"]["px"][1]+n["faceCenter"]["px"][1])/2]
     # Solved screen-left chain for semantic R hand in the rear-view camera.
     shoulder=n["shoulderL"]["px"]
-    grip=[371,426]; wrist=[394,434]; elbow=[505,452]
+    grip=[358,312]; wrist=[376,317]; elbow=[478,358]
     hit_landmarks={
       "headCenter":[round(head_center[0],1),round(head_center[1],1)],
       "neck":n["neck"]["px"],"leftShoulder":n["shoulderL"]["px"],"rightShoulder":n["shoulderR"]["px"],
@@ -174,12 +174,15 @@ def main():
     elbow_angle=round(angle3(shoulder,elbow,wrist),2)
     wrist_dev=round(180-angle3(elbow,wrist,grip),2)
     sk=geom["skeleton"]; seg=sk["segmentLengthsPx"]
+    expected_approach=float(dg["instruments"]["HH"]["approachAngleDeg"]["R"])
+    approach_delta=abs(((ang-expected_approach+180)%360)-180)
     anatomy_pass=(seg["upperArm"]["preferred"]-seg["upperArm"]["tolerance"] <= lengths["shoulderToElbow"] <= seg["upperArm"]["preferred"]+seg["upperArm"]["tolerance"] and
                   seg["forearm"]["preferred"]-seg["forearm"]["tolerance"] <= lengths["elbowToWrist"] <= seg["forearm"]["preferred"]+seg["forearm"]["tolerance"] and
                   seg["handToGrip"]["preferred"]-seg["handToGrip"]["tolerance"] <= lengths["wristToGrip"] <= seg["handToGrip"]["preferred"]+seg["handToGrip"]["tolerance"] and
                   seg["stick"]["preferred"]*0.95 <= lengths["gripToContact"] <= seg["stick"]["preferred"]*1.05 and
                   sk["jointAngleRulesDeg"]["elbow"]["min"] <= elbow_angle <= sk["jointAngleRulesDeg"]["elbow"]["max"] and
-                  abs(wrist_dev) <= sk["jointAngleRulesDeg"]["wristDeviationFromForearm"]["max"])
+                  abs(wrist_dev) <= sk["jointAngleRulesDeg"]["wristDeviationFromForearm"]["max"] and
+                  approach_delta <= 12)
 
     # Static registration: candidate is neutral outside two explicitly allowed donor masks.
     changed=np.any(candidate!=neutral,axis=2); allowed=hh_mask|bd_mask
@@ -227,7 +230,7 @@ def main():
       "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,
         "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},
         "result":"PASS" if anatomy_pass else "FAIL"},
-      "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; no vector redraw",
+      "stick":{"angleDegScreen":ang,"expectedApproachAngleDeg":expected_approach,"approachAngleDeltaDeg":round(approach_delta,2),"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; no vector redraw",
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
         "result":"PASS" if contact_pass else "FAIL"},
       "fixedDrumComposite":{"path":str(fp.relative_to(ROOT)),"result":"PASS" if contact_pass else "FAIL"},
