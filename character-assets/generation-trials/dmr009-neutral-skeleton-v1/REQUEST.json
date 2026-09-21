@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T20:55:30+09:00",
+  "requestedAt": "2026-09-21T21:12:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -23,9 +23,9 @@
     "any second image"
   ],
   "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless all QA passes",
-  "retry": 7,
-  "retryReason": "rerun after executable-builder repair; single-candidate fast path only",
-  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Do not modify paired rebound or any formal/runtime PNG.",
+  "retry": 8,
+  "retryReason": "rerun after residual escaped-newline repair in DMR009 builder; single-candidate fast path only",
+  "executionNote": "ONE IMAGE ONLY: DMR-009 hit. Reuse verified inputs, rerun the existing fast-path candidate only, do not modify paired rebound or any second image.",
   "fastPath": true,
   "reuseVerifiedInputs": true
 }
