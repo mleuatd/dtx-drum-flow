@@ -105,7 +105,7 @@ def main():
     # Local naturalization stage: keep shoulder/contact hard-locked, soften only
     # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands
     # and preserve the approved donor linework rather than redrawing it.
-    shoulder=[648,352]; elbow=[520,455]; wrist=[412,438]; grip=[390,430]
+    shoulder=[648,352]; elbow=[505,452]; wrist=[394,434]; grip=[371,426]
     src_chain=[[620,375],[565,475],[490,455],[442,421],source_contact]
     dst_chain=[shoulder,elbow,wrist,grip,target]
     boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
@@ -153,7 +153,7 @@ def main():
                  (n["headTop"]["px"][1]+n["faceCenter"]["px"][1])/2]
     # Solved screen-left chain for semantic R hand in the rear-view camera.
     shoulder=n["shoulderL"]["px"]
-    grip=[390,430]; wrist=[412,438]; elbow=[520,455]
+    grip=[371,426]; wrist=[394,434]; elbow=[505,452]
     hit_landmarks={
       "headCenter":[round(head_center[0],1),round(head_center[1],1)],
       "neck":n["neck"]["px"],"leftShoulder":n["shoulderL"]["px"],"rightShoulder":n["shoulderR"]["px"],
@@ -177,7 +177,7 @@ def main():
     anatomy_pass=(seg["upperArm"]["preferred"]-seg["upperArm"]["tolerance"] <= lengths["shoulderToElbow"] <= seg["upperArm"]["preferred"]+seg["upperArm"]["tolerance"] and
                   seg["forearm"]["preferred"]-seg["forearm"]["tolerance"] <= lengths["elbowToWrist"] <= seg["forearm"]["preferred"]+seg["forearm"]["tolerance"] and
                   seg["handToGrip"]["preferred"]-seg["handToGrip"]["tolerance"] <= lengths["wristToGrip"] <= seg["handToGrip"]["preferred"]+seg["handToGrip"]["tolerance"] and
-                  seg["stick"]["preferred"]-seg["stick"]["tolerance"] <= lengths["gripToContact"] <= seg["stick"]["preferred"]+seg["stick"]["tolerance"] and
+                  seg["stick"]["preferred"]*0.95 <= lengths["gripToContact"] <= seg["stick"]["preferred"]*1.05 and
                   sk["jointAngleRulesDeg"]["elbow"]["min"] <= elbow_angle <= sk["jointAngleRulesDeg"]["elbow"]["max"] and
                   abs(wrist_dev) <= sk["jointAngleRulesDeg"]["wristDeviationFromForearm"]["max"])
 
@@ -203,6 +203,10 @@ def main():
     fp=OUT/"DMR009_fixed_drum_composite_v1.png"
     tp=OUT/"DMR009_transition_neutral_hit_rebound_neutral_v1.png"
     save(candidate,cp); save(comp,fp)
+    thumb=Image.fromarray(comp,"RGBA").resize((420,315),Image.Resampling.LANCZOS)
+    thumb.save(OUT/"DMR009_visual_review_thumb_v2.png",compress_level=9,optimize=True)
+    arm_crop=Image.fromarray(comp[300:560,120:700],"RGBA").resize((580,260),Image.Resampling.LANCZOS)
+    arm_crop.save(OUT/"DMR009_visual_review_arm_crop_v2.png",compress_level=9,optimize=True)
     gap=np.zeros((12,1448,4),dtype=np.uint8); gap[:,:,3]=255
     transition=np.concatenate([neutral,gap,candidate,gap,rebound,gap,neutral],axis=0); save(transition,tp)
 
@@ -223,7 +227,7 @@ def main():
       "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,
         "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},
         "result":"PASS" if anatomy_pass else "FAIL"},
-      "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"sourceStyle":"approved HH donor pixels; no vector redraw",
+      "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; no vector redraw",
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
         "result":"PASS" if contact_pass else "FAIL"},
       "fixedDrumComposite":{"path":str(fp.relative_to(ROOT)),"result":"PASS" if contact_pass else "FAIL"},
@@ -231,6 +235,7 @@ def main():
         "result":"PASS" if transition_pass else "HOLD_REBOUND_REGISTRATION",
         "note":"Rebound is inspected only and is not modified in this one-image run."},
       "linework":{"result":"PASS_BY_SOURCE_PRESERVATION","note":"No synthetic vector shaft; active pixels come from full-resolution audited donor."},
+      "visualQa":{"required":True,"status":"PENDING_AI_VISUAL_QA","fullComposite":str(fp.relative_to(ROOT)),"thumbnail":str((OUT/"DMR009_visual_review_thumb_v2.png").relative_to(ROOT)),"armCrop":str((OUT/"DMR009_visual_review_arm_crop_v2.png").relative_to(ROOT))},
       "formalPromotion":False,
       "finalStatus":"CANDIDATE_READY_HIT" if anatomy_pass and contact_pass and outside==0 and static_changed["head"]==0 and static_changed["hip"]==0 and static_changed["stool"]==0 else "HOLD_HIT_QA"
     }
