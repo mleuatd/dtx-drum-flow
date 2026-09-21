@@ -112,10 +112,8 @@ def main():
     # donor's broad whole-pose diff. This keeps head/torso/stool registration locked.
     corridor_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
     d=ImageDraw.Draw(corridor_img)
-    d.line([tuple(source_contact),(492,486)],fill=255,width=34)
-    d.line([(492,486),(500,490),(565,490),(648,352)],fill=255,width=84,joint="curve")
-    d.line([tuple(target),tuple(grip)],fill=255,width=28)
-    d.line([tuple(grip),tuple(wrist),tuple(elbow),tuple(shoulder)],fill=255,width=64,joint="curve")
+    d.line([tuple(target),tuple(grip)],fill=255,width=18)
+    d.line([tuple(grip),tuple(wrist),tuple(elbow),tuple(shoulder)],fill=255,width=56,joint="curve")
     corridor=np.asarray(corridor_img)>0
     hh_mask=binary_dilation(warped_mask & corridor,iterations=2)
     candidate[hh_mask]=warped_hh[hh_mask]
