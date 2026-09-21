@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T22:08:00+09:00",
+  "requestedAt": "2026-09-21T22:13:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -38,5 +38,5 @@
     "stick angle and continuity",
     "whole-image visual naturalness"
   ],
-  "reason": "contact-first rerun after strict ±5% stick-length enforcement and visual-QA preview generation"
+  "reason": "AI visual QA FAIL: enforce HH R approach angle 155deg in contact-first solve; keep one-image scope"
 }
