@@ -163,7 +163,10 @@ def main():
     # Move three donor bones locally so sleeve/stick thickness remains stable.
     # Rigid-stick-first target chain.  The stick direction is solved first;
     # wrist/grip/forearm are then positioned to support that single straight axis.
-    shoulder=[648,352]; elbow=[490,340]; wrist=[375,304]; grip=[358,312]
+    # Use a valid but less extreme HH approach (about 165 deg, still within
+    # DRUM_GEOMETRY tolerance) so the grip/wrist/forearm can remain below the
+    # protected head region while the rigid stick still lands on HH.
+    shoulder=[648,352]; elbow=[500,330]; wrist=[387,337]; grip=[369,342]
     # Donor-true HH chain from the accepted single-HH source.
     source_shoulder=[620,375]; source_elbow=[565,475]; source_wrist=[490,455]; source_grip=[442,421]
     source_neutral_elbow=[565,490]; source_neutral_wrist=[500,490]; source_neutral_hand=[492,486]
@@ -181,11 +184,13 @@ def main():
     # Donor ownership is limited to pixels that actually differ from neutral.
     # This prevents opaque torso/background regions from being carried as
     # rectangular slabs when a bone-local transform is applied.
-    source_motion=binary_dilation(hh_diff,iterations=1) & source_alpha
-    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,22) & source_motion
-    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,66) & source_motion & ~binary_dilation(src_stick,iterations=2)
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,94) & source_motion & ~binary_dilation(src_stick|src_hand,iterations=1)
-    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,108) & source_motion
+    # Narrow source ownership follows the actual donor limb instead of broad
+    # opaque/diff slabs.  This keeps complete hand/sleeve linework while avoiding
+    # torso/background pickup.
+    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,22) & source_alpha
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,46) & source_alpha & ~binary_dilation(src_stick,iterations=2)
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,64) & source_alpha & ~binary_dilation(src_stick|src_hand,iterations=1)
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,78) & source_alpha
 
     upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
     fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
