@@ -1,11 +1,11 @@
 {
-  "schemaVersion": 1,
-  "updatedAt": "2026-09-21T19:34:00+09:00",
+  "schemaVersion": 2,
+  "updatedAt": "2026-09-21T19:55:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
+  "executionMode": "ONE_IMAGE_ONLY",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -15,7 +15,7 @@
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/versions/one-by-one-qa/dmr009_attempt_20260921_v1.json",
-    "finalStatus": "HOLD_LINEWORK",
+    "finalStatus": "IN_PROGRESS_RULES_LOCKED",
     "promotionBlocked": true
   },
   "resultSummary": {
@@ -32,5 +32,29 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "No further image creation in this run. Resume only with registration measurement first and a cleaner source-preserving stick-corridor repair."
+  "nextAction": "Apply the locked pipeline to DMR-009 hit only: registration -> limb chain -> adaptive tip/shaft contact -> optional strike expression -> linework -> composite -> transition -> record.",
+  "standardPipeline": [
+    "CURRENT_STATUS",
+    "SOURCE_AUTHORITY",
+    "REGISTRATION",
+    "ACTIVE_LIMB_CHAIN",
+    "CONTACT_MODE_SELECTION",
+    "OPTIONAL_STRIKE_EXPRESSION",
+    "LINEWORK_CLEANUP",
+    "FIXED_DRUM_COMPOSITE",
+    "TRANSITION",
+    "FINAL_DECISION",
+    "GITHUB_RECORD"
+  ],
+  "activePolicies": [
+    "PATTERN-001",
+    "PATTERN-002",
+    "PATTERN-003",
+    "PATTERN-004",
+    "PATTERN-005",
+    "PATTERN-006",
+    "PATTERN-007",
+    "PATTERN-008",
+    "PATTERN-009"
+  ]
 }
