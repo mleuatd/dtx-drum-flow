@@ -95,7 +95,8 @@ def main():
     # Local naturalization stage: keep shoulder/contact hard-locked, soften only
     # the interior arm chain. Values stay inside MASTER_GEOMETRY length/angle bands
     # and preserve the approved donor linework rather than redrawing it.
-    shoulder=[648,352]; elbow=[520,420]; wrist=[415,428]; grip=[392,428]\n    src_chain=[[648,352],[565,490],[500,490],[492,486],source_contact]
+    shoulder=[648,352]; elbow=[520,420]; wrist=[415,428]; grip=[392,428]
+    src_chain=[[648,352],[565,490],[500,490],[492,486],source_contact]
     dst_chain=[shoulder,elbow,wrist,grip,target]
     boundary=[[70,250],[415,250],[759,250],[70,440],[759,440],[70,629],[415,629],[759,629]]
     cfg={"sourcePoints":boundary+src_chain,"targetPoints":boundary+dst_chain,
@@ -212,7 +213,8 @@ def main():
         "bodyBBoxDriftExcludingActiveCorridor":[0,0,0,0],
         "note":"Full alpha bbox expands left only because the active HH stick reaches the fixed contact; static body/head/hip/stool remain neutral-locked."},
       "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,
-        "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},\n        "result":"PASS" if anatomy_pass else "FAIL"},
+        "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},
+        "result":"PASS" if anatomy_pass else "FAIL"},
       "stick":{"angleDegScreen":ang,"visibleLengthPx":lengths["gripToContact"],"sourceStyle":"approved HH donor pixels; no vector redraw",
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
         "result":"PASS" if contact_pass else "FAIL"},
