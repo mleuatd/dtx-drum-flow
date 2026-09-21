@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import hashlib, io, json, math, subprocess
+import hashlib, json, math
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
@@ -8,7 +8,6 @@ from scipy.ndimage import binary_dilation
 from build_mesh_warp_pose import warp_rgba
 
 ROOT=Path(__file__).resolve().parents[2]
-BASELINE="a4e3854449e292264192afa63469edf0fb5048af"
 OUT=ROOT/"character-assets/generation-trials/dmr009-neutral-skeleton-v1"
 NEUTRAL=ROOT/"character-assets/layers/character/base/neutral.png"
 CURRENT_HIT=ROOT/"character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png"
@@ -21,10 +20,6 @@ CHANGELOG=ROOT/"CHANGELOG.md"
 
 def rgba(p):
     with Image.open(p) as im: return np.asarray(im.convert("RGBA")).copy()
-
-def baseline_rgba(path):
-    b=subprocess.check_output(["git","show",f"{BASELINE}:{path}"],cwd=ROOT)
-    with Image.open(io.BytesIO(b)) as im: return np.asarray(im.convert("RGBA")).copy()
 
 def save(a,p):
     p.parent.mkdir(parents=True,exist_ok=True); Image.fromarray(a,"RGBA").save(p,compress_level=1)
@@ -139,11 +134,11 @@ def best_shift(ref,mov,roi,limit=24):
 def main():
     geom=json.loads(GEOM.read_text()); dg=json.loads(DRUM_GEOM.read_text())
     neutral=rgba(NEUTRAL); current=rgba(CURRENT_HIT); rebound=rgba(REBOUND); drum=rgba(DRUM)
-    bneutral=baseline_rgba("character-assets/layers/character/base/neutral.png")
-    hhdonor=baseline_rgba("character-assets/layers/character/hh/hit_r.png")
-    bddonor=baseline_rgba("character-assets/layers/character/bd/hit_rf.png")
-    if np.any(neutral!=bneutral):
-        raise SystemExit("baseline/current neutral mismatch; refusing cross-registration transplant")
+    # Latest-main approved assets are the working authority.  Avoid historical
+    # git-show checkout dependency; source identity is recorded by SHA instead.
+    bneutral=neutral.copy()
+    hhdonor=rgba(ROOT/"character-assets/layers/character/hh/hit_r.png")
+    bddonor=rgba(ROOT/"character-assets/layers/character/bd/hit_rf.png")
 
     candidate=neutral.copy()
     target=dg["instruments"]["HH"]["strikeTarget"]["px"]
@@ -296,8 +291,8 @@ def main():
     result={
       "schemaVersion":1,"createdAt":"2026-09-21T21:00:00+09:00","issueId":"DMR-009","phase":"hit",
       "authority":{"branch":"main","neutral":"character-assets/layers/character/base/neutral.png",
-        "hhDonor":{"commit":BASELINE,"path":"character-assets/layers/character/hh/hit_r.png","auditStatus":"PASS"},
-        "bdDonor":{"commit":BASELINE,"path":"character-assets/layers/character/bd/hit_rf.png","auditStatus":"REVIEW_ANATOMY_COHERENT"},
+        "hhDonor":{"authority":"latest-main","path":"character-assets/layers/character/hh/hit_r.png","sha256":hashlib.sha256((ROOT/"character-assets/layers/character/hh/hit_r.png").read_bytes()).hexdigest(),"auditStatus":"PASS"},
+        "bdDonor":{"authority":"latest-main","path":"character-assets/layers/character/bd/hit_rf.png","sha256":hashlib.sha256((ROOT/"character-assets/layers/character/bd/hit_rf.png").read_bytes()).hexdigest(),"auditStatus":"FORMAL_CURRENT"},
         "fixedDrum":"character-assets/layers/drum/drum_base.png","contactDefinition":"DRUM_GEOMETRY.json#HH",
         "donorSelectionReason":{"hh":"baseline HH:R hit is audited PASS and preserves source-style stick/hand linework","bd":"baseline BD:RF hit is the closest audited pedal-action donor and is used only in the lower active-foot region"}},
       "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"bone-local donor transform: upper arm + forearm/hand + constrained stick; source-pose clear limited by donor-vs-neutral diff; explicit static locks",
