@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "frames": {
+    "combo/bd_sn_rf_r_hit_refresh.png": {
+      "issueId":"DMR-029","actionKey":"BD+SN:RF/R","phase":"hit",
+      "classification":"SAME_INSTRUMENT_HAND_STICK_DONOR",
+      "baseLogicalPath":"combo/bd_sn_rf_r_hit_refresh.png",
+      "donorLogicalPath":"sn/hit_r.png","instrument":"SN","limb":"R",
+      "spliceUnit":"RIGHT_HAND_STICK",
+      "repairStages":[
+        {"order":1,"operation":"LOCAL_ARTIFACT_REMOVAL","reason":"remove detached residue only if independently identified"},
+        {"order":2,"operation":"BASE_FIXED_MESH_TRANSPLANT","donor":"sn/hit_r.png"}
+      ],
+      "inherits":["GLOBAL_COMMON","RIGHT_HAND_HIT_COMMON"],
+      "contactAuthorityRef":"SN",
+      "status":"CONFIGURED_NOT_VISUALLY_PASSED"
+    },
+    "combo/bd_sn_hit.png": {
+      "issueId":"DMR-019","actionKey":"BD+SN","phase":"hit",
+      "classification":"DIRECT_SAME_ACTION_REPLACEMENT",
+      "replacementLogicalPath":"combo/bd_sn_hit_refresh.png",
+      "inherits":["GLOBAL_COMMON"],
+      "status":"BLOCKED_PENDING_REGISTRATION_GATE"
+    }
+  }
+}
