@@ -159,6 +159,34 @@ def main():
     diff_vis[:,:,3]=(hh_core.astype(np.uint8)*255)
     save(diff_vis,debug_diff)
 
+    # Donor-first review evidence: inspect accepted HH-bearing frames untouched
+    # on the exact fixed drum before choosing any deformation strategy.
+    donor_review_paths=[
+      ("hh_single", ROOT/"character-assets/layers/character/hh/hit_r.png"),
+      ("hh_sn_combo", ROOT/"character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png"),
+      ("bd_hh_sn_combo", ROOT/"character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png"),
+      ("current_bd_hh_formal", CURRENT_HIT),
+    ]
+    donor_review={}
+    for label,path in donor_review_paths:
+        if not path.is_file():
+            donor_review[label]={"path":str(path.relative_to(ROOT)),"status":"MISSING"}
+            continue
+        arr=rgba(path)
+        comp0=alpha_comp(drum,arr)
+        outp=OUT/f"DMR009_donor_review_{label}.png"
+        save(comp0,outp)
+        donor_review[label]={
+          "path":str(path.relative_to(ROOT)),
+          "sha256":hashlib.sha256(path.read_bytes()).hexdigest(),
+          "fixedDrumComposite":str(outp.relative_to(ROOT)),
+          "status":"READY_FOR_AI_VISUAL_REVIEW"
+        }
+    (OUT/"DMR009_donor_review_index.json").write_text(
+      json.dumps({"schemaVersion":1,"issueId":"DMR-009","phase":"hit","donors":donor_review},ensure_ascii=False,indent=2)+"\n",
+      encoding="utf-8"
+    )
+
     # Single global RBF warp proved visually unstable for this large reach.
     # Move three donor bones locally so sleeve/stick thickness remains stable.
     # Rigid-stick-first target chain.  The stick direction is solved first;
