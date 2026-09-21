@@ -87,6 +87,20 @@ For struck instruments:
 Never solve reach by abnormally extending the stick.
 Move/reselect the limb geometry or donor instead.
 
+## 9A. Rigid drumstick geometry
+
+A drumstick is a rigid straight rod. This is a physical hard constraint, not a stylistic preference.
+
+For every visible stick:
+- the shaft from the exact grip point to the tip must form one straight axis
+- no bend, kink, hinge, segmented direction change, or curved shaft is allowed
+- the visible shaft must remain continuous through the hand/grip relationship
+- the grip must sit on the same stick axis; the hand may cover part of the shaft, but must not imply a different hidden direction
+- if the stick axis conflicts with the hand/wrist pose, keep the stick straight and correct the hand, wrist, forearm, elbow or donor choice instead
+- never bend a stick to solve contact
+
+The active hand/wrist chain must support the stick direction naturally. Numeric QA must include stick straightness/continuity and grip-axis alignment, not only stick length/contact angle.
+
 ## 10. QA loop
 After every meaningful edit step:
 EDIT
