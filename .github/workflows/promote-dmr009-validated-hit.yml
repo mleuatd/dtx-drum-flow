@@ -1,0 +1,48 @@
+name: Promote validated DMR009 hit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "character-assets/generation-trials/dmr009-neutral-skeleton-v1/PROMOTE_REQUEST.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: promote-dmr009-hit
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow numpy
+      - name: Promote exact validated candidate
+        run: python tools/character_layers/promote_dmr009_validated_hit.py
+      - name: Validate character assets
+        run: python tools/character_layers/validate_assets.py
+      - name: Runtime pose tests
+        run: python -m unittest discover -s tools/runtime_pose/tests -p 'test_*.py'
+      - name: Guard single-image scope
+        shell: bash
+        run: |
+          git diff -- character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png --exit-code
+          test "$(sha256sum character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png | awk '{print $1}')" = "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c"
+      - name: Commit verified promotion
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png                   character-assets/CURRENT_WORK_ORDER.json                   character-assets/versions/one-by-one-qa/CURRENT_STATUS.json                   character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_PROMOTION_RESULT.json
+          git commit -m "fix: promote verified DMR009 hit"
+          git pull --rebase origin main
+          git push origin HEAD:main
