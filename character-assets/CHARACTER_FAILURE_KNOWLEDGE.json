@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "purpose": "Cross-session, cross-device, cross-action mistake-prevention knowledge for Luna Say Maybe character asset production. Read before every character image edit/generation and before visual approval.",
   "sourceOfTruth": "GitHub main",
-  "updatedAt": "2026-09-21T22:00:00+09:00",
+  "updatedAt": "2026-09-21T23:15:00+09:00",
   "coordination": {
     "rule": "Always refetch latest main before action start, image edit/generation, promotion, runtime edit, and commit. Treat another device's newer evidence as authoritative and never overwrite it with stale state.",
     "challengeRule": "Do not trust another session's PASS/FAIL merely because it is recorded. Reconcile evidence, SHA/path, composite visual QA, transaction and current main. Preserve valid work; flag contradictions.",
@@ -185,6 +185,28 @@
       "prevent": "When numeric detector output conflicts with an accepted donor's visible contact, visually verify the donor and detector ROI/logic before transforming or rejecting the donor.",
       "origin": [
         "DMR-009 2026-09-21"
+      ]
+    },
+    {
+      "id": "GF-016",
+      "status": "ACTIVE",
+      "category": "rigid-stick-geometry",
+      "lesson": "A drumstick is a rigid straight rod. Length/contact/angle PASS is insufficient when the visible shaft kinks, bends, breaks, or changes direction between grip and tip.",
+      "appliesTo": "ALL_STICK_MOTIONS",
+      "prevent": "Treat grip→tip collinearity, visible shaft continuity, and wrist/grip support of the same axis as hard QA gates. If anatomy conflicts, move/rebuild the hand-wrist-forearm chain; never bend the stick.",
+      "origin": [
+        "DMR-009 user full-resolution visual review 2026-09-21"
+      ]
+    },
+    {
+      "id": "GF-017",
+      "status": "ACTIVE",
+      "category": "wrist-grip-stick-chain",
+      "lesson": "A donor hand/wrist cannot be copied blindly when the required stick axis changes. The wrist and grip must be re-solved to support the straight stick direction.",
+      "appliesTo": "ARM_AND_STICK_MOTIONS",
+      "prevent": "Measure wrist→grip versus grip→tip axis delta and visually trace forearm→wrist→hand→stick. Reposition wrist/elbow locally when needed while preserving the completed donor as much as possible.",
+      "origin": [
+        "DMR-009 user full-resolution visual review 2026-09-21"
       ]
     }
   ],
