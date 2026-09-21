@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-21T18:15:00+09:00",
+  "basisMain": "87b3d3c3fd9f6eca091b9908c9f046001eabdc9e",
+  "authority": {
+    "contactPoints": "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+    "transitionRules": "character-assets/prototypes/luna_say_maybe_16m/POSE_TRANSITION_RULES.json",
+    "failurePatterns": "character-assets/prototypes/luna_say_maybe_16m/FAILURE_PATTERN_REGISTRY.json",
+    "fixedDrum": "character-assets/layers/drum/drum_base.png"
+  },
+  "note": "Current handoff labels these as DMR-020/021; legacy DONOR_MESH_REPAIR_LEDGER_RUN1 maps the same filenames to DMR-024/028. Filename is treated as stable identity here.",
+  "candidates": [
+    {
+      "handoffIssueId": "DMR-020",
+      "legacyIssueId": "DMR-024",
+      "filename": "combo/hh_sn_r_l_hit_refresh.png",
+      "candidate": "DMR020_hh_sn_r_l_hit_refresh_candidate_v3.png",
+      "parentSha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
+      "candidateSha256": "0c643517d1007ab8edb553267607b09aab4401c93d0af2497691a829ada49f75",
+      "canvas": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "changedPixels": 339,
+      "changedBBox": [
+        401,
+        516,
+        434,
+        541
+      ],
+      "visualArtifactRemoval": "PASS",
+      "outsideChangedRegionRisk": "LOW",
+      "coordinateQa": "FAIL",
+      "transitionQa": "NOT_PROMOTABLE",
+      "failureRegistryQa": "FAIL_CONTACT_TARGET",
+      "fixedDrumFindings": [
+        "HH hit stick tip does not reach the HH playing surface near (190,390).",
+        "SN hit stick tip does not reach the SN playing surface near (420,535).",
+        "Edit ROI overlaps the SN contact neighborhood, so pre-edit contact cannot be assumed invariant."
+      ],
+      "finalStatus": "RETRY_REQUIRED",
+      "githubBinaryRegistered": false
+    },
+    {
+      "handoffIssueId": "DMR-021",
+      "legacyIssueId": "DMR-028",
+      "filename": "combo/rd_sn_r_l_hit_refresh.png",
+      "candidate": "DMR021_rd_sn_r_l_hit_refresh_candidate_v7.png",
+      "parentSha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
+      "candidateSha256": "9c497b4b4503ae15bbf6ceb73a572c658a990e2705d0b7c6fd5c65c3c8fa24ae",
+      "canvas": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "changedPixels": 282,
+      "changedBBox": [
+        401,
+        516,
+        434,
+        536
+      ],
+      "visualArtifactRemoval": "PASS",
+      "outsideChangedRegionRisk": "LOW",
+      "coordinateQa": "FAIL",
+      "transitionQa": "NOT_PROMOTABLE",
+      "failureRegistryQa": "FAIL_RD_TARGET_AND_SN_CONTACT",
+      "fixedDrumFindings": [
+        "Right-hand strike visually aligns toward the high screen-right cymbal rather than the RD playing area near (965,250).",
+        "Left-hand SN stick tip does not reach the SN playing surface near (420,535).",
+        "Edit ROI overlaps the SN contact neighborhood, so pre-edit contact cannot be assumed invariant."
+      ],
+      "finalStatus": "RETRY_REQUIRED",
+      "githubBinaryRegistered": false
+    }
+  ],
+  "promotionDecision": "DO_NOT_REGISTER_AS_V3_OVERLAY",
+  "nextAction": "Use the merged parent or an already visual-PASS parent and correct instrument contact before another local-artifact cleanup pass. Do not use these candidates as parents until contact QA passes."
+}
