@@ -25,12 +25,12 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "ea6d62c9782cb8d75383c20a08cdf9feed0c61a6fb6da625aa96a8ca4e2d57d2",
+    "sha256": "438c867102423faf2fc109718302b2a440fff9bf932e7c298612de8642feff14",
     "method": "donor-mesh primary + local naturalization of elbow/wrist/grip inside narrow active-limb corridor + explicit neutral static locks",
-    "changedPixels": 65021,
+    "changedPixels": 65394,
     "changedBBox": [
       189,
-      341,
+      339,
       761,
       986
     ],
@@ -62,16 +62,16 @@
         352
       ],
       "activeElbow": [
-        520,
-        455
+        505,
+        452
       ],
       "activeWrist": [
-        412,
-        438
+        394,
+        434
       ],
       "activeGrip": [
-        390,
-        430
+        371,
+        426
       ],
       "hipCenter": [
         735,
@@ -149,13 +149,13 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 164.3,
-      "elbowToWrist": 109.33,
-      "wristToGrip": 23.41,
-      "gripToContact": 203.96
+      "shoulderToElbow": 174.5,
+      "elbowToWrist": 112.45,
+      "wristToGrip": 24.35,
+      "gripToContact": 184.55
     },
-    "elbowAngleDeg": 132.23,
-    "wristDeviationDeg": 11.04,
+    "elbowAngleDeg": 135.82,
+    "wristDeviationDeg": 9.97,
     "localNaturalization": {
       "hardLocked": [
         "shoulder",
@@ -176,8 +176,14 @@
     "result": "PASS"
   },
   "stick": {
-    "angleDegScreen": -168.69,
-    "visibleLengthPx": 203.96,
+    "angleDegScreen": -168.75,
+    "visibleLengthPx": 184.55,
+    "standardLengthPx": 185,
+    "allowedLengthPx": [
+      175.75,
+      194.25
+    ],
+    "lengthErrorPercent": -0.24,
     "sourceStyle": "approved HH donor pixels; no vector redraw",
     "sourceContactPixel": [
       357,
@@ -218,6 +224,13 @@
   "linework": {
     "result": "PASS_BY_SOURCE_PRESERVATION",
     "note": "No synthetic vector shaft; active pixels come from full-resolution audited donor."
+  },
+  "visualQa": {
+    "required": true,
+    "status": "PENDING_AI_VISUAL_QA",
+    "fullComposite": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
+    "thumbnail": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_thumb_v2.png",
+    "armCrop": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
   },
   "formalPromotion": false,
   "finalStatus": "CANDIDATE_READY_HIT"
