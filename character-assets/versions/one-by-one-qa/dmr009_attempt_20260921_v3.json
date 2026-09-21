@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-21T20:08:00+09:00",
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "executionMode": "ONE_IMAGE_ONLY",
+  "sourceAuthority": {
+    "originalHit": "combo/bd_hh_rf_r_hit_refresh.png",
+    "originalHitSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
+    "structuralBase": "character-assets/layers/character/base/neutral.png",
+    "reason": "Original hit has non-rigid registration drift: stool approximately (-17,+13) px relative to neutral while head shift differs, so whole-frame translation would worsen head alignment.",
+    "fixedDrum": "character-assets/layers/drum/drum_base.png"
+  },
+  "selectedPatterns": [
+    "PATTERN-001 REGISTRATION_FIRST",
+    "PATTERN-002 TIP_OR_SHAFT_CONTACT_ADAPTIVE",
+    "PATTERN-004 CONTACT_THEN_LINEWORK_CLEANUP",
+    "PATTERN-005 OPTIONAL_STRIKE_EXPRESSION",
+    "PATTERN-006 FIXED_DRUM_COMPOSITE_REQUIRED",
+    "PATTERN-007 TRANSITION_REQUIRED",
+    "PATTERN-008 MINIMUM_CHANGE_WINS",
+    "PATTERN-009 FAILED_METHOD_LEARNING"
+  ],
+  "candidate": {
+    "filename": "DMR009_bd_hh_rf_r_hit_candidate_v3_adaptive.png",
+    "sha256": "1620751fee0cb055870761225b8d9b892bbc9a58303cc4a3303e06b841f2eb47",
+    "githubBinaryRegistered": false,
+    "changedPixelsVsNeutral": 3362,
+    "changedBBoxVsNeutral": [
+      173,
+      369,
+      488,
+      461
+    ],
+    "repairMethod": "deterministic local stick replacement on neutral-locked body with subtle optional strike marks",
+    "processingCost": "FAST",
+    "selectedContactType": "TIP_CONTACT",
+    "selectionReason": "Tip contact achieved authoritative HH point with a smaller edit than moving hand/wrist/forearm; shaft contact remained allowed but was not required for this attempt."
+  },
+  "qa": {
+    "registration": {
+      "result": "PASS",
+      "headStaticChangedPixels": 0,
+      "hipStaticChangedPixels": 0,
+      "stoolStaticChangedPixels": 0,
+      "bodyStaticChangedPixels": 0,
+      "note": "Candidate uses locked neutral static body/stool registration."
+    },
+    "limbGeometry": {
+      "result": "HOLD",
+      "note": "Hand/wrist remain source-neutral; strike is readable, but grip-to-shaft styling is not yet source-natural enough for promotion."
+    },
+    "contact": {
+      "result": "PASS",
+      "authoritativeHHPoint": [
+        190,
+        390
+      ],
+      "nearestCandidateAlphaDistancePx": 0,
+      "visualStrikePlausibility": "PASS"
+    },
+    "strikeExpression": {
+      "used": true,
+      "type": "three subtle local impact marks",
+      "result": "PASS"
+    },
+    "linework": {
+      "result": "FAIL",
+      "finding": "Replacement shaft is too uniform/vector-clean compared with surrounding rough sketch linework."
+    },
+    "fixedDrumComposite": {
+      "result": "PASS_CONTACT_LOCATION_HOLD_STYLE",
+      "finding": "Contact reads at HH, but line-style mismatch remains visible."
+    },
+    "transition": {
+      "result": "FAIL",
+      "reboundRegistrationFinding": "paired rebound stool is approximately (-7,+6..7) px relative to the neutral-locked candidate; seat approximately (-10,+8) px",
+      "finding": "Hit registration is now locked, but existing rebound prevents neutral->hit->rebound->neutral promotion."
+    }
+  },
+  "finalStatus": "HOLD_LINEWORK",
+  "secondaryHold": "HOLD_TRANSITION",
+  "formalPromotion": false,
+  "nextImprovement": "Preserve the neutral-locked registration and adaptive contact policy. Reconstruct the hand/grip/stick corridor with source-style rough line pixels or an approved donor, then repair/reselect the paired rebound before transition promotion."
+}
