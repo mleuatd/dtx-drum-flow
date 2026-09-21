@@ -1,18 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "purpose": "Cross-session, cross-device, cross-action mistake-prevention knowledge for Luna Say Maybe character asset production. Read before every character image edit/generation and before visual approval.",
   "sourceOfTruth": "GitHub main",
-  "updatedAt": "2026-09-20T09:05:00+09:00",
+  "updatedAt": "2026-09-21T22:00:00+09:00",
   "coordination": {
     "rule": "Always refetch latest main before action start, image edit/generation, promotion, runtime edit, and commit. Treat another device's newer evidence as authoritative and never overwrite it with stale state.",
     "challengeRule": "Do not trust another session's PASS/FAIL merely because it is recorded. Reconcile evidence, SHA/path, composite visual QA, transaction and current main. Preserve valid work; flag contradictions.",
     "sharing": "Record reusable lessons here; action-specific defects remain in transaction/PROGRESS/CHARACTER_QA_ISSUES."
   },
   "mandatoryPreflight": [
-    "Read WORK_SYNC.md, CHARACTER_QA_ISSUES.json, CHARACTER_ASSET_PIPELINE.md, LAYER_RULES.md, BASELINE_LOCK, current PROGRESS and target transaction.",
+    "Begin at AI_IMAGE_WORK_ENTRYPOINT.md and read IMAGE_WORK_PREFLIGHT.json, AI_OPERATION_MASTER_RULES.md, IMAGE_DECISION_POLICY.md, CURRENT_WORK_ORDER.json, this file, CHARACTER_ASSET_PIPELINE.md, LAYER_RULES.md, BASELINE_LOCK, current PROGRESS and target transaction.",
     "Refetch latest main and recent commits to detect work from other devices.",
     "If target action is already newer/formal/approved on main, do not regenerate it.",
-    "Select an APPROVED/formal parent and lock its path/SHA before editing.",
+    "Resolve primary/secondary action before choosing an edit technique.",
+    "Select an APPROVED/formal completed donor when available and visually inspect it on the fixed drum before material deformation.",
     "Load all applicable ACTIVE global failure rules below before choosing an edit strategy."
   ],
   "globalFailureRules": [
@@ -152,6 +153,39 @@
       "origin": [
         "PASS2 BD+FT:RF/L 2026-09-20"
       ]
+    },
+    {
+      "id": "GF-013",
+      "status": "ACTIVE",
+      "category": "completed-donor-first",
+      "lesson": "Do not rebuild a motion with large mesh deformation when an already accepted single-action donor expresses that motion correctly.",
+      "appliesTo": "COMPOSITE_AND_MULTI_LIMB_CHARACTER_ASSETS",
+      "prevent": "Identify the primary action, visually inspect its completed donor on the fixed drum, use it as the parent where possible, then add only missing secondary regions.",
+      "origin": [
+        "DMR-009 2026-09-21"
+      ]
+    },
+    {
+      "id": "GF-014",
+      "status": "ACTIVE",
+      "category": "visual-feedback-frequency",
+      "lesson": "A numerically correct pose can drift into obvious anatomical artifacts when multiple deformation steps occur before visual review.",
+      "appliesTo": "ALL_CHARACTER_ASSET_EDITS",
+      "prevent": "After every meaningful donor composite, mesh, local transform or AI local edit, render and perform actual-image AI visual QA before the next transformation.",
+      "origin": [
+        "DMR-009 2026-09-21"
+      ]
+    },
+    {
+      "id": "GF-015",
+      "status": "ACTIVE",
+      "category": "detector-overtrust",
+      "lesson": "Diff/alpha-based contact or tip detection can select an irrelevant changed pixel and falsely imply that a completed donor misses its instrument.",
+      "appliesTo": "CONTACT_DETECTION_AND_DONOR_SELECTION",
+      "prevent": "When numeric detector output conflicts with an accepted donor's visible contact, visually verify the donor and detector ROI/logic before transforming or rejecting the donor.",
+      "origin": [
+        "DMR-009 2026-09-21"
+      ]
     }
   ],
   "promotionGate": [
@@ -162,5 +196,5 @@
     "Latest main rechecked immediately before promotion."
   ],
   "learningRule": "After every FAIL, classify whether the lesson is action-specific or reusable. If reusable, append/update a globalFailureRule in this file in the same work cycle. Never delete historical lessons; supersede with status/reason.",
-  "nextSessions": "This file is mandatory read-first input for every new character image generation/edit, regardless of measure or action."
+  "nextSessions": "AI_IMAGE_WORK_ENTRYPOINT.md is the mandatory discovery point for every new character image generation/edit session."
 }
