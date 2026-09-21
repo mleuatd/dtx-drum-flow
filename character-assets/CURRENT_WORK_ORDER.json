@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "VERIFIED",
+  "status": "REOPENED_VISUAL_FAIL",
   "project": "DTX Drum Flow",
   "repository": {
     "fullName": "mleuatd/dtx-drum-flow",
@@ -50,7 +50,10 @@
     "stick": {
       "standardLengthRequired": true,
       "strictTolerancePercent": 5,
-      "forbidReachCompensationByStickExtension": true
+      "forbidReachCompensationByStickExtension": true,
+      "rigidStraightRod": true,
+      "requireGripTipCollinearity": true,
+      "maxGripAxisDeltaDeg": 15
     }
   },
   "preferredDonors": {
@@ -116,12 +119,15 @@
       "elbow_angle",
       "wrist_deviation",
       "fixed_drum_registration",
-      "protected_region_regression"
+      "protected_region_regression",
+      "stick_axis_straightness",
+      "stick_continuity",
+      "wrist_grip_stick_axis_delta"
     ]
   },
   "knownFailure": {
-    "summary": "Large RBF-style deformation reached numeric contact but created visible arm banding/ghost/distortion. The process became mesh-centric despite an existing completed HH hit donor.",
-    "correction": "DONOR_FIRST_THEN_MINIMAL_LOCAL_CORRECTION"
+    "summary": "User full-resolution review found the promoted DMR-009 hit visually invalid: the stick/hand construction does not read as one rigid straight rod supported by a natural wrist chain. Prior length/contact/angle PASS and visual PASS were insufficient.",
+    "correction": "RIGID_STICK_FIRST_REDO_WRIST_GRIP_FOREARM_CHAIN_THEN_FIXED_DRUM_VISUAL_QA"
   },
   "promotion": {
     "requires": [
@@ -134,11 +140,8 @@
     "completionState": "VERIFIED"
   },
   "completion": {
-    "state": "VERIFIED",
-    "candidateSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
-    "formalPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
-    "formalSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
-    "pairedReboundModified": false,
-    "note": "Exact numeric+AI-visual+transition PASS candidate promoted only after SHA lock and repository validation."
+    "state": "REOPENED",
+    "supersedesPreviousVerified": true,
+    "reason": "User full-resolution visual QA is FAIL. Rebuild only DMR-009 hit under rigid-stick + wrist-chain hard constraints; paired rebound remains READ_ONLY."
   }
 }
