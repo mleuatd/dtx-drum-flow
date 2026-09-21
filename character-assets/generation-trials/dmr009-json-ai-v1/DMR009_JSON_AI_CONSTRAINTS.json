@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 3,
+  "mode": "JSON_CONSTRAINED_AI_LOCAL_EDIT",
+  "issueId": "DMR-009",
+  "actionKey": "BD+HH:RF/R",
+  "phase": "hit",
+  "sourceParent": "character-assets/layers/character/base/neutral.png",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "fixedDrum": "character-assets/layers/drum/drum_base.png",
+  "geometryHardConstraints": {
+    "fixedContactPoints": [
+      {
+        "part": "HH",
+        "limb": "R",
+        "target": [
+          190,
+          390
+        ]
+      },
+      {
+        "part": "BD",
+        "limb": "RF",
+        "target": [
+          700,
+          900
+        ],
+        "kind": "pedal"
+      }
+    ],
+    "fixedRegistration": {
+      "headCenter": [
+        681,
+        126.5
+      ],
+      "neck": [
+        696,
+        315
+      ],
+      "hipCenter": [
+        735,
+        620
+      ],
+      "stoolCenter": [
+        800,
+        716
+      ],
+      "seatCenter": [
+        800,
+        690
+      ],
+      "camera": "unchanged",
+      "bodyScale": "unchanged"
+    },
+    "solvedActiveLimbTargets": {
+      "rightArmVisualChain": {
+        "shoulder": [
+          648,
+          352
+        ],
+        "elbow": [
+          513,
+          428
+        ],
+        "wrist": [
+          408,
+          433
+        ],
+        "grip": [
+          390,
+          430
+        ],
+        "hhContact": [
+          190,
+          390
+        ],
+        "allowedTolerancePx": {
+          "shoulder": 12,
+          "elbow": 22,
+          "wrist": 18,
+          "grip": 18,
+          "contact": 8
+        }
+      },
+      "rightFootVisualChain": {
+        "hip": [
+          735,
+          640
+        ],
+        "knee": [
+          670,
+          685
+        ],
+        "ankle": [
+          655,
+          825
+        ],
+        "pedalContact": [
+          700,
+          900
+        ],
+        "allowedTolerancePx": {
+          "hip": 12,
+          "knee": 24,
+          "ankle": 24,
+          "pedalContact": 18
+        }
+      }
+    },
+    "segmentRulesPx": {
+      "upperArm": {
+        "preferred": 155,
+        "tolerance": 30
+      },
+      "forearm": {
+        "preferred": 105,
+        "tolerance": 28
+      },
+      "handToGrip": {
+        "preferred": 18,
+        "tolerance": 8
+      },
+      "visibleStick": {
+        "preferred": 185,
+        "tolerance": 30
+      },
+      "thigh": {
+        "preferred": 145,
+        "tolerance": 35
+      },
+      "shin": {
+        "preferred": 180,
+        "tolerance": 40
+      }
+    },
+    "jointRulesDeg": {
+      "elbow": {
+        "min": 35,
+        "max": 170
+      },
+      "knee": {
+        "min": 35,
+        "max": 170
+      },
+      "wristDeviationMax": 45,
+      "impossibleReverseBend": "HARD_FAIL"
+    }
+  },
+  "styleHardConstraints": {
+    "characterIdentity": "same exact character as neutral parent",
+    "lineArt": "rough monochrome hand-drawn fine-line sketch",
+    "lineConstruction": "multiple fine uneven/retraced strokes; no vector-clean uniform stroke",
+    "hair": "same long hair mass, same head shape, same cowlick; no shortening or redrawing",
+    "clothing": "same checked long jacket, dark short skirt, black short boots",
+    "forbidden": [
+      "full-body redraw",
+      "new character",
+      "different outfit",
+      "different camera",
+      "different stool",
+      "drum pixels in character layer",
+      "color fill",
+      "gradient",
+      "anime cel shading",
+      "photorealism",
+      "third arm",
+      "third leg",
+      "floating hand",
+      "floating foot",
+      "floating stick",
+      "duplicate stick",
+      "straight vector-like stick",
+      "black blob grip",
+      "broken shaft",
+      "body-scale drift"
+    ]
+  },
+  "editableRegions": [
+    {
+      "name": "HH_right_arm_hand_stick",
+      "polyline": [
+        [
+          648,
+          352
+        ],
+        [
+          513,
+          428
+        ],
+        [
+          408,
+          433
+        ],
+        [
+          390,
+          430
+        ],
+        [
+          190,
+          390
+        ]
+      ],
+      "widthPx": 110
+    },
+    {
+      "name": "BD_right_leg_foot",
+      "polyline": [
+        [
+          735,
+          640
+        ],
+        [
+          670,
+          685
+        ],
+        [
+          655,
+          825
+        ],
+        [
+          700,
+          900
+        ]
+      ],
+      "widthPx": 125
+    }
+  ],
+  "aiFreedom": {
+    "allowed": [
+      "naturalize shoulder-elbow-wrist-hand continuity inside mask",
+      "adjust local arm contour and clothing folds so the pose looks anatomically natural",
+      "naturalize knee-ankle-foot-pedal continuity inside mask",
+      "preserve rough source line style while correcting awkward joins",
+      "choose tip-like or shaft-like visual contact only if fixed HH target still reads as struck"
+    ],
+    "priority": [
+      "natural human anatomy",
+      "fixed contact",
+      "source identity and style",
+      "minimum change"
+    ],
+    "notAllowed": [
+      "move fixed contact points",
+      "move head torso hip stool or camera",
+      "change body scale",
+      "modify inactive limb regions"
+    ]
+  },
+  "qa": {
+    "outsideMaskChangedPixels": 0,
+    "staticRegionsMustMatchParent": [
+      "head",
+      "torso",
+      "hip",
+      "stool",
+      "inactive limbs"
+    ],
+    "fixedDrumCompositeRequired": true,
+    "transitionRequired": true,
+    "visualNaturalnessRequired": true,
+    "formalOverwriteAllowed": false
+  }
+}
