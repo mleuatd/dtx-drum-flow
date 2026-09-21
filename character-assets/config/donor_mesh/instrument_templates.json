@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "authority": "character-assets/prototypes/luna_say_maybe_16m/INSTRUMENT_CONTACT_POINTS.json",
+  "canvas": {"width":1448,"height":1086},
+  "fixedDrumAuthority": "character-assets/layers/drum/drum_base.png",
+  "rule": "Coordinates are target anchors, not permission to move drum hardware. Final contact authority is the fixed-drum composite.",
+  "instruments": {
+    "HH": {"templateId":"INSTRUMENT_HH","target":[190,390],"screenSide":"screen-left","contactType":"stickTip","commonWrongTargets":["LC","SN"]},
+    "SN": {"templateId":"INSTRUMENT_SN","target":[420,535],"screenSide":"center-left","contactType":"stickTip","commonWrongTargets":["HT"]},
+    "HT": {"templateId":"INSTRUMENT_HT","target":[575,360],"screenSide":"center","contactType":"stickTip","commonWrongTargets":["SN","LT"]},
+    "LT": {"templateId":"INSTRUMENT_LT","target":[885,455],"screenSide":"center-right","contactType":"stickTip","commonWrongTargets":["HT","FT"]},
+    "FT": {"templateId":"INSTRUMENT_FT","target":[1165,535],"screenSide":"screen-right","contactType":"stickTip","commonWrongTargets":["LT"]},
+    "RC": {"templateId":"INSTRUMENT_RC","target":[1215,145],"screenSide":"screen-right","contactType":"stickTip","commonWrongTargets":["LC","RD"]},
+    "RD": {"templateId":"INSTRUMENT_RD","target":[965,250],"screenSide":"screen-right","contactType":"stickTip","commonWrongTargets":["RC","LC"]},
+    "BD": {"templateId":"INSTRUMENT_BD","target":[735,650],"screenSide":"center-foot","contactType":"rightFootToPedal","limb":"RF","requiresCompositeValidation":true},
+    "LC": {"templateId":"INSTRUMENT_LC","target":null,"screenSide":"screen-left","contactType":"stickTip","requiresVisualCalibration":true},
+    "LP": {"templateId":"INSTRUMENT_LP","target":null,"screenSide":"screen-left-foot","contactType":"leftFootToPedal","limb":"LF","requiresVisualCalibration":true},
+    "LB": {"templateId":"INSTRUMENT_LB","target":null,"screenSide":"left-center-foot","contactType":"leftFootToBassPedal","limb":"LF","requiresVisualCalibration":true}
+  },
+  "hitPolicy": "stickTip/foot reaches playing/contact surface without penetrating hardware unrealistically",
+  "reboundPolicy": "limb leaves contact surface naturally while preserving action continuity and fixed body/stool registration"
+}
