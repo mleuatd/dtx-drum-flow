@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "inheritanceOrder": ["GLOBAL_COMMON","INSTRUMENT_TEMPLATE","LIMB_PHASE_TEMPLATE","ACTION_COMBINATION_TEMPLATE","FRAME_OVERRIDE"],
+  "templates": {
+    "GLOBAL_COMMON": {"kind":"GLOBAL_COMMON","enabled":true,"profile":"donor-mesh-repair-global-v1"},
+    "RIGHT_HAND_HIT_COMMON": {"kind":"LIMB_PHASE_TEMPLATE","limb":"R","phase":"hit","requiredAnchors":["wrist","grip","stickTip"],"preserveOppositeLimb":true},
+    "RIGHT_HAND_REBOUND_COMMON": {"kind":"LIMB_PHASE_TEMPLATE","limb":"R","phase":"rebound","requiredAnchors":["wrist","grip","stickTip"],"preserveOppositeLimb":true},
+    "LEFT_HAND_HIT_COMMON": {"kind":"LIMB_PHASE_TEMPLATE","limb":"L","phase":"hit","requiredAnchors":["wrist","grip","stickTip"],"preserveOppositeLimb":true},
+    "LEFT_HAND_REBOUND_COMMON": {"kind":"LIMB_PHASE_TEMPLATE","limb":"L","phase":"rebound","requiredAnchors":["wrist","grip","stickTip"],"preserveOppositeLimb":true},
+    "RIGHT_FOOT_HIT_COMMON": {"kind":"LIMB_PHASE_TEMPLATE","limb":"RF","phase":"hit","requiredAnchors":["hip","knee","ankle","toe","pedalEndpoint"],"preserveStool":true},
+    "RIGHT_FOOT_REBOUND_COMMON": {"kind":"LIMB_PHASE_TEMPLATE","limb":"RF","phase":"rebound","requiredAnchors":["hip","knee","ankle","toe","pedalEndpoint"],"preserveStool":true}
+  },
+  "promotionRule": {
+    "minimumFullResolutionPassesForReusable": 1,
+    "mustRecordSourceTargetInstrument": true,
+    "mustRecordHandAndPhase": true,
+    "mustRecordAllowedPolygon": true,
+    "mustRecordSourceAndTargetPoints": true,
+    "mustRecordFailureHistory": true
+  }
+}
