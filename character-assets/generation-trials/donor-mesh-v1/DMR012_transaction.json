@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "issueId": "DMR-012",
+  "status": "PASS",
+  "sourceClassification": "HIGH",
+  "repairCategory": "LOCAL_ARTIFACT_REMOVAL",
+  "templateResolution": ["GLOBAL_COMMON","FRAME_OVERRIDE:sample_DMR012.json"],
+  "donorUsed": null,
+  "meshUsed": false,
+  "reasonMeshNotUsed": "Defect is detached residue only; donor/mesh would increase regression risk.",
+  "inputLogicalPath": "combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+  "config": "character-assets/config/donor_mesh/sample_DMR012.json",
+  "qa": "character-assets/generation-trials/donor-mesh-v1/DMR012_qa.json",
+  "candidateSha256": "67b8cba2ce9a65e3ac923a789775bbdc48b0f71e73b701d0bae4e0c9435a4ee9",
+  "changedPixels": 348,
+  "outsideAllowedChangedPixels": 0,
+  "fixedRegionChangedPixels": 0,
+  "visualQaStatus": "PASS",
+  "runtimePromotion": "NOT_PERFORMED"
+}
