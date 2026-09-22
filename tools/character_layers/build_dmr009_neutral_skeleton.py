@@ -233,18 +233,23 @@ def main():
     # One coherent GitHub donor for upper arm -> forearm -> hand -> stick.
     # Approximate landmarks are measured on character-assets/layers/character/sn/hit_r.png.
     sn_alpha=snhanddonor[:,:,3]>24
-    source_shoulder=[715,330]; source_elbow=[690,455]; source_wrist=[610,505]; source_grip=[562,505]; source_tip=[421,478]
-    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,76) & sn_alpha
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,76) & sn_alpha
-    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,80) & sn_alpha
+    source_shoulder=[715,335]; source_elbow=[690,455]; source_wrist=[610,505]; source_grip=[562,505]; source_tip=[421,478]
+
+    # Trace only the semantic-right SN arm silhouette.  This polygon excludes the
+    # nearby opposite hand, torso and hair before any local affine transform.
+    owner_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
+    owner_draw=ImageDraw.Draw(owner_img)
+    owner_draw.polygon([
+      (700,310),(748,325),(760,385),(755,435),(730,480),(690,510),
+      (625,535),(560,538),(535,515),(548,480),(605,458),(658,438),
+      (676,405),(684,360)
+    ],fill=255)
+    sn_right_arm_owner=(np.asarray(owner_img)>0) & sn_alpha
+
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,92) & sn_right_arm_owner
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,88) & sn_right_arm_owner
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,88) & sn_right_arm_owner
     src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_tip,28) & sn_alpha
-    # SN:R also contains the opposite hand close to this shoulder/elbow.  Exclude
-    # that exact source region so it cannot be warped into an extra hand at the
-    # target elbow.  This is a local donor-ownership cut, not a rectangular paste.
-    opposite_hand=np.zeros(sn_alpha.shape,bool)
-    opposite_hand[345:438,600:676]=True
-    src_upper &= ~opposite_hand
-    src_fore &= ~opposite_hand
 
     upper_layer=warp_segment(snhanddonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
     fore_layer=warp_segment(snhanddonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
