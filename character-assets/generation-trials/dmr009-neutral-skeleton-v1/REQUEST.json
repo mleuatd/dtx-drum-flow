@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T12:09:00+09:00",
+  "requestedAt": "2026-09-22T12:14:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -28,9 +28,9 @@
     "unrelated limbs"
   ],
   "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 27,
-  "retryReason": "retry26 reduced the large transparent sleeve hole but full-resolution review still showed doubled/misaligned sleeve fragments. Source-image inspection identified the cause: previous HH source elbow/wrist landmarks were sampling the lower/inactive arm. Retry27 corrects the active HH:R source chain to shoulder [620,365], elbow [565,430], wrist [486,425], grip [442,421], narrows arm capsules, and preserves the retry25 SN:R hand+stick donor and photo-reference target geometry.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Correct source landmark selection only; no rebound edit and no formal promotion until visual QA.",
+  "retry": 28,
+  "retryReason": "retry27 confirmed the corrected HH source landmarks but the HH arm itself remains a poor geometry donor for the extended photo-reference pose: the transformed sleeve becomes a narrow band with a large empty triangular region. Retry28 switches the entire active semantic right arm (upper arm, forearm, hand, stick) to one coherent existing GitHub donor: sn/hit_r.png, whose right arm is already extended and contiguous. Photo-reference target landmarks and fixed HH contact remain unchanged; no flip or new drawing.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. One coherent SN:R arm donor, photo structure only, fixed drum unchanged, paired rebound READ_ONLY, no formal promotion until visual QA.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
