@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-22T11:07:00+09:00",
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "retry": 20,
+  "authority": {
+    "repository": "mleuatd/dtx-drum-flow",
+    "branch": "main",
+    "candidateCommit": "c2c289dde0187f630d43d45356638f3089ed8547"
+  },
+  "method": "DIRECT_COMPLETED_HH_PARENT_PLUS_BD_RF_LOWER_ONLY",
+  "candidate": {
+    "path": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF.png",
+    "sha256": "6f114dda7f19c7e413642bacce40b2f0b10e507d9da87f419d57de81c98b9fd0",
+    "fixedDrumComposite": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF_fixed_drum.png",
+    "fixedDrumCompositeSha256": "a9991bce1dc8d47331b3fd84eb43692fe56e138a669efbf0d9982b49038e5117"
+  },
+  "sourcePreservationQa": {
+    "hhParentPath": "character-assets/layers/character/hh/hit_r.png",
+    "hhParentSha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
+    "hhParentAuditStatus": "PASS_FROM_EXISTING_REPOSITORY_RECORD",
+    "bdDonorPath": "character-assets/layers/character/bd/hit_rf.png",
+    "bdDonorSha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+    "secondaryOverlayRoi": [500, 760, 780, 1030],
+    "changedBBoxFromHhParent": [498, 758, 781, 1031],
+    "changedPixels": 77804,
+    "upperBodyHhActionModified": false,
+    "reason": "Builder starts from the approved HH:R parent and applies only BD-vs-neutral motion pixels restricted to the lower active-foot ROI. Therefore the HH shoulder/arm/wrist/hand/stick pixels are preserved byte-for-byte by construction."
+  },
+  "numericQa": {
+    "upperBodyStaticPreservation": "PASS_BY_CONSTRUCTION_AND_CHANGED_BBOX",
+    "rightHandHhSourcePreservation": "PASS_BY_CONSTRUCTION",
+    "rectangularUpperBodyDonorSlabRisk": "REMOVED_BY_METHOD",
+    "formalLayerModified": false,
+    "pairedReboundModified": false
+  },
+  "visualQa": {
+    "required": true,
+    "result": "PENDING_EXACT_CANDIDATE_PIXEL_REVIEW",
+    "reason": "The connected GitHub file API returned repository PNGs as encoded file content rather than an inspectable image surface in this chat. Existing HH parent visual audit is reusable evidence, but it is not a substitute for fresh visual review of the new fixed-drum composite.",
+    "doNotPromoteUntil": [
+      "exact candidate is visually inspected",
+      "exact fixed-drum composite is visually inspected",
+      "lower-body BD overlay has no seam/slab/anatomy regression",
+      "whole-image naturalness passes",
+      "transition is rechecked against the exact candidate"
+    ]
+  },
+  "finalDecision": {
+    "status": "HOLD_VISUAL_QA",
+    "promotionBlocked": true,
+    "verified": false,
+    "formalPromotion": false,
+    "advanceToSecondImage": false
+  }
+}
