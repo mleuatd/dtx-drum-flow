@@ -26,6 +26,29 @@
       "sha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
       "fixedDrumComposite": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_donor_review_current_bd_hh_formal.png",
       "status": "READY_FOR_AI_VISUAL_REVIEW"
+    },
+    "user_approved_right_arm_source": {
+      "metadataPath": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_user_approved_right_arm_donor.json",
+      "sourceAttachmentName": "5298.png",
+      "sha256": "9f9de788a921b61f3d6cfe80731f385f56fd7351d7d969cb0f336e6a8b3a0046",
+      "canvas": [
+        1448,
+        1086
+      ],
+      "nonTransparentBBox": [
+        215,
+        350,
+        834,
+        497
+      ],
+      "status": "USER_APPROVED_CORRECT_DONOR_SOURCE",
+      "relationToPreviousPlacedLayer": {
+        "translationPx": [
+          118,
+          19
+        ],
+        "byteExactAfterTranslation": true
+      }
     }
   }
 }

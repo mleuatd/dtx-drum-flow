@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "role": "USER_APPROVED_RIGHT_ARM_HH_DONOR_SOURCE",
+  "registeredAt": "2026-09-22T20:32:00+09:00",
+  "source": {
+    "conversationAttachmentName": "5298.png",
+    "sha256": "9f9de788a921b61f3d6cfe80731f385f56fd7351d7d969cb0f336e6a8b3a0046",
+    "byteSize": 103538
+  },
+  "image": {
+    "width": 1448,
+    "height": 1086,
+    "mode": "RGBA",
+    "nonTransparentBBox": [
+      215,
+      350,
+      834,
+      497
+    ],
+    "contains": [
+      "right_arm",
+      "right_hand",
+      "right_hand_drumstick"
+    ]
+  },
+  "coordinateMeaning": {
+    "state": "SOURCE_DONOR_COORDINATES",
+    "composeAt": [
+      0,
+      0
+    ],
+    "sourceImageMustNotBeEditedForRegistration": true
+  },
+  "verifiedRelationToPreviousPlacedLayer": {
+    "translationPx": [
+      118,
+      19
+    ],
+    "byteExactAfterTranslation": true,
+    "previousPlacedLayerSha256": "65784dcc4cbab6a1065fe98468dd660704d78caec3d1312d5fb39028cedbdc89",
+    "note": "The previous 5299.png is exactly this donor translated +118px,+19px on the same 1448x1086 canvas."
+  },
+  "status": "USER_APPROVED_CORRECT_DONOR_SOURCE",
+  "formalRuntimeAssetModified": false,
+  "binaryRepositoryStatus": "METADATA_REGISTERED_BINARY_NOT_STORED_AS_GITHUB_PNG",
+  "note": "This record identifies the exact user-approved donor source. Do not overwrite formal HH or DMR-009 runtime PNGs merely by registering this donor."
+}
