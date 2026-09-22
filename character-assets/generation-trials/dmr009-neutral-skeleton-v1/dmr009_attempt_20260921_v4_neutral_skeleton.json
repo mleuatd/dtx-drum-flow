@@ -27,14 +27,14 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "244cc10f58ba86281158ed5d2b71c51ac2ae9cd50cc1ca310cddfcf6d7281d7e",
+    "sha256": "d558363d18fe2ffcf7395896238cf850228fb29f15e55bfc43d8b2227f36aa88",
     "method": "rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
-    "changedPixels": 71553,
+    "changedPixels": 45069,
     "changedBBox": [
       187,
-      330,
-      761,
-      986
+      334,
+      760,
+      985
     ],
     "outsideAllowedChangedPixels": 0
   },
@@ -66,50 +66,50 @@
       ],
       "activeUpperArmMid": [
         574,
-        377
+        381
       ],
       "activeElbow": [
         500,
-        402
+        410
       ],
       "activeForearmMid": [
-        448,
-        409
+        448.5,
+        417.5
       ],
       "activeWrist": [
         397,
-        416
+        425
       ],
       "palmCenter": [
         385,
-        420
+        423
       ],
       "thumbBase": [
         383,
-        411
+        414
       ],
       "thumbTip": [
         372,
-        407
+        410
       ],
       "indexBase": [
         386,
-        425
+        427
       ],
       "indexTip": [
         376,
-        430
+        432
       ],
       "middleBase": [
         389,
-        430
+        432
       ],
       "activeGrip": [
         374,
         421
       ],
       "stickRear": [
-        416,
+        418,
         428
       ],
       "stickFront": [
@@ -196,13 +196,13 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 156.22,
-      "elbowToWrist": 103.95,
-      "wristToGrip": 23.54,
+      "shoulderToElbow": 158.96,
+      "elbowToWrist": 104.09,
+      "wristToGrip": 23.35,
       "gripToContact": 186.59
     },
-    "elbowAngleDeg": 169.07,
-    "wristDeviationDeg": 4.52,
+    "elbowAngleDeg": 166.89,
+    "wristDeviationDeg": 18.15,
     "photoReferenceConstraints": {
       "handBackVisibility": "REQUIRED",
       "thumbVisibilityNearSide": "REQUIRED",
@@ -226,7 +226,7 @@
       ],
       "strategy": "minimum interior-chain adjustment; donor pixels preserved"
     },
-    "result": "FAIL"
+    "result": "PASS"
   },
   "stick": {
     "angleDegScreen": -170.44,
@@ -244,16 +244,16 @@
     "rigidRod": {
       "required": true,
       "stickAxisAngleDeg": -170.44,
-      "wristToGripAxisAngleDeg": 167.74,
-      "wristGripVsStickAxisDeltaDeg": 21.82,
+      "wristToGripAxisAngleDeg": -170.13,
+      "wristGripVsStickAxisDeltaDeg": 0.31,
       "maxAxisDeltaDeg": 15.0,
-      "pixelCount": 1166,
-      "axisCenterOffsetPx": 3.21,
-      "straightnessResidualP95Px": 3.63,
+      "pixelCount": 1767,
+      "axisCenterOffsetPx": 4.94,
+      "straightnessResidualP95Px": 5.55,
       "continuityRatio": 1.0,
       "straightnessMaxResidualP95Px": 8.0,
       "continuityMinRatio": 0.94,
-      "result": "FAIL"
+      "result": "PASS"
     },
     "sourceContactPixel": [
       357,
@@ -266,7 +266,7 @@
     ],
     "contactDistancePx": 1.0,
     "contactEllipseScore": 0.0016,
-    "result": "FAIL"
+    "result": "PASS"
   },
   "fixedDrumComposite": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_fixed_drum_composite_v1.png",
@@ -303,5 +303,5 @@
     "armCrop": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_review_arm_crop_v2.png"
   },
   "formalPromotion": false,
-  "finalStatus": "HOLD_HIT_QA"
+  "finalStatus": "CANDIDATE_READY_HIT"
 }

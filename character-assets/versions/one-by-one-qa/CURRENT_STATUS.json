@@ -16,7 +16,7 @@
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
     "reviewQa": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_retry20_review.json",
-    "finalStatus": "HOLD_HIT_QA",
+    "finalStatus": "CANDIDATE_READY_HIT",
     "promotionBlocked": true,
     "secondaryHold": null,
     "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json",
@@ -27,7 +27,7 @@
   "resultSummary": {
     "oneCandidateCreated": true,
     "candidatePath": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF.png",
-    "candidateSha256": "244cc10f58ba86281158ed5d2b71c51ac2ae9cd50cc1ca310cddfcf6d7281d7e",
+    "candidateSha256": "d558363d18fe2ffcf7395896238cf850228fb29f15e55bfc43d8b2227f36aa88",
     "candidateCommit": "c2c289dde0187f630d43d45356638f3089ed8547",
     "method": "DIRECT_COMPLETED_HH_PARENT_PLUS_BD_RF_LOWER_ONLY",
     "approvedHhParentPreserved": true,
@@ -49,7 +49,7 @@
     "advancedToSecondImage": false,
     "visualQaPassed": false,
     "verified": false,
-    "rigidStickPassed": false
+    "rigidStickPassed": true
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,
