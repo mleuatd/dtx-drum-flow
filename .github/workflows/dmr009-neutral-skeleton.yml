@@ -1,4 +1,4 @@
-name: DMR009 neutral skeleton one-image build
+name: DMR009 direct-HH-parent one-image build
 
 on:
   push:
@@ -28,28 +28,30 @@ jobs:
           cache: "pip"
           cache-dependency-path: tools/character_layers/requirements.txt
       - run: pip install --disable-pip-version-check -r tools/character_layers/requirements.txt
-      - name: Build exactly one DMR009 hit candidate
-        run: python tools/character_layers/build_dmr009_neutral_skeleton.py
+      - name: Build exactly one DMR009 hit candidate from approved HH parent
+        run: python tools/character_layers/build_dmr009_direct_donor.py
       - name: Guard one-image scope
         shell: bash
         run: |
-          test -f character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png
-          test -f character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json
-          git status --porcelain | grep -q 'character-assets/generation-trials/dmr009-neutral-skeleton-v1/'
-          if git status --porcelain | grep 'character-assets/layers/character/' | grep '\.png$'; then
+          test -f character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF.png
+          test -f character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF_fixed_drum.png
+          test -f character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_donor_qa.json
+          git status --porcelain | grep -q 'character-assets/generation-trials/dmr009-direct-donor-v1/'
+          if git status --porcelain | grep 'character-assets/layers/character/' | grep '\\.png$'; then
             echo "formal/runtime image modification is forbidden in this one-image candidate build"; exit 1
           fi
-      - name: Commit evidence and status
+      - name: Commit evidence
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/generation-trials/dmr009-neutral-skeleton-v1 character-assets/versions/one-by-one-qa/CURRENT_STATUS.json CHANGELOG.md
-          git commit -m "trial: build DMR009 neutral-skeleton hit candidate"
+          git add character-assets/generation-trials/dmr009-direct-donor-v1
+          git commit -m "trial: build DMR009 direct HH-parent hit candidate"
+          git pull --rebase origin main
           git push origin HEAD:main
       - name: Upload visual evidence
         uses: actions/upload-artifact@v4
         with:
-          name: dmr009-neutral-skeleton-evidence
-          path: character-assets/generation-trials/dmr009-neutral-skeleton-v1/
+          name: dmr009-direct-hh-parent-evidence
+          path: character-assets/generation-trials/dmr009-direct-donor-v1/
           retention-days: 30
