@@ -238,6 +238,13 @@ def main():
     src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,76) & sn_alpha
     src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,80) & sn_alpha
     src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_tip,28) & sn_alpha
+    # SN:R also contains the opposite hand close to this shoulder/elbow.  Exclude
+    # that exact source region so it cannot be warped into an extra hand at the
+    # target elbow.  This is a local donor-ownership cut, not a rectangular paste.
+    opposite_hand=np.zeros(sn_alpha.shape,bool)
+    opposite_hand[345:438,600:676]=True
+    src_upper &= ~opposite_hand
+    src_fore &= ~opposite_hand
 
     upper_layer=warp_segment(snhanddonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
     fore_layer=warp_segment(snhanddonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
