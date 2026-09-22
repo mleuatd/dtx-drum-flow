@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-21T23:39:00+09:00",
+  "requestedAt": "2026-09-22T11:02:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -12,37 +12,32 @@
   },
   "structuralBase": "character-assets/layers/character/base/neutral.png",
   "donorPolicy": {
-    "hh": "a4e3854449e292264192afa63469edf0fb5048af:character-assets/layers/character/hh/hit_r.png",
-    "bd": "a4e3854449e292264192afa63469edf0fb5048af:character-assets/layers/character/bd/hit_rf.png"
+    "hh": "character-assets/layers/character/hh/hit_r.png",
+    "bd": "character-assets/layers/character/bd/hit_rf.png"
   },
   "doNotModify": [
     "fixed drum",
     "camera",
     "stool",
     "paired rebound",
-    "any second image"
+    "any second image",
+    "approved HH right-arm/hand/stick pixels"
   ],
-  "outputPolicy": "candidate+composite+transition+numeric QA+status records; no formal overwrite unless numeric QA and AI visual QA both pass",
-  "retry": 19,
-  "retryReason": "Donor-first visual selection pass: generate untouched fixed-drum composites for HH single, HH+SN, BD+HH+SN, and current BD+HH formal before further arm reconstruction.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Produce donor review evidence plus candidate; do not promote. Paired rebound READ_ONLY.",
+  "outputPolicy": "candidate+fixed-drum composite+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
+  "retry": 20,
+  "retryReason": "Execute the already-added direct HH-parent builder after retry 19 donor-first review. Preserve the approved HH:R hit parent unchanged in the upper body and add only the BD:RF lower active-foot motion pixels.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Use existing build_dmr009_direct_donor.py. Right-hand HH action is inherited from approved HH single donor without arm/stick reconstruction. Paired rebound READ_ONLY.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
   "aiVisualQaChecks": [
-    "stick is one straight rigid rod from grip to tip",
-    "no kink/bend/break anywhere on shaft",
-    "wrist→grip supports the same stick axis naturally",
-    "forearm→wrist→hand continuity",
-    "elbow and shoulder anatomy",
-    "HH contact on fixed drum",
+    "right shoulder to upper arm is continuous",
+    "forearm to wrist to hand is continuous",
+    "thumb and back-of-hand orientation remain natural from approved HH parent",
+    "stick is one continuous source-style shaft",
+    "HH strike reads naturally on fixed drum",
+    "BD overlay changes only lower active-foot region",
+    "no rectangular donor slab or white artifact",
     "whole-image visual naturalness"
-  ],
-  "reason": "final QA rerun: include antialias fringe in allowed active transform mask; no visual geometry change",
-  "rigidStickQa": {
-    "required": true,
-    "maxWristGripVsStickAxisDeltaDeg": 15,
-    "maxStraightnessResidualP95Px": 8,
-    "minContinuityRatio": 0.94
-  }
+  ]
 }
