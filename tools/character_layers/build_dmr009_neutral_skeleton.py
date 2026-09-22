@@ -214,42 +214,37 @@ def main():
     # protected head region while the rigid stick still lands on HH.
     chain=photo["targetLandmarksPx"]
     shoulder=chain["shoulder"]; elbow=chain["elbow"]; wrist=chain["wrist"]; grip=chain["grip_center"]
-    # Donor-true HH chain from the accepted single-HH source.
-    # Correct active HH:R source chain measured from the actual upper arm in hit_r.png.
-    # Earlier values drifted into the lower/inactive arm and caused doubled sleeves.
-    source_shoulder=[620,365]; source_elbow=[565,430]; source_wrist=[486,425]; source_grip=[442,421]
+    # Use the audited HH source only to identify which neutral/old HH pixels
+    # should be cleared.  The actual retry28 limb donor is SN:R because its whole
+    # right arm is already extended and contiguous, much closer to the supplied
+    # photo-reference structure.
+    clear_shoulder=[620,365]; clear_elbow=[565,430]; clear_wrist=[486,425]; clear_grip=[442,421]
     source_neutral_elbow=[565,490]; source_neutral_wrist=[500,490]; source_neutral_hand=[492,486]
 
     clear_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
     cd=ImageDraw.Draw(clear_img)
-    cd.line([tuple(source_contact),tuple(source_grip)],fill=255,width=30)
-    cd.line([tuple(source_grip),tuple(source_elbow),tuple(source_shoulder)],fill=255,width=98,joint="curve")
-    cd.line([tuple(source_neutral_hand),tuple(source_neutral_wrist),tuple(source_neutral_elbow),tuple(source_shoulder)],fill=255,width=94,joint="curve")
+    cd.line([tuple(source_contact),tuple(clear_grip)],fill=255,width=30)
+    cd.line([tuple(clear_grip),tuple(clear_elbow),tuple(clear_shoulder)],fill=255,width=88,joint="curve")
+    cd.line([tuple(source_neutral_hand),tuple(source_neutral_wrist),tuple(source_neutral_elbow),tuple(clear_shoulder)],fill=255,width=82,joint="curve")
     clear_corridor=np.asarray(clear_img)>0
     clear_mask=binary_dilation(hh_diff & clear_corridor,iterations=1)
     candidate[clear_mask]=0
 
-    source_alpha=hhdonor[:,:,3]>24
-    # Retry26: use full source-style opaque donor pixels inside narrow limb
-    # capsules.  The previous motion-difference-only ownership punched a large
-    # transparent triangle through the extended sleeve.  Capsule ownership is
-    # still local (not rectangular), so torso/background slabs are excluded.
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,72) & source_alpha
-    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,84) & source_alpha
-
-    # The HH donor supplies the arm/style, while the lower screen-left hand in
-    # SN:R supplies a cleaner right-hand grip topology.  No horizontal flip.
+    # One coherent GitHub donor for upper arm -> forearm -> hand -> stick.
+    # Approximate landmarks are measured on character-assets/layers/character/sn/hit_r.png.
     sn_alpha=snhanddonor[:,:,3]>24
-    sn_wrist=[610,505]; sn_grip=[562,505]; sn_tip=[435,490]
-    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_wrist,sn_grip,78) & sn_alpha
-    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_grip,sn_tip,28) & sn_alpha
+    source_shoulder=[715,330]; source_elbow=[690,455]; source_wrist=[610,505]; source_grip=[562,505]; source_tip=[421,478]
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,76) & sn_alpha
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,76) & sn_alpha
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,80) & sn_alpha
+    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_tip,28) & sn_alpha
 
-    upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
-    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
-    hand_layer=warp_segment(snhanddonor,src_hand,sn_wrist,sn_grip,wrist,grip,1.0)
+    upper_layer=warp_segment(snhanddonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
+    fore_layer=warp_segment(snhanddonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
+    hand_layer=warp_segment(snhanddonor,src_hand,source_wrist,source_grip,wrist,grip,1.0)
     # Hand and shaft share the exact target grip anchor; this avoids a floating
     # stick or a hand/stick topology break.
-    stick_layer=warp_segment(snhanddonor,src_stick,sn_grip,sn_tip,grip,target,0.82)
+    stick_layer=warp_segment(snhanddonor,src_stick,source_grip,source_tip,grip,target,0.82)
 
     candidate=alpha_comp(candidate,upper_layer)
     candidate=alpha_comp(candidate,fore_layer)
@@ -378,7 +373,7 @@ def main():
         "photoReferenceConstraints":{"handBackVisibility":photo["constraints"]["handBackVisibility"],"thumbVisibilityNearSide":photo["constraints"]["thumbVisibilityNearSide"],"fingerWrapFarSide":photo["constraints"]["fingerWrapFarSide"],"visualVerificationRequired":True},
         "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},
         "result":"PASS" if anatomy_pass else "FAIL"},
-      "stick":{"angleDegScreen":ang,"expectedApproachAngleDeg":expected_approach,"approachAngleToleranceDeg":approach_tolerance,"approachAngleDeltaDeg":round(approach_delta,2),"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; one affine rigid shaft segment",
+      "stick":{"angleDegScreen":ang,"expectedApproachAngleDeg":expected_approach,"approachAngleToleranceDeg":approach_tolerance,"approachAngleDeltaDeg":round(approach_delta,2),"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"single coherent SN:R right-arm/hand/stick donor; local affine segments; no flip; photo reference supplies target geometry only",
         "rigidRod":{"required":True,"stickAxisAngleDeg":stick_axis_deg,"wristToGripAxisAngleDeg":hand_axis_deg,"wristGripVsStickAxisDeltaDeg":grip_axis_delta,"maxAxisDeltaDeg":15.0,**stick_geom,"straightnessMaxResidualP95Px":8.0,"continuityMinRatio":0.94,"result":"PASS" if rigid_stick_pass else "FAIL"},
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
         "result":"PASS" if contact_pass and rigid_stick_pass else "FAIL"},
