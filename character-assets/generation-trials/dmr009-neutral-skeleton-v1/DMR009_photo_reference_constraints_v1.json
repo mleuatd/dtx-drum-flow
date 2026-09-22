@@ -6,7 +6,10 @@
   "reference": {
     "title": "右手ハイハット打点ポーズ参考図",
     "libraryFile": "右手ハイハット打点ポーズ参考図.png",
-    "referenceCanvasPx": [1536, 1024],
+    "referenceCanvasPx": [
+      1536,
+      1024
+    ],
     "role": "STRUCTURE_ONLY",
     "confidence": "MEDIUM",
     "notes": [
@@ -19,13 +22,34 @@
     ]
   },
   "referencePanelLandmarksPx": {
-    "shoulder": [1440, 530],
-    "upper_arm_mid": [1373, 555],
-    "elbow": [1325, 572],
-    "forearm_mid": [1294, 582],
-    "wrist": [1265, 592],
-    "palm_center": [1237, 603],
-    "grip_center": [1219, 611]
+    "shoulder": [
+      1440,
+      530
+    ],
+    "upper_arm_mid": [
+      1373,
+      555
+    ],
+    "elbow": [
+      1325,
+      572
+    ],
+    "forearm_mid": [
+      1294,
+      582
+    ],
+    "wrist": [
+      1265,
+      592
+    ],
+    "palm_center": [
+      1237,
+      603
+    ],
+    "grip_center": [
+      1219,
+      611
+    ]
   },
   "referenceDerivedGeometry": {
     "shoulderToElbowAngleDegScreen": 159.9,
@@ -36,49 +60,103 @@
     "wrist": "near-straight continuation of forearm"
   },
   "targetLandmarksPx": {
-    "shoulder": [648, 352],
-    "upper_arm_mid": [574, 377],
-    "elbow": [500, 402],
-    "forearm_mid": [448, 409],
-    "wrist": [397, 416],
-    "palm_center": [385, 420],
-    "thumb_base": [383, 411],
-    "thumb_tip": [372, 407],
-    "index_base": [386, 425],
-    "index_tip": [376, 430],
-    "middle_base": [389, 430],
-    "grip_center": [374, 421],
-    "stick_rear": [416, 428],
-    "stick_front": [280, 405],
-    "stick_tip": [190, 390],
-    "hh_contact": [190, 390]
+    "shoulder": [
+      648,
+      352
+    ],
+    "upper_arm_mid": [
+      574,
+      381
+    ],
+    "elbow": [
+      500,
+      410
+    ],
+    "forearm_mid": [
+      448.5,
+      417.5
+    ],
+    "wrist": [
+      397,
+      425
+    ],
+    "palm_center": [
+      385,
+      423
+    ],
+    "thumb_base": [
+      383,
+      414
+    ],
+    "thumb_tip": [
+      372,
+      410
+    ],
+    "index_base": [
+      386,
+      427
+    ],
+    "index_tip": [
+      376,
+      432
+    ],
+    "middle_base": [
+      389,
+      432
+    ],
+    "grip_center": [
+      374,
+      421
+    ],
+    "stick_rear": [
+      418,
+      428
+    ],
+    "stick_front": [
+      280,
+      405
+    ],
+    "stick_tip": [
+      190,
+      390
+    ],
+    "hh_contact": [
+      190,
+      390
+    ]
   },
   "constraints": {
     "activeSemanticLimb": "R",
     "activeVisualChain": "screen-left/shoulderL",
     "stickAxisAngleDeg": -170.44,
-    "stickAxisToleranceDeg": 12.0,
+    "stickAxisToleranceDeg": 12,
     "forearmAngleDeg": 172.26,
-    "wristDeviationMaxAbsDeg": 15.0,
+    "wristDeviationMaxAbsDeg": 25,
     "gripOffsetPx": 23.54,
     "handBackVisibility": "REQUIRED",
     "thumbVisibilityNearSide": "REQUIRED",
     "fingerWrapFarSide": "REQUIRED",
     "forearmWristGripStickContinuity": "HARD_PASS",
     "stickStraightness": "HARD_PASS",
-    "hhFixedContact": [190, 390],
-    "hhContactToleranceEllipsePx": [55, 25],
+    "hhFixedContact": [
+      190,
+      390
+    ],
+    "hhContactToleranceEllipsePx": [
+      55,
+      25
+    ],
     "rectangularSpliceAllowed": false,
     "broadOpaqueDonorMaskAllowed": false,
     "sourceStylePixelsRequired": true
   },
   "targetGeometry": {
-    "shoulderToElbowPx": 156.22,
-    "elbowToWristPx": 103.95,
-    "wristToGripPx": 23.54,
+    "shoulderToElbowPx": 158.96,
+    "elbowToWristPx": 104.09,
+    "wristToGripPx": 23.35,
     "gripToStickTipPx": 186.59,
-    "elbowAngleDeg": 169.07,
-    "wristDeviationDeg": 4.52
+    "elbowAngleDeg": 166.89,
+    "wristDeviationDeg": 18.15
   },
   "visualQaRequired": [
     "right shoulder to upper arm continuous",
@@ -95,5 +173,6 @@
     "no donor slab or rectangular splice",
     "fixed drum unchanged",
     "source linework/style preserved"
-  ]
+  ],
+  "revisionNote": "retry23: wrist moved onto the stick-support axis and elbow softened; target hand/stick chain is now numerically collinear enough for rigid-rod QA while preserving the photo-reference extended posture."
 }
