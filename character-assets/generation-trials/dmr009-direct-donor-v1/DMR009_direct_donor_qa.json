@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "primaryAction": "Right Hand -> HH -> HIT",
+  "secondaryAction": "Right Foot -> BD -> HIT",
+  "method": "DIRECT_COMPLETED_HH_PARENT_PLUS_BD_RF_LOWER_ONLY",
+  "primaryParent": {
+    "path": "character-assets/layers/character/hh/hit_r.png",
+    "sha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
+    "pixelsModifiedBySecondaryOverlay": 77804
+  },
+  "secondaryDonor": {
+    "path": "character-assets/layers/character/bd/hit_rf.png",
+    "sha256": "eb6935313168f29f8f804bb4b7e2f4aeb4896172b326411e01476975de3e3eb8",
+    "roi": [
+      500,
+      760,
+      780,
+      1030
+    ]
+  },
+  "candidate": {
+    "path": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF.png",
+    "sha256": "6f114dda7f19c7e413642bacce40b2f0b10e507d9da87f419d57de81c98b9fd0",
+    "changedBBoxFromHH": [
+      498,
+      758,
+      781,
+      1031
+    ]
+  },
+  "fixedDrumComposite": {
+    "path": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF_fixed_drum.png",
+    "sha256": "a9991bce1dc8d47331b3fd84eb43692fe56e138a669efbf0d9982b49038e5117"
+  },
+  "formalPromotion": false,
+  "visualQaStatus": "PENDING_AI_VISUAL_QA",
+  "hardRequirement": "If the character's own right hand does not clearly strike HH at impact, FAIL regardless of all other checks."
+}
