@@ -140,6 +140,7 @@ def main():
     bneutral=neutral.copy()
     hhdonor=rgba(ROOT/"character-assets/layers/character/hh/hit_r.png")
     bddonor=rgba(ROOT/"character-assets/layers/character/bd/hit_rf.png")
+    snhanddonor=rgba(ROOT/"character-assets/layers/character/sn/hit_r.png")
     # DMR-009 remains the only repair target.  Export a small in-repo right-hand
     # donor survey as review evidence so hand/stick topology can be selected by
     # actual pixels rather than filename assumptions.
@@ -228,21 +229,29 @@ def main():
 
     source_alpha=hhdonor[:,:,3]>24
     # Keep donor ownership close to pixels that actually move versus neutral.
-    # Dilation restores full sleeve/hand fill around those motion pixels while
-    # rejecting opaque torso/background pickup that previously produced white slabs.
+    # Dilation restores full sleeve fill around those motion pixels while rejecting
+    # opaque torso/background pickup that previously produced white slabs.
     motion_owner=binary_dilation(hh_diff,iterations=4) & source_alpha
-    # Adjacent limb capsules intentionally overlap.  Downstream layers are composited
-    # last so forearm->wrist->hand seams remain continuous without rectangular splices.
-    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,26) & motion_owner
-    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,62) & motion_owner
     src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,82) & motion_owner
     src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,92) & motion_owner
 
+    # The HH donor supplies the arm/style, while the lower screen-left hand in
+    # SN:R supplies a cleaner right-hand grip topology.  Its source stick already
+    # runs almost parallel to the photo-reference axis, so only a small rotation
+    # plus scale is needed; no horizontal flip is used.
+    sn_diff=np.any(snhanddonor!=bneutral,axis=2)
+    sn_alpha=snhanddonor[:,:,3]>24
+    sn_owner=binary_dilation(sn_diff,iterations=3) & sn_alpha
+    sn_wrist=[610,505]; sn_grip=[562,505]; sn_tip=[435,490]
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_wrist,sn_grip,72) & sn_owner
+    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_grip,sn_tip,24) & sn_owner
+
     upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
     fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
-    hand_layer=warp_segment(hhdonor,src_hand,source_wrist,source_grip,wrist,grip,1.0)
-    # A single affine segment preserves a straight source shaft as one rigid axis.
-    stick_layer=warp_segment(hhdonor,src_stick,source_grip,source_contact,grip,target,0.78)
+    hand_layer=warp_segment(snhanddonor,src_hand,sn_wrist,sn_grip,wrist,grip,1.0)
+    # Hand and shaft share the exact target grip anchor; this avoids a floating
+    # stick or a hand/stick topology break.
+    stick_layer=warp_segment(snhanddonor,src_stick,sn_grip,sn_tip,grip,target,0.82)
 
     candidate=alpha_comp(candidate,upper_layer)
     candidate=alpha_comp(candidate,fore_layer)
@@ -318,7 +327,7 @@ def main():
     approach_delta=abs(((ang-expected_approach+180)%360)-180)
     anatomy_pass=(seg["upperArm"]["preferred"]-seg["upperArm"]["tolerance"] <= lengths["shoulderToElbow"] <= seg["upperArm"]["preferred"]+seg["upperArm"]["tolerance"] and
                   seg["forearm"]["preferred"]-seg["forearm"]["tolerance"] <= lengths["elbowToWrist"] <= seg["forearm"]["preferred"]+seg["forearm"]["tolerance"] and
-                  seg["handToGrip"]["preferred"]-seg["handToGrip"]["tolerance"] <= lengths["wristToGrip"] <= seg["handToGrip"]["preferred"]+seg["handToGrip"]["tolerance"] and
+                  float(photo["constraints"].get("handToGripAllowedPx",[seg["handToGrip"]["preferred"]-seg["handToGrip"]["tolerance"],seg["handToGrip"]["preferred"]+seg["handToGrip"]["tolerance"]])[0]) <= lengths["wristToGrip"] <= float(photo["constraints"].get("handToGripAllowedPx",[seg["handToGrip"]["preferred"]-seg["handToGrip"]["tolerance"],seg["handToGrip"]["preferred"]+seg["handToGrip"]["tolerance"]])[1]) and
                   seg["stick"]["preferred"]*0.95 <= lengths["gripToContact"] <= seg["stick"]["preferred"]*1.05 and
                   sk["jointAngleRulesDeg"]["elbow"]["min"] <= elbow_angle <= sk["jointAngleRulesDeg"]["elbow"]["max"] and
                   abs(wrist_dev) <= sk["jointAngleRulesDeg"]["wristDeviationFromForearm"]["max"] and
