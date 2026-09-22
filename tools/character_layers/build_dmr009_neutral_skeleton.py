@@ -140,6 +140,22 @@ def main():
     bneutral=neutral.copy()
     hhdonor=rgba(ROOT/"character-assets/layers/character/hh/hit_r.png")
     bddonor=rgba(ROOT/"character-assets/layers/character/bd/hit_rf.png")
+    # DMR-009 remains the only repair target.  Export a small in-repo right-hand
+    # donor survey as review evidence so hand/stick topology can be selected by
+    # actual pixels rather than filename assumptions.
+    OUT.mkdir(parents=True,exist_ok=True)
+    donor_survey=[
+      ("hh_hit_r", ROOT/"character-assets/layers/character/hh/hit_r.png"),
+      ("rd_hit_r", ROOT/"character-assets/layers/character/rd/hit_r.png"),
+      ("rd_hit_r_refresh", ROOT/"character-assets/layers/character/rd/hit_r_refresh.png"),
+      ("rc_hit_r_refresh", ROOT/"character-assets/layers/character/rc/hit_r_refresh.png"),
+      ("sn_hit_r", ROOT/"character-assets/layers/character/sn/hit_r.png"),
+    ]
+    for label,p in donor_survey:
+        if p.is_file():
+            arr=rgba(p)
+            save(arr,OUT/f"DMR009_hand_donor_{label}.png")
+            save(alpha_comp(drum,arr),OUT/f"DMR009_hand_donor_{label}_fixed_drum.png")
 
     candidate=neutral.copy()
     target=dg["instruments"]["HH"]["strikeTarget"]["px"]
