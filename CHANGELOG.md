@@ -357,3 +357,5 @@ See Git history for earlier character-pose experiments and full-song / 1-16 / 1-
 - 2026-09-21 DMR-009 hit: donor-mesh-primary trial rerun with local elbow/wrist/grip naturalization. HH fixed target (190,390), neutral static locks, audited HH/BD donors, fixed-drum composite and transition QA preserved. Runtime/formal image not overwritten; no second image modified.
 
 - 2026-09-21 DMR-009 hit: donor-mesh-primary trial rerun with local elbow/wrist/grip naturalization. HH fixed target (190,390), neutral static locks, audited HH/BD donors, fixed-drum composite and transition QA preserved. Runtime/formal image not overwritten; no second image modified.
+
+- 2026-09-21 DMR-009 hit: donor-mesh-primary trial rerun with local elbow/wrist/grip naturalization. HH fixed target (190,390), neutral static locks, audited HH/BD donors, fixed-drum composite and transition QA preserved. Runtime/formal image not overwritten; no second image modified.
