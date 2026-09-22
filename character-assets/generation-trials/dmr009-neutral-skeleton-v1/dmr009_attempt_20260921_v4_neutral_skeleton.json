@@ -27,12 +27,12 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "d558363d18fe2ffcf7395896238cf850228fb29f15e55bfc43d8b2227f36aa88",
+    "sha256": "af2ef0359d81cd22edc1095cdd5cf3d2fd814a377347f4927632155929401c8d",
     "method": "rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
-    "changedPixels": 45069,
+    "changedPixels": 45975,
     "changedBBox": [
-      187,
-      334,
+      177,
+      333,
       760,
       985
     ],
@@ -65,44 +65,44 @@
         352
       ],
       "activeUpperArmMid": [
-        574,
-        381
+        579,
+        383.5
       ],
       "activeElbow": [
-        500,
-        410
+        510,
+        415
       ],
       "activeForearmMid": [
-        448.5,
-        417.5
+        465,
+        422.5
       ],
       "activeWrist": [
-        397,
-        425
+        420,
+        430
       ],
       "palmCenter": [
-        385,
-        423
+        397,
+        426
       ],
       "thumbBase": [
-        383,
-        414
+        393,
+        417
       ],
       "thumbTip": [
-        372,
-        410
+        380,
+        413
       ],
       "indexBase": [
-        386,
-        427
+        394,
+        431
       ],
       "indexTip": [
-        376,
-        432
+        382,
+        435
       ],
       "middleBase": [
-        389,
-        432
+        397,
+        435
       ],
       "activeGrip": [
         374,
@@ -181,7 +181,7 @@
       1058
     ],
     "fullAlphaBBoxCandidate": [
-      188,
+      178,
       28,
       1062,
       1058
@@ -196,13 +196,13 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 158.96,
-      "elbowToWrist": 104.09,
-      "wristToGrip": 23.35,
+      "shoulderToElbow": 151.7,
+      "elbowToWrist": 91.24,
+      "wristToGrip": 46.87,
       "gripToContact": 186.59
     },
-    "elbowAngleDeg": 166.89,
-    "wristDeviationDeg": 18.15,
+    "elbowAngleDeg": 164.92,
+    "wristDeviationDeg": 20.53,
     "photoReferenceConstraints": {
       "handBackVisibility": "REQUIRED",
       "thumbVisibilityNearSide": "REQUIRED",
@@ -244,12 +244,12 @@
     "rigidRod": {
       "required": true,
       "stickAxisAngleDeg": -170.44,
-      "wristToGripAxisAngleDeg": -170.13,
-      "wristGripVsStickAxisDeltaDeg": 0.31,
+      "wristToGripAxisAngleDeg": -168.93,
+      "wristGripVsStickAxisDeltaDeg": 1.51,
       "maxAxisDeltaDeg": 15.0,
-      "pixelCount": 1767,
-      "axisCenterOffsetPx": 4.94,
-      "straightnessResidualP95Px": 5.55,
+      "pixelCount": 2161,
+      "axisCenterOffsetPx": -2.04,
+      "straightnessResidualP95Px": 6.88,
       "continuityRatio": 1.0,
       "straightnessMaxResidualP95Px": 8.0,
       "continuityMinRatio": 0.94,
@@ -262,10 +262,10 @@
     "sourceContactDistancePx": 171.72,
     "contactMeasuredPixel": [
       190,
-      389
+      390
     ],
-    "contactDistancePx": 1.0,
-    "contactEllipseScore": 0.0016,
+    "contactDistancePx": 0.0,
+    "contactEllipseScore": 0.0,
     "result": "PASS"
   },
   "fixedDrumComposite": {
