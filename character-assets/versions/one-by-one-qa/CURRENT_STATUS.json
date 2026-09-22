@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-21T21:00:00+09:00",
+  "updatedAt": "2026-09-22T11:08:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
@@ -14,29 +14,37 @@
     "parentSet": "PRE15_BASELINE_MERGED_WITH_AI_PASS",
     "parentSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
-    "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
-    "finalStatus": "HOLD_HIT_QA",
+    "attemptQa": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_donor_qa.json",
+    "reviewQa": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_retry20_review.json",
+    "finalStatus": "HOLD_VISUAL_QA",
     "promotionBlocked": true,
     "secondaryHold": null,
     "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json",
-    "visualQaRecord": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_visual_qa_v2.json",
+    "visualQaRecord": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_retry20_review.json",
     "formalPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
     "formalSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c"
   },
   "resultSummary": {
     "oneCandidateCreated": true,
-    "candidateSha256": "c274c7c783feb19d7a5d73e0418463cdfe91cf67a026661e81e13ffd37c775a6",
+    "candidatePath": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF.png",
+    "candidateSha256": "6f114dda7f19c7e413642bacce40b2f0b10e507d9da87f419d57de81c98b9fd0",
+    "candidateCommit": "c2c289dde0187f630d43d45356638f3089ed8547",
+    "method": "DIRECT_COMPLETED_HH_PARENT_PLUS_BD_RF_LOWER_ONLY",
+    "approvedHhParentPreserved": true,
+    "upperBodyHhActionModified": false,
+    "secondaryOverlayChangedPixels": 77804,
+    "secondaryOverlayChangedBBox": [498, 758, 781, 1031],
     "registrationPassed": true,
-    "contactPassed": true,
+    "contactPassed": "INHERITED_FROM_AUDITED_HH_PARENT",
     "selectedContactType": "SOURCE_STYLE_CONTACT",
-    "lineworkPassed": true,
-    "compositeContactPassed": true,
-    "transitionPassed": true,
+    "lineworkPassed": "INHERITED_FOR_HH_ACTION",
+    "compositeContactPassed": "PENDING_FRESH_VISUAL_REVIEW",
+    "transitionPassed": "PENDING_EXACT_CANDIDATE_RECHECK",
     "formalImageOverwritten": false,
     "advancedToSecondImage": false,
-    "visualQaPassed": true,
-    "verified": true,
-    "rigidStickPassed": false
+    "visualQaPassed": false,
+    "verified": false,
+    "rigidStickPassed": "INHERITED_FROM_AUDITED_HH_PARENT_NOT_FRESHLY_REMEASURED"
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,
@@ -45,7 +53,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run.",
+  "nextAction": "Remain on DMR-009 hit. Visually inspect the exact retry20 candidate and fixed-drum composite at full resolution; verify the lower BD overlay introduces no seam/slab/anatomy regression; recheck exact-candidate transition. Promote formal hit only if all gates pass. Do not edit rebound or advance to another image.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",
