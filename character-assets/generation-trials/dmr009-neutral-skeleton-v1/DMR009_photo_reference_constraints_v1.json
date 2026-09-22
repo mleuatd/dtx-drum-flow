@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "issueId": "DMR-009",
+  "phase": "hit",
+  "purpose": "Extract structure only from the user reference and drive existing source-style donor pixels through bone-local transforms. This file is not an art-style source.",
+  "reference": {
+    "title": "右手ハイハット打点ポーズ参考図",
+    "libraryFile": "右手ハイハット打点ポーズ参考図.png",
+    "referenceCanvasPx": [1536, 1024],
+    "role": "STRUCTURE_ONLY",
+    "confidence": "MEDIUM",
+    "notes": [
+      "Thumb must remain on the near/front side of the right hand.",
+      "Back of the right hand must remain readable.",
+      "Other fingers wrap around the far side of the stick.",
+      "Forearm, wrist, grip and stick must read as one continuous chain.",
+      "Stick must read as one straight axis.",
+      "Only the right HH arm is structurally corrected; style remains from repository donors."
+    ]
+  },
+  "referencePanelLandmarksPx": {
+    "shoulder": [1440, 530],
+    "upper_arm_mid": [1373, 555],
+    "elbow": [1325, 572],
+    "forearm_mid": [1294, 582],
+    "wrist": [1265, 592],
+    "palm_center": [1237, 603],
+    "grip_center": [1219, 611]
+  },
+  "referenceDerivedGeometry": {
+    "shoulderToElbowAngleDegScreen": 159.9,
+    "elbowToWristAngleDegScreen": 161.6,
+    "wristToGripAngleDegScreen": 157.6,
+    "qualitativeStickAxis": "leftward and slightly upward from grip to HH contact",
+    "elbow": "near-extended but not reverse-bent",
+    "wrist": "near-straight continuation of forearm"
+  },
+  "targetLandmarksPx": {
+    "shoulder": [648, 352],
+    "upper_arm_mid": [574, 377],
+    "elbow": [500, 402],
+    "forearm_mid": [448, 409],
+    "wrist": [397, 416],
+    "palm_center": [385, 420],
+    "thumb_base": [383, 411],
+    "thumb_tip": [372, 407],
+    "index_base": [386, 425],
+    "index_tip": [376, 430],
+    "middle_base": [389, 430],
+    "grip_center": [374, 421],
+    "stick_rear": [416, 428],
+    "stick_front": [280, 405],
+    "stick_tip": [190, 390],
+    "hh_contact": [190, 390]
+  },
+  "constraints": {
+    "activeSemanticLimb": "R",
+    "activeVisualChain": "screen-left/shoulderL",
+    "stickAxisAngleDeg": -170.44,
+    "stickAxisToleranceDeg": 12.0,
+    "forearmAngleDeg": 172.26,
+    "wristDeviationMaxAbsDeg": 15.0,
+    "gripOffsetPx": 23.54,
+    "handBackVisibility": "REQUIRED",
+    "thumbVisibilityNearSide": "REQUIRED",
+    "fingerWrapFarSide": "REQUIRED",
+    "forearmWristGripStickContinuity": "HARD_PASS",
+    "stickStraightness": "HARD_PASS",
+    "hhFixedContact": [190, 390],
+    "hhContactToleranceEllipsePx": [55, 25],
+    "rectangularSpliceAllowed": false,
+    "broadOpaqueDonorMaskAllowed": false,
+    "sourceStylePixelsRequired": true
+  },
+  "targetGeometry": {
+    "shoulderToElbowPx": 156.22,
+    "elbowToWristPx": 103.95,
+    "wristToGripPx": 23.54,
+    "gripToStickTipPx": 186.59,
+    "elbowAngleDeg": 169.07,
+    "wristDeviationDeg": 4.52
+  },
+  "visualQaRequired": [
+    "right shoulder to upper arm continuous",
+    "elbow anatomically plausible",
+    "forearm thickness natural",
+    "wrist not twisted",
+    "thumb on near/front side for a right-hand grip",
+    "back of hand readable",
+    "finger count and wrap plausible",
+    "single uninterrupted stick axis",
+    "stick does not pierce palm",
+    "HH contact visually credible",
+    "cross-hand posture reads naturally",
+    "no donor slab or rectangular splice",
+    "fixed drum unchanged",
+    "source linework/style preserved"
+  ]
+}
