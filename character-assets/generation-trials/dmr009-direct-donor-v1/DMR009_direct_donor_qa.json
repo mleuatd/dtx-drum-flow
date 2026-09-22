@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "issueId": "DMR-009",
   "phase": "hit",
   "primaryAction": "Right Hand -> HH -> HIT",
@@ -8,7 +8,7 @@
   "primaryParent": {
     "path": "character-assets/layers/character/hh/hit_r.png",
     "sha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
-    "pixelsModifiedBySecondaryOverlay": 77804
+    "auditStatus": "PASS_FROM_EXISTING_REPOSITORY_RECORD"
   },
   "secondaryDonor": {
     "path": "character-assets/layers/character/bd/hit_rf.png",
@@ -18,11 +18,13 @@
       760,
       780,
       1030
-    ]
+    ],
+    "ownership": "BD_VS_NEUTRAL_MOTION_PIXELS_DILATED_2PX"
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF.png",
     "sha256": "6f114dda7f19c7e413642bacce40b2f0b10e507d9da87f419d57de81c98b9fd0",
+    "changedPixelsFromHH": 77802,
     "changedBBoxFromHH": [
       498,
       758,
@@ -30,11 +32,35 @@
       1031
     ]
   },
+  "numericQa": {
+    "upperBodyChangedPixelsYlt758": 0,
+    "hhArmContactZoneChangedPixels": 0,
+    "outsideAllowedLowerCorridorChangedPixels": 0,
+    "upperBodyHhActionByteIdentical": true,
+    "hhArmContactZoneByteIdentical": true,
+    "lowerCorridorOnly": true,
+    "result": "PASS"
+  },
   "fixedDrumComposite": {
     "path": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_direct_HH_parent_plus_BD_RF_fixed_drum.png",
     "sha256": "a9991bce1dc8d47331b3fd84eb43692fe56e138a669efbf0d9982b49038e5117"
   },
+  "transitionEvidence": {
+    "path": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_retry20_transition_fixed_drum.png",
+    "sequence": [
+      "neutral",
+      "retry20_hit",
+      "existing_rebound_READ_ONLY",
+      "neutral"
+    ],
+    "pairedReboundPath": "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
+    "pairedReboundSha256": "cd33610f79643b80222a250410eeaf2207be7d1014baa2f8847c9e611ba2ac6b",
+    "pairedReboundModified": false
+  },
+  "visualReviewEvidence": {
+    "hhArmContactCrop": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_retry20_hh_arm_contact_crop.png",
+    "visualQaStatus": "PENDING_AI_VISUAL_QA"
+  },
   "formalPromotion": false,
-  "visualQaStatus": "PENDING_AI_VISUAL_QA",
   "hardRequirement": "If the character's own right hand does not clearly strike HH at impact, FAIL regardless of all other checks."
 }
