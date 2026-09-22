@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T11:02:00+09:00",
+  "requestedAt": "2026-09-22T11:11:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -24,9 +24,9 @@
     "approved HH right-arm/hand/stick pixels"
   ],
   "outputPolicy": "candidate+fixed-drum composite+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 20,
-  "retryReason": "Execute the already-added direct HH-parent builder after retry 19 donor-first review. Preserve the approved HH:R hit parent unchanged in the upper body and add only the BD:RF lower active-foot motion pixels.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Use existing build_dmr009_direct_donor.py. Right-hand HH action is inherited from approved HH single donor without arm/stick reconstruction. Paired rebound READ_ONLY.",
+  "retry": 21,
+  "retryReason": "Regenerate the same direct HH-parent candidate with strengthened exact-diff numeric QA, fixed-drum contact crop, and neutral->hit->existing-rebound->neutral transition evidence. No geometry change to the approved HH parent; no formal promotion.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Execute existing direct-parent method and collect stronger QA evidence. Paired rebound READ_ONLY.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
