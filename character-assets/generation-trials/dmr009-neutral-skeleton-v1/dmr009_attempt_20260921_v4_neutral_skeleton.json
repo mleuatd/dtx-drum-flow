@@ -27,12 +27,12 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "af2ef0359d81cd22edc1095cdd5cf3d2fd814a377347f4927632155929401c8d",
+    "sha256": "42e901ebb5f1a19f20e02ca93988c5d3f5dcab771e658a53cd75ed703bd9efe0",
     "method": "rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
-    "changedPixels": 45975,
+    "changedPixels": 53984,
     "changedBBox": [
       177,
-      333,
+      330,
       760,
       985
     ],
@@ -247,9 +247,9 @@
       "wristToGripAxisAngleDeg": -168.93,
       "wristGripVsStickAxisDeltaDeg": 1.51,
       "maxAxisDeltaDeg": 15.0,
-      "pixelCount": 2161,
-      "axisCenterOffsetPx": -2.04,
-      "straightnessResidualP95Px": 6.88,
+      "pixelCount": 2200,
+      "axisCenterOffsetPx": -2.17,
+      "straightnessResidualP95Px": 7.06,
       "continuityRatio": 1.0,
       "straightnessMaxResidualP95Px": 8.0,
       "continuityMinRatio": 0.94,
