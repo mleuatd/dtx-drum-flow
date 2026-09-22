@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T12:14:00+09:00",
+  "requestedAt": "2026-09-22T12:18:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -28,9 +28,9 @@
     "unrelated limbs"
   ],
   "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 28,
-  "retryReason": "retry27 confirmed the corrected HH source landmarks but the HH arm itself remains a poor geometry donor for the extended photo-reference pose: the transformed sleeve becomes a narrow band with a large empty triangular region. Retry28 switches the entire active semantic right arm (upper arm, forearm, hand, stick) to one coherent existing GitHub donor: sn/hit_r.png, whose right arm is already extended and contiguous. Photo-reference target landmarks and fixed HH contact remain unchanged; no flip or new drawing.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. One coherent SN:R arm donor, photo structure only, fixed drum unchanged, paired rebound READ_ONLY, no formal promotion until visual QA.",
+  "retry": 29,
+  "retryReason": "retry28 used one coherent SN:R arm donor and improved continuity, but full-resolution visual QA found the opposite/inactive hand from the same SN source warped into an extra hand near the target elbow. Retry29 excludes only that source region [x600:676,y345:438] from upper/forearm donor ownership while preserving the semantic right-arm/hand/stick donor and all target geometry.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Local donor ownership exclusion only; no rebound edit, no formal promotion until visual QA.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
