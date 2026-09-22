@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T11:11:00+09:00",
+  "requestedAt": "2026-09-22T11:39:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -11,9 +11,11 @@
     "y": 390
   },
   "structuralBase": "character-assets/layers/character/base/neutral.png",
+  "structureReference": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_photo_reference_constraints_v1.json",
   "donorPolicy": {
     "hh": "character-assets/layers/character/hh/hit_r.png",
-    "bd": "character-assets/layers/character/bd/hit_rf.png"
+    "bd": "character-assets/layers/character/bd/hit_rf.png",
+    "rule": "use repository donor pixels for style/linework; use photo-reference JSON only for geometry"
   },
   "doNotModify": [
     "fixed drum",
@@ -21,23 +23,30 @@
     "stool",
     "paired rebound",
     "any second image",
-    "approved HH right-arm/hand/stick pixels"
+    "face",
+    "hair",
+    "unrelated limbs"
   ],
-  "outputPolicy": "candidate+fixed-drum composite+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 21,
-  "retryReason": "Regenerate the same direct HH-parent candidate with strengthened exact-diff numeric QA, fixed-drum contact crop, and neutral->hit->existing-rebound->neutral transition evidence. No geometry change to the approved HH parent; no formal promotion.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Execute existing direct-parent method and collect stronger QA evidence. Paired rebound READ_ONLY.",
+  "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
+  "retry": 22,
+  "retryReason": "retry21 exact image was inspected at full resolution and failed visual QA: the semantic right HH arm remained folded near the torso instead of extending toward HH, and the grip/back-of-hand/thumb relationship did not match the supplied right-hand structural reference. Keep the same issue and use the existing bone-local donor transform driven by the new photo-reference constraint JSON.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. No text-to-image. Preserve source style pixels, transform upper arm/forearm/hand/stick locally, keep HH contact fixed, paired rebound READ_ONLY.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
   "aiVisualQaChecks": [
     "right shoulder to upper arm is continuous",
-    "forearm to wrist to hand is continuous",
-    "thumb and back-of-hand orientation remain natural from approved HH parent",
-    "stick is one continuous source-style shaft",
+    "semantic right arm visibly extends toward HH",
+    "forearm to wrist to hand to grip to stick is one chain",
+    "thumb is on the near/front side for a right-hand grip",
+    "back of right hand remains readable",
+    "other fingers wrap the far side plausibly",
+    "wrist is near-straight and not unnaturally folded",
+    "stick is one straight uninterrupted source-style shaft",
+    "stick does not pierce or double through the hand",
     "HH strike reads naturally on fixed drum",
-    "BD overlay changes only lower active-foot region",
+    "BD overlay remains lower-body only",
     "no rectangular donor slab or white artifact",
-    "whole-image visual naturalness"
+    "whole-image source style remains consistent"
   ]
 }
