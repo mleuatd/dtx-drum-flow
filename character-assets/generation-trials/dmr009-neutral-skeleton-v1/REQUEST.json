@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T12:18:00+09:00",
+  "requestedAt": "2026-09-22T12:23:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -28,9 +28,9 @@
     "unrelated limbs"
   ],
   "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 29,
-  "retryReason": "retry28 used one coherent SN:R arm donor and improved continuity, but full-resolution visual QA found the opposite/inactive hand from the same SN source warped into an extra hand near the target elbow. Retry29 excludes only that source region [x600:676,y345:438] from upper/forearm donor ownership while preserving the semantic right-arm/hand/stick donor and all target geometry.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Local donor ownership exclusion only; no rebound edit, no formal promotion until visual QA.",
+  "retry": 30,
+  "retryReason": "retry29 still showed malformed elbow-area contamination. Retry30 replaces the rectangular exclusion with a traced polygon ownership mask around only the semantic-right SN arm silhouette, then applies the existing local affine upper-arm/forearm/hand transforms. Opposite hand, torso and hair are excluded before warping. Photo-reference target geometry and fixed HH contact are unchanged.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Traced donor ownership only; no new drawing, no rebound edit, no formal promotion until visual QA.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
