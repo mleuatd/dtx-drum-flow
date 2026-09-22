@@ -27,11 +27,11 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "7ae9f2c2e464584c9ba91d2906024d608c5825b826c834f266d3d7bd6fdb9f03",
+    "sha256": "7787d630272d0c1c3754b51ef13d94da77942722e678f3c8da4026a74ffb8d73",
     "method": "rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
-    "changedPixels": 45397,
+    "changedPixels": 49825,
     "changedBBox": [
-      177,
+      172,
       330,
       760,
       985
@@ -181,7 +181,7 @@
       1058
     ],
     "fullAlphaBBoxCandidate": [
-      178,
+      174,
       28,
       1062,
       1058
@@ -240,17 +240,17 @@
       194.25
     ],
     "lengthErrorPercent": 0.86,
-    "sourceStyle": "approved HH donor pixels; one affine rigid shaft segment",
+    "sourceStyle": "single coherent SN:R right-arm/hand/stick donor; local affine segments; no flip; photo reference supplies target geometry only",
     "rigidRod": {
       "required": true,
       "stickAxisAngleDeg": -170.44,
       "wristToGripAxisAngleDeg": -168.93,
       "wristGripVsStickAxisDeltaDeg": 1.51,
       "maxAxisDeltaDeg": 15.0,
-      "pixelCount": 2200,
-      "axisCenterOffsetPx": -2.17,
-      "straightnessResidualP95Px": 7.06,
-      "continuityRatio": 1.0,
+      "pixelCount": 1762,
+      "axisCenterOffsetPx": -5.43,
+      "straightnessResidualP95Px": 7.3,
+      "continuityRatio": 0.9722,
       "straightnessMaxResidualP95Px": 8.0,
       "continuityMinRatio": 0.94,
       "result": "PASS"
@@ -261,11 +261,11 @@
     ],
     "sourceContactDistancePx": 171.72,
     "contactMeasuredPixel": [
-      190,
-      390
+      187,
+      386
     ],
-    "contactDistancePx": 0.0,
-    "contactEllipseScore": 0.0,
+    "contactDistancePx": 5.0,
+    "contactEllipseScore": 0.0286,
     "result": "PASS"
   },
   "fixedDrumComposite": {
