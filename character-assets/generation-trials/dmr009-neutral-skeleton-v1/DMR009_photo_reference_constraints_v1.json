@@ -65,44 +65,44 @@
       352
     ],
     "upper_arm_mid": [
-      574,
-      381
+      579,
+      383.5
     ],
     "elbow": [
-      500,
-      410
+      510,
+      415
     ],
     "forearm_mid": [
-      448.5,
-      417.5
+      465,
+      422.5
     ],
     "wrist": [
-      397,
-      425
+      420,
+      430
     ],
     "palm_center": [
-      385,
-      423
+      397,
+      426
     ],
     "thumb_base": [
-      383,
-      414
+      393,
+      417
     ],
     "thumb_tip": [
-      372,
-      410
+      380,
+      413
     ],
     "index_base": [
-      386,
-      427
+      394,
+      431
     ],
     "index_tip": [
-      376,
-      432
+      382,
+      435
     ],
     "middle_base": [
-      389,
-      432
+      397,
+      435
     ],
     "grip_center": [
       374,
@@ -148,15 +148,20 @@
     ],
     "rectangularSpliceAllowed": false,
     "broadOpaqueDonorMaskAllowed": false,
-    "sourceStylePixelsRequired": true
+    "sourceStylePixelsRequired": true,
+    "handToGripAllowedPx": [
+      35,
+      60
+    ],
+    "handDonorPreferred": "character-assets/layers/character/sn/hit_r.png lower screen-left/right-hand grip"
   },
   "targetGeometry": {
-    "shoulderToElbowPx": 158.96,
-    "elbowToWristPx": 104.09,
-    "wristToGripPx": 23.35,
+    "shoulderToElbowPx": 151.7,
+    "elbowToWristPx": 91.24,
+    "wristToGripPx": 46.87,
     "gripToStickTipPx": 186.59,
-    "elbowAngleDeg": 166.89,
-    "wristDeviationDeg": 18.15
+    "elbowAngleDeg": 164.92,
+    "wristDeviationDeg": 20.53
   },
   "visualQaRequired": [
     "right shoulder to upper arm continuous",
@@ -174,5 +179,5 @@
     "fixed drum unchanged",
     "source linework/style preserved"
   ],
-  "revisionNote": "retry23: wrist moved onto the stick-support axis and elbow softened; target hand/stick chain is now numerically collinear enough for rigid-rod QA while preserving the photo-reference extended posture."
+  "revisionNote": "retry25: match the supplied photo-reference hand scale (wrist-to-grip about 47 px) and use the repository SN:R lower hand+stick donor, whose source grip/stick axis is already close to the reference direction."
 }
