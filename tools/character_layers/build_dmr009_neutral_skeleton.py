@@ -215,7 +215,9 @@ def main():
     chain=photo["targetLandmarksPx"]
     shoulder=chain["shoulder"]; elbow=chain["elbow"]; wrist=chain["wrist"]; grip=chain["grip_center"]
     # Donor-true HH chain from the accepted single-HH source.
-    source_shoulder=[620,375]; source_elbow=[565,475]; source_wrist=[490,455]; source_grip=[442,421]
+    # Correct active HH:R source chain measured from the actual upper arm in hit_r.png.
+    # Earlier values drifted into the lower/inactive arm and caused doubled sleeves.
+    source_shoulder=[620,365]; source_elbow=[565,430]; source_wrist=[486,425]; source_grip=[442,421]
     source_neutral_elbow=[565,490]; source_neutral_wrist=[500,490]; source_neutral_hand=[492,486]
 
     clear_img=Image.new("L",(candidate.shape[1],candidate.shape[0]),0)
@@ -232,8 +234,8 @@ def main():
     # capsules.  The previous motion-difference-only ownership punched a large
     # transparent triangle through the extended sleeve.  Capsule ownership is
     # still local (not rectangular), so torso/background slabs are excluded.
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,94) & source_alpha
-    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,104) & source_alpha
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,72) & source_alpha
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,84) & source_alpha
 
     # The HH donor supplies the arm/style, while the lower screen-left hand in
     # SN:R supplies a cleaner right-hand grip topology.  No horizontal flip.
@@ -242,8 +244,8 @@ def main():
     src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_wrist,sn_grip,78) & sn_alpha
     src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_grip,sn_tip,28) & sn_alpha
 
-    upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.06)
-    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.06)
+    upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
+    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
     hand_layer=warp_segment(snhanddonor,src_hand,sn_wrist,sn_grip,wrist,grip,1.0)
     # Hand and shaft share the exact target grip anchor; this avoids a floating
     # stick or a hand/stick topology break.
