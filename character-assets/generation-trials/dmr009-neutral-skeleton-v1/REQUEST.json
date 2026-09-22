@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T11:39:00+09:00",
+  "requestedAt": "2026-09-22T11:49:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -28,9 +28,9 @@
     "unrelated limbs"
   ],
   "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 22,
-  "retryReason": "retry21 exact image was inspected at full resolution and failed visual QA: the semantic right HH arm remained folded near the torso instead of extending toward HH, and the grip/back-of-hand/thumb relationship did not match the supplied right-hand structural reference. Keep the same issue and use the existing bone-local donor transform driven by the new photo-reference constraint JSON.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. No text-to-image. Preserve source style pixels, transform upper arm/forearm/hand/stick locally, keep HH contact fixed, paired rebound READ_ONLY.",
+  "retry": 23,
+  "retryReason": "retry22 extended the semantic right arm toward HH, but exact full-resolution visual QA still failed: active-arm segment seams/white cutout were visible and the character layer contained a broad opaque white lower-body slab. Numerically, rigid-stick QA also failed because wrist-to-grip axis differed from the stick axis by 21.82 deg. Retry23 keeps the same photo-reference method, aligns wrist/grip to the stick-support axis, overlaps motion-owned limb capsules to remove seams, and restricts BD donor transfer to linework neighborhoods.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Existing donor pixels only. Photo reference supplies geometry only. No rebound edit and no formal promotion.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
