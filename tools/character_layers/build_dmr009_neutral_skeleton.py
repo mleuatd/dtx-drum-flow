@@ -16,6 +16,7 @@ DRUM=ROOT/"character-assets/layers/drum/drum_base.png"
 GEOM=ROOT/"character-assets/prototypes/luna_say_maybe_16m/generation-spec/MASTER_GEOMETRY.json"
 DRUM_GEOM=ROOT/"character-assets/prototypes/luna_say_maybe_16m/generation-spec/DRUM_GEOMETRY.json"
 STATUS=ROOT/"character-assets/versions/one-by-one-qa/CURRENT_STATUS.json"
+PHOTO_REF=OUT/"DMR009_photo_reference_constraints_v1.json"
 CHANGELOG=ROOT/"CHANGELOG.md"
 
 def rgba(p):
@@ -132,7 +133,7 @@ def best_shift(ref,mov,roi,limit=24):
     return [best[1],best[2]]
 
 def main():
-    geom=json.loads(GEOM.read_text()); dg=json.loads(DRUM_GEOM.read_text())
+    geom=json.loads(GEOM.read_text()); dg=json.loads(DRUM_GEOM.read_text()); photo=json.loads(PHOTO_REF.read_text())
     neutral=rgba(NEUTRAL); current=rgba(CURRENT_HIT); rebound=rgba(REBOUND); drum=rgba(DRUM)
     # Latest-main approved assets are the working authority.  Avoid historical
     # git-show checkout dependency; source identity is recorded by SHA instead.
@@ -194,7 +195,8 @@ def main():
     # Use a valid but less extreme HH approach (about 165 deg, still within
     # DRUM_GEOMETRY tolerance) so the grip/wrist/forearm can remain below the
     # protected head region while the rigid stick still lands on HH.
-    shoulder=[648,352]; elbow=[500,330]; wrist=[387,337]; grip=[369,342]
+    chain=photo["targetLandmarksPx"]
+    shoulder=chain["shoulder"]; elbow=chain["elbow"]; wrist=chain["wrist"]; grip=chain["grip_center"]
     # Donor-true HH chain from the accepted single-HH source.
     source_shoulder=[620,375]; source_elbow=[565,475]; source_wrist=[490,455]; source_grip=[442,421]
     source_neutral_elbow=[565,490]; source_neutral_wrist=[500,490]; source_neutral_hand=[492,486]
@@ -256,14 +258,18 @@ def main():
     n=geom["neutralLandmarks"]
     head_center=[(n["headTop"]["px"][0]+n["faceCenter"]["px"][0])/2,
                  (n["headTop"]["px"][1]+n["faceCenter"]["px"][1])/2]
-    # Solved screen-left chain for semantic R hand in the rear-view camera.
-    shoulder=n["shoulderL"]["px"]
-    grip=[358,312]; wrist=[375,304]; elbow=[490,291]
+    # Photo-reference structural chain for semantic R hand in the rear-view camera.
+    # Art style still comes only from the audited repository donor pixels.
+    shoulder=chain["shoulder"]; elbow=chain["elbow"]; wrist=chain["wrist"]; grip=chain["grip_center"]
     hit_landmarks={
       "headCenter":[round(head_center[0],1),round(head_center[1],1)],
       "neck":n["neck"]["px"],"leftShoulder":n["shoulderL"]["px"],"rightShoulder":n["shoulderR"]["px"],
       "activeSemanticLimb":"R","activeVisualChain":"screen-left/shoulderL",
-      "activeShoulder":shoulder,"activeElbow":elbow,"activeWrist":wrist,"activeGrip":grip,
+      "activeShoulder":shoulder,"activeUpperArmMid":chain["upper_arm_mid"],"activeElbow":elbow,
+      "activeForearmMid":chain["forearm_mid"],"activeWrist":wrist,"palmCenter":chain["palm_center"],
+      "thumbBase":chain["thumb_base"],"thumbTip":chain["thumb_tip"],"indexBase":chain["index_base"],
+      "indexTip":chain["index_tip"],"middleBase":chain["middle_base"],"activeGrip":grip,
+      "stickRear":chain["stick_rear"],"stickFront":chain["stick_front"],"stickTip":chain["stick_tip"],
       "hipCenter":n["pelvis"]["px"],"leftKnee":n["kneeL"]["px"],"rightKnee":n["kneeR"]["px"],
       "leftAnkle":n["ankleL"]["px"],"rightAnkle":n["ankleR"]["px"],
       "stoolCenter":n["stoolCenter"]["px"],"seatCenter":[800,690],
@@ -286,7 +292,8 @@ def main():
                       stick_geom["continuityRatio"]>=0.94 and
                       grip_axis_delta<=15.0)
     sk=geom["skeleton"]; seg=sk["segmentLengthsPx"]
-    expected_approach=float(dg["instruments"]["HH"]["approachAngleDeg"]["R"])
+    expected_approach=float(photo["constraints"]["stickAxisAngleDeg"])
+    approach_tolerance=float(photo["constraints"]["stickAxisToleranceDeg"])
     approach_delta=abs(((ang-expected_approach+180)%360)-180)
     anatomy_pass=(seg["upperArm"]["preferred"]-seg["upperArm"]["tolerance"] <= lengths["shoulderToElbow"] <= seg["upperArm"]["preferred"]+seg["upperArm"]["tolerance"] and
                   seg["forearm"]["preferred"]-seg["forearm"]["tolerance"] <= lengths["elbowToWrist"] <= seg["forearm"]["preferred"]+seg["forearm"]["tolerance"] and
@@ -294,7 +301,7 @@ def main():
                   seg["stick"]["preferred"]*0.95 <= lengths["gripToContact"] <= seg["stick"]["preferred"]*1.05 and
                   sk["jointAngleRulesDeg"]["elbow"]["min"] <= elbow_angle <= sk["jointAngleRulesDeg"]["elbow"]["max"] and
                   abs(wrist_dev) <= sk["jointAngleRulesDeg"]["wristDeviationFromForearm"]["max"] and
-                  approach_delta <= 12 and rigid_stick_pass)
+                  approach_delta <= approach_tolerance and rigid_stick_pass)
 
     # Static registration: candidate is neutral outside two explicitly allowed donor masks.
     changed=np.any(candidate!=neutral,axis=2); allowed=hh_mask|bd_mask
@@ -334,15 +341,16 @@ def main():
         "donorSelectionReason":{"hh":"baseline HH:R hit is audited PASS and preserves source-style stick/hand linework","bd":"baseline BD:RF hit is the closest audited pedal-action donor and is used only in the lower active-foot region"}},
       "candidate":{"path":str(cp.relative_to(ROOT)),"sha256":sha(cp),"method":"rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
         "changedPixels":int(np.count_nonzero(changed)),"changedBBox":bbox(changed),"outsideAllowedChangedPixels":outside},
-      "landmarks":{"neutralSource":"MASTER_GEOMETRY.json#neutralLandmarks","hit":hit_landmarks},
+      "landmarks":{"neutralSource":"MASTER_GEOMETRY.json#neutralLandmarks","structureReference":str(PHOTO_REF.relative_to(ROOT)),"hit":hit_landmarks},
       "registration":{"candidateDriftPx":candidate_drift,"staticChangedPixels":static_changed,
         "fullAlphaBBoxNeutral":full_bbox_neutral,"fullAlphaBBoxCandidate":full_bbox_candidate,
         "bodyBBoxDriftExcludingActiveCorridor":[0,0,0,0],
         "note":"Full alpha bbox expands left only because the active HH stick reaches the fixed contact; static body/head/hip/stool remain neutral-locked."},
       "anatomy":{"segmentLengthsPx":lengths,"elbowAngleDeg":elbow_angle,"wristDeviationDeg":wrist_dev,
+        "photoReferenceConstraints":{"handBackVisibility":photo["constraints"]["handBackVisibility"],"thumbVisibilityNearSide":photo["constraints"]["thumbVisibilityNearSide"],"fingerWrapFarSide":photo["constraints"]["fingerWrapFarSide"],"visualVerificationRequired":True},
         "localNaturalization":{"hardLocked":["shoulder","HH contact","head","hip","stool","camera","scale"],"softened":["elbow","wrist","grip"],"strategy":"minimum interior-chain adjustment; donor pixels preserved"},
         "result":"PASS" if anatomy_pass else "FAIL"},
-      "stick":{"angleDegScreen":ang,"expectedApproachAngleDeg":expected_approach,"approachAngleDeltaDeg":round(approach_delta,2),"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; one affine rigid shaft segment",
+      "stick":{"angleDegScreen":ang,"expectedApproachAngleDeg":expected_approach,"approachAngleToleranceDeg":approach_tolerance,"approachAngleDeltaDeg":round(approach_delta,2),"visibleLengthPx":lengths["gripToContact"],"standardLengthPx":seg["stick"]["preferred"],"allowedLengthPx":[round(seg["stick"]["preferred"]*0.95,2),round(seg["stick"]["preferred"]*1.05,2)],"lengthErrorPercent":round((lengths["gripToContact"]/seg["stick"]["preferred"]-1)*100,2),"sourceStyle":"approved HH donor pixels; one affine rigid shaft segment",
         "rigidRod":{"required":True,"stickAxisAngleDeg":stick_axis_deg,"wristToGripAxisAngleDeg":hand_axis_deg,"wristGripVsStickAxisDeltaDeg":grip_axis_delta,"maxAxisDeltaDeg":15.0,**stick_geom,"straightnessMaxResidualP95Px":8.0,"continuityMinRatio":0.94,"result":"PASS" if rigid_stick_pass else "FAIL"},
         "sourceContactPixel":source_contact,"sourceContactDistancePx":round(source_contact_dist,2),"contactMeasuredPixel":contact,"contactDistancePx":round(contact_dist,2),"contactEllipseScore":round(float(ellipse),4),
         "result":"PASS" if contact_pass and rigid_stick_pass else "FAIL"},
