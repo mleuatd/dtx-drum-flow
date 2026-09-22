@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T12:04:00+09:00",
+  "requestedAt": "2026-09-22T12:09:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -28,9 +28,9 @@
     "unrelated limbs"
   ],
   "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 26,
-  "retryReason": "retry25 numeric QA passed and the SN:R right-hand/stick donor improved the grip, but full-resolution visual QA found a large transparent triangular hole inside the active right sleeve. Retry26 preserves the same target geometry and hand+stick donor, changes only donor ownership: full opaque source pixels within local limb capsules replace motion-difference-only ownership, and clear-mask dilation is reduced. No rectangular splice.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Preserve retry25 hand+stick, fix active-arm transparency only. No rebound edit, no formal promotion until visual QA.",
+  "retry": 27,
+  "retryReason": "retry26 reduced the large transparent sleeve hole but full-resolution review still showed doubled/misaligned sleeve fragments. Source-image inspection identified the cause: previous HH source elbow/wrist landmarks were sampling the lower/inactive arm. Retry27 corrects the active HH:R source chain to shoulder [620,365], elbow [565,430], wrist [486,425], grip [442,421], narrows arm capsules, and preserves the retry25 SN:R hand+stick donor and photo-reference target geometry.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Correct source landmark selection only; no rebound edit and no formal promotion until visual QA.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
