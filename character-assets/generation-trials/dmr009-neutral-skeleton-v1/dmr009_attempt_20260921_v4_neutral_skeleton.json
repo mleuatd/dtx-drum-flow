@@ -27,12 +27,12 @@
   },
   "candidate": {
     "path": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_bd_hh_rf_r_hit_candidate_neutral_skeleton_v1.png",
-    "sha256": "c274c7c783feb19d7a5d73e0418463cdfe91cf67a026661e81e13ffd37c775a6",
+    "sha256": "244cc10f58ba86281158ed5d2b71c51ac2ae9cd50cc1ca310cddfcf6d7281d7e",
     "method": "rigid-stick-first bone-local donor transform: upper arm + forearm + hand + straight stick; donor ownership limited to donor-vs-neutral motion pixels; explicit static locks",
-    "changedPixels": 70724,
+    "changedPixels": 71553,
     "changedBBox": [
-      186,
-      289,
+      187,
+      330,
       761,
       986
     ],
@@ -40,6 +40,7 @@
   },
   "landmarks": {
     "neutralSource": "MASTER_GEOMETRY.json#neutralLandmarks",
+    "structureReference": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_photo_reference_constraints_v1.json",
     "hit": {
       "headCenter": [
         681.0,
@@ -63,17 +64,61 @@
         648,
         352
       ],
+      "activeUpperArmMid": [
+        574,
+        377
+      ],
       "activeElbow": [
-        490,
-        291
+        500,
+        402
+      ],
+      "activeForearmMid": [
+        448,
+        409
       ],
       "activeWrist": [
-        375,
-        304
+        397,
+        416
+      ],
+      "palmCenter": [
+        385,
+        420
+      ],
+      "thumbBase": [
+        383,
+        411
+      ],
+      "thumbTip": [
+        372,
+        407
+      ],
+      "indexBase": [
+        386,
+        425
+      ],
+      "indexTip": [
+        376,
+        430
+      ],
+      "middleBase": [
+        389,
+        430
       ],
       "activeGrip": [
-        358,
-        312
+        374,
+        421
+      ],
+      "stickRear": [
+        416,
+        428
+      ],
+      "stickFront": [
+        280,
+        405
+      ],
+      "stickTip": [
+        190,
+        390
       ],
       "hipCenter": [
         735,
@@ -136,7 +181,7 @@
       1058
     ],
     "fullAlphaBBoxCandidate": [
-      187,
+      188,
       28,
       1062,
       1058
@@ -151,13 +196,19 @@
   },
   "anatomy": {
     "segmentLengthsPx": {
-      "shoulderToElbow": 169.37,
-      "elbowToWrist": 115.73,
-      "wristToGrip": 18.79,
-      "gripToContact": 185.22
+      "shoulderToElbow": 156.22,
+      "elbowToWrist": 103.95,
+      "wristToGrip": 23.54,
+      "gripToContact": 186.59
     },
-    "elbowAngleDeg": 152.44,
-    "wristDeviationDeg": 18.75,
+    "elbowAngleDeg": 169.07,
+    "wristDeviationDeg": 4.52,
+    "photoReferenceConstraints": {
+      "handBackVisibility": "REQUIRED",
+      "thumbVisibilityNearSide": "REQUIRED",
+      "fingerWrapFarSide": "REQUIRED",
+      "visualVerificationRequired": true
+    },
     "localNaturalization": {
       "hardLocked": [
         "shoulder",
@@ -178,27 +229,28 @@
     "result": "FAIL"
   },
   "stick": {
-    "angleDegScreen": 155.1,
-    "expectedApproachAngleDeg": 155.0,
-    "approachAngleDeltaDeg": 0.1,
-    "visibleLengthPx": 185.22,
+    "angleDegScreen": -170.44,
+    "expectedApproachAngleDeg": -170.44,
+    "approachAngleToleranceDeg": 12.0,
+    "approachAngleDeltaDeg": 0.0,
+    "visibleLengthPx": 186.59,
     "standardLengthPx": 185,
     "allowedLengthPx": [
       175.75,
       194.25
     ],
-    "lengthErrorPercent": 0.12,
+    "lengthErrorPercent": 0.86,
     "sourceStyle": "approved HH donor pixels; one affine rigid shaft segment",
     "rigidRod": {
       "required": true,
-      "stickAxisAngleDeg": 155.1,
-      "wristToGripAxisAngleDeg": 154.8,
-      "wristGripVsStickAxisDeltaDeg": 0.3,
+      "stickAxisAngleDeg": -170.44,
+      "wristToGripAxisAngleDeg": 167.74,
+      "wristGripVsStickAxisDeltaDeg": 21.82,
       "maxAxisDeltaDeg": 15.0,
-      "pixelCount": 700,
-      "axisCenterOffsetPx": -5.23,
-      "straightnessResidualP95Px": 8.41,
-      "continuityRatio": 0.6944,
+      "pixelCount": 1166,
+      "axisCenterOffsetPx": 3.21,
+      "straightnessResidualP95Px": 3.63,
+      "continuityRatio": 1.0,
       "straightnessMaxResidualP95Px": 8.0,
       "continuityMinRatio": 0.94,
       "result": "FAIL"
