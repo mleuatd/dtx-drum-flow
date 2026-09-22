@@ -211,22 +211,22 @@ def main():
     candidate[clear_mask]=0
 
     source_alpha=hhdonor[:,:,3]>24
-    # Donor ownership is limited to pixels that actually differ from neutral.
-    # This prevents opaque torso/background regions from being carried as
-    # rectangular slabs when a bone-local transform is applied.
-    # Narrow source ownership follows the actual donor limb instead of broad
-    # opaque/diff slabs.  This keeps complete hand/sleeve linework while avoiding
-    # torso/background pickup.
-    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,22) & source_alpha
-    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,46) & source_alpha & ~binary_dilation(src_stick,iterations=2)
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,64) & source_alpha & ~binary_dilation(src_stick|src_hand,iterations=1)
-    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,78) & source_alpha
+    # Keep donor ownership close to pixels that actually move versus neutral.
+    # Dilation restores full sleeve/hand fill around those motion pixels while
+    # rejecting opaque torso/background pickup that previously produced white slabs.
+    motion_owner=binary_dilation(hh_diff,iterations=4) & source_alpha
+    # Adjacent limb capsules intentionally overlap.  Downstream layers are composited
+    # last so forearm->wrist->hand seams remain continuous without rectangular splices.
+    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),source_grip,source_contact,26) & motion_owner
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),source_wrist,source_grip,62) & motion_owner
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,82) & motion_owner
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,92) & motion_owner
 
     upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
     fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
     hand_layer=warp_segment(hhdonor,src_hand,source_wrist,source_grip,wrist,grip,1.0)
     # A single affine segment preserves a straight source shaft as one rigid axis.
-    stick_layer=warp_segment(hhdonor,src_stick,source_grip,source_contact,grip,target,0.62)
+    stick_layer=warp_segment(hhdonor,src_stick,source_grip,source_contact,grip,target,0.78)
 
     candidate=alpha_comp(candidate,upper_layer)
     candidate=alpha_comp(candidate,fore_layer)
@@ -239,7 +239,12 @@ def main():
     # seat and stool remain byte-identical to neutral in this one-image run.
     bd_diff=np.any(bddonor!=bneutral,axis=2)
     lower=np.zeros(bd_diff.shape,bool); lower[790:985,520:760]=True
-    bd_mask=binary_dilation(bd_diff & lower,iterations=2)
+    # Suppress broad opaque near-white donor slabs: retain donor motion only in a
+    # narrow neighborhood of actual linework.  The neutral layer supplies the base
+    # white fill, while donor ink and its immediate fill neighborhood carry RF motion.
+    bd_ink=np.any(bddonor[:,:,:3] < 235,axis=2) & (bddonor[:,:,3]>24)
+    bd_detail=binary_dilation(bd_ink,iterations=6)
+    bd_mask=binary_dilation(bd_diff & lower & bd_detail,iterations=1)
     candidate[bd_mask]=bddonor[bd_mask]
 
     # Explicit static locks: these regions are authoritative neutral pixels.
