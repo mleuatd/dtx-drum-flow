@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T11:54:00+09:00",
+  "requestedAt": "2026-09-22T11:59:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -28,9 +28,9 @@
     "unrelated limbs"
   ],
   "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 24,
-  "retryReason": "retry23 passed numeric arm/stick/contact/transition QA but failed full-resolution visual QA because the active right hand/grip topology is still crushed/ambiguous at HH. Retry24 keeps the same candidate geometry and additionally exports actual GitHub right-hand donors (HH/RD/RC/SN) for pixel-level selection of a better hand+stick source. No formal promotion.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Candidate generation continues; donor survey is evidence for this same repair, not a new issue.",
+  "retry": 25,
+  "retryReason": "retry24 donor survey showed the repository SN:R lower screen-left hand has a clear right-hand grip with a near-horizontal continuous stick axis that is structurally much closer to the supplied reference than the HH donor hand. Retry25 keeps the photo-reference arm chain, uses HH donor pixels for upper arm/forearm, and substitutes only the active hand+stick from SN:R through local affine transforms sharing one target grip anchor.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. No flip, no text-to-image, paired rebound READ_ONLY, no formal promotion until visual QA.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
