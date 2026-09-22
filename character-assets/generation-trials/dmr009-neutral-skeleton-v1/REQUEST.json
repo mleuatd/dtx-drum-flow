@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "requestedAt": "2026-09-22T11:59:00+09:00",
+  "requestedAt": "2026-09-22T12:04:00+09:00",
   "issueId": "DMR-009",
   "phase": "hit",
   "mode": "ONE_IMAGE_ONLY",
@@ -28,9 +28,9 @@
     "unrelated limbs"
   ],
   "outputPolicy": "candidate+fixed-drum composite+transition+QA evidence only; no formal overwrite until numeric QA and AI visual QA pass",
-  "retry": 25,
-  "retryReason": "retry24 donor survey showed the repository SN:R lower screen-left hand has a clear right-hand grip with a near-horizontal continuous stick axis that is structurally much closer to the supplied reference than the HH donor hand. Retry25 keeps the photo-reference arm chain, uses HH donor pixels for upper arm/forearm, and substitutes only the active hand+stick from SN:R through local affine transforms sharing one target grip anchor.",
-  "executionNote": "ONE IMAGE ONLY DMR-009 hit. No flip, no text-to-image, paired rebound READ_ONLY, no formal promotion until visual QA.",
+  "retry": 26,
+  "retryReason": "retry25 numeric QA passed and the SN:R right-hand/stick donor improved the grip, but full-resolution visual QA found a large transparent triangular hole inside the active right sleeve. Retry26 preserves the same target geometry and hand+stick donor, changes only donor ownership: full opaque source pixels within local limb capsules replace motion-difference-only ownership, and clear-mask dilation is reduced. No rectangular splice.",
+  "executionNote": "ONE IMAGE ONLY DMR-009 hit. Preserve retry25 hand+stick, fix active-arm transparency only. No rebound edit, no formal promotion until visual QA.",
   "fastPath": true,
   "reuseVerifiedInputs": true,
   "aiVisualQaRequired": true,
