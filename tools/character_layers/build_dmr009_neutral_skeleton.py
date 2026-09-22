@@ -224,30 +224,26 @@ def main():
     cd.line([tuple(source_grip),tuple(source_elbow),tuple(source_shoulder)],fill=255,width=98,joint="curve")
     cd.line([tuple(source_neutral_hand),tuple(source_neutral_wrist),tuple(source_neutral_elbow),tuple(source_shoulder)],fill=255,width=94,joint="curve")
     clear_corridor=np.asarray(clear_img)>0
-    clear_mask=binary_dilation(hh_diff & clear_corridor,iterations=2)
+    clear_mask=binary_dilation(hh_diff & clear_corridor,iterations=1)
     candidate[clear_mask]=0
 
     source_alpha=hhdonor[:,:,3]>24
-    # Keep donor ownership close to pixels that actually move versus neutral.
-    # Dilation restores full sleeve fill around those motion pixels while rejecting
-    # opaque torso/background pickup that previously produced white slabs.
-    motion_owner=binary_dilation(hh_diff,iterations=4) & source_alpha
-    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,82) & motion_owner
-    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,92) & motion_owner
+    # Retry26: use full source-style opaque donor pixels inside narrow limb
+    # capsules.  The previous motion-difference-only ownership punched a large
+    # transparent triangle through the extended sleeve.  Capsule ownership is
+    # still local (not rectangular), so torso/background slabs are excluded.
+    src_fore=capsule_mask((candidate.shape[1],candidate.shape[0]),source_elbow,source_wrist,94) & source_alpha
+    src_upper=capsule_mask((candidate.shape[1],candidate.shape[0]),source_shoulder,source_elbow,104) & source_alpha
 
     # The HH donor supplies the arm/style, while the lower screen-left hand in
-    # SN:R supplies a cleaner right-hand grip topology.  Its source stick already
-    # runs almost parallel to the photo-reference axis, so only a small rotation
-    # plus scale is needed; no horizontal flip is used.
-    sn_diff=np.any(snhanddonor!=bneutral,axis=2)
+    # SN:R supplies a cleaner right-hand grip topology.  No horizontal flip.
     sn_alpha=snhanddonor[:,:,3]>24
-    sn_owner=binary_dilation(sn_diff,iterations=3) & sn_alpha
     sn_wrist=[610,505]; sn_grip=[562,505]; sn_tip=[435,490]
-    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_wrist,sn_grip,72) & sn_owner
-    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_grip,sn_tip,24) & sn_owner
+    src_hand=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_wrist,sn_grip,78) & sn_alpha
+    src_stick=capsule_mask((candidate.shape[1],candidate.shape[0]),sn_grip,sn_tip,28) & sn_alpha
 
-    upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.0)
-    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.0)
+    upper_layer=warp_segment(hhdonor,src_upper,source_shoulder,source_elbow,shoulder,elbow,1.06)
+    fore_layer=warp_segment(hhdonor,src_fore,source_elbow,source_wrist,elbow,wrist,1.06)
     hand_layer=warp_segment(snhanddonor,src_hand,sn_wrist,sn_grip,wrist,grip,1.0)
     # Hand and shaft share the exact target grip anchor; this avoids a floating
     # stick or a hand/stick topology break.
