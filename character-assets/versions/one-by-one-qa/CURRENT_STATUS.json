@@ -1,11 +1,11 @@
 {
-  "schemaVersion": 2,
-  "updatedAt": "2026-09-21T21:00:00+09:00",
+  "schemaVersion": 3,
+  "updatedAt": "2026-09-22T21:40:00+09:00",
   "authority": {
     "repository": "mleuatd/dtx-drum-flow",
     "branch": "main"
   },
-  "executionMode": "ONE_IMAGE_ONLY_COMPLETE",
+  "executionMode": "ONE_IMAGE_ONLY_COMPLETE_AWAITING_NEXT_SELECTION",
   "activeWork": {
     "id": "DMR-009",
     "phase": "hit",
@@ -16,13 +16,17 @@
     "previousQa": "character-assets/versions/donor-mesh-v3/qa/dmr009_contact_reqa_20260921.json",
     "attemptQa": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/dmr009_attempt_20260921_v4_neutral_skeleton.json",
     "reviewQa": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_retry20_review.json",
-    "finalStatus": "CANDIDATE_READY_HIT",
-    "promotionBlocked": true,
+    "finalStatus": "USER_APPROVED_HIT_COMPLETE",
+    "promotionBlocked": false,
     "secondaryHold": null,
     "constraintPackage": "character-assets/generation-trials/dmr009-neutral-skeleton-v1/DMR009_constraint_package_v2.json",
     "visualQaRecord": "character-assets/generation-trials/dmr009-direct-donor-v1/DMR009_retry20_review.json",
     "formalPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
-    "formalSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c"
+    "formalSha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+    "userApproved": true,
+    "userApprovedAt": "2026-09-22T21:40:00+09:00",
+    "formalPromotionPending": true,
+    "note": "User visually confirmed the newly composited hit image as the correct struck-moment result. Do not auto-advance to rebound or another defect until the next target is selected."
   },
   "resultSummary": {
     "oneCandidateCreated": true,
@@ -47,9 +51,11 @@
     "transitionPassed": true,
     "formalImageOverwritten": false,
     "advancedToSecondImage": false,
-    "visualQaPassed": false,
-    "verified": false,
-    "rigidStickPassed": true
+    "visualQaPassed": true,
+    "verified": true,
+    "rigidStickPassed": true,
+    "userApprovedHit": true,
+    "userApprovedHitSha256": "279ecfcc881c582f4aed5800fb6fabea544b4dda1b0b1d5f38fe34a3fc697cd2"
   },
   "rules": {
     "fixedDrumMustRemainUnchanged": true,
@@ -58,7 +64,7 @@
     "doNotAdvanceToSecondImage": true,
     "recordEveryOutcomeOnGitHub": true
   },
-  "nextAction": "Stop: one-image DMR-009 hit run completed. Do not advance. Existing rebound may be addressed only in a separate future run.",
+  "nextAction": "Hold after DMR-009 hit user approval. Do not auto-start rebound or another defect. Review remaining candidates and select the next target based on smallest expected safe correction.",
   "standardPipeline": [
     "CURRENT_STATUS",
     "SOURCE_AUTHORITY",
@@ -84,5 +90,33 @@
     "PATTERN-009",
     "PATTERN-010",
     "PATTERN-011"
-  ]
+  ],
+  "userApprovedResult": {
+    "issueId": "DMR-009",
+    "phase": "hit",
+    "status": "USER_APPROVED_REGISTERED",
+    "characterLayerSha256": "279ecfcc881c582f4aed5800fb6fabea544b4dda1b0b1d5f38fe34a3fc697cd2",
+    "referenceWithDrumSha256": "c2cba2a8373da5091c59885869205a0f3e37118fc4d8a7732c1ca720c99ee76d",
+    "compositionBackToFront": [
+      "DMR009_updated_donor_latest.png",
+      "DMR009_user_clean_base_without_right_hand.png"
+    ],
+    "referenceCompositionBackToFront": [
+      "character-assets/layers/drum/drum_base.png",
+      "DMR009_updated_donor_latest.png",
+      "DMR009_user_clean_base_without_right_hand.png"
+    ],
+    "sourceNotes": {
+      "rightArmDonorSha256": "9f9de788a921b61f3d6cfe80731f385f56fd7351d7d969cb0f336e6a8b3a0046",
+      "cleanedBaseSha256": "b71c4c63475d867a56a0d4f4b20c3335b2b33bfb331c09db2ca8b6b58f9c4238"
+    },
+    "formalRuntimeAssetModified": false,
+    "formalRegistrationState": "PENDING_SEPARATE_GITHUB_BINARY_PROMOTION"
+  },
+  "nextSelection": {
+    "state": "PENDING_USER_SELECTION",
+    "autoPickNext": false,
+    "policy": "Before selecting the next image, review remaining candidates and prefer one expected to require the smallest safe correction. Do not start editing until selection is explicitly made.",
+    "candidateSelectionPending": true
+  }
 }
