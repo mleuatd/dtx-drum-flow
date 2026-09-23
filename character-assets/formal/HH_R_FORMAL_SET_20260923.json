@@ -1,37 +1,46 @@
 {
-  "schemaVersion": 1,
-  "status": "FORMAL_APPROVED",
-  "registeredAt": "2026-09-23T23:52:00+09:00",
+  "schemaVersion": 2,
+  "status": "FORMAL_APPROVED_LAYERED",
+  "registeredAt": "2026-09-23T23:59:00+09:00",
   "actionKey": "HH:R",
-  "description": "Right-hand hi-hat single-hit animation pair approved by user as the first formal impact/rebound set.",
+  "description": "Right-hand hi-hat formal impact/rebound pair, re-registered as separate character/stick/stool transparent layers over the fixed drum base.",
+  "layerPolicy": {
+    "bottomLayer": "character-assets/layers/drum/drum_base.png",
+    "topLayerContains": ["character", "drumsticks", "stool"],
+    "topLayerExcludes": ["drum_set"],
+    "canvas": {"width": 1448, "height": 1086}
+  },
   "files": {
-    "impact": {
+    "impactCharacterLayer": {
       "path": "character-assets/layers/character/hh/hit_r.png",
-      "sha256": "e3b2d76e9a62de3c43cebf5a99c720a48971c90987ebb7dee177b5eafdbdfc20",
-      "width": 1448,
-      "height": 1086
+      "sha256": "095824f83fd8f5337966250ae1cbb336de78c61c97b93b9911093c3fe8593188",
+      "gitBlobSha": "043eb294b89ed9a0546560975c1e8a1d0d59a9b1",
+      "format": "PNG indexed RGBA-compatible",
+      "transparentBackground": true
     },
-    "rebound": {
+    "reboundCharacterLayer": {
       "path": "character-assets/layers/character/hh/rebound_r.png",
-      "sha256": "e07424f7dfb98b83248d40d182a10ddb723ac6d7c5d04d7ce4904806b307862f",
-      "width": 1448,
-      "height": 1086
+      "sha256": "01f33fea4c8bd78bdb484f9526bd8cb516320449e0cadd043ed5392d8aeaca8c",
+      "gitBlobSha": "7bfa071b1c0a9a9ce34b18ebcb7ea8f59db663ab",
+      "format": "PNG indexed RGBA-compatible",
+      "transparentBackground": true
+    },
+    "fixedDrumLayer": {
+      "path": "character-assets/layers/drum/drum_base.png",
+      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+      "gitBlobSha": "c7355343320e68d4aab2cc8be7617b11212644ce",
+      "source": "user-supplied fixed drum image",
+      "byteExactWithCurrentGitHubDrumBase": true
     }
   },
   "styleLock": {
     "monochrome": true,
-    "whiteBackground": true,
     "roughMechanicalPencilSketch": true,
     "noSolidPencilFill": true,
     "darknessByRepeatedLooseLines": true,
     "hairRoughnessApproved": true,
-    "clothingRoughnessApproved": true,
-    "fixedDrumComposition": true
+    "clothingRoughnessApproved": true
   },
-  "workflow": {
-    "pair": ["impact", "rebound"],
-    "resumeRule": "Treat these two files and this manifest as the formal HH:R baseline when resuming in a new chat.",
-    "nextWork": "Continue with the easiest remaining single-hit pattern, always creating impact and rebound as a pair."
-  },
-  "note": "PNG files are indexed 16-level grayscale optimized copies of the approved images; geometry and composition are unchanged."
+  "resumeRule": "In future chats, use drum_base.png unchanged as the bottom layer and create/modify only the transparent character+sticks+stool layer for each impact/rebound frame.",
+  "note": "Character layers are 256-color indexed PNG exports of the user-approved transparent layers to keep repository size manageable; canvas geometry and transparency placement are preserved."
 }
