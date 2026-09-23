@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "status": "FORMAL_APPROVED",
+  "registeredAt": "2026-09-23T23:52:00+09:00",
+  "actionKey": "HH:R",
+  "description": "Right-hand hi-hat single-hit animation pair approved by user as the first formal impact/rebound set.",
+  "files": {
+    "impact": {
+      "path": "character-assets/layers/character/hh/hit_r.png",
+      "sha256": "e3b2d76e9a62de3c43cebf5a99c720a48971c90987ebb7dee177b5eafdbdfc20",
+      "width": 1448,
+      "height": 1086
+    },
+    "rebound": {
+      "path": "character-assets/layers/character/hh/rebound_r.png",
+      "sha256": "e07424f7dfb98b83248d40d182a10ddb723ac6d7c5d04d7ce4904806b307862f",
+      "width": 1448,
+      "height": 1086
+    }
+  },
+  "styleLock": {
+    "monochrome": true,
+    "whiteBackground": true,
+    "roughMechanicalPencilSketch": true,
+    "noSolidPencilFill": true,
+    "darknessByRepeatedLooseLines": true,
+    "hairRoughnessApproved": true,
+    "clothingRoughnessApproved": true,
+    "fixedDrumComposition": true
+  },
+  "workflow": {
+    "pair": ["impact", "rebound"],
+    "resumeRule": "Treat these two files and this manifest as the formal HH:R baseline when resuming in a new chat.",
+    "nextWork": "Continue with the easiest remaining single-hit pattern, always creating impact and rebound as a pair."
+  },
+  "note": "PNG files are indexed 16-level grayscale optimized copies of the approved images; geometry and composition are unchanged."
+}
