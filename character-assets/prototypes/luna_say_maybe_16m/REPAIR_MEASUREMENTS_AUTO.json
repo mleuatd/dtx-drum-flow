@@ -510,8 +510,8 @@
       "hitPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
       "reboundPath": "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
       "hit": {
-        "sha256": "8b1dcbf1d3287ee90bb4425380314fd412aeaeb407ccb1664815493f1cac6423",
-        "opaquePixelCount": 374661,
+        "sha256": "8b84db012f41efabf2e7a3832c14b04938d34e2b58a1b6775f77a6849fa6d16c",
+        "opaquePixelCount": 386031,
         "opaqueBBox": {
           "x": 57,
           "y": 23,
@@ -519,8 +519,8 @@
           "height": 1040
         },
         "opaqueCentroid": {
-          "x": 727.348,
-          "y": 560.696
+          "x": 718.646,
+          "y": 566.2
         }
       },
       "rebound": {
@@ -538,19 +538,19 @@
         }
       },
       "neutralToHit": {
-        "changedPixels": 55010,
-        "changedRatio": 0.03498189,
+        "changedPixels": 86956,
+        "changedRatio": 0.05529695,
         "diffBBox": {
-          "x": 355,
-          "y": 315,
-          "width": 519,
-          "height": 679
+          "x": 185,
+          "y": 273,
+          "width": 577,
+          "height": 714
         },
         "diffCentroid": {
-          "x": 641.359,
-          "y": 725.334
+          "x": 587.661,
+          "y": 657.334
         },
-        "alphaMismatchPixels": 42727
+        "alphaMismatchPixels": 77451
       },
       "neutralToRebound": {
         "changedPixels": 47019,
@@ -568,27 +568,27 @@
         "alphaMismatchPixels": 32373
       },
       "hitToRebound": {
-        "changedPixels": 63350,
-        "changedRatio": 0.04028545,
+        "changedPixels": 100179,
+        "changedRatio": 0.0637057,
         "diffBBox": {
           "x": 162,
-          "y": 315,
+          "y": 273,
           "width": 712,
-          "height": 689
+          "height": 731
         },
         "diffCentroid": {
-          "x": 633.804,
-          "y": 691.256
+          "x": 598.366,
+          "y": 658.528
         },
-        "alphaMismatchPixels": 48509
+        "alphaMismatchPixels": 81791
       },
       "shape": {
         "hitNeutralBboxIoU": 1.0,
         "reboundNeutralBboxIoU": 1.0,
         "hitReboundBboxIoU": 1.0,
-        "hitNeutralCentroidShiftPx": 7.174,
+        "hitNeutralCentroidShiftPx": 17.421,
         "reboundNeutralCentroidShiftPx": 6.342,
-        "hitReboundCentroidShiftPx": 8.503
+        "hitReboundCentroidShiftPx": 17.782
       },
       "contactCenters": [
         {
@@ -596,7 +596,7 @@
           "x": 735,
           "y": 650,
           "source": "INSTRUMENT_CONTACT_POINTS.json",
-          "nearestChangedPixelNeutralToHitPx": 50.0,
+          "nearestChangedPixelNeutralToHitPx": 138.13,
           "nearestChangedPixelNeutralToReboundPx": 50.0,
           "nearestChangedPixelHitToReboundPx": 50.0
         },
@@ -605,20 +605,20 @@
           "x": 190,
           "y": 390,
           "source": "INSTRUMENT_CONTACT_POINTS.json",
-          "nearestChangedPixelNeutralToHitPx": 169.319,
+          "nearestChangedPixelNeutralToHitPx": 1.0,
           "nearestChangedPixelNeutralToReboundPx": 46.4,
-          "nearestChangedPixelHitToReboundPx": 46.4
+          "nearestChangedPixelHitToReboundPx": 1.0
         }
       ],
       "contactCenterToDiffCentroidPx": {
         "hit": [
           {
             "instrument": "BD",
-            "distancePx": 120.183
+            "distancePx": 147.521
           },
           {
             "instrument": "HH",
-            "distancePx": 562.293
+            "distancePx": 479.168
           }
         ],
         "rebound": [
@@ -767,112 +767,7 @@
       "actionKey": "HH:R",
       "hitPath": "character-assets/layers/character/hh/hit_r.png",
       "reboundPath": "character-assets/layers/character/hh/rebound_r.png",
-      "hit": {
-        "sha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
-        "opaquePixelCount": 366513,
-        "opaqueBBox": {
-          "x": 57,
-          "y": 23,
-          "width": 1122,
-          "height": 1040
-        },
-        "opaqueCentroid": {
-          "x": 728.971,
-          "y": 554.835
-        }
-      },
-      "rebound": {
-        "sha256": "bbfae80c4268037f6126ac39bbb93423984ebad5c71a863f0d52be7a33ef18a1",
-        "opaquePixelCount": 367664,
-        "opaqueBBox": {
-          "x": 57,
-          "y": 23,
-          "width": 1122,
-          "height": 1040
-        },
-        "opaqueCentroid": {
-          "x": 729.637,
-          "y": 553.81
-        }
-      },
-      "neutralToHit": {
-        "changedPixels": 14428,
-        "changedRatio": 0.00917504,
-        "diffBBox": {
-          "x": 355,
-          "y": 315,
-          "width": 519,
-          "height": 155
-        },
-        "diffCentroid": {
-          "x": 544.935,
-          "y": 418.932
-        },
-        "alphaMismatchPixels": 13063
-      },
-      "neutralToRebound": {
-        "changedPixels": 15140,
-        "changedRatio": 0.00962781,
-        "diffBBox": {
-          "x": 162,
-          "y": 315,
-          "width": 712,
-          "height": 165
-        },
-        "diffCentroid": {
-          "x": 590.449,
-          "y": 406.194
-        },
-        "alphaMismatchPixels": 14083
-      },
-      "hitToRebound": {
-        "changedPixels": 21953,
-        "changedRatio": 0.01396032,
-        "diffBBox": {
-          "x": 162,
-          "y": 315,
-          "width": 712,
-          "height": 165
-        },
-        "diffCentroid": {
-          "x": 551.598,
-          "y": 410.629
-        },
-        "alphaMismatchPixels": 18321
-      },
-      "shape": {
-        "hitNeutralBboxIoU": 1.0,
-        "reboundNeutralBboxIoU": 1.0,
-        "hitReboundBboxIoU": 1.0,
-        "hitNeutralCentroidShiftPx": 5.786,
-        "reboundNeutralCentroidShiftPx": 5.874,
-        "hitReboundCentroidShiftPx": 1.222
-      },
-      "contactCenters": [
-        {
-          "instrument": "HH",
-          "x": 190,
-          "y": 390,
-          "source": "INSTRUMENT_CONTACT_POINTS.json",
-          "nearestChangedPixelNeutralToHitPx": 169.319,
-          "nearestChangedPixelNeutralToReboundPx": 46.4,
-          "nearestChangedPixelHitToReboundPx": 46.4
-        }
-      ],
-      "contactCenterToDiffCentroidPx": {
-        "hit": [
-          {
-            "instrument": "HH",
-            "distancePx": 356.112
-          }
-        ],
-        "rebound": [
-          {
-            "instrument": "HH",
-            "distancePx": 400.776
-          }
-        ]
-      }
+      "measurementError": "UnidentifiedImageError(\"cannot identify image file '/home/runner/work/dtx-drum-flow/dtx-drum-flow/character-assets/layers/character/hh/hit_r.png'\")"
     },
     "HH+SN:R/L": {
       "issueId": "MOTION-008",
