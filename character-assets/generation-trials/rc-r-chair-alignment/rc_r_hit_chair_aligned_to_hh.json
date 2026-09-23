@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "RC:R",
+  "phase": "hit",
+  "role": "REGISTERED_PARENT_FOR_STOOL_NORMALIZATION",
+  "source": {
+    "image": "5305.png",
+    "sourceSha256": "017c3d97acbe261d298afb9dd24b826d65b0e7896107cb0ba899219cb1ff4dc3"
+  },
+  "image": {
+    "path": "character-assets/generation-trials/rc-r-chair-alignment/rc_r_hit_chair_aligned_to_hh.png",
+    "sha256": "848a06a301167e81ed18c59ff013a2bd48d62e92f8724adde0430484648cada4",
+    "width": 1448,
+    "height": 1086,
+    "mode": "RGBA"
+  },
+  "canvas": {
+    "width": 1448,
+    "height": 1086
+  },
+  "translation": {
+    "dx": 52,
+    "dy": -14
+  },
+  "transformation": "TRANSLATION_ONLY",
+  "rescale": false,
+  "rotate": false,
+  "meshWarp": false,
+  "imageGenerationAI": false,
+  "purpose": "align RC:R stool position to user-approved HH:R stool registration",
+  "hhReference": {
+    "sha256": "279ecfcc881c582f4aed5800fb6fabea544b4dda1b0b1d5f38fe34a3fc697cd2",
+    "status": "USER_APPROVED_HIT_COMPLETE"
+  },
+  "status": "REGISTERED_PARENT_FOR_STOOL_NORMALIZATION",
+  "formalRuntimeAssetModified": false
+}
