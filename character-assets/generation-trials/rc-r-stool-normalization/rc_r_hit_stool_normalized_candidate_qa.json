@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "actionKey": "RC:R",
+  "phase": "hit",
+  "status": "QA_PASS_CANDIDATE_NOT_RUNTIME_PROMOTED",
+  "method": "HH_APPROVED_STOOL_CLEAN_PIXEL_TRANSPLANT_WITH_CHAIR_ONLY_SYMMETRIC_OCCLUSION_FILL",
+  "parent": {
+    "githubPath": "character-assets/generation-trials/rc-r-chair-alignment/rc_r_hit_chair_aligned_to_hh.png",
+    "githubCommit": "31781e5556110c4409aa10354554b3f22b816fde",
+    "sha256": "848a06a301167e81ed18c59ff013a2bd48d62e92f8724adde0430484648cada4",
+    "canvas": [
+      1448,
+      1086
+    ]
+  },
+  "hhApprovedReference": {
+    "sha256": "279ecfcc881c582f4aed5800fb6fabea544b4dda1b0b1d5f38fe34a3fc697cd2",
+    "status": "USER_APPROVED_HIT_COMPLETE"
+  },
+  "candidate": {
+    "path": "character-assets/generation-trials/rc-r-stool-normalization/rc_r_hit_stool_normalized_candidate.png",
+    "sha256": "9669ddaf4745a8757dbbdac333c0767903df003b5f7fe9cba6ad639644836ff3",
+    "canvas": [
+      1448,
+      1086
+    ],
+    "mode": "RGBA",
+    "candidateCommit": null
+  },
+  "transformation": {
+    "imageGenerationAI": false,
+    "rescale": false,
+    "rotate": false,
+    "meshWarp": false,
+    "transplant": true,
+    "source": "HH approved actual pixels",
+    "chairOnlyOcclusionFill": "mirror of approved HH right-side chair pixels around stool center x=802; applied to chair only"
+  },
+  "geometry": {
+    "stoolCenterX": 802,
+    "seatVisibleTargetApprox": {
+      "centerX": 805.5,
+      "centerY": 701,
+      "widthPx": 292,
+      "heightPx": 53,
+      "bbox": [
+        660,
+        675,
+        952,
+        728
+      ]
+    },
+    "postTarget": {
+      "centerX": 802,
+      "centerY": 779.5,
+      "bbox": [
+        760,
+        720,
+        845,
+        840
+      ]
+    },
+    "lowerChairTargetCleanBBox": [
+      600,
+      720,
+      1005,
+      1031
+    ]
+  },
+  "pixelQa": {
+    "changedBBox": [
+      599,
+      671,
+      1019,
+      1045
+    ],
+    "changedPixelCount": 64162,
+    "outsideAllowedChangedPixels": 0,
+    "fixedRegionChangedPixels": 0,
+    "protectedRoiChangedPixels": {
+      "headFaceHair": 0,
+      "rightArmHandRcStick": 0,
+      "leftArmHandStick": 0,
+      "torsoJacketSkirtUpper": 0,
+      "leftLegBoot": 0,
+      "chairSideRightLegBootProtectedPolygons": 0
+    }
+  },
+  "visualQa": {
+    "seatCenterAligned": true,
+    "seatWidthShapeNormalizedToHH": true,
+    "seatThicknessNormalizedToHH": true,
+    "postCenterAligned": true,
+    "seatPostConnectionChecked": true,
+    "chairLegSpreadNormalizedToHH": true,
+    "personContactChecked": true,
+    "skirtOverlapPreserved": true,
+    "rcPosePreserved": true,
+    "rightArmStickPreserved": true,
+    "result": "PASS"
+  },
+  "formalRuntimeAssetModified": false,
+  "currentStatusModified": false,
+  "note": "Candidate only. Existing DMR-009 HH:R USER_APPROVED_HIT_COMPLETE and formal runtime are not overwritten."
+}
