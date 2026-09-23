@@ -1,0 +1,85 @@
+name: Register approved HH-R formal pair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/register-hh-r-formal-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download approved hit and rebound
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p character-assets/layers/character/hh character-assets/formal
+          curl -L --fail --retry 3 'https://uc2d53b02485c92c3af6b765152f.dl.dropboxusercontent.com/cd/0/get/DIofNMdOYDtY-6vhKxe_kIfONOaafmcJt451yvZiJtSeDmDuhUzvLS5lHgxsNCMFyIsIdAxB8VjNSlym4Eszy4__JivvQstulXQbepgBhTgCfm_UDVZev7J7vzqJ6rIPbLQrNQvB0p5HCi5kUqpzWnfl6VtZ3yGd-O2pdz5aC-5jkg/file?c_luid=e8a8ea13' -o character-assets/layers/character/hh/hit_r.png
+          curl -L --fail --retry 3 'https://uc8770be8451eb2b2d6b6d1bdf28.dl.dropboxusercontent.com/cd/0/get/DIoUD9ZtDITNHG3UtehF4WA9jwPhl13-AVRySD_uOjzCyNMgEU5dP0MjJ3sv6Js9ZVVfxCkLlaMGMduIpMkEgB5PoL6WtBfFzQnh22r0_qoDsrhr37Q7lpLWNS9EXQxsAvjjmcMSV4bkSPNmHhK9EtdvAu14JMQWjJvUT1SNiPDCUA/file?c_luid=e8a8ea13' -o character-assets/layers/character/hh/rebound_r.png
+          echo 'e3b2d76e9a62de3c43cebf5a99c720a48971c90987ebb7dee177b5eafdbdfc20  character-assets/layers/character/hh/hit_r.png' | sha256sum -c -
+          echo 'e07424f7dfb98b83248d40d182a10ddb723ac6d7c5d04d7ce4904806b307862f  character-assets/layers/character/hh/rebound_r.png' | sha256sum -c -
+
+      - name: Write formal-set manifest
+        shell: bash
+        run: |
+          cat > character-assets/formal/HH_R_FORMAL_SET_20260923.json <<'EOF'
+          {
+            "schemaVersion": 1,
+            "status": "FORMAL_APPROVED",
+            "registeredAt": "2026-09-23T23:52:00+09:00",
+            "actionKey": "HH:R",
+            "description": "Right-hand hi-hat single-hit animation pair approved by user as the first formal impact/rebound set.",
+            "files": {
+              "impact": {
+                "path": "character-assets/layers/character/hh/hit_r.png",
+                "sha256": "e3b2d76e9a62de3c43cebf5a99c720a48971c90987ebb7dee177b5eafdbdfc20",
+                "width": 1448,
+                "height": 1086
+              },
+              "rebound": {
+                "path": "character-assets/layers/character/hh/rebound_r.png",
+                "sha256": "e07424f7dfb98b83248d40d182a10ddb723ac6d7c5d04d7ce4904806b307862f",
+                "width": 1448,
+                "height": 1086
+              }
+            },
+            "styleLock": {
+              "monochrome": true,
+              "whiteBackground": true,
+              "roughMechanicalPencilSketch": true,
+              "noSolidPencilFill": true,
+              "darknessByRepeatedLooseLines": true,
+              "hairRoughnessApproved": true,
+              "clothingRoughnessApproved": true,
+              "fixedDrumComposition": true
+            },
+            "workflow": {
+              "pair": ["impact", "rebound"],
+              "resumeRule": "Treat these two files and this manifest as the formal HH:R baseline when resuming in a new chat.",
+              "nextWork": "Continue with the easiest remaining single-hit pattern, always creating impact and rebound as a pair."
+            },
+            "note": "PNG files are indexed 16-level grayscale optimized copies of the approved images; geometry and composition are unchanged."
+          }
+          EOF
+
+      - name: Commit formal pair
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/character/hh/hit_r.png character-assets/layers/character/hh/rebound_r.png character-assets/formal/HH_R_FORMAL_SET_20260923.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "formal: register approved HH:R hit/rebound pair"
+          git push origin HEAD:main
