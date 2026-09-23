@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "project": "DTX Drum Flow character animation asset production",
+  "updatedAt": "2026-09-24T06:11:00+09:00",
+  "authority": "GitHub main",
+  "fixedDrum": {
+    "status": "FORMAL_FIXED",
+    "path": "character-assets/layers/drum/drum_base.png",
+    "rule": "Do not regenerate, redraw, reposition, or merge permanently into character layers."
+  },
+  "formalBaseline": {
+    "actionKey": "HH:R",
+    "status": "FORMAL_APPROVED",
+    "impact": "character-assets/layers/character/hh/hit_r.png",
+    "rebound": "character-assets/layers/character/hh/rebound_r.png",
+    "layerContent": "character + drumsticks + stool only; transparent background"
+  },
+  "styleLock": {
+    "monochrome": true,
+    "mechanicalPencilRoughSketch": true,
+    "solidFillForbidden": true,
+    "blackFillForbidden": true,
+    "darknessByRepeatedLooseLines": true,
+    "constructionAndCorrectionLinesAllowed": true,
+    "hairMustRemainRough": true,
+    "clothingMustRemainRough": true,
+    "colorForbidden": true,
+    "gradientForbidden": true
+  },
+  "productionRule": {
+    "framesPerAction": [
+      "impact",
+      "rebound"
+    ],
+    "checkpoint": "After every approved pair, commit assets and update this ledger before moving to the next action."
+  },
+  "completed": [
+    "HH:R"
+  ],
+  "inProgress": [],
+  "remaining": [
+    "BD:RF",
+    "FT:L",
+    "FT:R",
+    "HH:L",
+    "HT:L",
+    "HT:R",
+    "LT:L",
+    "LT:R",
+    "RC:L",
+    "RC:R",
+    "RD:L",
+    "RD:R",
+    "SN:L",
+    "SN:R",
+    "BD:RF + FT:L",
+    "BD:RF + FT:R",
+    "BD:RF + HH:L",
+    "BD:RF + HH:R",
+    "BD:RF + HT:L",
+    "BD:RF + HT:R",
+    "BD:RF + LT:L",
+    "BD:RF + LT:R",
+    "BD:RF + RC:L",
+    "BD:RF + RC:R",
+    "BD:RF + RD:L",
+    "BD:RF + RD:R",
+    "BD:RF + SN:L",
+    "BD:RF + SN:R",
+    "FT:L + SN:R",
+    "FT:R + SN:L",
+    "HH:L + SN:R",
+    "HH:R + SN:L",
+    "LT:L + SN:R",
+    "LT:R + SN:L",
+    "RC:L + SN:R",
+    "RC:R + SN:L",
+    "RD:L + SN:R",
+    "RD:R + SN:L",
+    "BD:RF + FT:L + SN:R",
+    "BD:RF + FT:R + SN:L",
+    "BD:RF + HH:L + SN:R",
+    "BD:RF + HH:R + SN:L",
+    "BD:RF + RC:L + SN:R",
+    "BD:RF + RC:R + SN:L"
+  ],
+  "reconnect": {
+    "githubRepository": "mleuatd/dtx-drum-flow",
+    "githubBranch": "main",
+    "lastVerifiedFormalCommit": "795816ab61320b5b18c1132c5212183f8e6ef938",
+    "dropboxPath": "/ChatGPT/dtx-drum-flow/"
+  },
+  "resumeRule": "On a new chat, verify current GitHub main and Dropbox first, read this ledger and the formal manifests, then resume from an uncompleted item. Do not reset."
+}
