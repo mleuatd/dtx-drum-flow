@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-20T05:45:00+09:00",
+  "updatedAt": "2026-09-23T13:01:00+09:00",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -3416,7 +3416,7 @@
       "claimedAt": "2026-09-20T05:36:00+09:00",
       "completedAt": "2026-09-20T10:44:19+00:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_rebound_qa.json",
-      "motionRepairChangedRatioVsNeutral": 5.787e-05,
+      "motionRepairChangedRatioVsNeutral": 0.00005787,
       "visualIntegrityQa": {
         "humanAnatomy": "FAIL",
         "linework": "FAIL",
@@ -3889,6 +3889,26 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
+      },
+      "latestRegisteredCandidate": {
+        "status": "QA_PASS_CANDIDATE_NOT_RUNTIME_PROMOTED",
+        "registeredAt": "2026-09-23T13:01:00+09:00",
+        "candidatePath": "character-assets/generation-trials/rc-r-stool-normalization/rc_r_hit_stool_normalized_candidate.png",
+        "candidateSha256": "9669ddaf4745a8757dbbdac333c0767903df003b5f7fe9cba6ad639644836ff3",
+        "candidateGitBlobSha": "f6e166be464926ecb8e427bb38e7c650e9b05f49",
+        "candidateCommit": "c2fc3a1f0045732f00f39e998845b832f2d267bc",
+        "qaPath": "character-assets/generation-trials/rc-r-stool-normalization/rc_r_hit_stool_normalized_candidate_qa.json",
+        "qaGitBlobSha": "39a6034ab13b3ac4808bb07c69694670fb54df7c",
+        "qaMetadataCommit": "ae174435a9f3034222b18b1ce64742c660a5408e",
+        "parentPath": "character-assets/generation-trials/rc-r-chair-alignment/rc_r_hit_chair_aligned_to_hh.png",
+        "parentSha256": "848a06a301167e81ed18c59ff013a2bd48d62e92f8724adde0430484648cada4",
+        "parentCommit": "31781e5556110c4409aa10354554b3f22b816fde",
+        "actionKey": "RC:R",
+        "frameId": "rc_r_hit_refresh",
+        "intendedRuntimePath": "character-assets/layers/character/rc/hit_r_refresh.png",
+        "runtimePromoted": false,
+        "formalRuntimeAssetModified": false,
+        "note": "Right-cymbal single-hit candidate registered on GitHub after chair/stool alignment normalization. Historical HOLD evidence remains preserved; this entry does not promote or overwrite the formal runtime asset."
       }
     },
     {
@@ -5263,6 +5283,13 @@
       "at": "2026-09-20T06:13:00+09:00",
       "decision": "REOPEN_VERIFIED_TARGETS_FOR_VISUAL_INTEGRITY_QA",
       "detail": "Historical candidate and QA evidence retained. Previously verified targets are not promotion-eligible until anatomy, linework, fixed-drum composite, and runtime-transition checks pass. BD:RF receives highest-priority anatomy review."
+    },
+    {
+      "at": "2026-09-23T13:01:00+09:00",
+      "decision": "REGISTER_RC_R_HIT_WORKING_CANDIDATE",
+      "actionKey": "RC:R",
+      "phase": "hit",
+      "detail": "Recorded GitHub-registered RC:R right-cymbal single-hit candidate and QA metadata. Candidate is QA_PASS_CANDIDATE_NOT_RUNTIME_PROMOTED; formal runtime path remains unchanged."
     }
   ],
   "visualIntegrityPolicy": {
