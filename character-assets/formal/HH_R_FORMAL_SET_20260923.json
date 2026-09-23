@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 2,
-  "status": "FORMAL_APPROVED_LAYERED",
-  "registeredAt": "2026-09-23T23:59:00+09:00",
+  "schemaVersion": 3,
+  "status": "FORMAL_APPROVED_LAYERED_EXACT",
+  "registeredAt": "2026-09-24T00:25:00+09:00",
   "actionKey": "HH:R",
-  "description": "Right-hand hi-hat formal impact/rebound pair, re-registered as separate character/stick/stool transparent layers over the fixed drum base.",
+  "description": "Approved right-hand hi-hat impact/rebound pair, stored as separate transparent character+sticks+stool layers over the fixed drum base.",
   "layerPolicy": {
     "bottomLayer": "character-assets/layers/drum/drum_base.png",
     "topLayerContains": ["character", "drumsticks", "stool"],
@@ -13,24 +13,21 @@
   "files": {
     "impactCharacterLayer": {
       "path": "character-assets/layers/character/hh/hit_r.png",
-      "sha256": "095824f83fd8f5337966250ae1cbb336de78c61c97b93b9911093c3fe8593188",
-      "gitBlobSha": "043eb294b89ed9a0546560975c1e8a1d0d59a9b1",
-      "format": "PNG indexed RGBA-compatible",
+      "sha256": "672d39cfad56ebee62e53820784d753e182cf43e3a7f09630e329049059edbec",
+      "expectedGitBlobSha": "210e352f55650a359d5b6b2c8a90a93b5be7c134",
       "transparentBackground": true
     },
     "reboundCharacterLayer": {
       "path": "character-assets/layers/character/hh/rebound_r.png",
-      "sha256": "01f33fea4c8bd78bdb484f9526bd8cb516320449e0cadd043ed5392d8aeaca8c",
-      "gitBlobSha": "7bfa071b1c0a9a9ce34b18ebcb7ea8f59db663ab",
-      "format": "PNG indexed RGBA-compatible",
+      "sha256": "5e64cb299779a7227d21e282122089263ed482db60ca4c1bbdee73346729f5f5",
+      "expectedGitBlobSha": "3c9a17f6596bc2a824b377f8662ca3697944659a",
       "transparentBackground": true
     },
     "fixedDrumLayer": {
       "path": "character-assets/layers/drum/drum_base.png",
       "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
       "gitBlobSha": "c7355343320e68d4aab2cc8be7617b11212644ce",
-      "source": "user-supplied fixed drum image",
-      "byteExactWithCurrentGitHubDrumBase": true
+      "byteExactWithUserAttachment": true
     }
   },
   "styleLock": {
@@ -41,6 +38,5 @@
     "hairRoughnessApproved": true,
     "clothingRoughnessApproved": true
   },
-  "resumeRule": "In future chats, use drum_base.png unchanged as the bottom layer and create/modify only the transparent character+sticks+stool layer for each impact/rebound frame.",
-  "note": "Character layers are 256-color indexed PNG exports of the user-approved transparent layers to keep repository size manageable; canvas geometry and transparency placement are preserved."
+  "resumeRule": "Use drum_base.png unchanged as the bottom layer. For every future note pattern, create impact and rebound as transparent character+sticks+stool layers only."
 }

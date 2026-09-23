@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "FORMAL_FIXED_BASE",
-  "registeredAt": "2026-09-23T23:59:00+09:00",
+  "registeredAt": "2026-09-24T00:25:00+09:00",
   "path": "character-assets/layers/drum/drum_base.png",
   "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
   "gitBlobSha": "c7355343320e68d4aab2cc8be7617b11212644ce",
@@ -10,5 +10,5 @@
   "mode": "RGBA",
   "source": "User-supplied fixed drum image",
   "byteExactMatchConfirmed": true,
-  "policy": "Do not regenerate or redraw this drum layer. Use it unchanged as the bottom layer for all character animation frames."
+  "policy": "Never regenerate or redraw this drum layer. Always use it unchanged as the bottom layer."
 }
