@@ -1,0 +1,106 @@
+name: Register exact approved HH-R layered pair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/register-hh-r-layered-exact-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download exact approved character layers
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p character-assets/layers/character/hh character-assets/formal
+          curl -L --fail --retry 3 'https://ucc7c9c7f5f03dfb2c849b5102ff.dl.dropboxusercontent.com/cd/0/get/DIohHmk7X-0aHrswTnAKjLM5dmkfduJZEcJcxEH8PM4suoIdSzYhd4elmaGPTzHrRZ8kY4B9rPglCdPLw5MM5maCqa5s4At1gVlL1VRVjGgNbg5n3JkMNt4DgZoUFSuWNycv6ZPfLjumhZtGeFkoxSSXg4AzfaNYwEWYIcBpvGgO2w/file?c_luid=e8a8ea13' -o character-assets/layers/character/hh/hit_r.png
+          curl -L --fail --retry 3 'https://ucd299b50337fb8201c0e4577a19.dl.dropboxusercontent.com/cd/0/get/DIr8-gAGAgTC146FjzBQv-fy6XRW9YxNAhX8CbHhHtFmhuGaVnRZ74npk83r4SeJmDdmiwH1Qz_MA4fA62vNyldAm5On9vXKjFnQR0ToZzeOrGPNvH07iHsT5Qqc0jc-xAIiRBBb3jsFh61YYiLX6Hs1vyZzCDSYWFmQoV9wGyuT2w/file?c_luid=e8a8ea13' -o character-assets/layers/character/hh/rebound_r.png
+
+          echo '672d39cfad56ebee62e53820784d753e182cf43e3a7f09630e329049059edbec  character-assets/layers/character/hh/hit_r.png' | sha256sum -c -
+          echo '5e64cb299779a7227d21e282122089263ed482db60ca4c1bbdee73346729f5f5  character-assets/layers/character/hh/rebound_r.png' | sha256sum -c -
+          echo 'dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85  character-assets/layers/drum/drum_base.png' | sha256sum -c -
+
+      - name: Write formal manifests
+        shell: bash
+        run: |
+          cat > character-assets/formal/HH_R_FORMAL_SET_20260923.json <<'EOF'
+          {
+            "schemaVersion": 3,
+            "status": "FORMAL_APPROVED_LAYERED_EXACT",
+            "registeredAt": "2026-09-24T00:25:00+09:00",
+            "actionKey": "HH:R",
+            "description": "Approved right-hand hi-hat impact/rebound pair, stored as separate transparent character+sticks+stool layers over the fixed drum base.",
+            "layerPolicy": {
+              "bottomLayer": "character-assets/layers/drum/drum_base.png",
+              "topLayerContains": ["character", "drumsticks", "stool"],
+              "topLayerExcludes": ["drum_set"],
+              "canvas": {"width": 1448, "height": 1086}
+            },
+            "files": {
+              "impactCharacterLayer": {
+                "path": "character-assets/layers/character/hh/hit_r.png",
+                "sha256": "672d39cfad56ebee62e53820784d753e182cf43e3a7f09630e329049059edbec",
+                "expectedGitBlobSha": "210e352f55650a359d5b6b2c8a90a93b5be7c134",
+                "transparentBackground": true
+              },
+              "reboundCharacterLayer": {
+                "path": "character-assets/layers/character/hh/rebound_r.png",
+                "sha256": "5e64cb299779a7227d21e282122089263ed482db60ca4c1bbdee73346729f5f5",
+                "expectedGitBlobSha": "3c9a17f6596bc2a824b377f8662ca3697944659a",
+                "transparentBackground": true
+              },
+              "fixedDrumLayer": {
+                "path": "character-assets/layers/drum/drum_base.png",
+                "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+                "gitBlobSha": "c7355343320e68d4aab2cc8be7617b11212644ce",
+                "byteExactWithUserAttachment": true
+              }
+            },
+            "styleLock": {
+              "monochrome": true,
+              "roughMechanicalPencilSketch": true,
+              "noSolidPencilFill": true,
+              "darknessByRepeatedLooseLines": true,
+              "hairRoughnessApproved": true,
+              "clothingRoughnessApproved": true
+            },
+            "resumeRule": "Use drum_base.png unchanged as the bottom layer. For every future note pattern, create impact and rebound as transparent character+sticks+stool layers only."
+          }
+          EOF
+
+          cat > character-assets/formal/FIXED_DRUM_BASE_20260923.json <<'EOF'
+          {
+            "schemaVersion": 1,
+            "status": "FORMAL_FIXED_BASE",
+            "registeredAt": "2026-09-24T00:25:00+09:00",
+            "path": "character-assets/layers/drum/drum_base.png",
+            "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+            "gitBlobSha": "c7355343320e68d4aab2cc8be7617b11212644ce",
+            "width": 1448,
+            "height": 1086,
+            "mode": "RGBA",
+            "source": "User-supplied fixed drum image",
+            "byteExactMatchConfirmed": true,
+            "policy": "Never regenerate or redraw this drum layer. Always use it unchanged as the bottom layer."
+          }
+          EOF
+
+      - name: Commit exact formal layered set
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/layers/character/hh/hit_r.png character-assets/layers/character/hh/rebound_r.png character-assets/formal/HH_R_FORMAL_SET_20260923.json character-assets/formal/FIXED_DRUM_BASE_20260923.json
+          git rm -f .github/workflows/register-hh-r-layered-exact-once.yml
+          git commit -m "formal: register exact layered HH:R pair and fixed drum base"
+          git push origin HEAD:main
