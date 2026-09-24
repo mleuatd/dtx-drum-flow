@@ -1,0 +1,915 @@
+{
+  "schemaVersion": 1,
+  "canvas": [
+    1448,
+    1086
+  ],
+  "fixedDrum": "character-assets/layers/drum/drum_base.png",
+  "styleMaster": "character-assets/layers/character/hh/hit_l.png",
+  "styleRule": "one consistent monochrome rough-pencil character and fixed stool; no old mixed-style frame promoted without full visual QA",
+  "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
+  "limbAssignments": "site/charts/luna_say_maybe/Luna_say_maybe_full_limbs.json",
+  "noteCount": 2158,
+  "groupCount": 1527,
+  "requiredActionCount": 30,
+  "requiredNewFrames": 60,
+  "actions": [
+    {
+      "key": "SN:L",
+      "groups": 314,
+      "firstOccurrence": {
+        "measure": 1,
+        "time": 4.714583
+      },
+      "strikes": [
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "HH:R",
+      "groups": 248,
+      "firstOccurrence": {
+        "measure": 2,
+        "time": 5.362065
+      },
+      "strikes": [
+        {
+          "part": "HH",
+          "limb": "R",
+          "target": {
+            "x": 270,
+            "y": 425
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + HH:R",
+      "groups": 224,
+      "firstOccurrence": {
+        "measure": 20,
+        "time": 36.225374
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "HH",
+          "limb": "R",
+          "target": {
+            "x": 270,
+            "y": 425
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "HH:R + SN:L",
+      "groups": 143,
+      "firstOccurrence": {
+        "measure": 20,
+        "time": 36.657029
+      },
+      "strikes": [
+        {
+          "part": "HH",
+          "limb": "R",
+          "target": {
+            "x": 270,
+            "y": 425
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF",
+      "groups": 129,
+      "firstOccurrence": {
+        "measure": 2,
+        "time": 6.009547
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "SN:R",
+      "groups": 69,
+      "firstOccurrence": {
+        "measure": 1,
+        "time": 4.93041
+      },
+      "strikes": [
+        {
+          "part": "SN",
+          "limb": "R",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + RC:R",
+      "groups": 63,
+      "firstOccurrence": {
+        "measure": 2,
+        "time": 5.146237
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "RC",
+          "limb": "R",
+          "target": {
+            "x": 1215,
+            "y": 145
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "RD:R",
+      "groups": 53,
+      "firstOccurrence": {
+        "measure": 5,
+        "time": 10.541921
+      },
+      "strikes": [
+        {
+          "part": "RD",
+          "limb": "R",
+          "target": {
+            "x": 965,
+            "y": 250
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "RC:R + SN:L",
+      "groups": 34,
+      "firstOccurrence": {
+        "measure": 13,
+        "time": 25.649835
+      },
+      "strikes": [
+        {
+          "part": "RC",
+          "limb": "R",
+          "target": {
+            "x": 1215,
+            "y": 145
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "LT:R",
+      "groups": 31,
+      "firstOccurrence": {
+        "measure": 17,
+        "time": 32.124655
+      },
+      "strikes": [
+        {
+          "part": "LT",
+          "limb": "R",
+          "target": {
+            "x": 885,
+            "y": 455
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + RD:R",
+      "groups": 29,
+      "firstOccurrence": {
+        "measure": 18,
+        "time": 33.851273
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "RD",
+          "limb": "R",
+          "target": {
+            "x": 965,
+            "y": 250
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "RD:R + SN:L",
+      "groups": 23,
+      "firstOccurrence": {
+        "measure": 18,
+        "time": 33.203791
+      },
+      "strikes": [
+        {
+          "part": "RD",
+          "limb": "R",
+          "target": {
+            "x": 965,
+            "y": 250
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + SN:L",
+      "groups": 22,
+      "firstOccurrence": {
+        "measure": 10,
+        "time": 19.390842
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "LT:L",
+      "groups": 22,
+      "firstOccurrence": {
+        "measure": 17,
+        "time": 32.232568
+      },
+      "strikes": [
+        {
+          "part": "LT",
+          "limb": "L",
+          "target": {
+            "x": 885,
+            "y": 455
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + SN:R",
+      "groups": 17,
+      "firstOccurrence": {
+        "measure": 17,
+        "time": 31.477173
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "R",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "HT:R",
+      "groups": 16,
+      "firstOccurrence": {
+        "measure": 25,
+        "time": 46.261345
+      },
+      "strikes": [
+        {
+          "part": "HT",
+          "limb": "R",
+          "target": {
+            "x": 575,
+            "y": 360
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "HT:L",
+      "groups": 14,
+      "firstOccurrence": {
+        "measure": 29,
+        "time": 52.736165
+      },
+      "strikes": [
+        {
+          "part": "HT",
+          "limb": "L",
+          "target": {
+            "x": 575,
+            "y": 360
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + HH:R + SN:L",
+      "groups": 14,
+      "firstOccurrence": {
+        "measure": 47,
+        "time": 83.275734
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "HH",
+          "limb": "R",
+          "target": {
+            "x": 270,
+            "y": 425
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "FT:R + SN:L",
+      "groups": 13,
+      "firstOccurrence": {
+        "measure": 28,
+        "time": 50.469978
+      },
+      "strikes": [
+        {
+          "part": "FT",
+          "limb": "R",
+          "target": {
+            "x": 1165,
+            "y": 535
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "FT:R",
+      "groups": 9,
+      "firstOccurrence": {
+        "measure": 17,
+        "time": 32.556309
+      },
+      "strikes": [
+        {
+          "part": "FT",
+          "limb": "R",
+          "target": {
+            "x": 1165,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "FT:L",
+      "groups": 8,
+      "firstOccurrence": {
+        "measure": 17,
+        "time": 32.664223
+      },
+      "strikes": [
+        {
+          "part": "FT",
+          "limb": "L",
+          "target": {
+            "x": 1165,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + HT:R",
+      "groups": 6,
+      "firstOccurrence": {
+        "measure": 29,
+        "time": 52.196597
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "HT",
+          "limb": "R",
+          "target": {
+            "x": 575,
+            "y": 360
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + FT:L",
+      "groups": 5,
+      "firstOccurrence": {
+        "measure": 105,
+        "time": 184.498755
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "FT",
+          "limb": "L",
+          "target": {
+            "x": 1165,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "LT:R + SN:L",
+      "groups": 4,
+      "firstOccurrence": {
+        "measure": 46,
+        "time": 81.11746
+      },
+      "strikes": [
+        {
+          "part": "LT",
+          "limb": "R",
+          "target": {
+            "x": 885,
+            "y": 455
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + FT:R",
+      "groups": 4,
+      "firstOccurrence": {
+        "measure": 136,
+        "time": 236.728971
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "FT",
+          "limb": "R",
+          "target": {
+            "x": 1165,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + LT:R",
+      "groups": 3,
+      "firstOccurrence": {
+        "measure": 17,
+        "time": 32.340482
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "LT",
+          "limb": "R",
+          "target": {
+            "x": 885,
+            "y": 455
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "RC:R",
+      "groups": 3,
+      "firstOccurrence": {
+        "measure": 26,
+        "time": 47.448396
+      },
+      "strikes": [
+        {
+          "part": "RC",
+          "limb": "R",
+          "target": {
+            "x": 1215,
+            "y": 145
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + RC:R + SN:L",
+      "groups": 3,
+      "firstOccurrence": {
+        "measure": 68,
+        "time": 120.398036
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "RC",
+          "limb": "R",
+          "target": {
+            "x": 1215,
+            "y": 145
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + FT:R + SN:L",
+      "groups": 3,
+      "firstOccurrence": {
+        "measure": 105,
+        "time": 183.419619
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "FT",
+          "limb": "R",
+          "target": {
+            "x": 1165,
+            "y": 535
+          }
+        },
+        {
+          "part": "SN",
+          "limb": "L",
+          "target": {
+            "x": 420,
+            "y": 535
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    },
+    {
+      "key": "BD:RF + HT:L",
+      "groups": 1,
+      "firstOccurrence": {
+        "measure": 54,
+        "time": 96.225374
+      },
+      "strikes": [
+        {
+          "part": "BD",
+          "limb": "RF",
+          "target": {
+            "x": 735,
+            "y": 650
+          }
+        },
+        {
+          "part": "HT",
+          "limb": "L",
+          "target": {
+            "x": 575,
+            "y": 360
+          }
+        }
+      ],
+      "frames": [
+        "hit",
+        "rebound"
+      ],
+      "visualStatus": "REBUILD_REQUIRED",
+      "stoolLock": true
+    }
+  ],
+  "qa": [
+    "correct actual limb",
+    "continuous shoulder-elbow-wrist-hand-stick",
+    "straight stick and visible contact on hit",
+    "natural same-action rebound",
+    "fixed stool and drum pixel alignment",
+    "same face-hair and clothing style",
+    "runtime maps exact action and phase"
+  ]
+}
