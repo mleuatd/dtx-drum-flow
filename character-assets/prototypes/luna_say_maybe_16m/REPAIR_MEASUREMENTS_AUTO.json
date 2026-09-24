@@ -767,7 +767,112 @@
       "actionKey": "HH:R",
       "hitPath": "character-assets/layers/character/hh/hit_r.png",
       "reboundPath": "character-assets/layers/character/hh/rebound_r.png",
-      "measurementError": "UnidentifiedImageError(\"cannot identify image file '/home/runner/work/dtx-drum-flow/dtx-drum-flow/character-assets/layers/character/hh/hit_r.png'\")"
+      "hit": {
+        "sha256": "672d39cfad56ebee62e53820784d753e182cf43e3a7f09630e329049059edbec",
+        "opaquePixelCount": 446387,
+        "opaqueBBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1327,
+          "height": 1086
+        },
+        "opaqueCentroid": {
+          "x": 803.817,
+          "y": 555.243
+        }
+      },
+      "rebound": {
+        "sha256": "5e64cb299779a7227d21e282122089263ed482db60ca4c1bbdee73346729f5f5",
+        "opaquePixelCount": 449467,
+        "opaqueBBox": {
+          "x": 57,
+          "y": 0,
+          "width": 1280,
+          "height": 1086
+        },
+        "opaqueCentroid": {
+          "x": 834.189,
+          "y": 562.909
+        }
+      },
+      "neutralToHit": {
+        "changedPixels": 537179,
+        "changedRatio": 0.34160218,
+        "diffBBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1327,
+          "height": 1086
+        },
+        "diffCentroid": {
+          "x": 777.534,
+          "y": 554.669
+        },
+        "alphaMismatchPixels": 406553
+      },
+      "neutralToRebound": {
+        "changedPixels": 573800,
+        "changedRatio": 0.36489016,
+        "diffBBox": {
+          "x": 90,
+          "y": 0,
+          "width": 1247,
+          "height": 1086
+        },
+        "diffCentroid": {
+          "x": 796.34,
+          "y": 554.07
+        },
+        "alphaMismatchPixels": 469979
+      },
+      "hitToRebound": {
+        "changedPixels": 504025,
+        "changedRatio": 0.32051894,
+        "diffBBox": {
+          "x": 0,
+          "y": 0,
+          "width": 1337,
+          "height": 1086
+        },
+        "diffCentroid": {
+          "x": 816.944,
+          "y": 559.005
+        },
+        "alphaMismatchPixels": 294472
+      },
+      "shape": {
+        "hitNeutralBboxIoU": 0.80970244,
+        "reboundNeutralBboxIoU": 0.8394337,
+        "hitReboundBboxIoU": 0.94988781,
+        "hitNeutralCentroidShiftPx": 69.942,
+        "reboundNeutralCentroidShiftPx": 100.395,
+        "hitReboundCentroidShiftPx": 31.325
+      },
+      "contactCenters": [
+        {
+          "instrument": "HH",
+          "x": 190,
+          "y": 390,
+          "source": "INSTRUMENT_CONTACT_POINTS.json",
+          "nearestChangedPixelNeutralToHitPx": 62.225,
+          "nearestChangedPixelNeutralToReboundPx": 112.894,
+          "nearestChangedPixelHitToReboundPx": 62.225
+        }
+      ],
+      "contactCenterToDiffCentroidPx": {
+        "hit": [
+          {
+            "instrument": "HH",
+            "distancePx": 610.174
+          }
+        ],
+        "rebound": [
+          {
+            "instrument": "HH",
+            "distancePx": 628.146
+          }
+        ]
+      }
     },
     "HH+SN:R/L": {
       "issueId": "MOTION-008",
