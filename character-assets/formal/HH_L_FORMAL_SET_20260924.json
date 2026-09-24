@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "status": "USER_APPROVED_LAYERED",
+  "actionKey": "HH:L",
+  "drumLayer": "character-assets/layers/drum/drum_base.png",
+  "source": "User approved whole-arm prototype and explicitly classified it as left-hand HH.",
+  "files": {
+    "hit": {
+      "path": "character-assets/layers/character/hh/hit_l.png",
+      "sha256": "29ddb08d4e5e64a05d964f213366c60b9801dfc3136492fff7a4f9db987701b9"
+    },
+    "rebound": {
+      "path": "character-assets/layers/character/hh/rebound_l.png",
+      "sha256": "52493828d0316f1646d88b58e1031fa99d85e4816546cfd331712a97106366fa"
+    }
+  },
+  "runtimeNote": "HH:L is not in current runtime expectedKeys; do not redirect HH:R notes to these left-hand frames."
+}

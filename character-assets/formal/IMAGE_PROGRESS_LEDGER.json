@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "DTX Drum Flow character animation asset production",
-  "updatedAt": "2026-09-24T06:25:00+09:00",
+  "updatedAt": "2026-09-24T21:00:00+09:00",
   "authority": "GitHub main",
   "fixedDrum": {
     "status": "FORMAL_FIXED",
@@ -35,7 +35,8 @@
     "checkpoint": "After every approved pair, commit assets and update this ledger before moving to the next action."
   },
   "completed": [
-    "HH:R"
+    "HH:R",
+    "HH:L"
   ],
   "inProgress": [
     "HH:R + SN:L"
@@ -44,7 +45,6 @@
     "BD:RF",
     "FT:L",
     "FT:R",
-    "HH:L",
     "HT:L",
     "HT:R",
     "LT:L",
@@ -91,5 +91,11 @@
     "lastVerifiedFormalCommit": "795816ab61320b5b18c1132c5212183f8e6ef938",
     "dropboxPath": "/ChatGPT/dtx-drum-flow/"
   },
-  "resumeRule": "On a new chat, verify current GitHub main and Dropbox first, read this ledger and the formal manifests, then resume from an uncompleted item. Do not reset."
+  "resumeRule": "On a new chat, verify current GitHub main and Dropbox first, read this ledger and the formal manifests, then resume from an uncompleted item. Do not reset.",
+  "hhLeftApproval": {
+    "status": "USER_APPROVED",
+    "note": "User identified the previewed action as left-hand HH and approved it as finished; HH:R remains a separate action and was not replaced.",
+    "impact": "character-assets/layers/character/hh/hit_l.png",
+    "rebound": "character-assets/layers/character/hh/rebound_l.png"
+  }
 }
