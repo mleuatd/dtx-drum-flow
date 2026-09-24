@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "action": "HH:R",
+  "status": "NO_VALID_CHARACTER_FRAME",
+  "reference": "https://www.yamaha.com/en/musical_instrument_guide/drums/play/",
+  "canvas": [
+    1448,
+    1086
+  ],
+  "fixedDrum": "character-assets/layers/drum/drum_base.png",
+  "poseGuide": {
+    "rightArm": {
+      "shoulder": [
+        820,
+        345
+      ],
+      "elbow": [
+        640,
+        405
+      ],
+      "wristGrip": [
+        455,
+        392
+      ],
+      "stickTip": [
+        270,
+        425
+      ]
+    },
+    "leftArm": {
+      "shoulder": [
+        745,
+        322
+      ],
+      "elbow": [
+        660,
+        470
+      ],
+      "wristGrip": [
+        545,
+        540
+      ],
+      "restingStickTip": [
+        440,
+        520
+      ]
+    }
+  },
+  "anatomyChecks": [
+    "right arm must originate from far shoulder behind hair, not the visible near shoulder",
+    "right elbow, forearm, wrist, grip, straight stick remain continuous",
+    "right arm passes over left forearm; left hand rests by snare",
+    "right stick tip contacts hi-hat; left stick does not",
+    "hit and rebound share body, head-hair, legs, stool positions",
+    "no drum pixels in character layer"
+  ],
+  "trialResult": "Pose-guide-assisted image edit still extended near/left arm; rejected and not promoted.",
+  "promotionRule": "Do not mark verified or map HH:R runtime until both frames pass anatomical and composited visual QA."
+}
