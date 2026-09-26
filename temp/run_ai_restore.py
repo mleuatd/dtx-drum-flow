@@ -15,8 +15,10 @@ def run(cmd, check=True):
     if check and p.returncode: raise RuntimeError(f'command failed {p.returncode}: {cmd}')
     return p
 
-b64=Path('temp/audio_input.b64').read_text().strip()
-video=ROOT/'input'/'source.mp4'
+parts=sorted(Path('temp').glob('audio_input.b64.part*'))
+if not parts: raise RuntimeError('audio input chunks missing')
+b64=''.join(p.read_text().strip() for p in parts)
+video=ROOT/'input'/'source.flac'
 video.write_bytes(base64.b64decode(b64))
 run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(video)])
 master=ROOT/'work'/'source_master.wav'
