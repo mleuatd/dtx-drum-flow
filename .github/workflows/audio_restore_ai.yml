@@ -1,0 +1,39 @@
+name: Temporary AI audio restore
+on:
+  push:
+    branches: ["tmp/audio-restore-ai-20260927"]
+    paths: ["temp/audio_input.b64"]
+jobs:
+  restore:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: System info
+        run: |
+          uname -a
+          lscpu
+          free -h
+          df -h
+          ffmpeg -version | head -n 2
+      - name: Install AI stacks
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "audio-separator[cpu]" deepfilternet soundfile numpy
+      - name: Run AI restore
+        env:
+          AUDIO_SEPARATOR_MODEL_DIR: ${{ github.workspace }}/audio_ai_job/models
+        run: python temp/run_ai_restore.py
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: utsunomiya-ai-restore
+          path: |
+            audio_ai_job/final
+            audio_ai_job/logs
+            audio_ai_job/models
+          retention-days: 2
