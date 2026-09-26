@@ -1,0 +1,47 @@
+name: Temporary audio model bundle
+on:
+  push:
+    branches: ["tmp/audio-restore-ai-20260927"]
+    paths: ["temp/model_trigger.txt"]
+jobs:
+  bundle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install stacks
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch torchaudio "audio-separator[cpu]" deepfilternet
+      - name: Download Demucs and MDX weights
+        run: |
+          mkdir -p model_bundle/torchaudio model_bundle/audio_separator model_bundle/deepfilter
+          python - <<'PY'
+          import shutil, pathlib, torchaudio
+          b=torchaudio.pipelines.HDEMUCS_HIGH_MUSDB
+          m=b.get_model()
+          cache=pathlib.Path.home()/'.cache/torch/hub/torchaudio/models/hdemucs_high_musdbhq_only.pt'
+          print(cache, cache.exists(), cache.stat().st_size if cache.exists() else 0)
+          shutil.copy2(cache,'model_bundle/torchaudio/hdemucs_high_musdbhq_only.pt')
+          PY
+          audio-separator --download_model_only -m UVR-MDX-NET-Inst_HQ_3.onnx --model_file_dir model_bundle/audio_separator
+          python - <<'PY'
+          from df.enhance import init_df
+          import pathlib, shutil, os
+          model, state, _ = init_df()
+          home=pathlib.Path.home()
+          for p in home.rglob('*DeepFilterNet*'):
+              if p.is_file() and p.stat().st_size>10000:
+                  dst=pathlib.Path('model_bundle/deepfilter')/p.name
+                  if not dst.exists(): shutil.copy2(p,dst)
+          PY
+          find model_bundle -type f -printf '%p %s bytes\n'
+      - name: Upload model bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: audio-model-bundle
+          path: model_bundle
+          retention-days: 2
