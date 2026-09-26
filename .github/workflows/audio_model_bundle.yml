@@ -9,45 +9,69 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            temp
+            .github/workflows
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install stacks
+      - name: Install system tools and isolated Python stacks
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python -m venv sepvenv
+          ./sepvenv/bin/python -m pip install --upgrade pip
+          ./sepvenv/bin/python -m pip install "audio-separator[cpu]==0.47.0"
+          python -m venv dfvenv
+          ./dfvenv/bin/python -m pip install --upgrade pip
+          ./dfvenv/bin/python -m pip install "deepfilternet==0.5.6"
           python -m pip install --upgrade pip
-          python -m pip install torch torchaudio "audio-separator[cpu]" deepfilternet
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch==2.10.0" "torchaudio==2.10.0"
       - name: Download weights and offline wheels
         run: |
+          set -u
           mkdir -p model_bundle/torchaudio model_bundle/audio_separator model_bundle/deepfilter model_bundle/wheels
           python - <<'PY'
           import shutil, pathlib, torchaudio
           b=torchaudio.pipelines.HDEMUCS_HIGH_MUSDB
           _=b.get_model()
           cache=pathlib.Path.home()/'.cache/torch/hub/torchaudio/models/hdemucs_high_musdbhq_only.pt'
-          print(cache, cache.exists(), cache.stat().st_size if cache.exists() else 0)
+          print('DEMUCS CACHE', cache, cache.exists(), cache.stat().st_size if cache.exists() else 0)
           shutil.copy2(cache,'model_bundle/torchaudio/hdemucs_high_musdbhq_only.pt')
           PY
-          audio-separator --download_model_only -m UVR-MDX-NET-Inst_HQ_3.onnx --model_file_dir model_bundle/audio_separator
-          audio-separator --download_model_only -m model_bs_roformer_ep_317_sdr_12.9755.ckpt --model_file_dir model_bundle/audio_separator || true
-          python - <<'PY'
+          ./sepvenv/bin/audio-separator --download_model_only -m UVR-MDX-NET-Inst_HQ_3.onnx --model_file_dir model_bundle/audio_separator || echo MDX_DOWNLOAD_FAILED > model_bundle/MDX_FAILED.txt
+          ./sepvenv/bin/audio-separator --download_model_only -m model_bs_roformer_ep_317_sdr_12.9755.ckpt --model_file_dir model_bundle/audio_separator || echo ROFORMER_DOWNLOAD_FAILED > model_bundle/ROFORMER_FAILED.txt
+          ./dfvenv/bin/python - <<'PY'
           from df.enhance import init_df
           import pathlib, shutil
           _model, _state, _ = init_df()
-          roots=[pathlib.Path.home()/'.cache', pathlib.Path.home()/'.local']
+          roots=[pathlib.Path.home()/'.cache', pathlib.Path.home()/'.local', pathlib.Path.home()/'.config']
+          copied=0
           for root in roots:
               if not root.exists(): continue
               for p in root.rglob('*'):
-                  if p.is_file() and p.stat().st_size>10000 and ('deepfilter' in str(p).lower() or 'dfnet' in str(p).lower()):
+                  try:
+                      ok=p.is_file() and p.stat().st_size>10000 and ('deepfilter' in str(p).lower() or 'dfnet' in str(p).lower())
+                  except Exception:
+                      ok=False
+                  if ok:
                       dst=pathlib.Path('model_bundle/deepfilter')/p.name
                       if not dst.exists():
-                          try: shutil.copy2(p,dst)
+                          try:
+                              shutil.copy2(p,dst); copied+=1
                           except Exception: pass
+          print('DeepFilter copied files',copied)
           PY
-          python -m pip download --dest model_bundle/wheels --no-deps audio-separator onnxruntime
-          python -m pip download --dest model_bundle/wheels deepfilternet
-          python -m pip freeze > model_bundle/pip_freeze.txt
-          find model_bundle -type f -printf '%p %s bytes\n' | tee model_bundle/files.txt
+          ./sepvenv/bin/python -m pip download --dest model_bundle/wheels --no-deps "audio-separator==0.47.0" onnxruntime
+          ./dfvenv/bin/python -m pip download --dest model_bundle/wheels "deepfilternet==0.5.6"
+          ./sepvenv/bin/python -m pip freeze > model_bundle/sep_pip_freeze.txt
+          ./dfvenv/bin/python -m pip freeze > model_bundle/df_pip_freeze.txt
+          sha256sum model_bundle/torchaudio/* model_bundle/audio_separator/* model_bundle/deepfilter/* 2>/dev/null > model_bundle/SHA256SUMS.txt || true
+          find model_bundle -type f -printf '%p %s bytes\n' | sort | tee model_bundle/files.txt
       - name: Upload model bundle
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: audio-model-bundle
