@@ -4,6 +4,7 @@ on:
     branches: ["tmp/audio-restore-ai-20260927"]
     paths:
       - "temp/audio_input.b64.part*"
+      - "temp/dropbox_source_url.txt"
       - "temp/run_ai_restore.py"
       - "temp/model_trigger.txt"
       - ".github/workflows/audio_restore_ai.yml"
@@ -45,8 +46,6 @@ jobs:
 
           python -m venv dfvenv
           ./dfvenv/bin/python -m pip install --upgrade pip setuptools
-          # DeepFilterNet 0.5.6 imports torchaudio.backend.common, removed in newer torchaudio.
-          # Pin a compatible pair only inside this isolated venv.
           ./dfvenv/bin/python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.2.2 torchaudio==2.2.2
           ./dfvenv/bin/python -m pip install "deepfilternet==0.5.6" soundfile
 
@@ -63,6 +62,17 @@ jobs:
           PY
           ./sepvenv/bin/audio-separator --version
           ./dfvenv/bin/deepFilter --help >/dev/null
+      - name: Fetch complete source from one-time Dropbox URL
+        run: |
+          set -euxo pipefail
+          SRC_URL="$(cat temp/dropbox_source_url.txt)"
+          curl --fail --location --retry 2 "$SRC_URL" -o /tmp/source.mp4
+          test "$(stat -c%s /tmp/source.mp4)" -gt 500000
+          ffprobe -v error -show_entries format=duration,size -of json /tmp/source.mp4
+          rm -f temp/audio_input.b64.part*
+          base64 -w0 /tmp/source.mp4 > /tmp/source.b64
+          split -b 200000 -d -a 2 /tmp/source.b64 temp/audio_input.b64.part
+          echo "Rebuilt complete source transfer: $(wc -c </tmp/source.mp4) bytes"
       - name: Run actual AI restore
         env:
           AUDIO_SEPARATOR_MODEL_DIR: ${{ github.workspace }}/audio_ai_job/models
