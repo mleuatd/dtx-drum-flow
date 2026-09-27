@@ -44,8 +44,10 @@ jobs:
           ./sepvenv/bin/python -m pip install "audio-separator[cpu]==0.47.0"
 
           python -m venv dfvenv
-          ./dfvenv/bin/python -m pip install --upgrade pip wheel setuptools
-          ./dfvenv/bin/python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchaudio==2.10.0
+          ./dfvenv/bin/python -m pip install --upgrade pip setuptools
+          # DeepFilterNet 0.5.6 imports torchaudio.backend.common, removed in newer torchaudio.
+          # Pin a compatible pair only inside this isolated venv.
+          ./dfvenv/bin/python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.2.2 torchaudio==2.2.2
           ./dfvenv/bin/python -m pip install "deepfilternet==0.5.6" soundfile
 
           ./sepvenv/bin/python - <<'PY'
@@ -53,9 +55,11 @@ jobs:
           print('separator torch', torch.__version__, 'numpy', numpy.__version__, 'cuda?', torch.cuda.is_available())
           PY
           ./dfvenv/bin/python - <<'PY'
-          import torch, numpy
+          import torch, torchaudio, numpy
           import df
-          print('deepfilter torch', torch.__version__, 'numpy', numpy.__version__, 'cuda?', torch.cuda.is_available())
+          from torchaudio.backend.common import AudioMetaData
+          print('deepfilter torch', torch.__version__, 'torchaudio', torchaudio.__version__, 'numpy', numpy.__version__, 'cuda?', torch.cuda.is_available())
+          print('DeepFilterNet import and legacy backend API: OK')
           PY
           ./sepvenv/bin/audio-separator --version
           ./dfvenv/bin/deepFilter --help >/dev/null
@@ -77,5 +81,6 @@ jobs:
             audio_ai_job/logs
             audio_ai_job/models
             audio_ai_job/work
+            audio_ai_job/analysis
             ai_restore_console.log
           retention-days: 3
