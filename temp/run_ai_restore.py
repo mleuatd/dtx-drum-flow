@@ -1,145 +1,321 @@
-import base64, json, os, subprocess, glob, shutil, hashlib, sys
+import base64, json, os, subprocess, shutil, hashlib, sys, math
 from pathlib import Path
 import numpy as np
 import soundfile as sf
+from scipy import signal
 
-ROOT=Path('audio_ai_job')
-for d in ['input','work','models','demucs','mdx','roformer','df','final','logs']:
+ROOT = Path('audio_ai_job')
+for d in ['input','work','models','demucs','mdx','roformer','df','analysis','final','logs']:
     (ROOT/d).mkdir(parents=True, exist_ok=True)
 
+SEP = os.environ.get('SEP_BIN', 'audio-separator')
+DF = os.environ.get('DF_BIN', 'deepFilter')
+
 def run(cmd, check=True):
-    print('+', ' '.join(map(str,cmd)), flush=True)
-    p=subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    cmd = [str(x) for x in cmd]
+    print('+', ' '.join(cmd), flush=True)
+    p = subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     print(p.stdout, flush=True)
-    (ROOT/'logs'/'commands.log').open('a').write('+ '+' '.join(map(str,cmd))+'\n'+p.stdout+'\n')
-    if check and p.returncode: raise RuntimeError(f'command failed {p.returncode}: {cmd}')
+    with (ROOT/'logs'/'commands.log').open('a', encoding='utf-8') as f:
+        f.write('+ ' + ' '.join(cmd) + '\n' + p.stdout + '\n')
+    if check and p.returncode:
+        raise RuntimeError(f'command failed {p.returncode}: {cmd}')
     return p
 
-parts=sorted(Path('temp').glob('audio_input.b64.part*'))
-if not parts: raise RuntimeError('audio input chunks missing')
-b64=''.join(p.read_text().strip() for p in parts)
-video=ROOT/'input'/'source.flac'
-video.write_bytes(base64.b64decode(b64))
-run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(video)])
-master=ROOT/'work'/'source_master.wav'
-run(['ffmpeg','-y','-i',str(video),'-vn','-c:a','pcm_f32le',str(master)])
+# Reconstruct the source audio. It was losslessly extracted from the uploaded AAC once,
+# then FLAC/base64-chunked only to cross the GitHub Actions network boundary.
+parts = sorted(Path('temp').glob('audio_input.b64.part*'))
+if not parts:
+    raise RuntimeError('audio input chunks missing')
+b64 = ''.join(p.read_text(encoding='utf-8').strip() for p in parts)
+raw = base64.b64decode(b64)
+ext = '.flac' if raw[:4] == b'fLaC' else ('.wav' if raw[:4] == b'RIFF' else '.bin')
+src = ROOT/'input'/('source' + ext)
+src.write_bytes(raw)
+run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',src])
+master = ROOT/'work'/'source_master.wav'
+run(['ffmpeg','-y','-i',src,'-vn','-c:a','pcm_f32le',master])
 
-a,sr=sf.read(master,dtype='float32',always_2d=True)
-if a.shape[1]==1: a=np.repeat(a,2,axis=1)
-orig_n=len(a)
-need=max(int(sr*8.0),orig_n)
-chunks=[a]; flip=False
-while sum(len(x) for x in chunks)<need:
-    chunks.append(a[::-1] if not flip else a)
-    flip=not flip
-pad=np.concatenate(chunks,axis=0)[:need]
-padded=ROOT/'work'/'padded_reflect_8s.wav'
-sf.write(padded,pad,sr,subtype='FLOAT')
+a, sr = sf.read(master, dtype='float32', always_2d=True)
+mono = a.mean(axis=1).astype(np.float32)
+orig_n = len(mono)
+duration = orig_n / sr
+# Stereo context is safer for music-source separators. Reflection/reversal padding avoids a hard zero boundary.
+stereo = np.repeat(mono[:,None], 2, axis=1)
+need = max(int(sr * 8.0), orig_n)
+chunks, flip = [stereo], True
+while sum(len(x) for x in chunks) < need:
+    chunks.append(stereo[::-1] if flip else stereo)
+    flip = not flip
+pad = np.concatenate(chunks, axis=0)[:need]
+padded = ROOT/'work'/'padded_reflect_8s.wav'
+sf.write(padded, pad, sr, subtype='FLOAT')
 
-run([sys.executable,'-V'])
-run(['audio-separator','--version'])
-run(['audio-separator','--env_info'])
-run(['audio-separator','-l','--list_filter=vocals','--list_limit=8'],check=False)
+run([SEP, '--version'])
+run([SEP, '--env_info'], check=False)
+run([SEP, '-l', '--list_filter=vocals', '--list_limit=12'], check=False)
 
-def sep(model,outdir,name):
+def sep(model, outdir, name):
     try:
-        run(['audio-separator',str(padded),'-m',model,'--output_dir',str(outdir),'--output_format','WAV','--single_stem','Vocals','--model_file_dir',str(ROOT/'models')])
-        wavs=sorted(outdir.glob('*.wav'),key=lambda p:p.stat().st_mtime)
-        if not wavs: raise RuntimeError('no wav output')
-        dst=outdir/f'{name}_vocals.wav'
-        if wavs[-1]!=dst: shutil.copy2(wavs[-1],dst)
+        before = set(outdir.glob('*.wav'))
+        run([SEP, padded, '-m', model, '--output_dir', outdir, '--output_format', 'WAV',
+             '--single_stem', 'Vocals', '--model_file_dir', ROOT/'models'])
+        after = list(outdir.glob('*.wav'))
+        new = [p for p in after if p not in before]
+        wavs = new or after
+        if not wavs:
+            raise RuntimeError('separator generated no WAV')
+        p = max(wavs, key=lambda q: q.stat().st_mtime)
+        dst = outdir/f'{name}_vocals.wav'
+        if p != dst:
+            shutil.copy2(p, dst)
         return dst
     except Exception as e:
-        (ROOT/'logs'/f'{name}_ERROR.txt').write_text(repr(e))
+        (ROOT/'logs'/f'{name}_ERROR.txt').write_text(repr(e), encoding='utf-8')
+        print(name, 'FAILED:', repr(e), flush=True)
         return None
 
-outs={}
-outs['demucs']=sep('htdemucs_ft.yaml',ROOT/'demucs','demucs_htdemucs_ft')
-outs['mdx']=sep('UVR-MDX-NET-Inst_HQ_3.onnx',ROOT/'mdx','mdx_inst_hq3')
-outs['roformer']=sep('model_bs_roformer_ep_317_sdr_12.9755.ckpt',ROOT/'roformer','bs_roformer')
+# Three genuinely different model families.
+outs = {
+    'demucs': sep('htdemucs_ft.yaml', ROOT/'demucs', 'demucs_htdemucs_ft'),
+    'mdx': sep('UVR-MDX-NET-Inst_HQ_3.onnx', ROOT/'mdx', 'mdx_inst_hq3'),
+    'roformer': sep('model_bs_roformer_ep_317_sdr_12.9755.ckpt', ROOT/'roformer', 'bs_roformer'),
+}
 
-cropped={}
+cropped = {}
 for k,p in outs.items():
-    if not p: continue
-    x,ss=sf.read(p,dtype='float32',always_2d=True)
-    if ss!=sr:
-        tmp=ROOT/'work'/f'{k}_resampled.wav'
-        run(['ffmpeg','-y','-i',str(p),'-ar',str(sr),str(tmp)])
-        x,ss=sf.read(tmp,dtype='float32',always_2d=True)
-    x=x[:orig_n]
-    x=x.mean(axis=1)
-    q=ROOT/'work'/f'{k}_cropped.wav'; sf.write(q,x,sr,subtype='FLOAT'); cropped[k]=q
+    if not p:
+        continue
+    x, ss = sf.read(p, dtype='float32', always_2d=True)
+    if ss != sr:
+        tmp = ROOT/'work'/f'{k}_resampled.wav'
+        run(['ffmpeg','-y','-i',p,'-ar',str(sr),tmp])
+        x, ss = sf.read(tmp, dtype='float32', always_2d=True)
+    x = x[:orig_n].mean(axis=1).astype(np.float32)
+    if len(x) < orig_n:
+        x = np.pad(x, (0, orig_n-len(x)))
+    q = ROOT/'work'/f'{k}_cropped.wav'
+    sf.write(q, x, sr, subtype='FLOAT')
+    cropped[k] = q
 
-dfouts={}
+if len(cropped) < 2:
+    raise RuntimeError(f'Fewer than two AI separator families succeeded: {list(cropped)}')
+
+# Speech enhancement is isolated in its own NumPy<2 environment.
+dfouts = {}
 for k,p in cropped.items():
-    inp48=ROOT/'df'/f'{k}_48k.wav'
-    run(['ffmpeg','-y','-i',str(p),'-ar','48000',str(inp48)])
-    od=ROOT/'df'/f'{k}_out'; od.mkdir(exist_ok=True)
-    run(['deepFilter',str(inp48),'--output-dir',str(od)],check=False)
-    ws=list(od.glob('*.wav'))
-    if ws:
-        back=ROOT/'work'/f'{k}_df_44k.wav'
-        run(['ffmpeg','-y','-i',str(ws[0]),'-ar',str(sr),str(back)])
-        dfouts[k]=back
+    inp48 = ROOT/'df'/f'{k}_48k.wav'
+    run(['ffmpeg','-y','-i',p,'-ar','48000',inp48])
+    od = ROOT/'df'/f'{k}_out'
+    od.mkdir(exist_ok=True)
+    r = run([DF, inp48, '--output-dir', od], check=False)
+    ws = list(od.glob('*.wav'))
+    if r.returncode == 0 and ws:
+        w = max(ws, key=lambda q: q.stat().st_mtime)
+        back = ROOT/'work'/f'{k}_df_44k.wav'
+        run(['ffmpeg','-y','-i',w,'-ar',str(sr),'-c:a','pcm_f32le',back])
+        dfouts[k] = back
+    else:
+        (ROOT/'logs'/f'{k}_deepfilter_ERROR.txt').write_text(r.stdout, encoding='utf-8')
 
-start=0.325
-end=min(orig_n/sr,1.075)
+start = 0.325
+end = min(duration, 1.075)
+si, ei = int(start*sr), int(end*sr)
+bgi = min(int(0.300*sr), orig_n)
 
-def trim_norm(src,dst,aggressive=False):
-    filt=f'atrim=start={start}:end={end},asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.008,afade=t=out:st={max(0,end-start-0.025):.4f}:d=0.025'
-    if aggressive: filt += ',highpass=f=90,lowpass=f=12000,acompressor=threshold=-24dB:ratio=2:attack=8:release=80:makeup=2dB,alimiter=limit=0.92'
-    else: filt += ',highpass=f=65,acompressor=threshold=-28dB:ratio=1.35:attack=12:release=120:makeup=1.5dB,alimiter=limit=0.90'
-    run(['ffmpeg','-y','-i',str(src),'-af',filt,'-c:a','pcm_s24le',str(dst)])
+def loadmono(p):
+    x, s = sf.read(p, dtype='float32', always_2d=True)
+    if s != sr:
+        raise RuntimeError(f'unexpected sample rate {s} in {p}')
+    y = x.mean(axis=1)
+    if len(y) < orig_n:
+        y = np.pad(y, (0,orig_n-len(y)))
+    return y[:orig_n].astype(np.float32)
 
-order=['roformer','demucs','mdx']
-best=next((k for k in order if k in cropped),None)
-if best is None: raise RuntimeError('No AI separator succeeded')
-base=cropped[best]
-base_df=dfouts.get(best)
-if base_df:
-    blend=ROOT/'work'/'master_blend.wav'
-    run(['ffmpeg','-y','-i',str(base),'-i',str(base_df),'-filter_complex','[0:a]volume=0.80[a0];[1:a]volume=0.20[a1];[a0][a1]amix=inputs=2:normalize=0','-c:a','pcm_f32le',str(blend)])
-    master_src=blend
-else: master_src=base
+def rms(x):
+    return float(np.sqrt(np.mean(np.square(x, dtype=np.float64)) + 1e-15))
 
-master24=ROOT/'final'/'utsunomiya_HQ_MASTER_24bit.wav'; trim_norm(master_src,master24,False)
-agg24=ROOT/'final'/'utsunomiya_HQ_AGGRESSIVE_24bit.wav'; trim_norm(base_df or base,agg24,True)
-run(['ffmpeg','-y','-i',str(master24),'-c:a','flac',str(ROOT/'final'/'utsunomiya_HQ_MASTER.flac')])
-run(['ffmpeg','-y','-i',str(master24),'-b:a','320k',str(ROOT/'final'/'utsunomiya_HQ_MASTER_320k.mp3')])
+def db(x):
+    return 20.0*math.log10(max(float(x),1e-12))
+
+def corr(x,y):
+    x=x-np.mean(x); y=y-np.mean(y)
+    d=np.linalg.norm(x)*np.linalg.norm(y)
+    return float(np.dot(x,y)/d) if d>1e-12 else 0.0
+
+def metrics(x, ref):
+    t=x[si:ei]; rt=ref[si:ei]
+    br=rms(x[:bgi]); rr=rms(ref[:bgi])
+    tr=rms(t); rtr=rms(rt)
+    return {
+        'speech_corr_to_original': corr(t,rt),
+        'speech_rms_dbfs': db(tr),
+        'speech_level_delta_db': db(tr)-db(rtr),
+        'background_rms_dbfs': db(br),
+        'background_reduction_db': db(rr)-db(br),
+        'peak_dbfs': db(np.max(np.abs(x))),
+        'dc_offset': float(np.mean(x)),
+        'clipped_samples': int(np.sum(np.abs(x)>=0.999999)),
+    }
+
+ref = mono
+cand_audio = {k:loadmono(p) for k,p in cropped.items()}
+all_metrics = {k:metrics(x,ref) for k,x in cand_audio.items()}
+# Preservation first: reject obviously mangled speech, then use correlation plus a capped noise-reduction benefit.
+def quality(m):
+    preservation = m['speech_corr_to_original']
+    level_pen = max(0.0, abs(m['speech_level_delta_db'])-9.0) * 0.01
+    noise_bonus = max(-3.0, min(15.0, m['background_reduction_db'])) * 0.008
+    return preservation + noise_bonus - level_pen
+for k,m in all_metrics.items():
+    m['preservation_first_score'] = quality(m)
+
+eligible = [k for k,m in all_metrics.items() if m['speech_corr_to_original'] >= 0.35]
+if not eligible:
+    eligible = list(all_metrics)
+best = max(eligible, key=lambda k: all_metrics[k]['preservation_first_score'])
+
+# Phase-safe-ish ensemble candidate: time-align other outputs to the selected reference over the speech region,
+# then conservative weighted blend. It is created for comparison, not blindly selected as MASTER.
+def align_to(refx, x, max_ms=25):
+    maxlag = int(sr*max_ms/1000)
+    r = refx[si:ei]
+    z = x[si:ei]
+    cc = signal.correlate(z, r, mode='full', method='fft')
+    lags = signal.correlation_lags(len(z),len(r),mode='full')
+    mask = np.abs(lags)<=maxlag
+    lag = int(lags[mask][np.argmax(cc[mask])])
+    if lag>0:
+        y=np.pad(x,(0,lag))[lag:lag+len(x)]
+    elif lag<0:
+        y=np.pad(x,(-lag,0))[:len(x)]
+    else:
+        y=x.copy()
+    return y.astype(np.float32), lag
+
+refbest = cand_audio[best]
+aligned = [refbest]
+align_lags = {best:0}
+for k,x in cand_audio.items():
+    if k==best: continue
+    y,lag=align_to(refbest,x)
+    # RMS match speech segment before mixing, bounded to avoid amplifying artifacts.
+    g=np.clip(rms(refbest[si:ei])/max(rms(y[si:ei]),1e-9),0.5,2.0)
+    aligned.append(y*g)
+    align_lags[k]=lag
+if len(aligned)>1:
+    ensemble = 0.70*aligned[0] + 0.30*np.mean(np.stack(aligned[1:]),axis=0)
+else:
+    ensemble = aligned[0]
+ensemble = ensemble.astype(np.float32)
+ens_path=ROOT/'work'/'ensemble_aligned.wav'
+sf.write(ens_path,ensemble,sr,subtype='FLOAT')
+all_metrics['ensemble']=metrics(ensemble,ref)
+
+# DeepFilterNet is applied conservatively: preserve the selected separator as the majority component.
+master_src = refbest.copy()
+selected_df = None
+if best in dfouts:
+    dfx = loadmono(dfouts[best])
+    dm = metrics(dfx, refbest)
+    # Only mix enhancement if it still strongly follows the separator speech.
+    if dm['speech_corr_to_original'] >= 0.60:
+        master_src = (0.85*refbest + 0.15*dfx).astype(np.float32)
+        selected_df = best
+
+# Gentle final mastering. Avoid hard denoising and preserve articulation.
+def finish(x, aggressive=False):
+    y=x[si:ei].astype(np.float64)
+    y-=np.mean(y)
+    hp=80.0 if aggressive else 55.0
+    sos=signal.butter(2,hp,btype='highpass',fs=sr,output='sos')
+    y=signal.sosfiltfilt(sos,y)
+    n=len(y)
+    fi=min(n,int(0.008*sr)); fo=min(n,int(0.025*sr))
+    if fi>1: y[:fi]*=np.linspace(0,1,fi)
+    if fo>1: y[-fo:]*=np.linspace(1,0,fo)
+    peak=np.max(np.abs(y))+1e-12
+    target=0.82 if not aggressive else 0.86
+    y*=min(target/peak, 8.0)
+    y=np.clip(y,-0.95,0.95)
+    return y.astype(np.float32)
+
+master_audio=finish(master_src,False)
+master24=ROOT/'final'/'utsunomiya_HQ_MASTER_24bit.wav'
+sf.write(master24,master_audio,sr,subtype='PCM_24')
+agg_source=loadmono(dfouts[best]) if best in dfouts else refbest
+agg_audio=finish(agg_source,True)
+agg24=ROOT/'final'/'utsunomiya_HQ_AGGRESSIVE_24bit.wav'
+sf.write(agg24,agg_audio,sr,subtype='PCM_24')
+run(['ffmpeg','-y','-i',master24,'-c:a','flac',ROOT/'final'/'utsunomiya_HQ_MASTER.flac'])
+run(['ffmpeg','-y','-i',master24,'-b:a','320k',ROOT/'final'/'utsunomiya_HQ_MASTER_320k.mp3'])
+
+# Full-length source/candidates for inspection.
+shutil.copy2(master,ROOT/'final'/'source_full_before.wav')
 for k,p in cropped.items(): shutil.copy2(p,ROOT/'final'/f'candidate_{k}_vocals_full.wav')
 for k,p in dfouts.items(): shutil.copy2(p,ROOT/'final'/f'candidate_{k}_deepfilternet_full.wav')
-shutil.copy2(master,ROOT/'final'/'source_full_before.wav')
+shutil.copy2(ens_path,ROOT/'final'/'candidate_ensemble_full.wav')
+full_after=ROOT/'final'/'source_full_after.wav'
+sf.write(full_after,master_src,sr,subtype='PCM_24')
 
-parts=[]
-orig_target=ROOT/'work'/'orig_target.wav'; trim_norm(master,orig_target,False); parts.append(orig_target)
+# Target-only comparison: Original | Demucs | MDX | RoFormer | DF(selected if present) | Ensemble | MASTER.
+compare=[]
+def target_file(name,x):
+    p=ROOT/'work'/name
+    sf.write(p,finish(x,False),sr,subtype='PCM_24')
+    return p
+compare.append(('original',target_file('ab_original.wav',ref)))
 for k in ['demucs','mdx','roformer']:
-    if k in cropped:
-        q=ROOT/'work'/f'{k}_target.wav'; trim_norm(cropped[k],q,False); parts.append(q)
-parts.append(master24)
-listf=ROOT/'work'/'concat.txt'
-sil=ROOT/'work'/'silence.wav'; run(['ffmpeg','-y','-f','lavfi','-i','anullsrc=r=44100:cl=mono','-t','0.4','-c:a','pcm_s24le',str(sil)])
-seq=[]
-for i,p in enumerate(parts):
-    seq.append(f"file '{p.resolve()}'")
-    if i<len(parts)-1: seq.append(f"file '{sil.resolve()}'")
-listf.write_text('\n'.join(seq))
-run(['ffmpeg','-y','-f','concat','-safe','0','-i',str(listf),'-c:a','pcm_s24le',str(ROOT/'final'/'utsunomiya_AI_AB_compare.wav')])
+    if k in cand_audio: compare.append((k,target_file(f'ab_{k}.wav',cand_audio[k])))
+if best in dfouts: compare.append((f'{best}+DeepFilterNet',target_file('ab_df.wav',loadmono(dfouts[best]))))
+compare.append(('ensemble',target_file('ab_ensemble.wav',ensemble)))
+compare.append(('MASTER',master24))
+sil=ROOT/'work'/'silence.wav'
+run(['ffmpeg','-y','-f','lavfi','-i',f'anullsrc=r={sr}:cl=mono','-t','0.4','-c:a','pcm_s24le',sil])
+concat=ROOT/'work'/'concat.txt'
+lines=[]
+for i,(_,p) in enumerate(compare):
+    lines.append(f"file '{p.resolve()}'")
+    if i<len(compare)-1: lines.append(f"file '{sil.resolve()}'")
+concat.write_text('\n'.join(lines),encoding='utf-8')
+run(['ffmpeg','-y','-f','concat','-safe','0','-i',concat,'-c:a','pcm_s24le',ROOT/'final'/'utsunomiya_AI_AB_compare.wav'])
 
-report=[]
-report.append('# PROCESS_REPORT_AI.md\n')
-report.append(f'- Source sample rate: {sr} Hz\n- Source samples: {orig_n}\n- Target trim: {start:.3f}–{end:.3f} s\n- Padding: reflection/reversal context to 8.0 s, removed after inference\n')
-report.append('## Actual model execution\n')
-for k in ['demucs','mdx','roformer']:
-    report.append(f'- {k}: {"SUCCESS" if k in cropped else "FAILED"}\n')
-report.append(f'- DeepFilterNet outputs: {", ".join(dfouts.keys()) or "none"}\n- MASTER base: {best}\n')
-report.append('## Downloaded model files\n')
+# Model and file hashes are evidence that real weights were downloaded, not merely packages installed.
+model_files=[]
 for p in sorted((ROOT/'models').rglob('*')):
     if p.is_file():
         h=hashlib.sha256(p.read_bytes()).hexdigest()
-        report.append(f'- `{p}` — {p.stat().st_size} bytes — SHA256 `{h}`\n')
-report.append('\n## Final files\n')
+        model_files.append({'path':str(p),'bytes':p.stat().st_size,'sha256':h})
+
+master_metrics={
+    'peak_dbfs':db(np.max(np.abs(master_audio))),
+    'rms_dbfs':db(rms(master_audio)),
+    'dc_offset':float(np.mean(master_audio)),
+    'clipped_samples':int(np.sum(np.abs(master_audio)>=0.999999)),
+}
+(ROOT/'analysis'/'candidate_metrics.json').write_text(json.dumps(all_metrics,ensure_ascii=False,indent=2),encoding='utf-8')
+report=[]
+report.append('# PROCESS_REPORT_AI.md\n\n')
+report.append(f'- Source: lossless FLAC transfer of uploaded AAC audio\n- Sample rate: {sr} Hz\n- Duration: {duration:.6f} s\n- Target trim: {start:.3f}–{end:.3f} s\n- Background profile region: 0.000–{min(0.300,duration):.3f} s\n- Context padding: reflection/reversal to 8.0 s, removed after inference\n\n')
+report.append('## Actual AI inference\n')
+for k in ['demucs','mdx','roformer']:
+    report.append(f'- {k}: {"SUCCESS" if k in cropped else "FAILED"}\n')
+report.append(f'- DeepFilterNet successful outputs: {", ".join(dfouts.keys()) or "none"}\n')
+report.append(f'- Preservation-first selected separator: **{best}**\n')
+report.append(f'- DeepFilterNet mixed into MASTER: **{selected_df or "no"}** (15% only when preservation check passed)\n')
+report.append(f'- Ensemble alignment lags (samples): `{json.dumps(align_lags)}`\n\n')
+report.append('## Candidate metrics\n```json\n'+json.dumps(all_metrics,ensure_ascii=False,indent=2)+'\n```\n\n')
+report.append('## MASTER metrics\n```json\n'+json.dumps(master_metrics,ensure_ascii=False,indent=2)+'\n```\n\n')
+report.append('## Downloaded model files\n')
+for m in model_files:
+    report.append(f'- `{m["path"]}` — {m["bytes"]} bytes — SHA256 `{m["sha256"]}`\n')
+report.append('\n## AB comparison order\n'+ ' → '.join(n for n,_ in compare) + '\n\n')
+report.append('## Final files\n')
 for p in sorted((ROOT/'final').glob('*')):
     report.append(f'- `{p.name}` ({p.stat().st_size} bytes)\n')
-(ROOT/'final'/'PROCESS_REPORT_AI.md').write_text(''.join(report))
-print('BEST',best)
-print((ROOT/'final'/'PROCESS_REPORT_AI.md').read_text())
+(ROOT/'final'/'PROCESS_REPORT_AI.md').write_text(''.join(report),encoding='utf-8')
+print('SUCCESSFUL SEPARATORS:',list(cropped))
+print('DEEPFILTERNET:',list(dfouts))
+print('MASTER BASE:',best)
+print('MASTER METRICS:',master_metrics)
+print((ROOT/'final'/'PROCESS_REPORT_AI.md').read_text(encoding='utf-8'))
