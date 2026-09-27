@@ -32,22 +32,38 @@ jobs:
           python --version
           ffmpeg -version | head -n 2
           ffprobe -version | head -n 2
-      - name: Install real AI inference stacks
+      - name: Install isolated AI inference stacks
         run: |
           set -euxo pipefail
           python -m pip install --upgrade pip wheel setuptools
-          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchaudio==2.10.0 torchvision==0.25.0
-          python -m pip install "audio-separator[cpu]==0.47.0" "deepfilternet==0.5.6" soundfile numpy scipy
-          python - <<'PY'
-          import torch, torchaudio
-          print('torch', torch.__version__, 'cuda?', torch.cuda.is_available())
-          print('torchaudio', torchaudio.__version__)
+          python -m pip install "numpy==1.26.4" soundfile scipy
+
+          python -m venv sepvenv
+          ./sepvenv/bin/python -m pip install --upgrade pip wheel setuptools
+          ./sepvenv/bin/python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchaudio==2.10.0 torchvision==0.25.0
+          ./sepvenv/bin/python -m pip install "audio-separator[cpu]==0.47.0"
+
+          python -m venv dfvenv
+          ./dfvenv/bin/python -m pip install --upgrade pip wheel setuptools
+          ./dfvenv/bin/python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchaudio==2.10.0
+          ./dfvenv/bin/python -m pip install "deepfilternet==0.5.6" soundfile
+
+          ./sepvenv/bin/python - <<'PY'
+          import torch, numpy
+          print('separator torch', torch.__version__, 'numpy', numpy.__version__, 'cuda?', torch.cuda.is_available())
           PY
-          audio-separator --version
-          deepFilter --help >/dev/null
+          ./dfvenv/bin/python - <<'PY'
+          import torch, numpy
+          import df
+          print('deepfilter torch', torch.__version__, 'numpy', numpy.__version__, 'cuda?', torch.cuda.is_available())
+          PY
+          ./sepvenv/bin/audio-separator --version
+          ./dfvenv/bin/deepFilter --help >/dev/null
       - name: Run actual AI restore
         env:
           AUDIO_SEPARATOR_MODEL_DIR: ${{ github.workspace }}/audio_ai_job/models
+          SEP_BIN: ${{ github.workspace }}/sepvenv/bin/audio-separator
+          DF_BIN: ${{ github.workspace }}/dfvenv/bin/deepFilter
         run: |
           set -o pipefail
           python temp/run_ai_restore.py 2>&1 | tee ai_restore_console.log
