@@ -17,6 +17,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install FFmpeg
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
       - name: System info
         run: |
           set -euxo pipefail
@@ -31,7 +36,6 @@ jobs:
         run: |
           set -euxo pipefail
           python -m pip install --upgrade pip wheel setuptools
-          # CPU torch first so DeepFilterNet has the dependency that was missing in the previous attempt.
           python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchaudio==2.10.0 torchvision==0.25.0
           python -m pip install "audio-separator[cpu]==0.47.0" "deepfilternet==0.5.6" soundfile numpy scipy
           python - <<'PY'
