@@ -1,0 +1,14 @@
+{
+  "status": "PIXEL_PROVENANCE_PASS_RENDER_PENDING",
+  "foreground_selected_pixel_mismatches": 0,
+  "original_drum_sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "foreground_file_sha256": "cd823596261bd4042f0bf822ced00764fc9d3f9946067bd7e1220ec73f5acd4e",
+  "draw_order": [
+    "original fixed drum",
+    "complete original-pose character",
+    "verbatim selected drum pixels",
+    "same character arm pixels only",
+    "effects"
+  ],
+  "note": "No drum line is edited. Torso/hair behind selected drums; validated moving arms/sticks in front. Browser performance/visual verification pending."
+}

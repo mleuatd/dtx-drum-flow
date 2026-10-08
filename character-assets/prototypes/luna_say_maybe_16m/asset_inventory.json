@@ -1,6 +1,6 @@
 {
-  "version": 12,
-  "scope": "Luna Say Maybe measures 1-54 runtime mapped; M54 public runtime QA pending",
+  "version": 13,
+  "scope": "Luna full chart measures 1-148; 8 source-bound pairs static passed, 4 pairs live verified",
   "imageSetState": "m1-54-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
@@ -111,15 +111,17 @@
     },
     "rd_r_hit": {
       "path": "layers/character/rd/hit_r_refresh.png",
-      "state": "motion-repair-verified",
-      "sha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_hit_qa.json"
+      "state": "ready",
+      "sha256": "ddd5e8b4d3943782444aeea0babd31d0403c79e5f9bcc092047227b55d8226ca",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_hit_qa.json",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "rd_r_rebound": {
       "path": "layers/character/rd/rebound_r_refresh.png",
-      "state": "motion-repair-verified",
-      "sha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_rebound_qa.json"
+      "state": "ready",
+      "sha256": "2b38f067003b8b2767be398906408703241b3bd0fbde144225014deabcd5fb01",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_rebound_qa.json",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "bd_sn_rf_l_hit": {
       "path": "layers/character/combo/bd_sn_hit_refresh.png",
@@ -233,15 +235,17 @@
     },
     "rd_sn_r_l_hit": {
       "path": "layers/character/combo/rd_sn_r_l_hit_refresh.png",
-      "state": "motion-repair-verified",
-      "sha256": "1339af1ef8b56e24631fdef040567e87d7acd12b5faf320af52574319ae53086",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_hit_qa.json"
+      "state": "ready",
+      "sha256": "ddd5e8b4d3943782444aeea0babd31d0403c79e5f9bcc092047227b55d8226ca",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_hit_qa.json",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "rd_sn_r_l_rebound": {
       "path": "layers/character/combo/rd_sn_r_l_rebound_refresh.png",
-      "state": "motion-repair-verified",
-      "sha256": "3481994f351185dc1896be0d4f8fc2fb14b1ed732398c1184f59f197fd82f95b",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_rebound_qa.json"
+      "state": "ready",
+      "sha256": "8c95612851f756264812969a78cd10120b02c5249206522d2bfc215ea8a39220",
+      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_rebound_qa.json",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "bd_hh_rf_r_hit": {
       "path": "layers/character/combo/bd_hh_rf_r_hit_refresh.png",

@@ -1,38 +1,27 @@
 # 作業再開入口 — 2026-10-08
 
-目標: 動画と承認Neutralに基づく同一人物、固定ドラム、自然なHit/Reboundを全必要動作について制作し、公開Web背景で検証する。全作業完了ではありません。
+**全作業は未完了です。** 目標はLuna全30動作60枚を自然な人体・固定ドラムで完成し公開Webで検証することです。
 
-## 現在の実績
-- Luna最新実装は2,158ノーツ・1,527グループ・30動作・60枚。汎用全曲の全組合せではありません。
-- 新規静的QA合格: SN:L、SN:R、HH:R、HH+SN:R/L、RC:R、RC+SN:R/L の6ペア12枚。commit 3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b で公開反映済み。8位相のキー/位相/新画像読み込みを公開Webで実測PASS。再生/一時停止で時刻と背景更新も確認。
-- 公開Webの従来画像を30動作60位相で操作検証: キー/位相60件一致、画像60件読み込み。SN:Rは旧設定でReboundにもHit画像を使用していたため、今回独立Reboundへ修正。表示テストは絵の合格判定とは別。
-- 固定ドラムSHA256 dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85 は不変。Neutral SHA256 886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9 は不変。
-- 413旧画像の機械検査・一覧確認・3分類はledger/image_audit.json。判定保留は個別拡大未完了で、合格donorとして使わない。旧SN:L、旧HH:Rと旧HH:Lを正しい参考にしない。
-- HT:Lの局所試作は袖/肘の白い切れと残像があり不合格。HH v3以前も不合格。
-
-## 固定キャラクター基準
-仕様3.4に従い承認Neutralの座標と描線を優先。動画は髪・チェック上着・プリーツ・ブーツの照合に使用。動画は演奏映像ではない。遠い側の右肩は髪に隠れているため推定。右腕は近い左肩の線を編集せず、その背後から前腕を見せる。人物全体のAI再生成出力は採用せず、右腕局所だけ移植し保護領域を元画像へ戻した。
+## 現在の状態
+- 30動作60位相の既存Web切替と画像読み込みを実測済み。描画成功と絵の合格は別です。
+- 新しい静的QA合格は8ペア16枚: SN:L、SN:R、HH:R、HH+SN:R/L、RC:R、RC+SN:R/L、RD:R、RD+SN:R/L。最初の4ペア8位相は公開Webでも検証済み。残り22ペア。RC/RDと新しい前後合成は公開検証待ち。
+- 固定ドラムと承認NeutralのSHAは不変。髪・胴・脚・近い腕を保護し、必要な腕だけ局所編集。全身AI出力は完成画像として採用しない。
+- 413過去画像の一覧と分類: 20261008/ledger/image_audit.json。個別拡大未完了の判定保留を成功donorとして使わない。
+- RDの最初のAI生成は打点が高すぎて不合格。元Neutralの手とスティックを局所変形したv2を使用。HT:L試作は袖の白い切れと残像で不合格。
+- ドラム原画の一部RGBAをそのまま複製した前景PNGと腕前景canvasで、髪/身体をタム・ライドの後ろに置く合成処理を追加。原画改変ではない。公開Webの見た目・性能の検証は次の作業。
 
 ## 保存場所
-この入口: character-assets/production/WORK_RESUME_20261008.md
-詳細: character-assets/production/20261008/
-正式画像: character-assets/layers/character/{sn,hh,combo}/ (今回の4ペアだけ更新)
-過去素材は親commit cbfd7bcbe3f634f65136b73b25043cd2c3a4f73f の履歴に残る。
-入力ZIP: DTX_Drum_Flow_Work_素材一式と制作仕様書_20261008.zip、libfile_cb32a71ec6688191b3cd32ae3785f0b9。
-前回チェックポイントZIP: libfile_44bac41a53bc8191b747aff3e2c80c12。
-指定名 WORK_MASTER_SPEC_REVISED.md は入力ZIPに存在せず、同梱 WORK_MASTER_SPEC.md と今回ユーザーの1〜10を適用した。
+入口: character-assets/production/WORK_RESUME_20261008.md
+詳細: character-assets/production/20261008/{ledger,qa,scripts,donors}/
+正式画像: character-assets/layers/character/ 各楽器とcombo。
+入力: DTX_Drum_Flow_Work_素材一式と制作仕様書_20261008.zip、libfile_cb32a71ec6688191b3cd32ae3785f0b9。指定名WORK_MASTER_SPEC_REVISED.mdはZIPになく、同梱WORK_MASTER_SPEC.mdとユーザー1〜10を適用。
 
-## 次に行うこと
-1. この入口、20261008/qa、ledger/motion_matrix.json を読み、最新mainとの差を調べる。4ペアの公開実測は20261008/qa/browser_post_promote_4_pairs.json。残り24ペアを制作する。
-2. RC:Rの外向き右腕を局所制作。既存の右腕を画像右の遠い肩からつなぎ、打点1215,145に届かせる。髪/胴/椅子/脚/左腕は保護。RCの外向き腕donorは保存済み。次はRD:Rの曲げた前腕donorを検証し、LT、FT等へ展開。
-3. BD:RFのペダル接触は原画上の板を実見して決める。古い効果座標735,650はバスドラム面であり足の打点ではない。足をそこへ移動しない。
-4. 全ての残24動作にペア、固定マスク、人体/打点検証、Neutral→Hit→Rebound→Neutralプレビューを作る。候補/不合格を完成数に入れない。
-5. 毎ペアまたは中断前にこの入口・台帳をGitHub更新。無人の無期限バックグラウンド実行を約束しない。
+## 再開手順
+1. 最新mainとこの入口、ledger/motion_matrix.jsonを読む。公開サイトのcache version 20261008-occlusion-r4 と前景レイヤーを確認。8ペア16位相を実測し、人体と打点も画面で確認。
+2. LT:Rの局所腕生成が進行中。scratchに結果がなければcanonical Neutralと固定原画から再生成。赤いガイドは参考だけで完成画像に含めない。LT打面は885,416付近、旧885,455は側面。
+3. HT左右、LT左右、FT左右、BD右足を制作し、合格部位だけ組み合わせて残22ペアを制作。BD旧735,650はドラム面で足の打点ではない。実際のペダル板を使用。
+4. 各ペアで人体・同一人物・Hit接触・Rebound離隔・固定部分を検査し、不合格は修正。GitHubに実体・台帳・失敗理由・次位置を保存する。
+5. 公開Webの全30動作60位相と再生、PC/モバイルを検証。画像の合格と読み込みの合格を区別する。
 
-## 最新追記
-- 旧SN:R不合格PNGはlegacy-rejectedへ保存し、拒否レジストリを旧SHAの保存先へ更新。新しい別画像の正式パスを旧画像の拒否規則で誤拒否しない。
-- SN:Lの実測V2アンカーと画像ハッシュへCIを更新し、変更許可領域外のRGBA差分ゼロを画像そのものから検査する。固定ドラム/Neutralのハッシュは維持。
-- Web同時打撃ラベルの手順序が楽器のソート順と異なる不具合を修正。HH+SN表示はR/Lとなる。
-- RC:RとRC+SN:R/Lの局所Hit/Reboundが静的QA合格。公開反映後の検証待ち。RD:Rの局所Hitを生成中。
-
-- commit41635d06b706d8e399821f9ff80b369c87c3bc19のvalidate、Runtime Pose SN-L Source QAはGitHub Actions SUCCESS。
+## 確定したチェック
+commit41635d06b706d8e399821f9ff80b369c87c3bc19のvalidateとRuntime Pose SN-L Source QAはGitHub Actions SUCCESS。以後の変更は改めて確認。画像の独立したReboundを使うようSN:R設定を修正済み。
