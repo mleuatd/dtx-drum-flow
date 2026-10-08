@@ -81,3 +81,13 @@
 - 最新の画面: https://mleuatd.github.io/dtx-drum-flow/ 。公開ページのビルド識別子: https://mleuatd.github.io/dtx-drum-flow/build.json 。
 - この完了追記は **引き継ぎ文書だけの更新**であり、サイトのビルドSHAは引き続き `a15c01d...` でよい。公開用ファイルに追加差分を加えた場合は新たにデプロイとQAを行う。
 
+
+### 2026-10-09 デバッグ表示の原因調査・修正
+- 症状: 7:19〜7:29のスマホ画面で、黄色いHUDに古い固定 `BUILD 20260918-inventory-scope-r1` だけが現れ、追加の `DEPLOY` と `BUILT` が表示されない。
+- **主原因（コードで確定）:** `site/character-prototype.js` の `updateDevHud()` が250msごとに `hud.textContent = ...` を行い、`site/index.html` で追加した `devDeployInfo` 子要素を消していた。旧BUILD文字列自体もビルドSHAではなく固定文言。
+- **副原因/対策:** `site/index.html` の `app.js` と `site/app.js` の `character-prototype.js` 読み込みURLが固定バージョンだったため、コード更新でも古いJSを再使用し得た。両方を `20261009-hud-fix-r1` に更新。
+- 修正: HUD全体の上書きをやめる代わりに、更新描画時に `window.__DTX_DEPLOY_STATUS__` も結合して描画する。ビルド情報取得時にその値を更新。固定 `BUILD` と現在の `DEPLOY / BUILT` を区別。
+- 主要修正コミット: `21fab53e7336f1a2d741b1cddafed996b716e39d`、`1fd181ad15dd73d122519ab51cc7a88e353c348a`、最終 `7e4f8a3a74f88d3cb8b424f2a5b338a653f8fb2e`。
+- 最終版 [Pagesデプロイ #37853946257](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37853946257) は `success`。[Runtime Character QA #37853946258](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37853946258) も `success`。
+- **確認上の制約:** 既存のRuntime Character QAは演奏動作と画像を検査するがHUDの `DEPLOY` 文字列が実ブラウザに表示されたことまでは個別アサートしていない。スマホ上の最新HUD表示確認はまだ未確認。今後はHUD検証をQAの明示的な項目に加える。
+- 正式PNG・固定ドラム・承認Neutral・ノーツの縦線は変更なし。旧画像・失敗記録の削除なし。
