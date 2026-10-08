@@ -9,10 +9,10 @@
     "LUNA_ALL30_20261008": {
       "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "37852990508",
-      "testedCommitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
-      "artifact": "public-runtime-qa-37852990508",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37852990508",
+      "runId": "37853390704",
+      "testedCommitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
+      "artifact": "public-runtime-qa-37853390704",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37853390704",
       "measureStart": 1,
       "measureEnd": 148,
       "actions": [
@@ -155,18 +155,18 @@
     }
   ],
   "next": "Read LUNA_ALL30_20261008 evidence; fix concrete failing phase or playback if any. No unchanged retry.",
-  "updatedAt": "2026-10-08T22:24:55.975689+00:00",
+  "updatedAt": "2026-10-08T22:28:18.848347+00:00",
   "browserFrameEvidence": {
-    "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+    "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
     "deployment": {
       "version": "POST-FIX",
-      "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
-      "builtAt": "2026-10-08T22:23:24Z",
-      "expectedCommitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
-      "acceptedDeploymentSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36"
+      "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
+      "builtAt": "2026-10-08T22:26:53Z",
+      "expectedCommitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
+      "acceptedDeploymentSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7"
     },
     "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-    "workflowRunId": "37852990508",
+    "workflowRunId": "37853390704",
     "measureRange": [
       1,
       148
@@ -323,15 +323,15 @@
         "key": "BD+FT:RF/R"
       }
     ],
-    "testedAt": "2026-10-08T22:24:52.763Z",
+    "testedAt": "2026-10-08T22:28:15.607Z",
     "failed": 0,
     "passed": 142,
     "records": [
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:23:57.830Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:26.422Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -372,15 +372,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m95_SN_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:23:58.190Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:26.751Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -421,15 +425,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m95_SN_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:23:58.533Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:27.034Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -470,15 +478,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m95_SN_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:23:58.876Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:27.334Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -519,15 +531,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m29_SN_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:23:59.215Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:27.617Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -568,15 +584,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m29_SN_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:23:59.549Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:27.885Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -617,15 +637,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m29_SN_R_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:23:59.892Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:28.168Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -666,15 +690,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m99_HH_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:00.240Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:28.466Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -715,15 +743,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m99_HH_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:00.610Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:28.750Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -764,15 +796,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m75_BD_RF_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:00.973Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:29.034Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -813,15 +849,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m75_BD_RF_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:01.344Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:29.322Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -862,15 +902,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m63_RD_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:01.705Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:29.623Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -911,15 +955,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m63_RD_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:02.119Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:29.902Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -960,15 +1008,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m16_BD_SN_RF_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:02.519Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:30.201Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1009,15 +1061,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m16_BD_SN_RF_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:03.100Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:30.486Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1058,15 +1114,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m27_RC_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:03.485Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:30.785Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1107,15 +1167,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m27_RC_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:03.864Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:31.053Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1156,15 +1220,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m27_RC_SN_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:04.238Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:31.350Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1205,15 +1273,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m38_BD_SN_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:04.597Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:31.633Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1254,15 +1326,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m38_BD_SN_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:04.986Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:31.918Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1303,15 +1379,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m17_FT_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:05.353Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:32.202Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1352,15 +1432,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m17_FT_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:05.745Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:32.484Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1401,15 +1485,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m17_FT_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:06.117Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:32.768Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1450,15 +1538,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m17_FT_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:06.508Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:33.067Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1499,15 +1591,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m130_BD_RD_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:06.884Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:33.350Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1548,15 +1644,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m130_BD_RD_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:07.260Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:33.634Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1597,15 +1697,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m130_RD_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:07.642Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:33.917Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1646,15 +1750,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m130_RD_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:08.057Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:34.199Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1695,15 +1803,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m81_BD_HH_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:08.430Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:34.513Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1744,15 +1856,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m81_BD_HH_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:08.801Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:34.802Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1793,15 +1909,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m73_HH_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:09.176Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:35.100Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1842,15 +1962,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m73_HH_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:09.577Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:35.372Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1891,15 +2015,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m72_BD_LT_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:09.931Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:35.667Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1940,15 +2068,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m72_BD_LT_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:10.291Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:35.966Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1989,15 +2121,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m148_LT_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:10.640Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:36.272Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2038,15 +2174,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m148_LT_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:10.986Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:36.566Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2087,15 +2227,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m148_LT_R_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:11.331Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:36.850Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2136,15 +2280,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m69_LT_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:11.691Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:37.134Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2185,15 +2333,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m69_LT_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:12.052Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:37.418Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2234,15 +2386,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m103_BD_RC_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:12.397Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:37.727Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2283,15 +2439,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m103_BD_RC_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:12.757Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:38.014Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2332,15 +2492,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m103_BD_RC_RF_R_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:13.109Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:38.311Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2381,15 +2545,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m45_HT_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:13.449Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:38.600Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2430,15 +2598,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m45_HT_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:13.796Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:38.886Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2479,15 +2651,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m28_FT_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:14.152Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:39.189Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2528,15 +2704,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m28_FT_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:14.521Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:39.487Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2577,15 +2757,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m27_RC_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:14.873Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:39.785Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2626,15 +2810,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m27_RC_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:15.218Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:40.074Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2675,15 +2863,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m76_HT_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:15.568Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:40.379Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2724,15 +2916,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m76_HT_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:15.924Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:40.678Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2773,15 +2969,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m29_BD_HT_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:16.286Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:40.968Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2822,15 +3022,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m29_BD_HT_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:16.638Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:41.245Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2871,15 +3075,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m46_LT_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:16.981Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:41.539Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2920,15 +3128,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m46_LT_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:17.325Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:41.826Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2969,15 +3181,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m46_LT_SN_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:17.655Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:42.114Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3018,15 +3234,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m47_BD_HH_SN_RF_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:17.973Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:42.397Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3067,15 +3287,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m47_BD_HH_SN_RF_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:18.324Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:42.681Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3116,15 +3340,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m54_BD_HT_RF_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:18.640Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:42.961Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3165,15 +3393,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m54_BD_HT_RF_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:18.975Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:43.246Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3214,15 +3446,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:19.292Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:43.527Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3263,15 +3499,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:19.590Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:43.797Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3312,15 +3552,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:19.940Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:44.078Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3361,15 +3605,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m105_BD_FT_SN_RF_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:20.257Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:44.363Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3410,15 +3658,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m105_BD_FT_SN_RF_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:20.557Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:44.627Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3459,15 +3711,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m105_BD_FT_SN_RF_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:20.872Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:44.911Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3508,15 +3764,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m105_BD_FT_RF_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:21.190Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:45.194Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3557,15 +3817,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m105_BD_FT_RF_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:21.489Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:45.460Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3606,15 +3870,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m105_BD_FT_RF_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:21.807Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:45.743Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3655,15 +3923,19 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m136_BD_FT_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:22.121Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:46.028Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3704,7 +3976,11 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/app.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.css?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "pc/m136_BD_FT_RF_R_rebound.png",
         "status": "PASS"
       },
@@ -3718,86 +3994,86 @@
         "playbackSpeed": 1,
         "samples": [
           {
-            "time": 10.1129,
+            "time": 10.126,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3271,
+            "time": 10.3262,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.5366,
+            "time": 10.5257,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6877,
+            "time": 10.6896,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.896,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.074,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.2628,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.4325,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.6266,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.8233,
+            "time": 10.909,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.9975,
+            "time": 11.0926,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.2757,
+            "frame": "layers/character/bd/hit_rf.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.4591,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.6423,
+            "frame": "layers/character/sn/hit_l.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.8258,
+            "frame": "layers/character/sn/rebound_l.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 12.009,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 12.1989,
-            "frame": "layers/character/combo/bd_rc_rebound.png",
-            "phase": "rebound",
+            "time": 12.1923,
+            "frame": "layers/character/combo/bd_rc_hit.png",
+            "phase": "hit",
             "complete": true,
             "width": 1448
           }
@@ -3814,84 +4090,84 @@
         "playbackSpeed": 0.5,
         "samples": [
           {
-            "time": 10.0595,
+            "time": 10.0647,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.15305,
+            "time": 10.1565,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.24285,
+            "time": 10.2481,
             "frame": "layers/character/hh/rebound_r.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.33465,
+            "time": 10.33975,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.4213,
+            "time": 10.42305,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.5178,
+            "time": 10.52305,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6057,
+            "time": 10.61475,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.70115,
+            "time": 10.70635,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.79445,
+            "time": 10.7897,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.87845,
+            "time": 10.88135,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.9763,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
+            "time": 10.973,
+            "frame": "layers/character/base/neutral_performance_ready.png",
+            "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.07385,
+            "time": 11.0647,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
@@ -3901,10 +4177,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:29.724Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:54.218Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -3945,15 +4221,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m95_SN_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:29.990Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:54.450Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -3994,15 +4276,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m95_SN_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:30.241Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:54.683Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4043,15 +4331,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m95_SN_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:30.507Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:54.916Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4092,15 +4386,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m29_SN_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:30.774Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:55.149Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4141,15 +4441,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m29_SN_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:31.024Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:55.383Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4190,15 +4496,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m29_SN_R_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:31.291Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:55.621Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4239,15 +4551,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m99_HH_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:31.556Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:55.849Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4288,15 +4606,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m99_HH_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:31.824Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:56.083Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4337,15 +4661,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m75_BD_RF_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:32.089Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:56.317Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4386,15 +4716,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m75_BD_RF_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:32.356Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:56.550Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4435,15 +4771,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m63_RD_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:32.607Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:56.783Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4484,15 +4826,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m63_RD_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:32.890Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:57.016Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4533,15 +4881,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m16_BD_SN_RF_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:33.156Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:57.249Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4582,15 +4936,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m16_BD_SN_RF_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:33.425Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:57.484Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4631,15 +4991,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m27_RC_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:33.691Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:57.716Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4680,15 +5046,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m27_RC_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:33.942Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:57.949Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4729,15 +5101,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m27_RC_SN_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:34.207Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:58.183Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4778,15 +5156,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m38_BD_SN_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:34.474Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:58.416Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4827,15 +5211,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m38_BD_SN_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:34.741Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:58.650Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4876,15 +5266,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m17_FT_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:35.007Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:58.883Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4925,15 +5321,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m17_FT_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:35.274Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:59.117Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4974,15 +5376,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m17_FT_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:35.540Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:59.350Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5023,15 +5431,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m17_FT_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:35.807Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:59.584Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5072,15 +5486,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m130_BD_RD_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:36.073Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:27:59.832Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5121,15 +5541,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m130_BD_RD_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:36.340Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:00.083Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5170,15 +5596,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m130_RD_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:36.607Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:00.332Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5219,15 +5651,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m130_RD_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:36.874Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:00.583Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5268,15 +5706,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m81_BD_HH_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:37.140Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:00.832Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5317,15 +5761,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m81_BD_HH_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:37.424Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:01.083Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5366,15 +5816,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m73_HH_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:37.690Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:01.333Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5415,15 +5871,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m73_HH_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:37.957Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:01.589Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5464,15 +5926,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m72_BD_LT_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:38.224Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:01.849Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5513,15 +5981,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m72_BD_LT_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:38.507Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:02.099Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5562,15 +6036,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m148_LT_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:38.772Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:02.349Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5611,15 +6091,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m148_LT_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:39.023Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:02.582Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5660,15 +6146,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m148_LT_R_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:39.290Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:02.833Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5709,15 +6201,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m69_LT_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:39.556Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:03.082Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5758,15 +6256,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m69_LT_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:39.824Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:03.333Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5807,15 +6311,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m103_BD_RC_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:40.090Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:03.583Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5856,15 +6366,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m103_BD_RC_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:40.341Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:03.816Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5905,15 +6421,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m103_BD_RC_RF_R_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:40.607Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:04.066Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5954,15 +6476,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m45_HT_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:40.874Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:04.300Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6003,15 +6531,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m45_HT_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:41.140Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:04.549Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6052,15 +6586,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m28_FT_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:41.406Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:04.799Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6101,15 +6641,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m28_FT_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:41.674Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:05.050Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6150,15 +6696,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m27_RC_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:41.941Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:05.299Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6199,15 +6751,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m27_RC_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:42.206Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:05.549Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6248,15 +6806,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m76_HT_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:42.474Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:05.816Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6297,15 +6861,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m76_HT_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:42.740Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:06.068Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6346,15 +6916,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m29_BD_HT_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:43.008Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:06.316Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6395,15 +6971,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m29_BD_HT_RF_R_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:43.273Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:06.566Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6444,15 +7026,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m46_LT_SN_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:43.539Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:06.815Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6493,15 +7081,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m46_LT_SN_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:43.790Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:07.049Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6542,15 +7136,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m46_LT_SN_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:44.057Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:07.300Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6591,15 +7191,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m47_BD_HH_SN_RF_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:44.341Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:07.549Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6640,15 +7246,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m47_BD_HH_SN_RF_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:44.608Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:07.799Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6689,15 +7301,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m54_BD_HT_RF_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:44.873Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:08.049Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6738,15 +7356,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m54_BD_HT_RF_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:45.140Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:08.299Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6787,15 +7411,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m68_BD_RC_SN_RF_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:45.407Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:08.549Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6836,15 +7466,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m68_BD_RC_SN_RF_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:45.656Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:08.782Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6885,15 +7521,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m68_BD_RC_SN_RF_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:45.923Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:09.032Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6934,15 +7576,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m105_BD_FT_SN_RF_R_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:46.190Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:09.283Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6983,15 +7631,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m105_BD_FT_SN_RF_R_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:46.440Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:09.516Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7032,15 +7686,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m105_BD_FT_SN_RF_R_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:46.707Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:09.765Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7081,15 +7741,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m105_BD_FT_RF_L_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:46.973Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:10.015Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7130,15 +7796,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m105_BD_FT_RF_L_rebound.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:47.224Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:10.248Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7179,15 +7851,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m105_BD_FT_RF_L_neutral.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:47.491Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:10.499Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7228,15 +7906,21 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m136_BD_FT_RF_R_hit.png",
         "status": "PASS"
       },
       {
-        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+        "commitSha": "8e9619bd72eabbb417eae7525a2d6643e2a446d7",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852990508",
-        "testedAt": "2026-10-08T22:24:47.756Z",
+        "workflowRunId": "37853390704",
+        "testedAt": "2026-10-08T22:28:10.749Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7277,7 +7961,13 @@
         "initError": "",
         "consoleErrors": [],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261008-foot-continuity-r12 :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
+        ],
         "screenshotPath": "xperia-portrait/m136_BD_FT_RF_R_rebound.png",
         "status": "PASS"
       },
@@ -7291,86 +7981,86 @@
         "playbackSpeed": 1,
         "samples": [
           {
-            "time": 10.1111,
+            "time": 10.1333,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3276,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
+            "time": 10.3122,
+            "frame": "layers/character/hh/rebound_r.png",
+            "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.5281,
+            "time": 10.4788,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6941,
-            "frame": "layers/character/rd/rebound_r_refresh.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.9107,
-            "frame": "layers/character/sn/rebound_l.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.0941,
+            "time": 10.6788,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.2775,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.4607,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.6463,
+            "time": 10.8623,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.8274,
-            "frame": "layers/character/sn/rebound_l.png",
-            "phase": "rebound",
+            "time": 11.0455,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 12.0106,
+            "time": 11.2287,
+            "frame": "layers/character/bd/hit_rf.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.4123,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.5954,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 12.194,
-            "frame": "layers/character/combo/bd_rc_rebound.png",
+            "time": 11.7788,
+            "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.9621,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 12.1456,
+            "frame": "layers/character/combo/bd_rc_hit.png",
+            "phase": "hit",
             "complete": true,
             "width": 1448
           }
@@ -7387,86 +8077,86 @@
         "playbackSpeed": 0.5,
         "samples": [
           {
-            "time": 10.06455,
+            "time": 10.06515,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.15635,
+            "time": 10.14845,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.2479,
+            "time": 10.24015,
             "frame": "layers/character/hh/rebound_r.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3396,
+            "time": 10.3319,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.43125,
+            "time": 10.4234,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.523,
+            "time": 10.5151,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.60625,
+            "time": 10.60675,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.69795,
+            "time": 10.69845,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.78955,
+            "time": 10.7901,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.8812,
+            "time": 10.88175,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.973,
+            "time": 10.96505,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.06455,
-            "frame": "layers/character/rd/rebound_r_refresh.png",
-            "phase": "rebound",
+            "time": 11.05675,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
             "complete": true,
             "width": 1448
           }
