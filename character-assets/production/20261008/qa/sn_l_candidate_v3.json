@@ -1,0 +1,63 @@
+{
+  "hit": {
+    "sha256": "1ba2d05a59dfc39cffd68190719a667791d3b2eae022ba49919211a0f9c089ec",
+    "changed_pixels": 20042,
+    "visual_status": "PENDING",
+    "local_visual_status": "PASS",
+    "overall_status": "CANDIDATE_GLOBAL_IDENTITY_PENDING",
+    "anatomy": "two arms, two legs; near left forearm connected; no mirrored donor",
+    "fixed_head_diff_pixels": 0,
+    "fixed_lower_body_diff_pixels": 0,
+    "opposite_hand_diff_pixels": 0,
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "alpha": true
+  },
+  "rebound": {
+    "sha256": "85d5b5843ae18b3936c7c14de58abbfb07afba5ee50eedbefca3dddd562643fa",
+    "changed_pixels": 16896,
+    "visual_status": "PENDING",
+    "local_visual_status": "PASS",
+    "overall_status": "CANDIDATE_GLOBAL_IDENTITY_PENDING",
+    "anatomy": "two arms, two legs; near left forearm connected; no mirrored donor",
+    "fixed_head_diff_pixels": 0,
+    "fixed_lower_body_diff_pixels": 0,
+    "opposite_hand_diff_pixels": 0,
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "alpha": true
+  },
+  "pair_local_visual_status": "PASS",
+  "overall": "CANDIDATE_GLOBAL_IDENTITY_PENDING",
+  "completed_all_conditions_pairs": 0,
+  "reason": "既存Neutralと参考動画の頭身・髪・靴の差を解消していない。完全一致と虚偽認定しない。",
+  "hit_tip": [
+    413.54,
+    555.95
+  ],
+  "rebound_tip": [
+    419.8,
+    442.21
+  ],
+  "rebound_distance_px": 113.91,
+  "stick_length_px": 121.82,
+  "rigid_distal_rotation": "hand and stick together, no scaling or mirroring",
+  "contact": "SN drumhead visible left section around x414 y556",
+  "v1_failure": "elbow/sleeve seam transparent gap",
+  "v2_failure": "original tip ghost and grip alpha artifact from non-injective field",
+  "v3_correction": "use rigid v1 distal segment and v2 continuous sleeve only at joint patch",
+  "transition": "Neutral/Hit/Rebound/Neutral GIFの全4コマを抽出したレビューシートを確認。頭・胴・椅子の跳びなし。実時間再生での速度感の評価は未実施。",
+  "status": "PASS",
+  "visual_qa": {
+    "anatomy": "PASS: two arms, two hands, two legs; shoulder-elbow-wrist continuity",
+    "contact": "PASS: tip [413.54,555.95] lies on visible snare head",
+    "rebound": "PASS: tip [419.8,442.21] rises ~114px, straight rigid stick",
+    "identity": "PASS against protected approved Neutral per spec 3.4; video hair/check coat/pleated skirt/boots translated into existing stylization. No new full-body generation.",
+    "protected_pixels": "Head, hair, torso, stool, legs, opposite hand unchanged",
+    "limitation": "Far-side shoulder hidden in Neutral is inferred; no claim of observed video drumming"
+  }
+}

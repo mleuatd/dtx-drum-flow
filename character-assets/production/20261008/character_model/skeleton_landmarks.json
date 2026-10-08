@@ -1,0 +1,104 @@
+{
+  "coordinate_system": "1448x1086 top-left; approximate visual estimates",
+  "source": "sources/neutral.png",
+  "source_sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+  "confidence": "medium / inferred from existing 2D drawing; not medically measured",
+  "neutral": {
+    "left_shoulder": [
+      661,
+      345
+    ],
+    "left_elbow": [
+      615,
+      510
+    ],
+    "left_wrist": [
+      553,
+      509
+    ],
+    "left_grip": [
+      519,
+      490
+    ],
+    "left_tip": [
+      444,
+      394
+    ],
+    "right_grip": [
+      1000,
+      442
+    ],
+    "right_tip": [
+      1055,
+      326
+    ],
+    "pelvis": [
+      765,
+      660
+    ],
+    "left_knee": [
+      547,
+      638
+    ],
+    "left_ankle": [
+      482,
+      811
+    ],
+    "right_knee": [
+      674,
+      747
+    ],
+    "right_ankle": [
+      676,
+      813
+    ]
+  },
+  "SN_L": {
+    "hit": {
+      "tip": [
+        413.54,
+        555.95
+      ],
+      "grip": [
+        534.9,
+        566.57
+      ],
+      "wrist": [
+        571.98,
+        554.66
+      ],
+      "elbow": [
+        615,
+        510
+      ],
+      "changed_pixels": 18101,
+      "outside_edit_roi_changed_pixels": 0,
+      "rotation": 47,
+      "visual_status": "PENDING"
+    },
+    "rebound": {
+      "tip": [
+        419.8,
+        442.21
+      ],
+      "grip": [
+        517.09,
+        515.53
+      ],
+      "wrist": [
+        554.85,
+        525.08
+      ],
+      "elbow": [
+        615,
+        510
+      ],
+      "changed_pixels": 14559,
+      "outside_edit_roi_changed_pixels": 0,
+      "rotation": 15,
+      "visual_status": "PENDING"
+    },
+    "source_sha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
+    "status": "CANDIDATE"
+  }
+}

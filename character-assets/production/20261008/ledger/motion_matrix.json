@@ -1,0 +1,374 @@
+{
+  "git_commit": "cbfd7bcbe3f634f65136b73b25043cd2c3a4f73f",
+  "scope": "Current Luna full-chart exact actions, not every arbitrary MIDI/DTX chart",
+  "note_count": 2158,
+  "group_count": 1527,
+  "action_count": 30,
+  "frame_count": 60,
+  "note": "Generic app also supports LC/LP/LB and arbitrary simultaneous actions; 30/60 is the concrete Luna scope, not unlimited chart universal coverage. Formal ledger has 45 action entries (2 completed+1 active+42 remaining), wider than this exact scope.",
+  "actions": [
+    {
+      "motion_id": "SN:L",
+      "runtime_key": "SN:L",
+      "groups": 314,
+      "existing_paths": {
+        "hit": "layers/character/sn/hit_l.png",
+        "rebound": "layers/character/sn/rebound_l.png"
+      },
+      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "new_hit": "variants/sn/hit_l_candidate_v3.png",
+      "new_rebound": "variants/sn/rebound_l_candidate_v3.png"
+    },
+    {
+      "motion_id": "HH:R",
+      "runtime_key": "HH:R",
+      "groups": 248,
+      "existing_paths": {
+        "hit": "layers/character/hh/hit_r.png",
+        "rebound": "layers/character/hh/rebound_r.png"
+      },
+      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + HH:R",
+      "runtime_key": "BD+HH:RF/R",
+      "groups": 224,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_hh_rf_r_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "HH:R + SN:L",
+      "runtime_key": "HH+SN:R/L",
+      "groups": 143,
+      "existing_paths": {
+        "hit": "layers/character/combo/hh_sn_r_l_hit_refresh.png",
+        "rebound": "layers/character/combo/hh_sn_r_l_rebound_refresh.png"
+      },
+      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF",
+      "runtime_key": "BD:RF",
+      "groups": 129,
+      "existing_paths": {
+        "hit": "layers/character/bd/hit_rf.png",
+        "rebound": "layers/character/bd/rebound_rf.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "SN:R",
+      "runtime_key": "SN:R",
+      "groups": 69,
+      "existing_paths": {
+        "hit": "layers/character/sn/hit_r.png",
+        "rebound": "layers/character/sn/hit_r.png"
+      },
+      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + RC:R",
+      "runtime_key": "BD+RC:RF/R",
+      "groups": 63,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_rc_hit.png",
+        "rebound": "layers/character/combo/bd_rc_rebound.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "RD:R",
+      "runtime_key": "RD:R",
+      "groups": 53,
+      "existing_paths": {
+        "hit": "layers/character/rd/hit_r_refresh.png",
+        "rebound": "layers/character/rd/rebound_r_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "RC:R + SN:L",
+      "runtime_key": "RC+SN:R/L",
+      "groups": 34,
+      "existing_paths": {
+        "hit": "layers/character/combo/rc_sn_hit_refresh.png",
+        "rebound": "layers/character/combo/rc_sn_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "LT:R",
+      "runtime_key": "LT:R",
+      "groups": 31,
+      "existing_paths": {
+        "hit": "layers/character/lt/hit_r_refresh.png",
+        "rebound": "layers/character/lt/rebound_r_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + RD:R",
+      "runtime_key": "BD+RD:RF/R",
+      "groups": 29,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_rd_rf_r_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "RD:R + SN:L",
+      "runtime_key": "RD+SN:R/L",
+      "groups": 23,
+      "existing_paths": {
+        "hit": "layers/character/combo/rd_sn_r_l_hit_refresh.png",
+        "rebound": "layers/character/combo/rd_sn_r_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + SN:L",
+      "runtime_key": "BD+SN:RF/L",
+      "groups": 22,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_sn_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_sn_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "LT:L",
+      "runtime_key": "LT:L",
+      "groups": 22,
+      "existing_paths": {
+        "hit": "layers/character/lt/hit_l_refresh.png",
+        "rebound": "layers/character/lt/rebound_l_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + SN:R",
+      "runtime_key": "BD+SN:RF/R",
+      "groups": 17,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_sn_rf_r_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "HT:R",
+      "runtime_key": "HT:R",
+      "groups": 16,
+      "existing_paths": {
+        "hit": "layers/character/ht/hit_r_refresh.png",
+        "rebound": "layers/character/ht/rebound_r_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "HT:L",
+      "runtime_key": "HT:L",
+      "groups": 14,
+      "existing_paths": {
+        "hit": "layers/character/ht/hit_l_refresh.png",
+        "rebound": "layers/character/ht/rebound_l_refresh.png"
+      },
+      "status": "LOCAL_TRIAL_REJECTED",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + HH:R + SN:L",
+      "runtime_key": "BD+HH+SN:RF/R/L",
+      "groups": 14,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "FT:R + SN:L",
+      "runtime_key": "FT+SN:R/L",
+      "groups": 13,
+      "existing_paths": {
+        "hit": "layers/character/combo/ft_sn_r_l_hit_refresh.png",
+        "rebound": "layers/character/combo/ft_sn_r_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "FT:R",
+      "runtime_key": "FT:R",
+      "groups": 9,
+      "existing_paths": {
+        "hit": "layers/character/ft/hit_r_refresh.png",
+        "rebound": "layers/character/ft/rebound_r_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "FT:L",
+      "runtime_key": "FT:L",
+      "groups": 8,
+      "existing_paths": {
+        "hit": "layers/character/ft/hit_l_refresh.png",
+        "rebound": "layers/character/ft/rebound_l_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + HT:R",
+      "runtime_key": "BD+HT:RF/R",
+      "groups": 6,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_ht_rf_r_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + FT:L",
+      "runtime_key": "BD+FT:RF/L",
+      "groups": 5,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_ft_rf_l_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_ft_rf_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "LT:R + SN:L",
+      "runtime_key": "LT+SN:R/L",
+      "groups": 4,
+      "existing_paths": {
+        "hit": "layers/character/combo/lt_sn_r_l_hit_refresh.png",
+        "rebound": "layers/character/combo/lt_sn_r_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + FT:R",
+      "runtime_key": "BD+FT:RF/R",
+      "groups": 4,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_ft_rf_r_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_ft_rf_r_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + LT:R",
+      "runtime_key": "BD+LT:RF/R",
+      "groups": 3,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_lt_rf_r_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "RC:R",
+      "runtime_key": "RC:R",
+      "groups": 3,
+      "existing_paths": {
+        "hit": "layers/character/rc/hit_r_refresh.png",
+        "rebound": "layers/character/rc/rebound_r_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + RC:R + SN:L",
+      "runtime_key": "BD+RC+SN:RF/R/L",
+      "groups": 3,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + FT:R + SN:L",
+      "runtime_key": "BD+FT+SN:RF/R/L",
+      "groups": 3,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    },
+    {
+      "motion_id": "BD:RF + HT:L",
+      "runtime_key": "BD+HT:RF/L",
+      "groups": 1,
+      "existing_paths": {
+        "hit": "layers/character/combo/bd_ht_rf_l_hit_refresh.png",
+        "rebound": "layers/character/combo/bd_ht_rf_l_rebound_refresh.png"
+      },
+      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "new_hit": null,
+      "new_rebound": null
+    }
+  ],
+  "completed_static_pairs": 4,
+  "runtime_promoted_pairs": 0,
+  "remaining_pairs": 26
+}

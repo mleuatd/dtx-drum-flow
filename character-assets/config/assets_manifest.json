@@ -50,13 +50,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
-      "status": "M1_4_READY",
+      "sha256": "1ba2d05a59dfc39cffd68190719a667791d3b2eae022ba49919211a0f9c089ec",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "SN",
       "phase": "hit",
       "hand": "L",
-      "notes": []
+      "notes": [
+        "2026-10-08 Neutral-preserving local SN:L pair; full-resolution anatomy/contact/rebound/identity QA PASS; public runtime verification follows promotion."
+      ]
     },
     {
       "path": "character-assets/layers/character/sn/rebound_l.png",
@@ -64,8 +66,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "sha256": "85d5b5843ae18b3936c7c14de58abbfb07afba5ee50eedbefca3dddd562643fa",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "SN",
       "phase": "rebound",
@@ -74,7 +76,8 @@
         "2026-09-20 MOTION-001 deterministic neutral-locked rebound repair; candidate v2 machine QA PASS.",
         "2026-09-20 MOTION-001 v14 exact-source-bound left forearm/hand/stick repair; full-resolution static/local visual QA PASS; post-promotion runtime QA pending.",
         "Manifest state uses validator-safe STATIC_PASS while MOTION-001 remains PROMOTED_PENDING_RUNTIME in backlog until runtime verification completes.",
-        "2026-09-20 MOTION-001 v14 source-bound repair: static visual PASS + targeted M107/SN:L public runtime QA PASS (run 35500268024)."
+        "2026-09-20 MOTION-001 v14 source-bound repair: static visual PASS + targeted M107/SN:L public runtime QA PASS (run 35500268024).",
+        "2026-10-08 Neutral-preserving local SN:L pair; full-resolution anatomy/contact/rebound/identity QA PASS; public runtime verification follows promotion."
       ]
     },
     {
@@ -83,13 +86,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "fa55c4624bbc4790584bf46bb740490f96d4ca0e63f3eb95b2d662a3a0118971",
-      "status": "M1_4_READY",
+      "sha256": "37937f7734806479038a0ffe7cb5111e65ac472ee1b22cff8f0ebbb1d004a58c",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "SN",
       "phase": "hit",
       "hand": "R",
-      "notes": []
+      "notes": [
+        "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows."
+      ]
     },
     {
       "path": "character-assets/layers/character/sn/rebound_r.png",
@@ -97,14 +102,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd",
-      "status": "RETAINED_NOT_RUNTIME",
+      "sha256": "0039774d77876609957d7597402875bb82e27be5c8657706656705aba1ca72e7",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "retained historical SN:R rebound variant; not used at runtime because live QA found a large transition jump",
       "part": "SN",
       "phase": "rebound",
       "hand": "R",
       "notes": [
-        "Runtime replacement: SN:R rebound phase holds character-assets/layers/character/sn/hit_r.png."
+        "Runtime replacement: SN:R rebound phase holds character-assets/layers/character/sn/hit_r.png.",
+        "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows."
       ]
     },
     {
@@ -113,15 +119,17 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "sha256": "be2c0a5b1c5577c323a7502df13a4be580c8b157a3e87997e107a8e3c339b133",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "HH",
       "phase": "hit",
       "hand": "R",
       "notes": [
         "2026-09-20 deterministic motion repair HH:R hit; auto candidate QA PASS.",
-        "2026-09-20 deterministic motion repair HH:R hit; auto candidate QA PASS."
+        "2026-09-20 deterministic motion repair HH:R hit; auto candidate QA PASS.",
+        "2026-10-08 SHA repaired to existing bytes only. Visual FAIL: actual right-arm provenance/contact/body consistency unresolved. Not an approved donor.",
+        "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows."
       ]
     },
     {
@@ -130,15 +138,17 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "bbfae80c4268037f6126ac39bbb93423984ebad5c71a863f0d52be7a33ef18a1",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "sha256": "38bd5374fee78d857c6624d27eca5a211c3cae490044d50ef4dcf2bdb6099199",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "HH",
       "phase": "rebound",
       "hand": "R",
       "notes": [
         "2026-09-20 deterministic motion repair HH:R rebound; auto candidate QA PASS.",
-        "2026-09-20 deterministic motion repair HH:R rebound; auto candidate QA PASS."
+        "2026-09-20 deterministic motion repair HH:R rebound; auto candidate QA PASS.",
+        "2026-10-08 SHA repaired to existing bytes only. Visual FAIL: actual right-arm provenance/contact/body consistency unresolved. Not an approved donor.",
+        "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows."
       ]
     },
     {
@@ -769,8 +779,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "32d69bc519c796774511a37eabff2c8e1708fc1f12ab29157b78a16d2c45e825",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "sha256": "be2c0a5b1c5577c323a7502df13a4be580c8b157a3e87997e107a8e3c339b133",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "HH+SN",
       "phase": "hit",
@@ -778,7 +788,8 @@
       "notes": [
         "Synced from asset_inventory requiredFrames for active runtime validation.",
         "2026-09-20 deterministic motion repair HH+SN:R/L hit; auto candidate QA PASS.",
-        "2026-09-20 deterministic motion repair HH+SN:R/L hit; auto candidate QA PASS."
+        "2026-09-20 deterministic motion repair HH+SN:R/L hit; auto candidate QA PASS.",
+        "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows."
       ]
     },
     {
@@ -787,8 +798,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "sha256": "72211113246406134b76a159524731b606caefc26509989a501f4c171a1f9d43",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "HH+SN",
       "phase": "rebound",
@@ -796,7 +807,8 @@
       "notes": [
         "Synced from asset_inventory requiredFrames for active runtime validation.",
         "2026-09-20 deterministic motion repair HH+SN:R/L rebound; auto candidate QA PASS.",
-        "2026-09-20 deterministic motion repair HH+SN:R/L rebound; auto candidate QA PASS."
+        "2026-09-20 deterministic motion repair HH+SN:R/L rebound; auto candidate QA PASS.",
+        "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows."
       ]
     },
     {

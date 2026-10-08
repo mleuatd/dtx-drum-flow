@@ -1,0 +1,1815 @@
+{
+  "url": "https://mleuatd.github.io/dtx-drum-flow/?qa=1",
+  "testedAt": "2026-10-08T01:03:46.649Z",
+  "scope": "Luna 1-148 desktop cloud Chromium",
+  "records": [
+    {
+      "expectedKey": "SN:L",
+      "expectedPhase": "hit",
+      "requestedTime": 165.842,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "SN:L",
+        "currentTime": "165.843000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/sn/hit_l.png",
+        "groupCount": "1527",
+        "limbs": "SN:L",
+        "measure": "95",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "SN · L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "SN:L",
+      "expectedPhase": "rebound",
+      "requestedTime": 166.058,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "SN:L",
+        "currentTime": "166.059000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/sn/rebound_l.png",
+        "groupCount": "1527",
+        "limbs": "SN:L",
+        "measure": "95",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "SN · L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "SN:R",
+      "expectedPhase": "hit",
+      "requestedTime": 53.396,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "SN:R",
+        "currentTime": "53.397000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/sn/hit_r.png",
+        "groupCount": "1527",
+        "limbs": "SN:R",
+        "measure": "29",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "SN · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "SN:R",
+      "expectedPhase": "rebound",
+      "requestedTime": 53.612,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "SN:R",
+        "currentTime": "53.613000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/sn/hit_r.png",
+        "groupCount": "1527",
+        "limbs": "SN:R",
+        "measure": "29",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "SN · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+RC:RF/R",
+      "expectedPhase": "hit",
+      "requestedTime": 181.058,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+RC:RF/R",
+        "currentTime": "181.059000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_rc_hit.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,RC:R",
+        "measure": "103",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+RC · RF/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+RC:RF/R",
+      "expectedPhase": "rebound",
+      "requestedTime": 181.274,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+RC:RF/R",
+        "currentTime": "181.275000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_rc_rebound.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,RC:R",
+        "measure": "103",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+RC · RF/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HH:R",
+      "expectedPhase": "hit",
+      "requestedTime": 174.151,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HH:R",
+        "currentTime": "174.152000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/hh/hit_r.png",
+        "groupCount": "1527",
+        "limbs": "HH:R",
+        "measure": "99",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "HH · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HH:R",
+      "expectedPhase": "rebound",
+      "requestedTime": 174.316,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HH:R",
+        "currentTime": "174.317000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/hh/rebound_r.png",
+        "groupCount": "1527",
+        "limbs": "HH:R",
+        "measure": "99",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "HH · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD:RF",
+      "expectedPhase": "hit",
+      "requestedTime": 131.417,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD:RF",
+        "currentTime": "131.418000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/bd/hit_rf.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF",
+        "measure": "75",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD · RF · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD:RF",
+      "expectedPhase": "rebound",
+      "requestedTime": 131.582,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD:RF",
+        "currentTime": "131.583000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/bd/rebound_rf.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF",
+        "measure": "75",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD · RF · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RD:R",
+      "expectedPhase": "hit",
+      "requestedTime": 111.777,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RD:R",
+        "currentTime": "111.778000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/rd/hit_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "RD:R",
+        "measure": "63",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "RD · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RD:R",
+      "expectedPhase": "rebound",
+      "requestedTime": 111.941,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RD:R",
+        "currentTime": "111.942000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/rd/rebound_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "RD:R",
+        "measure": "63",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "RD · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+SN:RF/L",
+      "expectedPhase": "hit",
+      "requestedTime": 30.626,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+SN:RF/L",
+        "currentTime": "30.627000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_sn_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L",
+        "measure": "16",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+SN · RF/L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+SN:RF/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 30.79,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+SN:RF/L",
+        "currentTime": "30.791000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_sn_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L",
+        "measure": "16",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+SN · RF/L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RC+SN:R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 49.619,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RC+SN:R/L",
+        "currentTime": "49.620000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/rc_sn_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,RC:R",
+        "measure": "27",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "RC+SN · L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RC+SN:R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 49.835,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RC+SN:R/L",
+        "currentTime": "49.836000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/rc_sn_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,RC:R",
+        "measure": "27",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "RC+SN · L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+SN:RF/R",
+      "expectedPhase": "hit",
+      "requestedTime": 68.611,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+SN:RF/R",
+        "currentTime": "68.612000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:R",
+        "measure": "38",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+SN · RF/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+SN:RF/R",
+      "expectedPhase": "rebound",
+      "requestedTime": 68.776,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+SN:RF/R",
+        "currentTime": "68.777000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:R",
+        "measure": "38",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+SN · RF/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "LT:R",
+      "expectedPhase": "hit",
+      "requestedTime": 258.863,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT:R",
+        "currentTime": "258.864000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/lt/hit_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "LT:R",
+        "measure": "148",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "LT · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "LT:R",
+      "expectedPhase": "rebound",
+      "requestedTime": 259.079,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT:R",
+        "currentTime": "259.080000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/lt/rebound_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "LT:R",
+        "measure": "148",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "LT · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "LT:L",
+      "expectedPhase": "hit",
+      "requestedTime": 122.137,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT:L",
+        "currentTime": "122.138000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/lt/hit_l_refresh.png",
+        "groupCount": "1527",
+        "limbs": "LT:L",
+        "measure": "69",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "LT · L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "LT:L",
+      "expectedPhase": "rebound",
+      "requestedTime": 122.301,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT:L",
+        "currentTime": "122.302000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/lt/rebound_l_refresh.png",
+        "groupCount": "1527",
+        "limbs": "LT:L",
+        "measure": "69",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "LT · L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+LT:RF/R",
+      "expectedPhase": "hit",
+      "requestedTime": 127.532,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+LT:RF/R",
+        "currentTime": "127.533000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,LT:R",
+        "measure": "72",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+LT · RF/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+LT:RF/R",
+      "expectedPhase": "rebound",
+      "requestedTime": 127.609,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+LT:RF/R",
+        "currentTime": "127.610000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,LT:R",
+        "measure": "72",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+LT · RF/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "FT:R",
+      "expectedPhase": "hit",
+      "requestedTime": 32.568,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "FT:R",
+        "currentTime": "32.569000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ft/hit_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "FT:R",
+        "measure": "17",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "FT · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "FT:R",
+      "expectedPhase": "rebound",
+      "requestedTime": 32.645,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "FT:R",
+        "currentTime": "32.646000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ft/rebound_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "FT:R",
+        "measure": "17",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "FT · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "FT:L",
+      "expectedPhase": "hit",
+      "requestedTime": 32.676,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "FT:L",
+        "currentTime": "32.677000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ft/hit_l_refresh.png",
+        "groupCount": "1527",
+        "limbs": "FT:L",
+        "measure": "17",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "FT · L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "FT:L",
+      "expectedPhase": "rebound",
+      "requestedTime": 32.752,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "FT:L",
+        "currentTime": "32.753000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ft/rebound_l_refresh.png",
+        "groupCount": "1527",
+        "limbs": "FT:L",
+        "measure": "17",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "FT · L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RD+SN:R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 226.597,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RD+SN:R/L",
+        "currentTime": "226.598000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/rd_sn_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,RD:R",
+        "measure": "130",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "RD+SN · L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RD+SN:R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 226.762,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RD+SN:R/L",
+        "currentTime": "226.763000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/rd_sn_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,RD:R",
+        "measure": "130",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "RD+SN · L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+RD:RF/R",
+      "expectedPhase": "hit",
+      "requestedTime": 227.245,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+RD:RF/R",
+        "currentTime": "227.246000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,RD:R",
+        "measure": "130",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+RD · RF/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+RD:RF/R",
+      "expectedPhase": "rebound",
+      "requestedTime": 227.409,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+RD:RF/R",
+        "currentTime": "227.410000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,RD:R",
+        "measure": "130",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+RD · RF/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HH:RF/R",
+      "expectedPhase": "hit",
+      "requestedTime": 141.777,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HH:RF/R",
+        "currentTime": "141.778000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,HH:R",
+        "measure": "81",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+HH · RF/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HH:RF/R",
+      "expectedPhase": "rebound",
+      "requestedTime": 141.941,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HH:RF/R",
+        "currentTime": "141.942000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,HH:R",
+        "measure": "81",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+HH · RF/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HH+SN:R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 129.043,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HH+SN:R/L",
+        "currentTime": "129.044000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/hh_sn_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,HH:R",
+        "measure": "73",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "HH+SN · L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HH+SN:R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 129.208,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HH+SN:R/L",
+        "currentTime": "129.209000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/hh_sn_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,HH:R",
+        "measure": "73",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "HH+SN · L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HT:R",
+      "expectedPhase": "hit",
+      "requestedTime": 134.331,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HT:R",
+        "currentTime": "134.332000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ht/hit_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "HT:R",
+        "measure": "76",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "HT · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HT:R",
+      "expectedPhase": "rebound",
+      "requestedTime": 134.407,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HT:R",
+        "currentTime": "134.408000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ht/rebound_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "HT:R",
+        "measure": "76",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "HT · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RC:R",
+      "expectedPhase": "hit",
+      "requestedTime": 49.187,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RC:R",
+        "currentTime": "49.188000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/rc/hit_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "RC:R",
+        "measure": "27",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "RC · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "RC:R",
+      "expectedPhase": "rebound",
+      "requestedTime": 49.352,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "RC:R",
+        "currentTime": "49.353000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/rc/rebound_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "RC:R",
+        "measure": "27",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "RC · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "FT+SN:R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 50.482,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "FT+SN:R/L",
+        "currentTime": "50.483000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/ft_sn_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,FT:R",
+        "measure": "28",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "FT+SN · L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "FT+SN:R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 50.647,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "FT+SN:R/L",
+        "currentTime": "50.648000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/ft_sn_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,FT:R",
+        "measure": "28",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "FT+SN · L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HT:RF/R",
+      "expectedPhase": "hit",
+      "requestedTime": 52.209,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HT:RF/R",
+        "currentTime": "52.210000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,HT:R",
+        "measure": "29",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+HT · RF/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HT:RF/R",
+      "expectedPhase": "rebound",
+      "requestedTime": 52.285,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HT:RF/R",
+        "currentTime": "52.286000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,HT:R",
+        "measure": "29",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+HT · RF/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HT:L",
+      "expectedPhase": "hit",
+      "requestedTime": 80.482,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HT:L",
+        "currentTime": "80.483000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ht/hit_l_refresh.png",
+        "groupCount": "1527",
+        "limbs": "HT:L",
+        "measure": "45",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "HT · L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "HT:L",
+      "expectedPhase": "rebound",
+      "requestedTime": 80.558,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "HT:L",
+        "currentTime": "80.559000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/ht/rebound_l_refresh.png",
+        "groupCount": "1527",
+        "limbs": "HT:L",
+        "measure": "45",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "HT · L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "LT+SN:R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 81.129,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT+SN:R/L",
+        "currentTime": "81.130000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/lt_sn_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,LT:R",
+        "measure": "46",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "LT+SN · L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "LT+SN:R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 81.345,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT+SN:R/L",
+        "currentTime": "81.346000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/lt_sn_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,LT:R",
+        "measure": "46",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "LT+SN · L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HH+SN:RF/R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 84.151,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HH+SN:RF/R/L",
+        "currentTime": "84.152000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L,HH:R",
+        "measure": "47",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+HH+SN · RF/L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HH+SN:RF/R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 84.316,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HH+SN:RF/R/L",
+        "currentTime": "84.317000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L,HH:R",
+        "measure": "47",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+HH+SN · RF/L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HT:RF/L",
+      "expectedPhase": "hit",
+      "requestedTime": 96.237,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HT:RF/L",
+        "currentTime": "96.238000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ht_rf_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,HT:L",
+        "measure": "54",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+HT · RF/L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+HT:RF/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 96.314,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+HT:RF/L",
+        "currentTime": "96.315000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,HT:L",
+        "measure": "54",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+HT · RF/L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+RC+SN:RF/R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 120.41,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+RC+SN:RF/R/L",
+        "currentTime": "120.411000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L,RC:R",
+        "measure": "68",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+RC+SN · RF/L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+RC+SN:RF/R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 120.626,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+RC+SN:RF/R/L",
+        "currentTime": "120.627000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L,RC:R",
+        "measure": "68",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+RC+SN · RF/L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+FT+SN:RF/R/L",
+      "expectedPhase": "hit",
+      "requestedTime": 183.432,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+FT+SN:RF/R/L",
+        "currentTime": "183.433000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L,FT:R",
+        "measure": "105",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+FT+SN · RF/L/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+FT+SN:RF/R/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 183.648,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+FT+SN:RF/R/L",
+        "currentTime": "183.649000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,SN:L,FT:R",
+        "measure": "105",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+FT+SN · RF/L/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+FT:RF/L",
+      "expectedPhase": "hit",
+      "requestedTime": 184.511,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+FT:RF/L",
+        "currentTime": "184.512000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ft_rf_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,FT:L",
+        "measure": "105",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+FT · RF/L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+FT:RF/L",
+      "expectedPhase": "rebound",
+      "requestedTime": 184.727,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+FT:RF/L",
+        "currentTime": "184.728000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,FT:L",
+        "measure": "105",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+FT · RF/L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+FT:RF/R",
+      "expectedPhase": "hit",
+      "requestedTime": 236.741,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+FT:RF/R",
+        "currentTime": "236.742000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ft_rf_r_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,FT:R",
+        "measure": "136",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "BD+FT · RF/R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    },
+    {
+      "expectedKey": "BD+FT:RF/R",
+      "expectedPhase": "rebound",
+      "requestedTime": 236.906,
+      "character": {
+        "complete": true,
+        "width": 1448
+      },
+      "dataset": {
+        "active": "true",
+        "animationKey": "BD+FT:RF/R",
+        "currentTime": "236.907000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "BD:RF,FT:R",
+        "measure": "136",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "BD+FT · RF/R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "drum": {
+        "complete": true,
+        "width": 1448
+      }
+    }
+  ],
+  "summary": {
+    "key_phase_passed": 60,
+    "loaded": 60,
+    "same_hit_rebound_path": [
+      "SN:R"
+    ],
+    "visual_quality_is_separate": true
+  }
+}

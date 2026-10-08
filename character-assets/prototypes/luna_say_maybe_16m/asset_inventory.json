@@ -51,36 +51,39 @@
     },
     "sn_l_hit": {
       "path": "layers/character/sn/hit_l.png",
-      "state": "ready",
-      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb"
+      "state": "static-visual-pass",
+      "sha256": "1ba2d05a59dfc39cffd68190719a667791d3b2eae022ba49919211a0f9c089ec",
+      "motionRepairQa": "character-assets/production/20261008/qa/sn_l_candidate_v3.json"
     },
     "sn_l_rebound": {
       "path": "layers/character/sn/rebound_l.png",
-      "state": "motion-repair-verified",
-      "sha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14_qa.json"
+      "state": "static-visual-pass",
+      "sha256": "85d5b5843ae18b3936c7c14de58abbfb07afba5ee50eedbefca3dddd562643fa",
+      "motionRepairQa": "character-assets/production/20261008/qa/sn_l_candidate_v3.json"
     },
     "sn_r_hit": {
       "path": "layers/character/sn/hit_r.png",
-      "state": "ready",
-      "sha256": "fa55c4624bbc4790584bf46bb740490f96d4ca0e63f3eb95b2d662a3a0118971"
+      "state": "static-visual-pass",
+      "sha256": "37937f7734806479038a0ffe7cb5111e65ac472ee1b22cff8f0ebbb1d004a58c",
+      "motionRepairQa": "character-assets/production/20261008/qa/sn_r_local_v1.json"
     },
     "sn_r_rebound": {
       "path": "layers/character/sn/rebound_r.png",
-      "state": "ready",
-      "sha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd"
+      "state": "static-visual-pass",
+      "sha256": "0039774d77876609957d7597402875bb82e27be5c8657706656705aba1ca72e7",
+      "motionRepairQa": "character-assets/production/20261008/qa/sn_r_local_v1.json"
     },
     "hh_r_hit": {
       "path": "layers/character/hh/hit_r.png",
-      "state": "motion-repair-verified",
-      "sha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/hh_r_hit_qa.json"
+      "state": "static-visual-pass",
+      "sha256": "be2c0a5b1c5577c323a7502df13a4be580c8b157a3e87997e107a8e3c339b133",
+      "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json"
     },
     "hh_r_rebound": {
       "path": "layers/character/hh/rebound_r.png",
-      "state": "motion-repair-verified",
-      "sha256": "bbfae80c4268037f6126ac39bbb93423984ebad5c71a863f0d52be7a33ef18a1",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/hh_r_rebound_qa.json"
+      "state": "static-visual-pass",
+      "sha256": "38bd5374fee78d857c6624d27eca5a211c3cae490044d50ef4dcf2bdb6099199",
+      "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json"
     },
     "bd_rf_hit": {
       "path": "layers/character/bd/hit_rf.png",
@@ -252,15 +255,15 @@
     },
     "hh_sn_r_l_hit": {
       "path": "layers/character/combo/hh_sn_r_l_hit_refresh.png",
-      "state": "motion-repair-verified",
-      "sha256": "32d69bc519c796774511a37eabff2c8e1708fc1f12ab29157b78a16d2c45e825",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_hit_qa.json"
+      "state": "static-visual-pass",
+      "sha256": "be2c0a5b1c5577c323a7502df13a4be580c8b157a3e87997e107a8e3c339b133",
+      "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json"
     },
     "hh_sn_r_l_rebound": {
       "path": "layers/character/combo/hh_sn_r_l_rebound_refresh.png",
-      "state": "motion-repair-verified",
-      "sha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31",
-      "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/hh_sn_r_l_rebound_qa.json"
+      "state": "static-visual-pass",
+      "sha256": "72211113246406134b76a159524731b606caefc26509989a501f4c171a1f9d43",
+      "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json"
     },
     "bd_lt_rf_r_hit": {
       "path": "layers/character/combo/bd_lt_rf_r_hit_refresh.png",
@@ -493,7 +496,7 @@
     "SN:R": {
       "prep": "neutral",
       "hit": "sn_r_hit",
-      "rebound": "sn_r_hit"
+      "rebound": "sn_r_rebound"
     },
     "HH:R": {
       "prep": "neutral",

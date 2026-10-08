@@ -1,0 +1,31 @@
+{
+  "status": "STATIC_VISUAL_PASS",
+  "right_shoulder": [
+    820,
+    345
+  ],
+  "right_elbow": [
+    630,
+    410
+  ],
+  "right_grip": [
+    515,
+    442
+  ],
+  "right_tip_hit": [
+    362,
+    423
+  ],
+  "right_tip_rebound": [
+    370,
+    343
+  ],
+  "shoulder_visibility": "Far-side shoulder and upper arm occluded by hair/near sleeve; inferred, not observed in video. Near left shoulder and sleeve restored exactly from source.",
+  "anatomy": "2 arms, 2 hands, 2 legs, 2 sticks; no free-floating old right hand/stick. Rigid distal rotation, continuous cuff/forearm.",
+  "identity": "Protected approved Neutral controls head/hair/torso/stool/legs; local edge of hair changed only to remove old right hand.",
+  "contacts": "HH visible head right-inner region [362,423]; SN left tip [414,556] on head.",
+  "single_HH_left": "Left hand settles/rests on SN as required by existing HH_R_ANATOMY_GATE; remains static between HH phases.",
+  "combo": "Left hand follows validated SN:L rebound; only left-arm difference composited, no full-body stacking.",
+  "drum_sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "runtime_status": "NOT_YET_PROMOTED"
+}
