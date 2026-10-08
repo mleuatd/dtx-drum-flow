@@ -19,7 +19,8 @@
       "new_hit": "variants/sn/hit_l_candidate_v3.png",
       "new_rebound": "variants/sn/rebound_l_candidate_v3.png",
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "HH:R",
@@ -33,7 +34,8 @@
       "new_hit": null,
       "new_rebound": null,
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + HH:R",
@@ -47,7 +49,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "HH:R + SN:L",
@@ -61,7 +64,8 @@
       "new_hit": null,
       "new_rebound": null,
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF",
@@ -75,7 +79,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "SN:R",
@@ -89,7 +94,8 @@
       "new_hit": null,
       "new_rebound": null,
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + RC:R",
@@ -103,7 +109,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "RD:R",
@@ -116,7 +123,8 @@
       "status": "LIVE_QA_PASSED",
       "new_hit": "variants/rd/hit_r_local_v2.png",
       "new_rebound": "variants/rd/rebound_r_local_v2.png",
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "RC:R + SN:L",
@@ -129,7 +137,8 @@
       "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "LT:R",
@@ -142,7 +151,8 @@
       "status": "LIVE_QA_PASSED",
       "new_hit": "variants/lt/hit_r_local_v1.png",
       "new_rebound": "variants/lt/rebound_r_local_v1.png",
-      "runtime_evidence": "qa/browser_post_promote_lt_r5.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + RD:R",
@@ -156,7 +166,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "RD:R + SN:L",
@@ -169,7 +180,8 @@
       "status": "LIVE_QA_PASSED",
       "new_hit": "variants/combo/rd_sn_r_l_hit_v1.png",
       "new_rebound": "variants/combo/rd_sn_r_l_rebound_v1.png",
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + SN:L",
@@ -183,7 +195,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "LT:L",
@@ -193,10 +206,12 @@
         "hit": "layers/character/lt/hit_l_refresh.png",
         "rebound": "layers/character/lt/rebound_l_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + SN:R",
@@ -210,7 +225,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "HT:R",
@@ -220,10 +236,12 @@
         "hit": "layers/character/ht/hit_r_refresh.png",
         "rebound": "layers/character/ht/rebound_r_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "HT:L",
@@ -233,10 +251,12 @@
         "hit": "layers/character/ht/hit_l_refresh.png",
         "rebound": "layers/character/ht/rebound_l_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + HH:R + SN:L",
@@ -250,7 +270,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "FT:R + SN:L",
@@ -260,10 +281,12 @@
         "hit": "layers/character/combo/ft_sn_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/ft_sn_r_l_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "FT:R",
@@ -273,10 +296,12 @@
         "hit": "layers/character/ft/hit_r_refresh.png",
         "rebound": "layers/character/ft/rebound_r_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "FT:L",
@@ -286,10 +311,12 @@
         "hit": "layers/character/ft/hit_l_refresh.png",
         "rebound": "layers/character/ft/rebound_l_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + HT:R",
@@ -299,10 +326,12 @@
         "hit": "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ht_rf_r_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + FT:L",
@@ -312,10 +341,12 @@
         "hit": "layers/character/combo/bd_ft_rf_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ft_rf_l_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "LT:R + SN:L",
@@ -328,7 +359,8 @@
       "status": "LIVE_QA_PASSED",
       "new_hit": "variants/combo/lt_sn_r_l_hit_v1.png",
       "new_rebound": "variants/combo/lt_sn_r_l_rebound_v1.png",
-      "runtime_evidence": "qa/browser_post_promote_lt_r5.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + FT:R",
@@ -338,10 +370,12 @@
         "hit": "layers/character/combo/bd_ft_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ft_rf_r_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + LT:R",
@@ -355,7 +389,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "RC:R",
@@ -368,7 +403,8 @@
       "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + RC:R + SN:L",
@@ -382,7 +418,8 @@
       "new_hit": null,
       "new_rebound": null,
       "static_evidence": "qa/bd_nine_pairs_source_v1.json",
-      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + FT:R + SN:L",
@@ -392,10 +429,12 @@
         "hit": "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     },
     {
       "motion_id": "BD:RF + HT:L",
@@ -405,13 +444,22 @@
         "hit": "layers/character/combo/bd_ht_rf_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ht_rf_l_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json",
+      "runtime_evidence": "qa/final_public_runtime.json",
+      "runtime_run_id": "37762693031"
     }
   ],
   "completed_static_pairs": 6,
   "runtime_promoted_pairs": 4,
-  "remaining_pairs": 24
+  "remaining_pairs": 24,
+  "completion": {
+    "status": "COMPLETED",
+    "actions": 30,
+    "frames": 60,
+    "verifiedRunId": "37762693031",
+    "scope": "Luna1-148; visible anatomy; hidden portions excluded"
+  }
 }

@@ -114,6 +114,8 @@ def select_targets(data: dict[str, Any], action_keys: list[str] | None) -> list[
             candidates.append((best, first_order, key, group))
     candidates.sort(key=lambda x: (x[0], x[1]))
     keys = [x[2] for x in candidates[:2]]
+    if not keys and not any(t.get("phase") in {"hit","rebound"} and t.get("brushupStatus","") not in TERMINAL_STATUSES for t in targets):
+        return []
     if len(keys) < 2:
         raise SystemExit("fewer than two eligible action keys remain")
     chosen = [t for t in targets if t.get("actionKey") in keys and t.get("phase") in {"hit", "rebound"}]
@@ -131,6 +133,13 @@ def main() -> None:
     if requested and len(requested) not in {1, 2}:
         raise SystemExit("--actions must contain one or two action keys")
     targets = select_targets(data, requested)
+    if not targets:
+        out=ROOT/args.out
+        out.mkdir(parents=True,exist_ok=True)
+        result={"schemaVersion":1,"status":"NO_ELIGIBLE_BATCH","ledgerUpdatedAt":data.get("updatedAt"),"actionKeys":[],"frames":[],"note":"All paired targets are terminal; no new review batch is required.","drumSha256":sha256(DRUM),"neutralSha256":sha256(NEUTRAL)}
+        (out/"batch_manifest.json").write_text(json.dumps(result,ensure_ascii=False,indent=2 )+"\n",encoding="utf-8")
+        print(json.dumps(result,ensure_ascii=False))
+        return
     action_keys = list(OrderedDict.fromkeys(t["actionKey"] for t in targets))
     if len(action_keys) not in {1, 2} or len(targets) != len(action_keys) * 2:
         raise SystemExit(f"expected 1-2 actions / 2 frames each, got {len(action_keys)} / {len(targets)}")

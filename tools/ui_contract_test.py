@@ -8,6 +8,16 @@ css=(root/"site/styles.css").read_text(encoding="utf-8")
 character_js=(root/"site/character-prototype.js").read_text(encoding="utf-8")
 import json
 inventory=json.loads((root/"character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json").read_text(encoding="utf-8"))
+phase_map=inventory.get("runtimePhaseFrameMap",{})
+exact_pairs={key:pair for key,pair in phase_map.items() if not key.endswith(":*")}
+frames=inventory.get("requiredFrames",{})
+paired_contract=bool(exact_pairs) and all(
+    pair.get("hit") in frames and pair.get("rebound") in frames
+    and frames[pair["hit"]].get("path") != frames[pair["rebound"]].get("path")
+    and (root/"character-assets"/frames[pair["hit"]]["path"]).is_file()
+    and (root/"character-assets"/frames[pair["rebound"]]["path"]).is_file()
+    for pair in exact_pairs.values()
+)
 checks={
 "11 drum lanes":'const PARTS=["LB","LC","HH","LP","SN","BD","HT","LT","FT","RD","RC"]' in js,
 "song selection combobox":'id="songSelect"' in html,
@@ -16,7 +26,7 @@ checks={
 "character canvas stays transparent":'if(!isLuna){ctx.fillStyle="#0e172a";ctx.fillRect(0,0,w,h)}' in js and 'background:transparent' in css,
 "prototype runtime scope inventory-driven":inventory.get("runtimeScope",{}).get("measureStart")==1 and 8<=int(inventory.get("runtimeScope",{}).get("measureEnd",0))<=148 and "inventory.runtimeScope?.measureStart" in character_js and "inventory.runtimeScope?.measureEnd" in character_js,
 "precomputed limb mapping":'Luna_say_maybe_full_limbs.json' in character_js and 'if(note?.limb)return note.limb' in character_js,
-"m1-8 parapara character runtime":'runtimeFrameMap' in character_js and 'runtimePhaseFrameMap' in character_js and 'Object.values(data.frames)' in character_js and 'Promise.allSettled' in character_js,
+"paired runtime frames and complete source preload":paired_contract and 'runtimeFrameMap' in character_js and 'runtimePhaseFrameMap' in character_js and 'Object.values(data.frames)' in character_js,
 "effect layer retained":'id="effectLayer"' in html and 'triggerEffect(g,phase)' in character_js,
 }
 failed=[n for n,ok in checks.items() if not ok]

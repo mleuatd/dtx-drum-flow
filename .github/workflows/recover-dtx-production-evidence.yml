@@ -16,10 +16,10 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: 37759877958
-          name: public-runtime-qa-37759877958
+          run-id: 37762693031
+          name: public-runtime-qa-37762693031
           path: recovered-production-qa
-      - name: Persist full phase and playback evidence
+      - name: Persist verified report and actual public screenshots
         run: |
           git fetch origin main
           git reset --hard origin/main
@@ -27,14 +27,17 @@ jobs:
           import json, pathlib, shutil
           source=pathlib.Path("recovered-production-qa/runtime-qa.json")
           report=json.loads(source.read_text())
-          dest=pathlib.Path("character-assets/production/20261008/qa/final_public_runtime_failed_frames.json")
-          dest.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
-          bad=[r for r in report["records"] if r.get("status")!="PASS"]
-          print(json.dumps({"failedCount":report.get("failed"),"nonPassRecords":bad},ensure_ascii=False))
+          assert report["failed"]==0
+          q=pathlib.Path("character-assets/production/20261008/qa")
+          (q/"final_public_runtime_verified_frames.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+          for viewport,name in [("pc","public_final_pc.png"),("xperia-portrait","public_final_mobile.png")]:
+              frame=next(r for r in report["records"] if r.get("expectedActionKey")=="BD+FT+SN:RF/R/L" and r.get("expectedPhase")=="hit" and r["viewport"]["name"]==viewport and r["status"]=="PASS")
+              shutil.copy(pathlib.Path("recovered-production-qa")/frame["screenshotPath"],q/name)
+          print(json.dumps({"status":"PASS","records":len(report["records"]),"failed":report["failed"],"screenshots":["public_final_pc.png","public_final_mobile.png"]}))
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/production/20261008/qa/final_public_runtime_failed_frames.json
-          git diff --cached --quiet || git commit -m "qa: retain full all30 public phase/playback failure evidence"
+          git add character-assets/production/20261008/qa/final_public_runtime_verified_frames.json character-assets/production/20261008/qa/public_final_pc.png character-assets/production/20261008/qa/public_final_mobile.png
+          git diff --cached --quiet || git commit -m "qa: persist verified all30 public PC/mobile screenshots and full phase/playback report"
           git pull --rebase origin main
           git push origin HEAD:main

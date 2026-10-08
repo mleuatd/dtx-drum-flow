@@ -1,29 +1,42 @@
-# 作業再開入口 — 2026-10-08
+# 完了・再開入口 — DTX Drum Flow / 2026-10-08
 
-**現在: 全30動作のHit/Rebound60PNGを制作・静的目視QA済み。公開Webの最終全位相・再生検証は進行中。** 隠れて完全に見えない部分はユーザー指定により評価対象外。見える人体・境界・打点を確認。
+**現行Lunaの全30動作・Hit/Rebound60PNGの制作と公開Web動作検証を完了しました。**
 
-- 19セット38位相は公開画面で新PNG、キー、位相、前景canvas、髪レイヤー同期を検証済み。
-- 今回残り11セット22枚を反映: HT左右、LT左、FT左右、FT+SN右/左、BD+HT左右、BD+FT左右、BD+FT+SN。r8公開後に全60位相を再確認する。
-- 固定ドラム/承認NeutralのSHAは不変。各画像は元人物の局所編集、体格・頭・服・近い脚を保護。旧失敗画像は正しいdonorとして採用しない。
-- レイヤー: 固定ドラム、人物、原画由来のドラム前景、腕前景、元Neutral由来の髪前景。髪が近い箇所のスティックは髪の奥へ隠す。
-- 413過去画像の成功/失敗/保留台帳は20261008/ledger/image_audit.json。個別拡大未完了は保留のまま、成功資料にしない。
+## 完了範囲
+- 曲: Luna say maybe、小節1〜148、2,158ノーツ／1,527グループ。
+- 全30セット60PNGを元の承認人物の局所編集で制作。頭・体格・服・髪を統一し、見える手足・関節・袖/手首の接続・打点・跳ね返りを確認。
+- PC1280×900とXperia縦384×864、それぞれ全60位相がPASS（計120位相チェック）。腕前景canvasと元画像由来の髪前景の同期もPASS。
+- PC/スマートフォンの通常速度1と半速0.5の実再生4ケースがPASS。時間が進み、9種類のフレームへ切替。計48サンプルすべて画像読み込み済み。最終実測142レコード、失敗0。
+- 公開検証コミット: 3ac96458adba41a06df9f6ff1e9ab1a8bc986b29
+- 完了した公開検証: https://github.com/mleuatd/dtx-drum-flow/actions/runs/37762693031
+- 静的検証と公開再生を区別して記録。公開での手動切替確認は19セット38位相、全30セットはGitHub Actionsの実ブラウザでPC/スマートフォン検証済み。
 
-## 保存場所と再開位置
-正式PNG: character-assets/layers/character/ の各楽器とcombo。
-実装: site/character-prototype.js / styles.css / index.html。
-入力仕様: 20261008/sources/WORK_MASTER_SPEC.md。指定REVISED名は素材ZIPに存在せず、同梱仕様とユーザー指示を適用。
-台帳: 20261008/ledger/motion_matrix.json。実体SHA: config/assets_manifest.json / prototypes/luna_say_maybe_16m/asset_inventory.json。
-検証: 20261008/qa/browser_post_promote_bd_r7.json / remaining_tom_pairs_source_v1.json / 各腕QA。
-局所donorと再現手順: 20261008/donors/ / scripts/。
+## 前後関係と固定条件
+固定ドラム原画は変更なし。原画の必要な画素だけを複製したドラム前景、演奏する腕の前景、元Neutral由来の髪前景を使用。
+髪が手前の場合、ドラム→スティック→髪の順に重なります。完全に隠れる部分はユーザー指定どおり評価・再構築せず、無理に露出させません。
+原画SHA: dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85
+承認NeutralSHA: 886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9
 
-**次の作業: r8公開を確認し、全30キー60位相の正しいPNG/前景/髪同期、再生と位置移動を検証し、結果JSONと目視証跡を保存。最終検証未実施を完了扱いしない。**
+## 実体・証跡の場所
+- 完成PNG: character-assets/layers/character/ のsn,hh,rc,rd,ht,lt,ft,bd,combo。
+- 全位相・再生の実測JSON: [final_public_runtime.json](20261008/qa/final_public_runtime.json) のbrowserFrameEvidence。
+- 完了時の独立した実測報告と画面: 20261008/qa/final_public_runtime_verified_frames.json / public_final_pc.png / public_final_mobile.png（証跡取得Actionsで保存）。
+- 制作台帳: 20261008/ledger/motion_matrix.json。正式PNGのSHA: config/assets_manifest.json と prototypes/luna_say_maybe_16m/asset_inventory.json。
+- 各腕・足の検証/失敗理由: 20261008/qa/。元画像からの局所素材: 20261008/donors/。再現手順: 20261008/scripts/。
+- 413過去画像の成功・失敗・保留の分類: 20261008/ledger/image_audit.json。個別拡大未確認の保留は成功参照として使いません。
+- 入力仕様: 20261008/sources/WORK_MASTER_SPEC.md。素材ZIP内には指定されたREVISED名がなく、同梱仕様とユーザー指示を適用しました。
 
-## 失敗と修正
-BD逆向き靴不合格→後ろから見た踵を局所donor化、ペダルへ投影。BD白い矩形継ぎ目不合格→元のふくらはぎを変形して連続接続。HT:L下向きRebound不合格→回転符号修正。FT:R髪より上の切断袖の突起不合格→隠れる位置まで局所切り出しと移動。左袖の輪郭欠損不合格→元の黒い輪郭を含む範囲へ拡大。
+## 修正した失敗
+- BDの逆向き靴→後ろから見た踵の局所部品へ修正。ふくらはぎの矩形継ぎ目→元の輪郭を連続して変形。
+- HT左の下向きRebound→回転方向を修正。左袖の輪郭切れ→元の黒い輪郭を含めて復元。
+- FT右の切断袖の突起→元の髪に隠れる局所範囲へ修正。
+- 再生時にPNG再読み込みで一瞬未表示→読み込み済みImageノードを保持して直接交換し、腕前景も同時描画。
+- 全画像の同時Image.decodeによる不安定な初期化→4並列の先読みとcanvasによる画素描画確認へ変更。画像の欠損/描画エラーは引き続き不合格。
+- 古いBRUSHUP台帳SHA不一致→正式60PNGのSHAへ同期。
+- UI contractのPromise.allSettledという実装文字列への依存→独立したHit/Rebound実体と全フレーム先読みの契約を検査。
 
-過去の環境切断履歴: 20261008/ENVIRONMENT_STOP_CHECKPOINT.md。現環境は復旧済み。
-
-## 最終環境切断とCIによる継続
-60PNG制作コミット6bf7bf0bc067f9df4982ea117af9d316d60473a3はdeploy-site、validate、Character asset validation、Drum Runtime Browser QA、Runtime Character QAがSUCCESS。ただし当時Runtime Character QAの既存ターゲットはM113のHH+SN1キーのみであり、全60位相の証明ではない。
-最終検証中にexec-server transport disconnectedでローカルとCUAが使用不能。GitHub APIは使用できるため、全30キー/小節1〜148、PC1280x900とXperia384x864、髪/腕canvas同期、実再生のCI検証を追加して継続。旧BRUSHUP_LEDGERの全60SHAを正式PNGに同期し、Visual Integrity Batch PrepのSHA不一致を修正。画像の見た目合格をCIで代替したとは扱わない。
-再開時はqa/final_public_runtime.jsonと最新Runtime Character QA runを読む。PASSなら保存済みCI証跡を参照、FAILなら該当位相・レイヤー・再生を直す。手動最終全60位相は未実施、手動確認は19セット38位相まで。
+## 再開方法
+完成PNGはすでにGitHubにあります。作り直し不要です。
+修正する場合はこの入口とfinal_public_runtime.jsonを読み、対象の動作キーだけを編集・再検証します。
+scratchが消えた場合は最新repoを取得し、production/20261008/scripts/restore_source_workspace.pyで元画像と候補用作業領域を復元。再現スクリプトはrepo内のscriptsから実行します。
+ローカル/CUAは最終作業中に切断しましたが、GitHub APIとActionsで検証・保存を継続して完了しました。過去の切断記録はENVIRONMENT_STOP_CHECKPOINT.md。現在の未完了画像セットは0です。
