@@ -19,7 +19,7 @@
       "new_hit": "variants/sn/hit_l_candidate_v3.png",
       "new_rebound": "variants/sn/rebound_l_candidate_v3.png",
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "HH:R",
@@ -33,7 +33,7 @@
       "new_hit": null,
       "new_rebound": null,
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "BD:RF + HH:R",
@@ -59,7 +59,7 @@
       "new_hit": null,
       "new_rebound": null,
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "BD:RF",
@@ -85,7 +85,7 @@
       "new_hit": null,
       "new_rebound": null,
       "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
-      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "BD:RF + RC:R",
@@ -107,9 +107,10 @@
         "hit": "layers/character/rd/hit_r_refresh.png",
         "rebound": "layers/character/rd/rebound_r_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": "variants/rd/hit_r_local_v2.png",
-      "new_rebound": "variants/rd/rebound_r_local_v2.png"
+      "new_rebound": "variants/rd/rebound_r_local_v2.png",
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "RC:R + SN:L",
@@ -119,9 +120,10 @@
         "hit": "layers/character/combo/rc_sn_hit_refresh.png",
         "rebound": "layers/character/combo/rc_sn_rebound_refresh.png"
       },
-      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "LT:R",
@@ -131,9 +133,9 @@
         "hit": "layers/character/lt/hit_r_refresh.png",
         "rebound": "layers/character/lt/rebound_r_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
-      "new_hit": null,
-      "new_rebound": null
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "new_hit": "variants/lt/hit_r_local_v1.png",
+      "new_rebound": "variants/lt/rebound_r_local_v1.png"
     },
     {
       "motion_id": "BD:RF + RD:R",
@@ -155,9 +157,10 @@
         "hit": "layers/character/combo/rd_sn_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/rd_sn_r_l_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": "variants/combo/rd_sn_r_l_hit_v1.png",
-      "new_rebound": "variants/combo/rd_sn_r_l_rebound_v1.png"
+      "new_rebound": "variants/combo/rd_sn_r_l_rebound_v1.png",
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "BD:RF + SN:L",
@@ -299,9 +302,9 @@
         "hit": "layers/character/combo/lt_sn_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/lt_sn_r_l_rebound_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
-      "new_hit": null,
-      "new_rebound": null
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "new_hit": "variants/combo/lt_sn_r_l_hit_v1.png",
+      "new_rebound": "variants/combo/lt_sn_r_l_rebound_v1.png"
     },
     {
       "motion_id": "BD:RF + FT:R",
@@ -335,9 +338,10 @@
         "hit": "layers/character/rc/hit_r_refresh.png",
         "rebound": "layers/character/rc/rebound_r_refresh.png"
       },
-      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "runtime_evidence": "qa/browser_post_promote_8_pairs.json"
     },
     {
       "motion_id": "BD:RF + RC:R + SN:L",

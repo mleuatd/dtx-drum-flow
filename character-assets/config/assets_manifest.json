@@ -340,16 +340,14 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "f683025777449060454466afd5b4ad4069b8923c2a479f8e2140145fa3adb265",
+      "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 LT:R hit; deterministic baseline-preserving local stick edit after contact-point recalibration",
       "part": "LT",
       "phase": "hit",
       "hand": "R",
       "notes": [
-        "Candidate QA PASS run 35394228101",
-        "Contact point recalibrated to current locked drum: LT=(885,455)",
-        "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
+        "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs"
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -360,15 +358,14 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "f13578e7153c71a3b1ae615726c837137b8f6aa760cb4d4d9b905a7c8b0a6bcd",
+      "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 LT:R rebound; deterministic baseline-preserving local stick edit",
       "part": "LT",
       "phase": "rebound",
       "hand": "R",
       "notes": [
-        "Candidate QA PASS run 35394228101",
-        "Runtime scope intentionally remains 1-16 until all M17 assets are complete."
+        "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs"
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -914,15 +911,14 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "f683025777449060454466afd5b4ad4069b8923c2a479f8e2140145fa3adb265",
+      "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M46 LT+SN:R/L formal hit pair; exact LT:R formal base plus proven SN:L local delta.",
       "part": "LT+SN",
       "phase": "hit",
       "hand": "R/L",
       "notes": [
-        "Dropbox exact bytes saved; fixed-drum LT/SN contact QA PASS; public runtime QA pending.",
-        "Public PC/Xperia Runtime Character QA PASS run 35418698275 artifact 10576564303; screenshot review PASS."
+        "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs"
       ],
       "liveQaRun": 35418698275,
       "liveQaArtifact": 10576564303
@@ -933,15 +929,14 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "8779c37b96643e61410afbcae87453085704099a36825522f97aca79667c6d22",
+      "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M46 LT+SN:R/L formal rebound pair; exact LT:R formal base plus proven SN:L local delta.",
       "part": "LT+SN",
       "phase": "rebound",
       "hand": "R/L",
       "notes": [
-        "Dropbox exact bytes saved; fixed-drum LT/SN contact QA PASS; public runtime QA pending.",
-        "Public PC/Xperia Runtime Character QA PASS run 35418698275 artifact 10576564303; screenshot review PASS."
+        "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs"
       ],
       "liveQaRun": 35418698275,
       "liveQaArtifact": 10576564303
@@ -1188,7 +1183,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "cd823596261bd4042f0bf822ced00764fc9d3f9946067bd7e1220ec73f5acd4e",
+      "sha256": "67fe82ce766770502293cc44e5aab8217a0954830a4fedd7bcf407e0b8fbb5ab",
       "status": "IMMUTABLE_DRUM_OCCLUSION_COPY",
       "purpose": "Unmodified original pixels selected by foreground mask for RD/LT/SN occlusion; original drum_base.png untouched."
     }

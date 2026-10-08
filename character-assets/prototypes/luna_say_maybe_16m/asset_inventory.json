@@ -1,6 +1,6 @@
 {
-  "version": 13,
-  "scope": "Luna full chart measures 1-148; 8 source-bound pairs static passed, 4 pairs live verified",
+  "version": 14,
+  "scope": "Luna full measures1-148; 10 static pairs, 8 live pairs; remaining20 pairs",
   "imageSetState": "m1-54-runtime-qa-pending",
   "chartNoteCount": 2158,
   "runtimeScope": {
@@ -153,17 +153,19 @@
     },
     "lt_r_hit": {
       "path": "layers/character/lt/hit_r_refresh.png",
-      "state": "live-qa-passed",
-      "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+      "state": "ready",
+      "sha256": "f683025777449060454466afd5b4ad4069b8923c2a479f8e2140145fa3adb265",
       "actionKey": "LT:R",
-      "phase": "hit"
+      "phase": "hit",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "lt_r_rebound": {
       "path": "layers/character/lt/rebound_r_refresh.png",
-      "state": "live-qa-passed",
-      "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+      "state": "ready",
+      "sha256": "f13578e7153c71a3b1ae615726c837137b8f6aa760cb4d4d9b905a7c8b0a6bcd",
       "actionKey": "LT:R",
-      "phase": "rebound"
+      "phase": "rebound",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "lt_l_hit": {
       "path": "layers/character/lt/hit_l_refresh.png",
@@ -360,16 +362,18 @@
     "lt_sn_r_l_hit_refresh": {
       "path": "layers/character/combo/lt_sn_r_l_hit_refresh.png",
       "state": "ready",
-      "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
+      "sha256": "f683025777449060454466afd5b4ad4069b8923c2a479f8e2140145fa3adb265",
       "actionKey": "LT+SN:R/L",
-      "phase": "hit"
+      "phase": "hit",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "lt_sn_r_l_rebound_refresh": {
       "path": "layers/character/combo/lt_sn_r_l_rebound_refresh.png",
       "state": "ready",
-      "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
+      "sha256": "8779c37b96643e61410afbcae87453085704099a36825522f97aca79667c6d22",
       "actionKey": "LT+SN:R/L",
-      "phase": "rebound"
+      "phase": "rebound",
+      "qaStatus": "STATIC_VISUAL_PASS_LIVE_PENDING"
     },
     "bd_hh_sn_rf_r_l_hit_refresh": {
       "path": "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",

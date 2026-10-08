@@ -1,0 +1,24 @@
+{
+  "status": "STATIC_VISUAL_PASS_LIVE_PENDING",
+  "keys": [
+    "LT:R",
+    "LT+SN:R/L"
+  ],
+  "hit_tip": [
+    885,
+    416
+  ],
+  "rebound_tip": [
+    909,
+    381
+  ],
+  "hit_grip": [
+    1008,
+    480
+  ],
+  "anatomy": "Far shoulder/upper arm/elbow inferred behind preserved hair/tom; rolled cuff to right clenched hand is continuous. Only right localized arm donor translated/rotated. Original left arm/head/body/stool/legs protected. Rebound wrist rotates18 degrees, tip clears visible head. Combo only swaps validated left-arm delta.",
+  "candidate_corrections": [
+    "Initial generated tip959319 missed LT; rigid transform corrected it to885416. Initial rebound sign moved tip down and was rejected; reversed to lift. Initial tip donor mask cut end, enlarged mask restores full tip."
+  ],
+  "foreground_update": "Head leans in front of left ride portion; hair/torso remain behind kit. Exact original drum pixels only."
+}
