@@ -1,0 +1,115 @@
+{
+  "status": "FINAL_PUBLIC_QA_REQUESTED",
+  "staticPairs": 30,
+  "staticPng": 60,
+  "manualPublicPairs": 19,
+  "manualPublicPhases": 38,
+  "blocker": "Local/CUA exec-server transport disconnected; continuing via GitHub Actions",
+  "runtimeQaEvidence": {},
+  "productionCommit": "6bf7bf0bc067f9df4982ea117af9d316d60473a3",
+  "existingChecks": [
+    {
+      "name": "Drum Speed Load QA",
+      "status": "in_progress",
+      "conclusion": null,
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129557"
+    },
+    {
+      "name": "Drum Seek Start QA",
+      "status": "in_progress",
+      "conclusion": null,
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129510"
+    },
+    {
+      "name": "Character asset validation",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129555"
+    },
+    {
+      "name": "Visual QA contact sheet",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129519"
+    },
+    {
+      "name": "Live Drum Smoothness QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129607"
+    },
+    {
+      "name": "Drum Gain Chain QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129584"
+    },
+    {
+      "name": "Visual Integrity Batch Prep",
+      "status": "completed",
+      "conclusion": "failure",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129535"
+    },
+    {
+      "name": "Measure motion repair geometry",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129604"
+    },
+    {
+      "name": "Drum Audio Integrity QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129525"
+    },
+    {
+      "name": "Drum Psychoacoustic QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129513"
+    },
+    {
+      "name": "Drum Overlap Smoothness QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129657"
+    },
+    {
+      "name": "Build standalone trainer",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129600"
+    },
+    {
+      "name": "Drum Runtime Browser QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129590"
+    },
+    {
+      "name": "deploy-site",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129621"
+    },
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129603"
+    },
+    {
+      "name": "Drum Chaos QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129542"
+    },
+    {
+      "name": "Runtime Character QA",
+      "status": "completed",
+      "conclusion": "success",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129594"
+    }
+  ],
+  "next": "Read LUNA_ALL30_20261008 evidence; fix concrete failing phase or playback if any. No unchanged retry."
+}

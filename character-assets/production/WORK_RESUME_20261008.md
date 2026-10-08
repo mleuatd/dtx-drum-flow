@@ -22,3 +22,8 @@
 BD逆向き靴不合格→後ろから見た踵を局所donor化、ペダルへ投影。BD白い矩形継ぎ目不合格→元のふくらはぎを変形して連続接続。HT:L下向きRebound不合格→回転符号修正。FT:R髪より上の切断袖の突起不合格→隠れる位置まで局所切り出しと移動。左袖の輪郭欠損不合格→元の黒い輪郭を含む範囲へ拡大。
 
 過去の環境切断履歴: 20261008/ENVIRONMENT_STOP_CHECKPOINT.md。現環境は復旧済み。
+
+## 最終環境切断とCIによる継続
+60PNG制作コミット6bf7bf0bc067f9df4982ea117af9d316d60473a3はdeploy-site、validate、Character asset validation、Drum Runtime Browser QA、Runtime Character QAがSUCCESS。ただし当時Runtime Character QAの既存ターゲットはM113のHH+SN1キーのみであり、全60位相の証明ではない。
+最終検証中にexec-server transport disconnectedでローカルとCUAが使用不能。GitHub APIは使用できるため、全30キー/小節1〜148、PC1280x900とXperia384x864、髪/腕canvas同期、実再生のCI検証を追加して継続。旧BRUSHUP_LEDGERの全60SHAを正式PNGに同期し、Visual Integrity Batch PrepのSHA不一致を修正。画像の見た目合格をCIで代替したとは扱わない。
+再開時はqa/final_public_runtime.jsonと最新Runtime Character QA runを読む。PASSなら保存済みCI証跡を参照、FAILなら該当位相・レイヤー・再生を直す。手動最終全60位相は未実施、手動確認は19セット38位相まで。

@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "DTX Drum Flow / Luna Say Maybe character brush-up",
   "createdAt": "2026-09-19T18:31:00+09:00",
-  "updatedAt": "2026-09-23T13:01:00+09:00",
+  "updatedAt": "2026-10-08",
   "coordinationAuthority": "GitHub main",
   "processingPolicy": {
     "TERM_A": "FRONT",
@@ -47,7 +47,7 @@
       "actionKey": "SN:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/sn/hit_l.png",
-      "sha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
+      "sha256": "1ba2d05a59dfc39cffd68190719a667791d3b2eae022ba49919211a0f9c089ec",
       "sourceQueueSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -171,8 +171,8 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "TERM-A",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-19T18:31:00+09:00",
@@ -246,7 +246,9 @@
       "holdReason": "SN:L pair held because rebound has large structural anatomy/linework failure; formal PNGs preserved and no minimal retry was attempted because the failure exceeds the light-fail threshold.",
       "completedAt": "2026-09-20T17:43:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14_qa.json",
-      "runtimeQaRunId": 35500268024
+      "runtimeQaRunId": 35500268024,
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 2,
@@ -254,7 +256,7 @@
       "actionKey": "SN:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/sn/rebound_l.png",
-      "sha256": "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202",
+      "sha256": "85d5b5843ae18b3936c7c14de58abbfb07afba5ee50eedbefca3dddd562643fa",
       "sourceQueueSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -378,8 +380,8 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:24:00+09:00",
@@ -426,7 +428,9 @@
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
       "holdReason": "Large structural visual-integrity failure in rebound; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
       "completedAt": "2026-09-20T17:43:00+09:00",
-      "runtimeQaRunId": 35500268024
+      "runtimeQaRunId": 35500268024,
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 3,
@@ -434,7 +438,7 @@
       "actionKey": "SN:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/sn/hit_r.png",
-      "sha256": "fa55c4624bbc4790584bf46bb740490f96d4ca0e63f3eb95b2d662a3a0118971",
+      "sha256": "37937f7734806479038a0ffe7cb5111e65ac472ee1b22cff8f0ebbb1d004a58c",
       "sourceQueueSha256": "fa55c4624bbc4790584bf46bb740490f96d4ca0e63f3eb95b2d662a3a0118971",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -480,8 +484,8 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -523,7 +527,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 4,
@@ -531,7 +537,7 @@
       "actionKey": "SN:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/sn/rebound_r.png",
-      "sha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd",
+      "sha256": "0039774d77876609957d7597402875bb82e27be5c8657706656705aba1ca72e7",
       "sourceQueueSha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -577,8 +583,8 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -620,7 +626,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 5,
@@ -628,7 +636,7 @@
       "actionKey": "HH:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/hh/hit_r.png",
-      "sha256": "86a08a900199f891a4d1dd0087b7822afe4260e24d1ecdc6817ff422b461660e",
+      "sha256": "be2c0a5b1c5577c323a7502df13a4be580c8b157a3e87997e107a8e3c339b133",
       "sourceQueueSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -727,8 +735,8 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -775,7 +783,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 6,
@@ -783,7 +793,7 @@
       "actionKey": "HH:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/hh/rebound_r.png",
-      "sha256": "bbfae80c4268037f6126ac39bbb93423984ebad5c71a863f0d52be7a33ef18a1",
+      "sha256": "38bd5374fee78d857c6624d27eca5a211c3cae490044d50ef4dcf2bdb6099199",
       "sourceQueueSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -882,8 +892,8 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -930,7 +940,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 7,
@@ -938,7 +950,7 @@
       "actionKey": "BD:RF",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/bd/hit_rf.png",
-      "sha256": "048513241f9b3c839506347a68859cc6582abc7d506b7c644babcc89df87979f",
+      "sha256": "baab265210674ffff2c87d3d089b04504397db2ef3a46064eabfc744515e4301",
       "sourceQueueSha256": "2f720394bb4da7a96b2e41d4e211a36130306d32fd06f2d641964efce07c639b",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1005,8 +1017,8 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "visual-integrity-passed",
-      "brushupStatus": "VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1069,7 +1081,9 @@
         "fixedDrumComposite": "PASS",
         "runtimeTransition": "PASS",
         "outcome": "VERIFIED"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 8,
@@ -1077,7 +1091,7 @@
       "actionKey": "BD:RF",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/bd/rebound_rf.png",
-      "sha256": "6a4fe9c5f2d56adf88fd020ef84bf1d975d9a4e6ecf5d002e5db00a329b0b660",
+      "sha256": "acd9dd97ff39e183993cd32d04115f3b49605920dc532fede4780a71446f4566",
       "sourceQueueSha256": "0340dfe82b6826dc4023645a48306b3718f11451eed8992bb3358d4d48295e0d",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1144,8 +1158,8 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "visual-integrity-passed",
-      "brushupStatus": "VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1208,7 +1222,9 @@
         "fixedDrumComposite": "PASS",
         "runtimeTransition": "PASS",
         "outcome": "VERIFIED"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 9,
@@ -1216,7 +1232,7 @@
       "actionKey": "BD+RC:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_hit.png",
-      "sha256": "0efbdd9a097408e8567af16514348587e039d81212a6b569eac12d67c9edd651",
+      "sha256": "8f885151d34a5d037192b3e4017b88d7f51d81790a6755cb7a387fe8ac376389",
       "sourceQueueSha256": "c166cea0c1f4477cc868f76cc7d2035a0022d4b96e925d54c6eb960ac757d242",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1273,8 +1289,8 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1320,7 +1336,9 @@
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
       "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
-      "holdReason": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect."
+      "holdReason": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 10,
@@ -1328,7 +1346,7 @@
       "actionKey": "BD+RC:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_rebound.png",
-      "sha256": "c4615ca06759655be68bb1d668f47b06883f9744d73c3bdc7c71ce1eccfecd79",
+      "sha256": "bb915aa9400b136383568cf163f8d409f5b7f98d24e8c1c1f7cef581e471c96a",
       "sourceQueueSha256": "c7ca4b42afa236ee41f74a4ce27e2b814bb769f4f7f7f73813f10f5dc8caf528",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1385,8 +1403,8 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1432,7 +1450,9 @@
       "reviewClaimedAt": "2026-09-20T07:52:00+09:00",
       "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
-      "holdReason": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect."
+      "holdReason": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 11,
@@ -1440,7 +1460,7 @@
       "actionKey": "RD:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/rd/hit_r_refresh.png",
-      "sha256": "0cdb915abf200091a816b27a93cabcee1a0c0298882b032cede2cb1c6d5f5b02",
+      "sha256": "ddd5e8b4d3943782444aeea0babd31d0403c79e5f9bcc092047227b55d8226ca",
       "sourceQueueSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1463,8 +1483,8 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1506,7 +1526,9 @@
         "fixedDrumComposite": "PASS",
         "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 12,
@@ -1514,7 +1536,7 @@
       "actionKey": "RD:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/rd/rebound_r_refresh.png",
-      "sha256": "e518a698a5b44f0a65ac8fad397f8fd768798ce1c196d0f5563330f503e2dcc2",
+      "sha256": "2b38f067003b8b2767be398906408703241b3bd0fbde144225014deabcd5fb01",
       "sourceQueueSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1537,8 +1559,8 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1583,7 +1605,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 13,
@@ -1591,7 +1615,7 @@
       "actionKey": "BD+SN:RF/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
-      "sha256": "7410eaedf8faee5922e67a353f35ad6679f5b319eeb9ca609d35a455499efe08",
+      "sha256": "02acaa1e2391203474d917ac5da8782d2eaf1ea4dcd2e7ab44366741cafcd262",
       "sourceQueueSha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1611,8 +1635,8 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1658,7 +1682,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 14,
@@ -1666,7 +1692,7 @@
       "actionKey": "BD+SN:RF/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
-      "sha256": "cc8e0f3d653285dbc7cb389c637a4c2b4e50bd8df3c9ba12853e4ac080e2dc86",
+      "sha256": "242eb3e8de4bdf787a68144194ad251b11843372f4931c62ace80e6ca83e0d2c",
       "sourceQueueSha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1686,8 +1712,8 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1732,7 +1758,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 15,
@@ -1740,7 +1768,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
-      "sha256": "8dc1c8b43eb55481b6306dadcd047b74e9fb913097d5b7cb723e823512f19a98",
+      "sha256": "5b095f0e52633c5bc88e22a78ce9931b7c94805539223f338c3284aca7871e85",
       "sourceQueueSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1765,8 +1793,8 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1811,7 +1839,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 16,
@@ -1819,7 +1849,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
-      "sha256": "4448209cc049cafcd1926ad29f6546e8011d5030ce56db161d528dc514c3546e",
+      "sha256": "6c9c8a79927940e77f6bf65a574c1659737413b83e88dd12dca23a4f2364adda",
       "sourceQueueSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1844,8 +1874,8 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -1890,7 +1920,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 17,
@@ -1898,7 +1930,7 @@
       "actionKey": "LT:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/lt/hit_r_refresh.png",
-      "sha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
+      "sha256": "f683025777449060454466afd5b4ad4069b8923c2a479f8e2140145fa3adb265",
       "sourceQueueSha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -1923,8 +1955,8 @@
         148
       ],
       "usageCount": 31,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -1968,7 +2000,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 18,
@@ -1976,7 +2010,7 @@
       "actionKey": "LT:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/lt/rebound_r_refresh.png",
-      "sha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
+      "sha256": "f13578e7153c71a3b1ae615726c837137b8f6aa760cb4d4d9b905a7c8b0a6bcd",
       "sourceQueueSha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2001,8 +2035,8 @@
         148
       ],
       "usageCount": 31,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2046,7 +2080,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 19,
@@ -2054,7 +2090,7 @@
       "actionKey": "LT:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/lt/hit_l_refresh.png",
-      "sha256": "d6d44e858728afbf9a66e6c766786232d7a2d4c09e8621ed9d1b475547f485bb",
+      "sha256": "1be9d54a861a44c81e2a39005328c09cb7cdaf70fa6970e35d416f7a514f711f",
       "sourceQueueSha256": "d6d44e858728afbf9a66e6c766786232d7a2d4c09e8621ed9d1b475547f485bb",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2071,8 +2107,8 @@
         148
       ],
       "usageCount": 22,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2115,7 +2151,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 20,
@@ -2123,7 +2161,7 @@
       "actionKey": "LT:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/lt/rebound_l_refresh.png",
-      "sha256": "a9281447b12f10d738a79ea72d7d314395a6cd3c6eec50ea8b667039e0ba6376",
+      "sha256": "bf4b0b9549754c1fe577b15997b73264370bdd96cc0f93e2f7d241c810fd55df",
       "sourceQueueSha256": "a9281447b12f10d738a79ea72d7d314395a6cd3c6eec50ea8b667039e0ba6376",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2140,8 +2178,8 @@
         148
       ],
       "usageCount": 22,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2184,7 +2222,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 21,
@@ -2192,7 +2232,7 @@
       "actionKey": "BD+SN:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
-      "sha256": "01719a7fa5cc23ac2ae3c1ffe24c5443fd1e4c8f659466475f4b1aff862802d4",
+      "sha256": "c59a98a269de929fe411532f455220a9aa9f636c9fdff6830b250f5b990cedfb",
       "sourceQueueSha256": "01719a7fa5cc23ac2ae3c1ffe24c5443fd1e4c8f659466475f4b1aff862802d4",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2208,8 +2248,8 @@
         140
       ],
       "usageCount": 17,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2252,7 +2292,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 22,
@@ -2260,7 +2302,7 @@
       "actionKey": "BD+SN:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
-      "sha256": "b4d8efb059c16e3aa1411abb08c499a426806b0b8ecd1f291305703447044843",
+      "sha256": "de3e1fe7c80a7b85ada5f321e91eb0e67be5fc4d75a163debd5820cb5b81ccbe",
       "sourceQueueSha256": "b4d8efb059c16e3aa1411abb08c499a426806b0b8ecd1f291305703447044843",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2276,8 +2318,8 @@
         140
       ],
       "usageCount": 17,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2320,7 +2362,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 23,
@@ -2328,7 +2372,7 @@
       "actionKey": "FT:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ft/hit_r_refresh.png",
-      "sha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
+      "sha256": "373492dc09b5df910e8d2f8efb52edc41226ae31e04a4c062ee11994f50dc6df",
       "sourceQueueSha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2342,8 +2386,8 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2386,7 +2430,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 24,
@@ -2394,7 +2440,7 @@
       "actionKey": "FT:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ft/rebound_r_refresh.png",
-      "sha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
+      "sha256": "4c3f086fc828f29d09dfffc3aae8bf6c88ffe99e974e7d08616478e052160c86",
       "sourceQueueSha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2408,8 +2454,8 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2452,7 +2498,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 25,
@@ -2460,7 +2508,7 @@
       "actionKey": "FT:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ft/hit_l_refresh.png",
-      "sha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
+      "sha256": "b65aa2974fc53be1e46cbb7d1392067fc8731420b0463e71fcd71e9771fbfa40",
       "sourceQueueSha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2474,8 +2522,8 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2518,7 +2566,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 26,
@@ -2526,7 +2576,7 @@
       "actionKey": "FT:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ft/rebound_l_refresh.png",
-      "sha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
+      "sha256": "a5bca656fb672b419c02b9e23a8054ff8cd42e6aed5100e0f1b95235ad6ebc1b",
       "sourceQueueSha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2540,8 +2590,8 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -2584,7 +2634,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 27,
@@ -2592,7 +2644,7 @@
       "actionKey": "BD+RD:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
-      "sha256": "0feb65893bc8204f7d00f00d5fa5c84cd7345950a9069693e30ba73c62083263",
+      "sha256": "e6f459780702f5363aed1a3e4ce10c5b5993e9c9724c22750a56e497f2723876",
       "sourceQueueSha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2610,8 +2662,8 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "visual-integrity-passed",
-      "brushupStatus": "AUTO_REPAIR_METHOD4_FAIL",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2663,7 +2715,9 @@
         "fixedDrumComposite": "PASS",
         "runtimeTransition": "PASS",
         "outcome": "VERIFIED"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 28,
@@ -2671,7 +2725,7 @@
       "actionKey": "BD+RD:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
-      "sha256": "f3c383c518aebb05ede620560d6d76c4ff304d85c3e0b5337310469090ae1272",
+      "sha256": "cdcdfd95c8173bc7b1c6c8620ee4e3416536734ef6367128c8cea94eade56339",
       "sourceQueueSha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2689,8 +2743,8 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "visual-integrity-passed",
-      "brushupStatus": "AUTO_REPAIR_METHOD4_FAIL",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2742,7 +2796,9 @@
         "fixedDrumComposite": "PASS",
         "runtimeTransition": "PASS",
         "outcome": "VERIFIED"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 29,
@@ -2750,7 +2806,7 @@
       "actionKey": "RD+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
-      "sha256": "1339af1ef8b56e24631fdef040567e87d7acd12b5faf320af52574319ae53086",
+      "sha256": "ddd5e8b4d3943782444aeea0babd31d0403c79e5f9bcc092047227b55d8226ca",
       "sourceQueueSha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2768,8 +2824,8 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2808,7 +2864,9 @@
         "fixedDrumComposite": "PASS",
         "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 30,
@@ -2816,7 +2874,7 @@
       "actionKey": "RD+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
-      "sha256": "3481994f351185dc1896be0d4f8fc2fb14b1ed732398c1184f59f197fd82f95b",
+      "sha256": "8c95612851f756264812969a78cd10120b02c5249206522d2bfc215ea8a39220",
       "sourceQueueSha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2834,8 +2892,8 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -2877,7 +2935,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_PAIR_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 31,
@@ -2885,7 +2945,7 @@
       "actionKey": "BD+HH:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
-      "sha256": "0daf555f78e8ed77d2cc1388cc5ad4831e9f6a8cff772378bb5f027f53c380b6",
+      "sha256": "e24dd52a5c57e5738c02fed030638ff06146859243f08c19a4f1a46f788367dd",
       "sourceQueueSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -2980,8 +3040,8 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3026,7 +3086,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 32,
@@ -3034,7 +3096,7 @@
       "actionKey": "BD+HH:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
-      "sha256": "35326f5ca814d1e09bd0ebc06ac9cf9ac552a320e7710195a99c62ab6a88c2d4",
+      "sha256": "55ebdbb5d06efecc1945fc02ba14f4a2096e5cb5b63f3b94dee7cda24b6dfdc8",
       "sourceQueueSha256": "2210399c2f56425bf8f10f42e26044320b68a98993b7129b34f34b1082a2a461",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3129,8 +3191,8 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3175,7 +3237,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 33,
@@ -3183,7 +3247,7 @@
       "actionKey": "HH+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
-      "sha256": "32d69bc519c796774511a37eabff2c8e1708fc1f12ab29157b78a16d2c45e825",
+      "sha256": "be2c0a5b1c5577c323a7502df13a4be580c8b157a3e87997e107a8e3c339b133",
       "sourceQueueSha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3268,8 +3332,8 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3316,7 +3380,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 34,
@@ -3324,7 +3390,7 @@
       "actionKey": "HH+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
-      "sha256": "55401042db40f8915542e335ee594aa3f7cdba6a1904f36e2eb2c5de48d31c31",
+      "sha256": "72211113246406134b76a159524731b606caefc26509989a501f4c171a1f9d43",
       "sourceQueueSha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3409,8 +3475,8 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -3457,7 +3523,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 35,
@@ -3465,7 +3533,7 @@
       "actionKey": "BD+LT:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png",
-      "sha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
+      "sha256": "4902f5a9820f4ffa3ddb32b6c853a0224b6bc3a0cd3a2f2cfeea0921902d733c",
       "sourceQueueSha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3474,8 +3542,8 @@
         140
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3518,7 +3586,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 36,
@@ -3526,7 +3596,7 @@
       "actionKey": "BD+LT:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
-      "sha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11",
+      "sha256": "b2456a33fdebbaa16917ed218e62ff5add4e77c956d544b9e0d33954019a48b0",
       "sourceQueueSha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3535,8 +3605,8 @@
         140
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3579,7 +3649,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 37,
@@ -3587,7 +3659,7 @@
       "actionKey": "HT:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ht/hit_l_refresh.png",
-      "sha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
+      "sha256": "81231441fbebeb885aca981d8a50961290a8d37de47f10fb56cefef76d3989fd",
       "sourceQueueSha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3601,8 +3673,8 @@
         78
       ],
       "usageCount": 14,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3644,7 +3716,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 38,
@@ -3652,7 +3726,7 @@
       "actionKey": "HT:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ht/rebound_l_refresh.png",
-      "sha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0",
+      "sha256": "97f93f0b0bd54df59e2d2a47e155603d29adb49b0c1f7b01b9c3cd374d791a9f",
       "sourceQueueSha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3666,8 +3740,8 @@
         78
       ],
       "usageCount": 14,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3709,7 +3783,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 39,
@@ -3717,7 +3793,7 @@
       "actionKey": "FT+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
-      "sha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
+      "sha256": "373492dc09b5df910e8d2f8efb52edc41226ae31e04a4c062ee11994f50dc6df",
       "sourceQueueSha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3726,8 +3802,8 @@
         86
       ],
       "usageCount": 13,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3769,7 +3845,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 40,
@@ -3777,7 +3855,7 @@
       "actionKey": "FT+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
-      "sha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
+      "sha256": "499344ca1d92c8e944ca7e444578604e9ac34c17b1fd3f261727edbc19cf1b1a",
       "sourceQueueSha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3786,8 +3864,8 @@
         86
       ],
       "usageCount": 13,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3829,7 +3907,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 41,
@@ -3837,7 +3917,7 @@
       "actionKey": "RC:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/rc/hit_r_refresh.png",
-      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
+      "sha256": "5b095f0e52633c5bc88e22a78ce9931b7c94805539223f338c3284aca7871e85",
       "sourceQueueSha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3846,8 +3926,8 @@
         29
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3909,7 +3989,9 @@
         "runtimePromoted": false,
         "formalRuntimeAssetModified": false,
         "note": "Right-cymbal single-hit candidate registered on GitHub after chair/stool alignment normalization. Historical HOLD evidence remains preserved; this entry does not promote or overwrite the formal runtime asset."
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 42,
@@ -3917,7 +3999,7 @@
       "actionKey": "RC:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/rc/rebound_r_refresh.png",
-      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
+      "sha256": "69efcefba14ba64b6c3feeece95aa0aa1d0c173029ad5da5fb59a9f13b7c6255",
       "sourceQueueSha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3926,8 +4008,8 @@
         29
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -3969,7 +4051,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 43,
@@ -3977,7 +4061,7 @@
       "actionKey": "HT:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ht/hit_r_refresh.png",
-      "sha256": "295d66bf3545a19e13ffe3c9e02e8d18e72ec1e88abb64be334891fe863ed74e",
+      "sha256": "64eebdeb2e3aa472f521a19b602f5445e57606cf64023b681016ed1fa7f3a6c0",
       "sourceQueueSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -3993,8 +4077,8 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "verified",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4048,7 +4132,9 @@
         "artifactId": 10600647764,
         "measure": 76,
         "deploymentCommitSha": "5c6a9f184d5c2bf57540242395358728e167c50b"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 44,
@@ -4056,7 +4142,7 @@
       "actionKey": "HT:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
-      "sha256": "7e0d05e8339adb5ff4275195cf38e279d334dffb25282fc483b756a5bb2e691a",
+      "sha256": "ec603539aa033af94264914db0a96f53060606941834558bbdc40a1f3167a7c0",
       "sourceQueueSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4072,8 +4158,8 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "verified",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4127,7 +4213,9 @@
         "artifactId": 10600647764,
         "measure": 76,
         "deploymentCommitSha": "5c6a9f184d5c2bf57540242395358728e167c50b"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 45,
@@ -4135,7 +4223,7 @@
       "actionKey": "BD+HT:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
-      "sha256": "f8ffc411a882e16b2b5b07c9af0c4b95c8c31c64be7187e778d4eb91b17cb024",
+      "sha256": "b1d45ed3b5d8b8896d5edcd7b63b2cfe0b080f5755920d3ebb763f4fd51d9610",
       "sourceQueueSha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4145,8 +4233,8 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4183,7 +4271,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 46,
@@ -4191,7 +4281,7 @@
       "actionKey": "BD+HT:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
-      "sha256": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a",
+      "sha256": "7932d9cb7ae92b528c12932efef105dc76dbf5df581fb997609d91768373af43",
       "sourceQueueSha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4201,8 +4291,8 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "promoted-pending-runtime-qa",
-      "brushupStatus": "MOTION_REPAIR_PROMOTED_PENDING_RUNTIME_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4239,7 +4329,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 47,
@@ -4247,7 +4339,7 @@
       "actionKey": "LT+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png",
-      "sha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
+      "sha256": "f683025777449060454466afd5b4ad4069b8923c2a479f8e2140145fa3adb265",
       "sourceQueueSha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4256,8 +4348,8 @@
         77
       ],
       "usageCount": 4,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -4299,7 +4391,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 48,
@@ -4307,7 +4401,7 @@
       "actionKey": "LT+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
-      "sha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
+      "sha256": "8779c37b96643e61410afbcae87453085704099a36825522f97aca79667c6d22",
       "sourceQueueSha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4316,8 +4410,8 @@
         77
       ],
       "usageCount": 4,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -4359,7 +4453,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 49,
@@ -4367,7 +4463,7 @@
       "actionKey": "BD+HH+SN:RF/R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
-      "sha256": "42bc7b87fc46698e058770888c0ab048a4fe66b44d5f5bc094de235ff3051b0f",
+      "sha256": "e24dd52a5c57e5738c02fed030638ff06146859243f08c19a4f1a46f788367dd",
       "sourceQueueSha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4381,8 +4477,8 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4429,7 +4525,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 50,
@@ -4437,7 +4535,7 @@
       "actionKey": "BD+HH+SN:RF/R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
-      "sha256": "eee9d730baade7fdb166253856b6b7fba9eb76dcc35f7d6506ded69ee66d1007",
+      "sha256": "4f59b9a3b77177694df5049d23b570672115f9b79a129141aa3f6de36df3a469",
       "sourceQueueSha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4451,8 +4549,8 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4499,7 +4597,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 51,
@@ -4507,15 +4607,15 @@
       "actionKey": "BD+HT:RF/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
-      "sha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7",
+      "sha256": "69e9c3f64f61c1b697ee3af90b6b5cf884f73ec52fac65f796f7408200846a59",
       "sourceQueueSha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
         54
       ],
       "usageCount": 1,
-      "qaState": "pass2-machine-pass-awaiting-human-visual",
-      "brushupStatus": "WAITING_VISUAL_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": null,
@@ -4581,7 +4681,9 @@
           "fixed drum"
         ],
         "state": "WAITING_VISUAL_QA"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 52,
@@ -4589,15 +4691,15 @@
       "actionKey": "BD+HT:RF/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
-      "sha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5",
+      "sha256": "cbde59638d54f4671130f1ad5785b91bff5044cd39c78e4a2dbc1579abff0e06",
       "sourceQueueSha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
         54
       ],
       "usageCount": 1,
-      "qaState": "pass2-machine-pass-awaiting-human-visual",
-      "brushupStatus": "WAITING_VISUAL_QA",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": null,
@@ -4663,7 +4765,9 @@
           "fixed drum"
         ],
         "state": "WAITING_VISUAL_QA"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 53,
@@ -4671,7 +4775,7 @@
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
-      "sha256": "9f6dfe72eaa37a8bb7eb82b1b6326ddaa9bcf0e61317149c2057bb339a07694b",
+      "sha256": "8f885151d34a5d037192b3e4017b88d7f51d81790a6755cb7a387fe8ac376389",
       "sourceQueueSha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4680,8 +4784,8 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4728,7 +4832,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 54,
@@ -4736,7 +4842,7 @@
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
-      "sha256": "59655e1923e5f84b41557ebbe20bf167c83955d0bc3c97e8926a06a718aa3b0d",
+      "sha256": "3e7b6d7afa11c6328b6f5117de846a964b6d3d34d47c8b032ff3d983f0076147",
       "sourceQueueSha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4745,8 +4851,8 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "MOTION_REPAIR_VERIFIED",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": "2026-09-20T05:36:00+09:00",
@@ -4793,7 +4899,9 @@
         "nextRepair": "candidate-only cause-specific reconstruction after semantic ROI measurement",
         "prohibitedRepair": "full-character redraw or rectangular whole-torso transplant",
         "restartCondition": "measured ROI + candidate static visual PASS"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 55,
@@ -4801,7 +4909,7 @@
       "actionKey": "BD+FT+SN:RF/R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
-      "sha256": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
+      "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
       "sourceQueueSha256": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4809,8 +4917,8 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "pass2-rehold",
-      "brushupStatus": "PASS2_REHOLD",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": null,
@@ -4876,7 +4984,9 @@
           "fixed drum"
         ],
         "state": "PASS2_REHOLD"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 56,
@@ -4884,7 +4994,7 @@
       "actionKey": "BD+FT+SN:RF/R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
-      "sha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
+      "sha256": "185965aa1d48e6444ad073757f178379c2759e2125923768f11df024b66c71da",
       "sourceQueueSha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4892,8 +5002,8 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "pass2-rehold",
-      "brushupStatus": "PASS2_REHOLD",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": null,
@@ -4959,7 +5069,9 @@
           "fixed drum"
         ],
         "state": "PASS2_REHOLD"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 57,
@@ -4967,7 +5079,7 @@
       "actionKey": "BD+FT:RF/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_l_hit_refresh.png",
-      "sha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
+      "sha256": "320c4a88895bff33a4993609a2f1b2bf42d06a29bf383c8ad7ac1c68c03dadbd",
       "sourceQueueSha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -4976,8 +5088,8 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "pass2-rehold",
-      "brushupStatus": "PASS2_REHOLD",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": null,
@@ -5043,7 +5155,9 @@
           "fixed drum"
         ],
         "state": "PASS2_REHOLD"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 58,
@@ -5051,7 +5165,7 @@
       "actionKey": "BD+FT:RF/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
-      "sha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
+      "sha256": "4667d09a6edfcd35aba6e65432bf56a86ecf52ca6e273a559a358519d293f733",
       "sourceQueueSha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -5060,8 +5174,8 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "pass2-rehold",
-      "brushupStatus": "PASS2_REHOLD",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
       "claimedAt": null,
@@ -5127,7 +5241,9 @@
           "fixed drum"
         ],
         "state": "PASS2_REHOLD"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 59,
@@ -5135,7 +5251,7 @@
       "actionKey": "BD+FT:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_r_hit_refresh.png",
-      "sha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
+      "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
       "sourceQueueSha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -5143,8 +5259,8 @@
         141
       ],
       "usageCount": 4,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": null,
       "claimState": "UNCLAIMED",
       "claimedAt": null,
@@ -5186,7 +5302,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     },
     {
       "order": 60,
@@ -5194,7 +5312,7 @@
       "actionKey": "BD+FT:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
-      "sha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
+      "sha256": "2eddcd7d32934e87454e7c552ac69c053f8fc6a72c9f2d2d689b42c59f1ed7a2",
       "sourceQueueSha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
       "sourceShaMatchesCurrent": true,
       "usageMeasures": [
@@ -5202,8 +5320,8 @@
         141
       ],
       "usageCount": 4,
-      "qaState": "visual-integrity-hard-fail-hold",
-      "brushupStatus": "HOLD_VISUAL_INTEGRITY",
+      "qaState": "STATIC_VISIBLE_QA_PASS_FINAL_RUNTIME_PENDING",
+      "brushupStatus": "NEEDS_RUNTIME_TRANSITION_QA",
       "terminalId": "TERM-B",
       "claimState": "CLAIMED",
       "claimedAt": "2026-09-19T18:35:00+09:00",
@@ -5261,7 +5379,9 @@
         "fixedDrumComposite": "FAIL",
         "runtimeTransition": "BLOCKED_BY_STATIC_FAIL",
         "outcome": "HOLD_VISUAL_INTEGRITY"
-      }
+      },
+      "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
+      "productionUpdatedAt": "2026-10-08"
     }
   ],
   "statusPolicy": {
