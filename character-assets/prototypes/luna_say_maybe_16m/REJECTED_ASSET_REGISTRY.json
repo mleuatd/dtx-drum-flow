@@ -143,12 +143,14 @@
       "actionKey": "SN:R",
       "phase": "rebound",
       "sha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd",
-      "githubPath": "character-assets/layers/character/sn/rebound_r.png",
+      "githubPath": "character-assets/production/20261008/legacy-rejected/sn_rebound_r_pre20261008.png",
       "dropboxPath": null,
       "rejectionReason": "Large camera/body/stool transition jump; retained for history but not runtime.",
       "date": "2026-09-18",
-      "replacementAsset": "character-assets/layers/character/sn/hit_r.png",
-      "status": "NEVER_USE_AT_RUNTIME"
+      "replacementAsset": "character-assets/layers/character/sn/rebound_r.png",
+      "status": "NEVER_USE_AT_RUNTIME",
+      "supersededAt": "2026-10-08",
+      "notes": "Old rejected bytes retained at archive path. Canonical path now contains a newly verified different image; old SHA stays denied."
     },
     {
       "asset": "RC+SN current-chat hit candidate",

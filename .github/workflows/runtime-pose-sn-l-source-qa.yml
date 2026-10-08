@@ -36,18 +36,21 @@ jobs:
         run: |
           set -euo pipefail
           echo "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9  character-assets/layers/character/base/neutral.png" | sha256sum -c -
-          echo "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb  character-assets/layers/character/sn/hit_l.png" | sha256sum -c -
-          echo "93a12be0eea01e7ecd7289ebc891721813a89f53bcd5814b807c75dcc6483202  character-assets/layers/character/sn/rebound_l.png" | sha256sum -c -
+          echo "1ba2d05a59dfc39cffd68190719a667791d3b2eae022ba49919211a0f9c089ec  character-assets/layers/character/sn/hit_l.png" | sha256sum -c -
+          echo "85d5b5843ae18b3936c7c14de58abbfb07afba5ee50eedbefca3dddd562643fa  character-assets/layers/character/sn/rebound_l.png" | sha256sum -c -
           echo "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85  character-assets/layers/drum/drum_base.png" | sha256sum -c -
+
+      - name: Verify source-bound PNG protected regions
+        run: python tools/runtime_pose/validate_source_bound_sn_pair.py
 
       - name: Run numeric pose sequence QA
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p out
-          N=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V1.json
-          H=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json
-          R=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V1.json
+          N=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V2.json
+          H=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V2.json
+          R=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V2.json
           python tools/runtime_pose/validate_pose.py --package "$N" --neutral "$N" > out/neutral_pose_qa.json
           python tools/runtime_pose/validate_pose.py --package "$H" --neutral "$N" --previous "$N" > out/hit_pose_qa.json
           python tools/runtime_pose/validate_pose.py --package "$R" --neutral "$N" --previous "$H" > out/rebound_pose_qa.json
@@ -57,9 +60,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          N=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V1.json
-          H=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json
-          R=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V1.json
+          N=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V2.json
+          H=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V2.json
+          R=character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V2.json
           D=character-assets/layers/drum/drum_base.png
           python tools/runtime_pose/validate_fixed_drum_composite.py --pose "$N" --neutral "$N" --drum "$D" --candidate character-assets/layers/character/base/neutral.png > out/neutral_composite_qa.json
           python tools/runtime_pose/validate_fixed_drum_composite.py --pose "$H" --neutral "$N" --drum "$D" --candidate character-assets/layers/character/sn/hit_l.png > out/hit_composite_qa.json
@@ -70,9 +73,9 @@ jobs:
         run: |
           set -euo pipefail
           D=character-assets/layers/drum/drum_base.png
-          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V1.json --drum "$D" --candidate character-assets/layers/character/base/neutral.png --output out/neutral_debug.png
-          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V1.json --drum "$D" --candidate character-assets/layers/character/sn/hit_l.png --output out/hit_debug.png
-          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V1.json --drum "$D" --candidate character-assets/layers/character/sn/rebound_l.png --output out/rebound_debug.png
+          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_neutral_V2.json --drum "$D" --candidate character-assets/layers/character/base/neutral.png --output out/neutral_debug.png
+          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_hit_V2.json --drum "$D" --candidate character-assets/layers/character/sn/hit_l.png --output out/hit_debug.png
+          python tools/runtime_pose/render_pose_constraint_debug.py --pose character-assets/reference-models/luna_video_20260919/runtime_pose_constraints/SN_L_rebound_V2.json --drum "$D" --candidate character-assets/layers/character/sn/rebound_l.png --output out/rebound_debug.png
 
       - name: Assert QA reports pass
         shell: bash

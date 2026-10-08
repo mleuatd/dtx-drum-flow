@@ -15,9 +15,11 @@
         "hit": "layers/character/sn/hit_l.png",
         "rebound": "layers/character/sn/rebound_l.png"
       },
-      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": "variants/sn/hit_l_candidate_v3.png",
-      "new_rebound": "variants/sn/rebound_l_candidate_v3.png"
+      "new_rebound": "variants/sn/rebound_l_candidate_v3.png",
+      "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
+      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
     },
     {
       "motion_id": "HH:R",
@@ -27,9 +29,11 @@
         "hit": "layers/character/hh/hit_r.png",
         "rebound": "layers/character/hh/rebound_r.png"
       },
-      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
+      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
     },
     {
       "motion_id": "BD:RF + HH:R",
@@ -51,9 +55,11 @@
         "hit": "layers/character/combo/hh_sn_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/hh_sn_r_l_rebound_refresh.png"
       },
-      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
+      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
     },
     {
       "motion_id": "BD:RF",
@@ -75,9 +81,11 @@
         "hit": "layers/character/sn/hit_r.png",
         "rebound": "layers/character/sn/hit_r.png"
       },
-      "status": "STATIC_VISUAL_PASS_RUNTIME_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "production_commit": "3b61f8c9bdca7cda2ebc61fc3e6f2d3b2eb8334b",
+      "runtime_evidence": "qa/browser_post_promote_4_pairs.json"
     },
     {
       "motion_id": "BD:RF + RC:R",
@@ -369,6 +377,6 @@
     }
   ],
   "completed_static_pairs": 4,
-  "runtime_promoted_pairs": 0,
+  "runtime_promoted_pairs": 4,
   "remaining_pairs": 26
 }

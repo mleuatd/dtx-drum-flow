@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "authority": "tool",
+  "actionKey": "SN:L",
+  "instrument": "SN",
+  "limb": "L",
+  "targetHeadCount": 4,
+  "camera": "three-quarter-back / over-shoulder; face slightly screen-left; gaze right; drum rightward",
+  "stoolAnchor": [
+    790,
+    724
+  ],
+  "hipAnchor": [
+    762.5,
+    637.5
+  ],
+  "characterScaleLocked": true,
+  "canvas": {
+    "width": 1448,
+    "height": 1086
+  },
+  "contactPoint": [
+    413.54,
+    555.95
+  ],
+  "fixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "appearanceProfileId": "luna_video_appearance_v1",
+  "retargetProfileId": "luna_chibi_retarget_v1",
+  "forbiddenMovementZones": [
+    "camera",
+    "stool",
+    "pelvis beyond tolerance",
+    "wrong limb",
+    "wrong instrument",
+    "fixed drum pixels in character layer"
+  ],
+  "tolerancesPx": {
+    "stickTip": 8,
+    "stool": 12,
+    "hip": 18,
+    "transitionJoint": 120
+  },
+  "phase": "rebound",
+  "sourceFrameSha256": "85d5b5843ae18b3936c7c14de58abbfb07afba5ee50eedbefca3dddd562643fa",
+  "confidence": 0.64,
+  "joints": {
+    "head_top": [
+      720,
+      30
+    ],
+    "chin": [
+      615,
+      300
+    ],
+    "neck": [
+      650,
+      312
+    ],
+    "shoulder_l": [
+      661,
+      345
+    ],
+    "shoulder_r": [
+      875,
+      370
+    ],
+    "elbow_l": [
+      615,
+      510
+    ],
+    "elbow_r": [
+      920,
+      468
+    ],
+    "wrist_l": [
+      554.85,
+      525.08
+    ],
+    "wrist_r": [
+      975,
+      448
+    ],
+    "hip_l": [
+      650,
+      620
+    ],
+    "hip_r": [
+      875,
+      655
+    ],
+    "knee_l": [
+      535,
+      690
+    ],
+    "knee_r": [
+      682,
+      748
+    ],
+    "ankle_l": [
+      430,
+      885
+    ],
+    "ankle_r": [
+      650,
+      902
+    ]
+  },
+  "stickTip": [
+    419.8,
+    442.21
+  ],
+  "measurementNotes": "2026-10-08 source-bound v3. SN contact is a visually verified point on the fixed visible head, not old center. Only moving left-arm anchors updated; inactive anchor estimates remain fixed.",
+  "effectors": [
+    {
+      "part": "SN",
+      "limb": "L",
+      "kind": "stick",
+      "target": [
+        413.54,
+        555.95
+      ],
+      "point": [
+        419.8,
+        442.21
+      ]
+    }
+  ]
+}
