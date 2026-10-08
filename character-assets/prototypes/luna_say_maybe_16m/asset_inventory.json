@@ -135,17 +135,19 @@
     },
     "rc_sn_r_l_hit_refresh": {
       "path": "layers/character/combo/rc_sn_hit_refresh.png",
-      "state": "ready",
-      "sha256": "719220d6076e5b74a021f5ea8cc86ddffc6e7a334eccda34a74b99f38b3138c8",
+      "state": "static-visual-pass",
+      "sha256": "5b095f0e52633c5bc88e22a78ce9931b7c94805539223f338c3284aca7871e85",
       "actionKey": "RC+SN:R/L",
-      "phase": "hit"
+      "phase": "hit",
+      "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json"
     },
     "rc_sn_r_l_rebound_refresh": {
       "path": "layers/character/combo/rc_sn_rebound_refresh.png",
-      "state": "ready",
-      "sha256": "c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653",
+      "state": "static-visual-pass",
+      "sha256": "6c9c8a79927940e77f6bf65a574c1659737413b83e88dd12dca23a4f2364adda",
       "actionKey": "RC+SN:R/L",
-      "phase": "rebound"
+      "phase": "rebound",
+      "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json"
     },
     "lt_r_hit": {
       "path": "layers/character/lt/hit_r_refresh.png",
@@ -305,17 +307,19 @@
     },
     "rc_r_hit_refresh": {
       "path": "layers/character/rc/hit_r_refresh.png",
-      "state": "ready",
-      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
+      "state": "static-visual-pass",
+      "sha256": "5b095f0e52633c5bc88e22a78ce9931b7c94805539223f338c3284aca7871e85",
       "actionKey": "RC:R",
-      "phase": "hit"
+      "phase": "hit",
+      "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json"
     },
     "rc_r_rebound_refresh": {
       "path": "layers/character/rc/rebound_r_refresh.png",
-      "state": "ready",
-      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
+      "state": "static-visual-pass",
+      "sha256": "69efcefba14ba64b6c3feeece95aa0aa1d0c173029ad5da5fb59a9f13b7c6255",
       "actionKey": "RC:R",
-      "phase": "rebound"
+      "phase": "rebound",
+      "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json"
     },
     "ht_r_hit_refresh": {
       "path": "layers/character/ht/hit_r_refresh.png",

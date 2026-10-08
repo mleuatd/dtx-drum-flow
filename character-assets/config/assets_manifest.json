@@ -308,8 +308,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "719220d6076e5b74a021f5ea8cc86ddffc6e7a334eccda34a74b99f38b3138c8",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "sha256": "5b095f0e52633c5bc88e22a78ce9931b7c94805539223f338c3284aca7871e85",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna Say Maybe M9-16 RC+SN:R/L hit; approved for M1-16 live runtime",
       "part": "RC+SN",
       "phase": "hit",
@@ -320,7 +320,8 @@
         "Formal Dropbox/GitHub save complete",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
         "M9-16 runtime frame mismatches/load failures/warnings/errors: 0",
-        "2026-09-20 deterministic motion repair RC+SN:R/L hit; auto candidate QA PASS."
+        "2026-09-20 deterministic motion repair RC+SN:R/L hit; auto candidate QA PASS.",
+        "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked."
       ]
     },
     {
@@ -329,8 +330,8 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "c9e186ec61efec8648cd2f4304101154baa164c5910f2493ee5551d5de5e8653",
-      "status": "MOTION_REPAIR_VERIFIED",
+      "sha256": "6c9c8a79927940e77f6bf65a574c1659737413b83e88dd12dca23a4f2364adda",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna Say Maybe M9-16 RC+SN:R/L rebound; approved for M1-16 live runtime",
       "part": "RC+SN",
       "phase": "rebound",
@@ -341,7 +342,8 @@
         "Formal Dropbox/GitHub save complete",
         "Public live PC/Xperia QA SUCCESS run 35351134562 artifact 10549284671",
         "M9-16 runtime frame mismatches/load failures/warnings/errors: 0",
-        "2026-09-20 deterministic motion repair RC+SN:R/L rebound; auto candidate QA PASS."
+        "2026-09-20 deterministic motion repair RC+SN:R/L rebound; auto candidate QA PASS.",
+        "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked."
       ]
     },
     {
@@ -639,14 +641,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "5b095f0e52633c5bc88e22a78ce9931b7c94805539223f338c3284aca7871e85",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna M25-28 RC:R formal pair; fixed-drum PRE_RUNTIME QA passed.",
       "part": "RC",
       "phase": "hit",
       "hand": "R",
       "notes": [
-        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0.",
+        "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -657,14 +660,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
-      "status": "LIVE_QA_PASSED",
+      "sha256": "69efcefba14ba64b6c3feeece95aa0aa1d0c173029ad5da5fb59a9f13b7c6255",
+      "status": "STATIC_VISUAL_PASS",
       "purpose": "Luna M25-28 RC:R formal pair; fixed-drum PRE_RUNTIME QA passed.",
       "part": "RC",
       "phase": "rebound",
       "hand": "R",
       "notes": [
-        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0."
+        "Public PC/Xperia runtime QA PASS run 35413032881 artifact 10575360428; M25-28 frame mismatches/load warnings/init errors: 0.",
+        "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428

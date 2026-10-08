@@ -1,0 +1,8 @@
+from PIL import Image,ImageDraw
+from pathlib import Path
+import numpy as np,json
+O=Path('work_output');s=np.array(Image.open(O/'variants/sn/hit_l_candidate_v3.png'));g=np.array(Image.open(O/'sources/right_outward_arm_donor.png').convert('RGBA'));old=np.array(Image.open(O/'variants/hh/hit_r_local_edit_v4.png'));base=s.copy();om=Image.new('L',(1448,1086));ImageDraw.Draw(om).polygon([(975,412),(995,409),(1045,306),(1068,307),(1070,342),(1036,407),(1044,458),(1012,486),(998,492),(985,453),(975,435)],fill=255);o=np.array(om)>0;base[o]=old[o]
+mask=Image.new('L',(1448,1086));ImageDraw.Draw(mask).polygon([(921,327),(1009,321),(1083,254),(1123,211),(1178,192),(1217,150),(1288,89),(1290,145),(1239,203),(1197,266),(1152,296),(1072,382),(1016,428),(963,435),(935,411),(919,366)],fill=255);m=np.array(mask)>0;donor=np.zeros_like(g);donor[m]=g[m];hair=Image.new('L',(1448,1086));ImageDraw.Draw(hair).polygon([(875,260),(921,300),(985,400),(1001,490),(951,625),(900,656),(842,566),(820,385)],fill=255);hm=(np.array(hair)>0)&(base[:,:,3]>0);dm=m&~hm;donor[hm]=0
+# Rotate entire far forearm/hand/stick slightly clockwise into the visible crash head.
+for phase,angle in [('hit',-7),('rebound',13)]:
+ rot=Image.fromarray(donor).rotate(angle,Image.Resampling.BICUBIC,center=(1008,382),expand=False);a=np.array(Image.alpha_composite(Image.fromarray(base),rot));a[hm]=base[hm];im=Image.fromarray(a);(O/'variants/rc').mkdir(exist_ok=True);im.save(O/f'variants/rc/{phase}_r_local_v1.png');dr=Image.open(O/'sources/drum_fixed.png').convert('RGBA');bg=Image.new('RGBA',dr.size,'white');bg.alpha_composite(dr);bg.alpha_composite(im);bg.convert('RGB').save(O/f'previews/rc_r_{phase}_local_v1.png')

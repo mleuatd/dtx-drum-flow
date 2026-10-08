@@ -1,0 +1,24 @@
+{
+  "status": "STATIC_VISUAL_PASS",
+  "right_shoulder": [
+    820,
+    345
+  ],
+  "right_elbow": [
+    1008,
+    382
+  ],
+  "right_tip_hit": [
+    1295,
+    143
+  ],
+  "right_tip_rebound": [
+    1196,
+    59
+  ],
+  "contacts": "Hit visibly contacts outer region of fixed screen-right crash head; rebound tip rises ~84px and clears head. Actual point recorded rather than old target center1215,145.",
+  "anatomy": "Two arms/hands/legs/sticks. Outward right upper arm emerges behind screen-right hair; continuous elbow/cuff/grip, rigid full arm rotation. Shoulder hidden and inferred.",
+  "identity": "Global generated redraw rejected; only declared right-arm donor mask pasted. Original head/torso/stool/legs/left arm restored/preserved. Local hair edge at former right hand permitted removal ROI.",
+  "combo": "Only validated SN:L arm delta replaces left rebound, no full-body stacking.",
+  "runtime_status": "NOT_YET_PROMOTED"
+}
