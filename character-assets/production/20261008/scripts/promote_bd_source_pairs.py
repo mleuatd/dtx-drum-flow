@@ -1,6 +1,6 @@
 from pathlib import Path
 import json,hashlib,shutil,re
-r=Path('/workspace/scratch/3007f183e4a8/repo');o=r.parent/'work_output';p=r/'character-assets/production/20261008';ip=r/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json';inv=json.loads(ip.read_text());mp=r/'character-assets/config/assets_manifest.json';m=json.loads(mp.read_text());lp=p/'ledger/motion_matrix.json';ledger=json.loads(lp.read_text());qs=json.loads((o/'qa/bd_nine_pairs_mechanical.json').read_text());paths=[]
+r=next(p for p in Path(__file__).resolve().parents if (p/'character-assets').is_dir());o=r.parent/'work_output';p=r/'character-assets/production/20261008';ip=r/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json';inv=json.loads(ip.read_text());mp=r/'character-assets/config/assets_manifest.json';m=json.loads(mp.read_text());lp=p/'ledger/motion_matrix.json';ledger=json.loads(lp.read_text());qs=json.loads((o/'qa/bd_nine_pairs_mechanical.json').read_text());paths=[]
 for q in qs:
  f=inv['requiredFrames'][inv['runtimePhaseFrameMap'][q['key']][q['phase']]];dst=r/'character-assets'/f['path'];shutil.copy(o/'variants/bd'/q['candidate'],dst);sha=hashlib.sha256(dst.read_bytes()).hexdigest();f.update(sha256=sha,state='ready',qaStatus='STATIC_VISUAL_PASS_LIVE_PENDING');paths.append(f['path'])
  for a in m['assets']:

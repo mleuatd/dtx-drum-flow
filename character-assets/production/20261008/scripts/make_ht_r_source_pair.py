@@ -1,7 +1,7 @@
 from PIL import Image,ImageDraw
 from pathlib import Path
 import numpy as np,json
-r=Path('/workspace/scratch/3007f183e4a8/repo');o=r.parent/'work_output';n=np.array(Image.open(r/'character-assets/layers/character/sn/hit_l.png'));hh=np.array(Image.open(r/'character-assets/layers/character/hh/hit_r.png'));don=np.array(Image.open(r/'character-assets/production/20261008/donors/right_arm_donor.png'))
+r=next(p for p in Path(__file__).resolve().parents if (p/'character-assets').is_dir());o=r.parent/'work_output';n=np.array(Image.open(r/'character-assets/layers/character/sn/hit_l.png'));hh=np.array(Image.open(r/'character-assets/layers/character/hh/hit_r.png'));don=np.array(Image.open(r/'character-assets/production/20261008/donors/right_arm_donor.png'))
 def poly(p):
  m=Image.new('L',(1448,1086));ImageDraw.Draw(m).polygon(p,fill=255);return np.array(m)>0
 near=poly([(650,317),(710,320),(716,392),(699,465),(674,513),(632,557),(602,548),(581,526),(587,486),(613,467),(622,414)])&(n[:,:,3]>0)

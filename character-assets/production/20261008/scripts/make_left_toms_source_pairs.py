@@ -2,7 +2,7 @@ from PIL import Image,ImageDraw
 from pathlib import Path
 from scipy.ndimage import map_coordinates
 import numpy as np
-r=Path('/workspace/scratch/3007f183e4a8/repo');o=r.parent/'work_output';W,H=1448,1086;n=np.array(Image.open(o/'sources/neutral.png'))
+r=next(p for p in Path(__file__).resolve().parents if (p/'character-assets').is_dir());o=r.parent/'work_output';W,H=1448,1086;n=np.array(Image.open(o/'sources/neutral.png'))
 def poly(p):
  m=Image.new('L',(W,H));ImageDraw.Draw(m).polygon(p,fill=255);return np.array(m)>0
 m=poly([(420,376),(474,380),(527,454),(576,465),(616,482),(624,535),(582,551),(540,547),(530,531),(493,529),(480,490),(420,418)]);limb=np.zeros_like(n);limb[m]=n[m]

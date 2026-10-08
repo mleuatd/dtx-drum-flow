@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image,ImageDraw
 import json,numpy as np
-r=Path('/workspace/scratch/3007f183e4a8/repo');o=r.parent/'work_output'; inv=json.loads((r/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json').read_text());n=np.array(Image.open(o/'sources/neutral.png'))
+r=next(p for p in Path(__file__).resolve().parents if (p/'character-assets').is_dir());o=r.parent/'work_output'; inv=json.loads((r/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json').read_text());n=np.array(Image.open(o/'sources/neutral.png'))
 mp={'BD:RF':None,'BD+RC:RF/R':'RC:R','BD+SN:RF/L':'SN:L','BD+SN:RF/R':'SN:R','BD+RD:RF/R':'RD:R','BD+HH:RF/R':'HH:R','BD+LT:RF/R':'LT:R','BD+HH+SN:RF/R/L':'HH+SN:R/L','BD+RC+SN:RF/R/L':'RC+SN:R/L'}
 kit=Image.open(o/'sources/drum_fixed.png').convert('RGBA');sheet=Image.new('RGB',(724*2,590*9),'white');draw=ImageDraw.Draw(sheet);qa=[]
 for row,(key,armkey) in enumerate(mp.items()):

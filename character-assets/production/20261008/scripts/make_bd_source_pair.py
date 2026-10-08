@@ -2,7 +2,7 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import numpy as np
 from scipy.ndimage import map_coordinates
-root=Path('/workspace/scratch/3007f183e4a8'); repo=root/'repo'; W,H=1448,1086
+repo=next(p for p in Path(__file__).resolve().parents if (p/'character-assets').is_dir()); root=repo.parent; W,H=1448,1086
 n=Image.open(root/'work_output/sources/neutral.png').convert('RGBA');na=np.array(n)
 b=Image.open(repo/'character-assets/production/20261008/donors/right_boot_rear_candidate.png').convert('RGBA').resize((260,350),Image.Resampling.LANCZOS)
 ba=np.array(b);gray=np.mean(ba[:,:,:3],axis=2).astype('uint8');ba[:,:,:3]=gray[:,:,None];b=Image.fromarray(ba)

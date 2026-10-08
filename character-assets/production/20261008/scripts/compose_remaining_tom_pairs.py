@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image,ImageDraw
 import numpy as np,json,os,tempfile
-r=Path('/workspace/scratch/3007f183e4a8/repo');o=r.parent/'work_output';inv=json.loads((r/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json').read_text());n=np.array(Image.open(o/'sources/neutral.png'));lh=np.array(Image.open(r/'character-assets/layers/character/sn/hit_l.png'));lr=np.array(Image.open(r/'character-assets/layers/character/sn/rebound_l.png'));ld=np.any(lh!=lr,axis=2)
+r=next(p for p in Path(__file__).resolve().parents if (p/'character-assets').is_dir());o=r.parent/'work_output';inv=json.loads((r/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json').read_text());n=np.array(Image.open(o/'sources/neutral.png'));lh=np.array(Image.open(r/'character-assets/layers/character/sn/hit_l.png'));lr=np.array(Image.open(r/'character-assets/layers/character/sn/rebound_l.png'));ld=np.any(lh!=lr,axis=2)
 mp={'HT:R':('ht','r',False,False),'HT:L':('ht','l',False,False),'LT:L':('lt','l',False,False),'FT:R':('ft','r',False,False),'FT:L':('ft','l',False,False),'FT+SN:R/L':('ft','r',False,True),'BD+HT:RF/R':('ht','r',True,False),'BD+HT:RF/L':('ht','l',True,False),'BD+FT:RF/L':('ft','l',True,False),'BD+FT:RF/R':('ft','r',True,False),'BD+FT+SN:RF/R/L':('ft','r',True,True)}
 out=o/'variants/remaining';out.mkdir(exist_ok=True);kit=Image.open(o/'sources/drum_fixed.png').convert('RGBA');fore=Image.open(r/'character-assets/layers/drum/drum_foreground_occlusion.png');hair=Image.open(r/'character-assets/layers/character/base/hair_foreground_source.png');sheet=Image.new('RGB',(1014*2,800*11),'white');d=ImageDraw.Draw(sheet);records=[]
 for row,(key,(part,hand,bd,sn)) in enumerate(mp.items()):

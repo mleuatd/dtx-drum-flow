@@ -1,0 +1,40 @@
+name: Recover DTX production QA evidence
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/recover-dtx-production-evidence.yml"]
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 37759877958
+          name: public-runtime-qa-37759877958
+          path: recovered-production-qa
+      - name: Persist full phase and playback evidence
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import json, pathlib, shutil
+          source=pathlib.Path("recovered-production-qa/runtime-qa.json")
+          report=json.loads(source.read_text())
+          dest=pathlib.Path("character-assets/production/20261008/qa/final_public_runtime_failed_frames.json")
+          dest.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+          bad=[r for r in report["records"] if r.get("status")!="PASS"]
+          print(json.dumps({"failedCount":report.get("failed"),"nonPassRecords":bad},ensure_ascii=False))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets/production/20261008/qa/final_public_runtime_failed_frames.json
+          git diff --cached --quiet || git commit -m "qa: retain full all30 public phase/playback failure evidence"
+          git pull --rebase origin main
+          git push origin HEAD:main
