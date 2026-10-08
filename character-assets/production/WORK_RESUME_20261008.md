@@ -72,3 +72,12 @@
 4. 今回の環境では公開URLへのHTTP取得ができないため、**新しい直接ブラウザQAは未確認**。外部ブラウザテストかGitHub Actionsによる再実行が必要。できたと装わない。
 5. 変更が必要な場合のみ最小限の修正を行い、QA結果とコミット・Actions URLを**この同じ入口ファイル**へ追記する。新たな入口を分散作成しない。
 
+
+### 2026-10-09 再公開完了の追記（GitHub Actions実測）
+- **再公開コミット:** `a15c01d01532a17aa68146cde72a19cf99987be2`。既存の演奏UIと正式PNGは変更せず、`site/DEPLOYMENT_TRACE_20261009.md` を追加して `site/**` のデプロイを起動。
+- **Pages公開:** [deploy-site #37840713955](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37840713955) — `completed/success`、同コミット。
+- **公開ブラウザQA:** [Runtime Character QA #37840713971](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37840713971) — `completed/success`、同コミット。GitHub Actionsのリモート実行による検証であり、このチャットのブラウザで公開ページを直接操作した結果ではない。
+- **基本検証:** [validate #37840713997](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37840713997) — `completed/success`。
+- 最新の画面: https://mleuatd.github.io/dtx-drum-flow/ 。公開ページのビルド識別子: https://mleuatd.github.io/dtx-drum-flow/build.json 。
+- この完了追記は **引き継ぎ文書だけの更新**であり、サイトのビルドSHAは引き続き `a15c01d...` でよい。公開用ファイルに追加差分を加えた場合は新たにデプロイとQAを行う。
+
