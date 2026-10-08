@@ -4,7 +4,7 @@ const DEFAULT_MEASURE_END=4;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_full_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20261008-cached-r10";
+const ASSET_VERSION="20261008-retry-r11";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
@@ -33,17 +33,42 @@ const EFFECT_POINTS={HH:[190,390],SN:[420,535],BD:[735,650],HT:[575,360],LT:[885
 const loadedFrameImages=new Map();
 const frameWarmup=document.createElement("canvas");frameWarmup.width=1;frameWarmup.height=1;
 const frameWarmupContext=frameWarmup.getContext("2d",{willReadFrequently:true});
-function loadImage(src){return new Promise((resolve,reject)=>{const image=new Image();const url=assetUrl(src);image.onload=()=>{try{if(!image.complete||!image.naturalWidth)throw new Error("empty loaded image: "+src);frameWarmupContext.clearRect(0,0,1,1);frameWarmupContext.drawImage(image,0,0,1,1);frameWarmupContext.getImageData(0,0,1,1);loadedFrameImages.set(url,image);resolve(src)}catch(error){reject(error)}};image.onerror=()=>reject(new Error("image HTTP/load failure: "+src));image.src=url})}
+function loadImage(src){
+ const url=assetUrl(src),existing=loadedFrameImages.get(url);
+ if(existing?.complete&&existing.naturalWidth)return Promise.resolve(src);
+ return new Promise((resolve,reject)=>{
+  const image=new Image();let attempt=0;
+  const request=()=>{attempt++;image.src=url+(attempt>1?"&load_retry="+attempt:"")};
+  image.onload=()=>{try{
+   if(!image.complete||!image.naturalWidth)throw new Error("empty loaded image: "+src);
+   frameWarmupContext.clearRect(0,0,1,1);frameWarmupContext.drawImage(image,0,0,1,1);frameWarmupContext.getImageData(0,0,1,1);
+   loadedFrameImages.set(url,image);
+   if(attempt>1)console.warn("character asset transient load recovered",src,attempt);
+   resolve(src);
+  }catch(error){reject(error)}};
+  image.onerror=()=>{if(attempt<3)setTimeout(request,attempt===1?400:1000);else reject(new Error("image HTTP/load failure after3 attempts: "+src))};
+  request();
+ });
+}
+function installReadyImage(previous,src){
+ const image=loadedFrameImages.get(assetUrl(src));
+ if(!image?.complete||!image.naturalWidth)throw new Error("image is not ready: "+src);
+ image.id=previous.id;image.className=previous.className;image.alt=previous.alt;image.style.cssText=previous.style.cssText;
+ if(previous!==image)previous.replaceWith(image);
+ return image;
+}
 
 // The fixed kit remains immutable. Foreground kit pixels hide the torso/hair;
 // only the source arms and actual pose delta are drawn back above it.
 let foregroundNeutral=null,foregroundArmMask=null,foregroundScratch=null;
 async function initForegroundLayers(){
   if(!els.drumFront||!els.characterFront)return;
-  if(els.hairFront)els.hairFront.src=assetUrl(ASSET_ROOT+"/layers/character/base/hair_foreground_source.png");
-  els.drumFront.src=assetUrl(ASSET_ROOT+"/layers/drum/drum_foreground_occlusion.png");
-  const neutral=new Image();
-  await new Promise((resolve,reject)=>{neutral.onload=resolve;neutral.onerror=reject;neutral.src=assetUrl(ASSET_ROOT+"/layers/character/base/neutral.png")});
+  const neutralSrc=ASSET_ROOT+"/layers/character/base/neutral.png",drumFrontSrc=ASSET_ROOT+"/layers/drum/drum_foreground_occlusion.png",hairSrc=ASSET_ROOT+"/layers/character/base/hair_foreground_source.png";
+  await Promise.all([DRUM,neutralSrc,drumFrontSrc,hairSrc].map(loadImage));
+  els.drum=installReadyImage(els.drum,DRUM);els.character=installReadyImage(els.character,neutralSrc);
+  els.drumFront=installReadyImage(els.drumFront,drumFrontSrc);
+  if(els.hairFront)els.hairFront=installReadyImage(els.hairFront,hairSrc);
+  const neutral=loadedFrameImages.get(assetUrl(neutralSrc));
   foregroundScratch=document.createElement("canvas");foregroundScratch.width=1448;foregroundScratch.height=1086;
   const ctx=foregroundScratch.getContext("2d",{willReadFrequently:true});ctx.drawImage(neutral,0,0);
   foregroundNeutral=ctx.getImageData(0,0,1448,1086).data;
@@ -87,7 +112,7 @@ function setFrame(path,label="",phase="neutral"){
    const previous=els.character;
    cached.id=previous.id;cached.className=previous.className;cached.alt=previous.alt;
    cached.style.cssText=previous.style.cssText;
-   previous.replaceWith(cached);els.character=cached;
+   if(previous!==cached)previous.replaceWith(cached);els.character=cached;
    renderForegroundCharacter();
   }else{
    // The normal ready state has every frame decoded; failures retain the warning path.
@@ -137,7 +162,7 @@ function phaseFor(group,time,playbackRate=1){
   return "neutral";
 }
 function triggerEffect(group,phase){if(!els.effect)return;if(!group||phase!=="hit"){lastEffectToken="";els.effect.dataset.parts="";els.bursts.forEach(b=>b.classList.remove("is-active"));return}const token=String(group[0].time);if(token===lastEffectToken)return;lastEffectToken=token;const parts=[...new Set(group.map(n=>n.part))],points=parts.map(p=>EFFECT_POINTS[p]).filter(Boolean).slice(0,3);els.effect.dataset.parts=parts.join("+");els.bursts.forEach((burst,index)=>{burst.classList.remove("is-active");const point=points[index];if(!point)return;burst.setAttribute("transform",`translate(${point[0]} ${point[1]})`);void burst.getBoundingClientRect();burst.classList.add("is-active")})}
-export async function initCharacterPrototype(){els.root=document.getElementById("characterBackdrop");els.drum=document.getElementById("drumLayer");els.character=document.getElementById("characterLayer");els.drumFront=document.getElementById("drumFrontLayer");els.characterFront=document.getElementById("characterFrontLayer");els.hairFront=document.getElementById("hairFrontLayer");els.label=document.getElementById("characterPoseLabel");els.effect=document.getElementById("effectLayer");els.bursts=[document.getElementById("effectPrimary"),document.getElementById("effectSecondary"),document.getElementById("effectTertiary")].filter(Boolean);if(!els.root||!els.drum||!els.character)return;els.drum.src=assetUrl(DRUM);els.character.src=assetUrl(ASSET_ROOT+"/layers/character/base/neutral.png");const fail=e=>{markAssetIssue(e?.target?.src||"dom-image-load");els.root.dataset.state="asset-warning"};els.drum.addEventListener("error",fail);els.character.addEventListener("error",fail);els.drumFront?.addEventListener("error",fail);els.hairFront?.addEventListener("error",fail);els.character.addEventListener("load",renderForegroundCharacter);try{await initForegroundLayers();const [notesResponse,inventoryResponse,limbResponse]=await Promise.all([fetch(PROTOTYPE_URL,{cache:"no-store"}),fetch(INVENTORY_URL,{cache:"no-store"}),fetch(LIMB_URL,{cache:"no-store"})]);if(!notesResponse.ok)throw new Error("prototype HTTP "+notesResponse.status);if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);if(!limbResponse.ok)throw new Error("limb HTTP "+limbResponse.status);const [json,inventory,limbData]=await Promise.all([notesResponse.json(),inventoryResponse.json(),limbResponse.json()]);const limbMap=new Map((limbData.assignments||[]).map(item=>[[Number(item.time).toFixed(6),item.part||""].join("|"),item.limb]));for(const note of json.notes||[]){const resolved=limbMap.get(noteIdentity(note));if(resolved)note.limb=resolved}const startMeasure=Number(inventory.runtimeScope?.measureStart??DEFAULT_MEASURE_START),endMeasure=Number(inventory.runtimeScope?.measureEnd??DEFAULT_MEASURE_END);if(!Number.isInteger(startMeasure)||!Number.isInteger(endMeasure)||endMeasure<startMeasure)throw new Error("invalid inventory runtimeScope");const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure),groups=groupNotes(scopedNotes);validatePrototypeCoverage(inventory,scopedNotes,groups);data={...json,groups,frames:inventory.requiredFrames||{},frameMap:inventory.runtimeFrameMap||{},phaseFrameMap:inventory.runtimePhaseFrameMap||{},motionTiming:inventory.motionTiming||{},fallbackKeys:new Set(inventory.runtimeFallbackKeys||[]),startMeasure,endMeasure,prototypeEndTime:Math.max(...scopedNotes.map(note=>note.time),0)+.35};const sources=[
+export async function initCharacterPrototype(){els.root=document.getElementById("characterBackdrop");els.drum=document.getElementById("drumLayer");els.character=document.getElementById("characterLayer");els.drumFront=document.getElementById("drumFrontLayer");els.characterFront=document.getElementById("characterFrontLayer");els.hairFront=document.getElementById("hairFrontLayer");els.label=document.getElementById("characterPoseLabel");els.effect=document.getElementById("effectLayer");els.bursts=[document.getElementById("effectPrimary"),document.getElementById("effectSecondary"),document.getElementById("effectTertiary")].filter(Boolean);if(!els.root||!els.drum||!els.character)return;const fail=e=>{markAssetIssue(e?.target?.src||"dom-image-load");els.root.dataset.state="asset-warning"};els.drum.addEventListener("error",fail);els.character.addEventListener("error",fail);els.drumFront?.addEventListener("error",fail);els.hairFront?.addEventListener("error",fail);els.character.addEventListener("load",renderForegroundCharacter);try{await initForegroundLayers();const [notesResponse,inventoryResponse,limbResponse]=await Promise.all([fetch(PROTOTYPE_URL,{cache:"no-store"}),fetch(INVENTORY_URL,{cache:"no-store"}),fetch(LIMB_URL,{cache:"no-store"})]);if(!notesResponse.ok)throw new Error("prototype HTTP "+notesResponse.status);if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);if(!limbResponse.ok)throw new Error("limb HTTP "+limbResponse.status);const [json,inventory,limbData]=await Promise.all([notesResponse.json(),inventoryResponse.json(),limbResponse.json()]);const limbMap=new Map((limbData.assignments||[]).map(item=>[[Number(item.time).toFixed(6),item.part||""].join("|"),item.limb]));for(const note of json.notes||[]){const resolved=limbMap.get(noteIdentity(note));if(resolved)note.limb=resolved}const startMeasure=Number(inventory.runtimeScope?.measureStart??DEFAULT_MEASURE_START),endMeasure=Number(inventory.runtimeScope?.measureEnd??DEFAULT_MEASURE_END);if(!Number.isInteger(startMeasure)||!Number.isInteger(endMeasure)||endMeasure<startMeasure)throw new Error("invalid inventory runtimeScope");const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure),groups=groupNotes(scopedNotes);validatePrototypeCoverage(inventory,scopedNotes,groups);data={...json,groups,frames:inventory.requiredFrames||{},frameMap:inventory.runtimeFrameMap||{},phaseFrameMap:inventory.runtimePhaseFrameMap||{},motionTiming:inventory.motionTiming||{},fallbackKeys:new Set(inventory.runtimeFallbackKeys||[]),startMeasure,endMeasure,prototypeEndTime:Math.max(...scopedNotes.map(note=>note.time),0)+.35};const sources=[
   DRUM, ASSET_ROOT+"/layers/drum/drum_foreground_occlusion.png", ASSET_ROOT+"/layers/character/base/hair_foreground_source.png",
   ...[...new Set(Object.values(data.frames).map(frame=>ASSET_ROOT+"/"+frame.path))]
 ];let loadedSources=0;window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",done:0,total:sources.length,ratio:0,label:"人物画像を読み込み中"}}));const preloadResults=new Array(sources.length);let preloadCursor=0;

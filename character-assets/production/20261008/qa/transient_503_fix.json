@@ -1,0 +1,9 @@
+{
+  "status": "REPAIRED_RETEST_PENDING",
+  "failedRun": "37763909371",
+  "previousVerifiedRun": "37762693031",
+  "failure": "Public Pages returned HTTP503 for SN:L hit preload; one global warning then disabled play and marked allPC phase checks nonPass.",
+  "fix": "Bounded3 attempts with400/1000ms backoff and distinct retry URL. Loaded nodes retained; immutable drum, neutral, foreground and hair use same retry-aware installation path. Warmup draw failures still reject. A permanently missing image still blocks readiness after3 attempts.",
+  "filesChanged": "Only runtime loading; all60 PNG bytes unchanged.",
+  "evidence": "Prior all30 PC/mobile phase checks120 and normal/half playback4cases passed. Latest failure is a recorded server503, not a visual QA defect."
+}
