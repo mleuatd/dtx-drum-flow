@@ -24,7 +24,7 @@ function updateDevHud(extra=""){
     "err:"+(root?.dataset.initError||root?.dataset.assetIssue||"-")
   ];
   if(extra)lines.push(extra);
-  hud.textContent=lines.join("\n");
+  hud.textContent=lines.join("\n")+"\n"+(window.__DTX_DEPLOY_STATUS__||"DEPLOY: checking...");
 }
 setInterval(()=>updateDevHud(),250);
 const EFFECT_POINTS={HH:[190,390],SN:[420,535],BD:[735,650],HT:[575,360],LT:[885,455],FT:[1165,535],RC:[1215,145],RD:[965,250]};
