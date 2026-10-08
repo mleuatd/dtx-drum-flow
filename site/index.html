@@ -17,6 +17,29 @@
     .mobile-transport{background:#070716f2;border-top:4px solid var(--luna-lime)}.mobile-transport button{border:2px solid var(--luna-ivory);border-radius:3px}.transport-side{background:#101025}.transport-play{background:var(--luna-blue);border-color:var(--luna-lime)!important;color:#fff}
     @media(max-width:699px){.app{padding:8px}.song-picker{grid-template-columns:1fr}.topbar{margin:-8px -8px 8px}.stage{height:60vh;min-height:460px}.quick{grid-template-columns:1fr 1fr}.quick .summary{grid-column:1/-1}.button.huge{font-size:13px;padding:9px 7px}.topbar h1{font-size:23px}}
   </style>
+  <script>
+    // At initial navigation only, align the HTML URL with the actual Pages build.
+    // Do not refresh during playback or enter a redirect loop.
+    (() => {
+      const started = performance.now();
+      const originalQuery = new URL(location.href);
+      fetch('./build.json?freshness=' + Date.now(), {cache:'no-store'})
+        .then(r => { if (!r.ok) throw Error('HTTP '+r.status); return r.json(); })
+        .then(b => {
+          const sha = String(b.commitSha || '').slice(0, 12);
+          if (!/^[0-9a-f]{12}$/.test(sha)) return;
+          if (originalQuery.searchParams.get('build') === sha) return;
+          // Do not discard a running playback session if the remote check is slow.
+          const button = document.getElementById('playPause');
+          if (performance.now() - started > 12000 || (button && /停止|一時停止|pause/i.test(button.textContent))) return;
+          const key='dtx-reload-' + sha;
+          try { if (sessionStorage.getItem(key) === '1') return; sessionStorage.setItem(key,'1'); } catch (_) {}
+          originalQuery.searchParams.set('build',sha);
+          location.replace(originalQuery.href);
+        })
+        .catch(() => {});
+    })();
+  </script>
   <link rel="stylesheet" href="./version-switcher.css?v=20260920-prepost-r1">\n</head>
 <body>
   <div id="devBuildHud" style="position:fixed;right:6px;top:6px;z-index:9999;max-width:42vw;background:#000d;color:#baff00;border:1px solid #baff00;padding:4px 6px;font:700 10px/1.35 monospace;white-space:pre;pointer-events:none">BUILD 20260919-audio-final-r21\nJS:loading\nCHAR:loading<span id="devAudioReadout"></span><span id="devDeployInfo">\nDEPLOY: checking…</span></div><main class="app">
