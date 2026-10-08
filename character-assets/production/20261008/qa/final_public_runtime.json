@@ -9,10 +9,10 @@
     "LUNA_ALL30_20261008": {
       "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "37852636847",
-      "testedCommitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
-      "artifact": "public-runtime-qa-37852636847",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37852636847",
+      "runId": "37852990508",
+      "testedCommitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+      "artifact": "public-runtime-qa-37852990508",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37852990508",
       "measureStart": 1,
       "measureEnd": 148,
       "actions": [
@@ -155,18 +155,18 @@
     }
   ],
   "next": "Read LUNA_ALL30_20261008 evidence; fix concrete failing phase or playback if any. No unchanged retry.",
-  "updatedAt": "2026-10-08T22:20:36.733255+00:00",
+  "updatedAt": "2026-10-08T22:24:55.975689+00:00",
   "browserFrameEvidence": {
-    "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+    "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
     "deployment": {
       "version": "POST-FIX",
-      "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
-      "builtAt": "2026-10-08T22:19:04Z",
-      "expectedCommitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
-      "acceptedDeploymentSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21"
+      "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+      "builtAt": "2026-10-08T22:23:24Z",
+      "expectedCommitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
+      "acceptedDeploymentSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36"
     },
     "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-    "workflowRunId": "37852636847",
+    "workflowRunId": "37852990508",
     "measureRange": [
       1,
       148
@@ -323,15 +323,15 @@
         "key": "BD+FT:RF/R"
       }
     ],
-    "testedAt": "2026-10-08T22:20:33.612Z",
+    "testedAt": "2026-10-08T22:24:52.763Z",
     "failed": 0,
     "passed": 142,
     "records": [
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:38.527Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:23:57.830Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -377,10 +377,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:38.967Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:23:58.190Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -426,10 +426,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:39.367Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:23:58.533Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -475,10 +475,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:39.754Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:23:58.876Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -524,10 +524,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:40.131Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:23:59.215Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -573,10 +573,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:40.478Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:23:59.549Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -622,10 +622,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:40.836Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:23:59.892Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -671,10 +671,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:41.214Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:00.240Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -720,10 +720,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:41.657Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:00.610Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -769,10 +769,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:42.301Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:00.973Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -818,10 +818,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:42.667Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:01.344Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -867,10 +867,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:43.058Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:01.705Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -916,10 +916,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:43.638Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:02.119Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -965,10 +965,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:44.028Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:02.519Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1014,10 +1014,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:44.414Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:03.100Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1063,10 +1063,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:44.774Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:03.485Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1112,10 +1112,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:45.122Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:03.864Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1161,10 +1161,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:45.499Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:04.238Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1210,10 +1210,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:45.851Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:04.597Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1259,10 +1259,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:46.219Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:04.986Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1308,10 +1308,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:46.582Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:05.353Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1357,10 +1357,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:46.953Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:05.745Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1406,10 +1406,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:47.312Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:06.117Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1455,10 +1455,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:47.684Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:06.508Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1504,10 +1504,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:48.036Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:06.884Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1553,10 +1553,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:48.383Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:07.260Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1602,10 +1602,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:48.728Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:07.642Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1651,10 +1651,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:49.079Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:08.057Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1700,10 +1700,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:49.434Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:08.430Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1749,10 +1749,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:49.800Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:08.801Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1798,10 +1798,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:50.146Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:09.176Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1847,10 +1847,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:50.494Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:09.577Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1896,10 +1896,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:50.874Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:09.931Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1945,10 +1945,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:51.220Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:10.291Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1994,10 +1994,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:51.559Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:10.640Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2043,10 +2043,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:51.887Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:10.986Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2092,10 +2092,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:52.229Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:11.331Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2141,10 +2141,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:52.581Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:11.691Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2190,10 +2190,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:52.957Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:12.052Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2239,10 +2239,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:53.316Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:12.397Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2288,10 +2288,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:53.667Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:12.757Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2337,10 +2337,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:54.018Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:13.109Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2386,10 +2386,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:54.357Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:13.449Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2435,10 +2435,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:54.742Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:13.796Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2484,10 +2484,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:55.086Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:14.152Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2533,10 +2533,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:55.461Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:14.521Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2582,10 +2582,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:55.827Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:14.873Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2631,10 +2631,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:56.181Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:15.218Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2680,10 +2680,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:56.538Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:15.568Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2729,10 +2729,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:56.904Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:15.924Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2778,10 +2778,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:57.265Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:16.286Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2827,10 +2827,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:57.624Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:16.638Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2876,10 +2876,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:57.981Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:16.981Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2925,10 +2925,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:58.356Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:17.325Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2974,10 +2974,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:58.724Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:17.655Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3023,10 +3023,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:59.065Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:17.973Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3072,10 +3072,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:59.402Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:18.324Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3121,10 +3121,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:19:59.721Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:18.640Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3170,10 +3170,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:00.052Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:18.975Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3219,10 +3219,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:00.369Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:19.292Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3268,10 +3268,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:00.670Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:19.590Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3317,10 +3317,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:01.022Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:19.940Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3366,10 +3366,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:01.351Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:20.257Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3415,10 +3415,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:01.651Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:20.557Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3464,10 +3464,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:02.001Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:20.872Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3513,10 +3513,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:02.323Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:21.190Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3562,10 +3562,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:02.617Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:21.489Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3611,10 +3611,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:02.949Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:21.807Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3660,10 +3660,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:03.283Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:22.121Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3718,84 +3718,84 @@
         "playbackSpeed": 1,
         "samples": [
           {
-            "time": 10.1242,
+            "time": 10.1129,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3303,
+            "time": 10.3271,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.5443,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
+            "time": 10.5366,
+            "frame": "layers/character/bd/rebound_rf.png",
+            "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.7613,
+            "time": 10.6877,
+            "frame": "layers/character/rd/rebound_r_refresh.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 10.896,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.9446,
+            "time": 11.074,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.2628,
+            "frame": "layers/character/bd/hit_rf.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.4325,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.6266,
+            "frame": "layers/character/sn/hit_l.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.8233,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.127,
+            "time": 11.9975,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.3148,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.5063,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.6815,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.8626,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 12.0443,
-            "frame": "layers/character/rd/rebound_r_refresh.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 12.2142,
+            "time": 12.1989,
             "frame": "layers/character/combo/bd_rc_rebound.png",
             "phase": "rebound",
             "complete": true,
@@ -3814,21 +3814,21 @@
         "playbackSpeed": 0.5,
         "samples": [
           {
-            "time": 10.068,
+            "time": 10.0595,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.15695,
+            "time": 10.15305,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.24295,
+            "time": 10.24285,
             "frame": "layers/character/hh/rebound_r.png",
             "phase": "rebound",
             "complete": true,
@@ -3842,56 +3842,56 @@
             "width": 1448
           },
           {
-            "time": 10.43065,
+            "time": 10.4213,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.518,
+            "time": 10.5178,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.61165,
+            "time": 10.6057,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.7013,
+            "time": 10.70115,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.79575,
+            "time": 10.79445,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.8846,
+            "time": 10.87845,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.97645,
+            "time": 10.9763,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.06635,
+            "time": 11.07385,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
@@ -3901,10 +3901,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:10.768Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:29.724Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -3950,10 +3950,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:11.017Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:29.990Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -3999,10 +3999,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:11.268Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:30.241Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4048,10 +4048,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:11.534Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:30.507Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4097,10 +4097,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:11.784Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:30.774Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4146,10 +4146,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:12.034Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:31.024Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4195,10 +4195,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:12.301Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:31.291Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4244,10 +4244,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:12.551Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:31.556Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4293,10 +4293,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:12.834Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:31.824Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4342,10 +4342,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:13.100Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:32.089Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4391,10 +4391,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:13.368Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:32.356Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4440,10 +4440,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:13.617Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:32.607Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4489,10 +4489,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:13.884Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:32.890Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4538,10 +4538,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:14.203Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:33.156Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4587,10 +4587,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:14.468Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:33.425Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4636,10 +4636,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:14.735Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:33.691Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4685,10 +4685,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:14.984Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:33.942Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4734,10 +4734,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:15.251Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:34.207Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4783,10 +4783,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:15.517Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:34.474Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4832,10 +4832,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:15.784Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:34.741Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4881,10 +4881,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:16.050Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:35.007Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4930,10 +4930,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:16.317Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:35.274Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4979,10 +4979,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:16.568Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:35.540Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5028,10 +5028,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:16.834Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:35.807Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5077,10 +5077,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:17.084Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:36.073Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5126,10 +5126,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:17.351Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:36.340Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5175,10 +5175,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:17.617Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:36.607Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5224,10 +5224,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:17.885Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:36.874Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5273,10 +5273,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:18.150Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:37.140Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5322,10 +5322,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:18.418Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:37.424Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5371,10 +5371,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:18.683Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:37.690Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5420,10 +5420,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:18.951Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:37.957Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5469,10 +5469,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:19.218Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:38.224Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5518,10 +5518,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:19.484Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:38.507Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5567,10 +5567,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:19.749Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:38.772Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5616,10 +5616,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:20.001Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:39.023Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5665,10 +5665,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:20.267Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:39.290Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5714,10 +5714,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:20.532Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:39.556Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5763,10 +5763,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:20.801Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:39.824Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5812,10 +5812,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:21.067Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:40.090Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5861,10 +5861,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:21.317Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:40.341Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5910,10 +5910,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:21.583Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:40.607Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5959,10 +5959,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:21.850Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:40.874Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6008,10 +6008,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:22.117Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:41.140Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6057,10 +6057,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:22.383Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:41.406Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6106,10 +6106,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:22.651Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:41.674Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6155,10 +6155,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:22.916Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:41.941Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6204,10 +6204,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:23.184Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:42.206Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6253,10 +6253,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:23.450Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:42.474Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6302,10 +6302,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:23.717Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:42.740Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6351,10 +6351,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:23.983Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:43.008Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6400,10 +6400,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:24.234Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:43.273Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6449,10 +6449,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:24.499Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:43.539Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6498,10 +6498,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:24.750Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:43.790Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6547,10 +6547,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:25.018Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:44.057Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6596,10 +6596,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:25.283Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:44.341Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6645,10 +6645,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:25.552Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:44.608Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6694,10 +6694,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:25.816Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:44.873Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6743,10 +6743,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:26.086Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:45.140Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6792,10 +6792,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:26.350Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:45.407Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6841,10 +6841,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:26.600Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:45.656Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6890,10 +6890,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:26.867Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:45.923Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6939,10 +6939,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:27.133Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:46.190Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6988,10 +6988,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:27.385Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:46.440Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7037,10 +7037,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:27.651Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:46.707Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7086,10 +7086,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:27.916Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:46.973Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7135,10 +7135,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:28.169Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:47.224Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7184,10 +7184,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:28.434Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:47.491Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7233,10 +7233,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7dbb4262c3edf79345f6bfcb2299c8a644f22a21",
+        "commitSha": "cf38984303dc3b32749c4e1fa3c488fee93c4b36",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37852636847",
-        "testedAt": "2026-10-08T22:20:28.700Z",
+        "workflowRunId": "37852990508",
+        "testedAt": "2026-10-08T22:24:47.756Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7291,7 +7291,7 @@
         "playbackSpeed": 1,
         "samples": [
           {
-            "time": 10.1113,
+            "time": 10.1111,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
@@ -7305,72 +7305,72 @@
             "width": 1448
           },
           {
-            "time": 10.5277,
+            "time": 10.5281,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6942,
+            "time": 10.6941,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.8942,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.0777,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.2609,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.4442,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.6278,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.8108,
+            "time": 10.9107,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.9942,
+            "time": 11.0941,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.2775,
+            "frame": "layers/character/bd/hit_rf.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.4607,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.6463,
+            "frame": "layers/character/sn/hit_l.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.8274,
+            "frame": "layers/character/sn/rebound_l.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 12.0106,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 12.1775,
-            "frame": "layers/character/combo/bd_rc_hit.png",
-            "phase": "hit",
+            "time": 12.194,
+            "frame": "layers/character/combo/bd_rc_rebound.png",
+            "phase": "rebound",
             "complete": true,
             "width": 1448
           }
@@ -7387,84 +7387,84 @@
         "playbackSpeed": 0.5,
         "samples": [
           {
-            "time": 10.06425,
+            "time": 10.06455,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.15595,
+            "time": 10.15635,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.2475,
+            "time": 10.2479,
             "frame": "layers/character/hh/rebound_r.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3392,
+            "time": 10.3396,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.4309,
+            "time": 10.43125,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.52255,
+            "time": 10.523,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.60585,
+            "time": 10.60625,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6975,
+            "time": 10.69795,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.7892,
+            "time": 10.78955,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.88085,
+            "time": 10.8812,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.9725,
+            "time": 10.973,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.0642,
+            "time": 11.06455,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
