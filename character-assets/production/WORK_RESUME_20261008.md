@@ -1,16 +1,31 @@
-# 再開入口 — DTX Drum Flow / 2026-10-08
+# 完了・再開入口 — DTX Drum Flow / 2026-10-08
 
-**右足の連続性の修正・拡大視覚確認が完了。公開再検証中です。**
+**現行Luna全30動作・Hit/Rebound60PNGと演奏用待機画像を完成し、公開Webで再検証しました。**
 
-全30動作60PNGは制作済み。修正前の公開PC/スマホ120位相と通常/半速4再生はPASS（run37764871537）。確認中に、BDから待機画像へ戻る際に右足の向きが変わる問題を検出しました。承認Neutral原画を保存したまま、演奏用Neutralと全画像の右足をペダル上へ統一し、Reboundをつま先固定・踵上げへ修正します。
+- 小節1〜148、2,158ノーツ／1,527グループの必要動作30セット。
+- PC1280×900／スマートフォン384×864のHit/Rebound計120位相チェックPASS。
+- 通常速度1／半速0.5の実再生、PCとスマホ計4ケースPASS。実測142レコード、失敗0。
+- 右足は全画像でペダル上。Rebound／待機はつま先固定で踵上げ。BDから待機へ戻る足の向きの飛びを修正。
+- 固定ドラムと承認Neutral原画は変更なし。髪・服装・腕・打点など足ROI外の全60画像は変更前と画素一致。
+- 見える人体、接続、足の自然さは拡大画像と人物単体で確認。完全に隠れる箇所はユーザー指定どおり評価不要。髪が手前ならドラム→スティック→髪。
 
-## 次の再開位置
-1. 公開再検証run37767634324の結果を確認（検証コミットf91400df752862eaad376e626c99b41f742fc50c）。
-2. 合格なら実測JSONとPC/スマホ画面を永続保存し、台帳へ反映。不合格なら失敗理由を修正してから再検証。
-3. SHA/制作台帳と最新の公開画面証跡を同期し、完了に更新。
+公開: https://mleuatd.github.io/dtx-drum-flow/
+検証コミット: f91400df752862eaad376e626c99b41f742fc50c
+公開検証: https://github.com/mleuatd/dtx-drum-flow/actions/runs/37767634324
 
-画像: character-assets/layers/character/。元画像・再現手順・失敗理由・台帳: production/20261008/{sources,scripts,qa,ledger}。固定ドラムと承認Neutralは変更禁止。実行スクリプト: scripts/repair_foot_continuity.py。前回公開証跡: qa/final_public_runtime_verified_frames.json。公開: https://mleuatd.github.io/dtx-drum-flow/
+## 完成品と証跡
+- 正式画像: character-assets/layers/character/ のsn,hh,rc,rd,ht,lt,ft,bd,combo。
+- 演奏用待機画像: layers/character/base/neutral_performance_ready.png。承認原画neutral.pngは保存。
+- 実測全文: [final_public_runtime_verified_frames.json](20261008/qa/final_public_runtime_verified_frames.json)。
+- 公開画面: [PC](20261008/qa/public_final_pc.png)、[スマホ](20261008/qa/public_final_mobile.png)。
+- 足元拡大・画素保護検査: 20261008/qa/foot_continuity_detail.png、foot_continuity.json。
+- 進捗と失敗理由: 20261008/ledger/motion_matrix.json、qa/。SHA: config/assets_manifest.json、prototypes/luna_say_maybe_16m/asset_inventory.json。
+- 過去413画像の分類: 20261008/ledger/image_audit.json。判定保留画像は成功参照として使っていません。
+- 仕様: 20261008/sources/WORK_MASTER_SPEC.md。ZIPにREVISED名がなかったため同梱仕様とユーザー指示を適用。
 
-ローカル環境が切断中のためGitHub APIとActionsで継続。現在の新しい足修正は完成扱いにせず、拡大視覚確認と公開再検証を待ちます。
-
-足修正の実体: layers/character/base/neutral_performance_ready.png と正式60PNG。Rebound/待機はつま先(719,915)を残して踵上げ7度。承認Neutral原画は固定。全60画像の足ROI外は変更前と画素一致。足元拡大・人物単体の可視人体確認PASS。qa/foot_continuity.jsonに記録。
+## 再開方法
+未完了のLuna画像セットは0です。完成品はGitHubに保存済みで、再生成不要です。
+変更時はこの入口と実測JSONを読み、対象動作だけ修正し、見える人体の視覚確認と公開PC/スマホ再検証を行います。
+作業領域が消えた場合は最新repoを取得し、production/20261008/scripts/restore_source_workspace.pyで元画像を復元。
+足の再現はscripts/repair_foot_continuity.py。ドラムと承認Neutralは変更禁止です。
+ローカル/CUA切断後もGitHub APIとActionsで制作・検証・保存を継続しました。

@@ -1,5 +1,5 @@
 {
-  "version": 17,
+  "version": 18,
   "scope": "Luna full measures1-148; all30 source-bound pairs60PNG static visible QA and public PC/mobile phase/playback QA passed",
   "imageSetState": "m1-54-runtime-qa-pending",
   "chartNoteCount": 2158,
@@ -47,105 +47,106 @@
     "neutral": {
       "path": "layers/character/base/neutral_performance_ready.png",
       "state": "ready",
-      "sha256": "ddf7c6e5af78e377aa007197f111cf424a66462e648dce1f12cabe1f61df0e96"
+      "sha256": "ddf7c6e5af78e377aa007197f111cf424a66462e648dce1f12cabe1f61df0e96",
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "sn_l_hit": {
       "path": "layers/character/sn/hit_l.png",
       "state": "static-visual-pass",
       "sha256": "7824c89cd98b755dcc1f76cab16b7bf5599d6bee270e83b6df6267a94c5ee617",
       "motionRepairQa": "character-assets/production/20261008/qa/sn_l_candidate_v3.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "sn_l_rebound": {
       "path": "layers/character/sn/rebound_l.png",
       "state": "static-visual-pass",
       "sha256": "e7f9240c2b953c4de8b856652e2c4d95371462ba3b995b58503e659d57106036",
       "motionRepairQa": "character-assets/production/20261008/qa/sn_l_candidate_v3.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "sn_r_hit": {
       "path": "layers/character/sn/hit_r.png",
       "state": "static-visual-pass",
       "sha256": "4c2834d87631179aa096abd9dbc178b42d364e38f420ddf574d96e5598cf580b",
       "motionRepairQa": "character-assets/production/20261008/qa/sn_r_local_v1.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "sn_r_rebound": {
       "path": "layers/character/sn/rebound_r.png",
       "state": "static-visual-pass",
       "sha256": "dcc9ad2f6d88259f747d40b51e657f5d849d937e1593b8d74e1a89993208a612",
       "motionRepairQa": "character-assets/production/20261008/qa/sn_r_local_v1.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "hh_r_hit": {
       "path": "layers/character/hh/hit_r.png",
       "state": "static-visual-pass",
       "sha256": "788703d3aee04709700d61a9ebde413ed4b802c0d1fcd600a12f8a4c0ee05898",
       "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "hh_r_rebound": {
       "path": "layers/character/hh/rebound_r.png",
       "state": "static-visual-pass",
       "sha256": "a53481f0d311f69d08434c1486bb6eabb11dcafe9b7ae469bd885ccdb900f061",
       "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rf_hit": {
       "path": "layers/character/bd/hit_rf.png",
       "state": "ready",
       "sha256": "baab265210674ffff2c87d3d089b04504397db2ef3a46064eabfc744515e4301",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rf_hit_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rf_rebound": {
       "path": "layers/character/bd/rebound_rf.png",
       "state": "ready",
       "sha256": "ddf7c6e5af78e377aa007197f111cf424a66462e648dce1f12cabe1f61df0e96",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method2/bd_rf_rebound_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rc_hit": {
       "path": "layers/character/combo/bd_rc_hit.png",
       "state": "ready",
       "sha256": "8f885151d34a5d037192b3e4017b88d7f51d81790a6755cb7a387fe8ac376389",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_RUNTIME_QA_V3.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rc_rebound": {
       "path": "layers/character/combo/bd_rc_rebound.png",
       "state": "ready",
       "sha256": "34600eda0dcb934be1fa33dc1125f3052c5c75835e2a7634fbbeb770962cca2a",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front06/FRONT06_RUNTIME_QA_V3.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rd_r_hit": {
       "path": "layers/character/rd/hit_r_refresh.png",
       "state": "ready",
       "sha256": "d14ddd6d043957e0e3cfa6641ce378896469d88a7ccf87f21e468a86340f9b64",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_hit_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rd_r_rebound": {
       "path": "layers/character/rd/rebound_r_refresh.png",
       "state": "ready",
       "sha256": "1be624d14e33b4ffb2f4f25e95269c64c3d83d94ad330c08cddae6a4cc7f1c4f",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_r_rebound_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_sn_rf_l_hit": {
       "path": "layers/character/combo/bd_sn_hit_refresh.png",
       "state": "ready",
       "sha256": "02acaa1e2391203474d917ac5da8782d2eaf1ea4dcd2e7ab44366741cafcd262",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_sn_rf_l_hit_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_sn_rf_l_rebound": {
       "path": "layers/character/combo/bd_sn_rebound_refresh.png",
       "state": "ready",
       "sha256": "e7f9240c2b953c4de8b856652e2c4d95371462ba3b995b58503e659d57106036",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_sn_rf_l_rebound_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rc_sn_r_l_hit_refresh": {
       "path": "layers/character/combo/rc_sn_hit_refresh.png",
@@ -154,7 +155,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "hit",
       "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rc_sn_r_l_rebound_refresh": {
       "path": "layers/character/combo/rc_sn_rebound_refresh.png",
@@ -163,7 +164,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "rebound",
       "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "lt_r_hit": {
       "path": "layers/character/lt/hit_r_refresh.png",
@@ -171,7 +172,7 @@
       "sha256": "0d8e45160f42485686b59fe57bd7dedbd46eecc281fce10c9285d358dd2ba581",
       "actionKey": "LT:R",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "lt_r_rebound": {
       "path": "layers/character/lt/rebound_r_refresh.png",
@@ -179,7 +180,7 @@
       "sha256": "fb33487395bb4fbefac54e3d4595c4a99adbf4b1ffd3bd2b82149f47dbaab599",
       "actionKey": "LT:R",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "lt_l_hit": {
       "path": "layers/character/lt/hit_l_refresh.png",
@@ -187,7 +188,7 @@
       "sha256": "769b7f99accc360ffdfe388c0425d7c48263d08b83801a7a58e4c96412a590e7",
       "actionKey": "LT:L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "lt_l_rebound": {
       "path": "layers/character/lt/rebound_l_refresh.png",
@@ -195,7 +196,7 @@
       "sha256": "9a9f7d6735ff3b636d5fc783dd2db3bf04b09794d33de115a6f04537deb84541",
       "actionKey": "LT:L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_sn_rf_r_hit": {
       "path": "layers/character/combo/bd_sn_rf_r_hit_refresh.png",
@@ -203,7 +204,7 @@
       "sha256": "c59a98a269de929fe411532f455220a9aa9f636c9fdff6830b250f5b990cedfb",
       "actionKey": "BD+SN:RF/R",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_sn_rf_r_rebound": {
       "path": "layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
@@ -211,7 +212,7 @@
       "sha256": "dcc9ad2f6d88259f747d40b51e657f5d849d937e1593b8d74e1a89993208a612",
       "actionKey": "BD+SN:RF/R",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ft_r_hit": {
       "path": "layers/character/ft/hit_r_refresh.png",
@@ -219,7 +220,7 @@
       "sha256": "0169d19f4c59b886bc40f5efc05c5e0f887894a06f205e3f4ed5c49a355a57dc",
       "actionKey": "FT:R",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ft_r_rebound": {
       "path": "layers/character/ft/rebound_r_refresh.png",
@@ -227,7 +228,7 @@
       "sha256": "da415537a0016e182714d6f0480d1040b0075a24f331673d244285c879860551",
       "actionKey": "FT:R",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ft_l_hit": {
       "path": "layers/character/ft/hit_l_refresh.png",
@@ -235,7 +236,7 @@
       "sha256": "246ceb4a4d38f9e1adb54b379e154afdedcab0e62188211bc22a9b91d67b04d8",
       "actionKey": "FT:L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ft_l_rebound": {
       "path": "layers/character/ft/rebound_l_refresh.png",
@@ -243,75 +244,75 @@
       "sha256": "6e90f150dbfe8a14fe865cf50dbd1a8743b86d087c9dfecf55662ca45bfaba9b",
       "actionKey": "FT:L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rd_rf_r_hit": {
       "path": "layers/character/combo/bd_rd_rf_r_hit_refresh.png",
       "state": "ready",
       "sha256": "e6f459780702f5363aed1a3e4ce10c5b5993e9c9724c22750a56e497f2723876",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m006/bd_rd_hit_candidate_v1_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rd_rf_r_rebound": {
       "path": "layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
       "state": "ready",
       "sha256": "1be624d14e33b4ffb2f4f25e95269c64c3d83d94ad330c08cddae6a4cc7f1c4f",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m006/bd_rd_rebound_candidate_v1_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rd_sn_r_l_hit": {
       "path": "layers/character/combo/rd_sn_r_l_hit_refresh.png",
       "state": "ready",
       "sha256": "d14ddd6d043957e0e3cfa6641ce378896469d88a7ccf87f21e468a86340f9b64",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_hit_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rd_sn_r_l_rebound": {
       "path": "layers/character/combo/rd_sn_r_l_rebound_refresh.png",
       "state": "ready",
       "sha256": "0ce490ea1ae05280f6ee0defd2760dc47ab82510e71d91032eb0a67557641032",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/rd_sn_r_l_rebound_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_hh_rf_r_hit": {
       "path": "layers/character/combo/bd_hh_rf_r_hit_refresh.png",
       "state": "ready",
       "sha256": "e24dd52a5c57e5738c02fed030638ff06146859243f08c19a4f1a46f788367dd",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m005/bd_hh_hit_candidate_v1_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_hh_rf_r_rebound": {
       "path": "layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
       "state": "ready",
       "sha256": "a53481f0d311f69d08434c1486bb6eabb11dcafe9b7ae469bd885ccdb900f061",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/front-m005/bd_hh_rebound_candidate_v1_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "hh_sn_r_l_hit": {
       "path": "layers/character/combo/hh_sn_r_l_hit_refresh.png",
       "state": "static-visual-pass",
       "sha256": "788703d3aee04709700d61a9ebde413ed4b802c0d1fcd600a12f8a4c0ee05898",
       "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "hh_sn_r_l_rebound": {
       "path": "layers/character/combo/hh_sn_r_l_rebound_refresh.png",
       "state": "static-visual-pass",
       "sha256": "d9dbea36cb483b0d89fade4d28e2f17585542941fafec122b645fa30ab3f6992",
       "motionRepairQa": "character-assets/production/20261008/qa/hh_r_v4_and_combo.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_lt_rf_r_hit": {
       "path": "layers/character/combo/bd_lt_rf_r_hit_refresh.png",
       "state": "ready",
       "sha256": "4902f5a9820f4ffa3ddb32b6c853a0224b6bc3a0cd3a2f2cfeea0921902d733c",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_lt_rf_r_rebound": {
       "path": "layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
       "state": "ready",
       "sha256": "fb33487395bb4fbefac54e3d4595c4a99adbf4b1ffd3bd2b82149f47dbaab599",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ht_l_hit_refresh": {
       "path": "layers/character/ht/hit_l_refresh.png",
@@ -319,7 +320,7 @@
       "sha256": "64fc3aa281422879ee762f2dffc90c4daecd152ac720d5320dbc3bd108091639",
       "actionKey": "HT:L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ht_l_rebound_refresh": {
       "path": "layers/character/ht/rebound_l_refresh.png",
@@ -327,7 +328,7 @@
       "sha256": "9f3c29300df1ee9fb8d892c55b2de066cb1ce616cc2415ef9d52741320ba6ba4",
       "actionKey": "HT:L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ft_sn_r_l_hit_refresh": {
       "path": "layers/character/combo/ft_sn_r_l_hit_refresh.png",
@@ -335,7 +336,7 @@
       "sha256": "0169d19f4c59b886bc40f5efc05c5e0f887894a06f205e3f4ed5c49a355a57dc",
       "actionKey": "FT+SN:R/L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ft_sn_r_l_rebound_refresh": {
       "path": "layers/character/combo/ft_sn_r_l_rebound_refresh.png",
@@ -343,7 +344,7 @@
       "sha256": "82c23799cbceb13c3028700f303963e946b1865cf01031c92c0de17ca325c693",
       "actionKey": "FT+SN:R/L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rc_r_hit_refresh": {
       "path": "layers/character/rc/hit_r_refresh.png",
@@ -352,7 +353,7 @@
       "actionKey": "RC:R",
       "phase": "hit",
       "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "rc_r_rebound_refresh": {
       "path": "layers/character/rc/rebound_r_refresh.png",
@@ -361,7 +362,7 @@
       "actionKey": "RC:R",
       "phase": "rebound",
       "motionRepairQa": "character-assets/production/20261008/qa/rc_r_and_combo_v1.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ht_r_hit_refresh": {
       "path": "layers/character/ht/hit_r_refresh.png",
@@ -370,7 +371,7 @@
       "actionKey": "HT:R",
       "phase": "hit",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_hit_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "ht_r_rebound_refresh": {
       "path": "layers/character/ht/rebound_r_refresh.png",
@@ -379,7 +380,7 @@
       "actionKey": "HT:R",
       "phase": "rebound",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/ht_r_rebound_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ht_rf_r_hit_refresh": {
       "path": "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
@@ -388,7 +389,7 @@
       "actionKey": "BD+HT:RF/R",
       "phase": "hit",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ht_rf_r_hit_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ht_rf_r_rebound_refresh": {
       "path": "layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
@@ -397,7 +398,7 @@
       "actionKey": "BD+HT:RF/R",
       "phase": "rebound",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/auto/bd_ht_rf_r_rebound_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "lt_sn_r_l_hit_refresh": {
       "path": "layers/character/combo/lt_sn_r_l_hit_refresh.png",
@@ -405,7 +406,7 @@
       "sha256": "0d8e45160f42485686b59fe57bd7dedbd46eecc281fce10c9285d358dd2ba581",
       "actionKey": "LT+SN:R/L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "lt_sn_r_l_rebound_refresh": {
       "path": "layers/character/combo/lt_sn_r_l_rebound_refresh.png",
@@ -413,7 +414,7 @@
       "sha256": "d24b961e72f29467e1bcb889a0a2cbac505f6ce0f431e3c809b1b1bbc8892af9",
       "actionKey": "LT+SN:R/L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_hh_sn_rf_r_l_hit_refresh": {
       "path": "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
@@ -422,7 +423,7 @@
       "actionKey": "BD+HH+SN:RF/R/L",
       "phase": "hit",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_hit_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_hh_sn_rf_r_l_rebound_refresh": {
       "path": "layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
@@ -431,7 +432,7 @@
       "actionKey": "BD+HH+SN:RF/R/L",
       "phase": "rebound",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_hh_sn_rf_r_l_rebound_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ht_rf_l_hit_refresh": {
       "path": "layers/character/combo/bd_ht_rf_l_hit_refresh.png",
@@ -439,7 +440,7 @@
       "sha256": "69e9c3f64f61c1b697ee3af90b6b5cf884f73ec52fac65f796f7408200846a59",
       "actionKey": "BD+HT:RF/L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ht_rf_l_rebound_refresh": {
       "path": "layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
@@ -447,7 +448,7 @@
       "sha256": "9f3c29300df1ee9fb8d892c55b2de066cb1ce616cc2415ef9d52741320ba6ba4",
       "actionKey": "BD+HT:RF/L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rc_sn_rf_r_l_hit_refresh": {
       "path": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
@@ -456,7 +457,7 @@
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "hit",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rc_sn_rf_r_l_hit_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_rc_sn_rf_r_l_rebound_refresh": {
       "path": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
@@ -465,7 +466,7 @@
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "rebound",
       "motionRepairQa": "character-assets/edit-workspaces/motion-repair-20260920/method4/bd_rc_sn_rf_r_l_rebound_refresh_qa.json",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ft_sn_rf_r_l_hit_refresh": {
       "path": "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
@@ -473,7 +474,7 @@
       "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
       "actionKey": "BD+FT+SN:RF/R/L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ft_sn_rf_r_l_rebound_refresh": {
       "path": "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
@@ -481,7 +482,7 @@
       "sha256": "82c23799cbceb13c3028700f303963e946b1865cf01031c92c0de17ca325c693",
       "actionKey": "BD+FT+SN:RF/R/L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ft_rf_l_hit_refresh": {
       "path": "layers/character/combo/bd_ft_rf_l_hit_refresh.png",
@@ -489,7 +490,7 @@
       "sha256": "320c4a88895bff33a4993609a2f1b2bf42d06a29bf383c8ad7ac1c68c03dadbd",
       "actionKey": "BD+FT:RF/L",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ft_rf_l_rebound_refresh": {
       "path": "layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
@@ -497,7 +498,7 @@
       "sha256": "6e90f150dbfe8a14fe865cf50dbd1a8743b86d087c9dfecf55662ca45bfaba9b",
       "actionKey": "BD+FT:RF/L",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ft_rf_r_hit_refresh": {
       "path": "layers/character/combo/bd_ft_rf_r_hit_refresh.png",
@@ -505,7 +506,7 @@
       "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
       "actionKey": "BD+FT:RF/R",
       "phase": "hit",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     },
     "bd_ft_rf_r_rebound_refresh": {
       "path": "layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
@@ -513,7 +514,7 @@
       "sha256": "da415537a0016e182714d6f0480d1040b0075a24f331673d244285c879860551",
       "actionKey": "BD+FT:RF/R",
       "phase": "rebound",
-      "qaStatus": "FOOT_CONTINUITY_STATIC_PENDING_VISIBLE_AND_RUNTIME"
+      "qaStatus": "STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
     }
   },
   "runtimeFrameMap": {
@@ -727,7 +728,7 @@
   },
   "renderer": {
     "module": "site/character-prototype.js",
-    "fallback": "base/neutral.png",
+    "fallback": "base/neutral_performance_ready.png",
     "activeOnlyFor": "Luna Say Maybe",
     "prototypeWindow": "measures 1-8",
     "sourceChart": "site/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json",
@@ -890,7 +891,7 @@
   },
   "qaUpdatedAt": "2026-09-19T07:02:00+09:00",
   "updatedAt": "2026-09-19T16:07:00+09:00",
-  "note": "Character runtime scope expanded through full song M148. M137-148 uses only existing formal mappings; final range public QA pending.",
+  "note": "Full Luna M1-148: all30 Hit/Rebound pairs + toe-planted performance Neutral, visible anatomy reviewed, public PC/mobile120 phase checks + normal/half playback4 PASS.",
   "runtimeQaTarget": {
     "measureStart": 1,
     "measureEnd": 148,
@@ -944,8 +945,8 @@
       0.5
     ],
     "runtimeEvidence": "production/20261008/qa/final_public_runtime.json",
-    "verifiedCommitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
-    "verifiedRunId": "37762693031",
-    "footContinuity": "STATIC_PENDING_VISIBLE_AND_RUNTIME"
+    "verifiedCommitSha": "f91400df752862eaad376e626c99b41f742fc50c",
+    "verifiedRunId": "37767634324",
+    "footContinuity": "VISIBLE_AND_PUBLIC_RUNTIME_PASS"
   }
 }
