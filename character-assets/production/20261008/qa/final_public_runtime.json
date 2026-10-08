@@ -1,11 +1,58 @@
 {
-  "status": "FINAL_PUBLIC_QA_REQUESTED",
+  "status": "LUNA_ALL30_20261008_PUBLIC_RUNTIME_QA_FAILED",
   "staticPairs": 30,
   "staticPng": 60,
   "manualPublicPairs": 19,
   "manualPublicPhases": 38,
-  "blocker": "Local/CUA exec-server transport disconnected; continuing via GitHub Actions",
-  "runtimeQaEvidence": {},
+  "blocker": {
+    "type": "RUNTIME_QA",
+    "workflowRunId": "37759877958",
+    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
+  },
+  "runtimeQaEvidence": {
+    "LUNA_ALL30_20261008": {
+      "status": "FAIL",
+      "workflow": ".github/workflows/runtime-character-qa.yml",
+      "runId": "37759877958",
+      "testedCommitSha": "cb9c3f9a1ffcb7c094e4d7fbeeaa1486cf99c3e6",
+      "artifact": "public-runtime-qa-37759877958",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759877958",
+      "measureStart": 1,
+      "measureEnd": 148,
+      "actions": [
+        "SN:L",
+        "SN:R",
+        "HH:R",
+        "BD:RF",
+        "RD:R",
+        "BD+SN:RF/L",
+        "RC+SN:R/L",
+        "BD+SN:RF/R",
+        "FT:R",
+        "FT:L",
+        "BD+RD:RF/R",
+        "RD+SN:R/L",
+        "BD+HH:RF/R",
+        "HH+SN:R/L",
+        "BD+LT:RF/R",
+        "LT:R",
+        "LT:L",
+        "BD+RC:RF/R",
+        "HT:L",
+        "FT+SN:R/L",
+        "RC:R",
+        "HT:R",
+        "BD+HT:RF/R",
+        "LT+SN:R/L",
+        "BD+HH+SN:RF/R/L",
+        "BD+HT:RF/L",
+        "BD+RC+SN:RF/R/L",
+        "BD+FT+SN:RF/R/L",
+        "BD+FT:RF/L",
+        "BD+FT:RF/R"
+      ]
+    }
+  },
   "productionCommit": "6bf7bf0bc067f9df4982ea117af9d316d60473a3",
   "existingChecks": [
     {
@@ -111,5 +158,6 @@
       "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759129594"
     }
   ],
-  "next": "Read LUNA_ALL30_20261008 evidence; fix concrete failing phase or playback if any. No unchanged retry."
+  "next": "Read LUNA_ALL30_20261008 evidence; fix concrete failing phase or playback if any. No unchanged retry.",
+  "updatedAt": "2026-10-08T09:56:32.292151+00:00"
 }
