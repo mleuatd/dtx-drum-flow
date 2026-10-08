@@ -55,9 +55,9 @@
         const response = await fetch('./build.json?hud_check=' + Date.now(), { cache: 'no-store' });
         if (!response.ok) throw new Error('HTTP ' + response.status);
         const build = await response.json();
-        el.textContent = '\\nDEPLOY: ' + (build.commitSha || 'unknown').slice(0, 12) + '\\nBUILT: ' + (build.builtAt || '?');
+        el.textContent = '\nDEPLOY: ' + (build.commitSha || 'unknown').slice(0, 12) + '\nBUILT: ' + (build.builtAt || '?');
       } catch (error) {
-        el.textContent = '\\nDEPLOY: fetch failed (' + error.message + ')';
+        el.textContent = '\nDEPLOY: fetch failed (' + error.message + ')';
       }
     })();
   </script>
