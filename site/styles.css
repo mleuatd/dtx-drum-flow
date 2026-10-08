@@ -220,3 +220,5 @@ button,label.button,summary{touch-action:manipulation}
   border-color:var(--luna-lime,#baff00)!important;
 }
 .transport-play:disabled{opacity:1;color:#fff}
+
+.hair-front-layer{z-index:4;pointer-events:none}.effect-layer{z-index:5}.character-pose-label{z-index:6}

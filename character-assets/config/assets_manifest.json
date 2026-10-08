@@ -1186,6 +1186,19 @@
       "sha256": "67fe82ce766770502293cc44e5aab8217a0954830a4fedd7bcf407e0b8fbb5ab",
       "status": "IMMUTABLE_DRUM_OCCLUSION_COPY",
       "purpose": "Unmodified original pixels selected by foreground mask for RD/LT/SN occlusion; original drum_base.png untouched."
+    },
+    {
+      "path": "character-assets/layers/character/base/hair_foreground_source.png",
+      "width": 1448,
+      "height": 1086,
+      "x": 0,
+      "y": 0,
+      "sha256": "2ce570c933df50bbd7a4d2d18ed89a0563e3450c637158d237fbbe6a3a679391",
+      "status": "IMMUTABLE_NEUTRAL_HAIR_COPY",
+      "part": "HAIR",
+      "phase": "base",
+      "hand": null,
+      "purpose": "source-pixel curtain for physically occluded far arm/stick"
     }
   ],
   "qaUpdatedAt": "2026-09-19T06:25:00+09:00",

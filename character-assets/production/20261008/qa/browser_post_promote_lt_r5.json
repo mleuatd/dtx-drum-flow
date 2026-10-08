@@ -1,0 +1,105 @@
+{
+  "status": "PASS_LOADING_AND_PHASE_SYNC",
+  "records": [
+    {
+      "expectedKey": "LT:R",
+      "expectedPhase": "hit",
+      "complete": true,
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT:R",
+        "currentTime": "258.864000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/lt/hit_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "LT:R",
+        "measure": "148",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "LT · R · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "frontFrame": "layers/character/lt/hit_r_refresh.png",
+      "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/hit_r_refresh.png?v=20261008-lt-r5",
+      "width": 1448
+    },
+    {
+      "expectedKey": "LT:R",
+      "expectedPhase": "rebound",
+      "complete": true,
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT:R",
+        "currentTime": "259.080000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/lt/rebound_r_refresh.png",
+        "groupCount": "1527",
+        "limbs": "LT:R",
+        "measure": "148",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "LT · R · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "frontFrame": "layers/character/lt/rebound_r_refresh.png",
+      "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/rebound_r_refresh.png?v=20261008-lt-r5",
+      "width": 1448
+    },
+    {
+      "expectedKey": "LT+SN:R/L",
+      "expectedPhase": "hit",
+      "complete": true,
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT+SN:R/L",
+        "currentTime": "81.130000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/lt_sn_r_l_hit_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,LT:R",
+        "measure": "46",
+        "noteCount": "2158",
+        "phase": "hit",
+        "pose": "LT+SN · R/L · HIT",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "frontFrame": "layers/character/combo/lt_sn_r_l_hit_refresh.png",
+      "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png?v=20261008-lt-r5",
+      "width": 1448
+    },
+    {
+      "expectedKey": "LT+SN:R/L",
+      "expectedPhase": "rebound",
+      "complete": true,
+      "dataset": {
+        "active": "true",
+        "animationKey": "LT+SN:R/L",
+        "currentTime": "81.346000",
+        "fallback": "false",
+        "fallbackReason": "",
+        "frame": "layers/character/combo/lt_sn_r_l_rebound_refresh.png",
+        "groupCount": "1527",
+        "limbs": "SN:L,LT:R",
+        "measure": "46",
+        "noteCount": "2158",
+        "phase": "rebound",
+        "pose": "LT+SN · R/L · REBOUND",
+        "runtimeScope": "1-148",
+        "scope": "1-148",
+        "state": "ready"
+      },
+      "frontFrame": "layers/character/combo/lt_sn_r_l_rebound_refresh.png",
+      "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png?v=20261008-lt-r5",
+      "width": 1448
+    }
+  ]
+}

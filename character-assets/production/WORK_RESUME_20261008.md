@@ -1,12 +1,12 @@
 # 作業再開入口 — 2026-10-08
 
-**停止理由: 実行環境が切断 (409 environment_offline)。** 未完了候補と正確な再開位置は [ENVIRONMENT_STOP_CHECKPOINT.md](20261008/ENVIRONMENT_STOP_CHECKPOINT.md) を最初に読む。画像を作成していない状態で完了扱いしない。
+**環境復旧後、作業を再開しました。** 過去の切断記録は ENVIRONMENT_STOP_CHECKPOINT.md。現在は髪の前後レイヤーr6を追加し、バスドラム右足を再制作中です。全体完了ではありません。
 
 **全作業は未完了です。** 目標はLuna全30動作60枚を自然な人体・固定ドラムで完成し公開Webで検証することです。
 
 ## 現在の状態
 - 30動作60位相の既存Web切替と画像読み込みを実測済み。描画成功と絵の合格は別です。
-- 新しい静的QA合格は10ペア20枚: SN:L、SN:R、HH:R、HH+SN:R/L、RC:R、RC+SN:R/L、RD:R、RD+SN:R/L、LT:R、LT+SN:R/L。最初の8ペア16位相は公開Webで検証済み。残り20ペア。LT2ペアと頭部前後修正は公開検証待ち。
+- 新しい静的QA合格は10ペア20枚: SN:L、SN:R、HH:R、HH+SN:R/L、RC:R、RC+SN:R/L、RD:R、RD+SN:R/L、LT:R、LT+SN:R/L。10ペア20位相すべて公開Webで画像読み込み・Hit/Rebound・腕前景フレーム同期を検証済み。追加証跡: qa/browser_post_promote_lt_r5.json。残り20ペア。新しい髪前景r6は公開目視検証待ち。
 - 固定ドラムと承認NeutralのSHAは不変。髪・胴・脚・近い腕を保護し、必要な腕だけ局所編集。全身AI出力は完成画像として採用しない。
 - 413過去画像の一覧と分類: 20261008/ledger/image_audit.json。個別拡大未完了の判定保留を成功donorとして使わない。
 - RDの最初のAI生成は打点が高すぎて不合格。元Neutralの手とスティックを局所変形したv2を使用。HT:L試作は袖の白い切れと残像で不合格。
@@ -33,3 +33,9 @@ commit41635d06b706d8e399821f9ff80b369c87c3bc19のvalidateとRuntime Pose SN-L So
 
 ## r5自動検査
 commit3546e9e488c88879d1bfc8bd75d156308a9b366aのvalidate、Character asset validation、Runtime Character QA、Drum Runtime Browser QA、deploy-siteはGitHub Actions SUCCESS。これは個別画像の人体目視合格を置き換えない。既存Dropbox mirror workflowのみ失敗、GitHubのPNG/スクリプト/台帳は保存済み。
+
+## 最新ユーザー指示と次の位置
+- 髪が手前の場合、ドラム→スティック→髪の順。完全に隠れる箇所は評価・再構築不要。見えている人体と境界のみ評価。
+- r6: 元Neutralの髪画素だけを複製、旧右手を除外、y350未満を除外してライドを切らない。qa/hair_depth_source.json の画素不一致0。公開後の視覚評価は未完了。
+- BD局所生成2件を保存。最初はつま先方向逆で不合格、2件目は後ろ向きの部品候補で最終画像ではない。donors/right_boot_rear_candidate.png をペダルに局所投影し、元の膝・胴・左脚・ドラムを保護してHit/Reboundを作る。
+- scripts/add_hair_depth_layer.py は新規ベース用で再実行するとJSが重複する。現在の実装に再適用しない。
