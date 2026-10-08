@@ -36,21 +36,26 @@ for a in manifest['assets']:
   a['sha256']=hashes[a['path']];a.setdefault('notes',[]).append('20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.')
 a=copy.deepcopy(next(a for a in manifest['assets'] if a['path']=='character-assets/layers/character/base/neutral.png'))
 a.update(path=neutral,sha256=hashes[neutral],status='SOURCE_BOUND_STATIC_QA_PASS',purpose='performance ready toe-planted heel-raised neutral',semanticRole='performance-ready-pose',tags=['ready','source-bound'],notes=['Original approved Neutral preserved; right foot continuity refinement pending visible/runtime review.'])
-manifest['assets'].append(a)
+manifest['assets']=[item for item in manifest['assets'] if item['path']!=neutral];manifest['assets'].append(a)
 invp.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+'\n');mp.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
 # Synchronize current SHA anywhere in brushup metadata without changing historical evidence.
 lp=r/'character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json'; ledger=json.loads(lp.read_text())
 def sync(obj):
  if isinstance(obj,dict):
-  path=obj.get('path') or obj.get('targetPath') or obj.get('assetPath')
+  path=obj.get('path') or obj.get('targetPath') or obj.get('assetPath') or obj.get('formalGitHubPath')
   if path and not path.startswith('character-assets/'):path='character-assets/'+path
   if path in hashes:
+   obj['qaState']='FOOT_CONTINUITY_PENDING_VISIBLE_AND_RUNTIME'
+   obj['footContinuityReview']='PENDING'
    for field in ['sha256','sourceSha256','currentSha256']:
     if field in obj:obj[field]=hashes[path]
   for value in obj.values():sync(value)
  elif isinstance(obj,list):
   for value in obj:sync(value)
 sync(ledger);lp.write_text(json.dumps(ledger,ensure_ascii=False,indent=2)+'\n')
+motion_path=p/'ledger/motion_matrix.json'; motion=json.loads(motion_path.read_text())
+for action in motion['actions']:action['footContinuityReview']='PENDING_VISIBLE_AND_RUNTIME'
+motion['footContinuity']='PENDING_VISIBLE_AND_RUNTIME';motion_path.write_text(json.dumps(motion,ensure_ascii=False,indent=2)+'\n')
 kit=Image.open(r/'character-assets/layers/drum/drum_base.png').convert('RGBA')
 strip=Image.new('RGB',(960,660),'white')
 for index,(label,arr) in enumerate([('Ready / Rebound',ready),('Hit',hit)]):
