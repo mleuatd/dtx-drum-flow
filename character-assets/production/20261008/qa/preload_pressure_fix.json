@@ -1,5 +1,5 @@
 {
-  "status": "REPAIRED_RETEST_PENDING",
+  "status": "VERIFIED_PUBLIC_PC_MOBILE_NORMAL_HALF_PLAYBACK",
   "failedRun": "37761904458",
   "evidence": "final_public_runtime.json browserFrameEvidence",
   "facts": [
@@ -9,5 +9,8 @@
   ],
   "inference": "Concurrent eager decode of64 large RGBA images causes nondeterministic decoder pressure; not an HTTP or static asset defect.",
   "fix": "Bound preload concurrency to4. Retain every successfully loaded Image node. Warm pixels by canvas draw/read instead of requesting a second Image.decode. Reject real image load/draw failures and preserve reasons. Continue synchronous node swaps, unchanged60PNG.",
-  "threshold": "All60 phases, hair/canvas synchronization and real playback still required; failures not ignored."
+  "threshold": "All60 phases, hair/canvas synchronization and real playback still required; failures not ignored.",
+  "verifiedRuntimeRunId": "37764871537",
+  "verifiedRuntimeCommit": "1a7c373b04b0fd61ee094fb1e56832acc86da0c1",
+  "runtimeEvidence": "final_public_runtime.json"
 }

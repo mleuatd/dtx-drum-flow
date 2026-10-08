@@ -1,5 +1,5 @@
 {
-  "status": "REPAIRED_WAITING_RETEST",
+  "status": "VERIFIED_PUBLIC_PC_MOBILE_NORMAL_HALF_PLAYBACK",
   "failedRun": "37759877958",
   "evidence": "final_public_runtime_failed_frames.json",
   "observations": {
@@ -13,5 +13,8 @@
   "rootCause": "Preloading returned source strings and discarded Image nodes. Reassigning visible img.src reset load/decode state during short frames.",
   "fix": "Retain all predecoded source-bound frame Image nodes; replace visible node directly without assigning a new src; render foreground canvas synchronously after pointer and dataset update. Original PNG and drum bytes unchanged.",
   "test": "Full30 Hit/Rebound coverage on PC1280x900/Xperia384x864; source hair/frame-canvas synchronization;12 playback samples must all be decoded and time/poses progress.",
-  "next": "Read final_public_runtime.json; no unchanged rerun if retest fails."
+  "next": "Read final_public_runtime.json; no unchanged rerun if retest fails.",
+  "verifiedRuntimeRunId": "37764871537",
+  "verifiedRuntimeCommit": "1a7c373b04b0fd61ee094fb1e56832acc86da0c1",
+  "runtimeEvidence": "final_public_runtime.json"
 }
