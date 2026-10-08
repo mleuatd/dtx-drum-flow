@@ -1,18 +1,22 @@
 {
-  "status": "LUNA_ALL30_20261008_PUBLIC_RUNTIME_QA_PASSED",
+  "status": "LUNA_ALL30_20261008_PUBLIC_RUNTIME_QA_FAILED",
   "staticPairs": 30,
   "staticPng": 60,
   "manualPublicPairs": 19,
   "manualPublicPhases": 38,
-  "blocker": null,
+  "blocker": {
+    "type": "RUNTIME_QA",
+    "workflowRunId": "37763909371",
+    "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
+  },
   "runtimeQaEvidence": {
     "LUNA_ALL30_20261008": {
-      "status": "PASS",
+      "status": "FAIL",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "37762693031",
-      "testedCommitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
-      "artifact": "public-runtime-qa-37762693031",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37762693031",
+      "runId": "37763909371",
+      "testedCommitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
+      "artifact": "public-runtime-qa-37763909371",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37763909371",
       "measureStart": 1,
       "measureEnd": 148,
       "actions": [
@@ -155,18 +159,18 @@
     }
   ],
   "next": "Read LUNA_ALL30_20261008 evidence; fix concrete failing phase or playback if any. No unchanged retry.",
-  "updatedAt": "2026-10-08T10:21:47.612534+00:00",
+  "updatedAt": "2026-10-08T10:33:08.612319+00:00",
   "browserFrameEvidence": {
-    "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+    "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
     "deployment": {
       "version": "POST-FIX",
-      "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
-      "builtAt": "2026-10-08T10:20:04Z",
-      "expectedCommitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
-      "acceptedDeploymentSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29"
+      "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
+      "builtAt": "2026-10-08T10:31:10Z",
+      "expectedCommitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
+      "acceptedDeploymentSha": "4ebf97393a99a02f37a2f390581da1e834d285a9"
     },
     "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-    "workflowRunId": "37762693031",
+    "workflowRunId": "37763909371",
     "measureRange": [
       1,
       148
@@ -323,15 +327,15 @@
         "key": "BD+FT:RF/R"
       }
     ],
-    "testedAt": "2026-10-08T10:21:45.020Z",
-    "failed": 0,
-    "passed": 142,
+    "testedAt": "2026-10-08T10:32:54.734Z",
+    "failed": 131,
+    "passed": 11,
     "records": [
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:50.426Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:31:59.458Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -348,17 +352,17 @@
         "actualFrame": "layers/character/sn/hit_l.png",
         "limbs": "SN:L",
         "foregroundLayers": {
-          "frontFrame": "layers/character/sn/hit_l.png",
+          "frontFrame": "layers/character/base/neutral.png",
           "hairComplete": true,
           "hairWidth": 1448,
           "hairDisplay": "block"
         },
         "characterImageLoad": {
-          "ok": true,
+          "ok": false,
           "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
-          "complete": true,
-          "naturalWidth": 1448,
-          "naturalHeight": 1086
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0
         },
         "drumImageLoad": {
           "ok": true,
@@ -368,19 +372,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m95_SN_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:50.761Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:31:59.759Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -417,19 +425,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m95_SN_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:51.076Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:00.072Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -453,7 +465,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -466,19 +478,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m95_SN_L_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:51.433Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:00.383Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -515,19 +531,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m29_SN_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:51.768Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:00.689Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -564,19 +584,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m29_SN_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:52.098Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:00.990Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -600,7 +624,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -613,19 +637,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m29_SN_R_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:52.444Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:01.299Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -662,19 +690,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m99_HH_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:52.786Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:01.609Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -711,19 +743,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m99_HH_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:53.131Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:01.944Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -760,19 +796,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m75_BD_RF_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:53.493Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:02.248Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -809,19 +849,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m75_BD_RF_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:54.027Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:02.571Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -858,19 +902,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m63_RD_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:54.391Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:02.883Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -907,19 +955,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m63_RD_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:54.830Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:03.183Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -956,19 +1008,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m16_BD_SN_RF_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:55.171Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:03.490Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1005,19 +1061,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m16_BD_SN_RF_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:55.514Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:03.824Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1054,19 +1114,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m27_RC_SN_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:55.858Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:04.139Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1103,19 +1167,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m27_RC_SN_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:56.197Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:04.443Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1139,7 +1207,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -1152,19 +1220,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m27_RC_SN_R_L_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:56.528Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:04.758Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1201,19 +1273,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m38_BD_SN_RF_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:56.874Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:05.061Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1250,19 +1326,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m38_BD_SN_RF_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:57.225Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:05.382Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1299,19 +1379,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m17_FT_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:57.558Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:05.689Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1348,19 +1432,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m17_FT_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:57.892Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:06.030Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1397,19 +1485,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m17_FT_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:58.257Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:06.338Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1446,19 +1538,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m17_FT_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:58.608Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:06.666Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1495,19 +1591,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m130_BD_RD_RF_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:58.937Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:06.956Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1544,19 +1644,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m130_BD_RD_RF_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:59.280Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:07.275Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1593,19 +1697,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m130_RD_SN_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:59.617Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:07.590Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1642,19 +1750,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m130_RD_SN_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:20:59.982Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:07.911Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1691,19 +1803,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m81_BD_HH_RF_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:00.333Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:08.240Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1740,19 +1856,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m81_BD_HH_RF_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:00.685Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:08.564Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1789,19 +1909,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m73_HH_SN_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:01.027Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:08.870Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1838,19 +1962,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m73_HH_SN_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:01.375Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:09.210Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1887,19 +2015,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m72_BD_LT_RF_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:01.726Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:09.529Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1936,19 +2068,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m72_BD_LT_RF_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:02.079Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:09.859Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1985,19 +2121,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m148_LT_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:02.423Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:10.175Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2034,19 +2174,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m148_LT_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:02.788Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:10.476Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2070,7 +2214,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -2083,19 +2227,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m148_LT_R_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:03.140Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:10.790Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2132,19 +2280,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m69_LT_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:03.477Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:11.103Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2181,19 +2333,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m69_LT_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:03.870Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:11.422Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2230,19 +2386,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m103_BD_RC_RF_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:04.241Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:11.740Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2279,19 +2439,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m103_BD_RC_RF_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:04.595Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:12.044Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2315,7 +2479,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -2328,19 +2492,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m103_BD_RC_RF_R_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:04.983Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:12.359Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2377,19 +2545,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m45_HT_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:05.387Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:12.676Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2426,19 +2598,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m45_HT_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:05.737Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:13.002Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2475,19 +2651,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m28_FT_SN_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:06.090Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:13.318Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2524,19 +2704,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m28_FT_SN_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:06.456Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:13.649Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2573,19 +2757,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m27_RC_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:06.818Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:13.957Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2622,19 +2810,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m27_RC_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:07.197Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:14.263Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2671,19 +2863,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m76_HT_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:07.550Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:14.571Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2720,19 +2916,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m76_HT_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:07.912Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:14.886Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2769,19 +2969,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m29_BD_HT_RF_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:08.249Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:15.189Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2818,19 +3022,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m29_BD_HT_RF_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:08.606Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:15.520Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2867,19 +3075,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m46_LT_SN_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:08.970Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:15.846Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2916,19 +3128,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m46_LT_SN_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:09.307Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:16.140Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2952,7 +3168,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -2965,19 +3181,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m46_LT_SN_R_L_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:09.648Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:16.502Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3014,19 +3234,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m47_BD_HH_SN_RF_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:09.964Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:16.810Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3063,19 +3287,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m47_BD_HH_SN_RF_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:10.293Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:17.128Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3112,19 +3340,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m54_BD_HT_RF_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:10.614Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:17.426Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3161,19 +3393,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m54_BD_HT_RF_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:10.944Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:17.744Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3210,19 +3446,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:11.278Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:18.044Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3259,19 +3499,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:11.576Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:18.327Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3295,7 +3539,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -3308,19 +3552,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:11.903Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:18.642Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3357,19 +3605,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m105_BD_FT_SN_RF_R_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:12.221Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:18.942Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3406,19 +3658,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m105_BD_FT_SN_RF_R_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:12.522Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:19.226Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3442,7 +3698,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -3455,19 +3711,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m105_BD_FT_SN_RF_R_L_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:12.851Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:19.543Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3504,19 +3764,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m105_BD_FT_RF_L_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:13.160Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:19.859Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3553,19 +3817,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m105_BD_FT_RF_L_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:13.469Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:20.142Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3589,7 +3857,7 @@
         },
         "characterImageLoad": {
           "ok": true,
-          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261008-cached-r10",
+          "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10",
           "complete": true,
           "naturalWidth": 1448,
           "naturalHeight": 1086
@@ -3602,19 +3870,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m105_BD_FT_RF_L_neutral.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:13.789Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:20.442Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3651,19 +3923,23 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m136_BD_FT_RF_R_hit.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:14.103Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:20.743Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3700,211 +3976,105 @@
           "naturalHeight": 1086
         },
         "runtimeScope": "1-148",
-        "assetWarning": "",
+        "assetWarning": "./character-assets/layers/character/sn/hit_l.png",
         "initError": "",
-        "consoleErrors": [],
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
+        ],
         "pageErrors": [],
-        "failedRequests": [],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
         "screenshotPath": "pc/m136_BD_FT_RF_R_rebound.png",
-        "status": "PASS"
+        "status": "FAIL"
       },
       {
-        "kind": "PLAYBACK",
+        "kind": "PLAYBACK_STARTUP_FAILURE",
         "viewport": {
           "name": "pc",
           "width": 1280,
           "height": 900
         },
         "playbackSpeed": 1,
-        "samples": [
-          {
-            "time": 10.1207,
-            "frame": "layers/character/hh/hit_r.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.3205,
-            "frame": "layers/character/hh/rebound_r.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.5141,
-            "frame": "layers/character/bd/rebound_rf.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.6814,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.876,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.045,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.2365,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.4221,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.6173,
-            "frame": "layers/character/rd/rebound_r_refresh.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.8007,
-            "frame": "layers/character/sn/rebound_l.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.9758,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 12.1675,
-            "frame": "layers/character/combo/bd_rc_hit.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          }
+        "status": "FAIL",
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
         ],
-        "status": "PASS"
+        "consoleWarnings": [
+          "character asset preload warning [./character-assets/layers/character/sn/hit_l.png] [Error: image HTTP/load failure: ./character-assets/layers/character/sn/hit_l.png]"
+        ],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
+        "dom": {
+          "character": {
+            "currentTime": "236.888000",
+            "active": "true",
+            "assetIssue": "./character-assets/layers/character/sn/hit_l.png",
+            "state": "ready-with-asset-warning",
+            "scope": "1-148",
+            "runtimeScope": "1-148",
+            "noteCount": "2158",
+            "groupCount": "1527",
+            "measure": "136",
+            "fallback": "false",
+            "fallbackReason": "",
+            "animationKey": "BD+FT:RF/R",
+            "limbs": "BD:RF,FT:R",
+            "frame": "layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+            "pose": "BD+FT · RF/R · REBOUND",
+            "phase": "rebound"
+          },
+          "playText": "読み込みエラー",
+          "status": "Luna say maybe 完成譜面（Songsterr基準・元音源+1.693秒同期）を読み込みました。リアルドラム音色（2番Aメロのサイドスティック含む）で再生できます。"
+        }
       },
       {
-        "kind": "PLAYBACK",
+        "kind": "PLAYBACK_STARTUP_FAILURE",
         "viewport": {
           "name": "pc",
           "width": 1280,
           "height": 900
         },
         "playbackSpeed": 0.5,
-        "samples": [
-          {
-            "time": 10.06345,
-            "frame": "layers/character/base/neutral.png",
-            "phase": "neutral",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.15855,
-            "frame": "layers/character/hh/hit_r.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.24675,
-            "frame": "layers/character/hh/rebound_r.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.3419,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.43335,
-            "frame": "layers/character/bd/rebound_rf.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.52175,
-            "frame": "layers/character/base/neutral.png",
-            "phase": "neutral",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.60385,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.70505,
-            "frame": "layers/character/base/neutral.png",
-            "phase": "neutral",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.7953,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.88835,
-            "frame": "layers/character/sn/rebound_l.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.98015,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.081,
-            "frame": "layers/character/rd/rebound_r_refresh.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          }
+        "status": "FAIL",
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 503 ()"
         ],
-        "status": "PASS"
+        "consoleWarnings": [
+          "character asset preload warning [./character-assets/layers/character/sn/hit_l.png] [Error: image HTTP/load failure: ./character-assets/layers/character/sn/hit_l.png]"
+        ],
+        "failedRequests": [
+          "503 https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/sn/hit_l.png?v=20261008-cached-r10"
+        ],
+        "dom": {
+          "character": {
+            "currentTime": "10.000000",
+            "active": "true",
+            "assetIssue": "./character-assets/layers/character/sn/hit_l.png",
+            "state": "ready-with-asset-warning",
+            "scope": "1-148",
+            "runtimeScope": "1-148",
+            "noteCount": "2158",
+            "groupCount": "1527",
+            "measure": "4",
+            "fallback": "false",
+            "fallbackReason": "",
+            "animationKey": "SN:L",
+            "limbs": "SN:L",
+            "frame": "layers/character/sn/hit_l.png",
+            "pose": "SN · L · HIT",
+            "phase": "hit"
+          },
+          "playText": "読み込みエラー",
+          "status": "Luna say maybe 完成譜面（Songsterr基準・元音源+1.693秒同期）を読み込みました。リアルドラム音色（2番Aメロのサイドスティック含む）で再生できます。"
+        }
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:21.777Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:31.655Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -3950,10 +4120,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:22.027Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:31.958Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -3999,10 +4169,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:22.279Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:32.204Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4048,10 +4218,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:22.527Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:32.454Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4097,10 +4267,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:22.776Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:32.705Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4146,10 +4316,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:23.026Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:32.953Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4195,10 +4365,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:23.293Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:33.205Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4244,10 +4414,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:23.543Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:33.454Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4293,10 +4463,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:23.795Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:33.705Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4342,10 +4512,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:24.059Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:33.955Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4391,10 +4561,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:24.326Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:34.204Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4440,10 +4610,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:24.592Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:34.454Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4489,10 +4659,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:24.860Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:34.705Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4538,10 +4708,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:25.126Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:34.970Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4587,10 +4757,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:25.395Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:35.221Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4636,10 +4806,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:25.659Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:35.471Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4685,10 +4855,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:26.135Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:35.721Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4734,10 +4904,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:26.575Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:35.971Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4783,10 +4953,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:26.887Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:36.220Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4832,10 +5002,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:27.159Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:36.471Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4881,10 +5051,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:27.427Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:36.721Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4930,10 +5100,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:27.694Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:36.971Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -4979,10 +5149,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:27.943Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:37.248Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5028,10 +5198,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:28.194Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:37.601Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5077,10 +5247,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:28.459Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:37.943Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5126,10 +5296,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:28.727Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:38.327Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5175,10 +5345,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:28.992Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:38.628Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5224,10 +5394,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:29.260Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:38.887Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5273,10 +5443,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:29.525Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:39.170Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5322,10 +5492,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:29.795Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:39.437Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5371,10 +5541,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:30.059Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:39.703Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5420,10 +5590,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:30.327Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:39.970Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5469,10 +5639,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:30.594Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:40.237Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5518,10 +5688,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:30.860Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:40.503Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5567,10 +5737,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:31.127Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:40.770Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5616,10 +5786,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:31.377Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:41.021Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5665,10 +5835,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:31.643Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:41.289Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5714,10 +5884,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:31.909Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:41.553Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5763,10 +5933,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:32.177Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:41.820Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5812,10 +5982,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:32.444Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:42.086Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5861,10 +6031,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:32.694Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:42.338Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5910,10 +6080,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:32.960Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:42.603Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5959,10 +6129,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:33.228Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:42.870Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6008,10 +6178,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:33.511Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:43.136Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6057,10 +6227,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:33.778Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:43.403Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6106,10 +6276,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:34.043Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:43.670Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6155,10 +6325,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:34.309Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:43.936Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6204,10 +6374,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:34.576Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:44.204Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6253,10 +6423,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:34.843Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:44.470Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6302,10 +6472,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:35.109Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:44.736Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6351,10 +6521,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:35.376Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:45.003Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6400,10 +6570,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:35.643Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:45.272Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6449,10 +6619,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:35.908Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:45.536Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6498,10 +6668,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:36.159Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:45.787Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6547,10 +6717,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:36.428Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:46.053Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6596,10 +6766,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:36.693Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:46.319Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6645,10 +6815,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:36.960Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:46.587Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6694,10 +6864,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:37.226Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:46.853Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6743,10 +6913,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:37.495Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:47.120Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6792,10 +6962,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:37.760Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:47.387Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6841,10 +7011,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:38.010Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:47.701Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6890,10 +7060,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:38.276Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:48.004Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6939,10 +7109,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:38.542Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:48.281Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6988,10 +7158,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:38.793Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:48.537Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7037,10 +7207,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:39.060Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:48.803Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7086,10 +7256,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:39.325Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:49.069Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7135,10 +7305,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:39.579Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:49.320Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7184,10 +7354,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:39.843Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:49.587Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7233,10 +7403,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "3ac96458adba41a06df9f6ff1e9ab1a8bc986b29",
+        "commitSha": "4ebf97393a99a02f37a2f390581da1e834d285a9",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "37762693031",
-        "testedAt": "2026-10-08T10:21:40.111Z",
+        "workflowRunId": "37763909371",
+        "testedAt": "2026-10-08T10:32:49.853Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7291,84 +7461,84 @@
         "playbackSpeed": 1,
         "samples": [
           {
-            "time": 10.1109,
+            "time": 10.1456,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3138,
+            "time": 10.3201,
             "frame": "layers/character/hh/rebound_r.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.4772,
+            "time": 10.5034,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6772,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.8606,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.0439,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.2273,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.4109,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.6106,
+            "time": 10.6868,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.7772,
-            "frame": "layers/character/sn/rebound_l.png",
-            "phase": "rebound",
+            "time": 10.8868,
+            "frame": "layers/character/sn/hit_l.png",
+            "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.9605,
+            "time": 11.0703,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 12.1441,
+            "time": 11.2534,
+            "frame": "layers/character/bd/hit_rf.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.4367,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.62,
+            "frame": "layers/character/rd/rebound_r_refresh.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.7867,
+            "frame": "layers/character/sn/rebound_l.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.9701,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 12.1534,
             "frame": "layers/character/combo/bd_rc_hit.png",
             "phase": "hit",
             "complete": true,
@@ -7387,84 +7557,84 @@
         "playbackSpeed": 0.5,
         "samples": [
           {
-            "time": 10.0643,
+            "time": 10.06485,
             "frame": "layers/character/base/neutral.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.1561,
+            "time": 10.15665,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.2476,
+            "time": 10.2483,
             "frame": "layers/character/hh/rebound_r.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.33935,
+            "time": 10.33165,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.43095,
+            "time": 10.4232,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.5226,
+            "time": 10.5149,
             "frame": "layers/character/base/neutral.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.60595,
+            "time": 10.6065,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6976,
+            "time": 10.69845,
             "frame": "layers/character/base/neutral.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.78925,
+            "time": 10.78985,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.88095,
+            "time": 10.88155,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.97265,
+            "time": 10.97315,
             "frame": "layers/character/base/neutral.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.06425,
+            "time": 11.06485,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
