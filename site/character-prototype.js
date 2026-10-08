@@ -4,7 +4,7 @@ const DEFAULT_MEASURE_END=4;
 const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_full_limbs.json";
 const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
 const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20261008-all30-r8";
+const ASSET_VERSION="20261008-decoded-r9";
 const DRUM="./character-assets/layers/drum/drum_base.png";
 const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
 
@@ -29,7 +29,9 @@ function updateDevHud(extra=""){
 setInterval(()=>updateDevHud(),250);
 const EFFECT_POINTS={HH:[190,390],SN:[420,535],BD:[735,650],HT:[575,360],LT:[885,455],FT:[1165,535],RC:[1215,145],RD:[965,250]};
 
-function loadImage(src){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(src);image.onerror=()=>reject(new Error("image HTTP/load failure: "+src));image.src=assetUrl(src)})}
+// Retain decoded nodes so short Hit/Rebound frames never wait on a new image load.
+const decodedFrameImages=new Map();
+function loadImage(src){return new Promise((resolve,reject)=>{const image=new Image();const url=assetUrl(src);image.onload=async()=>{try{if(image.decode)await image.decode();decodedFrameImages.set(url,image);resolve(src)}catch(error){reject(error)}};image.onerror=()=>reject(new Error("image HTTP/load failure: "+src));image.src=url})}
 
 // The fixed kit remains immutable. Foreground kit pixels hide the torso/hair;
 // only the source arms and actual pose delta are drawn back above it.
@@ -70,7 +72,28 @@ function keyFor(group,frameMap=data?.frameMap){const exact=exactKeyFor(group);if
 function assetFor(group,phase="hit"){if(phase==="neutral")return data?.frames?.neutral?.path||"layers/character/base/neutral.png";const key=keyFor(group);const phases=data?.phaseFrameMap?.[key];const frameId=phases?.[phase]||data?.frameMap?.[key]||"neutral";return data?.frames?.[frameId]?.path||"layers/character/base/neutral.png"}
 function validatePrototypeCoverage(inventory,scopedNotes,groups){const scope=inventory.runtimeScope||{};if(scopedNotes.length!==Number(scope.noteCount||0))throw new Error("prototype note count mismatch");if(groups.length!==Number(scope.groupCount||0))throw new Error("prototype group count mismatch");if(scopedNotes.some(note=>!note.limb))throw new Error("prototype limb assignments missing");const expectedKeys=new Set(scope.expectedKeys||[]),actualKeys=new Set();for(const group of groups){const key=keyFor(group,inventory.runtimeFrameMap);actualKeys.add(key);if(!inventory.runtimeFrameMap?.[key])throw new Error("prototype frame missing for "+key);for(const phase of ["prep","hit","rebound"]){const frameId=inventory.runtimePhaseFrameMap?.[key]?.[phase];if(!frameId||!inventory.requiredFrames?.[frameId])throw new Error("prototype phase frame missing for "+key+"."+phase)}}const missing=[...expectedKeys].filter(key=>!actualKeys.has(key)),unexpected=[...actualKeys].filter(key=>!expectedKeys.has(key));if(missing.length||unexpected.length)throw new Error("prototype key mismatch missing="+missing.join(",")+" unexpected="+unexpected.join(","))}
 const sourceBoundHairFrames=new Set(["layers/character/base/neutral.png", "layers/character/sn/hit_l.png", "layers/character/sn/rebound_l.png", "layers/character/sn/hit_r.png", "layers/character/sn/rebound_r.png", "layers/character/hh/hit_r.png", "layers/character/hh/rebound_r.png", "layers/character/combo/hh_sn_r_l_hit_refresh.png", "layers/character/combo/hh_sn_r_l_rebound_refresh.png", "layers/character/rc/hit_r_refresh.png", "layers/character/rc/rebound_r_refresh.png", "layers/character/combo/rc_sn_hit_refresh.png", "layers/character/combo/rc_sn_rebound_refresh.png", "layers/character/rd/hit_r_refresh.png", "layers/character/rd/rebound_r_refresh.png", "layers/character/combo/rd_sn_r_l_hit_refresh.png", "layers/character/combo/rd_sn_r_l_rebound_refresh.png", "layers/character/lt/hit_r_refresh.png", "layers/character/lt/rebound_r_refresh.png", "layers/character/combo/lt_sn_r_l_hit_refresh.png", "layers/character/combo/lt_sn_r_l_rebound_refresh.png", "layers/character/bd/hit_rf.png", "layers/character/bd/rebound_rf.png", "layers/character/combo/bd_rc_hit.png", "layers/character/combo/bd_rc_rebound.png", "layers/character/combo/bd_sn_hit_refresh.png", "layers/character/combo/bd_sn_rebound_refresh.png", "layers/character/combo/bd_sn_rf_r_hit_refresh.png", "layers/character/combo/bd_sn_rf_r_rebound_refresh.png", "layers/character/combo/bd_rd_rf_r_hit_refresh.png", "layers/character/combo/bd_rd_rf_r_rebound_refresh.png", "layers/character/combo/bd_hh_rf_r_hit_refresh.png", "layers/character/combo/bd_hh_rf_r_rebound_refresh.png", "layers/character/combo/bd_lt_rf_r_hit_refresh.png", "layers/character/combo/bd_lt_rf_r_rebound_refresh.png", "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png", "layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png", "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png", "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png", "layers/character/ht/hit_r_refresh.png", "layers/character/ht/rebound_r_refresh.png", "layers/character/ht/hit_l_refresh.png", "layers/character/ht/rebound_l_refresh.png", "layers/character/lt/hit_l_refresh.png", "layers/character/lt/rebound_l_refresh.png", "layers/character/ft/hit_r_refresh.png", "layers/character/ft/rebound_r_refresh.png", "layers/character/ft/hit_l_refresh.png", "layers/character/ft/rebound_l_refresh.png", "layers/character/combo/ft_sn_r_l_hit_refresh.png", "layers/character/combo/ft_sn_r_l_rebound_refresh.png", "layers/character/combo/bd_ht_rf_r_hit_refresh.png", "layers/character/combo/bd_ht_rf_r_rebound_refresh.png", "layers/character/combo/bd_ht_rf_l_hit_refresh.png", "layers/character/combo/bd_ht_rf_l_rebound_refresh.png", "layers/character/combo/bd_ft_rf_l_hit_refresh.png", "layers/character/combo/bd_ft_rf_l_rebound_refresh.png", "layers/character/combo/bd_ft_rf_r_hit_refresh.png", "layers/character/combo/bd_ft_rf_r_rebound_refresh.png", "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png", "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png"]);
-function setFrame(path,label="",phase="neutral"){if(!els.character)return;if(els.hairFront)els.hairFront.style.display=sourceBoundHairFrames.has(path)?"":"none";const src=assetUrl(ASSET_ROOT+"/"+path);if(lastKey!==src){lastKey=src;if(els.characterFront)els.characterFront.getContext("2d").clearRect(0,0,1448,1086);els.character.src=src}if(els.label)els.label.textContent=label;if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label;els.root.dataset.phase=phase}}
+function setFrame(path,label="",phase="neutral"){
+ if(!els.character)return;
+ if(els.hairFront)els.hairFront.style.display=sourceBoundHairFrames.has(path)?"":"none";
+ if(els.label)els.label.textContent=label;
+ if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label;els.root.dataset.phase=phase}
+ const src=assetUrl(ASSET_ROOT+"/"+path);
+ if(lastKey!==src){
+  lastKey=src;
+  const cached=decodedFrameImages.get(src);
+  if(cached?.complete&&cached.naturalWidth){
+   const previous=els.character;
+   cached.id=previous.id;cached.className=previous.className;cached.alt=previous.alt;
+   cached.style.cssText=previous.style.cssText;
+   previous.replaceWith(cached);els.character=cached;
+   renderForegroundCharacter();
+  }else{
+   // The normal ready state has every frame decoded; failures retain the warning path.
+   els.character.src=src;
+   els.character.addEventListener("load",renderForegroundCharacter,{once:true});
+  }
+ }
+}
 function normalizedPlaybackRate(playbackRate=1){
   const rate=Number(playbackRate);
   return Number.isFinite(rate)&&rate>0?rate:1;

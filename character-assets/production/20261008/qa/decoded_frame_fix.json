@@ -1,0 +1,17 @@
+{
+  "status": "REPAIRED_WAITING_RETEST",
+  "failedRun": "37759877958",
+  "evidence": "final_public_runtime_failed_frames.json",
+  "observations": {
+    "mobilePhaseLoadFailures": [
+      "FT:R rebound",
+      "LT+SN:R/L hit",
+      "BD+FT:RF/R hit"
+    ],
+    "playback": "Both viewports time advanced and pose changed, but BD frames intermittently incomplete/naturalWidth0"
+  },
+  "rootCause": "Preloading returned source strings and discarded Image nodes. Reassigning visible img.src reset load/decode state during short frames.",
+  "fix": "Retain all predecoded source-bound frame Image nodes; replace visible node directly without assigning a new src; render foreground canvas synchronously after pointer and dataset update. Original PNG and drum bytes unchanged.",
+  "test": "Full30 Hit/Rebound coverage on PC1280x900/Xperia384x864; source hair/frame-canvas synchronization;12 playback samples must all be decoded and time/poses progress.",
+  "next": "Read final_public_runtime.json; no unchanged rerun if retest fails."
+}

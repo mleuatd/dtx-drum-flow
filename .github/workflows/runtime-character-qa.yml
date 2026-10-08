@@ -170,6 +170,10 @@ jobs:
           import json, os
           p=os.environ["RUNTIME_QA_PROGRESS_PATH"]
           with open(p,encoding="utf-8") as f: d=json.load(f)
+          report_path="qa-artifacts/runtime-qa.json"
+          if os.path.exists(report_path):
+              with open(report_path,encoding="utf-8") as report_file:
+                  d["browserFrameEvidence"]=json.load(report_file)
           ok=os.environ.get("QA_OUTCOME")=="success"
           run=os.environ.get("GITHUB_RUN_ID","")
           sha=os.environ.get("GITHUB_SHA","")
