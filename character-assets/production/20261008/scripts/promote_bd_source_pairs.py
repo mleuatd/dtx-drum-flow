@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,hashlib,shutil,re
+r=Path('/workspace/scratch/3007f183e4a8/repo');o=r.parent/'work_output';p=r/'character-assets/production/20261008';ip=r/'character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json';inv=json.loads(ip.read_text());mp=r/'character-assets/config/assets_manifest.json';m=json.loads(mp.read_text());lp=p/'ledger/motion_matrix.json';ledger=json.loads(lp.read_text());qs=json.loads((o/'qa/bd_nine_pairs_mechanical.json').read_text());paths=[]
+for q in qs:
+ f=inv['requiredFrames'][inv['runtimePhaseFrameMap'][q['key']][q['phase']]];dst=r/'character-assets'/f['path'];shutil.copy(o/'variants/bd'/q['candidate'],dst);sha=hashlib.sha256(dst.read_bytes()).hexdigest();f.update(sha256=sha,state='ready',qaStatus='STATIC_VISUAL_PASS_LIVE_PENDING');paths.append(f['path'])
+ for a in m['assets']:
+  if a['path']==str(dst.relative_to(r)):a.update(sha256=sha,status='SOURCE_BOUND_STATIC_QA_PASS',notes=['Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user'])
+for a in ledger['actions']:
+ if a['runtime_key'] in {q['key'] for q in qs}:a.update(status='STATIC_QA_PASSED_LIVE_PENDING',static_evidence='qa/bd_nine_pairs_source_v1.json')
+ elif a['runtime_key'] in ['LT:R','LT+SN:R/L']:a.update(status='LIVE_QA_PASSED',runtime_evidence='qa/browser_post_promote_lt_r5.json')
+q={'status':'STATIC_VISIBLE_QA_PASS_LIVE_PENDING','frames':qs,'visible_anatomy':'Two legs only, same original knee and upper calf, natural calf-to-cuff connection, original near leg unmodified. Rear heel toward viewer, toe away up-right onto actual pedal board. Source short line style retained; local boot grayscale only. Entirely hidden anatomy not evaluated.','hit_anchors':{'cuff':[674,830],'toe_upper':[719,891],'heel_upper':[663,974]},'rebound_lift_pixels':12,'protected_upper_body_and_near_leg_pixel_mismatch':0,'arm_foot_delta_overlap':0,'rejected':['First boot faced toe toward viewer, opposite pedal direction','First calf reconnect trace made a visible rectangular seam; removed and source calf resampling retained instead'],'live_validation':'Pending, do not count as live pass.'}
+(p/'qa/bd_nine_pairs_source_v1.json').write_text(json.dumps(q,ensure_ascii=False,indent=2));inv['version']+=1;inv['scope']='Luna full measures1-148;19 static pairs38PNG,10 live pairs;11 pairs remaining';ip.write_text(json.dumps(inv,ensure_ascii=False,indent=2)+'\n');mp.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n');lp.write_text(json.dumps(ledger,ensure_ascii=False,indent=2)+'\n')
+js=r/'site/character-prototype.js';s=js.read_text();s=re.sub(r'const sourceBoundHairFrames=new Set\((\[.*?\])\);',lambda ma:'const sourceBoundHairFrames=new Set('+json.dumps(list(dict.fromkeys(json.loads(ma[1])+paths)))+');',s);js.write_text(s)
+for f in ['site/character-prototype.js','site/app.js','site/index.html']:
+ pp=r/f;pp.write_text(pp.read_text().replace('20261008-hair-depth-r6','20261008-bd-r7'))
+for name in ['make_bd_source_pair.py','compose_bd_pairs.py','promote_bd_source_pairs.py']:shutil.copy(o/'scripts'/name,p/'scripts'/name)
+resume=r/'character-assets/production/WORK_RESUME_20261008.md';s=resume.read_text();s+='\n## BD制作完了・公開検証待ち r7\n- 右足BDと既存合格腕を合成した9セット18枚を正式PNGへ反映。現在19セット38枚が静的QA合格、公開実測10セット20枚、残り11セット22枚。画像読み込み62等は人体合格枚数ではない。\n- 証跡 qa/bd_nine_pairs_source_v1.json、再現 scripts/make_bd_source_pair.py / compose_bd_pairs.py / promote_bd_source_pairs.py。膝より上・近い左脚は元画像と同一、腕差分と足差分の重複0。見えない所は評価しない。\n- 次はr7公開のBD9キー18位相と髪前景を検証。その後HT左右、LT左、FT左右、FT+SNと残りBD複合11セットを完成する。全作業は未完了。\n';resume.write_text(s)
+print('19 static pairs38 frames;9 new pairs18 frames promoted;live QA pending')

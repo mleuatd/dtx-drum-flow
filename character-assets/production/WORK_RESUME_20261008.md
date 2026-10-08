@@ -39,3 +39,8 @@ commit3546e9e488c88879d1bfc8bd75d156308a9b366aのvalidate、Character asset vali
 - r6: 元Neutralの髪画素だけを複製、旧右手を除外、y350未満を除外してライドを切らない。qa/hair_depth_source.json の画素不一致0。公開後の視覚評価は未完了。
 - BD局所生成2件を保存。最初はつま先方向逆で不合格、2件目は後ろ向きの部品候補で最終画像ではない。donors/right_boot_rear_candidate.png をペダルに局所投影し、元の膝・胴・左脚・ドラムを保護してHit/Reboundを作る。
 - scripts/add_hair_depth_layer.py は新規ベース用で再実行するとJSが重複する。現在の実装に再適用しない。
+
+## BD制作完了・公開検証待ち r7
+- 右足BDと既存合格腕を合成した9セット18枚を正式PNGへ反映。現在19セット38枚が静的QA合格、公開実測10セット20枚、残り11セット22枚。画像読み込み62等は人体合格枚数ではない。
+- 証跡 qa/bd_nine_pairs_source_v1.json、再現 scripts/make_bd_source_pair.py / compose_bd_pairs.py / promote_bd_source_pairs.py。膝より上・近い左脚は元画像と同一、腕差分と足差分の重複0。見えない所は評価しない。
+- 次はr7公開のBD9キー18位相と髪前景を検証。その後HT左右、LT左、FT左右、FT+SNと残りBD複合11セットを完成する。全作業は未完了。
