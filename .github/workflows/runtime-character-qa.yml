@@ -220,3 +220,5 @@ jobs:
       - name: Enforce browser QA result
         if: steps.browser_qa.outcome != 'success'
         run: exit 1
+
+# 20261008 foot continuity: verify new ready pose and all30 source-bound pairs.

@@ -1,5 +1,5 @@
 {
-  "status": "STATIC_INVARIANTS_PASS_VISIBLE_AND_RUNTIME_PENDING",
+  "status": "VISIBLE_ANATOMY_AND_CONTINUITY_PASS_PUBLIC_RUNTIME_PENDING",
   "toePivot": [
     719,
     915
@@ -430,5 +430,13 @@
     }
   ],
   "readyPath": "character-assets/layers/character/base/neutral_performance_ready.png",
-  "resume": "Inspect foot_continuity_detail.png, then all30 public runtime QA, update completion entry."
+  "resume": "Inspect foot_continuity_detail.png, then all30 public runtime QA, update completion entry.",
+  "visibleReview": {
+    "result": "PASS",
+    "toeContact": "Toe stays on fixed pedal; rear heel raises about 8px",
+    "anatomy": "Two legs; continuous calf and cuff; near leg unchanged",
+    "scope": "Visible portions only, hidden portions exempt per user",
+    "outsideFootPixels": "All60 identical outside x560..799 y730..999",
+    "canonicalSources": "Original Neutral and drum preserved"
+  }
 }
