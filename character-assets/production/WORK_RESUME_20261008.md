@@ -91,3 +91,10 @@
 - 最終版 [Pagesデプロイ #37853946257](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37853946257) は `success`。[Runtime Character QA #37853946258](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37853946258) も `success`。
 - **確認上の制約:** 既存のRuntime Character QAは演奏動作と画像を検査するがHUDの `DEPLOY` 文字列が実ブラウザに表示されたことまでは個別アサートしていない。スマホ上の最新HUD表示確認はまだ未確認。今後はHUD検証をQAの明示的な項目に加える。
 - 正式PNG・固定ドラム・承認Neutral・ノーツの縦線は変更なし。旧画像・失敗記録の削除なし。
+
+### 2026-10-09 大きな保存地点（右足の修正前）
+- **復元用固定ブランチ**: `checkpoints/2026-10-09-drum-layer0-before-right-foot-fix`。固定元SHA `bc52e4cd1293532b074fd029020eae4ac93a6bf2`。このブランチを今後の修正で上書きしない。
+- **現仕様**: ドラム本体はレイヤー0＝最背面の一枚だけ表示する。前面用ドラム画像 `drum_foreground_occlusion.png` はCSSで非表示。原画は保存する。人物・演奏画像は今回は触らない。
+- **公開確認**: ドラム前面用非表示を含む Pages workflow [#37855750895](https://github.com/mleuatd/dtx-drum-flow/actions/runs/37855750895) は成功、公開元コミット `cec23d2516d296385b5ba82da3c1eacb7607ef32`。
+- **未修正課題**: [GitHub Issue #13](https://github.com/mleuatd/dtx-drum-flow/issues/13)「右足／バスドラムペダルの解剖学的な不自然さ」。身体の付け根・膝・足首の連続性、足首の右方向への急角度、足とペダルの向きの整合性を複合的に調べる必要がある。足のみで修正可能か、ペダル角度の変更も必要かは未判断。
+- **今は修正しない**。今後、関節位置とペダル幾何を同時に分析し、Hit/Reboundの両方で確認する。承認済み固定ドラム・Neutral原画は無断変更しない。
