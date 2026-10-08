@@ -43,10 +43,11 @@
         "hit": "layers/character/combo/bd_hh_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_hh_rf_r_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "HH:R + SN:L",
@@ -70,10 +71,11 @@
         "hit": "layers/character/bd/hit_rf.png",
         "rebound": "layers/character/bd/rebound_rf.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "SN:R",
@@ -97,10 +99,11 @@
         "hit": "layers/character/combo/bd_rc_hit.png",
         "rebound": "layers/character/combo/bd_rc_rebound.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "RD:R",
@@ -149,10 +152,11 @@
         "hit": "layers/character/combo/bd_rd_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_rd_rf_r_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "RD:R + SN:L",
@@ -175,10 +179,11 @@
         "hit": "layers/character/combo/bd_sn_hit_refresh.png",
         "rebound": "layers/character/combo/bd_sn_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "LT:L",
@@ -188,9 +193,10 @@
         "hit": "layers/character/lt/hit_l_refresh.png",
         "rebound": "layers/character/lt/rebound_l_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "BD:RF + SN:R",
@@ -200,10 +206,11 @@
         "hit": "layers/character/combo/bd_sn_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_sn_rf_r_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "HT:R",
@@ -213,9 +220,10 @@
         "hit": "layers/character/ht/hit_r_refresh.png",
         "rebound": "layers/character/ht/rebound_r_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "HT:L",
@@ -225,9 +233,10 @@
         "hit": "layers/character/ht/hit_l_refresh.png",
         "rebound": "layers/character/ht/rebound_l_refresh.png"
       },
-      "status": "LOCAL_TRIAL_REJECTED",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "BD:RF + HH:R + SN:L",
@@ -237,10 +246,11 @@
         "hit": "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "FT:R + SN:L",
@@ -250,9 +260,10 @@
         "hit": "layers/character/combo/ft_sn_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/ft_sn_r_l_rebound_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "FT:R",
@@ -262,9 +273,10 @@
         "hit": "layers/character/ft/hit_r_refresh.png",
         "rebound": "layers/character/ft/rebound_r_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "FT:L",
@@ -274,9 +286,10 @@
         "hit": "layers/character/ft/hit_l_refresh.png",
         "rebound": "layers/character/ft/rebound_l_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "BD:RF + HT:R",
@@ -286,9 +299,10 @@
         "hit": "layers/character/combo/bd_ht_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ht_rf_r_rebound_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "BD:RF + FT:L",
@@ -298,9 +312,10 @@
         "hit": "layers/character/combo/bd_ft_rf_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ft_rf_l_rebound_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "LT:R + SN:L",
@@ -323,9 +338,10 @@
         "hit": "layers/character/combo/bd_ft_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ft_rf_r_rebound_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "BD:RF + LT:R",
@@ -335,10 +351,11 @@
         "hit": "layers/character/combo/bd_lt_rf_r_hit_refresh.png",
         "rebound": "layers/character/combo/bd_lt_rf_r_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "RC:R",
@@ -361,10 +378,11 @@
         "hit": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png"
       },
-      "status": "STATIC_QA_PASSED_LIVE_PENDING",
+      "status": "LIVE_QA_PASSED",
       "new_hit": null,
       "new_rebound": null,
-      "static_evidence": "qa/bd_nine_pairs_source_v1.json"
+      "static_evidence": "qa/bd_nine_pairs_source_v1.json",
+      "runtime_evidence": "qa/browser_post_promote_bd_r7.json"
     },
     {
       "motion_id": "BD:RF + FT:R + SN:L",
@@ -374,9 +392,10 @@
         "hit": "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     },
     {
       "motion_id": "BD:RF + HT:L",
@@ -386,9 +405,10 @@
         "hit": "layers/character/combo/bd_ht_rf_l_hit_refresh.png",
         "rebound": "layers/character/combo/bd_ht_rf_l_rebound_refresh.png"
       },
-      "status": "EXISTING_ASSETS_REVALIDATION_PENDING",
+      "status": "STATIC_QA_PASSED_LIVE_PENDING",
       "new_hit": null,
-      "new_rebound": null
+      "new_rebound": null,
+      "static_evidence": "qa/remaining_tom_pairs_source_v1.json"
     }
   ],
   "completed_static_pairs": 6,

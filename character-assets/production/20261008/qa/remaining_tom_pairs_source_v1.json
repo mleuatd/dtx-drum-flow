@@ -1,0 +1,175 @@
+{
+  "status": "STATIC_VISIBLE_QA_PASS_LIVE_PENDING",
+  "frames": [
+    {
+      "key": "HT:R",
+      "phase": "hit",
+      "candidate": "HT_R_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "HT:R",
+      "phase": "rebound",
+      "candidate": "HT_R_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "HT:L",
+      "phase": "hit",
+      "candidate": "HT_L_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "HT:L",
+      "phase": "rebound",
+      "candidate": "HT_L_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "LT:L",
+      "phase": "hit",
+      "candidate": "LT_L_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "LT:L",
+      "phase": "rebound",
+      "candidate": "LT_L_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "FT:R",
+      "phase": "hit",
+      "candidate": "FT_R_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "FT:R",
+      "phase": "rebound",
+      "candidate": "FT_R_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "FT:L",
+      "phase": "hit",
+      "candidate": "FT_L_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "FT:L",
+      "phase": "rebound",
+      "candidate": "FT_L_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "FT+SN:R/L",
+      "phase": "hit",
+      "candidate": "FT_SN_R_L_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "FT+SN:R/L",
+      "phase": "rebound",
+      "candidate": "FT_SN_R_L_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+HT:RF/R",
+      "phase": "hit",
+      "candidate": "BD_HT_RF_R_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+HT:RF/R",
+      "phase": "rebound",
+      "candidate": "BD_HT_RF_R_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+HT:RF/L",
+      "phase": "hit",
+      "candidate": "BD_HT_RF_L_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+HT:RF/L",
+      "phase": "rebound",
+      "candidate": "BD_HT_RF_L_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+FT:RF/L",
+      "phase": "hit",
+      "candidate": "BD_FT_RF_L_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+FT:RF/L",
+      "phase": "rebound",
+      "candidate": "BD_FT_RF_L_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+FT:RF/R",
+      "phase": "hit",
+      "candidate": "BD_FT_RF_R_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+FT:RF/R",
+      "phase": "rebound",
+      "candidate": "BD_FT_RF_R_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+FT+SN:RF/R/L",
+      "phase": "hit",
+      "candidate": "BD_FT_SN_RF_R_L_hit.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    },
+    {
+      "key": "BD+FT+SN:RF/R/L",
+      "phase": "rebound",
+      "candidate": "BD_FT_SN_RF_R_L_rebound.png",
+      "arm_foot_overlap": 0,
+      "legs_source_exact_unless_BD": true
+    }
+  ],
+  "visible_checks": [
+    "At most two hands/arms and two legs; correct source hand preserved without mirror",
+    "Source head/hair character retained, coat plaid and cuff retained",
+    "HT hit558373 left and560375 right; raised rebound",
+    "LT left hit885416, rebound856371; left hand/stick fully behind hair, no forced visibility",
+    "FT right1166555 and left1040540 on unchanged head; rebound lifts above head",
+    "Left upper sleeve source projection bends into hair; cropped-white-edge candidate rejected and source contour restored",
+    "Composite arm and foot pixel deltas disjoint; original near leg byte-exact"
+  ],
+  "fully_hidden_anatomy": "Not assessed or reconstructed per user instruction",
+  "failed_iterations": [
+    "HT:L initial rebound rotated down; corrected direction",
+    "LT preview briefly truncated during filesystem sync; recreated and PIL fully decoded",
+    "FT:R upper-arm cut exposed a spur above hair; crop/shift hides it behind original hair"
+  ],
+  "runtime_validation": "Pending;19 earlier pairs phase/asset verified public."
+}

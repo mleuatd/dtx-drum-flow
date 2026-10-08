@@ -1,46 +1,24 @@
 # 作業再開入口 — 2026-10-08
 
-**環境復旧後、作業を再開しました。** 過去の切断記録は ENVIRONMENT_STOP_CHECKPOINT.md。現在は髪の前後レイヤーr6を追加し、バスドラム右足を再制作中です。全体完了ではありません。
+**現在: 全30動作のHit/Rebound60PNGを制作・静的目視QA済み。公開Webの最終全位相・再生検証は進行中。** 隠れて完全に見えない部分はユーザー指定により評価対象外。見える人体・境界・打点を確認。
 
-**全作業は未完了です。** 目標はLuna全30動作60枚を自然な人体・固定ドラムで完成し公開Webで検証することです。
+- 19セット38位相は公開画面で新PNG、キー、位相、前景canvas、髪レイヤー同期を検証済み。
+- 今回残り11セット22枚を反映: HT左右、LT左、FT左右、FT+SN右/左、BD+HT左右、BD+FT左右、BD+FT+SN。r8公開後に全60位相を再確認する。
+- 固定ドラム/承認NeutralのSHAは不変。各画像は元人物の局所編集、体格・頭・服・近い脚を保護。旧失敗画像は正しいdonorとして採用しない。
+- レイヤー: 固定ドラム、人物、原画由来のドラム前景、腕前景、元Neutral由来の髪前景。髪が近い箇所のスティックは髪の奥へ隠す。
+- 413過去画像の成功/失敗/保留台帳は20261008/ledger/image_audit.json。個別拡大未完了は保留のまま、成功資料にしない。
 
-## 現在の状態
-- 30動作60位相の既存Web切替と画像読み込みを実測済み。描画成功と絵の合格は別です。
-- 新しい静的QA合格は10ペア20枚: SN:L、SN:R、HH:R、HH+SN:R/L、RC:R、RC+SN:R/L、RD:R、RD+SN:R/L、LT:R、LT+SN:R/L。10ペア20位相すべて公開Webで画像読み込み・Hit/Rebound・腕前景フレーム同期を検証済み。追加証跡: qa/browser_post_promote_lt_r5.json。残り20ペア。新しい髪前景r6は公開目視検証待ち。
-- 固定ドラムと承認NeutralのSHAは不変。髪・胴・脚・近い腕を保護し、必要な腕だけ局所編集。全身AI出力は完成画像として採用しない。
-- 413過去画像の一覧と分類: 20261008/ledger/image_audit.json。個別拡大未完了の判定保留を成功donorとして使わない。
-- RDの最初のAI生成は打点が高すぎて不合格。元Neutralの手とスティックを局所変形したv2を使用。HT:L試作は袖の白い切れと残像で不合格。
-- ドラム原画の一部RGBAをそのまま複製した前景PNGと腕前景canvasで、髪/身体をタム・ライドの後ろに置く合成処理を追加。原画改変ではない。r4は公開Webで16位相の画像/前景canvas同期を検証済み。r5頭部修正とLTは個別目視再検証待ち。
+## 保存場所と再開位置
+正式PNG: character-assets/layers/character/ の各楽器とcombo。
+実装: site/character-prototype.js / styles.css / index.html。
+入力仕様: 20261008/sources/WORK_MASTER_SPEC.md。指定REVISED名は素材ZIPに存在せず、同梱仕様とユーザー指示を適用。
+台帳: 20261008/ledger/motion_matrix.json。実体SHA: config/assets_manifest.json / prototypes/luna_say_maybe_16m/asset_inventory.json。
+検証: 20261008/qa/browser_post_promote_bd_r7.json / remaining_tom_pairs_source_v1.json / 各腕QA。
+局所donorと再現手順: 20261008/donors/ / scripts/。
 
-## 保存場所
-入口: character-assets/production/WORK_RESUME_20261008.md
-詳細: character-assets/production/20261008/{ledger,qa,scripts,donors}/
-正式画像: character-assets/layers/character/ 各楽器とcombo。
-入力: DTX_Drum_Flow_Work_素材一式と制作仕様書_20261008.zip、libfile_cb32a71ec6688191b3cd32ae3785f0b9。指定名WORK_MASTER_SPEC_REVISED.mdはZIPになく、同梱WORK_MASTER_SPEC.mdとユーザー1〜10を適用。
+**次の作業: r8公開を確認し、全30キー60位相の正しいPNG/前景/髪同期、再生と位置移動を検証し、結果JSONと目視証跡を保存。最終検証未実施を完了扱いしない。**
 
-## 再開手順
-1. 最新mainとこの入口、ledger/motion_matrix.jsonを読む。公開サイトのcache version 20261008-lt-r5 と前景レイヤーを確認。8ペア16位相を実測し、人体と打点も画面で確認。
-2. LT:R局所Hit/Reboundは合格し正式画像へ反映。HT:Lは生成打点不一致で不合格、BD:RFとFT:Rは局所修正候補。環境切断で候補処理/連続QAが未完了。赤いガイドは参考だけで完成画像に含めない。LT打面は885,416付近、旧885,455は側面。
-3. HT左右、LT左右、FT左右、BD右足を制作し、合格部位だけ組み合わせて残20ペアを制作。BD旧735,650はドラム面で足の打点ではない。実際のペダル板を使用。
-4. 各ペアで人体・同一人物・Hit接触・Rebound離隔・固定部分を検査し、不合格は修正。GitHubに実体・台帳・失敗理由・次位置を保存する。
-5. 公開Webの全30動作60位相と再生、PC/モバイルを検証。画像の合格と読み込みの合格を区別する。
+## 失敗と修正
+BD逆向き靴不合格→後ろから見た踵を局所donor化、ペダルへ投影。BD白い矩形継ぎ目不合格→元のふくらはぎを変形して連続接続。HT:L下向きRebound不合格→回転符号修正。FT:R髪より上の切断袖の突起不合格→隠れる位置まで局所切り出しと移動。左袖の輪郭欠損不合格→元の黒い輪郭を含む範囲へ拡大。
 
-## 確定したチェック
-commit41635d06b706d8e399821f9ff80b369c87c3bc19のvalidateとRuntime Pose SN-L Source QAはGitHub Actions SUCCESS。以後の変更は改めて確認。画像の独立したReboundを使うようSN:R設定を修正済み。
-
-## 今回の公開実測
-9f45a995ca168da0fce884b46e80b064f7ee9f69 / r4: 8ペア16位相すべて正しいキー・位相・新PNG読み込み・前景canvasフレーム一致。Runtime Character QA、Character asset validation、deploy-siteはGitHub Actions SUCCESS。QA JSONは20261008/qa/browser_post_promote_8_pairs.json。新しい頭部mask修正後は再確認する。
-
-## r5自動検査
-commit3546e9e488c88879d1bfc8bd75d156308a9b366aのvalidate、Character asset validation、Runtime Character QA、Drum Runtime Browser QA、deploy-siteはGitHub Actions SUCCESS。これは個別画像の人体目視合格を置き換えない。既存Dropbox mirror workflowのみ失敗、GitHubのPNG/スクリプト/台帳は保存済み。
-
-## 最新ユーザー指示と次の位置
-- 髪が手前の場合、ドラム→スティック→髪の順。完全に隠れる箇所は評価・再構築不要。見えている人体と境界のみ評価。
-- r6: 元Neutralの髪画素だけを複製、旧右手を除外、y350未満を除外してライドを切らない。qa/hair_depth_source.json の画素不一致0。公開後の視覚評価は未完了。
-- BD局所生成2件を保存。最初はつま先方向逆で不合格、2件目は後ろ向きの部品候補で最終画像ではない。donors/right_boot_rear_candidate.png をペダルに局所投影し、元の膝・胴・左脚・ドラムを保護してHit/Reboundを作る。
-- scripts/add_hair_depth_layer.py は新規ベース用で再実行するとJSが重複する。現在の実装に再適用しない。
-
-## BD制作完了・公開検証待ち r7
-- 右足BDと既存合格腕を合成した9セット18枚を正式PNGへ反映。現在19セット38枚が静的QA合格、公開実測10セット20枚、残り11セット22枚。画像読み込み62等は人体合格枚数ではない。
-- 証跡 qa/bd_nine_pairs_source_v1.json、再現 scripts/make_bd_source_pair.py / compose_bd_pairs.py / promote_bd_source_pairs.py。膝より上・近い左脚は元画像と同一、腕差分と足差分の重複0。見えない所は評価しない。
-- 次はr7公開のBD9キー18位相と髪前景を検証。その後HT左右、LT左、FT左右、FT+SNと残りBD複合11セットを完成する。全作業は未完了。
+過去の環境切断履歴: 20261008/ENVIRONMENT_STOP_CHECKPOINT.md。現環境は復旧済み。
