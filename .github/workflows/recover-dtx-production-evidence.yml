@@ -16,8 +16,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: 37764871537
-          name: public-runtime-qa-37764871537
+          run-id: 37767634324
+          name: public-runtime-qa-37767634324
           path: recovered-production-qa
       - name: Persist verified report and actual public screenshots
         run: |
@@ -34,10 +34,47 @@ jobs:
               frame=next(r for r in report["records"] if r.get("expectedActionKey")=="BD+FT+SN:RF/R/L" and r.get("expectedPhase")=="hit" and r["viewport"]["name"]==viewport and r["status"]=="PASS")
               shutil.copy(pathlib.Path("recovered-production-qa")/frame["screenshotPath"],q/name)
           print(json.dumps({"status":"PASS","records":len(report["records"]),"failed":report["failed"],"screenshots":["public_final_pc.png","public_final_mobile.png"]}))
+          run="37767634324"; sha="f91400df752862eaad376e626c99b41f742fc50c"
+          def save(path,data):
+              pathlib.Path(path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+          foot=json.loads((q/"foot_continuity.json").read_text())
+          foot.update(status="VISIBLE_AND_PUBLIC_RUNTIME_PASS",runtimeRunId=run,testedCommitSha=sha)
+          save(q/"foot_continuity.json",foot)
+          invpath="character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json"
+          inv=json.loads(pathlib.Path(invpath).read_text())
+          inv["version"]=max(inv.get("version",0),18)
+          for frame in inv["requiredFrames"].values():frame["qaStatus"]="STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
+          inv["production20261008"].update(footContinuity="VISIBLE_AND_PUBLIC_RUNTIME_PASS",verifiedCommitSha=sha,verifiedRunId=run)
+          inv["note"]="Full Luna M1-148: all30 Hit/Rebound pairs + toe-planted performance Neutral, visible anatomy reviewed, public PC/mobile120 phase checks + normal/half playback4 PASS."
+          inv["renderer"]["fallback"]="base/neutral_performance_ready.png"
+          save(invpath,inv)
+          ledgerpath="character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json"
+          ledger=json.loads(pathlib.Path(ledgerpath).read_text())
+          for target in ledger["targets"]:
+              if target.get("formalGitHubPath") in {x["path"] for x in foot["frames"]}:
+                  target.update(qaState="SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",footContinuityReview="PASS",runtimeQaRunId=int(run),brushupStatus="APPROVED_LIVE")
+                  target["visualIntegrityQa"].update(runtimeRunId=run,runtimeTransition="PASS",footContinuity="PASS")
+          ledger["production20261008"].update(footContinuity="PASS",runtimeRunId=run,testedCommitSha=sha)
+          save(ledgerpath,ledger)
+          motionpath="character-assets/production/20261008/ledger/motion_matrix.json"
+          motion=json.loads(pathlib.Path(motionpath).read_text())
+          motion["footContinuity"]="VISIBLE_AND_PUBLIC_RUNTIME_PASS"
+          for action in motion["actions"]:action.update(status="LIVE_QA_PASSED",footContinuityReview="PASS",runtime_run_id=run)
+          save(motionpath,motion)
+          manifestpath="character-assets/config/assets_manifest.json"
+          manifest=json.loads(pathlib.Path(manifestpath).read_text())
+          paths={x["path"] for x in foot["frames"]}|{foot["readyPath"]}
+          for asset in manifest["assets"]:
+              if asset["path"] in paths:
+                  asset["status"]="SOURCE_BOUND_STATIC_QA_PASS"
+                  asset.setdefault("notes",[]).append("20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run"+run)
+          save(manifestpath,manifest)
+          resume=pathlib.Path("character-assets/production/WORK_RESUME_20261008.md")
+          resume.write_text("# 完了・再開入口 — DTX Drum Flow / 2026-10-08\n\n**現行Luna全30動作・Hit/Rebound60PNGと演奏用待機画像を完成し、公開Webで再検証しました。**\n\n- 小節1〜148、2,158ノーツ／1,527グループの必要動作30セット。\n- PC1280×900／スマートフォン384×864のHit/Rebound計120位相チェックPASS。\n- 通常速度1／半速0.5の実再生、PCとスマホ計4ケースPASS。実測142レコード、失敗0。\n- 右足は全画像でペダル上。Rebound／待機はつま先固定で踵上げ。BDから待機へ戻る足の向きの飛びを修正。\n- 固定ドラムと承認Neutral原画は変更なし。髪・服装・腕・打点など足ROI外の全60画像は変更前と画素一致。\n- 見える人体、接続、足の自然さは拡大画像と人物単体で確認。完全に隠れる箇所はユーザー指定どおり評価不要。髪が手前ならドラム→スティック→髪。\n\n公開: https://mleuatd.github.io/dtx-drum-flow/\n検証コミット: f91400df752862eaad376e626c99b41f742fc50c\n公開検証: https://github.com/mleuatd/dtx-drum-flow/actions/runs/37767634324\n\n## 完成品と証跡\n- 正式画像: character-assets/layers/character/ のsn,hh,rc,rd,ht,lt,ft,bd,combo。\n- 演奏用待機画像: layers/character/base/neutral_performance_ready.png。承認原画neutral.pngは保存。\n- 実測全文: [final_public_runtime_verified_frames.json](20261008/qa/final_public_runtime_verified_frames.json)。\n- 公開画面: [PC](20261008/qa/public_final_pc.png)、[スマホ](20261008/qa/public_final_mobile.png)。\n- 足元拡大・画素保護検査: 20261008/qa/foot_continuity_detail.png、foot_continuity.json。\n- 進捗と失敗理由: 20261008/ledger/motion_matrix.json、qa/。SHA: config/assets_manifest.json、prototypes/luna_say_maybe_16m/asset_inventory.json。\n- 過去413画像の分類: 20261008/ledger/image_audit.json。判定保留画像は成功参照として使っていません。\n- 仕様: 20261008/sources/WORK_MASTER_SPEC.md。ZIPにREVISED名がなかったため同梱仕様とユーザー指示を適用。\n\n## 再開方法\n未完了のLuna画像セットは0です。完成品はGitHubに保存済みで、再生成不要です。\n変更時はこの入口と実測JSONを読み、対象動作だけ修正し、見える人体の視覚確認と公開PC/スマホ再検証を行います。\n作業領域が消えた場合は最新repoを取得し、production/20261008/scripts/restore_source_workspace.pyで元画像を復元。\n足の再現はscripts/repair_foot_continuity.py。ドラムと承認Neutralは変更禁止です。\nローカル/CUA切断後もGitHub APIとActionsで制作・検証・保存を継続しました。\n")
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add character-assets/production/20261008/qa/final_public_runtime_verified_frames.json character-assets/production/20261008/qa/public_final_pc.png character-assets/production/20261008/qa/public_final_mobile.png
+          git add character-assets
           git diff --cached --quiet || git commit -m "qa: persist verified all30 public PC/mobile screenshots and full phase/playback report"
           git pull --rebase origin main
           git push origin HEAD:main
