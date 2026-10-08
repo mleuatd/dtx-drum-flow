@@ -6,17 +6,17 @@
   "manualPublicPhases": 38,
   "blocker": {
     "type": "RUNTIME_QA",
-    "workflowRunId": "37759877958",
+    "workflowRunId": "37761210867",
     "requiredNext": "Inspect runtime-qa.json/screenshots/job log; repair root cause before retry."
   },
   "runtimeQaEvidence": {
     "LUNA_ALL30_20261008": {
       "status": "FAIL",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "37759877958",
-      "testedCommitSha": "cb9c3f9a1ffcb7c094e4d7fbeeaa1486cf99c3e6",
-      "artifact": "public-runtime-qa-37759877958",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37759877958",
+      "runId": "37761210867",
+      "testedCommitSha": "adf3617828e5ae92f588297dcc39d71087d72cf7",
+      "artifact": "public-runtime-qa-37761210867",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37761210867",
       "measureStart": 1,
       "measureEnd": 148,
       "actions": [
@@ -159,5 +159,5 @@
     }
   ],
   "next": "Read LUNA_ALL30_20261008 evidence; fix concrete failing phase or playback if any. No unchanged retry.",
-  "updatedAt": "2026-10-08T09:56:32.292151+00:00"
+  "updatedAt": "2026-10-08T10:08:03.370916+00:00"
 }
