@@ -122,3 +122,7 @@
 - 変更マスク・比較・動作GIF・可視人体レビュー・全60枚SHA: 20261009/qa/。実測全文: public_runtime_verified_frames.json。公開画面: public_pc_hit.png / public_mobile_hit.png。公開動作GIF: public_motion.gif。制作比較: before_after.png / candidate_motion.gif。
 - 再現スクリプト: 20261009/scripts/build_pedal_leg_candidates.py とpromote_pedal_leg.py。旧20261008の足再現スクリプトは旧版であり、今回の基準へ無条件に上書きしない。
 - 公開: https://mleuatd.github.io/dtx-drum-flow/ 。進捗: 20261009/checkpoint.json（COMPLETED）。今回の未完了Lunaセット0。
+
+
+### 2026-10-09 19:02 JST 体の向きの追加修正 — 進行中
+右端シンバルは右向き、中央シンバル・タムは奥向き、HHは左向きの指定を受領。向きは顔だけでなく胸・肩も含む。修正済み右脚・ペダルと椅子位置を維持。修正前の固定ブランチ checkpoints/2026-10-09-before-body-orientation を保存済み。新作業の正本: 20261009/body-orientation/checkpoint.json とREQUEST.md。旧右向き画像は姿勢参考のみで全体採用不可。右向きRC Hit局所編集を開始。まだ新しい向きの正式画像・公開検証は未完了。前節の完了は足・ペダル修正に関するものであり、この新作業の完了ではない。

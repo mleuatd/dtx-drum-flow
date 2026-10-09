@@ -1,0 +1,32 @@
+{
+  "status": "IN_PROGRESS_NOT_PUBLISHED",
+  "requestedAt": "2026-10-09T19:02:14+09:00",
+  "baselineSha": "9ffb890f70529ae9ba47e21325d8d328d1c97836",
+  "baselineBranch": "checkpoints/2026-10-09-before-body-orientation",
+  "rules": {
+    "screenRightmostCrashRC": "RIGHT_REQUIRED: head,neck,shoulders,chest turn together; include RC+SN and BD+RC variants",
+    "centralRideRDAndToms": "AWAY: back-facing camera, toward drums, neither left nor right",
+    "hiHatHH": "LEFT",
+    "opposedLeftRightSimultaneous": "AWAY; RC mandatory-right instruction takes priority if both apply",
+    "snareOnlyAndBassOnlyAndReady": "AWAY"
+  },
+  "protected": [
+    "20261009 corrected right-leg and boots",
+    "fixed revised one-layer drum SHA dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+    "stool position",
+    "identity, clothing, body proportions",
+    "existing Hit stick contacts"
+  ],
+  "oldReferences": [
+    {
+      "path": "character-assets/generation-trials/rc-r-chair-alignment/rc_r_hit_chair_aligned_to_hh.png",
+      "status": "POSE_REFERENCE_ONLY_NOT_APPROVED_DONOR",
+      "reason": "Right-facing upper body present, but old boots/stool differ; must not replace current lower body wholesale"
+    }
+  ],
+  "progress": {
+    "candidateGeneration": "right-facing RC Hit local edit started",
+    "publishedNewOrientation": false
+  },
+  "next": "Inspect right-facing RC Hit edit; preserve exact protected pixels through assembly, produce matching Rebound; verify before promotion. Then all30action assignments and live PC/mobile QA."
+}
