@@ -1,0 +1,74 @@
+name: Body orientation rejected-candidate evidence
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/body-orientation-recovery-evidence.yml'
+      - 'character-assets/production/20261009/body-orientation/scripts/**'
+permissions:
+  contents: write
+concurrency:
+  group: body-orientation-recovery-evidence
+  cancel-in-progress: false
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild rejected candidates without touching formal images
+        run: |
+          pip install numpy pillow opencv-python-headless
+          for version in 4 5 6 7 8 9 10 11 12 15; do
+            python character-assets/production/20261009/body-orientation/scripts/build_rc_v${version}.py
+          done
+          python character-assets/production/20261009/body-orientation/scripts/build_rc_rebound_v13.py
+          python character-assets/production/20261009/body-orientation/scripts/check_recovery_evidence.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install baseline public browser QA
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Test unchanged public baseline on PC and mobile
+        id: baseline_qa
+        continue-on-error: true
+        env:
+          GITHUB_SHA: ''
+          PUBLIC_URL: https://mleuatd.github.io/dtx-drum-flow/
+          MEASURE_START: '1'
+          MEASURE_END: '148'
+          QA_ACTIONS: 'RC:R,BD+RC:RF/R,RC+SN:R/L,BD+RC+SN:RF/R/L,RD:R,HT:L,HT:R,LT:L,LT:R,FT:L,FT:R'
+        run: node tools/runtime-character-qa.mjs
+      - name: Label and preserve actual baseline QA result
+        if: always()
+        env:
+          QA_OUTCOME: ${{ steps.baseline_qa.outcome }}
+        run: |
+          python - <<'PY'
+          import json,os,shutil
+          from pathlib import Path
+          out=Path('character-assets/production/20261009/body-orientation/qa/baseline-public')
+          out.mkdir(parents=True,exist_ok=True)
+          source=Path('qa-artifacts')
+          if source.exists():shutil.copytree(source,out,dirs_exist_ok=True)
+          (out/'scope.json').write_text(json.dumps({'scope':'UNCHANGED_FORMAL_BASELINE_ONLY','newOrientationApproved':False,'newOrientationPublished':False,'outcome':os.environ.get('QA_OUTCOME'),'runId':os.environ['GITHUB_RUN_ID'],'runUrl':'https://github.com/mleuatd/dtx-drum-flow/actions/runs/'+os.environ['GITHUB_RUN_ID']},indent=2)+'\n')
+          PY
+      - name: Commit rejected PNGs and evidence
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add character-assets/production/20261009/body-orientation/candidates character-assets/production/20261009/body-orientation/qa
+          git diff --cached --quiet || git commit -m 'assets: preserve rejected orientation trials and baseline browser evidence'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rejected-orientation-recovery-evidence
+          path: character-assets/production/20261009/body-orientation

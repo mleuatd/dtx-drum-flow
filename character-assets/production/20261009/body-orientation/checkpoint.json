@@ -1,5 +1,5 @@
 {
-  "status": "STOPPED_UNAPPROVED_NO_NEW_IMAGE_PROMOTED",
+  "status": "INCOMPLETE_QUALITY_FAILED_NO_PROMOTION",
   "requestedAt": "2026-10-09T19:02:14+09:00",
   "baselineSha": "9ffb890f70529ae9ba47e21325d8d328d1c97836",
   "baselineBranch": "checkpoints/2026-10-09-before-body-orientation",
@@ -29,10 +29,11 @@
     "publishedNewOrientation": false,
     "previousAttempts": "Raw Hit/Rebound and masked trials failed visible joins; they were not committed as named files before interruption; local workspace has been lost.",
     "candidateFilesCommitted": true,
-    "latestTrial": "v3 REJECTED; raw/registered/composite/mask are GitHub tracked",
-    "latestReview": "2026-10-09 23:00 JST: inspected main and prior v3 rejected state; no new image built or approved in this session; public PC/mobile QA for orientation not run."
+    "latestTrial": "v15 REJECTED; v4-v12, v13 Rebound and v15 are retained",
+    "latestReview": "2026-10-09: actual PNGs recovered; 10 Hit candidates and 1 Rebound candidate reviewed; all rejected."
   },
-  "next": "Recover actual trial PNGs from GitHub and original character upper-body layers into a binary-capable workspace. Inspect v3 rejected shoulder/coat/hair seam. Preserve current foot+pedal+stool below y590 as pixel-identical. Make only upper-body right-facing RC Hit/Rebound, visually approve both and verify identity/arms/contacts. After approval propagate combos and away-facing RD/toms. Run public PC+mobile runtime QA, commit evidence and update this canonical record.",
+  "next": "Reject automatic whole-strip blending/flow as an approval method. Use source-bound contour editing with a clean shoulder/hair junction; v3 and all new trials remain rejected. Rebuild RC Hit/Rebound before propagating any combo or central poses.",
   "resumedAt": "2026-10-09T21:31:02+09:00",
-  "stopReason": "Image asset bytes are not available to the local image-editing runtime: repository clone fails DNS resolution; GitHub connector supports reading and committing text but does not mount editable binary PNGs. No reliable right-facing seam edit, pixel-level protection test, or live browser QA could be performed. Do not promote v3."
+  "stopReason": "DNS retrieval resolved. New source-bound masking/flow/seam trials fail visible hair/sleeve joints or elbow continuity. No trustworthy pair approved; do not publish failed images.",
+  "evidence": "qa/resume_attempt_20261009.json"
 }
