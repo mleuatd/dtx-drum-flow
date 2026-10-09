@@ -6,6 +6,9 @@ report=json.loads((O/'qa/resume_attempt_20261009.json').read_text());checks=[]
 for e in report['trials']:
  p=R/e['file'];a=np.array(Image.open(p).convert('RGBA'));b=np.array(Image.open(R/f"character-assets/layers/character/rc/{e['phase']}_r_refresh.png").convert('RGBA'))
  assert np.array_equal(a[590:],b[590:]),p
+ mp=O/'qa'/(f"rc_rebound_v13_mechanical.json" if e['version']==13 else f"rc_v{e['version']}_mechanical.json")
+ if mp.exists():
+  q=json.loads(mp.read_text());q['status']='REJECTED';q['rejectionReason']=e['reason'];mp.write_text(json.dumps(q,indent=2)+'\n')
  e['sha256']=hashlib.sha256(p.read_bytes()).hexdigest();checks.append({'path':e['file'],'lower_y590_equal':True,'visualStatus':'REJECTED'})
 for p,sha in report['protectedSourceHashes'].items():assert hashlib.sha256((R/p).read_bytes()).hexdigest()==sha,p
 report['mechanicalProtection']={'formalSourceFilesUnchanged':True,'candidateLowerBodiesIdentical':checks};report['acceptedPairs']=0
