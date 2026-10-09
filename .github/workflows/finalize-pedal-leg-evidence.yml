@@ -1,0 +1,88 @@
+name: Persist pedal-leg final public evidence
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/finalize-pedal-leg-evidence.yml"]
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 37913174806
+          name: public-runtime-qa-37913174806
+          path: recovered-pedal-qa
+      - run: pip install pillow
+      - name: Persist exact public evidence and complete ledgers
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import json,pathlib,shutil,hashlib
+          from PIL import Image
+          root=pathlib.Path("character-assets/production/20261009")
+          q=root/"qa";run="37913174806";sha="75a72aee12ae0de6185e97f08f548379b48efed8"
+          report=json.loads(pathlib.Path("recovered-pedal-qa/runtime-qa.json").read_text())
+          assert report["failed"]==0 and report["commitSha"]==sha
+          phases=[r for r in report["records"] if r.get("expectedPhase") in ["hit","rebound"]]
+          assert len(phases)==120
+          assert all(r["sourceIntegrity"]["character"]["ok"] and r["sourceIntegrity"]["drum"]["ok"] and r["foregroundLayers"]["visibleDrumLayers"]==1 for r in phases)
+          def save(path,data):
+              pathlib.Path(path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+          save(q/"public_runtime_verified_frames.json",report)
+          for viewport,tag in [("pc","pc"),("xperia-portrait","mobile")]:
+              for phase in ["hit","rebound","neutral"]:
+                  r=next(r for r in report["records"] if r["viewport"]["name"]==viewport and r.get("expectedPhase")==phase and r["status"]=="PASS" and (phase=="neutral" or r["expectedActionKey"]=="BD:RF"))
+                  shutil.copy(pathlib.Path("recovered-pedal-qa")/r["screenshotPath"],q/f"public_{tag}_{phase}.png")
+          frames=[Image.open(q/f"public_pc_{phase}.png").convert("RGB") for phase in ["neutral","hit","rebound","neutral"]]
+          frames[0].save(q/"public_motion.gif",save_all=True,append_images=frames[1:],duration=[600,350,450,600],loop=0)
+          promotion=json.loads((q/"promotion_report.json").read_text())
+          promotion.update(status="COMPLETED_VISIBLE_AND_PUBLIC_RUNTIME_PASS",verifiedRunId=run,testedCommitSha=sha,phaseChecks=120,playbackCases=4,failed=0)
+          save(q/"promotion_report.json",promotion)
+          ip=pathlib.Path("character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json");inv=json.loads(ip.read_text())
+          for f in inv["requiredFrames"].values():f["qaStatus"]="STATIC_VISIBLE_AND_PUBLIC_RUNTIME_PASS"
+          inv["production20261008"].update(pedalLegRevision20261009="VISIBLE_AND_PUBLIC_RUNTIME_PASS",verifiedRunId=run,verifiedCommitSha=sha)
+          save(ip,inv)
+          lp=pathlib.Path("character-assets/edit-workspaces/character-brushup-20260919/BRUSHUP_LEDGER.json");ledger=json.loads(lp.read_text())
+          paths={r["path"] for r in promotion["frames"]}
+          for target in ledger["targets"]:
+              if target.get("formalGitHubPath") in paths:
+                  target.update(qaState="SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",pedalLegRevision20261009="PASS",runtimeQaRunId=int(run),brushupStatus="APPROVED_LIVE")
+                  target["visualIntegrityQa"].update(runtimeRunId=run,humanAnatomy="PASS",fixedDrumComposite="PASS",runtimeTransition="PASS",pedalLegRevision20261009="PASS")
+          ledger["production20261008"].update(pedalLegRevision20261009="PASS",runtimeRunId=run,testedCommitSha=sha)
+          save(lp,ledger)
+          mm=pathlib.Path("character-assets/production/20261008/ledger/motion_matrix.json");motion=json.loads(mm.read_text())
+          for a in motion["actions"]:a.update(status="LIVE_QA_PASSED",pedalLegRevision20261009="PASS",runtime_run_id=run)
+          save(mm,motion)
+          mp=pathlib.Path("character-assets/config/assets_manifest.json");manifest=json.loads(mp.read_text())
+          for a in manifest["assets"]:
+              assert hashlib.sha256(pathlib.Path(a["path"]).read_bytes()).hexdigest()==a["sha256"],a["path"]
+              with Image.open(a["path"]) as image:image.load()
+              if a["path"] in paths or a["path"].endswith("neutral_performance_ready.png") or a["path"].endswith("drum_base.png"):
+                  a.setdefault("notes",[]).append("20261009 pedal/right-leg visible anatomy PASS; public120 exact-source/one rear drum checks and four normal/half playback cases PASS; run"+run)
+              if a["path"].endswith("drum_foreground_occlusion.png"):
+                  a.setdefault("notes",[]).append("Historical foreground source retained; must stay CSS-hidden after single rear drum pedal revision. Public120 checks confirm hidden.")
+          manifest["drumRevision20261009"].update(status="VISIBLE_AND_PUBLIC_RUNTIME_PASS",verifiedRunId=run)
+          save(mp,manifest)
+          save(root/"checkpoint.json",{"status":"COMPLETED","baselineSha":"33e17e37fd235ad474b61219e664670d9818c344","baselineBranch":"checkpoints/2026-10-09-before-pedal-leg-alignment","testedCommitSha":sha,"verifiedRunId":run,"remainingLunaPairs":0,"next":"No unfinished revision. Read WORK_RESUME_20261008.md before any further edit; current drum is the new fixed baseline, previous source remains preserved."})
+          save(q/"local_workspace_recovery.json",{"status":"RESOLVED","reason":"Two transient local PNG copies failed decode/SHA after local candidate save. Restored from GitHub main; all65 registered local PNGs decode and SHA PASS. Public source SHA verified independently for all120 phases.","formalGitHubAssets":"Public browser120 checks PASS, no mismatch."})
+          resume=pathlib.Path("character-assets/production/WORK_RESUME_20261008.md")
+          s=resume.read_text()
+          s=s.replace("> 最新状態: 2026-10-09 右脚＋ペダルの局所修正を反映済み。公開再検証待ち。過去の完了報告は旧版の記録です。","> 最新状態: 2026-10-09 右脚＋ペダル修正・全60枚反映・公開PC/スマホ再検証・保存を完了。詳細は末尾の最新完了記録。過去の完了報告は各旧版の記録です。")
+          s+="\n\n### 2026-10-09 右脚＋ペダル局所修正 — 完了\n- 修正前の固定ブランチ: checkpoints/2026-10-09-before-pedal-leg-alignment（33e17e37fd235ad474b61219e664670d9818c344）。原画の実体は20261009/baseline/にも保存。\n- 既存ペダルを18度回転・25px左へ移し、必要な接続部と旧位置だけを元画像の鉛筆線で補修。ペダルはdrum_base.pngに統合、最背面のドラム1枚のみ表示。旧ドラム前景は非表示のまま保存。\n- 右脚の靴先が急に右へ張り出す形を修正。膝からふくらはぎ・靴の接続を確認。Hitは踏み込み、待機/Reboundはつま先位置を保持して踵6px上げ。隠れる部分は評価対象外。\n- 同一人物・上半身・髪・腕・衣服・左脚と既存の打点を維持。全60枚は足ROI外が変更前と画素一致。ドラムは変更マスク外が画素一致。\n- 不合格候補: 旧位置補修の線が濃すぎ、靴先の断片が残った初回案は棄却。元の薄い鉛筆線のテクスチャと後ろ姿の輪郭へ修正。\n- 正式60PNGと演奏待機へ反映済み。新固定ドラムSHA: "+manifest["lockedDrumSha256"]+"。旧固定原画SHAはmanifest.previousLockedDrumSha25620261008に保存。\n- 公開検証コミット: "+sha+"。実ブラウザQA: https://github.com/mleuatd/dtx-drum-flow/actions/runs/"+run+" 。PC/スマホ120位相・公開画像SHA・ドラム1枚/最背面/前景非表示・通常速度/半速4実再生ケースすべてPASS。142実測、失敗0。\n- 変更マスク・比較・動作GIF・可視人体レビュー・全60枚SHA: 20261009/qa/。実測全文: public_runtime_verified_frames.json。公開画面: public_pc_hit.png / public_mobile_hit.png。公開動作GIF: public_motion.gif。制作比較: before_after.png / candidate_motion.gif。\n- 再現スクリプト: 20261009/scripts/build_pedal_leg_candidates.py とpromote_pedal_leg.py。旧20261008の足再現スクリプトは旧版であり、今回の基準へ無条件に上書きしない。\n- 公開: https://mleuatd.github.io/dtx-drum-flow/ 。進捗: 20261009/checkpoint.json（COMPLETED）。今回の未完了Lunaセット0。\n"
+          resume.write_text(s)
+          print(json.dumps({"status":"COMPLETE","phaseChecks":120,"playbackCases":4,"failed":0,"registeredAssets":len(manifest["assets"])}))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets
+          git diff --cached --quiet || git commit -m "qa: complete pedal-leg revision and persist actual public PC/mobile evidence"
+          git pull --rebase origin main
+          git push origin HEAD:main
