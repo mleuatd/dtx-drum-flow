@@ -176,6 +176,15 @@
       "status": "REJECTED",
       "visualReview": "Direct full image and selected enlarged join inspection",
       "reason": "Lower hair has a visible zigzag cut; extra donor stick fragment near crash conflicts with preserved contact."
+    },
+    {
+      "version": 16,
+      "phase": "hit",
+      "file": "character-assets/production/20261009/body-orientation/candidates/rc_hit_v16.png",
+      "sha256": "e1a90797ca0825a977de1b29ee912521ebb774fb08b8fae38bbbb728f32a0a8a",
+      "status": "REJECTED",
+      "visualReview": "Direct full image inspection",
+      "reason": "Artificial white band with straight bridging strokes changes pencil texture; cuff/left sleeve connection remains cut."
     }
   ],
   "next": "Reject automatic whole-strip blending/flow as an approval method. Use source-bound contour editing with a clean shoulder/hair junction; v3 and all new trials remain rejected. Rebuild RC Hit/Rebound before propagating any combo or central poses.",
@@ -235,6 +244,11 @@
       },
       {
         "path": "character-assets/production/20261009/body-orientation/candidates/rc_hit_v15.png",
+        "lower_y590_equal": true,
+        "visualStatus": "REJECTED"
+      },
+      {
+        "path": "character-assets/production/20261009/body-orientation/candidates/rc_hit_v16.png",
         "lower_y590_equal": true,
         "visualStatus": "REJECTED"
       }

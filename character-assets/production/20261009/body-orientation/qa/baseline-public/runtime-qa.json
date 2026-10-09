@@ -1,0 +1,4180 @@
+{
+  "commitSha": "",
+  "deployment": {
+    "version": "POST-FIX",
+    "commitSha": "75a72aee12ae0de6185e97f08f548379b48efed8",
+    "builtAt": "2026-10-09T09:44:41Z",
+    "expectedCommitSha": "",
+    "acceptedDeploymentSha": "75a72aee12ae0de6185e97f08f548379b48efed8"
+  },
+  "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+  "workflowRunId": "37944939055",
+  "measureRange": [
+    1,
+    148
+  ],
+  "selectedActions": [
+    {
+      "measure": 27,
+      "time": 49.175014,
+      "key": "RC:R"
+    },
+    {
+      "measure": 103,
+      "time": 181.045518,
+      "key": "BD+RC:RF/R"
+    },
+    {
+      "measure": 27,
+      "time": 49.606669,
+      "key": "RC+SN:R/L"
+    },
+    {
+      "measure": 68,
+      "time": 120.398036,
+      "key": "BD+RC+SN:RF/R/L"
+    },
+    {
+      "measure": 63,
+      "time": 111.764942,
+      "key": "RD:R"
+    },
+    {
+      "measure": 45,
+      "time": 80.469978,
+      "key": "HT:L"
+    },
+    {
+      "measure": 76,
+      "time": 134.318899,
+      "key": "HT:R"
+    },
+    {
+      "measure": 69,
+      "time": 122.124655,
+      "key": "LT:L"
+    },
+    {
+      "measure": 148,
+      "time": 258.851273,
+      "key": "LT:R"
+    },
+    {
+      "measure": 17,
+      "time": 32.664223,
+      "key": "FT:L"
+    },
+    {
+      "measure": 17,
+      "time": 32.556309,
+      "key": "FT:R"
+    }
+  ],
+  "testedAt": "2026-10-09T14:35:58.457Z",
+  "failed": 0,
+  "passed": 56,
+  "records": [
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:30.246Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 27,
+      "testedTime": 49.187014,
+      "expectedActionKey": "RC:R",
+      "actualActionKey": "RC:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/rc/hit_r_refresh.png",
+      "actualFrame": "layers/character/rc/hit_r_refresh.png",
+      "limbs": "RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rc/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "expectedSha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rc/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m27_RC_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:30.608Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 27,
+      "testedTime": 49.3340913312,
+      "expectedActionKey": "RC:R",
+      "actualActionKey": "RC:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/rc/rebound_r_refresh.png",
+      "actualFrame": "layers/character/rc/rebound_r_refresh.png",
+      "limbs": "RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rc/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "expectedSha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rc/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m27_RC_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:30.965Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 103,
+      "testedTime": 181.057518,
+      "expectedActionKey": "BD+RC:RF/R",
+      "actualActionKey": "BD+RC:RF/R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/combo/bd_rc_hit.png",
+      "actualFrame": "layers/character/combo/bd_rc_hit.png",
+      "limbs": "BD:RF,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_hit.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "expectedSha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_hit.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m103_BD_RC_RF_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:31.313Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 103,
+      "testedTime": 181.273518,
+      "expectedActionKey": "BD+RC:RF/R",
+      "actualActionKey": "BD+RC:RF/R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/combo/bd_rc_rebound.png",
+      "actualFrame": "layers/character/combo/bd_rc_rebound.png",
+      "limbs": "BD:RF,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_rebound.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "expectedSha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_rebound.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m103_BD_RC_RF_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:31.668Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 103,
+      "testedTime": 181.337518,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m103_BD_RC_RF_R_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:32.034Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 27,
+      "testedTime": 49.618669,
+      "expectedActionKey": "RC+SN:R/L",
+      "actualActionKey": "RC+SN:R/L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/combo/rc_sn_hit_refresh.png",
+      "actualFrame": "layers/character/combo/rc_sn_hit_refresh.png",
+      "limbs": "SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/rc_sn_hit_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "expectedSha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/rc_sn_hit_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m27_RC_SN_R_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:32.398Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 27,
+      "testedTime": 49.834669,
+      "expectedActionKey": "RC+SN:R/L",
+      "actualActionKey": "RC+SN:R/L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/combo/rc_sn_rebound_refresh.png",
+      "actualFrame": "layers/character/combo/rc_sn_rebound_refresh.png",
+      "limbs": "SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/rc_sn_rebound_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "expectedSha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/rc_sn_rebound_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m27_RC_SN_R_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:32.736Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 27,
+      "testedTime": 49.898669,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m27_RC_SN_R_L_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:33.077Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 68,
+      "testedTime": 120.410036,
+      "expectedActionKey": "BD+RC+SN:RF/R/L",
+      "actualActionKey": "BD+RC+SN:RF/R/L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "actualFrame": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "limbs": "BD:RF,SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "expectedSha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:33.544Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 68,
+      "testedTime": 120.62603600000001,
+      "expectedActionKey": "BD+RC+SN:RF/R/L",
+      "actualActionKey": "BD+RC+SN:RF/R/L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "actualFrame": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "limbs": "BD:RF,SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "expectedSha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:33.845Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 68,
+      "testedTime": 120.690036,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m68_BD_RC_SN_RF_R_L_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:34.226Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 63,
+      "testedTime": 111.776942,
+      "expectedActionKey": "RD:R",
+      "actualActionKey": "RD:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/rd/hit_r_refresh.png",
+      "actualFrame": "layers/character/rd/hit_r_refresh.png",
+      "limbs": "RD:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rd/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
+          "expectedSha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rd/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m63_RD_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:34.662Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 63,
+      "testedTime": 111.9240193312,
+      "expectedActionKey": "RD:R",
+      "actualActionKey": "RD:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/rd/rebound_r_refresh.png",
+      "actualFrame": "layers/character/rd/rebound_r_refresh.png",
+      "limbs": "RD:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rd/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
+          "expectedSha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rd/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m63_RD_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:35.008Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 45,
+      "testedTime": 80.481978,
+      "expectedActionKey": "HT:L",
+      "actualActionKey": "HT:L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ht/hit_l_refresh.png",
+      "actualFrame": "layers/character/ht/hit_l_refresh.png",
+      "limbs": "HT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/hit_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "4e284f8eea9ba4ebb4ded4b1d8a9caf28ce03449d19db2ad0cd68ef1848c9d46",
+          "expectedSha256": "4e284f8eea9ba4ebb4ded4b1d8a9caf28ce03449d19db2ad0cd68ef1848c9d46",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/hit_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m45_HT_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:35.341Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 45,
+      "testedTime": 80.5480766656,
+      "expectedActionKey": "HT:L",
+      "actualActionKey": "HT:L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ht/rebound_l_refresh.png",
+      "actualFrame": "layers/character/ht/rebound_l_refresh.png",
+      "limbs": "HT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/rebound_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
+          "expectedSha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/rebound_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m45_HT_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:35.658Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 76,
+      "testedTime": 134.330899,
+      "expectedActionKey": "HT:R",
+      "actualActionKey": "HT:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ht/hit_r_refresh.png",
+      "actualFrame": "layers/character/ht/hit_r_refresh.png",
+      "limbs": "HT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "72459beecd91b4f44217f5bc68b4d1e09aa95c30012b8cb401adf68bbd537d30",
+          "expectedSha256": "72459beecd91b4f44217f5bc68b4d1e09aa95c30012b8cb401adf68bbd537d30",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m76_HT_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:35.971Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 76,
+      "testedTime": 134.3969976656,
+      "expectedActionKey": "HT:R",
+      "actualActionKey": "HT:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ht/rebound_r_refresh.png",
+      "actualFrame": "layers/character/ht/rebound_r_refresh.png",
+      "limbs": "HT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
+          "expectedSha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m76_HT_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:36.307Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 69,
+      "testedTime": 122.136655,
+      "expectedActionKey": "LT:L",
+      "actualActionKey": "LT:L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/lt/hit_l_refresh.png",
+      "actualFrame": "layers/character/lt/hit_l_refresh.png",
+      "limbs": "LT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/hit_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "d88e5557f19bd4f8f7ffbf7e9da7df366ccba4dc3fbdbb2dc4438a372d87c2a8",
+          "expectedSha256": "d88e5557f19bd4f8f7ffbf7e9da7df366ccba4dc3fbdbb2dc4438a372d87c2a8",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/hit_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m69_LT_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:36.625Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 69,
+      "testedTime": 122.28373158080001,
+      "expectedActionKey": "LT:L",
+      "actualActionKey": "LT:L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/lt/rebound_l_refresh.png",
+      "actualFrame": "layers/character/lt/rebound_l_refresh.png",
+      "limbs": "LT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/rebound_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "4f08851487f84daae75dba979b338f0b40a5ef632fba7a7e83b34e18c9c4cc41",
+          "expectedSha256": "4f08851487f84daae75dba979b338f0b40a5ef632fba7a7e83b34e18c9c4cc41",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/rebound_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m69_LT_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:36.938Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 148,
+      "testedTime": 258.863273,
+      "expectedActionKey": "LT:R",
+      "actualActionKey": "LT:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/lt/hit_r_refresh.png",
+      "actualFrame": "layers/character/lt/hit_r_refresh.png",
+      "limbs": "LT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
+          "expectedSha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m148_LT_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:37.260Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 148,
+      "testedTime": 259.079273,
+      "expectedActionKey": "LT:R",
+      "actualActionKey": "LT:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/lt/rebound_r_refresh.png",
+      "actualFrame": "layers/character/lt/rebound_r_refresh.png",
+      "limbs": "LT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
+          "expectedSha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m148_LT_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:37.557Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 148,
+      "testedTime": 259.14327299999997,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m148_LT_R_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:37.888Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 17,
+      "testedTime": 32.676223,
+      "expectedActionKey": "FT:L",
+      "actualActionKey": "FT:L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ft/hit_l_refresh.png",
+      "actualFrame": "layers/character/ft/hit_l_refresh.png",
+      "limbs": "FT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/hit_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "2b6bfe2193f7cdadc0f986cb47c303a8deb145a0136ff7a98ca637f7603e8f3c",
+          "expectedSha256": "2b6bfe2193f7cdadc0f986cb47c303a8deb145a0136ff7a98ca637f7603e8f3c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/hit_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m17_FT_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:38.206Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 17,
+      "testedTime": 32.7423216656,
+      "expectedActionKey": "FT:L",
+      "actualActionKey": "FT:L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ft/rebound_l_refresh.png",
+      "actualFrame": "layers/character/ft/rebound_l_refresh.png",
+      "limbs": "FT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/rebound_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
+          "expectedSha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/rebound_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m17_FT_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:38.541Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 17,
+      "testedTime": 32.568309,
+      "expectedActionKey": "FT:R",
+      "actualActionKey": "FT:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ft/hit_r_refresh.png",
+      "actualFrame": "layers/character/ft/hit_r_refresh.png",
+      "limbs": "FT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
+          "expectedSha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m17_FT_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:38.876Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "measure": 17,
+      "testedTime": 32.6344076656,
+      "expectedActionKey": "FT:R",
+      "actualActionKey": "FT:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ft/rebound_r_refresh.png",
+      "actualFrame": "layers/character/ft/rebound_r_refresh.png",
+      "limbs": "FT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
+          "expectedSha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "pc/m17_FT_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "kind": "PLAYBACK",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "playbackSpeed": 1,
+      "samples": [
+        {
+          "time": 10.1104,
+          "frame": "layers/character/hh/hit_r.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.3315,
+          "frame": "layers/character/bd/hit_rf.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.5485,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.7434,
+          "frame": "layers/character/rd/rebound_r_refresh.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.9142,
+          "frame": "layers/character/sn/rebound_l.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.1119,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.2896,
+          "frame": "layers/character/bd/hit_rf.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.4726,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.66,
+          "frame": "layers/character/sn/hit_l.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.8436,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 12.0303,
+          "frame": "layers/character/rd/rebound_r_refresh.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 12.2119,
+          "frame": "layers/character/combo/bd_rc_rebound.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "kind": "PLAYBACK",
+      "viewport": {
+        "name": "pc",
+        "width": 1280,
+        "height": 900
+      },
+      "playbackSpeed": 0.5,
+      "samples": [
+        {
+          "time": 10.0609,
+          "frame": "layers/character/base/neutral_performance_ready.png",
+          "phase": "neutral",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.14145,
+          "frame": "layers/character/hh/hit_r.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.24425,
+          "frame": "layers/character/hh/rebound_r.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.3277,
+          "frame": "layers/character/bd/hit_rf.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.4206,
+          "frame": "layers/character/bd/rebound_rf.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.5275,
+          "frame": "layers/character/base/neutral_performance_ready.png",
+          "phase": "neutral",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.6183,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.7114,
+          "frame": "layers/character/base/neutral_performance_ready.png",
+          "phase": "neutral",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.7948,
+          "frame": "layers/character/sn/hit_l.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.8969,
+          "frame": "layers/character/sn/rebound_l.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.9778,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.06635,
+          "frame": "layers/character/rd/rebound_r_refresh.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:46.735Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 27,
+      "testedTime": 49.187014,
+      "expectedActionKey": "RC:R",
+      "actualActionKey": "RC:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/rc/hit_r_refresh.png",
+      "actualFrame": "layers/character/rc/hit_r_refresh.png",
+      "limbs": "RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rc/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "expectedSha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rc/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m27_RC_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:47.004Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 27,
+      "testedTime": 49.3340913312,
+      "expectedActionKey": "RC:R",
+      "actualActionKey": "RC:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/rc/rebound_r_refresh.png",
+      "actualFrame": "layers/character/rc/rebound_r_refresh.png",
+      "limbs": "RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rc/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "expectedSha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rc/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m27_RC_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:47.289Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 103,
+      "testedTime": 181.057518,
+      "expectedActionKey": "BD+RC:RF/R",
+      "actualActionKey": "BD+RC:RF/R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/combo/bd_rc_hit.png",
+      "actualFrame": "layers/character/combo/bd_rc_hit.png",
+      "limbs": "BD:RF,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_hit.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "expectedSha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_hit.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m103_BD_RC_RF_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:47.571Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 103,
+      "testedTime": 181.273518,
+      "expectedActionKey": "BD+RC:RF/R",
+      "actualActionKey": "BD+RC:RF/R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/combo/bd_rc_rebound.png",
+      "actualFrame": "layers/character/combo/bd_rc_rebound.png",
+      "limbs": "BD:RF,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_rebound.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "expectedSha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_rebound.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m103_BD_RC_RF_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:47.833Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 103,
+      "testedTime": 181.337518,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m103_BD_RC_RF_R_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:48.085Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 27,
+      "testedTime": 49.618669,
+      "expectedActionKey": "RC+SN:R/L",
+      "actualActionKey": "RC+SN:R/L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/combo/rc_sn_hit_refresh.png",
+      "actualFrame": "layers/character/combo/rc_sn_hit_refresh.png",
+      "limbs": "SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/rc_sn_hit_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "expectedSha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/rc_sn_hit_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m27_RC_SN_R_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:48.356Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 27,
+      "testedTime": 49.834669,
+      "expectedActionKey": "RC+SN:R/L",
+      "actualActionKey": "RC+SN:R/L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/combo/rc_sn_rebound_refresh.png",
+      "actualFrame": "layers/character/combo/rc_sn_rebound_refresh.png",
+      "limbs": "SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/rc_sn_rebound_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "expectedSha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/rc_sn_rebound_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m27_RC_SN_R_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:48.619Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 27,
+      "testedTime": 49.898669,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m27_RC_SN_R_L_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:48.903Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 68,
+      "testedTime": 120.410036,
+      "expectedActionKey": "BD+RC+SN:RF/R/L",
+      "actualActionKey": "BD+RC+SN:RF/R/L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "actualFrame": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "limbs": "BD:RF,SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "expectedSha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m68_BD_RC_SN_RF_R_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:49.170Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 68,
+      "testedTime": 120.62603600000001,
+      "expectedActionKey": "BD+RC+SN:RF/R/L",
+      "actualActionKey": "BD+RC+SN:RF/R/L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "actualFrame": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "limbs": "BD:RF,SN:L,RC:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "expectedSha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m68_BD_RC_SN_RF_R_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:49.433Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 68,
+      "testedTime": 120.690036,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m68_BD_RC_SN_RF_R_L_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:49.713Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 63,
+      "testedTime": 111.776942,
+      "expectedActionKey": "RD:R",
+      "actualActionKey": "RD:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/rd/hit_r_refresh.png",
+      "actualFrame": "layers/character/rd/hit_r_refresh.png",
+      "limbs": "RD:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rd/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
+          "expectedSha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rd/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m63_RD_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:49.981Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 63,
+      "testedTime": 111.9240193312,
+      "expectedActionKey": "RD:R",
+      "actualActionKey": "RD:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/rd/rebound_r_refresh.png",
+      "actualFrame": "layers/character/rd/rebound_r_refresh.png",
+      "limbs": "RD:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/rd/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
+          "expectedSha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/rd/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m63_RD_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:50.248Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 45,
+      "testedTime": 80.481978,
+      "expectedActionKey": "HT:L",
+      "actualActionKey": "HT:L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ht/hit_l_refresh.png",
+      "actualFrame": "layers/character/ht/hit_l_refresh.png",
+      "limbs": "HT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/hit_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "4e284f8eea9ba4ebb4ded4b1d8a9caf28ce03449d19db2ad0cd68ef1848c9d46",
+          "expectedSha256": "4e284f8eea9ba4ebb4ded4b1d8a9caf28ce03449d19db2ad0cd68ef1848c9d46",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/hit_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m45_HT_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:50.515Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 45,
+      "testedTime": 80.5480766656,
+      "expectedActionKey": "HT:L",
+      "actualActionKey": "HT:L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ht/rebound_l_refresh.png",
+      "actualFrame": "layers/character/ht/rebound_l_refresh.png",
+      "limbs": "HT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/rebound_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
+          "expectedSha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/rebound_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m45_HT_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:50.800Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 76,
+      "testedTime": 134.330899,
+      "expectedActionKey": "HT:R",
+      "actualActionKey": "HT:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ht/hit_r_refresh.png",
+      "actualFrame": "layers/character/ht/hit_r_refresh.png",
+      "limbs": "HT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "72459beecd91b4f44217f5bc68b4d1e09aa95c30012b8cb401adf68bbd537d30",
+          "expectedSha256": "72459beecd91b4f44217f5bc68b4d1e09aa95c30012b8cb401adf68bbd537d30",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m76_HT_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:51.069Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 76,
+      "testedTime": 134.3969976656,
+      "expectedActionKey": "HT:R",
+      "actualActionKey": "HT:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ht/rebound_r_refresh.png",
+      "actualFrame": "layers/character/ht/rebound_r_refresh.png",
+      "limbs": "HT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ht/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
+          "expectedSha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ht/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m76_HT_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:51.349Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 69,
+      "testedTime": 122.136655,
+      "expectedActionKey": "LT:L",
+      "actualActionKey": "LT:L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/lt/hit_l_refresh.png",
+      "actualFrame": "layers/character/lt/hit_l_refresh.png",
+      "limbs": "LT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/hit_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "d88e5557f19bd4f8f7ffbf7e9da7df366ccba4dc3fbdbb2dc4438a372d87c2a8",
+          "expectedSha256": "d88e5557f19bd4f8f7ffbf7e9da7df366ccba4dc3fbdbb2dc4438a372d87c2a8",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/hit_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m69_LT_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:51.616Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 69,
+      "testedTime": 122.28373158080001,
+      "expectedActionKey": "LT:L",
+      "actualActionKey": "LT:L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/lt/rebound_l_refresh.png",
+      "actualFrame": "layers/character/lt/rebound_l_refresh.png",
+      "limbs": "LT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/rebound_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "4f08851487f84daae75dba979b338f0b40a5ef632fba7a7e83b34e18c9c4cc41",
+          "expectedSha256": "4f08851487f84daae75dba979b338f0b40a5ef632fba7a7e83b34e18c9c4cc41",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/rebound_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m69_LT_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:51.882Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 148,
+      "testedTime": 258.863273,
+      "expectedActionKey": "LT:R",
+      "actualActionKey": "LT:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/lt/hit_r_refresh.png",
+      "actualFrame": "layers/character/lt/hit_r_refresh.png",
+      "limbs": "LT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
+          "expectedSha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m148_LT_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:52.147Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 148,
+      "testedTime": 259.079273,
+      "expectedActionKey": "LT:R",
+      "actualActionKey": "LT:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/lt/rebound_r_refresh.png",
+      "actualFrame": "layers/character/lt/rebound_r_refresh.png",
+      "limbs": "LT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/lt/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
+          "expectedSha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/lt/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m148_LT_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:52.399Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 148,
+      "testedTime": 259.14327299999997,
+      "expectedActionKey": "neutral",
+      "actualActionKey": "neutral",
+      "expectedPhase": "neutral",
+      "actualPhase": "neutral",
+      "expectedFrame": "layers/character/base/neutral_performance_ready.png",
+      "actualFrame": "layers/character/base/neutral_performance_ready.png",
+      "limbs": "",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/base/neutral_performance_ready.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "expectedSha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral_performance_ready.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m148_LT_R_neutral.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:52.666Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 17,
+      "testedTime": 32.676223,
+      "expectedActionKey": "FT:L",
+      "actualActionKey": "FT:L",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ft/hit_l_refresh.png",
+      "actualFrame": "layers/character/ft/hit_l_refresh.png",
+      "limbs": "FT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/hit_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "2b6bfe2193f7cdadc0f986cb47c303a8deb145a0136ff7a98ca637f7603e8f3c",
+          "expectedSha256": "2b6bfe2193f7cdadc0f986cb47c303a8deb145a0136ff7a98ca637f7603e8f3c",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/hit_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m17_FT_L_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:52.933Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 17,
+      "testedTime": 32.7423216656,
+      "expectedActionKey": "FT:L",
+      "actualActionKey": "FT:L",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ft/rebound_l_refresh.png",
+      "actualFrame": "layers/character/ft/rebound_l_refresh.png",
+      "limbs": "FT:L",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/rebound_l_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
+          "expectedSha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/rebound_l_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m17_FT_L_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:53.199Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 17,
+      "testedTime": 32.568309,
+      "expectedActionKey": "FT:R",
+      "actualActionKey": "FT:R",
+      "expectedPhase": "hit",
+      "actualPhase": "hit",
+      "expectedFrame": "layers/character/ft/hit_r_refresh.png",
+      "actualFrame": "layers/character/ft/hit_r_refresh.png",
+      "limbs": "FT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/hit_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
+          "expectedSha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/hit_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m17_FT_R_hit.png",
+      "status": "PASS"
+    },
+    {
+      "commitSha": "",
+      "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
+      "workflowRunId": "37944939055",
+      "testedAt": "2026-10-09T14:35:53.465Z",
+      "browser": "chromium",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "measure": 17,
+      "testedTime": 32.6344076656,
+      "expectedActionKey": "FT:R",
+      "actualActionKey": "FT:R",
+      "expectedPhase": "rebound",
+      "actualPhase": "rebound",
+      "expectedFrame": "layers/character/ft/rebound_r_refresh.png",
+      "actualFrame": "layers/character/ft/rebound_r_refresh.png",
+      "limbs": "FT:R",
+      "foregroundLayers": {
+        "frontFrame": "layers/character/ft/rebound_r_refresh.png",
+        "hairComplete": true,
+        "hairWidth": 1448,
+        "hairDisplay": "block",
+        "drumDisplay": "block",
+        "drumZ": "0",
+        "drumFrontDisplay": "none",
+        "visibleDrumLayers": 1
+      },
+      "sourceIntegrity": {
+        "character": {
+          "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
+          "expectedSha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
+          "ok": true
+        },
+        "drum": {
+          "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "expectedSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+          "ok": true
+        }
+      },
+      "characterImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/ft/rebound_r_refresh.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "drumImageLoad": {
+        "ok": true,
+        "src": "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      "runtimeScope": "1-148",
+      "assetWarning": "",
+      "initError": "",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        "https://mleuatd.github.io/dtx-drum-flow/charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/neutral.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/character/base/hair_foreground_source.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_foreground_occlusion.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
+        "https://mleuatd.github.io/dtx-drum-flow/character-assets/layers/drum/drum_base.png?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED"
+      ],
+      "screenshotPath": "xperia-portrait/m17_FT_R_rebound.png",
+      "status": "PASS"
+    },
+    {
+      "kind": "PLAYBACK",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "playbackSpeed": 1,
+      "samples": [
+        {
+          "time": 10.1268,
+          "frame": "layers/character/hh/hit_r.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.3263,
+          "frame": "layers/character/bd/hit_rf.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.5267,
+          "frame": "layers/character/bd/rebound_rf.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.7107,
+          "frame": "layers/character/rd/rebound_r_refresh.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.893,
+          "frame": "layers/character/sn/hit_l.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.0766,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.2597,
+          "frame": "layers/character/bd/hit_rf.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.4432,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.6265,
+          "frame": "layers/character/sn/hit_l.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.8263,
+          "frame": "layers/character/sn/rebound_l.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.993,
+          "frame": "layers/character/rd/rebound_r_refresh.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 12.193,
+          "frame": "layers/character/combo/bd_rc_hit.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "kind": "PLAYBACK",
+      "viewport": {
+        "name": "xperia-portrait",
+        "width": 384,
+        "height": 864
+      },
+      "playbackSpeed": 0.5,
+      "samples": [
+        {
+          "time": 10.06405,
+          "frame": "layers/character/base/neutral_performance_ready.png",
+          "phase": "neutral",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.1559,
+          "frame": "layers/character/hh/hit_r.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.24735,
+          "frame": "layers/character/hh/rebound_r.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.3308,
+          "frame": "layers/character/bd/hit_rf.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.4224,
+          "frame": "layers/character/bd/rebound_rf.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.5224,
+          "frame": "layers/character/base/neutral_performance_ready.png",
+          "phase": "neutral",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.614,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.7057,
+          "frame": "layers/character/base/neutral_performance_ready.png",
+          "phase": "neutral",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.79735,
+          "frame": "layers/character/sn/hit_l.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.889,
+          "frame": "layers/character/sn/rebound_l.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 10.9808,
+          "frame": "layers/character/rd/hit_r_refresh.png",
+          "phase": "hit",
+          "complete": true,
+          "width": 1448
+        },
+        {
+          "time": 11.08065,
+          "frame": "layers/character/rd/rebound_r_refresh.png",
+          "phase": "rebound",
+          "complete": true,
+          "width": 1448
+        }
+      ],
+      "status": "PASS"
+    }
+  ]
+}
