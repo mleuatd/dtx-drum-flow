@@ -27,17 +27,27 @@ jobs:
           done
           python character-assets/production/20261009/body-orientation/scripts/build_rc_rebound_v13.py
           python character-assets/production/20261009/body-orientation/scripts/check_recovery_evidence.py
+      - name: Check prior baseline result
+        id: prior_baseline
+        run: |
+          python - <<'PYCODE'
+          import os,json
+          from pathlib import Path
+          p=Path('character-assets/production/20261009/body-orientation/qa/baseline-public/scope.json')
+          ok=p.exists() and json.loads(p.read_text()).get('outcome')=='success'
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('passed='+str(ok).lower()+'\n')
+          PYCODE
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Install baseline public browser QA
-        if: hashFiles('character-assets/production/20261009/body-orientation/qa/baseline-public/scope.json') == ''
+        if: steps.prior_baseline.outputs.passed != 'true'
         run: |
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
       - name: Test unchanged public baseline on PC and mobile
         id: baseline_qa
-        if: hashFiles('character-assets/production/20261009/body-orientation/qa/baseline-public/scope.json') == ''
+        if: steps.prior_baseline.outputs.passed != 'true'
         continue-on-error: true
         env:
           GITHUB_SHA: ''
@@ -65,6 +75,10 @@ jobs:
           from pathlib import Path
           out=Path('character-assets/production/20261009/body-orientation/qa/baseline-public')
           out.mkdir(parents=True,exist_ok=True)
+          if (out/'scope.json').exists():
+              previous=json.loads((out/'scope.json').read_text())
+              history=out/'history';history.mkdir(exist_ok=True)
+              shutil.copy(out/'scope.json',history/(str(previous.get('runId','unknown'))+'.json'))
           source=Path('qa-artifacts')
           if source.exists():shutil.copytree(source,out,dirs_exist_ok=True)
           (out/'scope.json').write_text(json.dumps({'scope':'UNCHANGED_FORMAL_BASELINE_ONLY','newOrientationApproved':False,'newOrientationPublished':False,'outcome':os.environ.get('QA_OUTCOME'),'runId':os.environ['GITHUB_RUN_ID'],'runUrl':'https://github.com/mleuatd/dtx-drum-flow/actions/runs/'+os.environ['GITHUB_RUN_ID']},indent=2)+'\n')
