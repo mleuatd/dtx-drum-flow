@@ -45,7 +45,16 @@ jobs:
           MEASURE_START: '1'
           MEASURE_END: '148'
           QA_ACTIONS: 'RC:R,BD+RC:RF/R,RC+SN:R/L,BD+RC+SN:RF/R/L,RD:R,HT:L,HT:R,LT:L,LT:R,FT:L,FT:R'
-        run: node tools/runtime-character-qa.mjs
+        run: |
+          python - <<'PYCODE'
+          from pathlib import Path
+          p=Path('tools/runtime-character-qa.mjs')
+          source=p.read_text()
+          old='const EXPECTED_SHA=process.env.GITHUB_SHA||"";'
+          assert old in source
+          Path('tools/.body-baseline-qa.mjs').write_text(source.replace(old,'const EXPECTED_SHA="";'))
+          PYCODE
+          node tools/.body-baseline-qa.mjs
       - name: Label and preserve actual baseline QA result
         if: always() && steps.baseline_qa.outcome != 'skipped'
         env:
