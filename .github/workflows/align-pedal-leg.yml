@@ -1,0 +1,37 @@
+name: Align bass pedal and right leg
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/align-pedal-leg.yml"
+      - "character-assets/production/20261009/scripts/build_pedal_leg_candidates.py"
+      - "character-assets/production/20261009/scripts/promote_pedal_leg.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow numpy scipy
+      - name: Restore immutable pre-repair sources
+        run: |
+          git fetch --depth=1 origin checkpoints/2026-10-09-before-pedal-leg-alignment
+          mkdir -p character-assets/production/20261009/baseline
+          git show FETCH_HEAD:character-assets/layers/drum/drum_base.png > character-assets/production/20261009/baseline/drum_base_before.png
+          git show FETCH_HEAD:character-assets/layers/character/base/neutral_performance_ready.png > character-assets/production/20261009/baseline/neutral_performance_ready_before.png
+      - run: python character-assets/production/20261009/scripts/build_pedal_leg_candidates.py
+      - run: python character-assets/production/20261009/scripts/promote_pedal_leg.py
+      - name: Save reviewed assets and exact-pixel evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-assets site
+          git diff --cached --quiet || git commit -m "fix: align existing pedal and source rear boot; preserve all outside-mask pixels"
+          git pull --rebase origin main
+          git push origin HEAD:main
