@@ -22,7 +22,7 @@ jobs:
       - name: Rebuild rejected candidates without touching formal images
         run: |
           pip install numpy pillow opencv-python-headless
-          for version in 4 5 6 7 8 9 10 11 12 15; do
+          for version in 4 5 6 7 8 9 10 11 12 15 16; do
             python character-assets/production/20261009/body-orientation/scripts/build_rc_v${version}.py
           done
           python character-assets/production/20261009/body-orientation/scripts/build_rc_rebound_v13.py
@@ -31,11 +31,13 @@ jobs:
         with:
           node-version: '20'
       - name: Install baseline public browser QA
+        if: hashFiles('character-assets/production/20261009/body-orientation/qa/baseline-public/scope.json') == ''
         run: |
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
       - name: Test unchanged public baseline on PC and mobile
         id: baseline_qa
+        if: hashFiles('character-assets/production/20261009/body-orientation/qa/baseline-public/scope.json') == ''
         continue-on-error: true
         env:
           GITHUB_SHA: ''
@@ -45,7 +47,7 @@ jobs:
           QA_ACTIONS: 'RC:R,BD+RC:RF/R,RC+SN:R/L,BD+RC+SN:RF/R/L,RD:R,HT:L,HT:R,LT:L,LT:R,FT:L,FT:R'
         run: node tools/runtime-character-qa.mjs
       - name: Label and preserve actual baseline QA result
-        if: always()
+        if: always() && steps.baseline_qa.outcome != 'skipped'
         env:
           QA_OUTCOME: ${{ steps.baseline_qa.outcome }}
         run: |
