@@ -5,7 +5,7 @@ r=next(p for p in Path(__file__).resolve().parents if (p/'character-assets').is_
 o=r.parent/'work_output'
 for d in ['sources','previews','qa','scripts','variants/bd','variants/ht','variants/lt','variants/ft','variants/remaining']:(o/d).mkdir(parents=True,exist_ok=True)
 sources={'neutral.png':r/'character-assets/layers/character/base/neutral.png','drum_fixed.png':r/'character-assets/layers/drum/drum_base.png'}
-expected={'neutral.png':'886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9','drum_fixed.png':'dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85'}
+expected={'neutral.png':'886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9','drum_fixed.png':'dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8'}
 for name,p in sources.items():
  assert hashlib.sha256(p.read_bytes()).hexdigest()==expected[name],name
  shutil.copy(p,o/'sources'/name)

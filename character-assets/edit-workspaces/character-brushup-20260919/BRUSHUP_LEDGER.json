@@ -26,7 +26,7 @@
   },
   "drum": {
     "path": "character-assets/layers/drum/drum_base.png",
-    "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+    "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
     "status": "APPROVED_FIXED",
     "canvas": [
       1448,
@@ -47,7 +47,7 @@
       "actionKey": "SN:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/sn/hit_l.png",
-      "sha256": "7824c89cd98b755dcc1f76cab16b7bf5599d6bee270e83b6df6267a94c5ee617",
+      "sha256": "9db92ee8ae2cf534bef09363296e8ca0087deb0a923ede24df8814b65edbea04",
       "sourceQueueSha256": "9941584d670ac6441b8853c8c191318aff7482264f81b6473fa1a3e381cd4cfb",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -171,7 +171,7 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "TERM-A",
       "claimState": "COMPLETED",
@@ -262,7 +262,8 @@
         ]
       },
       "historicalHoldReason20260920": "SN:L pair held because rebound has large structural anatomy/linework failure; formal PNGs preserved and no minimal retry was attempted because the failure exceeds the light-fail threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 2,
@@ -270,7 +271,7 @@
       "actionKey": "SN:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/sn/rebound_l.png",
-      "sha256": "e7f9240c2b953c4de8b856652e2c4d95371462ba3b995b58503e659d57106036",
+      "sha256": "18aaeade71ce6e758c642a7fb203e4c4c9854d41abd151e0917481b4af424a04",
       "sourceQueueSha256": "79484f0681273bb86b3ea9e56514cb9aa822945c6dc4b086d3e7093cbf25c777",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -394,7 +395,7 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -458,7 +459,8 @@
         ]
       },
       "historicalHoldReason20260920": "Large structural visual-integrity failure in rebound; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 3,
@@ -466,7 +468,7 @@
       "actionKey": "SN:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/sn/hit_r.png",
-      "sha256": "4c2834d87631179aa096abd9dbc178b42d364e38f420ddf574d96e5598cf580b",
+      "sha256": "88c5db09b354747a4e33372a14cb1ab46983adeb01e21462c23180461396f2a2",
       "sourceQueueSha256": "fa55c4624bbc4790584bf46bb740490f96d4ca0e63f3eb95b2d662a3a0118971",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -512,7 +514,7 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -572,7 +574,8 @@
         ]
       },
       "historicalHoldReason20260920": "SN:R pair held because motion is not a local right-hand snare action: hit has large whole-body/stool registration drift and rebound changes to a different whole-body/camera presentation. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 4,
@@ -580,7 +583,7 @@
       "actionKey": "SN:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/sn/rebound_r.png",
-      "sha256": "dcc9ad2f6d88259f747d40b51e657f5d849d937e1593b8d74e1a89993208a612",
+      "sha256": "3b758cb186df816c4ae6059be369279f7014aad888d3f7eab596e6fe1e5766ec",
       "sourceQueueSha256": "41926dd2f0ab8530c1d725a1ab1e77832100a28ef2318988e253fdcd137f7ccd",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -626,7 +629,7 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -686,7 +689,8 @@
         ]
       },
       "historicalHoldReason20260920": "SN:R pair held because motion is not a local right-hand snare action: hit has large whole-body/stool registration drift and rebound changes to a different whole-body/camera presentation. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 5,
@@ -694,7 +698,7 @@
       "actionKey": "HH:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/hh/hit_r.png",
-      "sha256": "788703d3aee04709700d61a9ebde413ed4b802c0d1fcd600a12f8a4c0ee05898",
+      "sha256": "a1b89b4afcb841ec5db0de4927c1f543b16540ecf474c27900cc18745c32482c",
       "sourceQueueSha256": "c9d86e9970e8da2d9dac2ef486b7fe7b5d03e540c015b0158c70340b3c01eefd",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -793,7 +797,7 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -858,7 +862,8 @@
         ]
       },
       "historicalHoldReason20260920": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 6,
@@ -866,7 +871,7 @@
       "actionKey": "HH:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/hh/rebound_r.png",
-      "sha256": "a53481f0d311f69d08434c1486bb6eabb11dcafe9b7ae469bd885ccdb900f061",
+      "sha256": "159fc0be9251e98e75b7582ed6586026c79477ebd3755a9646d011a1795a1196",
       "sourceQueueSha256": "f4060fbf0ab37938267267a89ef4ceb6ca1dba9c24154bf22dafa192d94fabb6",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -965,7 +970,7 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -1030,7 +1035,8 @@
         ]
       },
       "historicalHoldReason20260920": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 7,
@@ -1038,7 +1044,7 @@
       "actionKey": "BD:RF",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/bd/hit_rf.png",
-      "sha256": "baab265210674ffff2c87d3d089b04504397db2ef3a46064eabfc744515e4301",
+      "sha256": "9464e588b26469367ea43578cbad765158e64cf7dfc7ee5942cb23c47948c6f9",
       "sourceQueueSha256": "2f720394bb4da7a96b2e41d4e211a36130306d32fd06f2d641964efce07c639b",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1105,7 +1111,7 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1186,7 +1192,8 @@
           ]
         }
       },
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 8,
@@ -1194,7 +1201,7 @@
       "actionKey": "BD:RF",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/bd/rebound_rf.png",
-      "sha256": "ddf7c6e5af78e377aa007197f111cf424a66462e648dce1f12cabe1f61df0e96",
+      "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
       "sourceQueueSha256": "0340dfe82b6826dc4023645a48306b3718f11451eed8992bb3358d4d48295e0d",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1261,7 +1268,7 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1342,7 +1349,8 @@
           ]
         }
       },
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 9,
@@ -1350,7 +1358,7 @@
       "actionKey": "BD+RC:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_hit.png",
-      "sha256": "8f885151d34a5d037192b3e4017b88d7f51d81790a6755cb7a387fe8ac376389",
+      "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
       "sourceQueueSha256": "c166cea0c1f4477cc868f76cc7d2035a0022d4b96e925d54c6eb960ac757d242",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1407,7 +1415,7 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1471,7 +1479,8 @@
         ]
       },
       "historicalHoldReason20260920": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 10,
@@ -1479,7 +1488,7 @@
       "actionKey": "BD+RC:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_rebound.png",
-      "sha256": "34600eda0dcb934be1fa33dc1125f3052c5c75835e2a7634fbbeb770962cca2a",
+      "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
       "sourceQueueSha256": "c7ca4b42afa236ee41f74a4ce27e2b814bb769f4f7f7f73813f10f5dc8caf528",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1536,7 +1545,7 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1600,7 +1609,8 @@
         ]
       },
       "historicalHoldReason20260920": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 11,
@@ -1608,7 +1618,7 @@
       "actionKey": "RD:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/rd/hit_r_refresh.png",
-      "sha256": "d14ddd6d043957e0e3cfa6641ce378896469d88a7ccf87f21e468a86340f9b64",
+      "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
       "sourceQueueSha256": "a3cba5e7199fa0c1e41fcba9d0918cf9d5d70b37d0bb1ff1e91503d2a0d42415",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1631,7 +1641,7 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -1691,7 +1701,8 @@
         ]
       },
       "historicalHoldReason20260920": "RD:R pair held because rebound has a large rectangular splice/cut across hair-torso/right-arm geometry. Formal PNGs preserved; no minimal retry attempted because the failure exceeds the light/local threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 12,
@@ -1699,7 +1710,7 @@
       "actionKey": "RD:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/rd/rebound_r_refresh.png",
-      "sha256": "1be624d14e33b4ffb2f4f25e95269c64c3d83d94ad330c08cddae6a4cc7f1c4f",
+      "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
       "sourceQueueSha256": "c370ad69756bda1b7fb9df066195c19bdce0b16f0a0459f3676e35851cba63b4",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1722,7 +1733,7 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -1785,7 +1796,8 @@
         ]
       },
       "historicalHoldReason20260920": "RD:R pair held because rebound has a large rectangular splice/cut across hair-torso/right-arm geometry. Formal PNGs preserved; no minimal retry attempted because the failure exceeds the light/local threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 13,
@@ -1793,7 +1805,7 @@
       "actionKey": "BD+SN:RF/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
-      "sha256": "02acaa1e2391203474d917ac5da8782d2eaf1ea4dcd2e7ab44366741cafcd262",
+      "sha256": "ccf9897c7dc0748646985002b2bb3b9ae07e1571db33268f6455ba11cca2a2a8",
       "sourceQueueSha256": "b222db6a71a4c3870865617432e40bce78c4aeb63ba7d674a17db89356843466",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1813,7 +1825,7 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1877,7 +1889,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+SN:RF/L pair held for structural splice/stick-break defects. Formal PNGs preserved; no minimal retry attempted because the failures exceed the light/local threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 14,
@@ -1885,7 +1898,7 @@
       "actionKey": "BD+SN:RF/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
-      "sha256": "e7f9240c2b953c4de8b856652e2c4d95371462ba3b995b58503e659d57106036",
+      "sha256": "18aaeade71ce6e758c642a7fb203e4c4c9854d41abd151e0917481b4af424a04",
       "sourceQueueSha256": "872962116a5e751b0985c1baa181368dc209e2cbffdc95f995e1ec5fbabeefa0",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -1905,7 +1918,7 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1968,7 +1981,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+SN:RF/L pair held for structural splice/stick-break defects. Formal PNGs preserved; no minimal retry attempted because the failures exceed the light/local threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 15,
@@ -1976,7 +1990,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
-      "sha256": "28a21e26427cf1db96100f8f65ed282c93830676870aa113fafebcf39bd047f7",
+      "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
       "sourceQueueSha256": "f85cb4428d653b496938e50bbc486a2ddcab2a6d388884725946ba6d64e86a82",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2001,7 +2015,7 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -2064,7 +2078,8 @@
         ]
       },
       "historicalHoldReason20260920": "RC+SN:R/L pair held because both hit and rebound contain a large horizontal/rectangular splice through lower hair/torso geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 16,
@@ -2072,7 +2087,7 @@
       "actionKey": "RC+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
-      "sha256": "348ecc8f8b54d17a523dd4f4997e7dcd8947dfaad8fe9ec7d41bb63c9d976e36",
+      "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
       "sourceQueueSha256": "1d64993260679bdf998bff85fec5d6993a004555fb98c46536177780ce38b5da",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2097,7 +2112,7 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -2160,7 +2175,8 @@
         ]
       },
       "historicalHoldReason20260920": "RC+SN:R/L pair held because both hit and rebound contain a large horizontal/rectangular splice through lower hair/torso geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 17,
@@ -2168,7 +2184,7 @@
       "actionKey": "LT:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/lt/hit_r_refresh.png",
-      "sha256": "0d8e45160f42485686b59fe57bd7dedbd46eecc281fce10c9285d358dd2ba581",
+      "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
       "sourceQueueSha256": "b78b91006a445933036c36896972840d165c2c2afb09028b4baf0a3da5fbeb72",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2193,7 +2209,7 @@
         148
       ],
       "usageCount": 31,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2255,7 +2271,8 @@
         ]
       },
       "historicalHoldReason20260920": "LT:R pair held because right-hand stick geometry reads as duplicated/crossing two-stick structure in both hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 18,
@@ -2263,7 +2280,7 @@
       "actionKey": "LT:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/lt/rebound_r_refresh.png",
-      "sha256": "fb33487395bb4fbefac54e3d4595c4a99adbf4b1ffd3bd2b82149f47dbaab599",
+      "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
       "sourceQueueSha256": "d86b25997cb77623f71793eab97adcb74dc0d60a8fa9519b943afa25758727bf",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2288,7 +2305,7 @@
         148
       ],
       "usageCount": 31,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2350,7 +2367,8 @@
         ]
       },
       "historicalHoldReason20260920": "LT:R pair held because right-hand stick geometry reads as duplicated/crossing two-stick structure in both hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 19,
@@ -2358,7 +2376,7 @@
       "actionKey": "LT:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/lt/hit_l_refresh.png",
-      "sha256": "769b7f99accc360ffdfe388c0425d7c48263d08b83801a7a58e4c96412a590e7",
+      "sha256": "d88e5557f19bd4f8f7ffbf7e9da7df366ccba4dc3fbdbb2dc4438a372d87c2a8",
       "sourceQueueSha256": "d6d44e858728afbf9a66e6c766786232d7a2d4c09e8621ed9d1b475547f485bb",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2375,7 +2393,7 @@
         148
       ],
       "usageCount": 22,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2436,7 +2454,8 @@
         ]
       },
       "historicalHoldReason20260920": "LT:L pair held because left-hand stick geometry is duplicated/discontinuous, with extra detached stick-like segments. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 20,
@@ -2444,7 +2463,7 @@
       "actionKey": "LT:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/lt/rebound_l_refresh.png",
-      "sha256": "9a9f7d6735ff3b636d5fc783dd2db3bf04b09794d33de115a6f04537deb84541",
+      "sha256": "4f08851487f84daae75dba979b338f0b40a5ef632fba7a7e83b34e18c9c4cc41",
       "sourceQueueSha256": "a9281447b12f10d738a79ea72d7d314395a6cd3c6eec50ea8b667039e0ba6376",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2461,7 +2480,7 @@
         148
       ],
       "usageCount": 22,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2522,7 +2541,8 @@
         ]
       },
       "historicalHoldReason20260920": "LT:L pair held because left-hand stick geometry is duplicated/discontinuous, with extra detached stick-like segments. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 21,
@@ -2530,7 +2550,7 @@
       "actionKey": "BD+SN:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
-      "sha256": "c59a98a269de929fe411532f455220a9aa9f636c9fdff6830b250f5b990cedfb",
+      "sha256": "8104e62701a2a5fa05ff6b8bf08a51dc7c12fe1072ccb5be356a98555b9db337",
       "sourceQueueSha256": "01719a7fa5cc23ac2ae3c1ffe24c5443fd1e4c8f659466475f4b1aff862802d4",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2546,7 +2566,7 @@
         140
       ],
       "usageCount": 17,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2607,7 +2627,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+SN:RF/R pair held because right-hand/stick geometry is disconnected and a detached floating artifact line is present. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 22,
@@ -2615,7 +2636,7 @@
       "actionKey": "BD+SN:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
-      "sha256": "dcc9ad2f6d88259f747d40b51e657f5d849d937e1593b8d74e1a89993208a612",
+      "sha256": "3b758cb186df816c4ae6059be369279f7014aad888d3f7eab596e6fe1e5766ec",
       "sourceQueueSha256": "b4d8efb059c16e3aa1411abb08c499a426806b0b8ecd1f291305703447044843",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2631,7 +2652,7 @@
         140
       ],
       "usageCount": 17,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2692,7 +2713,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+SN:RF/R pair held because right-hand/stick geometry is disconnected and a detached floating artifact line is present. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 23,
@@ -2700,7 +2722,7 @@
       "actionKey": "FT:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ft/hit_r_refresh.png",
-      "sha256": "0169d19f4c59b886bc40f5efc05c5e0f887894a06f205e3f4ed5c49a355a57dc",
+      "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
       "sourceQueueSha256": "bf48f08c61d58e20e6a47148e3f34fc70e8b77ef27190a1a85c4e01aa352ba2a",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2714,7 +2736,7 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2775,7 +2797,8 @@
         ]
       },
       "historicalHoldReason20260920": "FT:R pair held because the right hand visibly carries a duplicated/two-branch stick structure in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 24,
@@ -2783,7 +2806,7 @@
       "actionKey": "FT:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ft/rebound_r_refresh.png",
-      "sha256": "da415537a0016e182714d6f0480d1040b0075a24f331673d244285c879860551",
+      "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
       "sourceQueueSha256": "eada124ae96c74ca9f9ffa6144c7f749208f6f6beb3f9ff252368cfebbd924ce",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2797,7 +2820,7 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2858,7 +2881,8 @@
         ]
       },
       "historicalHoldReason20260920": "FT:R pair held because the right hand visibly carries a duplicated/two-branch stick structure in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 25,
@@ -2866,7 +2890,7 @@
       "actionKey": "FT:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ft/hit_l_refresh.png",
-      "sha256": "246ceb4a4d38f9e1adb54b379e154afdedcab0e62188211bc22a9b91d67b04d8",
+      "sha256": "2b6bfe2193f7cdadc0f986cb47c303a8deb145a0136ff7a98ca637f7603e8f3c",
       "sourceQueueSha256": "6d89ab051f7ac08e1f9fb59ab54cbc6c7451755e62c73a2492c419db1054366e",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2880,7 +2904,7 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2941,7 +2965,8 @@
         ]
       },
       "historicalHoldReason20260920": "FT:L pair held because the left stick is broken/discontinuous with a detached diagonal fragment at its outer end. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 26,
@@ -2949,7 +2974,7 @@
       "actionKey": "FT:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ft/rebound_l_refresh.png",
-      "sha256": "6e90f150dbfe8a14fe865cf50dbd1a8743b86d087c9dfecf55662ca45bfaba9b",
+      "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
       "sourceQueueSha256": "4c5bba2ad09940bc858b945f8442af6b709c3d7e7d155b03ba26fb130efa8419",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -2963,7 +2988,7 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -3024,7 +3049,8 @@
         ]
       },
       "historicalHoldReason20260920": "FT:L pair held because the left stick is broken/discontinuous with a detached diagonal fragment at its outer end. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 27,
@@ -3032,7 +3058,7 @@
       "actionKey": "BD+RD:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
-      "sha256": "e6f459780702f5363aed1a3e4ce10c5b5993e9c9724c22750a56e497f2723876",
+      "sha256": "772b93d4f55ac3d480cb03a089618da81a282046521b2389595a5249e1e2bbed",
       "sourceQueueSha256": "1411b6b70225dde41d1880c448dc03d9a593d871ea7c2996888f76902805acd7",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3050,7 +3076,7 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3120,7 +3146,8 @@
           "note": "runtime-qa.json PASS on real chart occurrence. Synthetic explicit-sequence subcheck is excluded because timeline movement cannot synthesize arbitrary action keys and instead selected unrelated real chart events."
         }
       },
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 28,
@@ -3128,7 +3155,7 @@
       "actionKey": "BD+RD:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
-      "sha256": "1be624d14e33b4ffb2f4f25e95269c64c3d83d94ad330c08cddae6a4cc7f1c4f",
+      "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
       "sourceQueueSha256": "f3c913176738a7578dd570c32557eb8eb72278092556c4a0965bfb61596546f6",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3146,7 +3173,7 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3216,7 +3243,8 @@
           "note": "runtime-qa.json PASS on real chart occurrence. Synthetic explicit-sequence subcheck is excluded because timeline movement cannot synthesize arbitrary action keys and instead selected unrelated real chart events."
         }
       },
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 29,
@@ -3224,7 +3252,7 @@
       "actionKey": "RD+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
-      "sha256": "d14ddd6d043957e0e3cfa6641ce378896469d88a7ccf87f21e468a86340f9b64",
+      "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
       "sourceQueueSha256": "bd63b857a1b2f0cd654e9209a66d53ecf9901090937a88be2d6c6a7bb4797e05",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3242,7 +3270,7 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -3299,7 +3327,8 @@
         ]
       },
       "historicalHoldReason20260920": "Synchronized from MOTION_DEFECT_BACKLOG: rebound right-hand/RD stick continuity is broken and RD rebound semantics are unreadable. Hold for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 30,
@@ -3307,7 +3336,7 @@
       "actionKey": "RD+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
-      "sha256": "0ce490ea1ae05280f6ee0defd2760dc47ab82510e71d91032eb0a67557641032",
+      "sha256": "9ead7ff695b7c2931a2f5086c697c2278a6e70353087b8fca79dd1be88610b69",
       "sourceQueueSha256": "98e1167ebf40beb7e27678da42924269ec3d31c50be80cad40a4fcdea9f2bdcb",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3325,7 +3354,7 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -3385,7 +3414,8 @@
         ]
       },
       "historicalHoldReason20260920": "Synchronized from MOTION_DEFECT_BACKLOG: rebound right-hand/RD stick continuity is broken and RD rebound semantics are unreadable. Hold for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 31,
@@ -3393,7 +3423,7 @@
       "actionKey": "BD+HH:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
-      "sha256": "e24dd52a5c57e5738c02fed030638ff06146859243f08c19a4f1a46f788367dd",
+      "sha256": "c5498b239b7ea26295531061edb09e77da5aaec4fa84d0692b419d9428f352f0",
       "sourceQueueSha256": "8ab2c7f0d00091b5143af1a32ee01e1414d775fb8da2e187d8565737f382a381",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3488,7 +3518,7 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3551,7 +3581,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+HH:RF/R pair held because the left arm/hand/stick geometry is duplicated/disconnected and hit/rebound also contain blocky seat/lower-body splice artifacts. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 32,
@@ -3559,7 +3590,7 @@
       "actionKey": "BD+HH:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
-      "sha256": "a53481f0d311f69d08434c1486bb6eabb11dcafe9b7ae469bd885ccdb900f061",
+      "sha256": "159fc0be9251e98e75b7582ed6586026c79477ebd3755a9646d011a1795a1196",
       "sourceQueueSha256": "2210399c2f56425bf8f10f42e26044320b68a98993b7129b34f34b1082a2a461",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3654,7 +3685,7 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3717,7 +3748,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+HH:RF/R pair held because the left arm/hand/stick geometry is duplicated/disconnected and hit/rebound also contain blocky seat/lower-body splice artifacts. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 33,
@@ -3725,7 +3757,7 @@
       "actionKey": "HH+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
-      "sha256": "788703d3aee04709700d61a9ebde413ed4b802c0d1fcd600a12f8a4c0ee05898",
+      "sha256": "a1b89b4afcb841ec5db0de4927c1f543b16540ecf474c27900cc18745c32482c",
       "sourceQueueSha256": "96598cee00e9345b3c51a25551c1a71b040b20230f7bb285cd23c954d086d685",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3810,7 +3842,7 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3875,7 +3907,8 @@
         ]
       },
       "historicalHoldReason20260920": "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 34,
@@ -3883,7 +3916,7 @@
       "actionKey": "HH+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
-      "sha256": "d9dbea36cb483b0d89fade4d28e2f17585542941fafec122b645fa30ab3f6992",
+      "sha256": "bda5ca20a63907b8299ba29f7a30d2dcf7ad7a96144e06d81daa699183111734",
       "sourceQueueSha256": "156360816a89e86ba1a091f9b3c4d495bd8d6d1fdced698308dc04c212b2ae40",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -3968,7 +4001,7 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4033,7 +4066,8 @@
         ]
       },
       "historicalHoldReason20260920": "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 35,
@@ -4041,7 +4075,7 @@
       "actionKey": "BD+LT:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png",
-      "sha256": "4902f5a9820f4ffa3ddb32b6c853a0224b6bc3a0cd3a2f2cfeea0921902d733c",
+      "sha256": "142db62da694afa7c779d5675898b2a53e2556ad85683f5620785e4aa7359907",
       "sourceQueueSha256": "ed6ec4527ba9772fd49ccf46cb2bff96803edccc4730a7b181023c77f762cc50",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4050,7 +4084,7 @@
         140
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4111,7 +4145,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+LT:RF/R pair held because the right-hand active stick geometry is duplicated/crossing in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 36,
@@ -4119,7 +4154,7 @@
       "actionKey": "BD+LT:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
-      "sha256": "fb33487395bb4fbefac54e3d4595c4a99adbf4b1ffd3bd2b82149f47dbaab599",
+      "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
       "sourceQueueSha256": "4c689771feb8a32794466d27a5277405f62aacb39b744968a61127c249b66f11",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4128,7 +4163,7 @@
         140
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4189,7 +4224,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+LT:RF/R pair held because the right-hand active stick geometry is duplicated/crossing in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 37,
@@ -4197,7 +4233,7 @@
       "actionKey": "HT:L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ht/hit_l_refresh.png",
-      "sha256": "64fc3aa281422879ee762f2dffc90c4daecd152ac720d5320dbc3bd108091639",
+      "sha256": "4e284f8eea9ba4ebb4ded4b1d8a9caf28ce03449d19db2ad0cd68ef1848c9d46",
       "sourceQueueSha256": "8a2fb872a4a650504306ea02d1b82ef3748c7c16186a807481e5ebf8fe272572",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4211,7 +4247,7 @@
         78
       ],
       "usageCount": 14,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4271,7 +4307,8 @@
         ]
       },
       "historicalHoldReason20260920": "HT:L pair held because the left active stick is structurally discontinuous and accompanied by an extra short stick-like fragment near the hand in hit/rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 38,
@@ -4279,7 +4316,7 @@
       "actionKey": "HT:L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ht/rebound_l_refresh.png",
-      "sha256": "9f3c29300df1ee9fb8d892c55b2de066cb1ce616cc2415ef9d52741320ba6ba4",
+      "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
       "sourceQueueSha256": "5580cd68be8b7f277e7f3eac9759cb4a6837d8cf6ff79fb2df2b0da8d78519f0",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4293,7 +4330,7 @@
         78
       ],
       "usageCount": 14,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4353,7 +4390,8 @@
         ]
       },
       "historicalHoldReason20260920": "HT:L pair held because the left active stick is structurally discontinuous and accompanied by an extra short stick-like fragment near the hand in hit/rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 39,
@@ -4361,7 +4399,7 @@
       "actionKey": "FT+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
-      "sha256": "0169d19f4c59b886bc40f5efc05c5e0f887894a06f205e3f4ed5c49a355a57dc",
+      "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
       "sourceQueueSha256": "46f930ce4e2e14476ec64d53812a8f839954eb840d757831faa89bf3910162f2",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4370,7 +4408,7 @@
         86
       ],
       "usageCount": 13,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4430,7 +4468,8 @@
         ]
       },
       "historicalHoldReason20260920": "FT+SN:R/L pair held because both active-stick regions are structurally broken: left side has detached/truncated stick fragments and right side forms a forked/duplicated stick geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 40,
@@ -4438,7 +4477,7 @@
       "actionKey": "FT+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
-      "sha256": "82c23799cbceb13c3028700f303963e946b1865cf01031c92c0de17ca325c693",
+      "sha256": "fe9aa96699e25b0fd95bab5732267ad290bbe6e2a0da24cc137b151972395e1f",
       "sourceQueueSha256": "5cda451c8b81975c3cc00d9a00e93c0875b6fe6b51a0641439dbc7d0cddc5aeb",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4447,7 +4486,7 @@
         86
       ],
       "usageCount": 13,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4507,7 +4546,8 @@
         ]
       },
       "historicalHoldReason20260920": "FT+SN:R/L pair held because both active-stick regions are structurally broken: left side has detached/truncated stick fragments and right side forms a forked/duplicated stick geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 41,
@@ -4515,7 +4555,7 @@
       "actionKey": "RC:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/rc/hit_r_refresh.png",
-      "sha256": "28a21e26427cf1db96100f8f65ed282c93830676870aa113fafebcf39bd047f7",
+      "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
       "sourceQueueSha256": "9dc93593369001ccbcc4c3add27f12efc54e0cee6a4dbf232a9bc987bd1098c5",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4524,7 +4564,7 @@
         29
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4604,7 +4644,8 @@
         ]
       },
       "historicalHoldReason20260920": "RC:R pair held because the right hand visibly carries duplicated/parallel stick shafts in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 42,
@@ -4612,7 +4653,7 @@
       "actionKey": "RC:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/rc/rebound_r_refresh.png",
-      "sha256": "34600eda0dcb934be1fa33dc1125f3052c5c75835e2a7634fbbeb770962cca2a",
+      "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
       "sourceQueueSha256": "8ad6abaf5036dffea2baacd2773b9b4a6d02dbe546f11251442b9709571bc63a",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4621,7 +4662,7 @@
         29
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4681,7 +4722,8 @@
         ]
       },
       "historicalHoldReason20260920": "RC:R pair held because the right hand visibly carries duplicated/parallel stick shafts in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 43,
@@ -4689,7 +4731,7 @@
       "actionKey": "HT:R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/ht/hit_r_refresh.png",
-      "sha256": "18f6172ec03090df2b99d0f22f504874ad12e89e3735833b116b6603d39428f6",
+      "sha256": "72459beecd91b4f44217f5bc68b4d1e09aa95c30012b8cb401adf68bbd537d30",
       "sourceQueueSha256": "c230afaba726d572976cb5c5d5d5341daba8407ccd689bdc6c3fa42f9a9c6efc",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4705,7 +4747,7 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4777,7 +4819,8 @@
         ]
       },
       "historicalHoldReason20260920": "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 44,
@@ -4785,7 +4828,7 @@
       "actionKey": "HT:R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/ht/rebound_r_refresh.png",
-      "sha256": "50a640918b154d9601ebe39f715f0178b9b9eda7aeeaa16e7656c70ac2ea0e78",
+      "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
       "sourceQueueSha256": "374815a25524834df646c9278987b5916be7fa0c00676cca905e316e02f90bcc",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4801,7 +4844,7 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4873,7 +4916,8 @@
         ]
       },
       "historicalHoldReason20260920": "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 45,
@@ -4881,7 +4925,7 @@
       "actionKey": "BD+HT:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
-      "sha256": "b1d45ed3b5d8b8896d5edcd7b63b2cfe0b080f5755920d3ebb763f4fd51d9610",
+      "sha256": "3f27bb050fbd318916775f8f0eb89422410b3ee5b866638a0d07b5531d59d80b",
       "sourceQueueSha256": "2bb91d23444a5b198eb6f47fd2b2135e5ac2167a1cc0b4b925a84c01bd4c8578",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4891,7 +4935,7 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4946,7 +4990,8 @@
         "candidateSha256": "f8ffc411a882e16b2b5b07c9af0c4b95c8c31c64be7187e778d4eb91b17cb024",
         "machineQaRunId": 35490115009
       },
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 46,
@@ -4954,7 +4999,7 @@
       "actionKey": "BD+HT:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
-      "sha256": "50a640918b154d9601ebe39f715f0178b9b9eda7aeeaa16e7656c70ac2ea0e78",
+      "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
       "sourceQueueSha256": "ba69166c273316742bf2ee5fa383989a0ac1eb8c21ea7fc3aefd6216f56a5372",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -4964,7 +5009,7 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -5019,7 +5064,8 @@
         "candidateSha256": "2919aebbeb8505587664c20efb95ebfc1f961a5f9358f191c960e4e21b6e011a",
         "machineQaRunId": 35490115009
       },
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 47,
@@ -5027,7 +5073,7 @@
       "actionKey": "LT+SN:R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png",
-      "sha256": "0d8e45160f42485686b59fe57bd7dedbd46eecc281fce10c9285d358dd2ba581",
+      "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
       "sourceQueueSha256": "67b8b674ef5d5c40499c9a92ef94e4a8daa21078bdbe3e13536dea9a5a92bb0f",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5036,7 +5082,7 @@
         77
       ],
       "usageCount": 4,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -5096,7 +5142,8 @@
         ]
       },
       "historicalHoldReason20260920": "LT+SN:R/L pair held because right-hand stick geometry is forked/duplicated and the left active-stick path contains detached/truncated line fragments. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 48,
@@ -5104,7 +5151,7 @@
       "actionKey": "LT+SN:R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
-      "sha256": "d24b961e72f29467e1bcb889a0a2cbac505f6ce0f431e3c809b1b1bbc8892af9",
+      "sha256": "0071e2278fff9ac139d390bac6f01c477d542dc67e3e0f451abf50535662eb52",
       "sourceQueueSha256": "b6152c5dcabd0b8eb23166b5ca7a45e1b65ba1e10cb47356747f8aae8667d453",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5113,7 +5160,7 @@
         77
       ],
       "usageCount": 4,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -5173,7 +5220,8 @@
         ]
       },
       "historicalHoldReason20260920": "LT+SN:R/L pair held because right-hand stick geometry is forked/duplicated and the left active-stick path contains detached/truncated line fragments. Formal PNGs preserved; no minimal retry because defect is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 49,
@@ -5181,7 +5229,7 @@
       "actionKey": "BD+HH+SN:RF/R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
-      "sha256": "e24dd52a5c57e5738c02fed030638ff06146859243f08c19a4f1a46f788367dd",
+      "sha256": "c5498b239b7ea26295531061edb09e77da5aaec4fa84d0692b419d9428f352f0",
       "sourceQueueSha256": "62c93ca41a1f327ddfe353f29900a1dcb33f2073b97006b64455cbd5b4597113",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5195,7 +5243,7 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5260,7 +5308,8 @@
         ]
       },
       "historicalHoldReason20260920": "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 50,
@@ -5268,7 +5317,7 @@
       "actionKey": "BD+HH+SN:RF/R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
-      "sha256": "d9dbea36cb483b0d89fade4d28e2f17585542941fafec122b645fa30ab3f6992",
+      "sha256": "bda5ca20a63907b8299ba29f7a30d2dcf7ad7a96144e06d81daa699183111734",
       "sourceQueueSha256": "d4c22e77429c01b0a765af24aa4862954b70ef0fbfd4cd2b7a50762863674606",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5282,7 +5331,7 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5347,7 +5396,8 @@
         ]
       },
       "historicalHoldReason20260920": "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 51,
@@ -5355,14 +5405,14 @@
       "actionKey": "BD+HT:RF/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
-      "sha256": "69e9c3f64f61c1b697ee3af90b6b5cf884f73ec52fac65f796f7408200846a59",
+      "sha256": "07ea4adc517f4c93ac9a64a4706afb637af9a79380d8630c5f6cb513f20205b2",
       "sourceQueueSha256": "cd343fa52ac0ebe32cd68e8805067f2168800b4cb3b6cd226192f4388cb47fa7",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
         54
       ],
       "usageCount": 1,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5446,7 +5496,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+HT:RF/L pair held because the left active-stick geometry is structurally broken: an extra short parallel fragment remains near the left hand, and rebound stick continuity/direction is unreadable. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 52,
@@ -5454,14 +5505,14 @@
       "actionKey": "BD+HT:RF/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
-      "sha256": "9f3c29300df1ee9fb8d892c55b2de066cb1ce616cc2415ef9d52741320ba6ba4",
+      "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
       "sourceQueueSha256": "13f4076afa68a704f8525b4a78dba8fc6d3b99922a0c77ec823c963d965885c5",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
         54
       ],
       "usageCount": 1,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5545,7 +5596,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+HT:RF/L pair held because the left active-stick geometry is structurally broken: an extra short parallel fragment remains near the left hand, and rebound stick continuity/direction is unreadable. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 53,
@@ -5553,7 +5605,7 @@
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
-      "sha256": "8f885151d34a5d037192b3e4017b88d7f51d81790a6755cb7a387fe8ac376389",
+      "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
       "sourceQueueSha256": "0ca0d673e70fd0072ceac0fb6ac8d5b7088a828263e9239d38edb9312cdb163e",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5562,7 +5614,7 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5627,7 +5679,8 @@
         ]
       },
       "historicalHoldReason20260920": "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 54,
@@ -5635,7 +5688,7 @@
       "actionKey": "BD+RC+SN:RF/R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
-      "sha256": "348ecc8f8b54d17a523dd4f4997e7dcd8947dfaad8fe9ec7d41bb63c9d976e36",
+      "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
       "sourceQueueSha256": "5584de18ef1d912b377208e805593de37a26cf6946efc41356297cb20836d619",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5644,7 +5697,7 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5709,7 +5762,8 @@
         ]
       },
       "historicalHoldReason20260920": "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 55,
@@ -5717,7 +5771,7 @@
       "actionKey": "BD+FT+SN:RF/R/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
-      "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
+      "sha256": "777b8d4fcbe58085d9bf9341b84de1897a0a3f5571d995f75801662173715dfc",
       "sourceQueueSha256": "0134ec012829295404c1e2ac570c035bb2dcbb9105ced1eb83d801ac03c491db",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5725,7 +5779,7 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5809,7 +5863,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+FT+SN:RF/R/L pair held because both active-stick sides are structurally broken: left stick is detached/truncated and right-hand stick splits into duplicated/forked shafts in hit/rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 56,
@@ -5817,7 +5872,7 @@
       "actionKey": "BD+FT+SN:RF/R/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
-      "sha256": "82c23799cbceb13c3028700f303963e946b1865cf01031c92c0de17ca325c693",
+      "sha256": "fe9aa96699e25b0fd95bab5732267ad290bbe6e2a0da24cc137b151972395e1f",
       "sourceQueueSha256": "ff1d69ae31b13b027ab18164ce27f7f88a0c367148d49dfa79f3c0761e50ca4b",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5825,7 +5880,7 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5909,7 +5964,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+FT+SN:RF/R/L pair held because both active-stick sides are structurally broken: left stick is detached/truncated and right-hand stick splits into duplicated/forked shafts in hit/rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 57,
@@ -5917,7 +5973,7 @@
       "actionKey": "BD+FT:RF/L",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_l_hit_refresh.png",
-      "sha256": "320c4a88895bff33a4993609a2f1b2bf42d06a29bf383c8ad7ac1c68c03dadbd",
+      "sha256": "13950abcbc592ddf67281c1b365659c4f470490dacc941df55f9f3e1b882bc6b",
       "sourceQueueSha256": "226149a35897dc36ab82d5aeb29a972d4964274e542d4ebefb6ff3bd6a328814",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -5926,7 +5982,7 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -6010,7 +6066,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+FT:RF/L pair held because the left active stick is discontinuous from the hand and a detached diagonal outer fragment remains in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 58,
@@ -6018,7 +6075,7 @@
       "actionKey": "BD+FT:RF/L",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
-      "sha256": "6e90f150dbfe8a14fe865cf50dbd1a8743b86d087c9dfecf55662ca45bfaba9b",
+      "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
       "sourceQueueSha256": "c7c94290d3d9cd9fa6a65821f103641b0be05fdbffc544a95d5c248bfd3383c7",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -6027,7 +6084,7 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -6111,7 +6168,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+FT:RF/L pair held because the left active stick is discontinuous from the hand and a detached diagonal outer fragment remains in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 59,
@@ -6119,7 +6177,7 @@
       "actionKey": "BD+FT:RF/R",
       "phase": "hit",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_r_hit_refresh.png",
-      "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
+      "sha256": "777b8d4fcbe58085d9bf9341b84de1897a0a3f5571d995f75801662173715dfc",
       "sourceQueueSha256": "297f815ffdf287e4f8a2f50836eae4d15d276c569a5889fb790ec103a8958bb3",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -6127,7 +6185,7 @@
         141
       ],
       "usageCount": 4,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -6187,7 +6245,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+FT:RF/R pair held because the right hand carries forked/duplicated stick shafts in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     },
     {
       "order": 60,
@@ -6195,7 +6254,7 @@
       "actionKey": "BD+FT:RF/R",
       "phase": "rebound",
       "formalGitHubPath": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
-      "sha256": "da415537a0016e182714d6f0480d1040b0075a24f331673d244285c879860551",
+      "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
       "sourceQueueSha256": "2d4f9e6eb11a4e821fd19e06ee1b44701ff4ba70a344a40878407aba517e3e7e",
       "sourceShaMatchesCurrent": false,
       "usageMeasures": [
@@ -6203,7 +6262,7 @@
         141
       ],
       "usageCount": 4,
-      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
+      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "TERM-B",
       "claimState": "CLAIMED",
@@ -6279,7 +6338,8 @@
         ]
       },
       "historicalHoldReason20260920": "BD+FT:RF/R pair held because the right hand carries forked/duplicated stick shafts in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
-      "footContinuityReview": "PASS"
+      "footContinuityReview": "PASS",
+      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
     }
   ],
   "statusPolicy": {

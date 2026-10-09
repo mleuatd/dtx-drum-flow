@@ -6,7 +6,7 @@
     "x": 0,
     "y": 0
   },
-  "lockedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "lockedDrumSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
   "assets": [
     {
       "path": "character-assets/layers/drum/drum_base.png",
@@ -14,13 +14,15 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+      "sha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
       "status": "APPROVED_FIXED",
-      "purpose": "fixed 11-lane drum layer",
+      "purpose": "fixed single-layer drum after authorized pedal-only revision",
       "part": "DRUM",
       "phase": "base",
       "hand": null,
-      "notes": []
+      "notes": [
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
+      ]
     },
     {
       "path": "character-assets/layers/character/base/neutral.png",
@@ -50,7 +52,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "7824c89cd98b755dcc1f76cab16b7bf5599d6bee270e83b6df6267a94c5ee617",
+      "sha256": "9db92ee8ae2cf534bef09363296e8ca0087deb0a923ede24df8814b65edbea04",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "SN",
@@ -60,7 +62,8 @@
         "2026-10-08 Neutral-preserving local SN:L pair; full-resolution anatomy/contact/rebound/identity QA PASS; public runtime verification follows promotion.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -69,7 +72,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "e7f9240c2b953c4de8b856652e2c4d95371462ba3b995b58503e659d57106036",
+      "sha256": "18aaeade71ce6e758c642a7fb203e4c4c9854d41abd151e0917481b4af424a04",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "SN",
@@ -83,7 +86,8 @@
         "2026-10-08 Neutral-preserving local SN:L pair; full-resolution anatomy/contact/rebound/identity QA PASS; public runtime verification follows promotion.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -92,7 +96,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "4c2834d87631179aa096abd9dbc178b42d364e38f420ddf574d96e5598cf580b",
+      "sha256": "88c5db09b354747a4e33372a14cb1ab46983adeb01e21462c23180461396f2a2",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "SN",
@@ -102,7 +106,8 @@
         "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -111,7 +116,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "dcc9ad2f6d88259f747d40b51e657f5d849d937e1593b8d74e1a89993208a612",
+      "sha256": "3b758cb186df816c4ae6059be369279f7014aad888d3f7eab596e6fe1e5766ec",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "retained historical SN:R rebound variant; not used at runtime because live QA found a large transition jump",
       "part": "SN",
@@ -122,7 +127,8 @@
         "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -131,7 +137,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "788703d3aee04709700d61a9ebde413ed4b802c0d1fcd600a12f8a4c0ee05898",
+      "sha256": "a1b89b4afcb841ec5db0de4927c1f543b16540ecf474c27900cc18745c32482c",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "HH",
@@ -144,7 +150,8 @@
         "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -153,7 +160,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "a53481f0d311f69d08434c1486bb6eabb11dcafe9b7ae469bd885ccdb900f061",
+      "sha256": "159fc0be9251e98e75b7582ed6586026c79477ebd3755a9646d011a1795a1196",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "HH",
@@ -166,7 +173,8 @@
         "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -175,7 +183,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "baab265210674ffff2c87d3d089b04504397db2ef3a46064eabfc744515e4301",
+      "sha256": "9464e588b26469367ea43578cbad765158e64cf7dfc7ee5942cb23c47948c6f9",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "BD",
@@ -185,7 +193,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -194,7 +203,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "ddf7c6e5af78e377aa007197f111cf424a66462e648dce1f12cabe1f61df0e96",
+      "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "BD",
@@ -204,7 +213,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -213,7 +223,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "8f885151d34a5d037192b3e4017b88d7f51d81790a6755cb7a387fe8ac376389",
+      "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "BD+RC",
@@ -223,7 +233,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -232,7 +243,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "34600eda0dcb934be1fa33dc1125f3052c5c75835e2a7634fbbeb770962cca2a",
+      "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 1-4 parapara variant",
       "part": "BD+RC",
@@ -242,7 +253,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -251,7 +263,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "02acaa1e2391203474d917ac5da8782d2eaf1ea4dcd2e7ab44366741cafcd262",
+      "sha256": "ccf9897c7dc0748646985002b2bb3b9ae07e1571db33268f6455ba11cca2a2a8",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; approved for M1-16 live runtime",
       "part": "BD+SN",
@@ -261,7 +273,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -270,7 +283,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "e7f9240c2b953c4de8b856652e2c4d95371462ba3b995b58503e659d57106036",
+      "sha256": "18aaeade71ce6e758c642a7fb203e4c4c9854d41abd151e0917481b4af424a04",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 9-16 refreshed BD+SN visual-QA-passed layer; approved for M1-16 live runtime",
       "part": "BD+SN",
@@ -280,7 +293,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -289,7 +303,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "d14ddd6d043957e0e3cfa6641ce378896469d88a7ccf87f21e468a86340f9b64",
+      "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 5-8 refreshed RD:R variant derived from approved neutral baseline",
       "part": "RD",
@@ -299,7 +313,8 @@
         "20261008 source-bound RD pair; live QA pending",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -308,7 +323,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "1be624d14e33b4ffb2f4f25e95269c64c3d83d94ad330c08cddae6a4cc7f1c4f",
+      "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measures 5-8 refreshed RD:R variant derived from approved neutral baseline",
       "part": "RD",
@@ -318,7 +333,8 @@
         "20261008 source-bound RD pair; live QA pending",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -327,7 +343,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "28a21e26427cf1db96100f8f65ed282c93830676870aa113fafebcf39bd047f7",
+      "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna Say Maybe M9-16 RC+SN:R/L hit; approved for M1-16 live runtime",
       "part": "RC+SN",
@@ -343,7 +359,8 @@
         "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -352,7 +369,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "348ecc8f8b54d17a523dd4f4997e7dcd8947dfaad8fe9ec7d41bb63c9d976e36",
+      "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna Say Maybe M9-16 RC+SN:R/L rebound; approved for M1-16 live runtime",
       "part": "RC+SN",
@@ -368,7 +385,8 @@
         "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -377,7 +395,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "0d8e45160f42485686b59fe57bd7dedbd46eecc281fce10c9285d358dd2ba581",
+      "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 LT:R hit; deterministic baseline-preserving local stick edit after contact-point recalibration",
       "part": "LT",
@@ -387,7 +405,8 @@
         "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -398,7 +417,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "fb33487395bb4fbefac54e3d4595c4a99adbf4b1ffd3bd2b82149f47dbaab599",
+      "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 LT:R rebound; deterministic baseline-preserving local stick edit",
       "part": "LT",
@@ -408,7 +427,8 @@
         "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -419,7 +439,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "769b7f99accc360ffdfe388c0425d7c48263d08b83801a7a58e4c96412a590e7",
+      "sha256": "d88e5557f19bd4f8f7ffbf7e9da7df366ccba4dc3fbdbb2dc4438a372d87c2a8",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 LT:L hit; deterministic approved-neutral-preserving local left-stick edit to recalibrated LT contact",
       "part": "LT",
@@ -429,7 +449,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -440,7 +461,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "9a9f7d6735ff3b636d5fc783dd2db3bf04b09794d33de115a6f04537deb84541",
+      "sha256": "4f08851487f84daae75dba979b338f0b40a5ef632fba7a7e83b34e18c9c4cc41",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 LT:L rebound; deterministic approved-neutral-preserving local left-stick rebound",
       "part": "LT",
@@ -450,7 +471,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -461,7 +483,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "c59a98a269de929fe411532f455220a9aa9f636c9fdff6830b250f5b990cedfb",
+      "sha256": "8104e62701a2a5fa05ff6b8bf08a51dc7c12fe1072ccb5be356a98555b9db337",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 BD+SN:RF/R hit; APPROVED SN:R pose preserved with deterministic local BD kick cue",
       "part": "BD+SN",
@@ -471,7 +493,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -482,7 +505,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "dcc9ad2f6d88259f747d40b51e657f5d849d937e1593b8d74e1a89993208a612",
+      "sha256": "3b758cb186df816c4ae6059be369279f7014aad888d3f7eab596e6fe1e5766ec",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 BD+SN:RF/R rebound; APPROVED SN:R pose preserved with deterministic local BD kick cue",
       "part": "BD+SN",
@@ -492,7 +515,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -503,7 +527,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "0169d19f4c59b886bc40f5efc05c5e0f887894a06f205e3f4ed5c49a355a57dc",
+      "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 FT:R hit; deterministic approved-neutral-preserving local right-stick edit",
       "part": "FT",
@@ -513,7 +537,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -524,7 +549,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "da415537a0016e182714d6f0480d1040b0075a24f331673d244285c879860551",
+      "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 FT:R rebound; deterministic approved-neutral-preserving local right-stick edit",
       "part": "FT",
@@ -534,7 +559,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -545,7 +571,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "246ceb4a4d38f9e1adb54b379e154afdedcab0e62188211bc22a9b91d67b04d8",
+      "sha256": "2b6bfe2193f7cdadc0f986cb47c303a8deb145a0136ff7a98ca637f7603e8f3c",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 FT:L hit; deterministic approved-neutral-preserving local left-stick edit",
       "part": "FT",
@@ -555,7 +581,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -566,7 +593,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "6e90f150dbfe8a14fe865cf50dbd1a8743b86d087c9dfecf55662ca45bfaba9b",
+      "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 FT:L rebound; deterministic approved-neutral-preserving local left-stick edit",
       "part": "FT",
@@ -576,7 +603,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -587,7 +615,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "4902f5a9820f4ffa3ddb32b6c853a0224b6bc3a0cd3a2f2cfeea0921902d733c",
+      "sha256": "142db62da694afa7c779d5675898b2a53e2556ad85683f5620785e4aa7359907",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 BD+LT:RF/R hit; APPROVED LT:R pose preserved with deterministic local BD kick cue",
       "part": "BD+LT",
@@ -597,7 +625,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -608,7 +637,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "fb33487395bb4fbefac54e3d4595c4a99adbf4b1ffd3bd2b82149f47dbaab599",
+      "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 17 BD+LT:RF/R rebound; APPROVED LT:R rebound preserved with deterministic local BD kick cue",
       "part": "BD+LT",
@@ -618,7 +647,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35404442282,
       "liveQaArtifact": 10571731825
@@ -629,7 +659,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "18f6172ec03090df2b99d0f22f504874ad12e89e3735833b116b6603d39428f6",
+      "sha256": "72459beecd91b4f44217f5bc68b4d1e09aa95c30012b8cb401adf68bbd537d30",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M25-28 HT:R attempt05 approved HH:R limb-patch pair; PRE_RUNTIME QA passed.",
       "part": "HT",
@@ -639,7 +669,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -650,7 +681,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "50a640918b154d9601ebe39f715f0178b9b9eda7aeeaa16e7656c70ac2ea0e78",
+      "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M25-28 HT:R attempt05 approved HH:R limb-patch pair; PRE_RUNTIME QA passed.",
       "part": "HT",
@@ -660,7 +691,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -671,7 +703,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "28a21e26427cf1db96100f8f65ed282c93830676870aa113fafebcf39bd047f7",
+      "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M25-28 RC:R formal pair; fixed-drum PRE_RUNTIME QA passed.",
       "part": "RC",
@@ -682,7 +714,8 @@
         "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -693,7 +726,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "34600eda0dcb934be1fa33dc1125f3052c5c75835e2a7634fbbeb770962cca2a",
+      "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M25-28 RC:R formal pair; fixed-drum PRE_RUNTIME QA passed.",
       "part": "RC",
@@ -704,7 +737,8 @@
         "2026-10-08 protected Neutral + local outward far-right arm; contact on fixed RC head and rebound visually checked.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -715,7 +749,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "0169d19f4c59b886bc40f5efc05c5e0f887894a06f205e3f4ed5c49a355a57dc",
+      "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M25-28 FT+SN:R/L attempt04 formal pair; contact QA passed.",
       "part": "FT+SN",
@@ -725,7 +759,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -736,7 +771,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "82c23799cbceb13c3028700f303963e946b1865cf01031c92c0de17ca325c693",
+      "sha256": "fe9aa96699e25b0fd95bab5732267ad290bbe6e2a0da24cc137b151972395e1f",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M25-28 FT+SN:R/L attempt04 formal pair; contact QA passed.",
       "part": "FT+SN",
@@ -746,7 +781,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35413032881,
       "liveQaArtifact": 10575360428
@@ -757,7 +793,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "64fc3aa281422879ee762f2dffc90c4daecd152ac720d5320dbc3bd108091639",
+      "sha256": "4e284f8eea9ba4ebb4ded4b1d8a9caf28ce03449d19db2ad0cd68ef1848c9d46",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M29+ HT:L formal pair; runtime QA pending.",
       "part": "HT",
@@ -767,7 +803,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -776,7 +813,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "9f3c29300df1ee9fb8d892c55b2de066cb1ce616cc2415ef9d52741320ba6ba4",
+      "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M29+ HT:L formal pair; runtime QA pending.",
       "part": "HT",
@@ -786,7 +823,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -795,7 +833,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "e6f459780702f5363aed1a3e4ce10c5b5993e9c9724c22750a56e497f2723876",
+      "sha256": "772b93d4f55ac3d480cb03a089618da81a282046521b2389595a5249e1e2bbed",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+RD",
@@ -805,7 +843,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -814,7 +853,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "1be624d14e33b4ffb2f4f25e95269c64c3d83d94ad330c08cddae6a4cc7f1c4f",
+      "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+RD",
@@ -824,7 +863,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -833,7 +873,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "788703d3aee04709700d61a9ebde413ed4b802c0d1fcd600a12f8a4c0ee05898",
+      "sha256": "a1b89b4afcb841ec5db0de4927c1f543b16540ecf474c27900cc18745c32482c",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "HH+SN",
@@ -846,7 +886,8 @@
         "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -855,7 +896,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "d9dbea36cb483b0d89fade4d28e2f17585542941fafec122b645fa30ab3f6992",
+      "sha256": "bda5ca20a63907b8299ba29f7a30d2dcf7ad7a96144e06d81daa699183111734",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "HH+SN",
@@ -868,7 +909,8 @@
         "2026-10-08 protected Neutral + local far-right arm donor v4; anatomy/contact/rigid rebound checked; public runtime follows.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -877,7 +919,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "e24dd52a5c57e5738c02fed030638ff06146859243f08c19a4f1a46f788367dd",
+      "sha256": "c5498b239b7ea26295531061edb09e77da5aaec4fa84d0692b419d9428f352f0",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+HH",
@@ -887,7 +929,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -896,7 +939,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "a53481f0d311f69d08434c1486bb6eabb11dcafe9b7ae469bd885ccdb900f061",
+      "sha256": "159fc0be9251e98e75b7582ed6586026c79477ebd3755a9646d011a1795a1196",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+HH",
@@ -906,7 +949,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -915,7 +959,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "d14ddd6d043957e0e3cfa6641ce378896469d88a7ccf87f21e468a86340f9b64",
+      "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "RD+SN",
@@ -925,7 +969,8 @@
         "20261008 source-bound RD pair; live QA pending",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -934,7 +979,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "0ce490ea1ae05280f6ee0defd2760dc47ab82510e71d91032eb0a67557641032",
+      "sha256": "9ead7ff695b7c2931a2f5086c697c2278a6e70353087b8fca79dd1be88610b69",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "RD+SN",
@@ -944,7 +989,8 @@
         "20261008 source-bound RD pair; live QA pending",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -953,7 +999,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "b1d45ed3b5d8b8896d5edcd7b63b2cfe0b080f5755920d3ebb763f4fd51d9610",
+      "sha256": "3f27bb050fbd318916775f8f0eb89422410b3ee5b866638a0d07b5531d59d80b",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+HT",
@@ -963,7 +1009,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -972,7 +1019,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "50a640918b154d9601ebe39f715f0178b9b9eda7aeeaa16e7656c70ac2ea0e78",
+      "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna runtime formal character frame",
       "part": "BD+HT",
@@ -982,7 +1029,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -991,7 +1039,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "0d8e45160f42485686b59fe57bd7dedbd46eecc281fce10c9285d358dd2ba581",
+      "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M46 LT+SN:R/L formal hit pair; exact LT:R formal base plus proven SN:L local delta.",
       "part": "LT+SN",
@@ -1001,7 +1049,8 @@
         "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35418698275,
       "liveQaArtifact": 10576564303
@@ -1012,7 +1061,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "d24b961e72f29467e1bcb889a0a2cbac505f6ce0f431e3c809b1b1bbc8892af9",
+      "sha256": "0071e2278fff9ac139d390bac6f01c477d542dc67e3e0f451abf50535662eb52",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M46 LT+SN:R/L formal rebound pair; exact LT:R formal base plus proven SN:L local delta.",
       "part": "LT+SN",
@@ -1022,7 +1071,8 @@
         "LT:R exact head885416; reboundtip909381; inferred hidden far shoulder/elbow; two hands no duplicated limbs",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35418698275,
       "liveQaArtifact": 10576564303
@@ -1033,7 +1083,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "e24dd52a5c57e5738c02fed030638ff06146859243f08c19a4f1a46f788367dd",
+      "sha256": "c5498b239b7ea26295531061edb09e77da5aaec4fa84d0692b419d9428f352f0",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M47 BD+HH+SN:RF/R/L formal hit; exact HH+SN formal parent plus approved local BD cue.",
       "part": "BD+HH+SN",
@@ -1043,7 +1093,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35419097186,
       "liveQaArtifact": 10577335176
@@ -1054,7 +1105,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "d9dbea36cb483b0d89fade4d28e2f17585542941fafec122b645fa30ab3f6992",
+      "sha256": "bda5ca20a63907b8299ba29f7a30d2dcf7ad7a96144e06d81daa699183111734",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M47 BD+HH+SN:RF/R/L formal rebound; exact HH+SN formal parent plus approved local BD cue.",
       "part": "BD+HH+SN",
@@ -1064,7 +1115,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ],
       "liveQaRun": 35419097186,
       "liveQaArtifact": 10577335176
@@ -1075,7 +1127,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "69e9c3f64f61c1b697ee3af90b6b5cf884f73ec52fac65f796f7408200846a59",
+      "sha256": "07ea4adc517f4c93ac9a64a4706afb637af9a79380d8630c5f6cb513f20205b2",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 54 BD+HT:RF/L hit; formal HT:L preserved with proven local BD kick cue",
       "part": "BD+HT",
@@ -1085,7 +1137,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1094,7 +1147,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "9f3c29300df1ee9fb8d892c55b2de066cb1ce616cc2415ef9d52741320ba6ba4",
+      "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna measure 54 BD+HT:RF/L rebound; formal HT:L preserved with proven local BD kick cue",
       "part": "BD+HT",
@@ -1104,7 +1157,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1113,7 +1167,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "8f885151d34a5d037192b3e4017b88d7f51d81790a6755cb7a387fe8ac376389",
+      "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M68 BD+RC+SN:RF/R/L formal hit; exact RC+SN formal parent plus approved local BD cue.",
       "part": "BD+RC+SN",
@@ -1123,7 +1177,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1132,7 +1187,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "348ecc8f8b54d17a523dd4f4997e7dcd8947dfaad8fe9ec7d41bb63c9d976e36",
+      "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M68 BD+RC+SN:RF/R/L formal rebound; exact RC+SN formal parent plus approved local BD cue.",
       "part": "BD+RC+SN",
@@ -1142,7 +1197,8 @@
         "Original upper body and near leg exact; right calf source warp plus localized rear boot donor; 12px ankle rebound; no limb duplication; completely hidden portions exempt per user",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1151,7 +1207,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
+      "sha256": "777b8d4fcbe58085d9bf9341b84de1897a0a3f5571d995f75801662173715dfc",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M105-106 BD+FT+SN:RF/R/L formal hit; exact formal parent plus approved local BD cue.",
       "part": "BD+FT+SN",
@@ -1161,7 +1217,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1170,7 +1227,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "82c23799cbceb13c3028700f303963e946b1865cf01031c92c0de17ca325c693",
+      "sha256": "fe9aa96699e25b0fd95bab5732267ad290bbe6e2a0da24cc137b151972395e1f",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M105-106 BD+FT+SN:RF/R/L formal rebound; exact formal parent plus approved local BD cue.",
       "part": "BD+FT+SN",
@@ -1180,7 +1237,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1189,7 +1247,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "320c4a88895bff33a4993609a2f1b2bf42d06a29bf383c8ad7ac1c68c03dadbd",
+      "sha256": "13950abcbc592ddf67281c1b365659c4f470490dacc941df55f9f3e1b882bc6b",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M105-106 BD+FT:RF/L formal hit; exact formal parent plus approved local BD cue.",
       "part": "BD+FT",
@@ -1199,7 +1257,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1208,7 +1267,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "6e90f150dbfe8a14fe865cf50dbd1a8743b86d087c9dfecf55662ca45bfaba9b",
+      "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M105-106 BD+FT:RF/L formal rebound; exact formal parent plus approved local BD cue.",
       "part": "BD+FT",
@@ -1218,7 +1277,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1227,7 +1287,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "48cc3ea616a3a468c606e9306fd1ab04d0a0e27644031d6e075b03ad64fefa65",
+      "sha256": "777b8d4fcbe58085d9bf9341b84de1897a0a3f5571d995f75801662173715dfc",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M136 BD+FT:RF/R formal hit; exact FT:R parent plus approved local BD cue.",
       "part": "BD+FT",
@@ -1237,7 +1297,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1246,7 +1307,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "da415537a0016e182714d6f0480d1040b0075a24f331673d244285c879860551",
+      "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "Luna M136 BD+FT:RF/R formal rebound; exact FT:R parent plus approved local BD cue.",
       "part": "BD+FT",
@@ -1256,7 +1317,8 @@
         "Original head and near leg exact; local arm donor transforms only, source shoulder sleeve projection; no mirror of left/right hands; hidden hand/arm excluded from visible QA by user; kit unchanged",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
         "20261008 pedal continuity: toes remain on pedal, rebound raises heel; outside foot ROI unchanged. Visible/runtime review pending.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     },
     {
@@ -1288,7 +1350,7 @@
       "height": 1086,
       "x": 0,
       "y": 0,
-      "sha256": "ddf7c6e5af78e377aa007197f111cf424a66462e648dce1f12cabe1f61df0e96",
+      "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
       "status": "SOURCE_BOUND_STATIC_QA_PASS",
       "purpose": "performance ready toe-planted heel-raised neutral",
       "part": "NEUTRAL",
@@ -1301,7 +1363,8 @@
       ],
       "notes": [
         "Original approved Neutral preserved; right foot continuity refinement pending visible/runtime review.",
-        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324"
+        "20261008 foot continuity visible review PASS; public PC/mobile all30 Hit/Rebound + normal/half playback PASS, run37767634324",
+        "20261009 authorized pedal/right-leg local repair: visible triplet PASS; exact outside masks; public QA pending."
       ]
     }
   ],
@@ -1310,5 +1373,14 @@
   "authoritativeImageCount": 56,
   "note": "Approved fixed neutral/home pose, fixed 11-lane drum, M1-8 approved variants, and M9-16 RD/BD+SN/RC+SN live-QA-passed variants. Runtime scope is inventory-driven through measure 16.",
   "lockedNeutralSha256": "886e3490bb926b496d95eb1f8fb2e1ecc69859fdba35d1b13858fe8f31dd39e9",
-  "updatedAt": "2026-09-19T21:35:00+09:00"
+  "updatedAt": "2026-09-19T21:35:00+09:00",
+  "previousLockedDrumSha25620261008": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "drumRevision20261009": {
+    "authorization": "User expressly permits pedal and minimal connection repairs only",
+    "baselineBranch": "checkpoints/2026-10-09-before-pedal-leg-alignment",
+    "baselinePath": "character-assets/production/20261009/baseline/drum_base_before.png",
+    "changeMask": "character-assets/production/20261009/qa/drum_change_mask.png",
+    "outsideMaskPixelExact": true,
+    "visibleDrumLayers": 1
+  }
 }

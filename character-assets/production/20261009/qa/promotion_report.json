@@ -1,0 +1,512 @@
+{
+  "status": "PROMOTED_VISIBLE_PASS_PUBLIC_RUNTIME_PENDING",
+  "baselineCommit": "33e17e37fd235ad474b61219e664670d9818c344",
+  "drumChangedPixels": 30331,
+  "drumOutsideMaskExact": true,
+  "characterOutsideFootRoiExact": true,
+  "characterRoi": [
+    560,
+    730,
+    800,
+    1005
+  ],
+  "pedalTransform": {
+    "rotationDegrees": -18,
+    "translation": [
+      -25,
+      0
+    ]
+  },
+  "toeProjection": "Existing rear-boot shaft preserved; forefoot fully occluded behind shaft",
+  "toePivot": [
+    681,
+    913
+  ],
+  "heelLiftPixels": 6,
+  "generatedWholeImage": false,
+  "finalDrumLayers": 1,
+  "newFixedDrumSha256": "dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8",
+  "previousFixedDrumSha256": "dadc9764acebc0fc3db3c661ffa0929fb6a3c4cc7b03b27e10920ce796efed85",
+  "frames": [
+    {
+      "key": "SN:L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/sn/hit_l.png",
+      "sha256": "9db92ee8ae2cf534bef09363296e8ca0087deb0a923ede24df8814b65edbea04",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "SN:L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/sn/rebound_l.png",
+      "sha256": "18aaeade71ce6e758c642a7fb203e4c4c9854d41abd151e0917481b4af424a04",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "SN:R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/sn/hit_r.png",
+      "sha256": "88c5db09b354747a4e33372a14cb1ab46983adeb01e21462c23180461396f2a2",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "SN:R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/sn/rebound_r.png",
+      "sha256": "3b758cb186df816c4ae6059be369279f7014aad888d3f7eab596e6fe1e5766ec",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HH:R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/hh/hit_r.png",
+      "sha256": "a1b89b4afcb841ec5db0de4927c1f543b16540ecf474c27900cc18745c32482c",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HH:R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/hh/rebound_r.png",
+      "sha256": "159fc0be9251e98e75b7582ed6586026c79477ebd3755a9646d011a1795a1196",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD:RF",
+      "phase": "hit",
+      "path": "character-assets/layers/character/bd/hit_rf.png",
+      "sha256": "9464e588b26469367ea43578cbad765158e64cf7dfc7ee5942cb23c47948c6f9",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD:RF",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/bd/rebound_rf.png",
+      "sha256": "034e4e468046437277930a942e9d409da634d388c34749e9aa7b0765b19c56dd",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RD:R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/rd/hit_r_refresh.png",
+      "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RD:R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/rd/rebound_r_refresh.png",
+      "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+SN:RF/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_sn_hit_refresh.png",
+      "sha256": "ccf9897c7dc0748646985002b2bb3b9ae07e1571db33268f6455ba11cca2a2a8",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+SN:RF/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_sn_rebound_refresh.png",
+      "sha256": "18aaeade71ce6e758c642a7fb203e4c4c9854d41abd151e0917481b4af424a04",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RC+SN:R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/rc_sn_hit_refresh.png",
+      "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RC+SN:R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/rc_sn_rebound_refresh.png",
+      "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+SN:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_sn_rf_r_hit_refresh.png",
+      "sha256": "8104e62701a2a5fa05ff6b8bf08a51dc7c12fe1072ccb5be356a98555b9db337",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+SN:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_sn_rf_r_rebound_refresh.png",
+      "sha256": "3b758cb186df816c4ae6059be369279f7014aad888d3f7eab596e6fe1e5766ec",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "FT:R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/ft/hit_r_refresh.png",
+      "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "FT:R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/ft/rebound_r_refresh.png",
+      "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "FT:L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/ft/hit_l_refresh.png",
+      "sha256": "2b6bfe2193f7cdadc0f986cb47c303a8deb145a0136ff7a98ca637f7603e8f3c",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "FT:L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/ft/rebound_l_refresh.png",
+      "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+RD:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_rd_rf_r_hit_refresh.png",
+      "sha256": "772b93d4f55ac3d480cb03a089618da81a282046521b2389595a5249e1e2bbed",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+RD:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_rd_rf_r_rebound_refresh.png",
+      "sha256": "d7da243178aca4607bcc311de45df88077c9ab82d56393610b612aed3bfcc0e6",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RD+SN:R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/rd_sn_r_l_hit_refresh.png",
+      "sha256": "a4ec20f3c5016511c4111a46af95eb108e7a8adf0ec7540fda901ba8fc4bb7ec",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RD+SN:R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/rd_sn_r_l_rebound_refresh.png",
+      "sha256": "9ead7ff695b7c2931a2f5086c697c2278a6e70353087b8fca79dd1be88610b69",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HH:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_hh_rf_r_hit_refresh.png",
+      "sha256": "c5498b239b7ea26295531061edb09e77da5aaec4fa84d0692b419d9428f352f0",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HH:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_hh_rf_r_rebound_refresh.png",
+      "sha256": "159fc0be9251e98e75b7582ed6586026c79477ebd3755a9646d011a1795a1196",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HH+SN:R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/hh_sn_r_l_hit_refresh.png",
+      "sha256": "a1b89b4afcb841ec5db0de4927c1f543b16540ecf474c27900cc18745c32482c",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HH+SN:R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/hh_sn_r_l_rebound_refresh.png",
+      "sha256": "bda5ca20a63907b8299ba29f7a30d2dcf7ad7a96144e06d81daa699183111734",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+LT:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_lt_rf_r_hit_refresh.png",
+      "sha256": "142db62da694afa7c779d5675898b2a53e2556ad85683f5620785e4aa7359907",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+LT:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_lt_rf_r_rebound_refresh.png",
+      "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "LT:R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/lt/hit_r_refresh.png",
+      "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "LT:R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/lt/rebound_r_refresh.png",
+      "sha256": "fff8623673ad7186f512f4e69a8e1a7b8b600a41518b1d805ba5007b5f2328b1",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "LT:L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/lt/hit_l_refresh.png",
+      "sha256": "d88e5557f19bd4f8f7ffbf7e9da7df366ccba4dc3fbdbb2dc4438a372d87c2a8",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "LT:L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/lt/rebound_l_refresh.png",
+      "sha256": "4f08851487f84daae75dba979b338f0b40a5ef632fba7a7e83b34e18c9c4cc41",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+RC:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_rc_hit.png",
+      "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+RC:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_rc_rebound.png",
+      "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HT:L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/ht/hit_l_refresh.png",
+      "sha256": "4e284f8eea9ba4ebb4ded4b1d8a9caf28ce03449d19db2ad0cd68ef1848c9d46",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HT:L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/ht/rebound_l_refresh.png",
+      "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "FT+SN:R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/ft_sn_r_l_hit_refresh.png",
+      "sha256": "1aca7e1162787fd506ea918e7e165f401972f1862034f744623a6be270d42d64",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "FT+SN:R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/ft_sn_r_l_rebound_refresh.png",
+      "sha256": "fe9aa96699e25b0fd95bab5732267ad290bbe6e2a0da24cc137b151972395e1f",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RC:R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/rc/hit_r_refresh.png",
+      "sha256": "82ec2b6ecb217f02b8e5ea47ae6986ea1b6a14d2172a7c4c6639010ba5fb714c",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "RC:R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/rc/rebound_r_refresh.png",
+      "sha256": "933fa46c1ec0f5454b8c8edc5bdc0b5890f5d6fab716dca7deffd5a9e108f16c",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HT:R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/ht/hit_r_refresh.png",
+      "sha256": "72459beecd91b4f44217f5bc68b4d1e09aa95c30012b8cb401adf68bbd537d30",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "HT:R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/ht/rebound_r_refresh.png",
+      "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HT:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_ht_rf_r_hit_refresh.png",
+      "sha256": "3f27bb050fbd318916775f8f0eb89422410b3ee5b866638a0d07b5531d59d80b",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HT:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_ht_rf_r_rebound_refresh.png",
+      "sha256": "a48e599e4b48f0685571391d7bddaccaa953e00ef08c1e0148ca578aa355c4b7",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "LT+SN:R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/lt_sn_r_l_hit_refresh.png",
+      "sha256": "9c967b0c019b650b914043dfaf96bc09a977a2111a0b7ed6cf2023c46cdfe5fd",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "LT+SN:R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/lt_sn_r_l_rebound_refresh.png",
+      "sha256": "0071e2278fff9ac139d390bac6f01c477d542dc67e3e0f451abf50535662eb52",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HH+SN:RF/R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png",
+      "sha256": "c5498b239b7ea26295531061edb09e77da5aaec4fa84d0692b419d9428f352f0",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HH+SN:RF/R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png",
+      "sha256": "bda5ca20a63907b8299ba29f7a30d2dcf7ad7a96144e06d81daa699183111734",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HT:RF/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_ht_rf_l_hit_refresh.png",
+      "sha256": "07ea4adc517f4c93ac9a64a4706afb637af9a79380d8630c5f6cb513f20205b2",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+HT:RF/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_ht_rf_l_rebound_refresh.png",
+      "sha256": "95fa098749e4a7102d90bd65312cda06220c437cda5dfde7feffbf5b9b010465",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+RC+SN:RF/R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png",
+      "sha256": "bfee76c18b820345dd51cd61749772164d7ab9e610c2da6ed42ab0a0ffe8331e",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+RC+SN:RF/R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png",
+      "sha256": "7e978b35dd217e68f36d5a9ac817d36c464da41ed43761ed71d5c3465fe3a506",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+FT+SN:RF/R/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png",
+      "sha256": "777b8d4fcbe58085d9bf9341b84de1897a0a3f5571d995f75801662173715dfc",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+FT+SN:RF/R/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png",
+      "sha256": "fe9aa96699e25b0fd95bab5732267ad290bbe6e2a0da24cc137b151972395e1f",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+FT:RF/L",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_ft_rf_l_hit_refresh.png",
+      "sha256": "13950abcbc592ddf67281c1b365659c4f470490dacc941df55f9f3e1b882bc6b",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+FT:RF/L",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_ft_rf_l_rebound_refresh.png",
+      "sha256": "d6a264c750f683e2b35dce4dfb981796a60c0b37e9b9fefc91888005ccb33f72",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+FT:RF/R",
+      "phase": "hit",
+      "path": "character-assets/layers/character/combo/bd_ft_rf_r_hit_refresh.png",
+      "sha256": "777b8d4fcbe58085d9bf9341b84de1897a0a3f5571d995f75801662173715dfc",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    },
+    {
+      "key": "BD+FT:RF/R",
+      "phase": "rebound",
+      "path": "character-assets/layers/character/combo/bd_ft_rf_r_rebound_refresh.png",
+      "sha256": "54e0fa468b3ba1db5d46097bc43b6af59f0ad817c35d0f761d47ac146bb46543",
+      "outsideFootRoiExact": true,
+      "nearLeftLegProtected": true
+    }
+  ]
+}
