@@ -29,11 +29,47 @@
     "publishedNewOrientation": false,
     "previousAttempts": "Raw Hit/Rebound and masked trials failed visible joins; they were not committed as named files before interruption; local workspace has been lost.",
     "candidateFilesCommitted": true,
-    "latestTrial": "v15 REJECTED; v4-v12, v13 Rebound and v15 are retained",
-    "latestReview": "2026-10-09: actual PNGs recovered; 10 Hit candidates and 1 Rebound candidate reviewed; all rejected."
+    "latestTrial": "v16 REJECTED; 11 Hit candidates and 1 Rebound candidate actually retained in main",
+    "latestReview": "2026-10-09T14:35:58.457Z: direct PNG inspection rejected all 12 candidates; no approved pair.",
+    "recoveryCandidateCommit": "5cf680acd862989937dbc86ed3e9c068ac5eccba"
   },
-  "next": "Reject automatic whole-strip blending/flow as an approval method. Use source-bound contour editing with a clean shoulder/hair junction; v3 and all new trials remain rejected. Rebuild RC Hit/Rebound before propagating any combo or central poses.",
+  "next": "Read qa/resume_attempt_20261009.json and compare candidates/rc_hit_v8.png, candidates/rc_rebound_v13.png, candidates/rc_hit_v16.png against formal rc/hit_r_refresh.png and rebound_r_refresh.png; all candidates are REJECTED. Rebuild hair/shoulder/cuff boundary with source pencil contours; eliminate rectangular elbow cut at x1000, cuff mismatch at x1100..1140, lower-hair transition artifact above y590, and any donor stick fragment. Keep every formal pixel below y590, fixed drum and contacts. Approve a continuous RC pair before combo/central/away poses; rerun public QA only after actual promotion.",
   "resumedAt": "2026-10-09T21:31:02+09:00",
-  "stopReason": "DNS retrieval resolved. New source-bound masking/flow/seam trials fail visible hair/sleeve joints or elbow continuity. No trustworthy pair approved; do not publish failed images.",
-  "evidence": "qa/resume_attempt_20261009.json"
+  "stopReason": "PNG retrieval and editable runtime recovered. Twelve concrete local source-bound trials failed visible hair/sleeve boundaries, cuff or elbow continuity, or donor stick preservation. The quality threshold was not reached; formal promotion and propagation remain blocked by quality, not by DNS.",
+  "evidence": "qa/resume_attempt_20261009.json",
+  "publicBaselineQa": {
+    "scope": "UNCHANGED_FORMAL_BASELINE_ONLY",
+    "publishedSha": "75a72aee12ae0de6185e97f08f548379b48efed8",
+    "runId": "37944939055",
+    "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/37944939055",
+    "passed": 56,
+    "failed": 0,
+    "viewports": [
+      {
+        "width": 1280,
+        "height": 900
+      },
+      {
+        "width": 384,
+        "height": 864
+      }
+    ],
+    "playbackSpeeds": [
+      1,
+      0.5
+    ],
+    "manualPcEvidence": "qa/manual_public_baseline_pc.json",
+    "evidence": "qa/baseline-public/runtime-qa.json",
+    "newOrientationQa": "NOT_RUN_NOT_PUBLISHED",
+    "previousQaFailure": "37943430691: expected undeployed evidence SHA; corrected wait target, prior outcome preserved under baseline-public/history/"
+  },
+  "completionCriteria": {
+    "rcHitReboundComplete": false,
+    "anatomyIdentityContactContinuityApproved": false,
+    "combosUpdated": false,
+    "centralRideTomsAwayUpdated": false,
+    "correctedLowerBodyPedalStoolPreserved": true,
+    "actualGitHubCommits": true,
+    "newOrientationPublicPcMobileQa": false
+  }
 }
