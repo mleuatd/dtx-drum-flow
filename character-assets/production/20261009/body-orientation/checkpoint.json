@@ -1,12 +1,12 @@
 {
-  "status": "IN_PROGRESS_NOT_PUBLISHED",
+  "status": "RESUMED_ACTIVE_NOT_PUBLISHED",
   "requestedAt": "2026-10-09T19:02:14+09:00",
   "baselineSha": "9ffb890f70529ae9ba47e21325d8d328d1c97836",
   "baselineBranch": "checkpoints/2026-10-09-before-body-orientation",
   "rules": {
     "screenRightmostCrashRC": "RIGHT_REQUIRED: head,neck,shoulders,chest turn together; include RC+SN and BD+RC variants",
     "centralRideRDAndToms": "AWAY: back-facing camera, toward drums, neither left nor right",
-    "hiHatHH": "LEFT",
+    "hiHatHH": "KEEP_CURRENT: no body orientation changes to HH actions",
     "opposedLeftRightSimultaneous": "AWAY; RC mandatory-right instruction takes priority if both apply",
     "snareOnlyAndBassOnlyAndReady": "AWAY"
   },
@@ -25,8 +25,10 @@
     }
   ],
   "progress": {
-    "candidateGeneration": "right-facing RC Hit local edit started",
-    "publishedNewOrientation": false
+    "acceptedNewPairs": 0,
+    "publishedNewOrientation": false,
+    "previousAttempts": "Raw Hit/Rebound and masked trials failed visible joins; they were not committed as named files before interruption; local workspace has been lost."
   },
-  "next": "Inspect right-facing RC Hit edit; preserve exact protected pixels through assembly, produce matching Rebound; verify before promotion. Then all30action assignments and live PC/mobile QA."
+  "next": "Retrieve main; construct right-facing RC pair with exact protected lower body; immediately commit candidate image files and rejection/protection evidence before broader changes.",
+  "resumedAt": "2026-10-09T21:31:02+09:00"
 }
