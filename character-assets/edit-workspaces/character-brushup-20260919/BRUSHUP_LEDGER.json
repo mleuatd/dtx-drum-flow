@@ -171,7 +171,7 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "TERM-A",
       "claimState": "COMPLETED",
@@ -217,8 +217,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
@@ -237,7 +238,7 @@
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
       "completedAt": "2026-09-20T17:43:00+09:00",
       "qaEvidence": "character-assets/edit-workspaces/motion-repair-20260920/sn_l_rebound_candidate_v14_qa.json",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
@@ -263,7 +264,7 @@
       },
       "historicalHoldReason20260920": "SN:L pair held because rebound has large structural anatomy/linework failure; formal PNGs preserved and no minimal retry was attempted because the failure exceeds the light-fail threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 2,
@@ -395,7 +396,7 @@
         148
       ],
       "usageCount": 314,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -412,8 +413,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
@@ -431,7 +433,7 @@
       "activeReviewBatchId": "VISUAL-INTEGRITY-BATCH-20260920-03",
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
       "completedAt": "2026-09-20T17:43:00+09:00",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
@@ -460,7 +462,7 @@
       },
       "historicalHoldReason20260920": "Large structural visual-integrity failure in rebound; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 3,
@@ -514,7 +516,7 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -528,8 +530,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-FINAL",
@@ -548,7 +551,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -575,7 +578,7 @@
       },
       "historicalHoldReason20260920": "SN:R pair held because motion is not a local right-hand snare action: hit has large whole-body/stool registration drift and rebound changes to a different whole-body/camera presentation. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 4,
@@ -629,7 +632,7 @@
         148
       ],
       "usageCount": 69,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -643,8 +646,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-FINAL",
@@ -663,7 +667,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -690,7 +694,7 @@
       },
       "historicalHoldReason20260920": "SN:R pair held because motion is not a local right-hand snare action: hit has large whole-body/stool registration drift and rebound changes to a different whole-body/camera presentation. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 5,
@@ -797,7 +801,7 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -814,8 +818,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
@@ -834,7 +839,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -863,7 +868,7 @@
       },
       "historicalHoldReason20260920": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 6,
@@ -970,7 +975,7 @@
         144
       ],
       "usageCount": 248,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -987,8 +992,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
@@ -1007,7 +1013,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -1036,7 +1042,7 @@
       },
       "historicalHoldReason20260920": "Static visual-integrity hard gate failed after one minimal retry; formal PNG preserved.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 7,
@@ -1111,7 +1117,7 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1128,8 +1134,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
@@ -1147,7 +1154,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -1193,7 +1200,7 @@
         }
       },
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 8,
@@ -1268,7 +1275,7 @@
         143
       ],
       "usageCount": 129,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1285,8 +1292,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-BATCH-2X4",
@@ -1304,7 +1312,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -1350,7 +1358,7 @@
         }
       },
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 9,
@@ -1415,7 +1423,7 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1432,8 +1440,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
@@ -1452,7 +1461,7 @@
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -1480,7 +1489,7 @@
       },
       "historicalHoldReason20260920": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 10,
@@ -1545,7 +1554,7 @@
         147
       ],
       "usageCount": 63,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1562,8 +1571,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "lastBatchReview": {
@@ -1582,7 +1592,7 @@
       "reviewCompletedAt": "2026-09-20T07:56:00+09:00",
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -1610,7 +1620,7 @@
       },
       "historicalHoldReason20260920": "Large structural visual-integrity failure in current formal frame; formal PNG preserved. No minimal retry attempted because this is not a light/local defect.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 11,
@@ -1641,7 +1651,7 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -1658,8 +1668,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
@@ -1678,7 +1689,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -1702,7 +1713,7 @@
       },
       "historicalHoldReason20260920": "RD:R pair held because rebound has a large rectangular splice/cut across hair-torso/right-arm geometry. Formal PNGs preserved; no minimal retry attempted because the failure exceeds the light/local threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 12,
@@ -1733,7 +1744,7 @@
         147
       ],
       "usageCount": 53,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHATGPT-FRONT",
       "claimState": "COMPLETED",
@@ -1750,8 +1761,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
@@ -1770,7 +1782,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -1797,7 +1809,7 @@
       },
       "historicalHoldReason20260920": "RD:R pair held because rebound has a large rectangular splice/cut across hair-torso/right-arm geometry. Formal PNGs preserved; no minimal retry attempted because the failure exceeds the light/local threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 13,
@@ -1825,7 +1837,7 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1842,8 +1854,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
@@ -1862,7 +1875,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -1890,7 +1903,7 @@
       },
       "historicalHoldReason20260920": "BD+SN:RF/L pair held for structural splice/stick-break defects. Formal PNGs preserved; no minimal retry attempted because the failures exceed the light/local threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 14,
@@ -1918,7 +1931,7 @@
         144
       ],
       "usageCount": 22,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -1935,8 +1948,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FAST-2X4-B",
@@ -1955,7 +1969,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -1982,7 +1996,7 @@
       },
       "historicalHoldReason20260920": "BD+SN:RF/L pair held for structural splice/stick-break defects. Formal PNGs preserved; no minimal retry attempted because the failures exceed the light/local threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 15,
@@ -2015,7 +2029,7 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -2032,8 +2046,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2052,7 +2067,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2079,7 +2094,7 @@
       },
       "historicalHoldReason20260920": "RC+SN:R/L pair held because both hit and rebound contain a large horizontal/rectangular splice through lower hair/torso geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 16,
@@ -2112,7 +2127,7 @@
         141
       ],
       "usageCount": 34,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -2129,8 +2144,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2149,7 +2165,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2176,7 +2192,7 @@
       },
       "historicalHoldReason20260920": "RC+SN:R/L pair held because both hit and rebound contain a large horizontal/rectangular splice through lower hair/torso geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 17,
@@ -2209,7 +2225,7 @@
         148
       ],
       "usageCount": 31,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2223,8 +2239,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2243,7 +2260,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2272,7 +2289,7 @@
       },
       "historicalHoldReason20260920": "LT:R pair held because right-hand stick geometry reads as duplicated/crossing two-stick structure in both hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 18,
@@ -2305,7 +2322,7 @@
         148
       ],
       "usageCount": 31,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2319,8 +2336,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2339,7 +2357,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2368,7 +2386,7 @@
       },
       "historicalHoldReason20260920": "LT:R pair held because right-hand stick geometry reads as duplicated/crossing two-stick structure in both hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 19,
@@ -2393,7 +2411,7 @@
         148
       ],
       "usageCount": 22,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2407,8 +2425,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2427,7 +2446,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2455,7 +2474,7 @@
       },
       "historicalHoldReason20260920": "LT:L pair held because left-hand stick geometry is duplicated/discontinuous, with extra detached stick-like segments. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 20,
@@ -2480,7 +2499,7 @@
         148
       ],
       "usageCount": 22,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2494,8 +2513,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2514,7 +2534,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2542,7 +2562,7 @@
       },
       "historicalHoldReason20260920": "LT:L pair held because left-hand stick geometry is duplicated/discontinuous, with extra detached stick-like segments. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 21,
@@ -2566,7 +2586,7 @@
         140
       ],
       "usageCount": 17,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2580,8 +2600,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2600,7 +2621,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2628,7 +2649,7 @@
       },
       "historicalHoldReason20260920": "BD+SN:RF/R pair held because right-hand/stick geometry is disconnected and a detached floating artifact line is present. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 22,
@@ -2652,7 +2673,7 @@
         140
       ],
       "usageCount": 17,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2666,8 +2687,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2686,7 +2708,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2714,7 +2736,7 @@
       },
       "historicalHoldReason20260920": "BD+SN:RF/R pair held because right-hand/stick geometry is disconnected and a detached floating artifact line is present. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 23,
@@ -2736,7 +2758,7 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2750,8 +2772,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2770,7 +2793,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2798,7 +2821,7 @@
       },
       "historicalHoldReason20260920": "FT:R pair held because the right hand visibly carries a duplicated/two-branch stick structure in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 24,
@@ -2820,7 +2843,7 @@
         144
       ],
       "usageCount": 9,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2834,8 +2857,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2854,7 +2878,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2882,7 +2906,7 @@
       },
       "historicalHoldReason20260920": "FT:R pair held because the right hand visibly carries a duplicated/two-branch stick structure in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 25,
@@ -2904,7 +2928,7 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -2918,8 +2942,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -2938,7 +2963,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -2966,7 +2991,7 @@
       },
       "historicalHoldReason20260920": "FT:L pair held because the left stick is broken/discontinuous with a detached diagonal fragment at its outer end. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 26,
@@ -2988,7 +3013,7 @@
         144
       ],
       "usageCount": 8,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -3002,8 +3027,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -3022,7 +3048,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -3050,7 +3076,7 @@
       },
       "historicalHoldReason20260920": "FT:L pair held because the left stick is broken/discontinuous with a detached diagonal fragment at its outer end. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 27,
@@ -3076,7 +3102,7 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3093,8 +3119,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewCompletedAt": "2026-09-20T09:12:00+09:00",
@@ -3111,7 +3138,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -3147,7 +3174,7 @@
         }
       },
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 28,
@@ -3173,7 +3200,7 @@
         147
       ],
       "usageCount": 29,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3190,8 +3217,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewCompletedAt": "2026-09-20T09:12:00+09:00",
@@ -3208,7 +3236,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -3244,7 +3272,7 @@
         }
       },
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 29,
@@ -3270,7 +3298,7 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -3287,8 +3315,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewCompletedAt": "2026-09-20T09:14:00+09:00",
@@ -3304,7 +3333,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -3328,7 +3357,7 @@
       },
       "historicalHoldReason20260920": "Synchronized from MOTION_DEFECT_BACKLOG: rebound right-hand/RD stick continuity is broken and RD rebound semantics are unreadable. Hold for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 30,
@@ -3354,7 +3383,7 @@
         147
       ],
       "usageCount": 23,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -3371,8 +3400,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewCompletedAt": "2026-09-20T09:14:00+09:00",
@@ -3388,7 +3418,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -3415,7 +3445,7 @@
       },
       "historicalHoldReason20260920": "Synchronized from MOTION_DEFECT_BACKLOG: rebound right-hand/RD stick continuity is broken and RD rebound semantics are unreadable. Hold for local right-hand/stick repair only; preserve head/torso/stool/legs/left SN arm.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 31,
@@ -3518,7 +3548,7 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3535,8 +3565,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -3555,7 +3586,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -3582,7 +3613,7 @@
       },
       "historicalHoldReason20260920": "BD+HH:RF/R pair held because the left arm/hand/stick geometry is duplicated/disconnected and hit/rebound also contain blocky seat/lower-body splice artifacts. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 32,
@@ -3685,7 +3716,7 @@
         144
       ],
       "usageCount": 224,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3702,8 +3733,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -3722,7 +3754,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -3749,7 +3781,7 @@
       },
       "historicalHoldReason20260920": "BD+HH:RF/R pair held because the left arm/hand/stick geometry is duplicated/disconnected and hit/rebound also contain blocky seat/lower-body splice artifacts. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 33,
@@ -3842,7 +3874,7 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -3859,8 +3891,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -3884,7 +3917,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -3908,7 +3941,7 @@
       },
       "historicalHoldReason20260920": "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 34,
@@ -4001,7 +4034,7 @@
         144
       ],
       "usageCount": 143,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4018,8 +4051,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -4043,7 +4077,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4067,7 +4101,7 @@
       },
       "historicalHoldReason20260920": "large rectangular hair/torso splice plus floating line fragments makes the two-hand pose structurally discontinuous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 35,
@@ -4084,7 +4118,7 @@
         140
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4098,8 +4132,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4118,7 +4153,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4146,7 +4181,7 @@
       },
       "historicalHoldReason20260920": "BD+LT:RF/R pair held because the right-hand active stick geometry is duplicated/crossing in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 36,
@@ -4163,7 +4198,7 @@
         140
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4177,8 +4212,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4197,7 +4233,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4225,7 +4261,7 @@
       },
       "historicalHoldReason20260920": "BD+LT:RF/R pair held because the right-hand active stick geometry is duplicated/crossing in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 37,
@@ -4247,7 +4283,7 @@
         78
       ],
       "usageCount": 14,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4261,8 +4297,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4281,7 +4318,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4308,7 +4345,7 @@
       },
       "historicalHoldReason20260920": "HT:L pair held because the left active stick is structurally discontinuous and accompanied by an extra short stick-like fragment near the hand in hit/rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 38,
@@ -4330,7 +4367,7 @@
         78
       ],
       "usageCount": 14,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4344,8 +4381,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4364,7 +4402,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4391,7 +4429,7 @@
       },
       "historicalHoldReason20260920": "HT:L pair held because the left active stick is structurally discontinuous and accompanied by an extra short stick-like fragment near the hand in hit/rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 39,
@@ -4408,7 +4446,7 @@
         86
       ],
       "usageCount": 13,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4422,8 +4460,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4442,7 +4481,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4469,7 +4508,7 @@
       },
       "historicalHoldReason20260920": "FT+SN:R/L pair held because both active-stick regions are structurally broken: left side has detached/truncated stick fragments and right side forms a forked/duplicated stick geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 40,
@@ -4486,7 +4525,7 @@
         86
       ],
       "usageCount": 13,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4500,8 +4539,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4520,7 +4560,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4547,7 +4587,7 @@
       },
       "historicalHoldReason20260920": "FT+SN:R/L pair held because both active-stick regions are structurally broken: left side has detached/truncated stick fragments and right side forms a forked/duplicated stick geometry. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 41,
@@ -4564,7 +4604,7 @@
         29
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4578,8 +4618,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4618,7 +4659,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4645,7 +4686,7 @@
       },
       "historicalHoldReason20260920": "RC:R pair held because the right hand visibly carries duplicated/parallel stick shafts in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 42,
@@ -4662,7 +4703,7 @@
         29
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -4676,8 +4717,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -4696,7 +4738,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4723,7 +4765,7 @@
       },
       "historicalHoldReason20260920": "RC:R pair held because the right hand visibly carries duplicated/parallel stick shafts in hit and rebound. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 43,
@@ -4747,7 +4789,7 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4764,8 +4806,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -4796,7 +4839,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4820,7 +4863,7 @@
       },
       "historicalHoldReason20260920": "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 44,
@@ -4844,7 +4887,7 @@
         78
       ],
       "usageCount": 16,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4861,8 +4904,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -4893,7 +4937,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -4917,7 +4961,7 @@
       },
       "historicalHoldReason20260920": "large rectangular torso/hair transplant is visible, with duplicated forearm/hand geometry and detached/crossing stick fragments; whole-body continuity fails. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 45,
@@ -4935,7 +4979,7 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -4952,8 +4996,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -4978,7 +5023,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -4991,7 +5036,7 @@
         "machineQaRunId": 35490115009
       },
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 46,
@@ -5009,7 +5054,7 @@
         72
       ],
       "usageCount": 6,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-MOTION-REPAIR",
       "claimState": "COMPLETED",
@@ -5026,8 +5071,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -5052,7 +5098,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "PASS",
@@ -5065,7 +5111,7 @@
         "machineQaRunId": 35490115009
       },
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 47,
@@ -5082,7 +5128,7 @@
         77
       ],
       "usageCount": 4,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -5096,8 +5142,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -5116,7 +5163,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5143,7 +5190,7 @@
       },
       "historicalHoldReason20260920": "LT+SN:R/L pair held because right-hand stick geometry is forked/duplicated and the left active-stick path contains detached/truncated line fragments. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 48,
@@ -5160,7 +5207,7 @@
         77
       ],
       "usageCount": 4,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -5174,8 +5221,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -5194,7 +5242,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5221,7 +5269,7 @@
       },
       "historicalHoldReason20260920": "LT+SN:R/L pair held because right-hand stick geometry is forked/duplicated and the left active-stick path contains detached/truncated line fragments. Formal PNGs preserved; no minimal retry because defect is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 49,
@@ -5243,7 +5291,7 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5260,8 +5308,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -5285,7 +5334,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5309,7 +5358,7 @@
       },
       "historicalHoldReason20260920": "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 50,
@@ -5331,7 +5380,7 @@
         68
       ],
       "usageCount": 14,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5348,8 +5397,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -5373,7 +5423,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5397,7 +5447,7 @@
       },
       "historicalHoldReason20260920": "hit/rebound contain duplicated left hand/arm-stick geometry, floating line fragments, and seat splice artifacts; simultaneous hand semantics are anatomically ambiguous. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 51,
@@ -5412,7 +5462,7 @@
         54
       ],
       "usageCount": 1,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5426,8 +5476,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -5470,7 +5521,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5497,7 +5548,7 @@
       },
       "historicalHoldReason20260920": "BD+HT:RF/L pair held because the left active-stick geometry is structurally broken: an extra short parallel fragment remains near the left hand, and rebound stick continuity/direction is unreadable. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 52,
@@ -5512,7 +5563,7 @@
         54
       ],
       "usageCount": 1,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5526,8 +5577,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -5570,7 +5622,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5597,7 +5649,7 @@
       },
       "historicalHoldReason20260920": "BD+HT:RF/L pair held because the left active-stick geometry is structurally broken: an extra short parallel fragment remains near the left hand, and rebound stick continuity/direction is unreadable. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 53,
@@ -5614,7 +5666,7 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5631,8 +5683,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -5656,7 +5709,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5680,7 +5733,7 @@
       },
       "historicalHoldReason20260920": "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 54,
@@ -5697,7 +5750,7 @@
         72
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5714,8 +5767,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHATGPT-BACK",
@@ -5739,7 +5793,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5763,7 +5817,7 @@
       },
       "historicalHoldReason20260920": "hit/rebound contain non-anatomical duplicated/detached right-side hand/stick geometry; hit visibly contains an extra detached upper-right hand/stick, so the three-limb pose does not read as one body. Formal PNG unchanged; structural failure exceeds light/local repair threshold.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 55,
@@ -5779,7 +5833,7 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5793,8 +5847,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -5837,7 +5892,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5864,7 +5919,7 @@
       },
       "historicalHoldReason20260920": "BD+FT+SN:RF/R/L pair held because both active-stick sides are structurally broken: left stick is detached/truncated and right-hand stick splits into duplicated/forked shafts in hit/rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 56,
@@ -5880,7 +5935,7 @@
         106
       ],
       "usageCount": 3,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5894,8 +5949,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -5938,7 +5994,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -5965,7 +6021,7 @@
       },
       "historicalHoldReason20260920": "BD+FT+SN:RF/R/L pair held because both active-stick sides are structurally broken: left stick is detached/truncated and right-hand stick splits into duplicated/forked shafts in hit/rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 57,
@@ -5982,7 +6038,7 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -5996,8 +6052,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -6040,7 +6097,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -6067,7 +6124,7 @@
       },
       "historicalHoldReason20260920": "BD+FT:RF/L pair held because the left active stick is discontinuous from the hand and a detached diagonal outer fragment remains in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 58,
@@ -6084,7 +6141,7 @@
         136
       ],
       "usageCount": 5,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "CHAT-PASS2-BACK",
       "claimState": "COMPLETED",
@@ -6098,8 +6155,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -6142,7 +6200,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -6169,7 +6227,7 @@
       },
       "historicalHoldReason20260920": "BD+FT:RF/L pair held because the left active stick is discontinuous from the hand and a detached diagonal outer fragment remains in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 59,
@@ -6185,7 +6243,7 @@
         141
       ],
       "usageCount": 4,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": null,
       "claimState": "UNCLAIMED",
@@ -6199,8 +6257,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -6219,7 +6278,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -6246,7 +6305,7 @@
       },
       "historicalHoldReason20260920": "BD+FT:RF/R pair held because the right hand carries forked/duplicated stick shafts in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     },
     {
       "order": 60,
@@ -6262,7 +6321,7 @@
         141
       ],
       "usageCount": 4,
-      "qaState": "PEDAL_LEG_VISIBLE_PASS_RUNTIME_PENDING",
+      "qaState": "SOURCE_BOUND_VISIBLE_AND_PUBLIC_RUNTIME_PASS",
       "brushupStatus": "APPROVED_LIVE",
       "terminalId": "TERM-B",
       "claimState": "CLAIMED",
@@ -6292,8 +6351,9 @@
         "reviewedAt": "2026-10-08",
         "evidence": "character-assets/production/20261008/qa/",
         "hiddenPartsPolicy": "Entirely hidden portions excluded per user",
-        "runtimeRunId": "37767634324",
-        "footContinuity": "PASS"
+        "runtimeRunId": "37913174806",
+        "footContinuity": "PASS",
+        "pedalLegRevision20261009": "PASS"
       },
       "reviewClaimState": "COMPLETED",
       "reviewTerminalId": "CHAT-FRONT-2X4",
@@ -6312,7 +6372,7 @@
       },
       "productionEvidence": "character-assets/production/20261008/qa/remaining_tom_pairs_source_v1.json",
       "productionUpdatedAt": "2026-10-08",
-      "runtimeQaRunId": 37767634324,
+      "runtimeQaRunId": 37913174806,
       "runtimeQaEvidence": "character-assets/production/20261008/qa/final_public_runtime.json",
       "historicalVisualIntegrityQa20260920": {
         "humanAnatomy": "FAIL",
@@ -6339,7 +6399,7 @@
       },
       "historicalHoldReason20260920": "BD+FT:RF/R pair held because the right hand carries forked/duplicated stick shafts in both hit and rebound. Formal PNGs preserved; no minimal retry because failure is structural.",
       "footContinuityReview": "PASS",
-      "pedalLegRevision20261009": "VISIBLE_PASS_RUNTIME_PENDING"
+      "pedalLegRevision20261009": "PASS"
     }
   ],
   "statusPolicy": {
@@ -6716,7 +6776,8 @@
     "frames": 60,
     "evidence": "character-assets/production/20261008/qa/final_public_runtime.json",
     "footContinuity": "PASS",
-    "runtimeRunId": "37767634324",
-    "testedCommitSha": "f91400df752862eaad376e626c99b41f742fc50c"
+    "runtimeRunId": "37913174806",
+    "testedCommitSha": "75a72aee12ae0de6185e97f08f548379b48efed8",
+    "pedalLegRevision20261009": "PASS"
   }
 }

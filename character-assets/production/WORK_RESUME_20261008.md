@@ -1,4 +1,4 @@
-> 最新状態: 2026-10-09 右脚＋ペダルの局所修正を反映済み。公開再検証待ち。過去の完了報告は旧版の記録です。
+> 最新状態: 2026-10-09 右脚＋ペダル修正・全60枚反映・公開PC/スマホ再検証・保存を完了。詳細は末尾の最新完了記録。過去の完了報告は各旧版の記録です。
 
 # 完了・再開入口 — DTX Drum Flow / 2026-10-08
 
@@ -109,3 +109,16 @@
 
 ### 右脚＋ペダル修正版の昇格
 待機・Hit・Reboundの可視人体と接触を確認PASS。正式60枚と待機、ペダルを統合したドラム1枚へ反映。20261009/qa/promotion_report.jsonに旧/新SHAと全60枚の範囲外一致を保存。公開再検証は20261009/qa/public_runtime.jsonへ記録します。
+
+
+### 2026-10-09 右脚＋ペダル局所修正 — 完了
+- 修正前の固定ブランチ: checkpoints/2026-10-09-before-pedal-leg-alignment（33e17e37fd235ad474b61219e664670d9818c344）。原画の実体は20261009/baseline/にも保存。
+- 既存ペダルを18度回転・25px左へ移し、必要な接続部と旧位置だけを元画像の鉛筆線で補修。ペダルはdrum_base.pngに統合、最背面のドラム1枚のみ表示。旧ドラム前景は非表示のまま保存。
+- 右脚の靴先が急に右へ張り出す形を修正。膝からふくらはぎ・靴の接続を確認。Hitは踏み込み、待機/Reboundはつま先位置を保持して踵6px上げ。隠れる部分は評価対象外。
+- 同一人物・上半身・髪・腕・衣服・左脚と既存の打点を維持。全60枚は足ROI外が変更前と画素一致。ドラムは変更マスク外が画素一致。
+- 不合格候補: 旧位置補修の線が濃すぎ、靴先の断片が残った初回案は棄却。元の薄い鉛筆線のテクスチャと後ろ姿の輪郭へ修正。
+- 正式60PNGと演奏待機へ反映済み。新固定ドラムSHA: dbd1eb2dd52b64734157809cae83a2fdc281142891b01d8cf33cd186c6f252c8。旧固定原画SHAはmanifest.previousLockedDrumSha25620261008に保存。
+- 公開検証コミット: 75a72aee12ae0de6185e97f08f548379b48efed8。実ブラウザQA: https://github.com/mleuatd/dtx-drum-flow/actions/runs/37913174806 。PC/スマホ120位相・公開画像SHA・ドラム1枚/最背面/前景非表示・通常速度/半速4実再生ケースすべてPASS。142実測、失敗0。
+- 変更マスク・比較・動作GIF・可視人体レビュー・全60枚SHA: 20261009/qa/。実測全文: public_runtime_verified_frames.json。公開画面: public_pc_hit.png / public_mobile_hit.png。公開動作GIF: public_motion.gif。制作比較: before_after.png / candidate_motion.gif。
+- 再現スクリプト: 20261009/scripts/build_pedal_leg_candidates.py とpromote_pedal_leg.py。旧20261008の足再現スクリプトは旧版であり、今回の基準へ無条件に上書きしない。
+- 公開: https://mleuatd.github.io/dtx-drum-flow/ 。進捗: 20261009/checkpoint.json（COMPLETED）。今回の未完了Lunaセット0。
