@@ -1,0 +1,49 @@
+{
+  "scope": "UNCHANGED_FORMAL_BASELINE_ONLY",
+  "newOrientationApproved": false,
+  "newOrientationPublished": false,
+  "publicBuildSha": "75a72aee12ae0de6185e97f08f548379b48efed8",
+  "method": "Direct cloud browser UI interaction",
+  "url": "https://mleuatd.github.io/dtx-drum-flow/?build=75a72aee12ae",
+  "viewport": {
+    "width": 1363,
+    "height": 936
+  },
+  "checks": [
+    {
+      "kind": "DISPLAY",
+      "status": "PASS",
+      "characterWidth": 1448,
+      "drumWidth": 1448
+    },
+    {
+      "kind": "NORMAL_PLAYBACK",
+      "status": "PASS",
+      "observedTime": 41.383,
+      "observedFrame": "layers/character/sn/rebound_l.png",
+      "observedPhase": "rebound"
+    },
+    {
+      "kind": "HALF_SPEED_PLAYBACK",
+      "status": "PASS",
+      "speed": 0.5,
+      "initialTime": 53.573,
+      "endTime": 92.345,
+      "observedFrames": [
+        "layers/character/hh/rebound_r.png",
+        "layers/character/combo/bd_hh_rf_r_hit_refresh.png"
+      ]
+    }
+  ],
+  "console": {
+    "siteErrorsObserved": [],
+    "extensionErrorsObserved": [
+      "Error sending browser metadata to extension"
+    ]
+  },
+  "limits": [
+    "Direct mobile browser viewport testing was not performed through this UI.",
+    "No claim of all-frame/404 coverage from manual inspection.",
+    "New orientation is unapproved and not published."
+  ]
+}
