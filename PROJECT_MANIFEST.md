@@ -1,6 +1,17 @@
 # DTX Drum Flow — Shared Project Manifest
 
-## CURRENT AUTHORITY — 2026-09-21
+## CURRENT AUTHORITY — 2026-10-10
+
+現在の未完了作業は **2026-10-09 体の向き修正**です。再開入口は [WORK_RESUME_20261008.md](character-assets/production/WORK_RESUME_20261008.md)、詳細状態は [body-orientation/checkpoint.json](character-assets/production/20261009/body-orientation/checkpoint.json)、仕様は [REQUEST.md](character-assets/production/20261009/body-orientation/REQUEST.md) を読んでください。
+
+- 状態: INCOMPLETE_QUALITY_FAILED_NO_PROMOTION。右向きRC Hit/Reboundの合格ペア0。候補は不合格で、公開品として扱わない。
+- 次の作業: RCペアの髪・肩・袖・肘の接続を既存鉛筆線で補修し、品質合格後に同時打撃と中央の奥向きへ展開する。
+- 保護対象: 正式画像のy590以下、修正済み右脚・靴・椅子・ペダル、現行ドラム、HH、既存Hit打点。保護ドラムSHAはcheckpoint.jsonを参照する。
+- 公開基準版QA: run 37944939055、56 PASS / 0 FAIL。これは現行版だけの確認で、新しい体の向きは未公開・未検証。
+- 9月のDMR-009 / ONE_IMAGE_ONLY案内と旧固定レイヤーSHAは履歴。今回の体の向き修正の状態を上書きしない。
+
+
+## Historical authority — 2026-09-21
 
 Character-image repair is temporarily operating in **ONE_IMAGE_ONLY** mode.
 
