@@ -3,16 +3,16 @@
   "revision": "pedal-leg-20261009",
   "blocker": null,
   "browserFrameEvidence": {
-    "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+    "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
     "deployment": {
       "version": "POST-FIX",
-      "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
-      "builtAt": "2026-10-11T06:52:52Z",
-      "expectedCommitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
-      "acceptedDeploymentSha": "7140b5c7121ea134a1921005944f2deaeeb563a3"
+      "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
+      "builtAt": "2026-10-11T06:59:55Z",
+      "expectedCommitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
+      "acceptedDeploymentSha": "b6c7b56b6d180db9d02462480db72ad5beadd492"
     },
     "publicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-    "workflowRunId": "38119463292",
+    "workflowRunId": "38119844866",
     "measureRange": [
       1,
       148
@@ -169,15 +169,15 @@
         "key": "BD+FT:RF/R"
       }
     ],
-    "testedAt": "2026-10-11T06:54:29.750Z",
+    "testedAt": "2026-10-11T07:01:27.245Z",
     "failed": 0,
     "passed": 142,
     "records": [
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:30.573Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:29.961Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -235,6 +235,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -245,10 +246,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:31.004Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:30.321Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -306,6 +307,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -316,10 +318,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:31.435Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:30.678Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -377,6 +379,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -387,10 +390,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:31.828Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:31.041Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -448,6 +451,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -458,10 +462,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:32.618Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:31.406Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -519,6 +523,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -529,10 +534,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:33.092Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:31.731Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -590,6 +595,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -600,10 +606,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:33.479Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:32.123Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -661,6 +667,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -671,10 +678,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:33.920Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:32.498Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -732,6 +739,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -742,10 +750,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:34.296Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:32.885Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -803,6 +811,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -813,10 +822,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:34.684Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:33.285Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -874,6 +883,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -884,10 +894,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:35.049Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:33.892Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -945,6 +955,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -955,10 +966,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:35.413Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:34.488Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1016,6 +1027,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1026,10 +1038,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:35.784Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:34.896Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1087,6 +1099,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1097,10 +1110,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:36.172Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:35.275Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1158,6 +1171,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1168,10 +1182,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:36.541Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:35.692Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1229,6 +1243,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1239,10 +1254,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:36.925Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:36.066Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1300,6 +1315,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1310,10 +1326,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:37.261Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:36.428Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1371,6 +1387,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1381,10 +1398,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:37.655Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:36.801Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1442,6 +1459,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1452,10 +1470,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:38.037Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:37.196Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1513,6 +1531,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1523,10 +1542,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:38.429Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:37.593Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1584,6 +1603,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1594,10 +1614,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:38.829Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:38.000Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1655,6 +1675,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1665,10 +1686,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:39.212Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:38.411Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1726,6 +1747,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1736,10 +1758,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:39.581Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:38.790Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1797,6 +1819,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1807,10 +1830,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:39.982Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:39.224Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1868,6 +1891,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1878,10 +1902,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:40.362Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:39.627Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -1939,6 +1963,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -1949,10 +1974,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:40.750Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:40.016Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2010,6 +2035,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2020,10 +2046,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:41.133Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:40.430Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2081,6 +2107,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2091,10 +2118,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:41.518Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:40.811Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2152,6 +2179,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2162,10 +2190,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:41.915Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:41.168Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2223,6 +2251,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2233,10 +2262,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:42.334Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:41.527Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2294,6 +2323,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2304,10 +2334,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:42.752Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:41.870Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2365,6 +2395,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2375,10 +2406,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:43.135Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:42.254Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2436,6 +2467,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2446,10 +2478,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:43.499Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:42.616Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2507,6 +2539,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2517,10 +2550,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:43.888Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:43.003Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2578,6 +2611,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2588,10 +2622,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:44.282Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:43.357Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2649,6 +2683,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2659,10 +2694,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:44.627Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:43.677Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2720,6 +2755,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2730,10 +2766,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:45.043Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:44.039Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2791,6 +2827,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2801,10 +2838,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:45.437Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:44.381Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2862,6 +2899,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2872,10 +2910,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:45.853Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:44.755Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -2933,6 +2971,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -2943,10 +2982,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:46.241Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:45.121Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3004,6 +3043,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3014,10 +3054,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:46.605Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:45.446Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3075,6 +3115,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3085,10 +3126,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:47.062Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:45.792Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3146,6 +3187,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3156,10 +3198,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:47.502Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:46.162Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3217,6 +3259,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3227,10 +3270,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:47.909Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:46.577Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3288,6 +3331,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3298,10 +3342,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:48.347Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:46.937Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3359,6 +3403,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3369,10 +3414,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:48.764Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:47.281Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3430,6 +3475,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3440,10 +3486,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:49.171Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:47.647Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3501,6 +3547,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3511,10 +3558,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:49.591Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:48.014Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3572,6 +3619,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3582,10 +3630,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:50.032Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:48.373Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3643,6 +3691,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3653,10 +3702,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:50.416Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:48.751Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3714,6 +3763,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3724,10 +3774,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:50.796Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:49.113Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3785,6 +3835,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3795,10 +3846,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:51.182Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:49.459Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3856,6 +3907,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3866,10 +3918,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:51.548Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:49.828Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3927,6 +3979,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -3937,10 +3990,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:51.888Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:50.178Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -3998,6 +4051,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4008,10 +4062,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:52.253Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:50.521Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4069,6 +4123,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4079,10 +4134,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:52.598Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:50.854Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4140,6 +4195,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4150,10 +4206,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:52.987Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:51.220Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4211,6 +4267,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4221,10 +4278,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:53.331Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:51.556Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4282,6 +4339,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4292,10 +4350,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:53.686Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:51.923Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4353,6 +4411,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4363,10 +4422,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:54.033Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:52.254Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4424,6 +4483,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4434,10 +4494,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:54.337Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:52.555Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4495,6 +4555,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4505,10 +4566,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:54.750Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:52.903Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4566,6 +4627,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4576,10 +4638,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:55.113Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:53.238Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4637,6 +4699,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4647,10 +4710,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:55.401Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:53.535Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4708,6 +4771,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4718,10 +4782,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:55.748Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:53.886Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4779,6 +4843,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4789,10 +4854,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:56.083Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:54.219Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4850,6 +4915,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4860,10 +4926,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:56.381Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:54.521Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4921,6 +4987,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -4931,10 +4998,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:56.731Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:54.869Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -4992,6 +5059,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -5002,10 +5070,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:53:57.065Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:00:55.218Z",
         "browser": "chromium",
         "viewport": {
           "name": "pc",
@@ -5063,6 +5131,7 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/version-switcher.js?v=20260920-prepost-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED",
@@ -5082,84 +5151,84 @@
         "playbackSpeed": 1,
         "samples": [
           {
-            "time": 10.1116,
+            "time": 10.1279,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3218,
-            "frame": "layers/character/hh/rebound_r.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.4781,
-            "frame": "layers/character/bd/rebound_rf.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.7001,
-            "frame": "layers/character/rd/rebound_r_refresh.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 10.9069,
-            "frame": "layers/character/sn/rebound_l.png",
-            "phase": "rebound",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.1083,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.279,
+            "time": 10.3368,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.4729,
+            "time": 10.5447,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.6611,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.8447,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 12.0443,
+            "time": 10.7451,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 12.2288,
+            "time": 10.9321,
+            "frame": "layers/character/sn/rebound_l.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.1041,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.2893,
+            "frame": "layers/character/bd/hit_rf.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.4818,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.6633,
+            "frame": "layers/character/sn/hit_l.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.843,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 12.0427,
+            "frame": "layers/character/rd/rebound_r_refresh.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 12.2123,
             "frame": "layers/character/combo/bd_rc_rebound.png",
             "phase": "rebound",
             "complete": true,
@@ -5178,84 +5247,84 @@
         "playbackSpeed": 0.5,
         "samples": [
           {
-            "time": 10.06405,
+            "time": 10.0644,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.14815,
+            "time": 10.1538,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.2473,
+            "time": 10.2477,
             "frame": "layers/character/hh/rebound_r.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3345,
+            "time": 10.3312,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.42745,
+            "time": 10.4259,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.52235,
+            "time": 10.52265,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.6145,
+            "time": 10.61405,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.70605,
+            "time": 10.706,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.7993,
+            "time": 10.79735,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.8922,
+            "time": 10.88975,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.98085,
+            "time": 10.98115,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.0759,
+            "time": 11.07095,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
@@ -5265,10 +5334,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:06.694Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:04.094Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5326,6 +5395,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5334,10 +5405,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:06.956Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:04.343Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5395,6 +5466,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5403,10 +5476,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:07.208Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:04.593Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5464,6 +5537,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5472,10 +5547,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:07.476Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:04.843Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5533,6 +5608,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5541,10 +5618,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:07.741Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:05.094Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5602,6 +5679,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5610,10 +5689,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:07.991Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:05.631Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5671,6 +5750,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5679,10 +5760,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:08.257Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:05.984Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5740,6 +5821,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5748,10 +5831,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:08.522Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:06.258Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5809,6 +5892,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5817,10 +5902,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:08.791Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:06.510Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5878,6 +5963,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5886,10 +5973,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:09.057Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:06.760Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -5947,6 +6034,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -5955,10 +6044,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:09.324Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:07.012Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6016,6 +6105,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6024,10 +6115,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:09.590Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:07.260Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6085,6 +6176,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6093,10 +6186,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:09.857Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:07.526Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6154,6 +6247,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6162,10 +6257,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:10.123Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:07.809Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6223,6 +6318,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6231,10 +6328,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:10.392Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:08.077Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6292,6 +6389,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6300,10 +6399,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:10.657Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:08.342Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6361,6 +6460,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6369,10 +6470,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:10.909Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:08.595Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6430,6 +6531,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6438,10 +6541,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:11.174Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:08.846Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6499,6 +6602,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6507,10 +6612,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:11.441Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:09.094Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6568,6 +6673,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6576,10 +6683,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:11.710Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:09.343Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6637,6 +6744,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6645,10 +6754,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:11.973Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:09.609Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6706,6 +6815,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6714,10 +6825,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:12.243Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:09.860Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6775,6 +6886,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6783,10 +6896,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:12.507Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:10.127Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6844,6 +6957,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6852,10 +6967,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:12.773Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:10.393Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6913,6 +7028,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6921,10 +7038,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:13.039Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:10.661Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -6982,6 +7099,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -6990,10 +7109,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:13.308Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:10.926Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7051,6 +7170,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7059,10 +7180,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:13.576Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:11.192Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7120,6 +7241,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7128,10 +7251,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:13.841Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:11.459Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7189,6 +7312,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7197,10 +7322,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:14.106Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:11.725Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7258,6 +7383,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7266,10 +7393,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:14.374Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:11.993Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7327,6 +7454,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7335,10 +7464,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:14.639Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:12.259Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7396,6 +7525,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7404,10 +7535,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:14.907Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:12.527Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7465,6 +7596,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7473,10 +7606,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:15.174Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:12.792Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7534,6 +7667,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7542,10 +7677,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:15.441Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:13.059Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7603,6 +7738,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7611,10 +7748,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:15.705Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:13.325Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7672,6 +7809,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7680,10 +7819,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:15.959Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:13.576Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7741,6 +7880,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7749,10 +7890,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:16.223Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:13.843Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7810,6 +7951,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7818,10 +7961,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:16.491Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:14.109Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7879,6 +8022,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7887,10 +8032,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:16.760Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:14.376Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -7948,6 +8093,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -7956,10 +8103,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:17.023Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:14.644Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8017,6 +8164,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8025,10 +8174,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:17.276Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:14.892Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8086,6 +8235,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8094,10 +8245,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:17.539Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:15.160Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8155,6 +8306,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8163,10 +8316,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:17.809Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:15.426Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8224,6 +8377,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8232,10 +8387,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:18.073Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:15.693Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8293,6 +8448,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8301,10 +8458,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:18.339Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:15.959Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8362,6 +8519,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8370,10 +8529,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:18.607Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:16.226Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8431,6 +8590,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8439,10 +8600,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:18.873Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:16.492Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8500,6 +8661,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8508,10 +8671,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:19.141Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:16.759Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8569,6 +8732,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8577,10 +8742,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:19.406Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:17.025Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8638,6 +8803,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8646,10 +8813,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:19.673Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:17.292Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8707,6 +8874,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8715,10 +8884,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:19.941Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:17.559Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8776,6 +8945,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8784,10 +8955,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:20.209Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:17.825Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8845,6 +9016,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8853,10 +9026,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:20.473Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:18.092Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8914,6 +9087,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8922,10 +9097,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:20.724Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:18.342Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -8983,6 +9158,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -8991,10 +9168,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:20.994Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:18.610Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9052,6 +9229,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9060,10 +9239,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:21.256Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:18.875Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9121,6 +9300,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9129,10 +9310,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:21.523Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:19.142Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9190,6 +9371,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9198,10 +9381,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:21.792Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:19.408Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9259,6 +9442,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9267,10 +9452,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:22.057Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:19.677Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9328,6 +9513,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9336,10 +9523,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:22.326Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:19.942Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9397,6 +9584,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9405,10 +9594,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:22.575Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:20.192Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9466,6 +9655,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9474,10 +9665,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:22.840Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:20.459Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9535,6 +9726,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9543,10 +9736,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:23.106Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:20.725Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9604,6 +9797,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9612,10 +9807,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:23.357Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:20.975Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9673,6 +9868,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9681,10 +9878,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:23.626Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:21.241Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9742,6 +9939,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9750,10 +9949,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:23.890Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:21.508Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9811,6 +10010,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9819,10 +10020,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:24.142Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:21.759Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9880,6 +10081,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9888,10 +10091,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:24.406Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:22.024Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -9949,6 +10152,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -9957,10 +10162,10 @@
         "status": "PASS"
       },
       {
-        "commitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
+        "commitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
         "deploymentPublicUrl": "https://mleuatd.github.io/dtx-drum-flow/",
-        "workflowRunId": "38119463292",
-        "testedAt": "2026-10-11T06:54:24.676Z",
+        "workflowRunId": "38119844866",
+        "testedAt": "2026-10-11T07:01:22.293Z",
         "browser": "chromium",
         "viewport": {
           "name": "xperia-portrait",
@@ -10018,6 +10223,8 @@
         "consoleErrors": [],
         "pageErrors": [],
         "failedRequests": [
+          "https://mleuatd.github.io/dtx-drum-flow/parsers.js :: net::ERR_ABORTED",
+          "https://mleuatd.github.io/dtx-drum-flow/live-drum-engine.js?v=20260920-chart-preload-r2 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/drum-note-sound-map.js?v=20260919-audio-final-r21 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/character-prototype.js?v=20261009-pedal-leg-r1 :: net::ERR_ABORTED",
           "https://mleuatd.github.io/dtx-drum-flow/audio-analysis.js :: net::ERR_ABORTED"
@@ -10035,86 +10242,86 @@
         "playbackSpeed": 1,
         "samples": [
           {
-            "time": 10.1271,
+            "time": 10.1111,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.3265,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
+            "time": 10.3119,
+            "frame": "layers/character/hh/rebound_r.png",
+            "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.5432,
+            "time": 10.4773,
+            "frame": "layers/character/bd/rebound_rf.png",
+            "phase": "rebound",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 10.6774,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.7598,
+            "time": 10.8607,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.9598,
-            "frame": "layers/character/sn/rebound_l.png",
-            "phase": "rebound",
+            "time": 11.044,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.1454,
+            "time": 11.2273,
+            "frame": "layers/character/bd/hit_rf.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.4108,
+            "frame": "layers/character/rd/hit_r_refresh.png",
+            "phase": "hit",
+            "complete": true,
+            "width": 1448
+          },
+          {
+            "time": 11.5939,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.3264,
-            "frame": "layers/character/bd/hit_rf.png",
-            "phase": "hit",
+            "time": 11.7772,
+            "frame": "layers/character/sn/rebound_l.png",
+            "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.51,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
+            "time": 11.9772,
+            "frame": "layers/character/rd/rebound_r_refresh.png",
+            "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.6931,
-            "frame": "layers/character/sn/hit_l.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 11.8769,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 12.0597,
+            "time": 12.1773,
             "frame": "layers/character/combo/bd_rc_hit.png",
             "phase": "hit",
-            "complete": true,
-            "width": 1448
-          },
-          {
-            "time": 12.243,
-            "frame": "layers/character/combo/bd_rc_rebound.png",
-            "phase": "rebound",
             "complete": true,
             "width": 1448
           }
@@ -10138,7 +10345,7 @@
             "width": 1448
           },
           {
-            "time": 10.15605,
+            "time": 10.1561,
             "frame": "layers/character/hh/hit_r.png",
             "phase": "hit",
             "complete": true,
@@ -10152,63 +10359,63 @@
             "width": 1448
           },
           {
-            "time": 10.3401,
+            "time": 10.33955,
             "frame": "layers/character/bd/hit_rf.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.4332,
+            "time": 10.43185,
             "frame": "layers/character/bd/rebound_rf.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.5227,
+            "time": 10.5226,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.61425,
+            "time": 10.6143,
             "frame": "layers/character/rd/hit_r_refresh.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.7059,
+            "time": 10.70595,
             "frame": "layers/character/base/neutral_performance_ready.png",
             "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.7976,
+            "time": 10.78935,
             "frame": "layers/character/sn/hit_l.png",
             "phase": "hit",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.88925,
+            "time": 10.88095,
             "frame": "layers/character/sn/rebound_l.png",
             "phase": "rebound",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 10.9809,
-            "frame": "layers/character/rd/hit_r_refresh.png",
-            "phase": "hit",
+            "time": 10.9726,
+            "frame": "layers/character/base/neutral_performance_ready.png",
+            "phase": "neutral",
             "complete": true,
             "width": 1448
           },
           {
-            "time": 11.0809,
+            "time": 11.06425,
             "frame": "layers/character/rd/rebound_r_refresh.png",
             "phase": "rebound",
             "complete": true,
@@ -10223,10 +10430,10 @@
     "LUNA_PEDAL_ALIGNMENT_20261009": {
       "status": "PASS",
       "workflow": ".github/workflows/runtime-character-qa.yml",
-      "runId": "38119463292",
-      "testedCommitSha": "7140b5c7121ea134a1921005944f2deaeeb563a3",
-      "artifact": "public-runtime-qa-38119463292",
-      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/38119463292",
+      "runId": "38119844866",
+      "testedCommitSha": "b6c7b56b6d180db9d02462480db72ad5beadd492",
+      "artifact": "public-runtime-qa-38119844866",
+      "runUrl": "https://github.com/mleuatd/dtx-drum-flow/actions/runs/38119844866",
       "measureStart": 1,
       "measureEnd": 148,
       "actions": [
@@ -10263,5 +10470,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-11T06:54:32.950843+00:00"
+  "updatedAt": "2026-10-11T07:01:31.473920+00:00"
 }
