@@ -1,0 +1,19 @@
+{
+  "status": "REJECTED_NO_PROMOTION",
+  "source": "production/20261009/body-orientation/candidates/rc_rebound_v13.png",
+  "rawRejection": "Editor moved protected hand/stool/legs; raw output not eligible for promotion",
+  "registeredRejection": [
+    "Visible hard rectangular step at upper elbow around x978,y350",
+    "Cuff near x1100,y327 has sharp seam and displaced check lines"
+  ],
+  "protection": {
+    "outsidePatchPixelExact": true,
+    "headAndStickTipPixelExact": true,
+    "lowerBodyY590PlusPixelExact": true,
+    "drumUnchanged": true,
+    "formalFilesChanged": false
+  },
+  "acceptedPairs": 0,
+  "newOrientationPublicQa": "NOT_RUN",
+  "next": "Inspect production/20261012/body-orientation/rebound_composite.png and review.json. Rectangular patch copying does not solve sleeve contour joins. Need contour-following sleeve repair with exact source grip/tip and y590+ preservation, then Hit pair, before any promotion."
+}

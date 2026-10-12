@@ -29,13 +29,13 @@
     "publishedNewOrientation": false,
     "previousAttempts": "Raw Hit/Rebound and masked trials failed visible joins; they were not committed as named files before interruption; local workspace has been lost.",
     "candidateFilesCommitted": true,
-    "latestTrial": "v16 REJECTED; 11 Hit candidates and 1 Rebound candidate actually retained in main",
+    "latestTrial": "20261012 rebound local patch: REJECTED visible cuff/upper-elbow rectangle and checker seam; files committed.",
     "latestReview": "2026-10-09T14:35:58.457Z: direct PNG inspection rejected all 12 candidates; no approved pair.",
     "recoveryCandidateCommit": "5cf680acd862989937dbc86ed3e9c068ac5eccba"
   },
-  "next": "Read qa/resume_attempt_20261009.json and compare candidates/rc_hit_v8.png, candidates/rc_rebound_v13.png, candidates/rc_hit_v16.png against formal rc/hit_r_refresh.png and rebound_r_refresh.png; all candidates are REJECTED. Rebuild hair/shoulder/cuff boundary with source pencil contours; eliminate rectangular elbow cut at x1000, cuff mismatch at x1100..1140, lower-hair transition artifact above y590, and any donor stick fragment. Keep every formal pixel below y590, fixed drum and contacts. Approve a continuous RC pair before combo/central/away poses; rerun public QA only after actual promotion.",
+  "next": "Inspect production/20261012/body-orientation/rebound_composite.png and review.json. Rectangular patch copying does not solve sleeve contour joins. Need contour-following sleeve repair with exact source grip/tip and y590+ preservation, then Hit pair, before any promotion.",
   "resumedAt": "2026-10-09T21:31:02+09:00",
-  "stopReason": "PNG retrieval and editable runtime recovered. Twelve concrete local source-bound trials failed visible hair/sleeve boundaries, cuff or elbow continuity, or donor stick preservation. The quality threshold was not reached; formal promotion and propagation remain blocked by quality, not by DNS.",
+  "stopReason": "Local raw edit shifted protected pose; constrained sleeve-patch assembly retained protected pixels but produced visible rectangular elbow/cuff edges. No quality-approved pair; no deployment.",
   "evidence": "qa/resume_attempt_20261009.json",
   "publicBaselineQa": {
     "scope": "UNCHANGED_FORMAL_BASELINE_ONLY",
@@ -71,5 +71,6 @@
     "correctedLowerBodyPedalStoolPreserved": true,
     "actualGitHubCommits": true,
     "newOrientationPublicPcMobileQa": false
-  }
+  },
+  "lastResume": "2026-10-12 JST"
 }
