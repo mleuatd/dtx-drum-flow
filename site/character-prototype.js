@@ -38,11 +38,28 @@ function makeGlow(){
  const root=state.root;
  root.querySelectorAll("#characterLayer,#drumFrontLayer,#characterFrontLayer,#hairFrontLayer,#effectLayer,#characterPoseLabel").forEach(x=>x.remove());
  const img=root.querySelector("#drumLayer");
- img.src=DRUM+"?v=20261106-drum-glow";
+ if(!img){root.dataset.initError="drum_layer_element_missing";emit(1,true);return}
+ // Keep the kit visible immediately, independent of chart or audio preloading.
+ root.classList.add("active","drum-glow-ready");
+ let imageFinished=false;
+ const readyImage=()=>{
+   if(imageFinished)return;
+   imageFinished=true;state.ready=true;emit(1);
+   root.dataset.drumImage="ready";
+ };
+ const failedImage=()=>{
+   if(imageFinished)return;
+   imageFinished=true;root.dataset.drumImage="error";
+   root.dataset.initError="drum_image_http_error";
+   emit(1,true);
+   const label=document.getElementById("status");
+   if(label)label.textContent="ドラム画像の取得に失敗しました。ページを再読み込みしてください。";
+ };
+ img.addEventListener("load",readyImage,{once:true});
+ img.addEventListener("error",failedImage,{once:true});
  img.alt="ドラムセット";
- img.onload=()=>{root.classList.add("active","drum-glow-ready");state.ready=true;emit(1)};
- img.onerror=()=>{root.dataset.initError="drum_image_load_failed";emit(1,true)};
- if(img.complete&&img.naturalWidth){root.classList.add("active","drum-glow-ready");state.ready=true;emit(1)}
+ img.src=DRUM+"?v=20261106-drum-glow-v2";
+ if(img.complete&&img.naturalWidth)readyImage();
  const svg=node("svg",{viewBox:"0 0 1448 1086",preserveAspectRatio:"xMidYMid meet","aria-hidden":"true",class:"drum-glow-svg"},root);
  const defs=node("defs",{},svg);
  const filter=node("filter",{id:"dtx-watercolor-blur",x:"-40%",y:"-40%",width:"180%",height:"180%"},defs);
