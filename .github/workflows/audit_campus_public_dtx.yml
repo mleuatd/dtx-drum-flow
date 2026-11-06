@@ -1,0 +1,58 @@
+name: Audit public Campus mode DTX download
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/audit_campus_public_dtx.yml"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser
+        run: |
+          python -m pip install playwright
+          python -m playwright install chromium
+      - name: Inspect public DTX listing and search
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python - <<'PY'
+          import asyncio,json,re
+          from playwright.async_api import async_playwright
+          async def main():
+           async with async_playwright() as p:
+            browser=await p.chromium.launch(headless=True,args=['--no-sandbox'])
+            page=await browser.new_page()
+            responses=[]
+            async def response(resp):
+             u=resp.url
+             if any(x in u.lower() for x in ['api','json','simfile','search','wp-']):
+              if len(responses)<40:responses.append((resp.status,u[:250]))
+            page.on('response',response)
+            try:
+             resp=await page.goto('https://dtx.furukon.com/',wait_until='domcontentloaded',timeout=30000)
+             await page.wait_for_timeout(9000)
+             print('PAGE_STATUS',resp.status if resp else None)
+             print('PAGE_TITLE',await page.title())
+             body=await page.locator('body').inner_text(timeout=10000)
+             print('BODY_HEAD',body[:4000])
+             print('BODY_CAMPUS',[(m.start(),body[max(0,m.start()-100):m.start()+160]) for m in list(re.finditer('campus',body,re.I))[:12]])
+             inputs=await page.locator('input').evaluate_all('(es)=>es.map(x=>({placeholder:x.placeholder,type:x.type,outer:x.outerHTML.slice(0,400)}))')
+             print('INPUTS',json.dumps(inputs,ensure_ascii=False)[:4000])
+             links=await page.locator('a[href]').evaluate_all('(es)=>es.map(x=>({text:x.innerText.slice(0,100),href:x.href})).filter(x=>/campus|drive.google|download/i.test(x.text+" "+x.href)).slice(0,40)')
+             print('LINKS',json.dumps(links,ensure_ascii=False)[:8000])
+             print('RESPONSES',json.dumps(responses,ensure_ascii=False)[:6000])
+             search=page.locator('input[type="search"]')
+             if await search.count()==0:search=page.locator('input[placeholder*="earch"]')
+             if await search.count():
+              await search.first.fill('Campus mode')
+              await page.wait_for_timeout(3000)
+              print('AFTER_SEARCH', (await page.locator('body').inner_text())[:5000])
+              print('AFTER_LINKS',json.dumps(await page.locator('a[href]').evaluate_all('(es)=>es.map(x=>({text:x.innerText.slice(0,90),href:x.href})).filter(x=>/campus|drive.google|download/i.test(x.text+" "+x.href)).slice(0,40)'),ensure_ascii=False)[:8000])
+            finally:await browser.close()
+          asyncio.run(main())
+          PY
