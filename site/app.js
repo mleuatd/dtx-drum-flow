@@ -1,4 +1,4 @@
-import {makeSample,parseChart} from "./parsers.js";
+import {makeSample,parseChart} from "./parsers.js?v=20261106-watagashi-gm-r7";
 import {decodeAudio,analyzeOnsets,realignNotes} from "./audio-analysis.js";
 import {LiveDrumEngine} from "./live-drum-engine.js?v=20260920-chart-preload-r2";
 import {applyDrumVoice} from "./drum-note-sound-map.js?v=20260919-audio-final-r21";
