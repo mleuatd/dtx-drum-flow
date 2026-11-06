@@ -1,0 +1,54 @@
+name: Campus mode live-browser QA
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/campus_mode_browser_qa.yml"]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser runtime
+        run: |
+          python -m pip -q install playwright
+          python -m playwright install chromium
+      - name: Check published Campus charts, difficulty switching, and playback
+        run: |
+          python - <<'PY'
+          import asyncio,json
+          from playwright.async_api import async_playwright
+          async def main():
+            async with async_playwright() as p:
+              browser=await p.chromium.launch(headless=True,args=["--no-sandbox","--autoplay-policy=no-user-gesture-required"])
+              page=await browser.new_page(viewport={"width":390,"height":850})
+              bad=[]
+              page.on("pageerror",lambda e: bad.append(str(e)))
+              await page.goto("https://mleuatd.github.io/dtx-drum-flow/?v=20261106-campus-full-dtx-r10",wait_until="domcontentloaded",timeout=30000)
+              await page.wait_for_selector("#songSelect",timeout=20000)
+              print("BUILD",await page.locator("#devDeployInfo").inner_text())
+              for level,count in (("ext","2,236"),("adv","1,549"),("bas","885")):
+                if level=="ext":await page.select_option("#songSelect","campus")
+                else:await page.select_option("#campusDifficulty",level)
+                await page.wait_for_function("(c)=>document.querySelector('#chartMeta')?.textContent?.includes(c)",count,timeout=30000)
+                print("LEVEL",level,"META",await page.locator("#chartMeta").inner_text())
+              await page.select_option("#campusDifficulty","ext")
+              await page.wait_for_function("document.querySelector('#chartMeta')?.textContent?.includes('2,236')",timeout=30000)
+              print("PLAY_ENABLED_INITIALLY",await page.locator("#playPause").is_enabled())
+              try:
+                await page.wait_for_function("!document.querySelector('#playPause').disabled",timeout=55000)
+                await page.click("#playPause",timeout=9000)
+                await page.wait_for_function("parseFloat(document.querySelector('#timeline').value)>0.7",timeout=15000)
+                print("PLAYBACK_TIME",await page.locator("#timeline").input_value())
+              except Exception as e:
+                print("PLAYBACK_CHECK_ERROR",repr(e))
+                print("STATUS",await page.locator("#status").inner_text())
+                print("PLAY_BUTTON",await page.locator("#playPause").inner_text())
+                raise
+              print("PAGE_ERRORS",json.dumps(bad,ensure_ascii=False))
+              assert not bad,bad
+              await browser.close()
+          asyncio.run(main())
+          PY
