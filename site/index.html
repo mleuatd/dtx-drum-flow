@@ -56,12 +56,21 @@
         </select>
       </div>
       <div id="campusPanel" hidden style="grid-column:1/-1;padding:12px;border:2px solid #82d5ff;border-radius:7px;background:#0c172c">
-        <strong style="display:block;color:#fff;font-size:17px;margin-bottom:10px">Campus mode!!：ドラム譜面を登録</strong>
-        <label class="button huge primary" style="display:block;text-align:center;background:#e8faff;color:#102040;border-color:#80daff;margin-bottom:10px">Campus mode!!のMIDIファイルを選択
-          <input id="campusMidiFile" type="file" accept=".mid,.midi,audio/midi,audio/x-midi" hidden>
-        </label>
-        <a href="https://www.songsterr.com/a/wsa/campus-mode-drum-tab-s4442615" target="_blank" rel="noopener noreferrer" style="display:block;color:#9bdfff;font-weight:800;font-size:16px;padding:8px">SongsterrのCampus mode!!ドラム譜面を開く</a>
-        <p style="margin:8px 0 0;color:#d7e8ff;font-size:13px;line-height:1.5">Songsterr PlusではMIDIダウンロードに対応しています。取得したMIDIを一度選ぶと、この端末内に保存します。公開サーバーに譜面データはアップロードしません。</p>
+        <strong style="display:block;color:#fff;font-size:18px;margin-bottom:10px">Campus mode!! / 初星学園 — 完全DTX譜面</strong>
+        <label for="campusDifficulty" style="display:block;color:#e8faff;font-size:16px;font-weight:800;margin-bottom:7px">難易度を選択</label>
+        <select id="campusDifficulty" class="button huge" aria-label="Campus mode!! 譜面難易度" style="display:block;width:100%;min-height:52px;font-size:18px;margin-bottom:10px">
+          <option value="ext" selected>Extreme 8.50（全ノーツ）</option>
+          <option value="adv">Advanced 7.10</option>
+          <option value="bas">Basic 4.00</option>
+        </select>
+        <a href="https://dtx.furukon.com/?p=1&amp;search=Campus%20mode&amp;simfile=462%20-%20Campus%20mode!!" target="_blank" rel="noopener noreferrer" style="display:block;color:#9bdfff;font-weight:700;font-size:13px;margin:5px 0">譜面制作・配布元：Furukon（DTX）</a>
+        <p style="margin:8px 0;color:#d7e8ff;font-size:13px;line-height:1.5">DTXの小節長・テンポ変更を反映したノーツを自動読み込みします。原曲音源は含みません。</p>
+        <details>
+          <summary style="color:#b9dcff;font-size:13px;cursor:pointer">手持ちの別譜面を読み込む（任意）</summary>
+          <label class="button huge primary" style="display:block;text-align:center;background:#e8faff;color:#102040;border-color:#80daff;margin-top:8px">MIDIファイルを選択
+            <input id="campusMidiFile" type="file" accept=".mid,.midi,audio/midi,audio/x-midi" hidden>
+          </label>
+        </details>
       </div>
       <div id="watagashiPanel" hidden style="grid-column:1/-1;padding:12px;border:2px solid #82d5ff;border-radius:7px;background:#0c172c">
         <strong style="display:block;color:#fff;font-size:17px;margin-bottom:10px">わたがし：ドラムMIDIを登録</strong>
@@ -83,7 +92,7 @@
     <section class="panel status-panel"><h2>STATUS</h2><p id="status">FINAL譜面を自動読み込みしています…</p></section>
   </main>
   <nav class="mobile-transport" aria-label="再生操作"><button id="rewindMeasure" class="transport-side">−4小節</button><button id="playPause" class="transport-play is-loading" disabled aria-disabled="true" style="--play-load:0%">読み込み中 0%</button><button id="forwardMeasure" class="transport-side">＋4小節</button></nav>
-  <script type="module" src="./app.js?v=20261106-campus-mode-import-r8"></script>
+  <script type="module" src="./app.js?v=20261106-campus-full-dtx-r9"></script>
   <script type="module" src="./original-audio.js?v=20261106-watagashi-local-audio-r7"></script>
   <script>setTimeout(()=>{if(!window.__DTX_APP_READY__){const s=document.getElementById("status");if(s)s.textContent="アプリ本体の読み込みに失敗しました。ページを再読み込みしてください。";}},1500);</script>
   <script src="./version-switcher.js?v=20260920-prepost-r1" defer></script>\n
