@@ -39,9 +39,14 @@ jobs:
             print('ITEM',repr(name),item.file_size)
            names=[x for x in listing if x.filename.lower().endswith(('.dtx','.gda','.bms','.bme','.mid','.midi','.txt','.md','.license')) and x.file_size<8_000_000]
            for item in names:
-            body=z.read(item).decode('utf-8',errors='replace')
-            if body.count('\ufffd')>20: body=z.read(item).decode('cp932',errors='replace')
-            print('INSPECT_FILE',repr(item.filename),'BYTES',item.file_size)
+            raw=z.read(item)
+            if raw[:2] in (bytes.fromhex('fffe'),bytes.fromhex('feff')) or raw[:120].count(0)>20:
+             body=raw.decode('utf-16',errors='replace')
+            else:
+             body=raw.decode('utf-8',errors='replace')
+             if body.count('\\ufffd')>20: body=raw.decode('cp932',errors='replace')
+            print('INSPECT_FILE',repr(item.filename),'BYTES',item.file_size,'BOM_HEX',raw[:18].hex())
+            print('FIRST_LINES',repr(body.splitlines()[:10]))
             if item.filename.lower().endswith(('.txt','.md','.license')):
              print('DOCUMENT_HEAD',body[:2200])
             if item.filename.lower().endswith(('.dtx','.gda','.bms','.bme')):
