@@ -16,7 +16,8 @@ const PART_SHAPES={
   RC:["M944 143 Q1010 76 1161 80 Q1304 63 1318 128 Q1260 208 1095 250 Q966 253 942 188 Z"],
   LB:["M668 716 L724 715 L746 916 L681 912 Z","M650 894 L734 886 L740 1016 L593 1011 Z"]
 };
-// Every combination is composed dynamically from per-instrument layers; no combined assets.\nconst state={root:null,svg:null,layer:null,notes:[],active:new Set(),ready:false,preview:""};
+// Every combination is composed dynamically from per-instrument layers; no combined assets.
+const state={root:null,svg:null,layer:null,notes:[],active:new Set(),ready:false,preview:""};
 const node=(tag,attrs={},parent)=>{const el=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));parent?.append(el);return el};
 const emit=(ratio,failed=false)=>window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",ratio,label:"ドラム画像",failed:failed?1:0}}));
 export function setDrumGlowNotes(notes){
