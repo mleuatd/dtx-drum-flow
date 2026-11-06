@@ -1,175 +1,100 @@
-const PROTOTYPE_URL="./charts/luna_say_maybe/Luna_say_maybe_FINAL_notes.json";
-const DEFAULT_MEASURE_START=1;
-const DEFAULT_MEASURE_END=4;
-const LIMB_URL="./charts/luna_say_maybe/Luna_say_maybe_full_limbs.json";
-const INVENTORY_URL="./character-assets/prototypes/luna_say_maybe_16m/asset_inventory.json";
-const ASSET_ROOT="./character-assets";
-const ASSET_VERSION="20261009-pedal-leg-r1";
+// DTX Drum Flow — instrument-only cyan watercolor glow (30 reference patterns).
+// All coordinates are in the original drum image's 1400x1050 equivalent viewBox.
+// No human/performer assets are fetched or rendered.
+const NS="http://www.w3.org/2000/svg";
 const DRUM="./character-assets/layers/drum/drum_base.png";
-const assetUrl=src=>src+(src.includes("?")?"&":"?")+"v="+ASSET_VERSION;
-
-let data=null,lastKey="",lastEffectToken="",ready=false,activeSong=false;
-const els={root:null,drum:null,character:null,drumFront:null,characterFront:null,hairFront:null,label:null,effect:null,bursts:[]};
-function updateDevHud(extra=""){
-  const hud=document.getElementById("devBuildHud");
-  if(!hud)return;
-  const root=document.getElementById("characterBackdrop");
-  const lines=[
-    "BUILD 20260918-inventory-scope-r1",
-    "JS:ok / CHAR:"+(ready?"ready":"loading"),
-    "active:"+(root?.dataset.active||"-")+" state:"+(root?.dataset.state||"-"),
-    "frame:"+(root?.dataset.frame||"-"),
-    "phase:"+(root?.dataset.phase||"-"),
-    "key:"+(root?.dataset.animationKey||"-"),
-    "err:"+(root?.dataset.initError||root?.dataset.assetIssue||"-")
-  ];
-  if(extra)lines.push(extra);
-  hud.textContent=lines.join("\n")+"\n"+(window.__DTX_DEPLOY_STATUS__||"DEPLOY: checking...");
+const PART_SHAPES={
+  LC:["M208 122 Q252 64 352 100 Q465 126 571 232 Q563 265 506 253 Q340 232 208 157 Z"],
+  HH:["M118 411 Q145 383 264 385 Q357 384 390 421 Q374 463 260 465 Q155 467 124 443 Z","M249 263 L279 263 L282 805 L248 809 Z","M240 816 L276 807 L373 973 L306 989 Z"],
+  LP:["M240 817 L275 807 L377 974 L311 989 Z"],
+  SN:["M346 515 Q463 460 604 502 L612 624 Q498 672 352 620 Z"],
+  BD:["M528 573 Q576 519 718 520 Q867 547 921 714 Q927 858 803 925 Q644 966 546 866 Q507 748 528 573 Z","M686 712 L731 708 L745 911 L684 913 Z","M667 901 L744 892 L742 1006 L596 1010 Z"],
+  HT:["M447 314 Q550 297 682 362 L660 501 Q542 521 428 477 Z"],
+  LT:["M706 376 Q834 348 952 401 L965 549 Q840 581 700 526 Z"],
+  FT:["M951 490 Q1110 439 1268 510 L1294 821 Q1161 883 942 798 Z"],
+  RD:["M597 270 Q652 209 791 206 Q914 200 963 255 Q947 304 809 327 Q675 342 606 304 Z"],
+  RC:["M944 143 Q1010 76 1161 80 Q1304 63 1318 128 Q1260 208 1095 250 Q966 253 942 188 Z"],
+  LB:["M668 716 L724 715 L746 916 L681 912 Z","M650 894 L734 886 L740 1016 L593 1011 Z"]
+};
+// 30 distinct named preview/test patterns: 11 single instruments and 19 common simultaneous hits.
+// Actual playback supports ANY combination of parts, not only these 30.
+export const GLOW_PATTERNS=[
+ ["LC"],["HH"],["LP"],["SN"],["BD"],["HT"],["LT"],["FT"],["RD"],["RC"],["LB"],
+ ["HH","SN"],["HH","BD"],["HH","SN","BD"],["RD","SN"],["RD","BD"],["RC","BD"],
+ ["LC","BD"],["SN","BD"],["HT","BD"],["LT","BD"],["FT","BD"],
+ ["HH","LP"],["HH","RC"],["RD","SN","BD"],["RC","SN","BD"],
+ ["LC","SN","BD"],["HT","LT"],["LT","FT"],["HH","SN","BD","RC"]
+];
+const state={root:null,svg:null,layer:null,notes:[],active:new Set(),ready:false,preview:-1};
+const node=(tag,attrs={},parent)=>{const el=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));parent?.append(el);return el};
+const emit=(ratio,failed=false)=>window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",ratio,label:"ドラム画像",failed:failed?1:0}}));
+export function setDrumGlowNotes(notes){
+ state.notes=(Array.isArray(notes)?notes:[]).filter(n=>Number.isFinite(Number(n.time))).map(n=>({time:Number(n.time),part:String(n.part||"").toUpperCase()})).sort((a,b)=>a.time-b.time);
 }
-setInterval(()=>updateDevHud(),250);
-const EFFECT_POINTS={HH:[190,390],SN:[420,535],BD:[735,650],HT:[575,360],LT:[885,455],FT:[1165,535],RC:[1215,145],RD:[965,250]};
-
-// Retain loaded nodes and warm their pixels before exposing short Hit/Rebound phases.
-const loadedFrameImages=new Map();
-const frameWarmup=document.createElement("canvas");frameWarmup.width=1;frameWarmup.height=1;
-const frameWarmupContext=frameWarmup.getContext("2d",{willReadFrequently:true});
-function loadImage(src){
- const url=assetUrl(src),existing=loadedFrameImages.get(url);
- if(existing?.complete&&existing.naturalWidth)return Promise.resolve(src);
- return new Promise((resolve,reject)=>{
-  const image=new Image();let attempt=0;
-  const request=()=>{attempt++;image.src=url+(attempt>1?"&load_retry="+attempt:"")};
-  image.onload=()=>{try{
-   if(!image.complete||!image.naturalWidth)throw new Error("empty loaded image: "+src);
-   frameWarmupContext.clearRect(0,0,1,1);frameWarmupContext.drawImage(image,0,0,1,1);frameWarmupContext.getImageData(0,0,1,1);
-   loadedFrameImages.set(url,image);
-   if(attempt>1)console.warn("character asset transient load recovered",src,attempt);
-   resolve(src);
-  }catch(error){reject(error)}};
-  image.onerror=()=>{if(attempt<3)setTimeout(request,attempt===1?400:1000);else reject(new Error("image HTTP/load failure after3 attempts: "+src))};
-  request();
- });
-}
-function installReadyImage(previous,src){
- const image=loadedFrameImages.get(assetUrl(src));
- if(!image?.complete||!image.naturalWidth)throw new Error("image is not ready: "+src);
- image.id=previous.id;image.className=previous.className;image.alt=previous.alt;image.style.cssText=previous.style.cssText;
- if(previous!==image)previous.replaceWith(image);
- return image;
-}
-
-// The fixed kit remains immutable. Foreground kit pixels hide the torso/hair;
-// only the source arms and actual pose delta are drawn back above it.
-let foregroundNeutral=null,foregroundArmMask=null,foregroundScratch=null;
-async function initForegroundLayers(){
-  if(!els.drumFront||!els.characterFront)return;
-  const neutralSrc=ASSET_ROOT+"/layers/character/base/neutral.png",drumFrontSrc=ASSET_ROOT+"/layers/drum/drum_foreground_occlusion.png",hairSrc=ASSET_ROOT+"/layers/character/base/hair_foreground_source.png";
-  await Promise.all([DRUM,neutralSrc,drumFrontSrc,hairSrc].map(loadImage));
-  els.drum=installReadyImage(els.drum,DRUM);els.character=installReadyImage(els.character,neutralSrc);
-  els.drumFront=installReadyImage(els.drumFront,drumFrontSrc);
-  if(els.hairFront)els.hairFront=installReadyImage(els.hairFront,hairSrc);
-  const neutral=loadedFrameImages.get(assetUrl(neutralSrc));
-  foregroundScratch=document.createElement("canvas");foregroundScratch.width=1448;foregroundScratch.height=1086;
-  const ctx=foregroundScratch.getContext("2d",{willReadFrequently:true});ctx.drawImage(neutral,0,0);
-  foregroundNeutral=ctx.getImageData(0,0,1448,1086).data;
-  ctx.clearRect(0,0,1448,1086);ctx.fillStyle="#fff";
-  for(const polygon of [
-    [[420,376],[474,380],[527,454],[575,465],[615,450],[630,370],[648,317],[710,320],[716,392],[699,465],[674,513],[632,557],[602,548],[581,552],[530,551],[493,529],[480,490],[420,418]],
-    [[1048,308],[1068,310],[1038,401],[1043,466],[1008,475],[984,455],[974,432],[989,415],[1004,414]]
-  ]){ctx.beginPath();polygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill()}
-  foregroundArmMask=ctx.getImageData(0,0,1448,1086).data;
-  renderForegroundCharacter();
-}
-function renderForegroundCharacter(){
-  if(!foregroundNeutral||!els.characterFront||!els.character?.complete||!els.character.naturalWidth)return;
-  const ctx=foregroundScratch.getContext("2d",{willReadFrequently:true});ctx.clearRect(0,0,1448,1086);ctx.drawImage(els.character,0,0,1448,1086);
-  const frame=ctx.getImageData(0,0,1448,1086),pixels=frame.data;
-  for(let i=0;i<pixels.length;i+=4){if(!foregroundArmMask[i+3]&&pixels[i]===foregroundNeutral[i]&&pixels[i+1]===foregroundNeutral[i+1]&&pixels[i+2]===foregroundNeutral[i+2]&&pixels[i+3]===foregroundNeutral[i+3])pixels[i+3]=0}
-  els.characterFront.getContext("2d").putImageData(frame,0,0);
-  els.characterFront.dataset.frame=els.root?.dataset.frame||"neutral";
-}
-
-function markAssetIssue(src){if(!els.root)return;els.root.dataset.assetIssue=src||"unknown";els.root.classList.add("asset-warning")}
-function groupNotes(notes){const groups=[];for(const n of notes){const g=groups.at(-1);if(g&&Math.abs(n.time-g[0].time)<=.008)g.push(n);else groups.push([n])}return groups}
-function noteIdentity(note){return [Number(note?.time).toFixed(6),note?.part||""].join("|")}
-function handForNote(note){if(note?.limb)return note.limb;if(note?.animation?.limb)return note.animation.limb;if(note?.animation?.hand)return note.animation.hand;if(note?.animation?.foot)return note.animation.foot;if(note?.part==="SN")return "L";if(note?.part==="BD")return "RF";if(note?.part==="LP"||note?.part==="LB")return "LF";return "R"}
-function fallbackInfo(group){if(!group?.length)return {fallback:false,reason:""};const key=keyFor(group);if(!data?.frameMap?.[key])return {fallback:true,reason:"missing-exact-frame"};if(data?.fallbackKeys?.has(key))return {fallback:true,reason:"declared-fallback-key"};return {fallback:false,reason:""}}
-function exactKeyFor(group){const notes=[...group].sort((a,b)=>a.part.localeCompare(b.part));if(notes.length>1)return notes.map(n=>n.part).join("+")+":"+notes.map(n=>handForNote(n)).join("/");const n=notes[0];return n.part+":"+handForNote(n)}
-function keyFor(group,frameMap=data?.frameMap){const exact=exactKeyFor(group);if(frameMap?.[exact])return exact;const parts=[...new Set(group.map(n=>n.part))].sort();if(parts.length>1){const combo=parts.join("+")+":*";if(frameMap?.[combo])return combo}return exact}
-function assetFor(group,phase="hit"){if(phase==="neutral")return data?.frames?.neutral?.path||"layers/character/base/neutral.png";const key=keyFor(group);const phases=data?.phaseFrameMap?.[key];const frameId=phases?.[phase]||data?.frameMap?.[key]||"neutral";return data?.frames?.[frameId]?.path||"layers/character/base/neutral.png"}
-function validatePrototypeCoverage(inventory,scopedNotes,groups){const scope=inventory.runtimeScope||{};if(scopedNotes.length!==Number(scope.noteCount||0))throw new Error("prototype note count mismatch");if(groups.length!==Number(scope.groupCount||0))throw new Error("prototype group count mismatch");if(scopedNotes.some(note=>!note.limb))throw new Error("prototype limb assignments missing");const expectedKeys=new Set(scope.expectedKeys||[]),actualKeys=new Set();for(const group of groups){const key=keyFor(group,inventory.runtimeFrameMap);actualKeys.add(key);if(!inventory.runtimeFrameMap?.[key])throw new Error("prototype frame missing for "+key);for(const phase of ["prep","hit","rebound"]){const frameId=inventory.runtimePhaseFrameMap?.[key]?.[phase];if(!frameId||!inventory.requiredFrames?.[frameId])throw new Error("prototype phase frame missing for "+key+"."+phase)}}const missing=[...expectedKeys].filter(key=>!actualKeys.has(key)),unexpected=[...actualKeys].filter(key=>!expectedKeys.has(key));if(missing.length||unexpected.length)throw new Error("prototype key mismatch missing="+missing.join(",")+" unexpected="+unexpected.join(","))}
-const sourceBoundHairFrames=new Set(["layers/character/base/neutral_performance_ready.png", "layers/character/base/neutral_performance_ready.png", "layers/character/base/neutral.png", "layers/character/sn/hit_l.png", "layers/character/sn/rebound_l.png", "layers/character/sn/hit_r.png", "layers/character/sn/rebound_r.png", "layers/character/hh/hit_r.png", "layers/character/hh/rebound_r.png", "layers/character/combo/hh_sn_r_l_hit_refresh.png", "layers/character/combo/hh_sn_r_l_rebound_refresh.png", "layers/character/rc/hit_r_refresh.png", "layers/character/rc/rebound_r_refresh.png", "layers/character/combo/rc_sn_hit_refresh.png", "layers/character/combo/rc_sn_rebound_refresh.png", "layers/character/rd/hit_r_refresh.png", "layers/character/rd/rebound_r_refresh.png", "layers/character/combo/rd_sn_r_l_hit_refresh.png", "layers/character/combo/rd_sn_r_l_rebound_refresh.png", "layers/character/lt/hit_r_refresh.png", "layers/character/lt/rebound_r_refresh.png", "layers/character/combo/lt_sn_r_l_hit_refresh.png", "layers/character/combo/lt_sn_r_l_rebound_refresh.png", "layers/character/bd/hit_rf.png", "layers/character/bd/rebound_rf.png", "layers/character/combo/bd_rc_hit.png", "layers/character/combo/bd_rc_rebound.png", "layers/character/combo/bd_sn_hit_refresh.png", "layers/character/combo/bd_sn_rebound_refresh.png", "layers/character/combo/bd_sn_rf_r_hit_refresh.png", "layers/character/combo/bd_sn_rf_r_rebound_refresh.png", "layers/character/combo/bd_rd_rf_r_hit_refresh.png", "layers/character/combo/bd_rd_rf_r_rebound_refresh.png", "layers/character/combo/bd_hh_rf_r_hit_refresh.png", "layers/character/combo/bd_hh_rf_r_rebound_refresh.png", "layers/character/combo/bd_lt_rf_r_hit_refresh.png", "layers/character/combo/bd_lt_rf_r_rebound_refresh.png", "layers/character/combo/bd_hh_sn_rf_r_l_hit_refresh.png", "layers/character/combo/bd_hh_sn_rf_r_l_rebound_refresh.png", "layers/character/combo/bd_rc_sn_rf_r_l_hit_refresh.png", "layers/character/combo/bd_rc_sn_rf_r_l_rebound_refresh.png", "layers/character/ht/hit_r_refresh.png", "layers/character/ht/rebound_r_refresh.png", "layers/character/ht/hit_l_refresh.png", "layers/character/ht/rebound_l_refresh.png", "layers/character/lt/hit_l_refresh.png", "layers/character/lt/rebound_l_refresh.png", "layers/character/ft/hit_r_refresh.png", "layers/character/ft/rebound_r_refresh.png", "layers/character/ft/hit_l_refresh.png", "layers/character/ft/rebound_l_refresh.png", "layers/character/combo/ft_sn_r_l_hit_refresh.png", "layers/character/combo/ft_sn_r_l_rebound_refresh.png", "layers/character/combo/bd_ht_rf_r_hit_refresh.png", "layers/character/combo/bd_ht_rf_r_rebound_refresh.png", "layers/character/combo/bd_ht_rf_l_hit_refresh.png", "layers/character/combo/bd_ht_rf_l_rebound_refresh.png", "layers/character/combo/bd_ft_rf_l_hit_refresh.png", "layers/character/combo/bd_ft_rf_l_rebound_refresh.png", "layers/character/combo/bd_ft_rf_r_hit_refresh.png", "layers/character/combo/bd_ft_rf_r_rebound_refresh.png", "layers/character/combo/bd_ft_sn_rf_r_l_hit_refresh.png", "layers/character/combo/bd_ft_sn_rf_r_l_rebound_refresh.png"]);
-function setFrame(path,label="",phase="neutral"){
- if(!els.character)return;
- if(els.hairFront)els.hairFront.style.display=sourceBoundHairFrames.has(path)?"":"none";
- if(els.label)els.label.textContent=label;
- if(els.root){els.root.dataset.frame=path;els.root.dataset.pose=label;els.root.dataset.phase=phase}
- const src=assetUrl(ASSET_ROOT+"/"+path);
- if(lastKey!==src){
-  lastKey=src;
-  const cached=loadedFrameImages.get(src);
-  if(cached?.complete&&cached.naturalWidth){
-   const previous=els.character;
-   cached.id=previous.id;cached.className=previous.className;cached.alt=previous.alt;
-   cached.style.cssText=previous.style.cssText;
-   if(previous!==cached)previous.replaceWith(cached);els.character=cached;
-   renderForegroundCharacter();
-  }else{
-   // The normal ready state has every frame decoded; failures retain the warning path.
-   els.character.src=src;
-   els.character.addEventListener("load",renderForegroundCharacter,{once:true});
-  }
+const same=(a,b)=>a.size===b.size&&[...a].every(p=>b.has(p));
+function render(parts,energy=0){
+ if(!state.layer)return;
+ if(same(parts,state.active)&&Math.abs((state.energy||0)-energy)<.035)return;
+ state.active=new Set(parts);state.energy=energy;
+ for(const group of state.layer.children){
+   const on=parts.has(group.dataset.part);
+   group.style.opacity=on?String(Math.max(.12,Math.min(1,energy))):"0";
  }
+ state.root.dataset.glowParts=[...parts].join("+");
 }
-function normalizedPlaybackRate(playbackRate=1){
-  const rate=Number(playbackRate);
-  return Number.isFinite(rate)&&rate>0?rate:1;
+function makeGlow(){
+ const root=state.root;
+ root.querySelectorAll("#characterLayer,#drumFrontLayer,#characterFrontLayer,#hairFrontLayer,#effectLayer,#characterPoseLabel").forEach(x=>x.remove());
+ const img=root.querySelector("#drumLayer");
+ img.src=DRUM+"?v=20261106-drum-glow";
+ img.alt="ドラムセット";
+ img.onload=()=>{root.classList.add("active","drum-glow-ready");state.ready=true;emit(1)};
+ img.onerror=()=>{root.dataset.initError="drum_image_load_failed";emit(1,true)};
+ if(img.complete&&img.naturalWidth){root.classList.add("active","drum-glow-ready");state.ready=true;emit(1)}
+ const svg=node("svg",{viewBox:"0 0 1400 1050",preserveAspectRatio:"xMidYMid meet","aria-hidden":"true",class:"drum-glow-svg"},root);
+ const defs=node("defs",{},svg);
+ const filter=node("filter",{id:"dtx-watercolor-blur",x:"-40%",y:"-40%",width:"180%",height:"180%"},defs);
+ node("feGaussianBlur",{stdDeviation:"14"},filter);
+ const ink=node("filter",{id:"dtx-watercolor-soft",x:"-30%",y:"-30%",width:"160%",height:"160%"},defs);
+ node("feGaussianBlur",{stdDeviation:"3.5"},ink);
+ const layer=node("g",{class:"drum-glow-groups"},svg);
+ for(const [part,paths] of Object.entries(PART_SHAPES)){
+   const g=node("g",{"data-part":part,class:"drum-glow-part"},layer);
+   g.dataset.part=part;g.style.opacity="0";
+   for(const d of paths){
+     node("path",{d,fill:"#008cff","fill-opacity":".78",stroke:"#008dff","stroke-width":"17","stroke-opacity":".65",filter:"url(#dtx-watercolor-blur)"},g);
+     node("path",{d,fill:"#21a6ff","fill-opacity":".41",stroke:"#006fff","stroke-width":"4","stroke-opacity":".56",filter:"url(#dtx-watercolor-soft)"},g);
+     node("path",{d,fill:"#30baff","fill-opacity":".13",stroke:"#71d7ff","stroke-width":"2","stroke-opacity":".40"},g);
+   }
+ }
+ state.svg=svg;state.layer=layer;
 }
-function findGroupAt(time,playbackRate=1){
-  if(!data?.groups?.length)return null;
-  let previous=null;
-  for(const group of data.groups){
-    if(group[0].time<=time)previous=group;
-    else break;
-  }
-  if(!previous)return null;
-  const rate=normalizedPlaybackRate(playbackRate);
-  const deltaReal=(Number(time)-previous[0].time)/rate;
-  const reboundEndReal=Number(data?.motionTiming?.reboundEndSeconds??.17);
-  return deltaReal<=reboundEndReal?previous:null;
+export async function initCharacterPrototype(){
+ state.root=document.getElementById("characterBackdrop");
+ if(!state.root){emit(1,true);return}
+ emit(0);
+ makeGlow();
+ const q=new URLSearchParams(location.search);
+ if(q.has("glowPreview")){
+   const i=Number(q.get("glowPreview"));state.preview=Number.isFinite(i)?Math.max(0,Math.min(29,Math.trunc(i))):0;
+ }
+ window.__DTX_DRUM_GLOW__={patterns:GLOW_PATTERNS,showPattern(i){state.preview=Math.max(0,Math.min(29,Number(i)||0));render(new Set(GLOW_PATTERNS[state.preview]),1)},resume(){state.preview=-1},get state(){return {ready:state.ready,parts:[...state.active],count:state.notes.length}}};
 }
-function phaseFor(group,time,playbackRate=1){
-  const rate=normalizedPlaybackRate(playbackRate);
-  const deltaReal=(Number(time)-group[0].time)/rate;
-  const timing=data?.motionTiming||{};
-  const baseHitEndReal=Number(timing.hitEndSeconds??.09);
-  const baseReboundEndReal=Number(timing.reboundEndSeconds??.17);
-  const index=data?.groups?.indexOf(group)??-1;
-  const nextTime=index>=0?Number(data?.groups?.[index+1]?.[0]?.time):NaN;
-  const gapReal=Number.isFinite(nextTime)?Math.max(0,(nextTime-Number(group[0].time))/rate):Infinity;
-  let hitEndReal=baseHitEndReal,reboundEndReal=baseReboundEndReal;
-
-  // Human motion timing is real-time based, not chart-time based.
-  // Fast passages flow directly into the next hit; slow playback naturally
-  // leaves enough wall-clock time to finish rebound and return to neutral.\n  // Inside a fast passage, rebound reaches the exact next-hit boundary: no neutral flash.
-  if(Number.isFinite(gapReal)&&gapReal<baseReboundEndReal){
-    hitEndReal=Math.min(baseHitEndReal,Math.max(.055,gapReal*.65));
-    reboundEndReal=Math.min(baseReboundEndReal,Math.max(hitEndReal+.02,gapReal));
-  }
-  if(deltaReal<0)return "neutral";
-  if(deltaReal<hitEndReal)return "hit";
-  if(deltaReal<reboundEndReal)return "rebound";
-  return "neutral";
-}
-function triggerEffect(group,phase){if(!els.effect)return;if(!group||phase!=="hit"){lastEffectToken="";els.effect.dataset.parts="";els.bursts.forEach(b=>b.classList.remove("is-active"));return}const token=String(group[0].time);if(token===lastEffectToken)return;lastEffectToken=token;const parts=[...new Set(group.map(n=>n.part))],points=parts.map(p=>EFFECT_POINTS[p]).filter(Boolean).slice(0,3);els.effect.dataset.parts=parts.join("+");els.bursts.forEach((burst,index)=>{burst.classList.remove("is-active");const point=points[index];if(!point)return;burst.setAttribute("transform",`translate(${point[0]} ${point[1]})`);void burst.getBoundingClientRect();burst.classList.add("is-active")})}
-export async function initCharacterPrototype(){els.root=document.getElementById("characterBackdrop");els.drum=document.getElementById("drumLayer");els.character=document.getElementById("characterLayer");els.drumFront=document.getElementById("drumFrontLayer");els.characterFront=document.getElementById("characterFrontLayer");els.hairFront=document.getElementById("hairFrontLayer");els.label=document.getElementById("characterPoseLabel");els.effect=document.getElementById("effectLayer");els.bursts=[document.getElementById("effectPrimary"),document.getElementById("effectSecondary"),document.getElementById("effectTertiary")].filter(Boolean);if(!els.root||!els.drum||!els.character)return;const fail=e=>{markAssetIssue(e?.target?.src||"dom-image-load");els.root.dataset.state="asset-warning"};els.drum.addEventListener("error",fail);els.character.addEventListener("error",fail);els.drumFront?.addEventListener("error",fail);els.hairFront?.addEventListener("error",fail);els.character.addEventListener("load",renderForegroundCharacter);try{await initForegroundLayers();const [notesResponse,inventoryResponse,limbResponse]=await Promise.all([fetch(PROTOTYPE_URL,{cache:"no-store"}),fetch(INVENTORY_URL,{cache:"no-store"}),fetch(LIMB_URL,{cache:"no-store"})]);if(!notesResponse.ok)throw new Error("prototype HTTP "+notesResponse.status);if(!inventoryResponse.ok)throw new Error("inventory HTTP "+inventoryResponse.status);if(!limbResponse.ok)throw new Error("limb HTTP "+limbResponse.status);const [json,inventory,limbData]=await Promise.all([notesResponse.json(),inventoryResponse.json(),limbResponse.json()]);const limbMap=new Map((limbData.assignments||[]).map(item=>[[Number(item.time).toFixed(6),item.part||""].join("|"),item.limb]));for(const note of json.notes||[]){const resolved=limbMap.get(noteIdentity(note));if(resolved)note.limb=resolved}const startMeasure=Number(inventory.runtimeScope?.measureStart??DEFAULT_MEASURE_START),endMeasure=Number(inventory.runtimeScope?.measureEnd??DEFAULT_MEASURE_END);if(!Number.isInteger(startMeasure)||!Number.isInteger(endMeasure)||endMeasure<startMeasure)throw new Error("invalid inventory runtimeScope");const scopedNotes=(json.notes||[]).filter(note=>note.measure>=startMeasure&&note.measure<=endMeasure),groups=groupNotes(scopedNotes);validatePrototypeCoverage(inventory,scopedNotes,groups);data={...json,groups,frames:inventory.requiredFrames||{},frameMap:inventory.runtimeFrameMap||{},phaseFrameMap:inventory.runtimePhaseFrameMap||{},motionTiming:inventory.motionTiming||{},fallbackKeys:new Set(inventory.runtimeFallbackKeys||[]),startMeasure,endMeasure,prototypeEndTime:Math.max(...scopedNotes.map(note=>note.time),0)+.35};const sources=[
-  DRUM, ASSET_ROOT+"/layers/drum/drum_foreground_occlusion.png", ASSET_ROOT+"/layers/character/base/hair_foreground_source.png",
-  ...[...new Set(Object.values(data.frames).map(frame=>ASSET_ROOT+"/"+frame.path))]
-];let loadedSources=0;window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",done:0,total:sources.length,ratio:0,label:"人物画像を読み込み中"}}));const preloadResults=new Array(sources.length);let preloadCursor=0;
-await Promise.all(Array.from({length:Math.min(4,sources.length)},async()=>{while(preloadCursor<sources.length){const index=preloadCursor++,src=sources[index];try{preloadResults[index]={status:"fulfilled",value:await loadImage(src)}}catch(error){preloadResults[index]={status:"rejected",reason:String(error)}}finally{loadedSources++;window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",done:loadedSources,total:sources.length,ratio:sources.length?loadedSources/sources.length:1,label:"人物画像を読み込み中"}}))}}}));const failedSources=preloadResults.map((result,index)=>result.status==="rejected"?sources[index]:null).filter(Boolean);window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",done:sources.length,total:sources.length,ratio:1,label:failedSources.length?"人物画像の一部で読み込み失敗":"人物画像の読み込み完了",failed:failedSources.length}}));if(failedSources.length){markAssetIssue(failedSources.join(","));console.warn("character asset preload warning",failedSources,preloadResults.filter(r=>r.status==="rejected").map(r=>r.reason))}ready=true;els.root.classList.add("character-ready");els.root.dataset.state=failedSources.length?"ready-with-asset-warning":"ready";els.root.dataset.scope=`${startMeasure}-${endMeasure}`;els.root.dataset.runtimeScope=`${startMeasure}-${endMeasure}`;els.root.dataset.noteCount=String(scopedNotes.length);els.root.dataset.groupCount=String(groups.length);updateDevHud("preload:ok")}catch(err){window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",ratio:1,label:"人物画像の初期化に失敗",failed:1}}));console.warn("character prototype initialization warning",err);els.root.dataset.state="init-warning";els.root.dataset.initError=String(err?.message||err);updateDevHud("init:warning");ready=true;els.root.classList.add("character-ready","asset-warning")}addEventListener("dtx-chart-change",e=>{activeSong=String(e.detail?.name||"").toLowerCase().includes("luna");els.root.classList.toggle("active",activeSong)})}
-export function updateCharacterPrototype(time,chartName="",playbackRate=1){if(!els.root)return;els.root.dataset.currentTime=Number(time||0).toFixed(6);activeSong=String(chartName||"").toLowerCase().includes("luna");const provisionalEnd=Number(data?.prototypeEndTime??10.47),inWindow=Number(time)>=0&&Number(time)<=provisionalEnd;els.root.classList.toggle("active",activeSong&&inWindow);els.root.dataset.active=String(activeSong&&inWindow);if(!ready||!data)return;if(!activeSong||!inWindow){triggerEffect(null,"neutral");return}const g=findGroupAt(time,playbackRate);if(!g){els.root.dataset.measure="";els.root.dataset.fallback="false";els.root.dataset.fallbackReason="";els.root.dataset.animationKey="neutral";els.root.dataset.limbs="";triggerEffect(null,"neutral");setFrame(data.frames.neutral.path,"NEUTRAL","neutral");return}const phase=phaseFor(g,time,playbackRate),resolvedKey=keyFor(g),fallback=fallbackInfo(g);els.root.dataset.measure=String(g[0]?.measure??"");els.root.dataset.fallback=String(fallback.fallback);els.root.dataset.fallbackReason=fallback.reason;els.root.dataset.animationKey=resolvedKey;els.root.dataset.limbs=g.map(n=>n.part+":"+handForNote(n)).join(",");const asset=assetFor(g,phase);const parts=[...new Set(g.map(n=>n.part))].sort().join("+"),hand=[...g].sort((a,b)=>a.part.localeCompare(b.part)).map(n=>handForNote(n)).filter(Boolean).join("/");triggerEffect(g,phase);setFrame(asset,phase==="neutral"?"NEUTRAL":parts+(hand?" · "+hand:"")+" · "+phase.toUpperCase(),phase);updateDevHud()}
-
-// Public runtime QA hook. Enabled only with ?qa=1; normal users are unaffected.
-if(new URLSearchParams(location.search).get("qa")==="1"){
-  window.__DTX_CHARACTER_QA__={snapshot(){const r=document.getElementById("characterBackdrop"),ch=document.getElementById("characterLayer"),dr=document.getElementById("drumLayer");return {ready,activeSong,currentTime:r?.dataset.currentTime||"",measure:r?.dataset.measure||"",animationKey:r?.dataset.animationKey||"",phase:r?.dataset.phase||"",frame:r?.dataset.frame||"",limbs:r?.dataset.limbs||"",runtimeScope:r?.dataset.runtimeScope||r?.dataset.scope||"",assetWarning:r?.dataset.assetIssue||"",initError:r?.dataset.initError||"",state:r?.dataset.state||"",character:{src:ch?.src||"",complete:!!ch?.complete,naturalWidth:ch?.naturalWidth||0,naturalHeight:ch?.naturalHeight||0},drum:{src:dr?.src||"",complete:!!dr?.complete,naturalWidth:dr?.naturalWidth||0,naturalHeight:dr?.naturalHeight||0}};}};
+export function updateCharacterPrototype(time,chartName="",playbackRate=1,isPlaying=false){
+ if(!state.ready)return;
+ if(state.preview>=0){render(new Set(GLOW_PATTERNS[state.preview]),1);return}
+ if(!isPlaying||!state.notes.length){render(new Set(),0);return}
+ const t=Number(time)||0,rate=Math.max(.25,Number(playbackRate)||1);
+ // Glow begins before the scheduled strike; watercolor fades after the hit.
+ const lead=.115*rate,trail=.18*rate;
+ const parts=new Set();let energy=0;
+ // Binary search to keep 2000+ note charts smooth on mobile devices.
+ let lo=0,hi=state.notes.length;
+ while(lo<hi){const mid=(lo+hi)>>1;if(state.notes[mid].time<t-trail)lo=mid+1;else hi=mid}
+ for(let i=lo;i<state.notes.length;i++){
+   const n=state.notes[i],delta=n.time-t;if(delta>lead)break;
+   const intensity=delta>=0?(.4+.6*(1-delta/lead)):(1+delta/trail)*.95;
+   if(intensity>.04){parts.add(n.part);energy=Math.max(energy,intensity)}
+ }
+ render(parts,energy);
 }
