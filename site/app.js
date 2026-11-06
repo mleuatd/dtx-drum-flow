@@ -211,6 +211,11 @@ const SONGS={
   kanaetai:{label:"叶えたい、ことばかり",path:"./charts/kanaetai_koto_bakari/Kanaetai_koto_bakari_FINAL_notes.json",fileName:"Kanaetai_koto_bakari_FINAL_notes.json",status:"叶えたい、ことばかり FINAL譜面（Songsterr s2808958 rev 3694097 Drums・全144小節）を読み込みました。原曲音源との最終ミリ秒同期のみ未実施です。"},
   ittai:{label:"一体いつから",path:"./charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json",fileName:"Ittai_itsukara_FINAL_notes.json",status:"一体いつから FINAL譜面（Songsterr s3705140 rev 4853202 Drums・全181小節・175 BPM）を読み込みました。原曲音源との最終ミリ秒同期のみ未実施です。"}
 };
+const CAMPUS_SCORES={
+ ext:{label:"Campus mode!! Extreme 8.50",path:"./charts/campus_mode/campus_ext_notes.json",fileName:"campus_ext_notes.json",status:"Campus mode!! Extreme 8.50：Furukon DTXの全ドラムノーツを読み込みました。音源との最終同期調整は未実施です。"},
+ adv:{label:"Campus mode!! Advanced 7.10",path:"./charts/campus_mode/campus_adv_notes.json",fileName:"campus_adv_notes.json",status:"Campus mode!! Advanced 7.10：Furukon DTXのドラムノーツを読み込みました。"},
+ bas:{label:"Campus mode!! Basic 4.00",path:"./charts/campus_mode/campus_bas_notes.json",fileName:"campus_bas_notes.json",status:"Campus mode!! Basic 4.00：Furukon DTXのドラムノーツを読み込みました。"}
+};
 // The third-party Watagashi MIDI is licensed for personal use only.
 // Keep the imported original exclusively in this browser's IndexedDB; never publish it.
 const WATAGASHI_NAME="わたがし / back number";
@@ -381,7 +386,7 @@ function loadSelectedSong(){
  $("watagashiPanel").hidden=key!=="watagashi";
  $("campusPanel").hidden=key!=="campus";
  if(key==="watagashi"){++campusLoadSerial;return loadWatagashi()}
- if(key==="campus"){++watagashiLoadSerial;return loadCampusMode()}
+ if(key==="campus"){++watagashiLoadSerial;++campusLoadSerial;chartNeedsImport=false;renderPreload();const difficulty=$("campusDifficulty").value;return loadFinalChart(CAMPUS_SCORES[difficulty]||CAMPUS_SCORES.ext)}
  ++watagashiLoadSerial;++campusLoadSerial;chartNeedsImport=false;
  renderPreload();
  return loadFinalChart(SONGS[key]||SONGS.luna);
@@ -394,6 +399,7 @@ $("watagashiMidiFile").addEventListener("change",async event=>{
  event.target.value="";
 });
 $("songSelect").addEventListener("change",loadSelectedSong);
+$("campusDifficulty").addEventListener("change",()=>{if($("songSelect").value==="campus")loadSelectedSong()});
 $("exportJson").onclick=()=>{const safe=(chart.name||"dtx-drum-flow").replace(/[\\/:*?"<>|]+/g,"_");downloadText(`${safe}.json`,JSON.stringify(chartToJson(),null,2));setStatus("現在の譜面をJSONで保存しました。")};
 $("playPause").onclick=toggle;$("rewind5").onclick=()=>seek(chartTimeFromClock()-5);$("forward5").onclick=()=>seek(chartTimeFromClock()+5);$("rewindMeasure").onclick=()=>seek(chartTimeFromClock()-measureSeconds()*4);$("forwardMeasure").onclick=()=>seek(chartTimeFromClock()+measureSeconds()*4);$("timeline").oninput=e=>seek(Number(e.target.value));$("speed").onchange=restartPlaybackAtClock;
 function syncSoundToggleUi(){$("drumSoundState").textContent=$("drumSound").checked?"ON":"OFF";$("metronomeSoundState").textContent=$("metronomeSound").checked?"ON":"OFF";$("originalSoundState").textContent=$("originalSound").checked?"ON":"OFF"}
