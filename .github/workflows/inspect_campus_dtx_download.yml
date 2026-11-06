@@ -5,7 +5,7 @@ on:
     paths:
       - ".github/workflows/inspect_campus_dtx_download.yml"
 permissions:
-  contents: read
+  contents: write
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -59,3 +59,51 @@ jobs:
              print('CHANNEL_COUNTS',dict(c))
              print('MEASURES',len({line[1:4] for line in notes}))
           PY
+
+      - name: Convert three UTF-16 DTX scores into numeric drum chart events
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile tools/public_dtx_chart_converter.py
+          mkdir -p /tmp/campus_dtx site/charts/campus_mode
+          python - <<'PY'
+          import zipfile,pathlib
+          with zipfile.ZipFile("campus_download.bin") as z:
+              for code in ("bas","adv","ext"):
+                  name=f"462 - Campus mode!!/campusmode!!-{code}.dtx"
+                  data=z.read(name)
+                  assert len(data)<1_000_000
+                  pathlib.Path(f"/tmp/campus_dtx/{code}.dtx").write_bytes(data)
+                  print("EXTRACTED_SCORE",code,len(data))
+          PY
+          for level in bas adv ext; do
+            output="site/charts/campus_mode/campus_"$level"_notes.json"
+            python tools/public_dtx_chart_converter.py "/tmp/campus_dtx/$level.dtx" "$output" --difficulty "$level" --source-url "https://dtx.furukon.com/?p=1&search=Campus%20mode"
+          done
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          for code in ("bas","adv","ext"):
+              p=Path(f"site/charts/campus_mode/campus_{code}_notes.json")
+              data=json.loads(p.read_text())
+              assert 200<data["duration"]<320, (code,data["duration"])
+              assert data["bpm"]==183
+              assert len(data["notes"])>=100
+              assert data["notes"]==sorted(data["notes"],key=lambda n:(n["time"],n["part"]))
+              print("VALIDATED",code,len(data["notes"]),data["duration"],data["measureCount"])
+          PY
+      - name: Publish note-timing JSON only (no original DTX, audio, or video)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/charts/campus_mode/campus_bas_notes.json site/charts/campus_mode/campus_adv_notes.json site/charts/campus_mode/campus_ext_notes.json
+          if git diff --cached --quiet; then
+            echo "Campus charts already up to date"
+          else
+            git commit -m "feat: integrate Campus mode three full DTX drum difficulties as metadata-only charts"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
