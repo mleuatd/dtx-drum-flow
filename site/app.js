@@ -16,7 +16,7 @@ const preloadState={
   drums:{ratio:0,label:"ドラム音",failed:false},
   original:{ratio:0,label:"原曲確認",failed:false}
 };
-let startupReady=false;
+let startupReady=false,chartNeedsImport=false;
 function preloadPercent(){
   let total=0;
   for(const [kind,weight] of Object.entries(PRELOAD_WEIGHTS)){
@@ -28,7 +28,7 @@ function renderPreload(){
   const button=$("playPause");if(!button)return;
   const pct=preloadPercent();
   const failed=Object.values(preloadState).some(x=>x.failed);
-  startupReady=!failed&&Object.values(preloadState).every(x=>Number(x.ratio)>=1);
+  startupReady=!failed&&!chartNeedsImport&&Object.values(preloadState).every(x=>Number(x.ratio)>=1);
   button.style.setProperty("--play-load",pct+"%");
   button.disabled=!startupReady;
   button.setAttribute("aria-disabled",String(!startupReady));
@@ -37,6 +37,8 @@ function renderPreload(){
   button.classList.toggle("is-error",failed);
   if(failed){
     button.textContent="読み込みエラー";
+  }else if(chartNeedsImport){
+    button.textContent="わたがし：MIDI譜面を選択";
   }else if(startupReady){
     if(!playing)button.textContent="再生 ▶";
   }else{
@@ -93,7 +95,7 @@ function setStatus(s){$("status").textContent=s}
 function downloadText(name,text,type="application/json"){const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500)}
 function chartToJson(){const partKind={BD:"kick",LB:"kick",SN:"snare",HH:"hihat",LP:"hihat",HT:"toms",LT:"toms",FT:"toms",LC:"cymbals",RC:"cymbals",RD:"cymbals"};return {...chart,notes:chart.notes.map(n=>({...n,time:Number(n.time.toFixed(6)),kind:n.kind||partKind[n.part]||"unknown",part:n.part,velocity:Math.round(Math.max(0,Math.min(1,n.velocity??.8))*127),confidence:Number(n.alignConfidence??n.confidence??0)}))}}
 function currentSpeed(){return Number($("speed").value)||1}
-function setChart(c){pausePlayback(false);chart=c;time=0;nextNote=0;setDrumGlowNotes(c.notes);document.querySelector(".stage")?.classList.toggle("luna-stage",String(c?.name||"").toLowerCase().includes("luna"));$("timeline").max=c.duration;$("duration").textContent=fmt(c.duration);$("chartName").textContent=c.name;$("chartMeta").textContent=`${Math.round(c.bpm)} BPM · ${c.duration.toFixed(1)}秒 · ${c.notes.length.toLocaleString()}ノーツ`;const name=c.name||"";let stage="LUNA / DRUM CHART",badge="LUNA FINAL";if(name.includes("叶えたい")){stage="叶えたい、ことばかり / DRUM CHART";badge="KANAETAI FINAL"}else if(name.includes("一体いつから")){stage="一体いつから / DRUM CHART";badge="ITTAI FINAL"}if($("stageTitle"))$("stageTitle").textContent=stage;if($("chartBadge"))$("chartBadge").textContent=badge;draw();updateTime()}
+function setChart(c){pausePlayback(false);chart=c;time=0;nextNote=0;setDrumGlowNotes(c.notes);document.querySelector(".stage")?.classList.toggle("luna-stage",String(c?.name||"").toLowerCase().includes("luna"));$("timeline").max=c.duration;$("duration").textContent=fmt(c.duration);$("chartName").textContent=c.name;$("chartMeta").textContent=`${Math.round(c.bpm)} BPM · ${c.duration.toFixed(1)}秒 · ${c.notes.length.toLocaleString()}ノーツ`;const name=c.name||"";let stage="LUNA / DRUM CHART",badge="LUNA FINAL";if(name.includes("叶えたい")){stage="叶えたい、ことばかり / DRUM CHART";badge="KANAETAI FINAL"}else if(name.includes("一体いつから")){stage="一体いつから / DRUM CHART";badge="ITTAI FINAL"}else if(name.includes("わたがし")){stage="わたがし / DRUM CHART";badge="WATAGASHI"}if($("stageTitle"))$("stageTitle").textContent=stage;if($("chartBadge"))$("chartBadge").textContent=badge;draw();updateTime()}
 function updateTime(){$("currentTime").textContent=fmt(time);const mirror=$("currentTimeMirror");if(mirror)mirror.textContent=fmt(time);$("timeline").value=time}
 function resize(){const r=canvas.getBoundingClientRect(),dpr=devicePixelRatio||1;canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
 function draw(){const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);const lane=w/PARTS.length,isLuna=String(chart?.name||"").toLowerCase().includes("luna");/* Keep chart transparent so the drum illustration shows for every song. */ctx.strokeStyle=isLuna?"rgba(34,54,86,.62)":"#223656";ctx.lineWidth=1;for(let i=1;i<PARTS.length;i++){ctx.beginPath();ctx.moveTo(i*lane,0);ctx.lineTo(i*lane,h);ctx.stroke()}const judgeY=h-36,lookAhead=3.3/noteSpeed;const hitNow=chart.notes.some(n=>Math.abs(n.time-time)<=Math.max(.025,.04/currentSpeed()));ctx.save();ctx.strokeStyle=hitNow?"#ffffff":"#86a7ff";ctx.shadowColor=hitNow?"#9fc5ff":"transparent";ctx.shadowBlur=hitNow?22:0;ctx.lineWidth=hitNow?5:3;ctx.beginPath();ctx.moveTo(0,judgeY);ctx.lineTo(w,judgeY);ctx.stroke();ctx.restore();for(const n of chart.notes){const dt=n.time-time;if(dt<0||dt>lookAhead)continue;const partIndex=PARTS.indexOf(n.part);if(partIndex<0)continue;const x=(partIndex+.5)*lane,y=judgeY-(dt/lookAhead)*(judgeY-20),conf=Number(n.alignConfidence||0);const plateW=Math.max(16,lane*.82),plateH=Math.max(10,Math.min(18,lane*.29)),plateR=Math.min(3.5,plateH*.24);ctx.save();ctx.globalAlpha=conf>0?Math.max(.8,conf):1;ctx.fillStyle=conf>0?(conf>=.65?"#b9f1ff":conf>=.35?"#fff0a5":"#ffbec6"):"#f5fbff";ctx.strokeStyle="#06172d";ctx.lineWidth=2.3;ctx.shadowColor="#86e4ff";ctx.shadowBlur=5;ctx.beginPath();ctx.roundRect(x-plateW/2,y-plateH/2,plateW,plateH,plateR);ctx.fill();ctx.shadowBlur=0;ctx.stroke();ctx.restore()}}
@@ -209,7 +211,95 @@ const SONGS={
   kanaetai:{label:"叶えたい、ことばかり",path:"./charts/kanaetai_koto_bakari/Kanaetai_koto_bakari_FINAL_notes.json",fileName:"Kanaetai_koto_bakari_FINAL_notes.json",status:"叶えたい、ことばかり FINAL譜面（Songsterr s2808958 rev 3694097 Drums・全144小節）を読み込みました。原曲音源との最終ミリ秒同期のみ未実施です。"},
   ittai:{label:"一体いつから",path:"./charts/ittai_itsukara/Ittai_itsukara_FINAL_notes.json",fileName:"Ittai_itsukara_FINAL_notes.json",status:"一体いつから FINAL譜面（Songsterr s3705140 rev 4853202 Drums・全181小節・175 BPM）を読み込みました。原曲音源との最終ミリ秒同期のみ未実施です。"}
 };
-function loadSelectedSong(){const cfg=SONGS[$("songSelect").value]||SONGS.luna;return loadFinalChart(cfg)}
+// The third-party Watagashi MIDI is licensed for personal use only.
+// Keep the imported original exclusively in this browser's IndexedDB; never publish it.
+const WATAGASHI_NAME="わたがし / back number";
+let watagashiLoadSerial=0;
+function openWatagashiDB(){
+ return new Promise((resolve,reject)=>{
+  const request=indexedDB.open("dtx-watagashi-local-midi",1);
+  request.onupgradeneeded=()=>request.result.createObjectStore("charts");
+  request.onsuccess=()=>resolve(request.result);
+  request.onerror=()=>reject(request.error||new Error("端末の譜面保存を開けません"));
+ });
+}
+async function readSavedWatagashiMidi(){
+ const db=await openWatagashiDB();
+ try{
+  return await new Promise((resolve,reject)=>{
+   const request=db.transaction("charts","readonly").objectStore("charts").get("watagashi");
+   request.onsuccess=()=>resolve(request.result||null);
+   request.onerror=()=>reject(request.error);
+  });
+ }finally{db.close()}
+}
+async function saveWatagashiMidi(file){
+ const db=await openWatagashiDB();
+ try{
+  await new Promise((resolve,reject)=>{
+   const tx=db.transaction("charts","readwrite");
+   tx.objectStore("charts").put(file,"watagashi");
+   tx.oncomplete=()=>resolve();
+   tx.onerror=()=>reject(tx.error);
+  });
+ }finally{db.close()}
+}
+async function installWatagashiMidi(file,{store=false,serial=watagashiLoadSerial}={}){
+ try{
+  if($("songSelect").value!=="watagashi"||serial!==watagashiLoadSerial)return;
+  setStatus("わたがしのMIDIからドラムパートを抽出しています…");
+  const midi=file instanceof File?file:new File([file],"watagashi.mid",{type:"audio/midi"});
+  const parsed=await parseChart(midi);
+  if(!parsed.notes?.length)throw new Error("ドラムのノーツが見つかりません。チャンネル10にドラムがあるMIDIが必要です。");
+  if($("songSelect").value!=="watagashi"||serial!==watagashiLoadSerial)return;
+  const normalized={...parsed,name:WATAGASHI_NAME,artist:"back number",source:"端末内MIDI（個人利用専用）",alignment:{pendingOriginalAudioSync:true},notes:parsed.notes};
+  setChart(normalized);
+  chartNeedsImport=false;
+  setPreload("chart",1,{label:"わたがしのMIDI読込完了"});
+  if(store)try{await saveWatagashiMidi(midi)}catch(error){console.warn("MIDI local save failed",error);setStatus("譜面は読み込めましたが端末内への保存に失敗しました: "+error.message)}
+  drumPreloadPromise=null;
+  await preloadDrumSamples();
+  if($("songSelect").value==="watagashi"&&serial===watagashiLoadSerial)setStatus("わたがし："+normalized.notes.length.toLocaleString()+"ドラムノーツを読み込みました。元音源との厳密な同期は未検証です。");
+ }catch(error){
+  if($("songSelect").value==="watagashi"&&serial===watagashiLoadSerial){
+   chartNeedsImport=true;setPreload("chart",1,{label:"MIDI再選択が必要"});
+   setStatus("わたがしのMIDI読込エラー: "+error.message);
+  }
+ }
+}
+async function loadWatagashi(){
+ const serial=++watagashiLoadSerial;
+ chartNeedsImport=true;
+ setChart({name:WATAGASHI_NAME+"（譜面未登録）",bpm:124,duration:260,notes:[]});
+ setPreload("chart",1,{label:"端末のMIDIを確認中"});
+ renderPreload();
+ window.dispatchEvent(new CustomEvent("dtx-chart-change",{detail:{name:WATAGASHI_NAME}}));
+ setStatus("わたがし：端末に保存済みのMIDIを確認しています。未登録なら上の「MIDIファイルを選択」から読み込んでください。");
+ try{
+  const saved=await readSavedWatagashiMidi();
+  if(serial!==watagashiLoadSerial||$("songSelect").value!=="watagashi")return;
+  if(saved)await installWatagashiMidi(saved,{serial});
+  else setStatus("わたがし：ドラムMIDIがまだ登録されていません。配布ページから入手し、上のボタンで選択してください。");
+ }catch(error){
+  if(serial===watagashiLoadSerial&&$("songSelect").value==="watagashi")
+   setStatus("わたがし：保存済み譜面を読めませんでした。MIDIファイルを選択してください。"+error.message);
+ }
+}
+function loadSelectedSong(){
+ const key=$("songSelect").value;
+ $("watagashiPanel").hidden=key!=="watagashi";
+ if(key==="watagashi")return loadWatagashi();
+ ++watagashiLoadSerial;chartNeedsImport=false;
+ renderPreload();
+ return loadFinalChart(SONGS[key]||SONGS.luna);
+}
+$("watagashiMidiFile").addEventListener("change",async event=>{
+ const f=event.target.files?.[0];
+ if(!f)return;
+ const serial=watagashiLoadSerial;
+ await installWatagashiMidi(f,{store:true,serial});
+ event.target.value="";
+});
 $("songSelect").addEventListener("change",loadSelectedSong);
 $("exportJson").onclick=()=>{const safe=(chart.name||"dtx-drum-flow").replace(/[\\/:*?"<>|]+/g,"_");downloadText(`${safe}.json`,JSON.stringify(chartToJson(),null,2));setStatus("現在の譜面をJSONで保存しました。")};
 $("playPause").onclick=toggle;$("rewind5").onclick=()=>seek(chartTimeFromClock()-5);$("forward5").onclick=()=>seek(chartTimeFromClock()+5);$("rewindMeasure").onclick=()=>seek(chartTimeFromClock()-measureSeconds()*4);$("forwardMeasure").onclick=()=>seek(chartTimeFromClock()+measureSeconds()*4);$("timeline").oninput=e=>seek(Number(e.target.value));$("speed").onchange=restartPlaybackAtClock;
