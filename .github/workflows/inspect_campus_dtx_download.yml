@@ -1,0 +1,56 @@
+name: Inspect Campus mode public DTX archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/inspect_campus_dtx_download.yml"
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download publicly offered Campus mode chart archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip -q install gdown
+          gdown --id '11Dz-4RD5E-zdr-iei3FqKek6mkZDxs1X' -O campus_download.bin --no-cookies
+          ls -lh campus_download.bin
+      - name: Inspect content without republishing third-party material
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os,zipfile,re
+          p='campus_download.bin'
+          print('DOWNLOAD_BYTES',os.path.getsize(p))
+          print('MAGIC',open(p,'rb').read(16).hex())
+          if not zipfile.is_zipfile(p):
+           print('NOT_ZIP_FORMAT')
+           raise SystemExit(0)
+          with zipfile.ZipFile(p) as z:
+           listing=z.infolist()
+           print('ZIP_ITEMS',len(listing))
+           print('ZIP_TOTAL_UNCOMPRESSED',sum(x.file_size for x in listing))
+           for item in listing:
+            name=item.filename
+            print('ITEM',repr(name),item.file_size)
+           names=[x for x in listing if x.filename.lower().endswith(('.dtx','.gda','.bms','.bme','.mid','.midi','.txt','.md','.license')) and x.file_size<8_000_000]
+           for item in names:
+            body=z.read(item).decode('utf-8',errors='replace')
+            if body.count('\ufffd')>20: body=z.read(item).decode('cp932',errors='replace')
+            print('INSPECT_FILE',repr(item.filename),'BYTES',item.file_size)
+            if item.filename.lower().endswith(('.txt','.md','.license')):
+             print('DOCUMENT_HEAD',body[:2200])
+            if item.filename.lower().endswith(('.dtx','.gda','.bms','.bme')):
+             for label in ['#TITLE','#ARTIST','#BPM','#PLAYLEVEL','#DLEVEL','#OFFSET','#WAV']:
+              arr=[line[:200] for line in body.splitlines() if line.upper().startswith(label)]
+              print('HEADER',label,arr[:3])
+             notes=[line for line in body.splitlines() if re.match(r'^#\d{3}[0-9a-z]{2}:',line,re.I)]
+             from collections import Counter
+             c=Counter(line[4:6].upper() for line in notes)
+             print('CHANNEL_COUNTS',dict(c))
+             print('MEASURES',len({line[1:4] for line in notes}))
+          PY
