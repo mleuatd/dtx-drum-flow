@@ -8,7 +8,7 @@ function reportOriginal(ratio,label,failed=false){
 }
 
 const DB_NAME="dtx-drum-flow-audio",DB_STORE="audio";
-function chartKeyFromName(name=""){if(name.includes("叶えたい"))return "kanaetai";if(name.includes("一体いつから"))return "ittai";return "luna"}
+function chartKeyFromName(name=""){if(name.includes("わたがし"))return "watagashi";if(name.includes("叶えたい"))return "kanaetai";if(name.includes("一体いつから"))return "ittai";return "luna"}
 function openDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(DB_STORE))db.createObjectStore(DB_STORE)};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
 async function saveLocalAudio(key,file){try{const db=await openDb();await new Promise((resolve,reject)=>{const tx=db.transaction(DB_STORE,"readwrite");tx.objectStore(DB_STORE).put(file,key);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});db.close()}catch{}}
 async function getLocalAudio(key){try{const db=await openDb();const value=await new Promise((resolve,reject)=>{const tx=db.transaction(DB_STORE,"readonly"),req=tx.objectStore(DB_STORE).get(key);req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});db.close();return value||null}catch{return null}}
