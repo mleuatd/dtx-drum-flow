@@ -1,4 +1,4 @@
-const GM_DRUM_MAP={35:"BD",36:"BD",37:"SN",38:"SN",39:"SN",40:"SN",41:"FT",43:"FT",45:"LT",47:"LT",48:"HT",50:"HT",42:"HH",44:"HH",46:"HH",49:"RC",52:"RC",55:"RC",57:"RC",51:"RD",53:"RD",59:"RD"};
+const GM_DRUM_MAP={35:"BD",36:"BD",37:"SN",38:"SN",39:"SN",40:"SN",41:"FT",43:"FT",45:"LT",47:"LT",48:"HT",50:"HT",42:"HH",44:"LP",46:"HH",49:"LC",52:"RC",55:"RC",57:"RC",51:"RD",53:"RD",59:"RD"};
 const DTX_MAP={LC:"LC",HH:"HH",SD:"SN",SN:"SN",HT:"HT",LT:"LT",FT:"FT",CY:"RC",RC:"RC",RD:"RD",LP:"LP",LB:"LB",BD:"BD"};
 
 export function makeSample(){
@@ -46,7 +46,8 @@ function parseMidi(buf,name){
   tempos.sort((a,b)=>a.tick-b.tick);events.sort((a,b)=>a.tick-b.tick);
   const tickToSec=t=>{let sec=0,lastTick=0,us=tempos[0].usPerQ;for(let i=1;i<tempos.length&&tempos[i].tick<t;i++){sec+=(tempos[i].tick-lastTick)*us/division/1e6;lastTick=tempos[i].tick;us=tempos[i].usPerQ}return sec+(t-lastTick)*us/division/1e6};
   const notes=events.map(e=>({...e,time:tickToSec(e.tick)}));
-  const bpm=Math.round(60000000/tempos[0].usPerQ),duration=(notes.at(-1)?.time||0)+2;
+  const firstTempo=tempos.filter(x=>x.tick===0).at(-1)?.usPerQ||tempos[0].usPerQ;
+  const bpm=Math.round(60000000/firstTempo),duration=(notes.at(-1)?.time||0)+2;
   return {name,bpm,duration,notes};
 }
 
