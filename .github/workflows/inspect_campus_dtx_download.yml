@@ -17,7 +17,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip -q install gdown
-          gdown --id '11Dz-4RD5E-zdr-iei3FqKek6mkZDxs1X' -O campus_download.bin --no-cookies
+          gdown --fuzzy 'https://drive.google.com/file/d/11Dz-4RD5E-zdr-iei3FqKek6mkZDxs1X/view?usp=sharing' -O campus_download.bin --no-cookies
           ls -lh campus_download.bin
       - name: Inspect content without republishing third-party material
         shell: bash
