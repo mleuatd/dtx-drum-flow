@@ -1,5 +1,5 @@
-// DTX Drum Flow — instrument-only cyan watercolor glow (30 reference patterns).
-// All coordinates are in the original drum image's 1400x1050 equivalent viewBox.
+// DTX Drum Flow — one fixed drum image + independent translucent watercolor overlays.
+// Coordinates use the original transparent drum PNG's 1448 × 1086 canvas.
 // No human/performer assets are fetched or rendered.
 const NS="http://www.w3.org/2000/svg";
 const DRUM="./character-assets/layers/drum/drum_base.png";
@@ -16,30 +16,22 @@ const PART_SHAPES={
   RC:["M944 143 Q1010 76 1161 80 Q1304 63 1318 128 Q1260 208 1095 250 Q966 253 942 188 Z"],
   LB:["M668 716 L724 715 L746 916 L681 912 Z","M650 894 L734 886 L740 1016 L593 1011 Z"]
 };
-// 30 distinct named preview/test patterns: 11 single instruments and 19 common simultaneous hits.
-// Actual playback supports ANY combination of parts, not only these 30.
-export const GLOW_PATTERNS=[
- ["LC"],["HH"],["LP"],["SN"],["BD"],["HT"],["LT"],["FT"],["RD"],["RC"],["LB"],
- ["HH","SN"],["HH","BD"],["HH","SN","BD"],["RD","SN"],["RD","BD"],["RC","BD"],
- ["LC","BD"],["SN","BD"],["HT","BD"],["LT","BD"],["FT","BD"],
- ["HH","LP"],["HH","RC"],["RD","SN","BD"],["RC","SN","BD"],
- ["LC","SN","BD"],["HT","LT"],["LT","FT"],["HH","SN","BD","RC"]
-];
-const state={root:null,svg:null,layer:null,notes:[],active:new Set(),ready:false,preview:-1};
+// Every combination is composed dynamically from per-instrument layers; no combined assets.\nconst state={root:null,svg:null,layer:null,notes:[],active:new Set(),ready:false,preview:""};
 const node=(tag,attrs={},parent)=>{const el=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));parent?.append(el);return el};
 const emit=(ratio,failed=false)=>window.dispatchEvent(new CustomEvent("dtx-preload-progress",{detail:{kind:"character",ratio,label:"ドラム画像",failed:failed?1:0}}));
 export function setDrumGlowNotes(notes){
  state.notes=(Array.isArray(notes)?notes:[]).filter(n=>Number.isFinite(Number(n.time))).map(n=>({time:Number(n.time),part:String(n.part||"").toUpperCase()})).sort((a,b)=>a.time-b.time);
 }
-const same=(a,b)=>a.size===b.size&&[...a].every(p=>b.has(p));
-function render(parts,energy=0){
+// Each note owns its instrument's independent opacity. Simultaneous hits simply stack.
+function render(levels){
  if(!state.layer)return;
- if(same(parts,state.active)&&Math.abs((state.energy||0)-energy)<.035)return;
- state.active=new Set(parts);state.energy=energy;
+ const parts=new Set();
  for(const group of state.layer.children){
-   const on=parts.has(group.dataset.part);
-   group.style.opacity=on?String(Math.max(.12,Math.min(1,energy))):"0";
+   const strength=Math.max(0,Math.min(1,Number(levels.get(group.dataset.part))||0));
+   if(strength>.01)parts.add(group.dataset.part);
+   group.style.opacity=String(strength);
  }
+ state.active=parts;
  state.root.dataset.glowParts=[...parts].join("+");
 }
 function makeGlow(){
@@ -51,7 +43,7 @@ function makeGlow(){
  img.onload=()=>{root.classList.add("active","drum-glow-ready");state.ready=true;emit(1)};
  img.onerror=()=>{root.dataset.initError="drum_image_load_failed";emit(1,true)};
  if(img.complete&&img.naturalWidth){root.classList.add("active","drum-glow-ready");state.ready=true;emit(1)}
- const svg=node("svg",{viewBox:"0 0 1400 1050",preserveAspectRatio:"xMidYMid meet","aria-hidden":"true",class:"drum-glow-svg"},root);
+ const svg=node("svg",{viewBox:"0 0 1448 1086",preserveAspectRatio:"xMidYMid meet","aria-hidden":"true",class:"drum-glow-svg"},root);
  const defs=node("defs",{},svg);
  const filter=node("filter",{id:"dtx-watercolor-blur",x:"-40%",y:"-40%",width:"180%",height:"180%"},defs);
  node("feGaussianBlur",{stdDeviation:"14"},filter);
@@ -82,19 +74,18 @@ export async function initCharacterPrototype(){
 }
 export function updateCharacterPrototype(time,chartName="",playbackRate=1,isPlaying=false){
  if(!state.ready)return;
- if(state.preview>=0){render(new Set(GLOW_PATTERNS[state.preview]),1);return}
- if(!isPlaying||!state.notes.length){render(new Set(),0);return}
+ if(state.preview){render(new Map(state.preview.split(",").map(p=>[p,1])));return}
+ if(!isPlaying||!state.notes.length){if(state.active.size)render(new Map());return}
  const t=Number(time)||0,rate=Math.max(.25,Number(playbackRate)||1);
- // Glow begins before the scheduled strike; watercolor fades after the hit.
  const lead=.115*rate,trail=.18*rate;
- const parts=new Set();let energy=0;
- // Binary search to keep 2000+ note charts smooth on mobile devices.
+ const levels=new Map();
  let lo=0,hi=state.notes.length;
  while(lo<hi){const mid=(lo+hi)>>1;if(state.notes[mid].time<t-trail)lo=mid+1;else hi=mid}
  for(let i=lo;i<state.notes.length;i++){
    const n=state.notes[i],delta=n.time-t;if(delta>lead)break;
+   if(!PART_SHAPES[n.part])continue;
    const intensity=delta>=0?(.4+.6*(1-delta/lead)):(1+delta/trail)*.95;
-   if(intensity>.04){parts.add(n.part);energy=Math.max(energy,intensity)}
+   if(intensity>.01)levels.set(n.part,Math.max(levels.get(n.part)||0,intensity));
  }
- render(parts,energy);
+ render(levels);
 }
