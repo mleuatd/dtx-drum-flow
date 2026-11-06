@@ -102,14 +102,15 @@ export function updateCharacterPrototype(time,chartName="",playbackRate=1,isPlay
  if(state.preview){render(new Map(state.preview.split(",").map(p=>[p,1])));return}
  if(!isPlaying||!state.notes.length){if(state.active.size)render(new Map());return}
  const t=Number(time)||0,rate=Math.max(.25,Number(playbackRate)||1);
- const lead=.115*rate,trail=.18*rate;
+ // Sharp strobe-like watercolor hit: 30 ms anticipation + 70 ms decay at 1x.
+ const lead=.030*rate,trail=.070*rate;
  const levels=new Map();
  let lo=0,hi=state.notes.length;
  while(lo<hi){const mid=(lo+hi)>>1;if(state.notes[mid].time<t-trail)lo=mid+1;else hi=mid}
  for(let i=lo;i<state.notes.length;i++){
    const n=state.notes[i],delta=n.time-t;if(delta>lead)break;
    if(!PART_SHAPES[n.part])continue;
-   const intensity=delta>=0?(.4+.6*(1-delta/lead)):(1+delta/trail)*.95;
+   const intensity=delta>=0?(.50+.50*(1-delta/lead)):Math.pow(Math.max(0,1+delta/trail),1.65);
    if(intensity>.01)levels.set(n.part,Math.max(levels.get(n.part)||0,intensity));
  }
  render(levels);
