@@ -32,7 +32,7 @@ jobs:
               for level,count in (("ext","2,236"),("adv","1,549"),("bas","885")):
                 if level=="ext":await page.select_option("#songSelect","campus")
                 else:await page.select_option("#campusDifficulty",level)
-                await page.wait_for_function("(c)=>document.querySelector('#chartMeta')?.textContent?.includes(c)",count,timeout=30000)
+                await page.wait_for_function("(c)=>document.querySelector('#chartMeta')?.textContent?.includes(c)",arg=count,timeout=30000)
                 print("LEVEL",level,"META",await page.locator("#chartMeta").inner_text())
               await page.select_option("#campusDifficulty","ext")
               await page.wait_for_function("document.querySelector('#chartMeta')?.textContent?.includes('2,236')",timeout=30000)
