@@ -216,7 +216,84 @@ $("playPause").onclick=toggle;$("rewind5").onclick=()=>seek(chartTimeFromClock()
 function syncSoundToggleUi(){$("drumSoundState").textContent=$("drumSound").checked?"ON":"OFF";$("metronomeSoundState").textContent=$("metronomeSound").checked?"ON":"OFF";$("originalSoundState").textContent=$("originalSound").checked?"ON":"OFF"}
 $("drumSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};$("metronomeSound").onchange=()=>{syncSoundToggleUi();resetMetronome(chartTimeFromClock());if(playing&&audioCtx)scheduleAhead()};$("originalSound").onchange=()=>{syncSoundToggleUi();if(playing)restartPlaybackAtClock()};
 $("noteSpeed").oninput=e=>{noteSpeed=Math.max(.5,Math.min(8,Number(e.target.value)||1));$("noteSpeedValue").textContent=noteSpeed.toFixed(1)+"×";draw()};
-for(const [sel,dir] of [[".seek-zone.left",-1],[".seek-zone.right",1]]){let last=0;document.querySelector(sel).addEventListener("pointerup",()=>{const now=performance.now();if(now-last<350)seek(chartTimeFromClock()+dir*measureSeconds()*4);last=now})}
+// Two taps on the LEFT chart surface; keep the second finger down and drag
+// horizontally to scrub the timeline. No playback restart until finger release.
+const leftSeekZone=document.querySelector(".seek-zone.left");
+const rightSeekZone=document.querySelector(".seek-zone.right");
+const scrubGesture={firstTapAt:0,firstX:0,firstY:0,down:null,active:false,wasPlaying:false,startTime:0};
+const DOUBLE_TAP_MS=420,DOUBLE_TAP_RADIUS=44,SCRUB_ACTIVATION_PX=7;
+function scrubPreview(t){
+ time=clampTime(t);resetNextNote(time);resetMetronome(time);updateTime();draw();
+ updateCharacterPrototype(time,chart?.name||"",currentSpeed(),false);
+}
+leftSeekZone.addEventListener("pointerdown",e=>{
+ if(e.pointerType==="mouse"&&e.button!==0)return;
+ if(scrubGesture.down)return;
+ const now=performance.now();
+ const near=Math.hypot(e.clientX-scrubGesture.firstX,e.clientY-scrubGesture.firstY)<=DOUBLE_TAP_RADIUS;
+ const second=now-scrubGesture.firstTapAt<=DOUBLE_TAP_MS&&near;
+ scrubGesture.down={id:e.pointerId,x:e.clientX,y:e.clientY,second,moved:false};
+ scrubGesture.firstTapAt=0;
+ if(second){
+   scrubGesture.startTime=chartTimeFromClock();
+   scrubGesture.wasPlaying=playing;
+   // Capture the pointer so dragging beyond the left half still works.
+   leftSeekZone.setPointerCapture?.(e.pointerId);
+ }
+});
+leftSeekZone.addEventListener("pointermove",e=>{
+ const d=scrubGesture.down;
+ if(!d||d.id!==e.pointerId)return;
+ const dx=e.clientX-d.x,dy=e.clientY-d.y;
+ if(Math.hypot(dx,dy)>DOUBLE_TAP_RADIUS)d.moved=true;
+ if(!d.second)return;
+ if(!scrubGesture.active){
+   if(Math.abs(dx)<SCRUB_ACTIVATION_PX||Math.abs(dx)<Math.abs(dy)*1.15)return;
+   scrubGesture.active=true;
+   if(scrubGesture.wasPlaying)pausePlayback(false);
+   leftSeekZone.classList.add("scrubbing");
+ }
+ if(e.cancelable)e.preventDefault();
+ // Full chart width corresponds to four measures; right = forward, left = backward.
+ const width=Math.max(1,canvas.getBoundingClientRect().width);
+ scrubPreview(scrubGesture.startTime+dx/width*measureSeconds()*4);
+});
+function finishScrubGesture(e,cancelled=false){
+ const d=scrubGesture.down;
+ if(!d||d.id!==e.pointerId)return;
+ if(scrubGesture.active){
+   if(e.cancelable)e.preventDefault();
+   const dx=e.clientX-d.x;
+   if(!cancelled) {
+     const width=Math.max(1,canvas.getBoundingClientRect().width);
+     scrubPreview(scrubGesture.startTime+dx/width*measureSeconds()*4);
+   }
+   leftSeekZone.classList.remove("scrubbing");
+   scrubGesture.active=false;
+   scrubGesture.firstTapAt=0;
+   if(scrubGesture.wasPlaying)startPlayback();
+ }else if(!cancelled){
+   if(d.second){
+     // A double tap without dragging keeps the previous four-measure rewind.
+     seek(chartTimeFromClock()-measureSeconds()*4);
+   }else if(!d.moved){
+     scrubGesture.firstTapAt=performance.now();
+     scrubGesture.firstX=e.clientX;
+     scrubGesture.firstY=e.clientY;
+   }
+ }
+ scrubGesture.down=null;
+ if(leftSeekZone.hasPointerCapture?.(e.pointerId))leftSeekZone.releasePointerCapture(e.pointerId);
+}
+leftSeekZone.addEventListener("pointerup",e=>finishScrubGesture(e));
+leftSeekZone.addEventListener("pointercancel",e=>finishScrubGesture(e,true));
+leftSeekZone.addEventListener("lostpointercapture",e=>{if(scrubGesture.down?.id===e.pointerId)finishScrubGesture(e,true)});
+let rightDoubleTapAt=0;
+rightSeekZone.addEventListener("pointerup",()=>{
+ const now=performance.now();
+ if(now-rightDoubleTapAt<350){seek(chartTimeFromClock()+measureSeconds()*4);rightDoubleTapAt=0}
+ else rightDoubleTapAt=now;
+});
 function measureSeconds(){return 240/(chart.bpm||120)}
 addEventListener("keydown",e=>{if(e.target.matches("input,select"))return;if(e.code==="Space"){e.preventDefault();toggle()}if(e.code==="ArrowLeft")seek(chartTimeFromClock()-5);if(e.code==="ArrowRight")seek(chartTimeFromClock()+5)});
 const dropZone=$("dropZone");for(const ev of ["dragenter","dragover"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.add("dragover")})}for(const ev of ["dragleave","drop"]){dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.remove("dragover")})}
