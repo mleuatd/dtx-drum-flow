@@ -355,7 +355,7 @@ async function installCampusMidi(file,{store=false,serial=campusLoadSerial}={}){
 async function loadCampusMode(){
  const serial=++campusLoadSerial;
  chartNeedsImport=true;
- setChart({name:CAMPUS_NAME+"（譜面未登録）",bpm:183,duration:240,notes:[]});
+ setChart({name:CAMPUS_NAME+"（譜面未登録）",bpm:183,duration:0,notes:[]});
  setPreload("chart",1,{label:"端末のCampus mode!! MIDIを確認中"});
  renderPreload();
  window.dispatchEvent(new CustomEvent("dtx-chart-change",{detail:{name:CAMPUS_NAME}}));
