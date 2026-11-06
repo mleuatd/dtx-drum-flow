@@ -67,10 +67,17 @@ export async function initCharacterPrototype(){
  emit(0);
  makeGlow();
  const q=new URLSearchParams(location.search);
- if(q.has("glowPreview")){
-   const i=Number(q.get("glowPreview"));state.preview=Number.isFinite(i)?Math.max(0,Math.min(29,Math.trunc(i))):0;
- }
- window.__DTX_DRUM_GLOW__={patterns:GLOW_PATTERNS,showPattern(i){state.preview=Math.max(0,Math.min(29,Number(i)||0));render(new Set(GLOW_PATTERNS[state.preview]),1)},resume(){state.preview=-1},get state(){return {ready:state.ready,parts:[...state.active],count:state.notes.length}}};
+ const requested=q.get("glowPreview");
+ if(requested)state.preview=requested.toUpperCase().split(",").filter(p=>PART_SHAPES[p]).join(",");
+ window.__DTX_DRUM_GLOW__={
+   parts:Object.keys(PART_SHAPES),
+   showParts(parts){
+     state.preview=(Array.isArray(parts)?parts:[parts]).map(x=>String(x).toUpperCase()).filter(p=>PART_SHAPES[p]).join(",");
+     render(new Map(state.preview.split(",").map(p=>[p,1])));
+   },
+   resume(){state.preview="";render(new Map())},
+   get state(){return {ready:state.ready,parts:[...state.active],count:state.notes.length}}
+ };
 }
 export function updateCharacterPrototype(time,chartName="",playbackRate=1,isPlaying=false){
  if(!state.ready)return;
