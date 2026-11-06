@@ -50,8 +50,23 @@ jobs:
              if await search.count()==0:search=page.locator('input[placeholder*="earch"]')
              if await search.count():
               await search.first.fill('Campus mode')
-              await page.wait_for_timeout(3000)
+              if await page.locator('#searchbtn').count():
+               await page.locator('#searchbtn').click()
+              else:
+               await search.first.press('Enter')
+              await page.wait_for_timeout(4500)
               print('AFTER_SEARCH', (await page.locator('body').inner_text())[:5000])
+              print('AFTER_URL',page.url)
+              target=page.get_by_text('Campus mode!!',exact=True)
+              print('CAMPUS_MATCHES',await target.count())
+              if await target.count():
+               print('MATCH_OUTER_HTML',(await target.first.evaluate('(e)=>e.closest("tr,li,article,div")?.outerHTML||e.outerHTML'))[:4500])
+               await target.first.click()
+               await page.wait_for_timeout(3000)
+               print('CAMPUS_URL',page.url)
+               print('CAMPUS_BODY',(await page.locator('body').inner_text())[:3500])
+               print('CAMPUS_ANCHORS',json.dumps(await page.locator('a[href]').evaluate_all('(es)=>es.map(x=>({text:x.innerText.slice(0,70),href:x.href})).slice(0,45)'),ensure_ascii=False)[:8500])
+
               print('AFTER_LINKS',json.dumps(await page.locator('a[href]').evaluate_all('(es)=>es.map(x=>({text:x.innerText.slice(0,90),href:x.href})).filter(x=>/campus|drive.google|download/i.test(x.text+" "+x.href)).slice(0,40)'),ensure_ascii=False)[:8000])
             finally:await browser.close()
           asyncio.run(main())
