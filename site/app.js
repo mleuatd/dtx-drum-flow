@@ -95,7 +95,7 @@ function setStatus(s){$("status").textContent=s}
 function downloadText(name,text,type="application/json"){const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500)}
 function chartToJson(){const partKind={BD:"kick",LB:"kick",SN:"snare",HH:"hihat",LP:"hihat",HT:"toms",LT:"toms",FT:"toms",LC:"cymbals",RC:"cymbals",RD:"cymbals"};return {...chart,notes:chart.notes.map(n=>({...n,time:Number(n.time.toFixed(6)),kind:n.kind||partKind[n.part]||"unknown",part:n.part,velocity:Math.round(Math.max(0,Math.min(1,n.velocity??.8))*127),confidence:Number(n.alignConfidence??n.confidence??0)}))}}
 function currentSpeed(){return Number($("speed").value)||1}
-function setChart(c){pausePlayback(false);chart=c;time=0;nextNote=0;setDrumGlowNotes(c.notes);document.querySelector(".stage")?.classList.toggle("luna-stage",String(c?.name||"").toLowerCase().includes("luna"));$("timeline").max=c.duration;$("duration").textContent=fmt(c.duration);$("chartName").textContent=c.name;$("chartMeta").textContent=`${Math.round(c.bpm)} BPM · ${c.duration.toFixed(1)}秒 · ${c.notes.length.toLocaleString()}ノーツ`;const name=c.name||"";let stage="LUNA / DRUM CHART",badge="LUNA FINAL";if(name.includes("叶えたい")){stage="叶えたい、ことばかり / DRUM CHART";badge="KANAETAI FINAL"}else if(name.includes("一体いつから")){stage="一体いつから / DRUM CHART";badge="ITTAI FINAL"}else if(name.includes("わたがし")){stage="わたがし / DRUM CHART";badge="WATAGASHI"}if($("stageTitle"))$("stageTitle").textContent=stage;if($("chartBadge"))$("chartBadge").textContent=badge;draw();updateTime()}
+function setChart(c){pausePlayback(false);chart=c;time=0;nextNote=0;setDrumGlowNotes(c.notes);document.querySelector(".stage")?.classList.toggle("luna-stage",String(c?.name||"").toLowerCase().includes("luna"));$("timeline").max=c.duration;$("duration").textContent=fmt(c.duration);$("chartName").textContent=c.name;$("chartMeta").textContent=`${Math.round(c.bpm)} BPM · ${c.duration.toFixed(1)}秒 · ${c.notes.length.toLocaleString()}ノーツ`;const name=c.name||"";let stage="LUNA / DRUM CHART",badge="LUNA FINAL";if(name.includes("叶えたい")){stage="叶えたい、ことばかり / DRUM CHART";badge="KANAETAI FINAL"}else if(name.includes("一体いつから")){stage="一体いつから / DRUM CHART";badge="ITTAI FINAL"}else if(name.includes("Campus mode")){stage="Campus mode!! / DRUM CHART";badge="CAMPUS MODE"}else if(name.includes("わたがし")){stage="わたがし / DRUM CHART";badge="WATAGASHI"}if($("stageTitle"))$("stageTitle").textContent=stage;if($("chartBadge"))$("chartBadge").textContent=badge;draw();updateTime()}
 function updateTime(){$("currentTime").textContent=fmt(time);const mirror=$("currentTimeMirror");if(mirror)mirror.textContent=fmt(time);$("timeline").value=time}
 function resize(){const r=canvas.getBoundingClientRect(),dpr=devicePixelRatio||1;canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
 function draw(){const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);const lane=w/PARTS.length,isLuna=String(chart?.name||"").toLowerCase().includes("luna");/* Keep chart transparent so the drum illustration shows for every song. */ctx.strokeStyle=isLuna?"rgba(34,54,86,.62)":"#223656";ctx.lineWidth=1;for(let i=1;i<PARTS.length;i++){ctx.beginPath();ctx.moveTo(i*lane,0);ctx.lineTo(i*lane,h);ctx.stroke()}const judgeY=h-36,lookAhead=3.3/noteSpeed;const hitNow=chart.notes.some(n=>Math.abs(n.time-time)<=Math.max(.025,.04/currentSpeed()));ctx.save();ctx.strokeStyle=hitNow?"#ffffff":"#86a7ff";ctx.shadowColor=hitNow?"#9fc5ff":"transparent";ctx.shadowBlur=hitNow?22:0;ctx.lineWidth=hitNow?5:3;ctx.beginPath();ctx.moveTo(0,judgeY);ctx.lineTo(w,judgeY);ctx.stroke();ctx.restore();for(const n of chart.notes){const dt=n.time-time;if(dt<0||dt>lookAhead)continue;const partIndex=PARTS.indexOf(n.part);if(partIndex<0)continue;const x=(partIndex+.5)*lane,y=judgeY-(dt/lookAhead)*(judgeY-20),conf=Number(n.alignConfidence||0);const plateW=Math.max(16,lane*.82),plateH=Math.max(10,Math.min(18,lane*.29)),plateR=Math.min(3.5,plateH*.24);ctx.save();ctx.globalAlpha=conf>0?Math.max(.8,conf):1;ctx.fillStyle=conf>0?(conf>=.65?"#b9f1ff":conf>=.35?"#fff0a5":"#ffbec6"):"#f5fbff";ctx.strokeStyle="#06172d";ctx.lineWidth=2.3;ctx.shadowColor="#86e4ff";ctx.shadowBlur=5;ctx.beginPath();ctx.roundRect(x-plateW/2,y-plateH/2,plateW,plateH,plateR);ctx.fill();ctx.shadowBlur=0;ctx.stroke();ctx.restore()}}
@@ -285,11 +285,104 @@ async function loadWatagashi(){
    setStatus("わたがし：保存済み譜面を読めませんでした。MIDIファイルを選択してください。"+error.message);
  }
 }
+// Campus mode!! is loaded from a user-authorized personal MIDI file only.
+// Unlike authored example charts, copyrighted Songsterr note data stays local.
+let campusLoadSerial=0;
+const CAMPUS_NAME="Campus mode!! / 初星学園";
+function openCampusScoreDB(){
+ return new Promise((resolve,reject)=>{
+  const request=indexedDB.open("dtx-campus-mode-local-midi",1);
+  request.onupgradeneeded=()=>{
+   const db=request.result;
+   if(!db.objectStoreNames.contains("charts"))db.createObjectStore("charts");
+  };
+  request.onsuccess=()=>resolve(request.result);
+  request.onerror=()=>reject(request.error||new Error("端末内の譜面保存を開けません"));
+ });
+}
+async function storedCampusMidi(){
+ const db=await openCampusScoreDB();
+ try{
+  return await new Promise((resolve,reject)=>{
+   const request=db.transaction("charts","readonly").objectStore("charts").get("campus");
+   request.onsuccess=()=>resolve(request.result||null);
+   request.onerror=()=>reject(request.error);
+  });
+ }finally{db.close()}
+}
+async function saveCampusMidi(file){
+ const db=await openCampusScoreDB();
+ try{
+  await new Promise((resolve,reject)=>{
+   const tx=db.transaction("charts","readwrite");
+   tx.objectStore("charts").put(file,"campus");
+   tx.oncomplete=()=>resolve();
+   tx.onerror=()=>reject(tx.error);
+  });
+ }finally{db.close()}
+}
+async function installCampusMidi(file,{store=false,serial=campusLoadSerial}={}){
+ try{
+  if($("songSelect").value!=="campus"||serial!==campusLoadSerial)return;
+  setStatus("Campus mode!! のMIDIから全ドラムノーツを抽出しています…");
+  const midi=file instanceof File?file:new File([file],"campus-mode.mid",{type:"audio/midi"});
+  const parsed=await parseChart(midi);
+  if(!parsed.notes?.length)throw new Error("ドラムのノーツが見つかりません。チャンネル10のドラムを含むMIDIを選んでください。");
+  if($("songSelect").value!=="campus"||serial!==campusLoadSerial)return;
+  const normalized={
+   ...parsed,name:CAMPUS_NAME,artist:"初星学園",
+   source:"端末で読み込んだ許諾済みMIDI",
+   alignment:{pendingOriginalAudioSync:true},
+   notes:parsed.notes
+  };
+  setChart(normalized);
+  chartNeedsImport=false;
+  setPreload("chart",1,{label:"Campus mode!! の全ドラム譜面を読み込みました"});
+  if(store)try{await saveCampusMidi(midi)}
+   catch(error){console.warn("Campus MIDI IndexedDB store failed",error);setStatus("譜面は読み込めましたが端末内保存に失敗: "+error.message)}
+  drumPreloadPromise=null;
+  await preloadDrumSamples();
+  if($("songSelect").value==="campus"&&serial===campusLoadSerial)
+   setStatus("Campus mode!!："+normalized.notes.length.toLocaleString()+"ノーツを読み込みました。Songsterr音源との同期は未検証です。");
+ }catch(error){
+  if($("songSelect").value==="campus"&&serial===campusLoadSerial){
+   chartNeedsImport=true;
+   setPreload("chart",1,{label:"MIDIを選び直してください"});
+   setStatus("Campus mode!! の譜面読込エラー: "+error.message);
+  }
+ }
+}
+async function loadCampusMode(){
+ const serial=++campusLoadSerial;
+ chartNeedsImport=true;
+ setChart({name:CAMPUS_NAME+"（譜面未登録）",bpm:183,duration:240,notes:[]});
+ setPreload("chart",1,{label:"端末のCampus mode!! MIDIを確認中"});
+ renderPreload();
+ window.dispatchEvent(new CustomEvent("dtx-chart-change",{detail:{name:CAMPUS_NAME}}));
+ setStatus("Campus mode!!：保存済みMIDIを確認中です。未登録ならMIDIファイルを選択してください。");
+ try{
+  const midi=await storedCampusMidi();
+  if(serial!==campusLoadSerial||$("songSelect").value!=="campus")return;
+  if(midi)await installCampusMidi(midi,{serial});
+  else setStatus("Campus mode!!：全ドラム譜面はまだ登録されていません。Songsterrから正規に入手したMIDIを選択してください。");
+ }catch(error){
+  if(serial===campusLoadSerial&&$("songSelect").value==="campus")
+   setStatus("Campus mode!!：保存済み譜面を開けません。MIDIを選択してください。"+error.message);
+ }
+}
+$("campusMidiFile").addEventListener("change",async event=>{
+ const f=event.target.files?.[0];
+ if(!f)return;
+ await installCampusMidi(f,{store:true,serial:campusLoadSerial});
+ event.target.value="";
+});
 function loadSelectedSong(){
  const key=$("songSelect").value;
  $("watagashiPanel").hidden=key!=="watagashi";
- if(key==="watagashi")return loadWatagashi();
- ++watagashiLoadSerial;chartNeedsImport=false;
+ $("campusPanel").hidden=key!=="campus";
+ if(key==="watagashi"){++campusLoadSerial;return loadWatagashi()}
+ if(key==="campus"){++watagashiLoadSerial;return loadCampusMode()}
+ ++watagashiLoadSerial;++campusLoadSerial;chartNeedsImport=false;
  renderPreload();
  return loadFinalChart(SONGS[key]||SONGS.luna);
 }
